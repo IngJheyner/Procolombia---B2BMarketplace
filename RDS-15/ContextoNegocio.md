@@ -20,10 +20,20 @@ Teniendo en cuenta la visión de ProColombia a mediano plazo, decidió aumentar 
 Gracias a estas necesidades se pretende proveer un mecanismo en la nube, que haga uso de plataformas de bajo código (Low Code) que le otorgue a ProColombia y todos sus activos de negocio estar disponibles 24/7/365.
 
 ### Definiciones
-_Listado de las definiciones de conceptos pertinentes para facilitar la lectura y asimilación de información por parte de los diferentes lectores. Debe ordenarse alfabéticamente_
+La siguiente tabla pretende definir algunos conceptos que pueden ser un poco abttractos al lenguaje natural:
 |Termino|Definición|
 |:------|:---------|
-|_Termino_|_Definición|
+|B2B|(Business to Business) Negocio a negocio hace referencia a las transacciones comerciales entre empresas, es decir, a aquellas que típicamente se establecen entre un fabricante y el distribuidor de un producto, o entre un distribuidor y un comercio minorista.​​|
+|Cloud|Cloud o la computación en la nube es acceso bajo demanda, a través de Internet, a recursos informáticos como aplicaciones, servidores (físicos y virtuales), almacenamiento de datos, herramientas de desarrollo, funciones de red y más, alojados en un centro de datos remoto gestionado por un proveedor de servicios en la nube.|
+|Elasticidad|Es la optimización de la adquisición y el lanzamiento de recursos, de forma que la infraestructura pueda escalar de inmediato vertical y horizontalmente a medida que fluctúa la demanda.|
+|Exportación|Las exportaciones son el conjunto de bienes y servicios vendidos por un país en territorio extranjero para su utilización.|
+|Iniciativa empresarial|Es el proceso de diseñar, lanzar y administrar un nuevo negocio, que generalmente comienza como una pequeña empresa o una emergente, ofreciendo a la venta un producto, servicio o proceso.|
+|Intuitivo|Es un instinto o sensación que nos permite tomar una decisión sin un razonamiento consciente.|
+|Low code|Este termino es atribuido a aquellas plataformas que permite crear, desarrollar y mantener aplicaciones en los más variados dispositivos y medios digitales, de la manera más eficiente que existe: automáticamente|
+|Multilenguaje|Es la capacidad de un artefacto de representar su información en dos o mas lenguajes.|
+|Perfilamiento|El perfilamiento o targeting tiene en su concepto más básico encontrar las variables en un grupo de consumidores que expliquen un comportamiento de compra específico.|
+|Portal:|Conjunto de varias páginas que tratan sobre un tema en común y están vinculadas al mismo dominio (un dominio de internet es un nombre único utilizado para identificar a una o varias páginas web).|
+|Seguridad|Es la capacidad que tiene un sistema de salvaguardar la información almacenada. Principalmente se encarga de bloquear e impedir ataques maliciosos generados por entidades externas y/o internas.|
 
 
 ### Objetivos de negocio
