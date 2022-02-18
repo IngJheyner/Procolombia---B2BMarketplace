@@ -1,7 +1,23 @@
 ## CONTEXTO DE NEGOCIO
 
 ### Propósito del sistema
-_Contextualización al lector acerca del sistema. Describe brevemente el propósito del sistema, indicando los beneficios que prestará a los diferentes stakeholders. Esta información puede provenir de otros documentos propios del proceso de desarrollo, como el documento de visión y alcance o el de especificación de requerimientos de software._
+PROCOLOMBIA es la entidad encargada de promover el Turismo, la Inversión Extranjera en Colombia, las Exportaciones no minero energéticas y la imagen del país.
+
+Sus funciones principales son:
+
+ - Identifican oportunidades de mercado.
+ - Diseñan estrategias de penetración de mercados.
+ - Internacionalizan las empresas.
+ - Realizan acompañamiento en el diseño de planes de acción.  
+ - Contactan a los empresarios a través de actividades de promoción comercial, inversión y turismo internacional.
+ - Prestan servicios especializados a empresarios extranjeros interesados en adquirir bienes y servicios colombianos.
+ - Realizan alianzas con entidades nacionales e internacionales, ya sean privadas o públicas, que permitan ampliar la disponibilidad de recursos para apoyar diferentes iniciativas empresariales, promoviendo el desarrollo y crecimiento del portafolio de servicios.
+
+Hoy día, ProColombia apoya parte de estas labores haciendo uso de un portal B2B, el cual permite que las empresas del país puedan mostrar su catálogo de productos o servicios, para que estos puedan ser vistos y obtenidos por compradores extranjeros.
+
+Teniendo en cuenta la visión de ProColombia a mediano plazo, decidió aumentar el catálogo de servicios expuestos, de tal forma que pueda entregar a sus usuarios un ambiente más intuitivo, seguro, rápido, de acceso global, multilenguaje, fácil de acceder, que genere recomendaciones basado en perfilamientos, que sea capaz de generar contenido basado en el comportamiento de sus usuarios, entre otras cosas.
+
+Gracias a estas necesidades se pretende proveer un mecanismo en la nube, que haga uso de plataformas de bajo código (Low Code) que le otorgue a ProColombia y todos sus activos de negocio estar disponibles 24/7/365.
 
 ### Definiciones
 _Listado de las definiciones de conceptos pertinentes para facilitar la lectura y asimilación de información por parte de los diferentes lectores. Debe ordenarse alfabéticamente_
