@@ -41,9 +41,17 @@ La siguiente tabla pretende definir algunos conceptos que pueden ser un poco abt
 |--|:----------------------------------|
 |_OBJ-NEG-XXX_|_Descripción _OBJ-NEG-XXX_|
 ### Identificación de Stakeholders
-|Stakeholder|Intereses|
-|-----------|:--------|
-|_Rol del Stakeholder_|_Principales intereses y preocupaciones_|
+|Stakeholder|Rol|Funciones|
+|-----------|:--------|:--------|
+|Hiroshi Wago|Sponsor|Asegura que el proyecto esté alineado con los objetivos estratégicos y garantiza los recursos necesarios para la ejecución.|
+|Lina Marcela Ochoa Galeano|Líder Funcional|Asegura poder llevar el proyecto a buen término, coordinando el equipo e interpretando las necesidades de cada tarea. Tiene el rol de supervisión del contrato.|
+|Jennifer Goyeneche|Equipo técnico|Se encarga de dar apoyo y seguimiento desde la gestión de T.I. en el proyecto.|
+|Harley Barón|Equipo técnico|Aporta con el diseño, definición y seguimientos de la gestión de digital en el proyecto alineado con definiciones en el ecosistema digital. Es el actual administrador el B2B Marketplace.|
+|Mesa de sevicios|Equipo técnico|Mesa de servicios.|
+|Juan Sebastián Rincón|Equipo Funcional|Aporta perspectivas desde la visión de analítica para el diseño del modulo de Match automático y buscador.|
+|Sandra Charry|Equipo Funcional|Aporta perspectivas desde la visión de las oficinas  regionales y exportaciones para garantizar que el proyecto sea relevante y adoptable en Colombia.|
+|Jacqueline Molina|Equipo Funcional|Aporta perspectivas desde la visión de inversión para garantizar que el proyecto sea relevantesy adoptable para los inversionistas en el exterior.|
+|Mauricio Tellez|Equipo Funcional|Aporta perspectivas desde la visión de turimos para garantizar que el proyecto sea relevantes y adoptable para el sector de inversión.|
 
 ### Requerimientos significativos de arquitectura
 |ID|Descripción|Prioridad|Objetivo de negocio asociado|
