@@ -32,14 +32,19 @@ La siguiente tabla pretende definir algunos conceptos que pueden ser un poco abt
 |Low code|Este termino es atribuido a aquellas plataformas que permite crear, desarrollar y mantener aplicaciones en los más variados dispositivos y medios digitales, de la manera más eficiente que existe: automáticamente|
 |Multilenguaje|Es la capacidad de un artefacto de representar su información en dos o mas lenguajes.|
 |Perfilamiento|El perfilamiento o targeting tiene en su concepto más básico encontrar las variables en un grupo de consumidores que expliquen un comportamiento de compra específico.|
-|Portal:|Conjunto de varias páginas que tratan sobre un tema en común y están vinculadas al mismo dominio (un dominio de internet es un nombre único utilizado para identificar a una o varias páginas web).|
+|Portal|Conjunto de varias páginas que tratan sobre un tema en común y están vinculadas al mismo dominio (un dominio de internet es un nombre único utilizado para identificar a una o varias páginas web).|
 |Seguridad|Es la capacidad que tiene un sistema de salvaguardar la información almacenada. Principalmente se encarga de bloquear e impedir ataques maliciosos generados por entidades externas y/o internas.|
 
 
 ### Objetivos de negocio
 |ID|Descripción del objetivo de negocio|
 |--|:----------------------------------|
-|_OBJ-NEG-XXX_|_Descripción _OBJ-NEG-XXX_|
+|OBJ-NEG-001|Fortalecer los servicios de ProColombia a través de una solución expedita, moderna, práctica y orientada al cliente final​ que mejore la experiencia de usuarios un 10% en términos de: tasa de abandono, tiempo de permanencia en la plataforma, número de páginas visitadas.|
+|OBJ-NEG-002|Evolucionar el B2B de una plataforma de catálogo de consulta a una matchmaking de interacción comercial entre todos los ejes, con un diseño escalable para que la herramienta perdure en el tiempo.​|
+|OBJ-NEG-003|Generar recomendaciones automáticas ajustadas a los criterios de match entre la oferta colombiana y la demanda internacional, mediante herramientas de Machine learning e inteligencia artificial​.|
+|OBJ-NEG-004|Implementar un mecanismo que permita la integración con los activos digitales actuales y con bases de datos disponibles en la entidad, fortaleciendo el ecosistema digital.|
+|OBJ-NEG-005|Fomentar a través de un esquema de incentivos y de categorización, el uso de la plataforma para generar relaciones comerciales 24/7 365 días​.|
+|OBJ-NEG-006|Contar con un mecanismo de notificaciones y alertas sobre comportamiento de las cuentas hacia los asesores facilitando el seguimiento de las interacciones en el CRM, entre la oferta y la demanda, permitiendo automatizar tareas operativas. |
 ### Identificación de Stakeholders
 |Stakeholder|Rol|Funciones|
 |-----------|:--------|:--------|
