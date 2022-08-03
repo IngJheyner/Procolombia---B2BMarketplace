@@ -1,1 +1,0 @@
-Documente aquí la validación del escenario XX

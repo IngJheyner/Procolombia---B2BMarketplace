@@ -1,1 +1,0 @@
-Describa aquí la prueba de concepto (si necesaria) para el escenario XX

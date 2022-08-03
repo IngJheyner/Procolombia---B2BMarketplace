@@ -1,1 +1,0 @@
-Este directorio debe contener los fuentes del proyecto en Enterprise Architect
