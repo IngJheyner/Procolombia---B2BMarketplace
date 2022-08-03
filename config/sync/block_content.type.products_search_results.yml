@@ -1,0 +1,8 @@
+uuid: 99c70327-c31b-422b-b1c2-c934bf3d0cbc
+langcode: es
+status: true
+dependencies: {  }
+id: products_search_results
+label: 'products search results'
+revision: 0
+description: 'show products search results and facets'

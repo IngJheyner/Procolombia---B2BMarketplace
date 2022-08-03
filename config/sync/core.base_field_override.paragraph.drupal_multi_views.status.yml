@@ -1,0 +1,22 @@
+uuid: 81b53022-dc76-4b7f-9be3-2e89bb739ab6
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.drupal_multi_views
+id: paragraph.drupal_multi_views.status
+field_name: status
+entity_type: paragraph
+bundle: drupal_multi_views
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

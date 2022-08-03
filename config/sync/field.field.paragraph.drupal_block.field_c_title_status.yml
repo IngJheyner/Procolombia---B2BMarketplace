@@ -1,0 +1,23 @@
+uuid: 4d4e14c6-507f-46f2-aee9-c0cdba44939f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title_status
+    - paragraphs.paragraphs_type.drupal_block
+id: paragraph.drupal_block.field_c_title_status
+field_name: field_c_title_status
+entity_type: paragraph
+bundle: drupal_block
+label: 'Don''t show title on page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

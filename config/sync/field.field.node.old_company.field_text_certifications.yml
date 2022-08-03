@@ -1,0 +1,21 @@
+uuid: e994e618-307d-4c7d-b574-825a48acb57d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_certifications
+    - node.type.old_company
+  module:
+    - text
+id: node.old_company.field_text_certifications
+field_name: field_text_certifications
+entity_type: node
+bundle: old_company
+label: Certificaciones
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

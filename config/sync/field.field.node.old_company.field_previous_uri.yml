@@ -1,0 +1,19 @@
+uuid: 32b5879b-98d3-4e1c-ab81-7314af48f95e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_previous_uri
+    - node.type.old_company
+id: node.old_company.field_previous_uri
+field_name: field_previous_uri
+entity_type: node
+bundle: old_company
+label: 'Previous uri'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

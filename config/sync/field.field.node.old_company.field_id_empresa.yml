@@ -1,0 +1,23 @@
+uuid: 0bda8be0-6275-474d-88cc-71ff39e9ce51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id_empresa
+    - node.type.old_company
+id: node.old_company.field_id_empresa
+field_name: field_id_empresa
+entity_type: node
+bundle: old_company
+label: 'Id Empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,10 @@
+id: products_image_carrusel_in_compa
+label: 'Products image carrusel in company'
+ui_limit: ''
+type: block
+type_label: 'Block field'
+entities:
+  node: node
+properties:
+  block: 'views_block:products_list_in_detail_company-block_2'
+  use_block_title: false

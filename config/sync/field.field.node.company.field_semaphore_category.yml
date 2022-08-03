@@ -1,0 +1,29 @@
+uuid: dbb01a62-5afc-4408-9a72-b96fb03e32b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_semaphore_category
+    - node.type.company
+    - taxonomy.vocabulary.categories_flow_semaphore
+id: node.company.field_semaphore_category
+field_name: field_semaphore_category
+entity_type: node
+bundle: company
+label: 'Categoría administrativa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categories_flow_semaphore: categories_flow_semaphore
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,205 @@
+uuid: 43c252d7-a437-49ef-bdd3-80e6b12f1617
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.tags.field_banner_btns
+    - field.field.taxonomy_term.tags.field_banner_img
+    - field.field.taxonomy_term.tags.field_banner_img_mobile
+    - field.field.taxonomy_term.tags.field_color_principal_de_campana
+    - field.field.taxonomy_term.tags.field_elementos_destacados_bloqu
+    - field.field.taxonomy_term.tags.field_image
+    - field.field.taxonomy_term.tags.field_texto_inicio
+    - field.field.taxonomy_term.tags.field_titulo_bloque_final
+    - image.style.thumbnail
+    - taxonomy.vocabulary.tags
+  module:
+    - color_field
+    - dynamic_entity_reference
+    - field_group
+    - link
+    - path
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_general:
+      children:
+        - field_color_principal_de_campana
+        - path
+        - langcode
+        - tvi
+      label: General
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: general
+        formatter: open
+        description: 'Elementos Generales para la campaña'
+        required_fields: true
+    group_header_interna:
+      children:
+        - description
+        - field_banner_img
+        - field_banner_img_mobile
+        - field_banner_btns
+      label: 'Header Interna'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: header
+        formatter: closed
+        description: 'Elementos que se mostrarán en la cabecera de la interna'
+        required_fields: true
+    group_footer_interna:
+      children:
+        - field_titulo_bloque_final
+        - field_elementos_destacados_bloqu
+      label: 'Footer Interna'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: footer
+        formatter: closed
+        description: 'Elementos que se mostrarán en la parte final de la Interna'
+        required_fields: true
+    group_home_:
+      children:
+        - field_image
+        - field_texto_inicio
+      label: 'Home Page'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: home
+        formatter: closed
+        description: 'Elementos que se van a mostrar en la sección principal del home page'
+        required_fields: true
+id: taxonomy_term.tags.default
+targetEntityType: taxonomy_term
+bundle: tags
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_banner_btns:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_banner_img:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_banner_img_mobile:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_color_principal_de_campana:
+    type: color_field_widget_html5
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_elementos_destacados_bloqu:
+    type: dynamic_entity_reference_default
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 40
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 7
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_texto_inicio:
+    type: text_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_bloque_final:
+    type: text_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 14
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  translation:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  tvi:
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

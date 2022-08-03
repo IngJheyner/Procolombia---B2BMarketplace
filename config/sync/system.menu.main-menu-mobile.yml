@@ -1,0 +1,8 @@
+uuid: cb92083f-6224-4ba1-b321-87566ff402a8
+langcode: en
+status: true
+dependencies: {  }
+id: main-menu-mobile
+label: 'Main menú mobile'
+description: 'Menú principal versión móvil'
+locked: false

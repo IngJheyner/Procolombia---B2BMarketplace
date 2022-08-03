@@ -1,0 +1,28 @@
+uuid: 9d543462-9946-485b-b6c6-503121e2daf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.webform_block
+    - field.field.block_content.webform_block.field_webform_reference
+  module:
+    - webform
+id: block_content.webform_block.default
+targetEntityType: block_content
+bundle: webform_block
+mode: default
+content:
+  field_webform_reference:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: 205f2183-f0e0-48a6-9070-6b1e03ba049a
+langcode: es
+status: true
+dependencies: {  }
+id: drupal_multi_views
+label: 'Drupal multi views'
+icon_uuid: null
+icon_default: null
+description: 'Agregue una vista multiple'
+behavior_plugins: {  }

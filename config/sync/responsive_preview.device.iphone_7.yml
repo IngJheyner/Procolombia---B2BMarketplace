@@ -1,0 +1,12 @@
+uuid: a2b508c8-7113-4a16-8118-b32f2e090f4b
+langcode: es
+status: 1
+dependencies: {  }
+id: iphone_7
+label: 'iPhone 7'
+weight: -10
+orientation: portrait
+dimensions:
+  width: 750
+  height: 1334
+  dppx: !!float 2

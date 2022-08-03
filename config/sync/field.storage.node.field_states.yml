@@ -1,0 +1,33 @@
+uuid: 414aa4c3-1c5a-4628-90f6-0638786352fe
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_states
+field_name: field_states
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: waiting
+      label: 'En espera de aprobación'
+    -
+      value: no_resp
+      label: 'Sin respuesta'
+    -
+      value: incomp_info
+      label: Rechazado
+    -
+      value: approved
+      label: Aprobado
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

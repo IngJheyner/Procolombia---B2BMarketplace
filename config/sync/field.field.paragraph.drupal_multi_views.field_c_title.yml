@@ -1,0 +1,19 @@
+uuid: cc7864cb-6fa2-41ed-a549-52bb1ec4c8aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_title
+    - paragraphs.paragraphs_type.drupal_multi_views
+id: paragraph.drupal_multi_views.field_c_title
+field_name: field_c_title
+entity_type: paragraph
+bundle: drupal_multi_views
+label: 'Component title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

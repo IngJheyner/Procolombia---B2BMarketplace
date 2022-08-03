@@ -1,0 +1,8 @@
+uuid: cdf98f85-6ac7-4ac5-b1a6-347a7093adea
+langcode: es
+status: true
+dependencies: {  }
+name: 'Lista de tags Oferta Especializada'
+vid: lista_de_tags_oferta_especializa
+description: ''
+weight: 0

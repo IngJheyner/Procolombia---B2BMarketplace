@@ -1,0 +1,14 @@
+uuid: a24441ee-c5e6-40a1-b42b-9d57a6831784
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_administrativo_ntc
+  module:
+    - user
+id: user_add_role_action.asesor_administrativo_ntc
+label: 'Añade el rol Asesor administrativo NTC al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: asesor_administrativo_ntc

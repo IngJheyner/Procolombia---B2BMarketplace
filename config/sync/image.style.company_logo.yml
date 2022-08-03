@@ -1,0 +1,15 @@
+uuid: 8fd8a580-26a5-4661-b144-0a0b481a4737
+langcode: en
+status: true
+dependencies: {  }
+name: company_logo
+label: 'Company logo'
+effects:
+  82a83336-4b32-46e2-8937-eb6e545a7168:
+    uuid: 82a83336-4b32-46e2-8937-eb6e545a7168
+    id: image_scale
+    weight: 1
+    data:
+      width: 140
+      height: 140
+      upscale: false

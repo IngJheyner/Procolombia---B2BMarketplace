@@ -1,0 +1,43 @@
+uuid: e122dd19-7e70-4b8d-996b-675190b04fe0
+langcode: en
+status: true
+dependencies:
+  module:
+    - ace_editor
+    - image_resize_filter
+name: HTML
+format: html
+weight: 0
+filters:
+  ace_filter:
+    id: ace_filter
+    provider: ace_editor
+    status: true
+    weight: 0
+    settings:
+      theme: cobalt
+      syntax: html
+      height: 500px
+      width: 700px
+      font_size: 10pt
+      line_numbers: '1'
+      print_margins: '1'
+      show_invisibles: '0'
+      use_wrap_mode: '1'
+  filter_image_resize:
+    id: filter_image_resize
+    provider: image_resize_filter
+    status: false
+    weight: 0
+    settings:
+      image_locations:
+        local: false
+        remote: false
+  slick_filter:
+    id: slick_filter
+    provider: slick
+    status: false
+    weight: 4
+    settings:
+      optionset: default
+      media_switch: ''

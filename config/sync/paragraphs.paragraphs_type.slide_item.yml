@@ -1,0 +1,10 @@
+uuid: f57c2081-8fc4-4c31-81eb-03707333e844
+langcode: en
+status: true
+dependencies: {  }
+id: slide_item
+label: 'Slide item'
+icon_uuid: null
+icon_default: null
+description: 'Banner del home'
+behavior_plugins: {  }

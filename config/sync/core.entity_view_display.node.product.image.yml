@@ -1,0 +1,88 @@
+uuid: 72672fab-faa8-4542-9cdc-209a888f0f51
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.image
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - node.type.product
+  module:
+    - ds
+    - svg_image
+    - user
+id: node.product.image
+targetEntityType: node
+bundle: product
+mode: image
+content:
+  field_images:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_body: true
+  field_categorization: true
+  field_categorization_parent: true
+  field_dependent_state: true
+  field_exist_certifications: true
+  field_export_markets: true
+  field_file: true
+  field_file_certifications: true
+  field_iframe: true
+  field_key_words: true
+  field_key_words_backup: true
+  field_mostrar_en_home: true
+  field_partida_arancelaria_tax: true
+  field_pr_ref_company: true
+  field_previous_id: true
+  field_product_type: true
+  field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
+  field_tariff_heading: true
+  field_trading_channel: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

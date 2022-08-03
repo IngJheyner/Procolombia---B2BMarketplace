@@ -1,0 +1,12 @@
+<div class="categories">
+  <div class="content">
+    <ul>
+      {% if parent is not empty %}
+        <li><label>{{ 'Category'|trans }} :</label> <div>{{ parent }}</div></li>
+      {% endif %}
+      {% if child is not empty %}
+        <li><label>{{ 'Subcategory'|trans }}:</label> <div>{{ child }}</div></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

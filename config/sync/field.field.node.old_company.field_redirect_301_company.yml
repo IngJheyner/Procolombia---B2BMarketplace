@@ -1,0 +1,28 @@
+uuid: 019e67ac-aacd-4b34-a2aa-2c8ab6a79775
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_redirect_301_company
+    - node.type.company
+    - node.type.old_company
+id: node.old_company.field_redirect_301_company
+field_name: field_redirect_301_company
+entity_type: node
+bundle: old_company
+label: 'Redirect 301 company'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      company: company
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

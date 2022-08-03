@@ -1,0 +1,26 @@
+display:
+  default:
+    display_options:
+      header:
+        area:
+          content:
+            value: '<div class="container"><h2><span>Productos</span> de la empresa</h2></div>'
+            format: html
+  block_1:
+    display_options:
+      header:
+        area_text_custom:
+          content: "<div class=\"view-more-less inactive\">\r\n <span class=\"more active\">Ver más </span>\r\n <span class=\"less inactive\">Ver menos </span>\r\n 〉\r\n</div>"
+        area:
+          content:
+            value: '<div class="container"><h2><span>Productos</span> de la Empresa</h2></div>'
+            format: html
+  block_2:
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: ‹
+            next: ›
+            first: '« '
+            last: '» '

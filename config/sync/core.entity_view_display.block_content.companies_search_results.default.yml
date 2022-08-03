@@ -1,0 +1,98 @@
+uuid: 5b650d59-9e39-4751-8656-00d3175bbccf
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.companies_search_results
+    - facets.facet.empresas_con_ecommerce_crossboarder
+    - field.field.block_content.companies_search_results.layout_builder__layout
+    - views.view.buscador_b2b_mp_2021
+  content:
+    - 'block_content:basic:27487dca-0fc9-4c20-ae72-25748d9fbc78'
+  module:
+    - block_content
+    - bootstrap_layouts
+    - facets
+    - layout_builder
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: bs_2col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: div
+            classes:
+              row: row
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            left:
+              wrapper: div
+              classes:
+                col-md-3: col-md-3
+              add_region_classes: 1
+              attributes: id|busqueda-filtro
+            right:
+              wrapper: div
+              classes:
+                col-md-9: col-md-9
+              add_region_classes: 1
+              attributes: id|busqueda-items
+        components:
+          c96ba4bc-f87a-4a1d-bdea-9203bb4c0873:
+            uuid: c96ba4bc-f87a-4a1d-bdea-9203bb4c0873
+            region: right
+            configuration:
+              id: 'views_block:buscador_b2b_mp_2021-block_3'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional: {  }
+          1a3c3699-14a4-48bc-8f48-0111a0d628ec:
+            uuid: 1a3c3699-14a4-48bc-8f48-0111a0d628ec
+            region: left
+            configuration:
+              id: 'facet_block:empresas_con_ecommerce_crossboarder'
+              label: 'Empresas con Ecommerce Crossboarder'
+              label_display: '0'
+              provider: facets
+              context_mapping: {  }
+            weight: -9
+            additional: {  }
+          146fd502-4988-4168-9076-11165567e4fa:
+            uuid: 146fd502-4988-4168-9076-11165567e4fa
+            region: left
+            configuration:
+              id: 'block_content:27487dca-0fc9-4c20-ae72-25748d9fbc78'
+              label: 'Filtro de Empresas'
+              label_display: '0'
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: -10
+            additional: {  }
+        third_party_settings: {  }
+id: block_content.companies_search_results.default
+targetEntityType: block_content
+bundle: companies_search_results
+mode: default
+content: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

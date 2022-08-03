@@ -1,0 +1,18 @@
+uuid: 490f12e5-7bc5-400b-89c2-cb27c5a5c176
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_featured_products
+id: entity_subqueue.home_featured_products.changed
+field_name: changed
+entity_type: entity_subqueue
+bundle: home_featured_products
+label: Changed
+description: 'The time that the subqueue was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

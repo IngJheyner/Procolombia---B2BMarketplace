@@ -1,0 +1,43 @@
+display:
+  block_2:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode != 'English' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_1 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n  <div class=\"info\">\r\n    <h3>{{ name }}</h3>\r\n        <span class=\"more-info\">+ Información</span>\r\n  </div>\r\n</a>"
+  block_3:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode != 'English' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_1 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n  <div class=\"info\">\r\n    <h3>{{ name }}</h3>\r\n    <span class=\"more-info\">+ Información</span>\r\n  </div>\r\n</a>"
+  block_4:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode != 'English' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_1 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n  <div class=\"info\">\r\n    <h3>{{ name }}</h3>\r\n    <span class=\"more-info\">+ Información</span>\r\n  </div>\r\n</a>"
+  block_5:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode != 'English' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_1 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n  <div class=\"info\">\r\n    <h3>{{ name }}</h3>\r\n    <span class=\"more-info\">+ Información</span>\r\n  </div>\r\n</a>"
+  block_6:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode != 'English' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_1 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n  <div class=\"info\">\r\n    <h3>{{ name }}</h3>\r\n    <span class=\"more-info\">+ Información</span>\r\n  </div>\r\n</a>"
+  block_7:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode == 'Español' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_2 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n\r\n  <div class=\"info\">\r\n    <span class=\"more-info\">+ Información</span>\r\n  </div>\r\n</a>"
+  block_1:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode != 'English' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <span class=\"category-name\">{{ name_1 }}</span>\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n  </div>\r\n  <div class=\"info\">\r\n    <h3>{{ name }}</h3>\r\n    <span class=\"more-info\">Find out more</span>\r\n  </div>\r\n</a>"

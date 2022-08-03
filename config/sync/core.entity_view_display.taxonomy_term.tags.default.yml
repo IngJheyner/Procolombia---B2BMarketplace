@@ -1,0 +1,126 @@
+uuid: 9c8a495a-4bb5-4b30-b927-c08d5a95b9a2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.tags.field_banner_btns
+    - field.field.taxonomy_term.tags.field_banner_img
+    - field.field.taxonomy_term.tags.field_banner_img_mobile
+    - field.field.taxonomy_term.tags.field_color_principal_de_campana
+    - field.field.taxonomy_term.tags.field_elementos_destacados_bloqu
+    - field.field.taxonomy_term.tags.field_image
+    - field.field.taxonomy_term.tags.field_texto_inicio
+    - field.field.taxonomy_term.tags.field_titulo_bloque_final
+    - taxonomy.vocabulary.tags
+  module:
+    - color_field
+    - dynamic_entity_reference
+    - link
+    - svg_image
+    - text
+id: taxonomy_term.tags.default
+targetEntityType: taxonomy_term
+bundle: tags
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_banner_btns:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_banner_img:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_banner_img_mobile:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_color_principal_de_campana:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_elementos_destacados_bloqu:
+    type: dynamic_entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_texto_inicio:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_titulo_bloque_final:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

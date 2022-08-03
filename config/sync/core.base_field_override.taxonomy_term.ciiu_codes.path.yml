@@ -1,0 +1,20 @@
+uuid: b77b2c36-51f0-45c1-9080-a2178141a9a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ciiu_codes
+  module:
+    - path
+id: taxonomy_term.ciiu_codes.path
+field_name: path
+entity_type: taxonomy_term
+bundle: ciiu_codes
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,40 @@
+uuid: f0c32935-6c93-4b1d-babc-cbc4f140b9c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide_item
+    - paragraphs.paragraphs_type.slide
+    - paragraphs.paragraphs_type.slide_item
+  module:
+    - entity_reference_revisions
+id: paragraph.slide.field_slide_item
+field_name: field_slide_item
+entity_type: paragraph
+bundle: slide
+label: 'Slide item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      slide_item: slide_item
+    negate: 0
+    target_bundles_drag_drop:
+      drupal_block:
+        weight: 6
+        enabled: false
+      drupal_view:
+        weight: 7
+        enabled: false
+      slide:
+        weight: 5
+        enabled: false
+      slide_item:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

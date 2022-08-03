@@ -1,0 +1,24 @@
+uuid: 38543ee1-2d87-4702-98b5-1ee35baee5ca
+langcode: es
+status: false
+dependencies:
+  config:
+    - views.view.banner_register_forms
+  module:
+    - views
+  theme:
+    - procolombia
+id: procolombia_views_block__banner_register_forms_block_2
+theme: procolombia
+region: highlighted
+weight: 0
+provider: null
+plugin: 'views_block:banner_register_forms-block_2'
+settings:
+  id: 'views_block:banner_register_forms-block_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

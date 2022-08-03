@@ -1,0 +1,22 @@
+uuid: cd1fa97e-79a3-4521-81a7-48cca8f184dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_company_logos
+id: entity_subqueue.home_company_logos.status
+field_name: status
+entity_type: entity_subqueue
+bundle: home_company_logos
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

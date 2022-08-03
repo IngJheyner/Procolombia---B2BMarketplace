@@ -1,0 +1,20 @@
+uuid: b0f9ef18-a2b3-43e5-a014-e7169ea1b3a9
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sectors
+  module:
+    - path
+id: taxonomy_term.sectors.path
+field_name: path
+entity_type: taxonomy_term
+bundle: sectors
+label: 'Alias de URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

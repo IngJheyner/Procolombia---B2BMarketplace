@@ -1,0 +1,17 @@
+uuid: 0cacc9a5-3ae5-4a25-9639-d92947c7b526
+langcode: es
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: b2b_mp_buscador_p_c
+name: 'B2B MP Buscador P&C'
+description: 'Buscador de productos y empresas 2021 B2B Marketplace'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 2
+  matching: partial
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

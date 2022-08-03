@@ -1,0 +1,19 @@
+display:
+  default:
+    display_options:
+      fields:
+        nothing:
+          alter:
+            text: '<p class="contactoForm text-center">CONTACT</p>'
+        title_2:
+          alter:
+            text: "<div class=\"row\">\r\n\t<div class='col-md-6 costadoizquierdo'>\r\n\t\t<h1>{{ title }}</h1>\r\n\t\t<p class='partida'><span>Tariff code: </span>{{ field_tariff_heading }}</p>\r\n\t\t<p class='bodyProducto'>{{ field_body }}</p>\r\n\t\t<div class=\"row\">\r\n<div class=\"col-md-6 \">\r\n\t\t\t<div class='label-tituloEmpresa'>Company</div>\r\n\t\t\t<p class='tituloEmpresa'>{{ title_3 }}</p>\r\n<p class='webEmpresa'>{{ field_web }}</p>\r\n</div>\r\n\t\t\t<p class='col-md-6 logoEmpresa'>{{ field_logo }}</p>\r\n\t\t</div>\r\n\t\t<p class='bodyEmpresa'>{{ field_body_1 }}</p>\r\n\t\t{{ nothing }}\r\n\t</div>\r\n\t<div class='col-md-6 costadoderecho'>\r\n\t\t<div class=\"row\">\r\n\t\t\t<p><span>Sector: </span>{{ field_categorization_parent }}</p>\r\n\t\t\t<p><span>/ Subsector: </span>{{ field_categorization }}</p>\r\n\t\t</div>\r\n\t\t<div class=\"responsibe img-fluid\">{{ field_images }}</div>\r\n\t\t<p class='banco'>{{ title_2 }}</p>\r\n\t</div>\r\n</div>"
+      header:
+        area_1:
+          content:
+            value: "<p class=\"volverProducto\">BACK</p>\r\n\r\n<p><a class=\"volverHome\" href=\"../../\">BACK</a></p>\r\n"
+            format: full_html
+        area:
+          content:
+            value: "<div class=\"categoria-fabrica\">{{ field_semaphore_category }}</div>\r\n"
+            format: full_html

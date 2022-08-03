@@ -1,0 +1,27 @@
+uuid: 45624239-8838-4687-829c-daf10e69f377
+langcode: es
+status: false
+dependencies:
+  module:
+    - cp_search
+    - system
+  theme:
+    - procolombia
+id: procolombia_switchlanguagesearch
+theme: procolombia
+region: region_a
+weight: -14
+provider: null
+plugin: switch_language_search
+settings:
+  id: switch_language_search
+  label: 'Switch Language Search'
+  label_display: visible
+  provider: cp_search
+  my_block_settings: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/products\r\n/products/*\r\n/products/*/*\r\n/productos\r\n/productos/*\r\n/productos/*/*"

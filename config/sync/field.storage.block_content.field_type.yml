@@ -1,0 +1,27 @@
+uuid: c5ba386a-42f1-4ffb-9ef3-765d9a8e61e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_type
+field_name: field_type
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Search
+    -
+      value: '2'
+      label: Register
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

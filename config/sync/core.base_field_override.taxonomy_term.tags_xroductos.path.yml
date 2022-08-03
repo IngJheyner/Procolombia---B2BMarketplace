@@ -1,0 +1,20 @@
+uuid: 369fe983-b528-46b5-928c-272dfaf3da33
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tags_xroductos
+  module:
+    - path
+id: taxonomy_term.tags_xroductos.path
+field_name: path
+entity_type: taxonomy_term
+bundle: tags_xroductos
+label: 'Alias de URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

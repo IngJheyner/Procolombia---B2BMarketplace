@@ -1,0 +1,192 @@
+cp_core.render:
+    requirements:
+        _permission: 'access content'
+
+cp_core.forgetMail:
+    path: 'register/forget-mail'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::forgetMail'
+        _title: 'Forgot your email'
+    requirements:
+        _permission: 'access content'
+
+cp_core.olvidoMail:
+    path: 'registro/olvido-mail'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::forgetMail'
+        _title: 'Olvidó su correo'
+    requirements:
+        _permission: 'access content'
+
+
+cp_core.recoverPass:
+    path: 'register/recover-pass'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::recoverPass'
+        _title: 'Recover pass'
+    requirements:
+        _permission: 'access content'
+
+cp_core.recuperarContrasena:
+    path: 'registro/recuperar-contrasena'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::recoverPass'
+        _title: 'Recuperar contraseña'
+    requirements:
+        _permission: 'access content'
+
+
+cp_core.registerUser:
+    path: 'register/user'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::registerExporterFom'
+        _title: 'Register'
+    requirements:
+        _permission: 'access content'
+
+cp_core.registroUsuario:
+    path: 'registro/usuario'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::registerExporterFom'
+        _title: 'Registro'
+    requirements:
+        _permission: 'access content'
+
+
+cp_core.registerBuyer:
+    path: 'register/buyer'
+    defaults:
+        _form: '\Drupal\cp_core\Form\RegisterBuyer'
+        _title: 'Buyer Register'
+    requirements:
+        _permission: 'access content'
+
+cp_core.registroComprador:
+    path: 'registro/comprador'
+    defaults:
+        _form: '\Drupal\cp_core\Form\RegisterBuyer'
+        _title: 'Register international buyer'
+    requirements:
+        _permission: 'access content'
+
+
+cp_core.addCompany:
+    path: '/dashboard/company-add'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::addCompany'
+        _title: 'Add company'
+    requirements:
+        _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
+cp_core.editCompany:
+    path: 'company/edit/{nid}'
+    defaults:
+        _controller: '\Drupal\cp_core\Controller\CpCoreController::editCompany'
+        _title: 'Company'
+    requirements:
+        _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
+
+cp_core.addProduct:
+    path: '/dashboard/product-add'
+    defaults:
+        _form: '\Drupal\cp_core\Form\AddEditProduct'
+        _title: 'Add product'
+    requirements:
+        _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
+cp_core.editProduct:
+    path: '/dashboard/product-edit/{nid}'
+    defaults:
+        _form: '\Drupal\cp_core\Form\AddEditProduct'
+        _title: 'Edit product'
+    requirements:
+        _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
+
+cp_core.editUser:
+  path: 'user-dashboard/edit'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::editUser'
+    _format: json
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
+cp_core.autocompleteCities:
+  path: 'autocomplete-cities/{field_name}/{count}'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\AutocompleteController::handleAutocomplete'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+cp_core.categories_select:
+  path: 'categories/subsector-select/{sector_tid}'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::get_categories_leve2'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+cp_core.export_markets:
+  path: 'autocomplete/export-markets/{name_country}'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::autocomplete_export_markets'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+cp_core.update_user:
+  path: 'autocomplete/export-markets/{name_country}'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::autocomplete_export_markets'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+cp_core.product_delete_image:
+  path: 'product-delete-image'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::removeImageProduct'
+    _format: json
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
+cp_core.change_states_company_products:
+  path: 'chg-states-comp-prods'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreChgStatesController::changeStates'
+    _title: 'Change states'
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreChgStatesController::accessChangeState'
+
+cp_core.admin_settings_states_form:
+  path: '/admin/config/catalogo/admin-settings-states'
+  defaults:
+    _form: '\Drupal\cp_core\Form\ConfigChangeStates'
+    _title: 'Configuración cambio de estados'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+cp_core.autocomplete_ciiu:
+  path: 'autocomplete-ciiu'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\AutocompleteController::autocompleteCiiuCodes'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
+cp_core.pre_register:
+  path: 'pre-register'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::preRegister'
+    _title: 'Pre Register'
+  requirements:
+    _permission: 'access content'
+cp_core.pre_registro:
+  path: 'pre-registro'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreController::preRegister'
+    _title: 'Pre Registro'
+  requirements:
+    _permission: 'access content'

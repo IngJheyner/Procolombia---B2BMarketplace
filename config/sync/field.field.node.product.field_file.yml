@@ -1,0 +1,27 @@
+uuid: 1e92e616-7575-4ea1-87ae-a54e3beccd5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file
+    - node.type.product
+  module:
+    - file
+id: node.product.field_file
+field_name: field_file
+entity_type: node
+bundle: product
+label: 'Technique sheet'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx'
+  max_filesize: '500 KB'
+  description_field: false
+field_type: file

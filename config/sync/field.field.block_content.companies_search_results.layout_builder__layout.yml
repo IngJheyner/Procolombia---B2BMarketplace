@@ -1,0 +1,21 @@
+uuid: fd7b6ba5-4596-4e14-b612-a7a2b68abbcc
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.companies_search_results
+    - field.storage.block_content.layout_builder__layout
+  module:
+    - layout_builder
+id: block_content.companies_search_results.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: block_content
+bundle: companies_search_results
+label: Diseño
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: layout_section

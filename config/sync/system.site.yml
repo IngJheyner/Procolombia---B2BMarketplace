@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+langcode: es
+uuid: 25469cb8-690b-4b31-a896-11cc06bd98ca
+name: 'Colombian B2B Marketplace'
+mail: b2bmarketplace@procolombia.com.co
+slogan: 'Goods and services of Colombian Origin'
+page:
+  403: ''
+  404: ''
+  front: /node/22594
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: es
+mail_notification: ''

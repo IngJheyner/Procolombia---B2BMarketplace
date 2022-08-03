@@ -1,0 +1,12 @@
+display:
+  default:
+    display_options:
+      header:
+        area_text_custom:
+          content: '<div class="title">Specialized <span>Offer</span></div>'
+      fields:
+        field_enlace_1:
+          alter:
+            text: 'View more +'
+        view_taxonomy_term:
+          text: 'View more +'

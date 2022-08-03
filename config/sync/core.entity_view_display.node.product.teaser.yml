@@ -1,0 +1,279 @@
+uuid: aa26b566-889e-4e30-b79d-802eaa061453
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - node.type.product
+  module:
+    - ds
+    - field_group
+    - file
+    - slick
+    - telephone
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+          ds_content:
+            row: row
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - group_wrapper
+        - group_left
+        - group_right
+        - node_title
+        - field_tariff_heading
+        - field_file_certifications
+        - field_file
+        - body
+        - field_body
+        - field_images
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 2
+        label: hidden
+        formatter: default
+  field_group:
+    group_left:
+      children:
+        - node_title
+        - field_tariff_heading
+        - field_file
+        - field_images
+      label: Left
+      parent_name: group_wrapper
+      region: hidden
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-left col-md-6'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_right:
+      children:
+        - field_file_certifications
+        - body
+        - field_body
+      label: Right
+      parent_name: group_wrapper
+      region: hidden
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-right col-md-6'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_wrapper:
+      children:
+        - group_left
+        - group_right
+      label: Wrapper
+      parent_name: ''
+      region: hidden
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-company row'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+        open: false
+id: node.product.teaser
+targetEntityType: node
+bundle: product
+mode: teaser
+content:
+  field_body:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: ds_content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: ds_content
+  field_file_certifications:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: ds_content
+  field_images:
+    type: slick_image
+    label: above
+    settings:
+      caption:
+        title: '0'
+        alt: '0'
+      optionset: images_product
+      layout: ''
+      view_mode: ''
+      cache: 0
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: large
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: null
+      grid_medium: null
+      grid_small: null
+      breakpoints:
+        xs:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        sm:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        md:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        lg:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+        xl:
+          breakpoint: ''
+          width: ''
+          image_style: ''
+      current_view_mode: teaser
+      icon: ''
+      sizes: ''
+      grid_header: ''
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+      iframe_lazy: true
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 6
+    region: ds_content
+  field_tariff_heading:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_categorization: true
+  field_categorization_parent: true
+  field_dependent_state: true
+  field_exist_certifications: true
+  field_export_markets: true
+  field_iframe: true
+  field_key_words: true
+  field_key_words_backup: true
+  field_mostrar_en_home: true
+  field_partida_arancelaria_tax: true
+  field_pr_ref_company: true
+  field_previous_id: true
+  field_product_type: true
+  field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
+  field_trading_channel: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

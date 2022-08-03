@@ -1,0 +1,92 @@
+uuid: 0a66b8d4-53a1-4659-aff8-a433125cd5e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.old_company.body
+    - field.field.node.old_company.field_address
+    - field.field.node.old_company.field_body_offer
+    - field.field.node.old_company.field_cellphone
+    - field.field.node.old_company.field_city
+    - field.field.node.old_company.field_comment
+    - field.field.node.old_company.field_contact_1
+    - field.field.node.old_company.field_contact_2
+    - field.field.node.old_company.field_email
+    - field.field.node.old_company.field_employees
+    - field.field.node.old_company.field_fax
+    - field.field.node.old_company.field_id_empresa
+    - field.field.node.old_company.field_logo
+    - field.field.node.old_company.field_logo_added
+    - field.field.node.old_company.field_mail_1
+    - field.field.node.old_company.field_mercados_destino
+    - field.field.node.old_company.field_neighborhood
+    - field.field.node.old_company.field_nit
+    - field.field.node.old_company.field_nom_status_company
+    - field.field.node.old_company.field_phone
+    - field.field.node.old_company.field_phone_1
+    - field.field.node.old_company.field_phone_2
+    - field.field.node.old_company.field_position_1
+    - field.field.node.old_company.field_position_2
+    - field.field.node.old_company.field_previous_id
+    - field.field.node.old_company.field_previous_uri
+    - field.field.node.old_company.field_redirect_301_company
+    - field.field.node.old_company.field_sector
+    - field.field.node.old_company.field_subsector
+    - field.field.node.old_company.field_text_certifications
+    - field.field.node.old_company.field_text_tags
+    - field.field.node.old_company.field_uri_related_company
+    - field.field.node.old_company.field_website
+    - node.type.old_company
+  module:
+    - user
+id: node.old_company.teaser
+targetEntityType: node
+bundle: old_company
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_address: true
+  field_body_offer: true
+  field_cellphone: true
+  field_city: true
+  field_comment: true
+  field_contact_1: true
+  field_contact_2: true
+  field_email: true
+  field_employees: true
+  field_fax: true
+  field_id_empresa: true
+  field_json_ld_old_companies: true
+  field_logo: true
+  field_logo_added: true
+  field_mail_1: true
+  field_mercados_destino: true
+  field_neighborhood: true
+  field_nit: true
+  field_nom_status_company: true
+  field_phone: true
+  field_phone_1: true
+  field_phone_2: true
+  field_position_1: true
+  field_position_2: true
+  field_previous_id: true
+  field_previous_uri: true
+  field_redirect_301_company: true
+  field_sector: true
+  field_subsector: true
+  field_text_certifications: true
+  field_text_tags: true
+  field_uri_related_company: true
+  field_website: true
+  langcode: true
+  search_api_excerpt: true

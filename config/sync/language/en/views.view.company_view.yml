@@ -1,0 +1,31 @@
+display:
+  block_4:
+    display_options:
+      header:
+        area_text_custom:
+          content: "<div class=\"container m-auto text-center\">\r\n<h2>Companies with Cross-border e-Commerce</h2>\r\n<p>The Colombia a un Clic program seeks to support and accelerate the growth processes of companies through cross-border electronic commerce. In this space you will be able to know the Colombian companies that crossborder through their own electronic businesses. We invite you to learn more about the offer of services and goods of Colombian origin at a click.</p>\r\n</div>"
+      fields:
+        nothing:
+          alter:
+            text: "<a class=\"d-flex justify-content-center ecomcross\" href=\"/en/ecommerce-crossborder\">\r\n  <img src=\"{{ field_banner_image_mobile }}\" alt=\"{{ title }}\" class=\"w-100 ecomcross-img img-mobile d-none\">\r\n  <img src=\"{{ field_banner_image_desk }}\" alt=\"{{ title }}\" class=\"w-100 ecomcross-img img-desk d-none\">\r\n<div class=\"ecomcross-img-description\">\r\n<p class=\"ecomcross-img-description-orange\">Know them</p>\r\n<p class=\"ecomcross-img-description-normal\">by clicking here</p>\r\n</div>\r\n</a>"
+  block_2:
+    display_options:
+      header:
+        area_text_custom:
+          content: '<div class="title"><span>Companies with</span> Ecommerce</div>'
+      fields:
+        view_node:
+          text: 'Find out more'
+  block_3:
+    display_options:
+      header:
+        area_text_custom:
+          content: '<div class="title"><span>Companies with</span> Ecommerce</div>'
+      fields:
+        view_node:
+          text: 'Find out more'
+  block_1:
+    display_options:
+      fields:
+        view_node:
+          text: 'Find out more'

@@ -1,0 +1,18 @@
+uuid: 87808fa0-22dc-4363-b9c9-0827e88f37df
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tags_xroductos
+id: taxonomy_term.tags_xroductos.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: tags_xroductos
+label: 'Metatags (Hidden field for JSON support)'
+description: 'Las metaetiquetas de la entidad.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

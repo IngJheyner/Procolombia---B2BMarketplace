@@ -1,0 +1,21 @@
+uuid: 07277e04-2991-4106-b860-c21cf8478635
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_texto_inicio
+    - taxonomy.vocabulary.otros_eventos_destacados
+  module:
+    - text
+id: taxonomy_term.otros_eventos_destacados.field_texto_inicio
+field_name: field_texto_inicio
+entity_type: taxonomy_term
+bundle: otros_eventos_destacados
+label: 'Texto inicio'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

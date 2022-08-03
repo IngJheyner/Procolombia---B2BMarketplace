@@ -1,0 +1,108 @@
+uuid: 3a64a1b2-ccc6-4bcb-b2a6-f8d14780249c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.drupal_block.field_block
+    - field.field.paragraph.drupal_block.field_c_classes
+    - field.field.paragraph.drupal_block.field_c_title
+    - field.field.paragraph.drupal_block.field_c_title_status
+    - field.field.paragraph.drupal_block.field_c_width
+    - field.field.paragraph.drupal_block.field_lead
+    - paragraphs.paragraphs_type.drupal_block
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_component_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+        - field_lead
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_styling_settings:
+      children:
+        - field_c_css_class
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.drupal_block.default
+targetEntityType: paragraph
+bundle: drupal_block
+mode: default
+content:
+  field_block:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_classes:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lead:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

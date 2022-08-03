@@ -1,0 +1,42 @@
+display:
+  default:
+    display_options:
+      header:
+        result:
+          content: '<div class="res-total">(@total results)</div>'
+      exposed_form:
+        options:
+          submit_button: Search
+          reset_button_label: 'Restart Search'
+          exposed_sorts_label: 'order by'
+  block_2:
+    display_title: Products
+    display_options:
+      filters:
+        search_api_fulltext:
+          expose:
+            description: 'ej: Search for the product or company'
+            placeholder: 'What are you looking for?'
+          group_info:
+            label: 'Search Full Text'
+  block_4:
+    display_options:
+      header:
+        area_text_custom:
+          content: '<span> featured </span> companies'
+  block_5:
+    display_title: 'Featured Products'
+    display_options:
+      header:
+        area_text_custom:
+          content: 'Featured Products'
+  block_6:
+    display_options:
+      header:
+        area_text_custom:
+          content: 'Featured Products'
+  block_7:
+    display_options:
+      header:
+        area_text_custom:
+          content: '<span> featured </span> companies'

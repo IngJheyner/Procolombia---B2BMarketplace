@@ -1,0 +1,41 @@
+uuid: 13a7eddc-ee00-4d1e-afb8-e0a113b35c85
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.mails
+  module:
+    - comment
+    - field_permissions
+    - filter
+    - google_analytics
+    - media
+    - system
+    - taxonomy_access_fix
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Usuario autenticado'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'opt-in or out of google analytics tracking'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'use text format basic_html'
+  - 'use text format mails'
+  - 'view field_iframe'
+  - 'view media'
+  - 'view own field_iframe'
+  - 'view terms in categories_flow_semaphore'
+  - 'view terms in categorization'
+  - 'view terms in ciiu_codes'
+  - 'view terms in countries'
+  - 'view terms in home_macro_rueda'
+  - 'view terms in key_words'
+  - 'view terms in locations'
+  - 'view terms in sectors'
+  - 'view terms in tags'

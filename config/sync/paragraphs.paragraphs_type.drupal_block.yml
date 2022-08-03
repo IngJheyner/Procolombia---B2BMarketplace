@@ -1,0 +1,10 @@
+uuid: f7a17a11-1ab5-4447-a7c2-9f06ba173e85
+langcode: en
+status: true
+dependencies: {  }
+id: drupal_block
+label: 'Drupal block'
+icon_uuid: null
+icon_default: null
+description: 'Referencie una entidad de tipo de bloque'
+behavior_plugins: {  }

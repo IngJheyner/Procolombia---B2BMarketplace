@@ -1,0 +1,18 @@
+uuid: 8f546e8b-0f0a-401a-8f17-765115cb1bd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_company_logos
+id: entity_subqueue.home_company_logos.metatag
+field_name: metatag
+entity_type: entity_subqueue
+bundle: home_company_logos
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

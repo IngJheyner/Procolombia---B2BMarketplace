@@ -1,0 +1,75 @@
+{% set login_class = '' %}
+{% if first_login %}
+  {% set login_class = 'first_login' %}
+{% endif %}
+
+{% if mail_user is not empty %}
+	<div class="info-user {{ login_class }}">
+		<div class="header">
+			<img src="{{img_user}}">
+			<span>{{ "Admin profile"|t }}</span>
+			<a href="#" class="edit show-form">Edit</a>
+		</div>
+		<div class="content">
+			<div class="info-fields row">
+				<div class="message"></div>
+				{% if name_user is not empty %}
+					<div class="col-md-12 mail">
+            <label>{{ 'Name and Lastname'|t }}</label>
+						<span class="only-read">{{name_user}}</span>
+					</div>
+				{% endif %}
+				<div class="col-md-12 mail">
+					<label>{{ 'E-mail'|t }}</label>
+					<span class="only-read">{{mail_user}}</span>
+				</div>
+				{% if company_nit is not empty %}
+					<div class="col-md-12 nit">
+						<label>{{ 'Company ID'|t }}</label>
+						<span class="company-id">{{company_nit}}</span>
+					</div>
+				{% endif %}
+				{% if country is not empty %}
+					<div class="col-md-12 nit">
+						<label>{{ 'Country'|t }}</label>
+						<span class="company-id">{{country}}</span>
+					</div>
+				{% endif %}
+				{% if company is not empty %}
+					<div class="col-md-12 nit">
+            <label>{{ 'Company Name'|t }}</label>
+						<span class="company-id">{{company}}</span>
+					</div>
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+	<div class="edit-info-user is-hidden">
+		<div class="header">
+			<span class="title">{{"Edit information"|t}}</span>
+		</div>
+		<div class="content">
+			<div class="info-fields row">
+				<div class="message"></div>
+				<div class="col-md-12 mail">
+					<label>{{ 'Change mail'|t }}</label>
+					<input type="text" id="mail-user" name="mail" value="{{mail_user}}" size="60" maxlength="150" class="form-text required form-control" aria-required="true">
+				</div>
+				<div class="col-md-6 password">
+					<label>{{ 'Password'|t }}</label>
+					<input type="password" id="password-user" name="password" size="60" maxlength="150" class="form-text required form-control"  aria-required="true">
+				</div>
+				<div class="col-md-6 password">
+					<label>{{ 'Confirm password'|t }}</label>
+					<input type="password" id="cpassword-user" name="cpassword" size="60" maxlength="150" class="form-text required form-control "  aria-required="true">
+				</div>
+			</div>
+			<div class="actions is-hidden">
+				<button id="edit-save" name="op" value="Save" class="button btn btn-primary">{{"Save"|t}}</button>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+

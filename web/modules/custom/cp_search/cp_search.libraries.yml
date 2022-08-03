@@ -1,0 +1,7 @@
+cp_search:
+  version: VERSION
+  css:
+    theme:
+      css/cp_search.css: {}
+  js:
+    js/cp_search.js: {}

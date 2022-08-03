@@ -1,0 +1,8 @@
+uuid: ff367eca-be87-4942-a849-9d2692b8fdba
+langcode: en
+status: true
+dependencies: {  }
+name: 'key words'
+vid: key_words
+description: 'Key words products'
+weight: 0

@@ -1,0 +1,57 @@
+uuid: 2f08f38f-6b6b-4f11-a8bc-2bd2c432f6a0
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.color
+    - field.field.taxonomy_term.tags.field_banner_btns
+    - field.field.taxonomy_term.tags.field_banner_img
+    - field.field.taxonomy_term.tags.field_banner_img_mobile
+    - field.field.taxonomy_term.tags.field_color_principal_de_campana
+    - field.field.taxonomy_term.tags.field_elementos_destacados_bloqu
+    - field.field.taxonomy_term.tags.field_image
+    - field.field.taxonomy_term.tags.field_texto_inicio
+    - field.field.taxonomy_term.tags.field_titulo_bloque_final
+    - taxonomy.vocabulary.tags
+  module:
+    - color_field
+    - ds
+id: taxonomy_term.tags.color
+targetEntityType: taxonomy_term
+bundle: tags
+mode: color
+content:
+  field_color_principal_de_campana:
+    type: color_field_formatter_css
+    label: hidden
+    settings:
+      selector: body
+      property: background-color
+      important: '1'
+      opacity: true
+      advanced: true
+      css: ".specialized-offer-page-wrapper .view-filters{\r\n  background-color: [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .main-banner .text a{\r\n  color: [color_field:hex]!important;\r\n  border-color: [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .main-banner .text a:hover{\r\n  background-color: [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .view-filters form .form-actions .btn {\r\n    background-color: #f6f6f6!important;\r\n    color: [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .view-filters form .form-actions .btn:hover {\r\n    background-color: [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .view-content.row .company-card .info{\r\n   background-color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .view-content.row .company-card .info .info-container a:hover{\r\n  background-color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .view-header-specialize-footer{\r\n  background-color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .node--type-company .field-name-node-title .company-title a{\r\n  color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .node--type-product .info h3{\r\n  color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .node--type-product .more-info{\r\n  background-color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .node--type-company .info{\r\n  background-color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .taxonomy-term .link-taxonomy .info{\r\n  background-color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .taxonomy-term .link-taxonomy h3{\r\n  color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .description strong{\r\n  color:  [color_field:hex]!important;\r\n}\r\n.specialized-offer-page-wrapper .view-pagination .pagination .page-item.active .page-link{\r\n  color:  [color_field:hex]!important;\r\n}"
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 0
+    region: content
+hidden:
+  description: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_banner_btns: true
+  field_banner_img: true
+  field_banner_img_mobile: true
+  field_elementos_destacados_bloqu: true
+  field_image: true
+  field_texto_inicio: true
+  field_titulo_bloque_final: true
+  langcode: true
+  search_api_excerpt: true

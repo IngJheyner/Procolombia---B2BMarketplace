@@ -1,0 +1,21 @@
+uuid: 7f3ced65-2ec2-4c1a-b53f-5e9b670020eb
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_texto_inicio
+    - taxonomy.vocabulary.tags
+  module:
+    - text
+id: taxonomy_term.tags.field_texto_inicio
+field_name: field_texto_inicio
+entity_type: taxonomy_term
+bundle: tags
+label: 'Texto inicio'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

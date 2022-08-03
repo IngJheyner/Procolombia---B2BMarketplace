@@ -1,0 +1,18 @@
+uuid: 39cf253c-f9c6-45df-8a61-d9524e056982
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.company
+id: node.company.created
+field_name: created
+entity_type: node
+bundle: company
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,98 @@
+uuid: b533424a-02f1-4a35-aea6-168b3a98d28b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.drupal_view.field_c_classes
+    - field.field.paragraph.drupal_view.field_c_title
+    - field.field.paragraph.drupal_view.field_c_title_status
+    - field.field.paragraph.drupal_view.field_c_width
+    - field.field.paragraph.drupal_view.field_view
+    - paragraphs.paragraphs_type.drupal_view
+  module:
+    - field_group
+    - viewsreference
+third_party_settings:
+  field_group:
+    group_component_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_styling_settings:
+      children:
+        - field_c_css_class
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.drupal_view.default
+targetEntityType: paragraph
+bundle: drupal_view
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_view:
+    type: viewsreference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: '60'
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,35 @@
+uuid: 5a058c18-fa92-4dd6-bcc5-c6837852e6ba
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.categories_flow_semaphore.field_admin_advisor
+    - taxonomy.vocabulary.categories_flow_semaphore
+  module:
+    - text
+id: taxonomy_term.categories_flow_semaphore.default
+targetEntityType: taxonomy_term
+bundle: categories_flow_semaphore
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_admin_advisor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

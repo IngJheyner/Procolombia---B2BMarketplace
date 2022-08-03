@@ -1,0 +1,19 @@
+uuid: dc68bf4f-89d1-41a4-acc0-148d2c2be9b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.slide_item
+id: paragraph.slide_item.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: slide_item
+label: Label
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

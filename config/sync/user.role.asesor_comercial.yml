@@ -1,0 +1,49 @@
+uuid: 1df13188-b91c-4f62-94bd-7e2d2143e352
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.company
+    - node.type.product
+  module:
+    - content_translation
+    - field_permissions
+    - media
+    - node
+    - system
+    - taxonomy_access_fix
+    - toolbar
+    - webform
+id: asesor_comercial
+label: 'Asesor comercial'
+weight: 5
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access webform overview'
+  - 'create field_iframe'
+  - 'create field_tags'
+  - 'edit field_iframe'
+  - 'edit field_tags'
+  - 'edit own field_iframe'
+  - 'edit own field_tags'
+  - 'translate company node'
+  - 'translate product node'
+  - 'view any webform submission'
+  - 'view field_iframe'
+  - 'view field_tags'
+  - 'view own field_iframe'
+  - 'view own field_tags'
+  - 'view own unpublished media'
+  - 'view terms in categories_flow_semaphore'
+  - 'view terms in categorization'
+  - 'view terms in ciiu_codes'
+  - 'view terms in countries'
+  - 'view terms in home_macro_rueda'
+  - 'view terms in key_words'
+  - 'view terms in locations'
+  - 'view terms in partida_arancelaria'
+  - 'view terms in sectors'
+  - 'view terms in tags'
+  - 'view the administration theme'

@@ -1,0 +1,13 @@
+uuid: 6fb9e118-3a24-4425-bfeb-4f5d0394a081
+langcode: es
+status: true
+dependencies: {  }
+id: node__company
+label: 'Content: Empresa'
+tags:
+  abstract: '[node:field_body]'
+  description: '[node:field_body]'
+  keywords: '[node:field_key_words_backup]'
+  robots: 'index, follow'
+  title: '[node:title] | [node:field_pr_ref_company] | [site:name]'
+  twitter_cards_type: product

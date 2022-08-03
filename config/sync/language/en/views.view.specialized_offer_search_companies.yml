@@ -1,0 +1,21 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Search
+          reset_button_label: Restart
+      fields:
+        nid:
+          fallback_options:
+            format_plural_string: !!binary Aw==
+      header:
+        area:
+          content:
+            value: "<div class=\"center info-busqueda\">Search here:</div>\r\n"
+            format: full_html
+      footer:
+        area:
+          content:
+            value: '<div class="[view:title] [current-page:title]"><span class="text-info">If you want to know more about<strong> Expo Dubai 2021</strong>  visit their website, <a href="https://colombiaexpodubai.com/" target="_blank">click here</a>.</span></div>'
+            format: html

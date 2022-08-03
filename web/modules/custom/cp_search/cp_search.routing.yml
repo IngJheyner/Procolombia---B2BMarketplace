@@ -1,0 +1,85 @@
+
+cp_search.pageSearchRootEn:
+    path: 'products'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::pageSearch'
+        _title: 'Products'
+        cat: 'none'
+        subcat: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+cp_search.pageSearchRootSp:
+    path: 'productos'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::pageSearch'
+        _title: 'Productos'
+        cat: 'none'
+        subcat: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+cp_search.pageSearchSectorEn:
+    path: 'products/{cat}'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::pageSearch'
+        _title_callback: '\Drupal\cp_search\Controller\CpSearchController::dinamicTitleCat'
+        cat: 'none'
+        subcat: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+cp_search.pageSearchSectorSp:
+    path: 'productos/{cat}'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::pageSearch'
+        _title_callback: '\Drupal\cp_search\Controller\CpSearchController::dinamicTitleCat'
+        cat: 'none'
+        subcat: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+cp_search.pageSearchSubsectorEn:
+    path: 'products/{cat}/{subcat}'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::pageSearch'
+        _title_callback: '\Drupal\cp_search\Controller\CpSearchController::dinamicTitleSubCat'
+        cat: 'none'
+        subcat: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+cp_search.pageSearchSubsectorSp:
+    path: 'productos/{cat}/{subcat}'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::pageSearch'
+        _title_callback: '\Drupal\cp_search\Controller\CpSearchController::dinamicTitleSubCat'
+        cat: 'none'
+        subcat: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+
+cp_search.getChildrensCatgs:
+    path: 'get-childrens-catg/{tid_parent}'
+    defaults:
+        _controller: '\Drupal\cp_search\Controller\CpSearchController::getChildrensCatg'
+        tid_parent: 'none'
+    requirements:
+        _permission: 'access content'
+    options:
+        no_cache: 'TRUE'
+
+

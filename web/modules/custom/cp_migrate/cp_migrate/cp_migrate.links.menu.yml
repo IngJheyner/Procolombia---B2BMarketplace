@@ -1,0 +1,14 @@
+cp_migrate.admin_index:
+  title: Catálogo
+  route_name: cp_migrate.admin_index
+  parent: system.admin_config
+  description: 'Configuración catálogo procolombia.'
+  position: left
+  weight: -20
+  
+cp_migrate.content:
+  title: 'Migración de entidades catálogo procolombia'
+  parent: cp_migrate.admin_index
+  description: 'Importación de usuarios, taxonomías, empresas y productos.'
+  weight: -10
+  route_name: cp_migrate.content

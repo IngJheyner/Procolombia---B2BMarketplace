@@ -1,0 +1,22 @@
+uuid: dd928034-c7d4-4e59-aff1-464b6006c5d0
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.banner
+id: node.banner.status
+field_name: status
+entity_type: node
+bundle: banner
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

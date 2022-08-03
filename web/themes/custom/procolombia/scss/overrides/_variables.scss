@@ -1,0 +1,16 @@
+/* ==============================
+BOTONES
+============================== */
+.btn-primary {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+}
+.btn-outline-primary {
+    color: $color-black;
+    border-color: $color-secondary;
+
+    &:hover{
+        background-color: $color-secondary;
+        border-color: $color-secondary;
+    }
+}

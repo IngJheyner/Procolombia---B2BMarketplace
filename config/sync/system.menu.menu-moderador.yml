@@ -1,0 +1,8 @@
+uuid: ff4826f1-5d49-4d2d-bf74-f3c164a7b471
+langcode: es
+status: true
+dependencies: {  }
+id: menu-moderador
+label: 'Menu Moderador'
+description: 'Listado de Menu-Moderador'
+locked: false

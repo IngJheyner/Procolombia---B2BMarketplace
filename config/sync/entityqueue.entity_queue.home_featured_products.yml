@@ -1,0 +1,25 @@
+uuid: d60fa425-b0d7-463c-a99b-671162e618dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: home_featured_products
+label: 'Home productos destacados'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse: false

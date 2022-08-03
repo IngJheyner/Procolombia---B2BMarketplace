@@ -1,0 +1,10 @@
+uuid: a8ab0437-c96b-4384-98e4-3c3861e883e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.image
+label: Image
+targetEntityType: node
+cache: true

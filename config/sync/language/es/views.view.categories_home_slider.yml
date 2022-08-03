@@ -1,0 +1,7 @@
+display:
+  block_1:
+    display_options:
+      fields:
+        nothing_2:
+          alter:
+            text: "{% set url_parent = '/en/products/' ~ field_uri_search_1 %}\r\n{% if langcode == 'Español' %}\r\n  \t{% set url_parent = '/es/productos/' ~ field_uri_search_1 %}\t\r\n {% endif %}\r\n\r\n<a href=\"{{ url_parent }}\">\r\n  <div class=\"image\">\r\n    {{ field_image }}\r\n   <div class=\"more-info\">Conocer más</div>\r\n  </div>\r\n\r\n  <div class=\"info-cat\">\r\n    <h3 class=\"category-name\" >{{ name_2 }}</h3>\r\n  </div>\r\n</a>"

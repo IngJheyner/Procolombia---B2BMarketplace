@@ -1,0 +1,70 @@
+uuid: 2820c3c8-0a46-4dd0-bfe0-a013658f5c11
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.categorization.field_asesor
+    - field.field.taxonomy_term.categorization.field_icon
+    - field.field.taxonomy_term.categorization.field_image
+    - field.field.taxonomy_term.categorization.field_metadescription
+    - field.field.taxonomy_term.categorization.field_previous_id
+    - field.field.taxonomy_term.categorization.field_titulo_h1
+    - field.field.taxonomy_term.categorization.field_uri_search
+    - taxonomy.vocabulary.categorization
+  module:
+    - svg_image
+    - text
+id: taxonomy_term.categorization.full
+targetEntityType: taxonomy_term
+bundle: categorization
+mode: full
+content:
+  description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_asesor: true
+  field_metadescription: true
+  field_previous_id: true
+  field_titulo_h1: true
+  field_uri_search: true
+  langcode: true
+  search_api_excerpt: true

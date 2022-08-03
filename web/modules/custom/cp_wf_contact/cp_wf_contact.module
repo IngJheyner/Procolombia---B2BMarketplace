@@ -1,0 +1,402 @@
+<?php
+
+/**
+ * @file
+ * Custom tokens and webform alter procolombia catalogo.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+use Drupal\node\Entity\Node;
+use Drupal\cp_wf_contact\Controller\CpWfContactController;
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+
+
+/**
+ * Implements hook_token_info().
+ */
+function cp_wf_contact_token_info() {
+  $types = [];
+  $tokens = [];
+
+  $types['company_custom_tokens'] = [
+    'name' => t('Company custom tokens'),
+    'description' => t('Company custom tokens.'),
+  ];
+
+  $company = [];
+  $company['title'] = [
+    'name' => t("Company title"),
+    'description' => t('Company title'),
+  ];
+
+  $company['nit'] = [
+    'name' => t("Company nit"),
+    'description' => t('Company nit'),
+  ];
+
+  $company['contact_name'] = [
+    'name' => t("Contact Name"),
+    'description' => t('The company field contact name'),
+  ];
+
+  $company['charge'] = [
+    'name' => t("Contact Charge"),
+    'description' => t('The company field charge'),
+  ];
+
+  $company['cellphone'] = [
+    'name' => t("Contact Cellphone"),
+    'description' => t('The company field cellphone'),
+  ];
+
+  $company['contact_mail'] = [
+    'name' => t("Contact Email"),
+    'description' => t('The company field cellphone'),
+  ];
+
+  $company['contact_location'] = [
+    'name' => t("Contact Location"),
+    'description' => t('The company field location'),
+  ];
+
+  $company['company_text'] = [
+    'name' => t("Company word"),
+    'description' => t('Company word'),
+  ];
+  $tokens['company_custom_tokens'] = $company;
+
+  return [
+    'types' => $types,
+    'tokens' => $tokens
+  ];
+}
+
+
+/**
+ * Implements hook_tokens().
+ */
+function  cp_wf_contact_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'company_custom_tokens') {
+
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if (!empty($node) && $node instanceof \Drupal\node\NodeInterface && ( $node->getType() == 'product' || $node->getType() == 'company') ) {
+
+      switch ($node->getType()) {
+        case 'product':
+          $company_nid = $node->get('field_pr_ref_company')->getValue()[0]['target_id'];
+          $companyLoad = NULL;
+          if (is_numeric($company_nid)) {
+            $companyLoad = Node::load($company_nid);
+          }
+          break;
+
+        case 'company':
+          $companyLoad = $node;
+          break;
+      }
+
+      if (!empty($companyLoad)) {
+        foreach ($tokens as $name => $original) {
+          switch ($name) {
+            case 'title':
+              $title = NULL;
+              if (!empty($companyLoad->getTitle())) {
+                $title = $companyLoad->getTitle();
+              }
+              $replacements[$original] = $title;
+            break;
+
+            case 'nit':
+              $nit = NULL;
+              if (!empty($companyLoad->get('field_nit')->getValue()[0])) {
+                $nit = $companyLoad->get('field_nit')->getValue()[0]['value'];
+              }
+              $replacements[$original] = $nit;
+            break;
+
+            case 'charge':
+              $charge = '';
+              if (!empty($companyLoad->get('field_charge')->getValue()[0])) {
+                $charge = $companyLoad->get('field_charge')->getValue()[0]['value'];
+              }
+              $replacements[$original] = $charge;
+            break;
+
+            case 'contact_name':
+              $contact_name = '';
+              if (!empty($companyLoad->get('field_contact_name')->getValue()[0])) {
+                $contact_name = $companyLoad->get('field_contact_name')->getValue()[0]['value'];
+              }
+              $replacements[$original] = $contact_name;
+            break;
+
+            case 'cellphone':
+              $cellphone = '';
+              if (!empty($companyLoad->get('field_cellphone')->getValue()[0])) {
+                $cellphone = $companyLoad->get('field_cellphone')->getValue()[0]['value'];
+              }
+              $replacements[$original] = $cellphone;
+            break;
+
+            case 'contact_mail':
+              $contact_mail = '';
+              if (!empty($companyLoad->get('field_email')->getValue()[0])) {
+                $contact_mail = $companyLoad->get('field_email')->getValue()[0]['value'];
+              }
+              $replacements[$original] = $contact_mail;
+            break;
+
+            case 'contact_location':
+              $state_id = $companyLoad->get('field_ubication_state')->getValue()[0]['target_id'];
+              $city_tid = $companyLoad->get('field_ubication_city')->getValue()[0]['target_id'];
+              if (is_numeric($state_id) && is_numeric($city_tid)) {
+                $state = Term::load(intval($state_id));
+                $city = Term::load(intval($city_tid));
+                if (!empty($state) && !empty($city)) {
+                  $replacements[$original] = $city->getName() . ' - ' . $state->getName();
+                }
+              } else {
+                $replacements[$original] = "";
+              }
+            break;
+
+            case 'company_text':
+              $replacements[$original] = t('Company');
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Habilita o desabilita el formuario de contacto con una empresa dependiendo de las siguentes condiciones:
+ * - tipo producto
+ * -- Si la empresa del producto no esta publica desabilita el formulario
+ * -- Si el usuario actual es exportador desabilita el formulario
+ * - tipo empresa
+ * -- Si no tiene productos desabilita el formulario
+ * -- Si el usuario actual es exportador desabilita el formulario
+ * -- Si la empresa actual esta sin publicar desabilita el formulario
+ * -- En cualquier otro caso habilita el formulario
+ */
+function cp_wf_contact_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+  switch ($form_id) {
+    case 'webform_submission_contact_company_block_content_3_add_form':
+      $form['#attached']['library'][] = 'webform/webform';
+      $node = \Drupal::routeMatch()->getParameter('node');
+      $bool_hide_form = TRUE;
+      $current_user = \Drupal::currentUser();
+      $user = User::load($current_user->id());
+
+      switch ($node->getType()) {
+        case 'product':
+          if (!empty($node->get('field_pr_ref_company')->referencedEntities())) {
+            $company = $node->get('field_pr_ref_company')->referencedEntities()[0];
+            if ($company->isPublished()) {
+              $form['elements']['category_of_interest']['#disabled'] = TRUE;
+              if (!empty($node->get('field_categorization_parent')->getValue()[0])) {
+                $tid_cat_parent = $node->get('field_categorization_parent')->getValue()[0]['target_id'];
+                if ($tid_cat_parent && is_numeric($tid_cat_parent) && !$user->hasRole('exportador')) {
+                  $form['elements']['category_of_interest']['#default_value'] = $tid_cat_parent;
+                  $bool_hide_form = FALSE;
+                }
+              }
+            }
+          }
+          break;
+
+        case 'company':
+          $nid = $node->id();
+          $tids = $node->get('field_product_categories_list')->getValue();
+          $arr_tids = [];
+          if (!empty($tids) && $nid) {
+            foreach ($tids as $key => $val) {
+              $arr_tids[] = $val['target_id'];
+            }
+            if (!empty($arr_tids)) {
+              $CpWfCont = new CpWfContactController();
+              $options = $CpWfCont->get_select_options_product_cats_by_company($arr_tids, $nid);
+              if (!empty($options)) {
+                $form['elements']['category_of_interest']['#options'] = $options;
+                if ($node->isPublished() && !$user->hasRole('exportador')) {
+                  $bool_hide_form = FALSE;
+                }
+              }
+            }
+          }
+          break;
+      }
+
+      if ($bool_hide_form) {
+        $form['elements']['actions']['#submit_hide'] = TRUE; // NEW WEBFORM FORM TO HIDE SUMMIT BUTTON
+        //unset($form['actions']); // OLD, NOT USE
+        $disabled = TRUE;
+        foreach ($form['elements'] as $key => $field) {
+          if (is_array($field) && !empty($field) && $key[0] != '#') {
+            $form['elements'][$key]['#disabled'] = $disabled;
+          }
+        }
+      }
+      break;
+
+  }
+}
+
+
+/**
+ * Implements hook_entity_create().
+ */
+function cp_wf_contact_entity_create(Drupal\Core\Entity\EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'product':
+      if (!empty($entity->get('field_pr_ref_company'))) {
+        if (!empty($entity->get('field_categorization_parent')->getValue()[0])) {
+          $company_nid = $entity->get('field_pr_ref_company')->getValue()[0]['target_id'];
+          $company = Node::load($company_nid);
+          if (!empty($company)) {
+            $list_tids = $company->get('field_product_categories_list')->getValue();
+            if (!empty($entity->get('field_categorization_parent')->getValue())) {
+              $sector_tid = $entity->get('field_categorization_parent')->getValue()[0]['target_id'];
+              $CpWfController = new CpWfContactController();
+              $arr_tids = $CpWfController->get_product_parent_cats_tids_by_company($company);
+              $bool_add = TRUE;
+              if (!empty($arr_tids)) {
+                if (in_array($sector_tid, $arr_tids)) {
+                  $bool_add = FALSE;
+                }
+              }
+              if ($bool_add) {
+                $list_tids[] = array('target_id' => $sector_tid);
+                $company->set('field_product_categories_list', $list_tids);
+                $company->save();
+              }
+            }
+          }
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function cp_wf_contact_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'product':
+      $curr_url = Url::fromRoute('<current>');
+      $curr_uri = ltrim($curr_url->toString(), '/');
+      if ($curr_uri) {
+        $arr_uri = explode('/', $curr_uri);
+        if (!empty($arr_uri) && $arr_uri[1] != 'batch') {
+          if (!empty($entity->get('field_pr_ref_company')->getValue()[0]) && isset($entity->original)) {
+            if (!empty($entity->get('field_categorization_parent'))) {
+
+              $company_nid = $entity->get('field_pr_ref_company')->getValue()[0]['target_id'];
+              $company = Node::load($company_nid);
+              if (!empty($company)) {
+                $CpWfCont = new CpWfContactController();
+                $arr_tids = $CpWfCont->get_product_parent_cats_tids_by_company($company);
+
+                $info_cats = $CpWfCont->get_info_products_cats_by_company_nid($arr_tids, $company_nid);
+                $old_prod = $entity->original;
+
+                $old_tid_parent = NULL;
+                if (!empty($old_prod->get('field_categorization_parent')->getValue()[0])) {
+                  $old_tid_parent = $old_prod->get('field_categorization_parent')->getValue()[0]['target_id'];
+                }
+
+                $new_tid_parent = NULL;
+                if (!empty($entity->get('field_categorization_parent')->getValue()[0])) {
+                  $new_tid_parent = $entity->get('field_categorization_parent')->getValue()[0]['target_id'];
+                }
+
+                $bool_isset = isset($info_cats[$old_tid_parent]);
+                if ($bool_isset) {
+                  $bool_count = count($info_cats[$old_tid_parent]) == 1;
+                  $bool_in_array = in_array($entity->id(), $info_cats[$old_tid_parent]);
+                  if ($bool_count && $bool_in_array) {
+                    unset($arr_tids[$old_tid_parent]);
+                  }
+                }
+
+                if (is_numeric($new_tid_parent)) {
+                  $arr_tids[$new_tid_parent] = $new_tid_parent;
+                }
+
+                if (!empty($arr_tids)) {
+                  $new_list_tids = array();
+                  foreach ($arr_tids as $key => $tid) {
+                    $new_list_tids[] = array('target_id' => $tid);
+                  }
+                  $company->set('field_product_categories_list', $new_list_tids);
+                  $company->save();
+                }
+              }
+            }
+          }
+        }
+      }
+      break;
+  }
+}
+
+
+/**
+ * Implements hook_entity_predelete().
+ */
+function cp_wf_contact_entity_predelete(Drupal\Core\Entity\EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'product':
+      if (!empty($entity->get('field_pr_ref_company'))) {
+        if (!empty($entity->get('field_categorization_parent'))) {
+          $company_nid = $entity->get('field_pr_ref_company')->getValue()[0]['target_id'];
+          if (is_numeric($company_nid)) {
+
+            $company = Node::load($company_nid);
+            if (!empty($company)) {
+              $CpWfCont = new CpWfContactController();
+              $arr_tids = $CpWfCont->get_product_parent_cats_tids_by_company($company);
+              $info_cats = $CpWfCont->get_info_products_cats_by_company_nid($arr_tids, $company_nid);
+
+              if (isset($entity->get('field_categorization_parent')->getValue()[0])) {
+                $new_tid_parent = $entity->get('field_categorization_parent')->getValue()[0]['target_id'];
+                $bool_isset = isset($info_cats[$new_tid_parent]);
+
+                if ($bool_isset) {
+                  $bool_count = count($info_cats[$new_tid_parent]) == 1;
+                  $bool_in_array = in_array($entity->id(), $info_cats[$new_tid_parent]);
+                  if ($bool_count && $bool_in_array) {
+                    unset($arr_tids[$new_tid_parent]);
+                  }
+                }
+              }
+
+              if (!empty($arr_tids)) {
+                $new_list_tids = array();
+                foreach ($arr_tids as $key => $tid) {
+                  $new_list_tids[] = array('target_id' => $tid);
+                }
+                $company->set('field_product_categories_list', $new_list_tids);
+                $company->save();
+              }
+            }
+          }
+        }
+      }
+      break;
+  }
+}
+

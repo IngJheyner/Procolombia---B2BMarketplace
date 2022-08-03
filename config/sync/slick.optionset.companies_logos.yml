@@ -1,0 +1,138 @@
+uuid: bc51f440-ff98-4e1d-bc09-80f90388f86f
+langcode: en
+status: false
+dependencies:
+  enforced:
+    module:
+      - slick
+_core:
+  default_config_hash: Zyx4BsKtbNFnRU7WTHAF0DGHMenI0b_Czn4dwl1bQTc
+id: companies_logos
+name: companies_logos
+weight: -10
+label: 'Companies logos'
+group: ''
+skin: default
+breakpoints: 2
+optimized: false
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    mobileFirst: false
+    asNavFor: ''
+    accessibility: true
+    adaptiveHeight: false
+    autoplay: true
+    pauseOnHover: true
+    pauseOnDotsHover: false
+    autoplaySpeed: 3000
+    arrows: true
+    prevArrow: ''
+    nextArrow: ''
+    downArrow: false
+    downArrowTarget: ''
+    downArrowOffset: 0
+    centerMode: false
+    centerPadding: 50px
+    dots: false
+    dotsClass: slick-dots
+    appendDots: $(element)
+    draggable: true
+    fade: false
+    focusOnSelect: false
+    infinite: true
+    initialSlide: 0
+    lazyLoad: ondemand
+    mouseWheel: false
+    randomize: false
+    respondTo: window
+    rtl: false
+    rows: 1
+    slidesPerRow: 5
+    slide: ''
+    slidesToShow: 5
+    slidesToScroll: 1
+    speed: 500
+    swipe: true
+    swipeToSlide: false
+    edgeFriction: 0.35
+    touchMove: true
+    touchThreshold: 5
+    useCSS: true
+    cssEase: ease
+    cssEaseBezier: ''
+    cssEaseOverride: ''
+    useTransform: true
+    easing: linear
+    variableWidth: false
+    vertical: false
+    verticalSwiping: false
+    waitForAnimate: true
+  responsives:
+    responsive:
+      -
+        breakpoint: 979
+        unslick: false
+        settings:
+          adaptiveHeight: false
+          autoplay: true
+          pauseOnHover: false
+          pauseOnDotsHover: false
+          autoplaySpeed: 3000
+          arrows: true
+          centerMode: false
+          centerPadding: 50px
+          dots: false
+          draggable: true
+          fade: false
+          focusOnSelect: false
+          infinite: true
+          initialSlide: 0
+          respondTo: window
+          rows: 1
+          slidesPerRow: 2
+          slidesToShow: 2
+          slidesToScroll: 1
+          speed: 500
+          swipe: false
+          swipeToSlide: false
+          edgeFriction: 0.35
+          touchMove: false
+          touchThreshold: 5
+          variableWidth: false
+          vertical: false
+          verticalSwiping: false
+          waitForAnimate: false
+      -
+        breakpoint: 480
+        unslick: false
+        settings:
+          adaptiveHeight: false
+          autoplay: true
+          pauseOnHover: false
+          pauseOnDotsHover: false
+          autoplaySpeed: 3000
+          arrows: true
+          centerMode: false
+          centerPadding: 50px
+          dots: false
+          draggable: true
+          fade: false
+          focusOnSelect: false
+          infinite: true
+          initialSlide: 0
+          respondTo: window
+          rows: 1
+          slidesPerRow: 1
+          slidesToShow: 1
+          slidesToScroll: 1
+          speed: 500
+          swipe: false
+          swipeToSlide: false
+          edgeFriction: 0.35
+          touchMove: false
+          touchThreshold: 5
+          variableWidth: false
+          vertical: false
+          verticalSwiping: false
+          waitForAnimate: false

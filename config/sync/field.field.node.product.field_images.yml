@@ -1,0 +1,38 @@
+uuid: 5a7b22e6-5ff1-44d7-b66a-b90d57ed5193
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_images
+    - node.type.product
+  module:
+    - image
+id: node.product.field_images
+field_name: field_images
+entity_type: node
+bundle: product
+label: Images
+description: 'Recuerde subir imágenes en formato JPGE y con dimensiones mínimas de 560x540 px'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[current-date:html_month]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '500 MB'
+  max_resolution: 1024x768
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 87376384-631d-4b45-9ad1-0fab3b04e87b
+    alt: ''
+    title: ''
+    width: 540
+    height: 490
+field_type: image

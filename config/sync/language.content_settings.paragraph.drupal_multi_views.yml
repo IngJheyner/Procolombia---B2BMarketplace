@@ -1,0 +1,18 @@
+uuid: b6e5fc37-f460-4ae9-9dfa-495045f8982f
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.drupal_multi_views
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.drupal_multi_views
+target_entity_type_id: paragraph
+target_bundle: drupal_multi_views
+default_langcode: site_default
+language_alterable: false

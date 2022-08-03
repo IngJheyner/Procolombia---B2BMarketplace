@@ -1,0 +1,29 @@
+uuid: 74fe01db-42bd-45df-ab13-fb446c3406d2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tag_producto
+    - node.type.product
+    - taxonomy.vocabulary.tags_xroductos
+id: node.product.field_tag_producto
+field_name: field_tag_producto
+entity_type: node
+bundle: product
+label: 'Etiqueta Producto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags_xroductos: tags_xroductos
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

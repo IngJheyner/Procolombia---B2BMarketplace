@@ -1,0 +1,34 @@
+uuid: 015d8346-3c11-480a-8df0-0de8ce66b2ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_asesor
+    - taxonomy.vocabulary.categorization
+id: taxonomy_term.categorization.field_asesor
+field_name: field_asesor
+entity_type: taxonomy_term
+bundle: categorization
+label: 'Business assessor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: role
+      role:
+        asesor_administrativo: asesor_administrativo
+        administrator: '0'
+        exportador: '0'
+        asesor_comercial: '0'
+        buyer: '0'
+    include_anonymous: true
+field_type: entity_reference

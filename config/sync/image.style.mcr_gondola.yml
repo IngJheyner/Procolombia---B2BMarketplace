@@ -1,0 +1,15 @@
+uuid: 13c046e1-74ae-4946-a5a0-162191e1b075
+langcode: en
+status: true
+dependencies: {  }
+name: mcr_gondola
+label: 'mcr gondola'
+effects:
+  73577dd0-4563-4799-99a1-0ace20ba86d2:
+    uuid: 73577dd0-4563-4799-99a1-0ace20ba86d2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 368
+      height: 271
+      anchor: center-center

@@ -1,0 +1,11 @@
+id: company_icon
+label: 'Company icon'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  node: node
+properties:
+  content:
+    value: '<span class="type-company">[company_custom_tokens:company_text]</span>'
+    format: html

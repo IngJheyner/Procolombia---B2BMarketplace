@@ -1,0 +1,31 @@
+uuid: 7b2b15f5-d7a3-4349-a156-6ea86e787f43
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: favorites
+label: Favorites
+bundles:
+  - company
+  - product
+entity_type: node
+global: false
+flag_short: 'Add to favorites'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Remove of favorites'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

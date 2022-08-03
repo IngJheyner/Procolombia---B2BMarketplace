@@ -1,0 +1,65 @@
+uuid: 9917a70e-15bc-4d95-a8bf-b74e5c560427
+langcode: es
+status: true
+dependencies: {  }
+id: buscador_qt
+label: buscador
+renderer: quick_tabs
+hide_empty_tabs: false
+default_tab: 0
+options:
+  quick_tabs:
+    ajax: false
+    class: quicktab-content-type
+    style: on-the-gray
+  accordion_tabs:
+    jquery_ui:
+      collapsible: false
+      heightStyle: auto
+configuration_data:
+  -
+    title: Products
+    weight: 0
+    type: block_content
+    content:
+      block_content:
+        options:
+          bid: 'block_content:846324ea-ed21-47d0-adf6-50762278283c'
+          block_title: ''
+          display_title: false
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      view_content:
+        options:
+          vid: agroalimentos
+          display: default
+          args: ''
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: Companies
+    weight: 0
+    type: block_content
+    content:
+      block_content:
+        options:
+          bid: 'block_content:d58278dd-fed6-4b0c-b740-91b7e3a4ed95'
+          block_title: ''
+          display_title: false
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      view_content:
+        options:
+          vid: agroalimentos
+          display: default
+          args: ''
+      qtabs_content:
+        options:
+          machine_name: ''

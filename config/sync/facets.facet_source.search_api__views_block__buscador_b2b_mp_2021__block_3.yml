@@ -1,0 +1,12 @@
+uuid: 971904d3-60e7-4b8c-b270-5d50f807c164
+langcode: es
+status: true
+dependencies: {  }
+id: search_api__views_block__buscador_b2b_mp_2021__block_3
+name: 'search_api:views_block__buscador_b2b_mp_2021__block_3'
+filter_key: cp
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

@@ -1,0 +1,20 @@
+uuid: 440688e5-0d9e-4896-be25-89d5e86ee5dc
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_ciiu_code
+field_name: field_ciiu_code
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

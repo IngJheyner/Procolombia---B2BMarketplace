@@ -1,0 +1,23 @@
+uuid: 86a7266a-ed25-46fd-82b9-c8141377963b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_producto_innovador
+    - node.type.product
+id: node.product.field_producto_innovador
+field_name: field_producto_innovador
+entity_type: node
+bundle: product
+label: 'Producto Innovador'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Si
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,15 @@
+uuid: ce5aad3d-5ad8-4acc-99ae-0f28e82a7f64
+langcode: es
+status: true
+dependencies: {  }
+name: logo_70x70_
+label: 'Logo (70x70)'
+effects:
+  968e8a76-3998-4d42-a4c1-69f0f6aade99:
+    uuid: 968e8a76-3998-4d42-a4c1-69f0f6aade99
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 70
+      height: 70
+      anchor: center-center

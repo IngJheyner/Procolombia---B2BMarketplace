@@ -1,0 +1,8 @@
+display:
+  default:
+    display_options:
+      header:
+        area:
+          content:
+            value: "<div class=\"title text-align-center\">\r\n <h2> Colombia has exporting companies for exactly what your client needs </h2>\r\n <p>Discover unique goods and services of Colombian origin to export, choose the category according to your needs.</p>\r\n</div>\r\n<div class=\"view-header is-mobile\">Features <span>Goods & Services</span> </div>"
+            format: html

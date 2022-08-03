@@ -1,0 +1,29 @@
+uuid: dd4488fc-39fd-4cd5-906f-aae3a361f877
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags_destacados
+    - node.type.company
+    - taxonomy.vocabulary.tags
+id: node.company.field_tags_destacados
+field_name: field_tags_destacados
+entity_type: node
+bundle: company
+label: 'Oferta Especializada Destacada'
+description: 'Será destacado en la oferta'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

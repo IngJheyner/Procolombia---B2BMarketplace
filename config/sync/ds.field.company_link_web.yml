@@ -1,0 +1,11 @@
+id: company_link_web
+label: 'company link web'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  node: node
+properties:
+  content:
+    value: '<a href="[node:field_web:uri]" class="link-web">[node:field_web:uri]</a>'
+    format: html

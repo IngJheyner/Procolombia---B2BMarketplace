@@ -1,0 +1,8 @@
+uuid: 712401f1-83ed-430b-b82e-8b1c131f54f0
+langcode: es
+status: true
+dependencies: {  }
+id: buyer_block
+label: 'Buyer block'
+revision: 0
+description: 'Bloques usados para mostrar el listado de servicios que tiene un usuario comprador'

@@ -1,0 +1,8 @@
+uuid: 5e24512f-b7ca-44f3-8c9b-075cf2175306
+langcode: es
+status: true
+dependencies: {  }
+id: footer-terminos
+label: 'Footer términos'
+description: 'Footer links'
+locked: false

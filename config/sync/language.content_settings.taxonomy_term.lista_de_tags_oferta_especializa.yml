@@ -1,0 +1,11 @@
+uuid: 6a29bdb1-b797-4430-a0a2-fefdd8c7ce05
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.lista_de_tags_oferta_especializa
+id: taxonomy_term.lista_de_tags_oferta_especializa
+target_entity_type_id: taxonomy_term
+target_bundle: lista_de_tags_oferta_especializa
+default_langcode: site_default
+language_alterable: false

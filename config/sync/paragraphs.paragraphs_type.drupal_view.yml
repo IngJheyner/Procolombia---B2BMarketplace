@@ -1,0 +1,10 @@
+uuid: e2fb8897-4d6e-4709-9fc8-671be8df4bad
+langcode: en
+status: true
+dependencies: {  }
+id: drupal_view
+label: 'Drupal view'
+icon_uuid: null
+icon_default: null
+description: 'Referencie una vista'
+behavior_plugins: {  }

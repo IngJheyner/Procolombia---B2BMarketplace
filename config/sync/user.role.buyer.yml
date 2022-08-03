@@ -1,0 +1,22 @@
+uuid: 4f55c03b-cf60-46c4-916d-bbabfbdb8d95
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - taxonomy_access_fix
+id: buyer
+label: Comprador
+weight: 7
+is_admin: null
+permissions:
+  - 'view field_iframe'
+  - 'view terms in categories_flow_semaphore'
+  - 'view terms in categorization'
+  - 'view terms in ciiu_codes'
+  - 'view terms in countries'
+  - 'view terms in home_macro_rueda'
+  - 'view terms in key_words'
+  - 'view terms in locations'
+  - 'view terms in sectors'
+  - 'view terms in tags'

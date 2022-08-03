@@ -1,0 +1,21 @@
+uuid: 1819e8b8-5cf0-44b6-a13f-6cb8cad008a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body_offer
+    - node.type.old_company
+  module:
+    - text
+id: node.old_company.field_body_offer
+field_name: field_body_offer
+entity_type: node
+bundle: old_company
+label: 'Descripción oferta'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

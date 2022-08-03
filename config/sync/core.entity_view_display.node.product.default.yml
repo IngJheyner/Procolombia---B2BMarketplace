@@ -1,0 +1,247 @@
+uuid: b22be4e7-c388-4bdd-b04a-618d4519ae3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - node.type.product
+  module:
+    - ds
+    - file
+    - iframe
+    - options
+    - svg_image
+    - telephone
+    - user
+id: node.product.default
+targetEntityType: node
+bundle: product
+mode: default
+content:
+  field_body:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_categorization:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_categorization_parent:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_dependent_state:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_exist_certifications:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_export_markets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_file_certifications:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_iframe:
+    type: iframe_default
+    label: above
+    settings:
+      url: ''
+      title: ''
+      class: ''
+      frameborder: '0'
+      scrolling: ''
+      transparency: '0'
+      allowfullscreen: '0'
+      tokensupport: '0'
+      width: ''
+      height: ''
+      expose_class: ''
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_images:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 3
+    region: content
+  field_key_words:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_key_words_backup:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_mostrar_en_home:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_partida_arancelaria_tax:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_pr_ref_company:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_previous_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_product_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_states:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_tag_producto:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_tariff_heading:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_trading_channel:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_producto_innovador: true
+  langcode: true
+  search_api_excerpt: true

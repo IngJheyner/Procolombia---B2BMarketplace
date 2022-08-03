@@ -1,0 +1,29 @@
+uuid: e96b96ae-ab14-41dd-bc12-d10a2f376c48
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_categories_list
+    - node.type.company
+    - taxonomy.vocabulary.categorization
+id: node.company.field_product_categories_list
+field_name: field_product_categories_list
+entity_type: node
+bundle: company
+label: 'Product categories list'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categorization: categorization
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

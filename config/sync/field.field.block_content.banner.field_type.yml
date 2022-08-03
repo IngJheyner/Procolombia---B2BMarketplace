@@ -1,0 +1,21 @@
+uuid: f345216f-b967-41d4-906b-62c747ca5d65
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - field.storage.block_content.field_type
+  module:
+    - options
+id: block_content.banner.field_type
+field_name: field_type
+entity_type: block_content
+bundle: banner
+label: Type
+description: 'Place where it will be used'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

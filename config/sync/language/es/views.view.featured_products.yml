@@ -1,0 +1,25 @@
+display:
+  block_2:
+    display_options:
+      fields:
+        nothing:
+          alter:
+            text: "<div class=\"product-card\">\r\n <a href=\"{{ view_node }}\">\r\n   <img src=\"{{ field_images }}\" width=\"280\" height=\"270\" alt=\"{{ title }}\" class=\"image-style-producto-destacado-small\">\r\n   <div class=\"more-info\">Conocer más</div>\r\n </a>\r\n  <div class=\"info\">\r\n    <a href=\"{{ view_node }}\"><h3>{{ title }}</h3></a>\r\n    <div class=\"company\">{{ field_pr_ref_company }}</div>\r\n  </div>\r\n</div>"
+  block_1:
+    display_options:
+      fields:
+        nothing:
+          alter:
+            text: "<div class=\"product-card\">\r\n <a href=\"{{ view_node }}\">\r\n   <img src=\"{{ field_images }}\" width=\"560\" height=\"540\" alt=\"{{ title_1 }}\" class=\"image-style-producto-destacado\">\r\n   <div class=\"more-info\">Conocer más</div>\r\n </a>\r\n  <div class=\"info\">\r\n    <a href=\"{{ view_node }}\"><h3>{{ title }}</h3></a>\r\n    <div class=\"company\">{{ field_pr_ref_company }}</div>\r\n  </div>\r\n</div>"
+  block_3:
+    display_options:
+      fields:
+        nothing:
+          alter:
+            text: "<div class=\"product-card\">\r\n <a href=\"{{ view_node }}\">\r\n   <img src=\"{{ field_images }}\" width=\"560\" height=\"540\" alt=\"{{ title }}\" class=\"image-style-producto-destacado\">\r\n   <div class=\"more-info\">Conocer más</div>\r\n </a>\r\n  <div class=\"info\">\r\n    <a href=\"{{ view_node }}\"><h3>{{ title }}</h3></a>\r\n    <div class=\"company\">{{ field_pr_ref_company }}</div>\r\n  </div>\r\n</div>"
+  block_4:
+    display_options:
+      fields:
+        nothing:
+          alter:
+            text: "<div class=\"product-card\">\r\n <a href=\"{{ view_node }}\">\r\n   <img src=\"{{ field_images }}\" alt=\"{{ title }}\" class=\"img-fluid\">\r\n   <div class=\"more-info\">Conocer más</div>\r\n </a>\r\n  <div class=\"info\">\r\n    <a href=\"{{ view_node }}\"><h3>{{ title }}</h3></a>\r\n    <div class=\"company\">{{ field_pr_ref_company }}</div>\r\n  </div>\r\n</div>"

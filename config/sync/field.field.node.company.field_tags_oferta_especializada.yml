@@ -1,0 +1,29 @@
+uuid: 9ba47dc1-1ac8-4b9b-a8f6-862410a8664a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags_oferta_especializada
+    - node.type.company
+    - taxonomy.vocabulary.lista_de_tags_oferta_especializa
+id: node.company.field_tags_oferta_especializada
+field_name: field_tags_oferta_especializada
+entity_type: node
+bundle: company
+label: 'Tags Oferta Especializada'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      lista_de_tags_oferta_especializa: lista_de_tags_oferta_especializa
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

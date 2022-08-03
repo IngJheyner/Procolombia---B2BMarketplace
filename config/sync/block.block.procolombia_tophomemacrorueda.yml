@@ -1,0 +1,25 @@
+uuid: 09cdc4b3-7994-4ee6-8695-415b88e84808
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:1d1ab10d-a1c9-4750-921b-2b72d7a716be'
+  module:
+    - block_content
+  theme:
+    - procolombia
+id: procolombia_tophomemacrorueda
+theme: procolombia
+region: region_a
+weight: -12
+provider: null
+plugin: 'block_content:1d1ab10d-a1c9-4750-921b-2b72d7a716be'
+settings:
+  id: 'block_content:1d1ab10d-a1c9-4750-921b-2b72d7a716be'
+  label: 'top home macro-rueda'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

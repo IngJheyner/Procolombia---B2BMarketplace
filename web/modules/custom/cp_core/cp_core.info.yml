@@ -1,0 +1,7 @@
+name: 'CP Core'
+type: module
+description: 'Module with the general features of procolombia catalogo'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+- block

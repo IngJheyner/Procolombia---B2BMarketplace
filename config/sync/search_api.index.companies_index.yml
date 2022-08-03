@@ -1,0 +1,297 @@
+uuid: 21d01534-8fab-4760-ac85-77b179e8b4ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_categories_list
+    - field.storage.node.field_semaphore_category
+    - field.storage.node.field_ubication_city
+    - field.storage.node.field_ubication_state
+    - field.storage.node.field_states
+    - field.storage.node.field_logo
+    - field.storage.node.field_nit
+    - field.storage.node.field_body
+    - field.storage.node.field_tags
+    - field.storage.node.field_tags_destacados
+    - field.storage.node.field_url_ecommerce
+    - field.storage.node.field_web
+    - search_api.server.companies_server
+  module:
+    - node
+    - user
+    - search_api
+id: companies_index
+name: Companies_index
+description: ''
+read_only: false
+field_settings:
+  created:
+    label: 'Fecha Creación'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  field_body:
+    label: 'Our history'
+    datasource_id: 'entity:node'
+    property_path: field_body
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_body
+  field_categorization:
+    label: 'Categorization Product'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_reverse_entity_references_node__field_pr_ref_company:field_categorization'
+    type: integer
+  field_logo:
+    label: 'Logo company'
+    datasource_id: 'entity:node'
+    property_path: field_logo
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_logo
+  field_nit:
+    label: Nit
+    datasource_id: 'entity:node'
+    property_path: field_nit
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_nit
+  field_product_categories_list:
+    label: 'Categorization company'
+    datasource_id: 'entity:node'
+    property_path: field_product_categories_list
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_product_categories_list
+  field_semaphore_category:
+    label: 'Categoría administrativa'
+    datasource_id: 'entity:node'
+    property_path: field_semaphore_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_semaphore_category
+  field_states:
+    label: Estados
+    datasource_id: 'entity:node'
+    property_path: field_states
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_states
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  field_tags_1:
+    label: 'Tags clasificación marcas blancas y otras '
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  field_tags_destacados:
+    label: 'Tags Destacados'
+    datasource_id: 'entity:node'
+    property_path: field_tags_destacados
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_tags_destacados
+  field_ubication_city:
+    label: Ciudad
+    datasource_id: 'entity:node'
+    property_path: field_ubication_city
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ubication_city
+  field_ubication_state:
+    label: Departamento
+    datasource_id: 'entity:node'
+    property_path: field_ubication_state
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_ubication_state
+  field_url_ecommerce:
+    label: 'URL ecommerce company'
+    datasource_id: 'entity:node'
+    property_path: field_url_ecommerce
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_url_ecommerce
+  field_web:
+    label: 'Web company'
+    datasource_id: 'entity:node'
+    property_path: field_web
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_web
+  nid:
+    label: 'ID company'
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  nid_1:
+    label: 'ID Product'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_reverse_entity_references_node__field_pr_ref_company:nid'
+    type: integer
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  product_number_company:
+    label: 'Numero de Productos'
+    property_path: aggregated_field
+    type: integer
+    configuration:
+      type: count
+      fields:
+        - 'entity:node/search_api_reverse_entity_references_node__field_pr_ref_company'
+  status:
+    label: 'Published company'
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  title_company_field:
+    label: 'Title company'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  title_company_search:
+    label: 'Title company for search'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+  title_product_field:
+    label: 'Title Product'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_reverse_entity_references_node__field_pr_ref_company:title'
+    type: string
+  title_product_search:
+    label: 'Title Product for search'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_reverse_entity_references_node__field_pr_ref_company:title'
+    type: text
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  user_mail:
+    label: 'Correo electrónico Usuario'
+    datasource_id: 'entity:node'
+    property_path: 'uid:entity:mail'
+    type: string
+    dependencies:
+      module:
+        - node
+        - user
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - company
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_status: {  }
+  hierarchy:
+    weights:
+      preprocess_index: -45
+    fields:
+      field_categorization: taxonomy_term-parent
+      field_product_categories_list: taxonomy_term-parent
+      field_tags: taxonomy_term-parent
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - field_body
+      - field_nit
+      - field_states
+      - field_tags
+      - field_tags_destacados
+      - field_url_ecommerce
+      - field_web
+      - title_company_field
+      - title_company_search
+      - title_product_field
+      - title_product_search
+      - user_mail
+  language_with_fallback: {  }
+  rendered_item: {  }
+  reverse_entity_references: {  }
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - field_body
+      - field_nit
+      - field_states
+      - field_tags
+      - field_tags_destacados
+      - field_url_ecommerce
+      - field_web
+      - title_company_field
+      - title_company_search
+      - title_product_field
+      - title_product_search
+      - user_mail
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: companies_server

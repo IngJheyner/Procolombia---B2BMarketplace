@@ -1,0 +1,37 @@
+uuid: a5af92fb-67a2-47a8-aaf4-0930bfac1978
+langcode: es
+status: true
+dependencies:
+  config:
+    - filter.format.mails
+    - filter.format.restricted_html
+  module:
+    - comment
+    - field_permissions
+    - filter
+    - media
+    - system
+    - taxonomy_access_fix
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Usuario anónimo'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'use text format mails'
+  - 'use text format restricted_html'
+  - 'view field_iframe'
+  - 'view media'
+  - 'view own field_iframe'
+  - 'view terms in categories_flow_semaphore'
+  - 'view terms in categorization'
+  - 'view terms in ciiu_codes'
+  - 'view terms in countries'
+  - 'view terms in home_macro_rueda'
+  - 'view terms in key_words'
+  - 'view terms in locations'
+  - 'view terms in sectors'
+  - 'view terms in tags'

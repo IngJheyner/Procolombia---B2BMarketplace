@@ -1,0 +1,19 @@
+uuid: 5a676813-5832-4058-9f5b-c8037f6010da
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle_slide
+    - node.type.banner
+id: node.banner.field_subtitle_slide
+field_name: field_subtitle_slide
+entity_type: node
+bundle: banner
+label: 'Subtitle slide'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

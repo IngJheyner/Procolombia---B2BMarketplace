@@ -1,0 +1,21 @@
+uuid: f6bbd3cd-1f0d-4670-a041-a5bb182e94de
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_json_ld
+    - node.type.company
+  module:
+    - text
+id: node.company.field_json_ld
+field_name: field_json_ld
+entity_type: node
+bundle: company
+label: Json-ld
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

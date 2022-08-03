@@ -1,0 +1,34 @@
+uuid: c28b3ccb-2272-4420-b0d2-ccab438b3482
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: company
+label: Company
+type: 'canonical_entities:node'
+pattern: '[node:title]-[node:nid]'
+selection_criteria:
+  b48c3a85-b092-44ec-a6e2-59ffe105bdf7:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: b48c3a85-b092-44ec-a6e2-59ffe105bdf7
+    context_mapping:
+      node: node
+    bundles:
+      company: company
+  f3b5975d-7b26-4f79-800e-145b506540fc:
+    id: language
+    negate: false
+    uuid: f3b5975d-7b26-4f79-800e-145b506540fc
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      es: es
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

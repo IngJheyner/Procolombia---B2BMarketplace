@@ -1,0 +1,18 @@
+uuid: ffcbc329-d75b-4366-9970-5f08ee3e05f8
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.key_words
+id: taxonomy_term.key_words.name
+field_name: name
+entity_type: taxonomy_term
+bundle: key_words
+label: Nombre
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

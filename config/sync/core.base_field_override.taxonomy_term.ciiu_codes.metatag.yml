@@ -1,0 +1,18 @@
+uuid: 7133ec8a-1920-44dd-9978-89a9042deea9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ciiu_codes
+id: taxonomy_term.ciiu_codes.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: ciiu_codes
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

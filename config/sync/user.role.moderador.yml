@@ -1,0 +1,59 @@
+uuid: 0c634c6f-182d-4906-81de-07b70be084e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.banner
+    - node.type.company
+    - node.type.landing_page
+    - node.type.old_company
+    - node.type.page
+    - node.type.product
+    - taxonomy.vocabulary.categorization
+    - taxonomy.vocabulary.partida_arancelaria
+  module:
+    - force_password_change
+    - metatag
+    - node
+    - shortcut
+    - taxonomy
+    - toolbar
+    - view_unpublished
+    - views_ui
+    - webform
+id: moderador
+label: Moderador
+weight: 9
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access shortcuts'
+  - 'access toolbar'
+  - 'access webform overview'
+  - 'access webform submission user'
+  - 'administer force password change'
+  - 'administer meta tags'
+  - 'administer nodes'
+  - 'administer users'
+  - 'administer views'
+  - 'administer webform submission'
+  - 'edit any banner content'
+  - 'edit any company content'
+  - 'edit any landing_page content'
+  - 'edit any old_company content'
+  - 'edit any page content'
+  - 'edit any product content'
+  - 'edit any webform'
+  - 'edit own banner content'
+  - 'edit own company content'
+  - 'edit own landing_page content'
+  - 'edit own old_company content'
+  - 'edit own page content'
+  - 'edit own product content'
+  - 'edit terms in categorization'
+  - 'edit terms in partida_arancelaria'
+  - 'edit webform assets'
+  - 'view any unpublished company content'
+  - 'view any unpublished old_company content'
+  - 'view any unpublished product content'
+  - 'view own unpublished content'

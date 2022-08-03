@@ -1,0 +1,29 @@
+uuid: 9a5f3f70-88a1-47a5-89ea-b49cd4020205
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_partida_arancelaria_tax
+    - node.type.product
+    - taxonomy.vocabulary.partida_arancelaria
+id: node.product.field_partida_arancelaria_tax
+field_name: field_partida_arancelaria_tax
+entity_type: node
+bundle: product
+label: 'Partida arancelariia'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      partida_arancelaria: partida_arancelaria
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,27 @@
+diff --git a/core/lib/Drupal/Component/Utility/Unicode.php b/core/lib/Drupal/Component/Utility/Unicode.php
+index 4a63ec2e..24aca25d 100644
+--- a/core/lib/Drupal/Component/Utility/Unicode.php
++++ b/core/lib/Drupal/Component/Utility/Unicode.php
+@@ -475,13 +475,19 @@ public static function mimeHeaderDecode($header) {
+    *   TRUE if the text is valid UTF-8, FALSE if not.
+    */
+   public static function validateUtf8($text) {
+-    if (strlen($text) == 0) {
+-      return TRUE;
+-    }
++       if(is_string($text)){
++               if (strlen($text) == 0) {
++                       return TRUE;
++                       }
+     // With the PCRE_UTF8 modifier 'u', preg_match() fails silently on strings
+     // containing invalid UTF-8 byte sequences. It does not reject character
+     // codes above U+10FFFF (represented by 4 or more octets), though.
+     return (preg_match('/^./us', $text) == 1);
++                       }
++       elseif(get_class($text)!= "Drupal\Core\Link"){
++               if(strlen($text)==0){return TRUE;}
++               return (preg_match('/^./us',$text) == 1);
++                       }
+   }
+
+ }

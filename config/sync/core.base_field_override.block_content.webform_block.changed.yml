@@ -1,0 +1,18 @@
+uuid: 5c62d0ee-8a1e-46ae-b2b8-ec8d395578be
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.webform_block
+id: block_content.webform_block.changed
+field_name: changed
+entity_type: block_content
+bundle: webform_block
+label: Modificado
+description: 'La fecha en que el bloque personalizado fue editado por última vez.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

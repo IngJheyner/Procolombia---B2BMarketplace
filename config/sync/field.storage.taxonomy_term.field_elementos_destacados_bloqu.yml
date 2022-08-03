@@ -1,0 +1,28 @@
+uuid: a68c95da-3883-41ef-be3b-5c3229be1d00
+langcode: es
+status: true
+dependencies:
+  module:
+    - dynamic_entity_reference
+    - field_permissions
+    - node
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: taxonomy_term.field_elementos_destacados_bloqu
+field_name: field_elementos_destacados_bloqu
+entity_type: taxonomy_term
+type: dynamic_entity_reference
+settings:
+  exclude_entity_types: false
+  entity_type_ids:
+    node: node
+    taxonomy_term: taxonomy_term
+module: dynamic_entity_reference
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

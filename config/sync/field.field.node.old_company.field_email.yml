@@ -1,0 +1,19 @@
+uuid: 6f0366cd-9c53-4fbb-8611-e703a66fd383
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.old_company
+id: node.old_company.field_email
+field_name: field_email
+entity_type: node
+bundle: old_company
+label: 'Correo corporativo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

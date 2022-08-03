@@ -1,0 +1,29 @@
+uuid: a32b59f7-f92b-4f90-9406-2084a44fc050
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ubication_state
+    - node.type.company
+    - taxonomy.vocabulary.locations
+id: node.company.field_ubication_state
+field_name: field_ubication_state
+entity_type: node
+bundle: company
+label: 'Ubication state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      locations: locations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,16 @@
+_core:
+  default_config_hash: Wu3IKMk26-vsOrYw0-gdQelLF90-LJG4ce9mvT9zooE
+langcode: es
+debug: true
+theme: catalogo_public
+html_with_plain: false
+postfilter: html_for_email_
+use_mail_mime: false
+test:
+  to: hnumpaque@procolombia.co
+  subject: 'subject test'
+  body:
+    value: '<h1>Se realiza prueba de envío de correos </h1>'
+    format: html
+  class: htmlmail
+hmtlmail_theme: ''

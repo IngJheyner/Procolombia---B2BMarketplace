@@ -1,0 +1,8 @@
+uuid: 83df5986-4588-4a23-bf62-8bfc26e1ccf4
+langcode: es
+status: true
+dependencies: {  }
+name: 'Tags Productos'
+vid: tags_xroductos
+description: 'Tags Productos'
+weight: 0

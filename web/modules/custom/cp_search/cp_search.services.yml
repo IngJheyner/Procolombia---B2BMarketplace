@@ -1,0 +1,5 @@
+services:
+  cp_search.customTwigExtension:
+    class: Drupal\cp_search\TwigExtension
+    tags:
+      - { name: twig.extension }

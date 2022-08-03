@@ -1,0 +1,122 @@
+uuid: 4a98d166-fd49-4ca5-bcf0-b6c106a30d8d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.products_search_results
+    - facets.facet.categorization_facet
+    - facets.facet.certificaciones
+    - facets.facet.export_markets
+    - field.field.block_content.products_search_results.layout_builder__layout
+    - views.view.buscador_b2b_mp_2021
+  content:
+    - 'block_content:basic:356701eb-e293-4937-8b64-a19579a41805'
+  module:
+    - block_content
+    - bootstrap_layouts
+    - facets
+    - layout_builder
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: bs_2col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: section
+            classes:
+              row: row
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            left:
+              wrapper: div
+              classes:
+                col-md-3: col-md-3
+              add_region_classes: 1
+              attributes: id|busqueda-filtro
+            right:
+              wrapper: div
+              classes:
+                col-md-9: col-md-9
+              add_region_classes: 1
+              attributes: id|busqueda-items
+        components:
+          215d4f8a-ad75-4509-aea7-4aa6cb5b8d32:
+            uuid: 215d4f8a-ad75-4509-aea7-4aa6cb5b8d32
+            region: right
+            configuration:
+              id: 'views_block:buscador_b2b_mp_2021-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional: {  }
+          854df506-58f4-4abd-ae54-41d3fb3efab0:
+            uuid: 854df506-58f4-4abd-ae54-41d3fb3efab0
+            region: left
+            configuration:
+              id: 'facet_block:export_markets'
+              label: 'Países importadores'
+              label_display: '0'
+              provider: facets
+              context_mapping: {  }
+            weight: -9
+            additional: {  }
+          5f39e44f-116b-4dfb-ba5f-5c750aa35d9f:
+            uuid: 5f39e44f-116b-4dfb-ba5f-5c750aa35d9f
+            region: left
+            configuration:
+              id: 'facet_block:certificaciones'
+              label: certificaciones
+              label_display: '0'
+              provider: facets
+              context_mapping: {  }
+            weight: -8
+            additional: {  }
+          43c47aa2-f279-4aa9-93e6-082966096272:
+            uuid: 43c47aa2-f279-4aa9-93e6-082966096272
+            region: left
+            configuration:
+              id: 'facet_block:categorization_facet'
+              label: 'Categorías relacionadas con la busqueda'
+              label_display: '0'
+              provider: facets
+              context_mapping: {  }
+            weight: -7
+            additional: {  }
+          733c5390-9c47-4b19-bb6c-77b0bdbdb9c7:
+            uuid: 733c5390-9c47-4b19-bb6c-77b0bdbdb9c7
+            region: left
+            configuration:
+              id: 'block_content:356701eb-e293-4937-8b64-a19579a41805'
+              label: 'Filtro de Productos'
+              label_display: '0'
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: -10
+            additional: {  }
+        third_party_settings: {  }
+id: block_content.products_search_results.default
+targetEntityType: block_content
+bundle: products_search_results
+mode: default
+content: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

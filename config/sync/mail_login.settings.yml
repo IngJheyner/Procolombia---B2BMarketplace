@@ -1,0 +1,7 @@
+_core:
+  default_config_hash: SMMHLGfy4YoZHXabFVqh8vjsvM_MzWgohArG_gXaIXQ
+langcode: es
+mail_login_enabled: 1
+mail_login_override_login_labels: 1
+mail_login_username_title: 'Email or NIT (without hyphen)'
+mail_login_username_description: 'You can use your nit or email address to login.'

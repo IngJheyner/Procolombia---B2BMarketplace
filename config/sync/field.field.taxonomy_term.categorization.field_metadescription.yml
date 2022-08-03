@@ -1,0 +1,19 @@
+uuid: a718875a-9ba5-47a0-bc0d-eb0e195745eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_metadescription
+    - taxonomy.vocabulary.categorization
+id: taxonomy_term.categorization.field_metadescription
+field_name: field_metadescription
+entity_type: taxonomy_term
+bundle: categorization
+label: metadescription
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

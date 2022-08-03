@@ -1,0 +1,24 @@
+label: 'Dashboard del usuario'
+display:
+  default:
+    display_options:
+      fields:
+        title:
+          label: Nombre
+        field_categorization:
+          label: Subsector
+        body:
+          label: Descripción
+        field_images:
+          label: Imagen
+        field_states:
+          label: Estado
+        langcode:
+          label: Idioma
+      header:
+        area:
+          content:
+            value: "<p><img height=\"64\" src=\"/themes/custom/catalogo_public/images/dsbd_product_logo.png\" width=\"72\" /></p>\r\n\r\n<h3>Productos</h3>\r\n"
+            format: basic_html
+  page_1:
+    display_title: Página

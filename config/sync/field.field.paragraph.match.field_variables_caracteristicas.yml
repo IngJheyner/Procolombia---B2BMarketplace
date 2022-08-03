@@ -1,0 +1,23 @@
+uuid: bf46e9ec-eafe-45b3-8566-c1cf614ed860
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_variables_caracteristicas
+    - paragraphs.paragraphs_type.match
+  module:
+    - options
+id: paragraph.match.field_variables_caracteristicas
+field_name: field_variables_caracteristicas
+entity_type: paragraph
+bundle: match
+label: 'Variables / Caracteristicas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Categoría
+default_value_callback: ''
+settings: {  }
+field_type: list_string

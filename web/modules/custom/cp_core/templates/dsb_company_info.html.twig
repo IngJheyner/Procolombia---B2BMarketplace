@@ -1,0 +1,45 @@
+{% if nid_company is null %}
+	<div class="content-add-company">
+		<div class="content-img">
+			<img src="{{ img_add_company }}">
+		</div>
+		<div class="content-info">
+			<p>{{ 'You currently do not have a company or registered products. Please create a company and then its products. '|trans }}</p>
+			<a target="_blank" href="/dashboard/company-add">
+				<span>{{ 'Add company'|trans }}</span>
+			</a>
+		</div>
+	</div>
+{% else %}
+	<div class="content-edit-company">
+		<div class="header">
+			<img src="{{ img_add_company }}">
+			<span><img src="{{ Company }}"></span>
+			<span>{{ "Company profile and contact"|t }}</span>
+			<a class="edit" href="/company/edit/{{nid_company}}">Edit</a>
+		</div>
+		<div class="content">
+			<div class="row">
+				<div class="content-company-nit col-md-2 col-sm-12">
+					<label>{{ 'Nit'|trans }}</label>
+					<span>{{nit}}</span>
+				</div>
+				<div class="content-company-name col-md-6 col-sm-12">
+					<label>{{ 'Company name'|trans }}</label>
+					<span>{{name_company}}</span>
+				</div>
+				{% if label_state is not null %}
+					<div class="content-company-nit col-md-2 col-sm-12">
+						<label>{{ 'State'|trans }}</label>
+						<span>{{label_state}}</span>
+					</div>
+					<div class="content-company-publish col-md-2 col-sm-12">
+						<label>{{ 'Published'|trans }}</label>
+						<span>{{bool_publish}}</span>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+
+	</div>
+{% endif %}

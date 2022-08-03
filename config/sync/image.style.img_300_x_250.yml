@@ -1,0 +1,17 @@
+uuid: 90f614f5-1bff-4a7a-baf9-5d3910f6e1f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: img_300_x_250
+label: 'Img 300 X 250'
+effects:
+  75d1f99b-3e28-42ff-b849-e2ab495ea988:
+    uuid: 75d1f99b-3e28-42ff-b849-e2ab495ea988
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 250
+      crop_type: focal_point

@@ -1,0 +1,22 @@
+uuid: eca113d4-ca5e-4508-8292-39f2156eabb6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_video_embed_field
+    - media.type.videoembedfileaccesscontent
+  module:
+    - video_embed_field
+id: media.videoembedfileaccesscontent.field_media_video_embed_field
+field_name: field_media_video_embed_field
+entity_type: media
+bundle: videoembedfileaccesscontent
+label: 'Video Url'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers: {  }
+field_type: video_embed_field

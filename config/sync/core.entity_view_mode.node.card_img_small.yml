@@ -1,0 +1,10 @@
+uuid: 4d6c9aad-46f4-4b25-b3b8-2e2d4ec29d5e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.card_img_small
+label: 'Card img small'
+targetEntityType: node
+cache: true

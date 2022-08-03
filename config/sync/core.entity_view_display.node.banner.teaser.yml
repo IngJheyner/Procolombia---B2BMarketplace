@@ -1,0 +1,35 @@
+uuid: c3f59dab-3030-427b-9656-0e3a78b2d5e3
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.banner.field_background_image
+    - field.field.node.banner.field_label_slide
+    - field.field.node.banner.field_subtitle_slide
+    - field.field.node.banner.field_title_slide
+    - field.field.node.banner.field_web
+    - node.type.banner
+  module:
+    - user
+id: node.banner.teaser
+targetEntityType: node
+bundle: banner
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_background_image: true
+  field_label_slide: true
+  field_subtitle_slide: true
+  field_title_slide: true
+  field_web: true
+  langcode: true
+  search_api_excerpt: true

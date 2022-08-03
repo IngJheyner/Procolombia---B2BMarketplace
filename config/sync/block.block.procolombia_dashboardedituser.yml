@@ -1,0 +1,21 @@
+uuid: ecf033f7-aa22-4ce5-9c2f-907b9e253171
+langcode: es
+status: false
+dependencies:
+  module:
+    - cp_core
+  theme:
+    - procolombia
+id: procolombia_dashboardedituser
+theme: procolombia
+region: sidebar_second
+weight: 0
+provider: null
+plugin: dsb_edit_user
+settings:
+  id: dsb_edit_user
+  label: 'Dashboard edit user'
+  label_display: '0'
+  provider: cp_core
+  my_block_settings: null
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: e3aa80c9-f15a-42e9-a79f-73384f7ad1ac
+langcode: es
+status: true
+dependencies:
+  module:
+    - graphql
+id: web_services
+label: 'Web services'
+weight: 8
+is_admin: null
+permissions:
+  - 'bypass graphql field security'
+  - 'execute graphql requests'
+  - 'execute persisted graphql requests'

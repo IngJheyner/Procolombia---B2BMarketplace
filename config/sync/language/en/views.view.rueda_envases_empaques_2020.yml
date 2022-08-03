@@ -1,0 +1,65 @@
+label: 'Packaging and plastic solutions virtual business matchmaking forum'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: SEARCH
+          reset_button_label: RESET
+          exposed_sorts_label: 'Sort by'
+          text_input_required: 'Select any filter and press Apply to see the results'
+          bef:
+            general:
+              secondary_label: 'Advanced Options'
+      filters:
+        field_categorization_target_id:
+          expose:
+            label: Category
+        field_export_markets_target_id:
+          expose:
+            label: 'Export destination markets'
+        field_exist_certifications_value:
+          expose:
+            label: 'Products with certifications'
+        title:
+          expose:
+            label: Product
+        field_tariff_heading_value:
+          expose:
+            label: 'Tariff Item #'
+      title: 'Packaging and plastic solutions virtual business matchmaking forum'
+      header:
+        result:
+          content: 'Showing @start - @end of @total'
+      empty:
+        area:
+          content:
+            value: '<h4>No results found.</h4>'
+            format: html
+      fields:
+        view_node:
+          text: 'Find out more'
+  page_1:
+    display_options:
+      title: 'Packaging and plastic solutions virtual business matchmaking forum'
+  page_2:
+    display_options:
+      filters:
+        field_categorization_target_id:
+          expose:
+            label: Category
+        field_export_markets_target_id:
+          expose:
+            label: 'Export destination markets'
+        field_exist_certifications_value:
+          expose:
+            label: 'Products with certifications'
+        title:
+          expose:
+            label: Product
+        field_tariff_heading_value:
+          expose:
+            label: 'Tariff Item #'
+        field_producto_innovador_value:
+          expose:
+            label: 'Innovative Products'

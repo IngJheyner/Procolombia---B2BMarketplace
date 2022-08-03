@@ -1,0 +1,19 @@
+uuid: ff4349fb-289c-46c6-b8d9-462849296527
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - layout_builder
+id: block_content.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: block_content
+type: layout_section
+settings: {  }
+module: layout_builder
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

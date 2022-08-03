@@ -1,0 +1,4 @@
+title: 'Perfil del usuario'
+handlers:
+  email_notification:
+    label: 'Notificación de correo electrónico'

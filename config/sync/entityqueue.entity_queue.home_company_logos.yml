@@ -1,0 +1,25 @@
+uuid: fb6af441-94ea-45b0-87c5-a22bb44325d6
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: home_company_logos
+label: 'Home logos de empresas'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      company: company
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 10
+  max_size: 10
+  act_as_queue: false
+  reverse: false

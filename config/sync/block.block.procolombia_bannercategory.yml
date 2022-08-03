@@ -1,0 +1,27 @@
+uuid: 3e93e3c0-1071-4006-b591-a6f3b4db29af
+langcode: en
+status: false
+dependencies:
+  module:
+    - cp_search
+    - system
+  theme:
+    - procolombia
+id: procolombia_bannercategory
+theme: procolombia
+region: highlighted
+weight: -10
+provider: null
+plugin: banner_category
+settings:
+  id: banner_category
+  label: 'Banner Category'
+  label_display: '0'
+  provider: cp_search
+  my_block_settings: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/products\r\n/products/*\r\n/products/*/*\r\n/productos\r\n/productos/*\r\n/productos/*/*"

@@ -1,0 +1,20 @@
+uuid: 7d22cb2a-d079-4d44-9312-ed3240e381a3
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.otros_eventos_destacados
+  module:
+    - text
+id: taxonomy_term.otros_eventos_destacados.description
+field_name: description
+entity_type: taxonomy_term
+bundle: otros_eventos_destacados
+label: Descripción
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

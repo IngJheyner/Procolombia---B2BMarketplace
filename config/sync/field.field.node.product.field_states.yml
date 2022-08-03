@@ -1,0 +1,23 @@
+uuid: e8da2976-f312-487c-bf65-5ad71b36fee7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_states
+    - node.type.product
+  module:
+    - options
+id: node.product.field_states
+field_name: field_states
+entity_type: node
+bundle: product
+label: States
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: waiting
+default_value_callback: ''
+settings: {  }
+field_type: list_string

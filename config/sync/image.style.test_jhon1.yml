@@ -1,0 +1,15 @@
+uuid: 246f3a7e-d77a-4c23-92b0-96948e994359
+langcode: es
+status: true
+dependencies: {  }
+name: test_jhon1
+label: test_jhon1
+effects:
+  03ad90f2-c3fb-49ef-b776-4be77c2b9339:
+    uuid: 03ad90f2-c3fb-49ef-b776-4be77c2b9339
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 368
+      height: 270
+      anchor: center-center

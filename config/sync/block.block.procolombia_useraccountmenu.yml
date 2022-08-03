@@ -1,0 +1,41 @@
+uuid: 5b97fcf8-4431-4a25-8314-82e1773138fc
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+    - user
+  theme:
+    - procolombia
+id: procolombia_useraccountmenu
+theme: procolombia
+region: region_a
+weight: -17
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      asesor_comercial: asesor_comercial
+      asesor_administrativo: asesor_administrativo
+      buyer: buyer
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/mcr-80\r\n/mcr-80/*\r\n/dashboard\r\n/dashboard/*"

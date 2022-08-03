@@ -1,0 +1,11 @@
+id: link_name_company
+label: 'Link name company'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  node: node
+properties:
+  content:
+    value: "\r\n<a href=\"[node:field_pr_ref_company:entity:url]\">[node:field_pr_ref_company:entity:title]</a>\r\n"
+    format: html

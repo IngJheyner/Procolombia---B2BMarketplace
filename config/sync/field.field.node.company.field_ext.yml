@@ -1,0 +1,19 @@
+uuid: 96ef9acb-dac2-484e-bb8d-b7e063fe1d21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ext
+    - node.type.company
+id: node.company.field_ext
+field_name: field_ext
+entity_type: node
+bundle: company
+label: Ext
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: 2df5c43d-b68c-4336-9fbd-20038098d53a
+langcode: es
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_subcat_interest_2
+field_name: field_subcat_interest_2
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

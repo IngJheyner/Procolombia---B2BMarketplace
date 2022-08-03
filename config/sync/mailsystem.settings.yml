@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+langcode: es
+theme: catalogo_public
+defaults:
+  sender: mailchimp_transactional_mail
+  formatter: mailchimp_transactional_mail
+modules:
+  htmlmail: {  }
+  mandrill: {  }

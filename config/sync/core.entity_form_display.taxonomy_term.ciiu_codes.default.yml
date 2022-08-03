@@ -1,0 +1,69 @@
+uuid: 2c48a88e-67b9-4dbb-b63d-39b7e7088a0d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.ciiu_codes.field_ciiu_code
+    - taxonomy.vocabulary.ciiu_codes
+  module:
+    - path
+    - text
+id: taxonomy_term.ciiu_codes.default
+targetEntityType: taxonomy_term
+bundle: ciiu_codes
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_ciiu_code:
+    type: number
+    weight: 31
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  tvi:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

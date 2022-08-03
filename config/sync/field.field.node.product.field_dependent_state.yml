@@ -1,0 +1,23 @@
+uuid: 349e3183-d7e2-43be-84a2-f87d5a00783d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dependent_state
+    - node.type.product
+id: node.product.field_dependent_state
+field_name: field_dependent_state
+entity_type: node
+bundle: product
+label: 'Dependent state'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

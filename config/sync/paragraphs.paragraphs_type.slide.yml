@@ -1,0 +1,10 @@
+uuid: d5a3abff-b4a2-4e25-8ad3-b64571eb8310
+langcode: en
+status: true
+dependencies: {  }
+id: slide
+label: Slider
+icon_uuid: null
+icon_default: null
+description: 'Se usa para el banner principal del homepage'
+behavior_plugins: {  }

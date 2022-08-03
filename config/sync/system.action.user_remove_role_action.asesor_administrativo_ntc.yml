@@ -1,0 +1,14 @@
+uuid: ed889dbe-5fb2-4d56-a963-9448433d4302
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_administrativo_ntc
+  module:
+    - user
+id: user_remove_role_action.asesor_administrativo_ntc
+label: 'Elimina el rol Asesor administrativo NTC al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: asesor_administrativo_ntc

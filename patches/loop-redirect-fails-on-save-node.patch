@@ -1,0 +1,35 @@
+diff --git a/src/RedirectRepository.php b/src/RedirectRepository.php
+index ff1ccf8..7f67059 100644
+--- a/src/RedirectRepository.php
++++ b/src/RedirectRepository.php
+@@ -83,19 +83,21 @@ class RedirectRepository {
+     if (!empty($rid)) {
+       // Check if this is a loop.
+       if (in_array($rid, $this->foundRedirects)) {
+-        throw new RedirectLoopException('/' . $source_path, $rid);
++        \Drupal::logger('redirect')->error("There is already a redirect associated with '%source_path'. (rid: %rid)", ['%source_path' => $source_path, '%rid' => $rid]);
++        return NULL;
+       }
+-      $this->foundRedirects[] = $rid;
++      else{
++        $this->foundRedirects[] = $rid;
+ 
+-      $redirect = $this->load($rid);
++        $redirect = $this->load($rid);
+ 
+-      // Find chained redirects.
+-      if ($recursive = $this->findByRedirect($redirect, $language)) {
+-        // Reset found redirects.
+-        $this->foundRedirects = [];
+-        return $recursive;
++        // Find chained redirects.
++        if ($recursive = $this->findByRedirect($redirect, $language)) {
++          // Reset found redirects.
++          $this->foundRedirects = [];
++          return $recursive;
++        }
+       }
+-
+       return $redirect;
+     }
+ 

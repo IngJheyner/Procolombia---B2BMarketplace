@@ -1,0 +1,14 @@
+uuid: a6e56b18-34b1-4a37-9a45-905c9271d531
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_comercial
+  module:
+    - user
+id: user_add_role_action.asesor_comercial
+label: 'Añade el rol Asesor comercial al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: asesor_comercial

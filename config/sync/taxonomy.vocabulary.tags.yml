@@ -1,0 +1,10 @@
+uuid: 3d37a68a-8a6b-4981-8434-e5974cee147b
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: lO5ziR5dVI1PpEeHZsSOfQ-Y7NWihSDKW8-MMf6uoms
+name: 'Clasificación de empresas (Etiquetas)'
+vid: tags
+description: 'Utilice etiquetas en temas similares en categorías.'
+weight: 0

@@ -1,0 +1,21 @@
+uuid: 028089db-adfc-447b-a9eb-4e7ea33313c4
+langcode: es
+status: true
+dependencies:
+  module:
+    - cp_core
+  theme:
+    - procolombia
+id: procolombia_customlogin
+theme: procolombia
+region: secondary_menu
+weight: -18
+provider: null
+plugin: custom_login
+settings:
+  id: custom_login
+  label: 'Custom Login'
+  label_display: '0'
+  provider: cp_core
+  my_block_settings: null
+visibility: {  }

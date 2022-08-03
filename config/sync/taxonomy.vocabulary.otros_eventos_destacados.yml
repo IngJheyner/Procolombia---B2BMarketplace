@@ -1,0 +1,8 @@
+uuid: 54ee8a43-c918-49e4-a141-8d04158e485f
+langcode: es
+status: true
+dependencies: {  }
+name: 'Otros eventos destacados'
+vid: otros_eventos_destacados
+description: 'Destacar otros eventos'
+weight: 0

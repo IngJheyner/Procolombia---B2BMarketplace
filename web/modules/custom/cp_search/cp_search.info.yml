@@ -1,0 +1,7 @@
+name: 'CP Search'
+type: module
+description: 'Module used to search products'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+- block

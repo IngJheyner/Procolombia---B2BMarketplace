@@ -1,0 +1,8 @@
+uuid: 17fcd159-b00b-4bfd-a2af-a47b93ca9825
+langcode: en
+status: true
+dependencies: {  }
+name: Sectores
+vid: sectors
+description: 'Sectores de empresas antiguas'
+weight: 0

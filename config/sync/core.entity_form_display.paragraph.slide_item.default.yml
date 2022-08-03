@@ -1,0 +1,116 @@
+uuid: e72525cf-2552-41a2-a208-5a51e093e7e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide_item.field_c_classes
+    - field.field.paragraph.slide_item.field_c_subtitle
+    - field.field.paragraph.slide_item.field_c_title
+    - field.field.paragraph.slide_item.field_c_title_status
+    - field.field.paragraph.slide_item.field_c_width
+    - field.field.paragraph.slide_item.field_image
+    - field.field.paragraph.slide_item.field_label
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.slide_item
+  module:
+    - field_group
+    - svg_image
+third_party_settings:
+  field_group:
+    group_heading:
+      children:
+        - field_label
+        - field_c_title
+        - field_c_subtitle
+        - field_c_title_status
+      label: Heading
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_s:
+      children:
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.slide_item.default
+targetEntityType: paragraph
+bundle: slide_item
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_subtitle:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_label:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

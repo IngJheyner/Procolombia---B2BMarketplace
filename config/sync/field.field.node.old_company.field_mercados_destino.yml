@@ -1,0 +1,21 @@
+uuid: c1de76b7-eeb8-4c46-a94b-cfa6518e6a93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mercados_destino
+    - node.type.old_company
+  module:
+    - text
+id: node.old_company.field_mercados_destino
+field_name: field_mercados_destino
+entity_type: node
+bundle: old_company
+label: 'Mercados Destino'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,8 @@
+display:
+  default:
+    display_options:
+      header:
+        area:
+          content:
+            value: "<div class=\"menu-categories-back-button\"><i class=\"slick-prev\"></i>Todas las Categorías</div>\r\n"
+            format: full_html

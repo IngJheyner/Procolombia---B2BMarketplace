@@ -1,0 +1,19 @@
+uuid: c4e6b79b-bce6-4907-96cf-fbdef6971386
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_previous_id
+    - taxonomy.vocabulary.categorization
+id: taxonomy_term.categorization.field_previous_id
+field_name: field_previous_id
+entity_type: taxonomy_term
+bundle: categorization
+label: 'previous id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

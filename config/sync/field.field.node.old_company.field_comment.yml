@@ -1,0 +1,19 @@
+uuid: d4ecbe3c-d3d2-47e5-a4c0-3a9d2a39408b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_comment
+    - node.type.old_company
+id: node.old_company.field_comment
+field_name: field_comment
+entity_type: node
+bundle: old_company
+label: Observación
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

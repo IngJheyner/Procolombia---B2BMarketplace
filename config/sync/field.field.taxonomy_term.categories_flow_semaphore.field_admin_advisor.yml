@@ -1,0 +1,33 @@
+uuid: 664faf77-7b0f-4400-945d-3f4ff25810f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_admin_advisor
+    - taxonomy.vocabulary.categories_flow_semaphore
+id: taxonomy_term.categories_flow_semaphore.field_admin_advisor
+field_name: field_admin_advisor
+entity_type: taxonomy_term
+bundle: categories_flow_semaphore
+label: 'Asesor administrativo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: role
+      role:
+        asesor_administrativo: asesor_administrativo
+        administrator: '0'
+        exportador: '0'
+        asesor_comercial: '0'
+    include_anonymous: false
+field_type: entity_reference

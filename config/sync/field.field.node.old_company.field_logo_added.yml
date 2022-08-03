@@ -1,0 +1,21 @@
+uuid: c0c031e1-0cc8-45a8-aa9a-08d4b69d7a97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo_added
+    - node.type.old_company
+  module:
+    - options
+id: node.old_company.field_logo_added
+field_name: field_logo_added
+entity_type: node
+bundle: old_company
+label: 'Ingresó logo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

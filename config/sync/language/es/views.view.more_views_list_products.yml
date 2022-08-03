@@ -1,0 +1,6 @@
+display:
+  default:
+    display_options:
+      header:
+        area_text_custom:
+          content: '<div class="container"><h2><span>Productos</span> Relacionados</h2></div>'

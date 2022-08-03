@@ -1,0 +1,10 @@
+display:
+  default:
+    display_options:
+      fields:
+        view_node:
+          alter:
+            text: '<a class="btn btn-primary" href="{{ view_node }}">Ver más productos</a>'
+        nothing:
+          alter:
+            text: '<span class="block-buttons"><a href="#contacto" class="btn-tertiary down">Contacto<i class="arrow down"></i></a></span>'

@@ -1,0 +1,20 @@
+uuid: ff46a2dd-851d-4ea4-bc58-72147510869b
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tags_xroductos
+  module:
+    - text
+id: taxonomy_term.tags_xroductos.description
+field_name: description
+entity_type: taxonomy_term
+bundle: tags_xroductos
+label: Descripción
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

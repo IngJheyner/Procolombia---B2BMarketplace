@@ -1,0 +1,23 @@
+uuid: 990bfa57-6867-48a0-b12f-dcb1b8837424
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: private
+id: node.field_accessconditioncontent_nam
+field_name: field_accessconditioncontent_nam
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

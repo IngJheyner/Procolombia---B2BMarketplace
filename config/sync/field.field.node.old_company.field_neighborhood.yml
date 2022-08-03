@@ -1,0 +1,19 @@
+uuid: 9f1a4171-2957-4b47-85cb-4d50359543a6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_neighborhood
+    - node.type.old_company
+id: node.old_company.field_neighborhood
+field_name: field_neighborhood
+entity_type: node
+bundle: old_company
+label: Barrio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

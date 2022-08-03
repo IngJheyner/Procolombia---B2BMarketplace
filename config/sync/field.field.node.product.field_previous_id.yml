@@ -1,0 +1,19 @@
+uuid: fa10b069-2cd4-4bf7-b7ec-d7ac598aa7ad
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_previous_id
+    - node.type.product
+id: node.product.field_previous_id
+field_name: field_previous_id
+entity_type: node
+bundle: product
+label: 'previous id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

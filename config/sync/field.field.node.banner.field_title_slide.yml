@@ -1,0 +1,19 @@
+uuid: e082deee-9bde-4e66-b611-022303ab9515
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title_slide
+    - node.type.banner
+id: node.banner.field_title_slide
+field_name: field_title_slide
+entity_type: node
+bundle: banner
+label: 'Title slide'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

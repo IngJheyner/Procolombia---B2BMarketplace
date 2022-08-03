@@ -1,0 +1,15 @@
+display:
+  default:
+    display_options:
+      header:
+        area:
+          content:
+            value: '<div class="container"><p><span>productos</span> relacionados</p></div>'
+            format: html
+  block_2:
+    display_options:
+      header:
+        area:
+          content:
+            value: '<div class="container"><p><span>productos</span> relacionados</p></div>'
+            format: html

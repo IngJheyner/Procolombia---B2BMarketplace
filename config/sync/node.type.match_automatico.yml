@@ -1,0 +1,17 @@
+uuid: c5c55ebd-9993-483d-addb-8efe542cdccc
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Match Automatico'
+type: match_automatico
+description: 'Administración de Criterios Match'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

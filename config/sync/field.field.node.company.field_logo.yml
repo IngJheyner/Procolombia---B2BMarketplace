@@ -1,0 +1,38 @@
+uuid: 10b2f044-192e-4781-93e2-cebff6b511df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo
+    - node.type.company
+  module:
+    - image
+id: node.company.field_logo
+field_name: field_logo
+entity_type: node
+bundle: company
+label: Logo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'jpg jpeg png'
+  max_filesize: '4 MB'
+  max_resolution: ''
+  min_resolution: 200x200
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: e2325efd-89d4-4c36-ae88-c7e74fef519b
+    alt: ''
+    title: ''
+    width: 300
+    height: 205
+field_type: image

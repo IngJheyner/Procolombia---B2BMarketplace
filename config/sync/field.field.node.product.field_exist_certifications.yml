@@ -1,0 +1,23 @@
+uuid: 02e9eaf0-709e-433e-9a43-e17f81767195
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exist_certifications
+    - node.type.product
+id: node.product.field_exist_certifications
+field_name: field_exist_certifications
+entity_type: node
+bundle: product
+label: 'Exist certifications'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

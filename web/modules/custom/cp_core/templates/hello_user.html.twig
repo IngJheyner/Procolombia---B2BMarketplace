@@ -1,0 +1,32 @@
+
+{% set name = name_user['company'] %}
+{% if name_user.company == "" %}
+  {% set name = name_user['user_mail'] %}
+{% endif %}
+
+<div class="hello-login">
+	<div class="user-img">
+		<img src="{{img_ico}}">
+	</div>
+	{% if name_user is not empty %}
+		<div class="user-name">
+			<p> {{ 'Hello'|trans }}, <span>{{ name }}</span></p>
+		</div>
+	{% endif %}
+
+	{% if path_dsbd is not empty %}
+		<div class="link-dashboard">
+			<a href="{{ path_dsbd }}">{{ 'profile'|trans }}</a>
+		</div>
+	{% endif %}
+
+	{% if url_logout is not empty %}
+		<div class="user-logout">
+			<a href="{{ url_logout }}">{{ 'log out'|trans }}</a>
+		</div>
+	{% endif %}
+
+</div>
+
+
+

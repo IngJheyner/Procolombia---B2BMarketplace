@@ -1,0 +1,22 @@
+uuid: 4989b49a-b3ba-41c8-9bf0-8557b733395f
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.match_automatico
+id: node.match_automatico.promote
+field_name: promote
+entity_type: node
+bundle: match_automatico
+label: 'Promovido a la portada'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

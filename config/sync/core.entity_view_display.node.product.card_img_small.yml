@@ -1,0 +1,217 @@
+uuid: 9f36fb8a-2e47-49d6-8094-8fa87e81f2f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card_img_small
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - image.style.medium
+    - node.type.product
+  module:
+    - ds
+    - field_group
+    - svg_image
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - group_img
+        - node_title
+        - field_images
+        - 'dynamic_token_field:node-link_name_company'
+        - group_more_info
+        - group_info
+        - node_link
+    fields:
+      'dynamic_token_field:node-link_name_company':
+        plugin_id: 'dynamic_token_field:node-link_name_company'
+        weight: 2
+        label: hidden
+        formatter: default
+      node_link:
+        plugin_id: node_link
+        weight: 3
+        label: hidden
+        formatter: default
+        settings:
+          'link text': 'Find out more'
+          'link class': ''
+          wrapper: ''
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: h3
+          class: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_group:
+    group_info:
+      children:
+        - node_title
+        - 'dynamic_token_field:node-link_name_company'
+      label: Info
+      parent_name: ''
+      region: main
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: info-prod
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_more_info:
+      children:
+        - node_link
+      label: more-info
+      parent_name: group_img
+      region: main
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: more-info
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_img:
+      children:
+        - field_images
+        - group_more_info
+      label: image
+      parent_name: ''
+      region: main
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: item-product
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.product.card_img_small
+targetEntityType: node
+bundle: product
+mode: card_img_small
+content:
+  field_images:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: medium
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: '1'
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 1
+    region: main
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_body: true
+  field_categorization: true
+  field_categorization_parent: true
+  field_dependent_state: true
+  field_exist_certifications: true
+  field_export_markets: true
+  field_file: true
+  field_file_certifications: true
+  field_iframe: true
+  field_key_words: true
+  field_key_words_backup: true
+  field_mostrar_en_home: true
+  field_partida_arancelaria_tax: true
+  field_pr_ref_company: true
+  field_previous_id: true
+  field_product_type: true
+  field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
+  field_tariff_heading: true
+  field_trading_channel: true
+  flag_favorites: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

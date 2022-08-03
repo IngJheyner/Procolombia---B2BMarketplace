@@ -1,0 +1,110 @@
+uuid: 55814239-262e-43a8-a6ed-b6df7e8b20db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide.field_c_classes
+    - field.field.paragraph.slide.field_c_subtitle
+    - field.field.paragraph.slide.field_c_title
+    - field.field.paragraph.slide.field_c_title_status
+    - field.field.paragraph.slide.field_c_width
+    - field.field.paragraph.slide.field_slide_item
+    - paragraphs.paragraphs_type.slide
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_styling_settings:
+      children:
+        - field_c_width
+        - field_c_classes
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_component_title:
+      children:
+        - field_label
+        - field_c_title
+        - field_c_subtitle
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.slide.default
+targetEntityType: paragraph
+bundle: slide
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_subtitle:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_slide_item:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: slide_item
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

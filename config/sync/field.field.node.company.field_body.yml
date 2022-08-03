@@ -1,0 +1,19 @@
+uuid: 7ff88ce7-cf18-4a42-99de-d2f1808c9781
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.company
+id: node.company.field_body
+field_name: field_body
+entity_type: node
+bundle: company
+label: 'Our history'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

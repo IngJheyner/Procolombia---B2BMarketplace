@@ -1,0 +1,41 @@
+/*
+Theme Name: Bootstrap 4 Sass
+Description: Bootstrap 4 with Sass
+*/
+
+// import files
+@import "variables";
+@import "./overrides/variables";
+
+// typography
+//@import "typography";
+
+//bootstrap
+//@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Style guide: form
+@import "base/base";
+
+// Style guide: components
+//@import "components/**/*";
+
+// Style guide: states
+//@import "state/**/*";
+
+// componentes globales
+//@import "./components/header-top";
+//@import "./components/header";
+//@import "./components/banner";
+//@import "./components/blocks";
+
+//paragraphs
+//@import "./components/paragraph--single-text";
+//@import "./components/paragraph--views";
+//@import "./components/paragraph--blocks";
+
+//redesign
+@import "./components/redesign";
+
+
+//header
+

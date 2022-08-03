@@ -1,0 +1,8 @@
+uuid: 3fa88ea3-fff3-47d5-b20f-11fedf487eb6
+langcode: zxx
+status: true
+dependencies: {  }
+name: 'home macro-rueda'
+vid: home_macro_rueda
+description: ''
+weight: 0

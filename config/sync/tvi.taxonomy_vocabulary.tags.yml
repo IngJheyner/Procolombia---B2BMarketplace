@@ -1,0 +1,5 @@
+enable_override: true
+view: specialized_offer_search_companies
+view_display: block_1
+inherit_settings: true
+pass_arguments: true

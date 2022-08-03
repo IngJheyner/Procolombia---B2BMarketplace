@@ -1,0 +1,39 @@
+elements: |
+  title_form:
+    '#markup': '<h3>Contactar Empresa</h3>'
+  title:
+    '#markup': '<h3>Contactar empresa</h3>'
+  want_to_communicate:
+    '#markup': '<p>&iquest;Quieres comunicarte con esta empresa? D&eacute;janos tus datos</p>'
+  contact_name:
+    '#title': 'Nombre contacto'
+  mail:
+    '#title': 'Correo electrónico'
+  phone_number:
+    '#title': Teléfono
+  phone:
+    '#title': Teléfono
+  country:
+    '#title': País
+  category_of_interest:
+    '#title': 'Categoría de interés'
+  comments:
+    '#title': Comentarios
+  terms_of_service:
+    '#title': 'Acepto manejo de información personal <a href="https://procolombia.co/informacion/condiciones-de-uso" target="_blank">Habeas data</a> *'
+  data_protection:
+    '#title': 'He leído y Acepto la <a href="https://procolombia.co/informacion/proteccion-de-datos-personales" target="_blank">política de protección de datos personales</a> *'
+settings:
+  confirmation_message: "<a class=\"close close-action\" href=\"#\">Close</a> <img alt=\"\" src=\"/themes/custom/catalogo_public/images/icono_form_send.png\" />\r\n<h2>¡Gracias!</h2>\r\n\r\n<p>¡Su mensaje ha sido enviado!</p>\r\n<a class=\"close btn btn-primary\" href=\"#\">Aceptar</a>\r\n"
+  form_close_message: "Formulario en mantenimiento<br />\r\n<br />\r\nEstamos trabajando para mejorar nuestro servicio, lo esperamos el próximo lunes.<br />\r\n<br />\r\nGracias."
+  form_access_denied_message: "<h2 id=\"contacto\">Contacto*\r\n  <div class=\"arrow-c\">\r\n   <span class=\"arrow down\"></span>\r\n  </div></h2>\r\n\r\n<div class=\"text-contacto\"><b>Conozca m&aacute;s acerca de esta empresa y sus productos de exportación.</b> D&eacute;jenos aqu&iacute; sus comentarios.</div>\r\n\r\n<div class=\"contacto\">*Para establecer el contacto, usted debe <a  class=\"click\" >iniciar sesión o registrarse</a></div>\r\n\r\n<div id=\"Modal\" class=\"modal\" tabindex=\"-1\" role=\"dialog\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\"><span id=\"ui-id-2\" class=\"ui-dialog-title\">Tenga en cuenta</span></h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span class=\"close\" aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <p class=\"txt-1\">Para contactar a la empresa usted debe estar registrado en nuestra plataforma como <b>comprador internacional.</b></p>\r\n        <p>Lo invitamos a registrarse y continuar con su búsqueda.</p>\r\n        <div class=\"border-line\"> </div>\r\n        <p>\r\n        <a  class=\"click\" href=\"/es/user/login?destination=[current-page:url]\">Iniciar sesión</a>\r\n        <a  class=\"click\" href=\"/es/registro/comprador?destination=[current-page:url]\">Registrarse</a></p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+title: 'Contactar Empresa'
+handlers:
+  email:
+    settings:
+      body: "Señor (a) [webform_submission:values:contact_name]\r\n\r\n<p>Usted ha recibido un mensaje a través del Catálogo de la oferta exportable de ProColombia. Esta es la información que solicito de la empresa.</p>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre de contacto</td>\r\n\t\t\t<td>[company_custom_tokens:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cargo</td>\r\n\t\t\t<td>[company_custom_tokens:charge]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[company_custom_tokens:contact_mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[company_custom_tokens:cellphone]</td>\r\n\t\t</tr>\r\n                <tr>\r\n\t\t\t<td>Ubicación</td>\r\n\t\t\t<td>[company_custom_tokens:contact_location]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      subject: '¡Ha contactado a una empresa a través del Catálogo Oferta Exportable de ProColombia!'
+  email_1:
+    settings:
+      body: "<h3>Señor(a) [company_custom_tokens:contact_name]</h3>\r\n\r\n<p><strong>Ha sido contactado</strong> a través del Catálogo de la oferta exportable de ProColombia. El Señor(a). <strong>[webform_submission:values:contact_name]</strong> quiere contactarlo para compartir una posible <strong>oportunidad de negocio:</strong></p>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre</td>\r\n\t\t\t<td>[webform_submission:values:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Ubicación</td>\r\n\t\t\t<td>[webform_submission:values:country]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[webform_submission:values:phone]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Mensaje</td>\r\n\t\t\t<td>[webform_submission:values:comments]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      subject: '¡Alguien está interesado en su empresa!'

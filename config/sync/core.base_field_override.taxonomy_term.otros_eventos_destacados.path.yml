@@ -1,0 +1,20 @@
+uuid: e720393e-900f-43a4-a6f9-74a754433b75
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.otros_eventos_destacados
+  module:
+    - path
+id: taxonomy_term.otros_eventos_destacados.path
+field_name: path
+entity_type: taxonomy_term
+bundle: otros_eventos_destacados
+label: 'Alias de URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

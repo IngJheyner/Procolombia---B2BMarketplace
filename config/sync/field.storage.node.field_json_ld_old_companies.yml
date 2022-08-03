@@ -1,0 +1,23 @@
+uuid: e7612ed4-38ff-4277-a40a-4a2dc6547992
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_json_ld_old_companies
+field_name: field_json_ld_old_companies
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

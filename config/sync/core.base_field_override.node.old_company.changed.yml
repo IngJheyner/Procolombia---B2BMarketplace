@@ -1,0 +1,18 @@
+uuid: 42eb913d-b5b5-4934-818c-1ca42035f3a3
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.old_company
+id: node.old_company.changed
+field_name: changed
+entity_type: node
+bundle: old_company
+label: Modificado
+description: 'La fecha en que el nodo fue editado por última vez.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,66 @@
+uuid: 95a3142c-8912-4ec0-9c62-53116ee2657b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.banner_register_forms.field_banner_image_desk
+    - field.field.node.banner_register_forms.field_banner_image_mobile
+    - field.field.node.banner_register_forms.field_title_slide
+    - node.type.banner_register_forms
+  module:
+    - svg_image
+    - user
+id: node.banner_register_forms.default
+targetEntityType: node
+bundle: banner_register_forms
+mode: default
+content:
+  field_banner_image_desk:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_banner_image_mobile:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title_slide:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

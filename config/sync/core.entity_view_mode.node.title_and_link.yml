@@ -1,0 +1,10 @@
+uuid: 361f0601-c530-4f66-8013-664f743d3b8e
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.title_and_link
+label: 'Title and link'
+targetEntityType: node
+cache: true

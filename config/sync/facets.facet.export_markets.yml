@@ -1,0 +1,58 @@
+uuid: fe192b35-006e-499d-90b9-e1ffc29911f1
+langcode: es
+status: true
+dependencies:
+  config:
+    - search_api.index.b2bmp_index
+    - views.view.buscador_b2b_mp_2021
+  module:
+    - search_api
+id: export_markets
+name: 'Países importadores'
+weight: 0
+min_count: 1
+missing: false
+missing_label: others
+url_alias: exp
+facet_source_id: 'search_api:views_block__buscador_b2b_mp_2021__block_2'
+field_identifier: field_export_markets
+query_operator: and
+hard_limit: 0
+exclude: false
+use_hierarchy: false
+keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+widget:
+  type: dropdown
+  config:
+    show_numbers: false
+    default_option_label: 'Países a los que exporta'
+empty_behavior:
+  behavior: text
+  text_format: html
+  text: '<span>No disponible</span>'
+only_visible_when_facet_source_is_visible: false
+show_only_one_result: true
+show_title: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
+    settings:
+      sort: ASC
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: 50
+      build: 15
+    settings: {  }

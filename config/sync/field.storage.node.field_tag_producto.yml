@@ -1,0 +1,24 @@
+uuid: cb2ed187-ccc2-4c0a-bb37-3efc39d530aa
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: node.field_tag_producto
+field_name: field_tag_producto
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,14 @@
+uuid: 2c411062-63cb-4aca-b4c5-d28047571a38
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_comercial
+  module:
+    - user
+id: user_remove_role_action.asesor_comercial
+label: 'Elimina el rol Asesor comercial al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: asesor_comercial

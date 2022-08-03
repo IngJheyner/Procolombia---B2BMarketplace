@@ -1,0 +1,18 @@
+uuid: 3484171f-f9d6-4799-a86d-637e520d35de
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ciiu_codes
+id: taxonomy_term.ciiu_codes.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: ciiu_codes
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

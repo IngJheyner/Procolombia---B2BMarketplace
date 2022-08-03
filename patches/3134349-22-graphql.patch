@@ -1,0 +1,81 @@
+diff --git a/core/modules/language/language.services.yml b/core/modules/language/language.services.yml
+index 4fda6484c1..3c16b5ab34 100644
+--- a/core/modules/language/language.services.yml
++++ b/core/modules/language/language.services.yml
+@@ -4,7 +4,7 @@ services:
+     arguments: ['@container.namespaces', '@cache.discovery', '@module_handler']
+   language_negotiator:
+     class: Drupal\language\LanguageNegotiator
+-    arguments: ['@language_manager', '@plugin.manager.language_negotiation_method', '@config.factory', '@settings', '@request_stack']
++    arguments: ['@language_manager', '@plugin.manager.language_negotiation_method', '@config.factory', '@settings', '@request_stack', '@messenger']
+     calls:
+       - [initLanguageManager]
+   language.config_subscriber:
+diff --git a/core/modules/language/src/LanguageNegotiator.php b/core/modules/language/src/LanguageNegotiator.php
+index c4e083ab1a..9ffc85e696 100644
+--- a/core/modules/language/src/LanguageNegotiator.php
++++ b/core/modules/language/src/LanguageNegotiator.php
+@@ -2,8 +2,10 @@
+ 
+ namespace Drupal\language;
+ 
++use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+ use Drupal\Component\Plugin\PluginManagerInterface;
+ use Drupal\Core\Config\ConfigFactoryInterface;
++use Drupal\Core\Messenger\MessengerInterface;
+ use Drupal\Core\Session\AccountInterface;
+ use Drupal\Core\Site\Settings;
+ use Drupal\language\Plugin\LanguageNegotiation\LanguageNegotiationUI;
+@@ -70,6 +72,13 @@ class LanguageNegotiator implements LanguageNegotiatorInterface {
+    */
+   protected $negotiatedLanguages = [];
+ 
++  /**
++   * Messenger Service.
++   *
++   * @var \Drupal\Core\Messenger\MessengerInterface
++   */
++  protected $messenger;
++
+   /**
+    * Constructs a new LanguageNegotiator object.
+    *
+@@ -83,13 +92,16 @@ class LanguageNegotiator implements LanguageNegotiatorInterface {
+    *   The settings instance.
+    * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+    *   The request stack service.
++   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
++   *   Messenger Service.
+    */
+-  public function __construct(ConfigurableLanguageManagerInterface $language_manager, PluginManagerInterface $negotiator_manager, ConfigFactoryInterface $config_factory, Settings $settings, RequestStack $requestStack) {
++  public function __construct(ConfigurableLanguageManagerInterface $language_manager, PluginManagerInterface $negotiator_manager, ConfigFactoryInterface $config_factory, Settings $settings, RequestStack $requestStack, MessengerInterface $messenger) {
+     $this->languageManager = $language_manager;
+     $this->negotiatorManager = $negotiator_manager;
+     $this->configFactory = $config_factory;
+     $this->settings = $settings;
+     $this->requestStack = $requestStack;
++    $this->messenger = $messenger;
+   }
+ 
+   /**
+@@ -130,7 +142,17 @@ public function initializeType($type) {
+       // and return the first valid language found.
+       foreach ($this->getEnabledNegotiators($type) as $method_id => $info) {
+         if (!isset($this->negotiatedLanguages[$method_id])) {
++           if ($method_id != 'language-graphql') {
+-               $this->negotiatedLanguages[$method_id] = $this->negotiateLanguage($type, $method_id);
++               try {
++                   $this->negotiatedLanguages[$method_id] = $this->negotiateLanguage($type, $method_id);
++               }
++               catch (PluginNotFoundException $e) {
++                   // If a plugin is not found, simply log the error so user may handle it.
++                   watchdog_exception('language', $e);
++                   $this->messenger->addError(t('Error finding language negotiator plugin %method-id: @message', [
++                   '%method-id' => $method_id,
++                   '@message' => $e->getMessage(),
++                   ]), 'error');
++               }
++           }
+         }
+ 
+         // Since objects are references, we need to return a clone to prevent

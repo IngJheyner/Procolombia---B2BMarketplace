@@ -1,0 +1,18 @@
+uuid: ee8a9771-b4a0-4b66-b43d-a9c77c2b7065
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.partida_arancelaria
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.partida_arancelaria
+target_entity_type_id: taxonomy_term
+target_bundle: partida_arancelaria
+default_langcode: site_default
+language_alterable: false

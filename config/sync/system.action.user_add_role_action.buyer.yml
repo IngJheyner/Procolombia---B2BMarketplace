@@ -1,0 +1,14 @@
+uuid: 098fba24-bf60-49c3-b00d-57aff085978b
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.buyer
+  module:
+    - user
+id: user_add_role_action.buyer
+label: 'Añade el rol Buyer al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: buyer

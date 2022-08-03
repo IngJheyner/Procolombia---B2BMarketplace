@@ -1,0 +1,30 @@
+cp_core:
+  version: VERSION
+  js:
+    js/cp_core.js: {}
+
+dsb_info_user:
+  version: VERSION
+  js:
+    js/info_user.js: {}
+
+form_validation_messages:
+  version: VERSION
+  js:
+    js/form_validation_messages.js: {}
+  dependencies:
+    - core/jquery
+
+cp_core_jquery_validate:
+  version: VERSION
+  js:
+    js/cp_core_jquery_validate.js: {}
+  dependencies:
+    - core/jquery
+
+cp_core_select_company:
+  version: VERSION
+  js:
+    js/cp_core_select_company.js: {}
+  dependencies:
+    - core/jquery

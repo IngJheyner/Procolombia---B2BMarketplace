@@ -1,0 +1,245 @@
+uuid: 30c26d79-074e-42a6-ab62-46bac916eba2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.company.field_body
+    - field.field.node.company.field_cellphone
+    - field.field.node.company.field_charge
+    - field.field.node.company.field_ciiu_code
+    - field.field.node.company.field_contact_name
+    - field.field.node.company.field_email
+    - field.field.node.company.field_ext
+    - field.field.node.company.field_json_ld
+    - field.field.node.company.field_logo
+    - field.field.node.company.field_nit
+    - field.field.node.company.field_phone
+    - field.field.node.company.field_previous_id
+    - field.field.node.company.field_product_categories_list
+    - field.field.node.company.field_semaphore_category
+    - field.field.node.company.field_states
+    - field.field.node.company.field_tags
+    - field.field.node.company.field_tags_destacados
+    - field.field.node.company.field_tags_oferta_especializada
+    - field.field.node.company.field_ubication_city
+    - field.field.node.company.field_ubication_state
+    - field.field.node.company.field_url_ecommerce
+    - field.field.node.company.field_web
+    - image.style.max_325x325
+    - node.type.company
+  module:
+    - ds
+    - field_group
+    - svg_image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_json_ld
+        - group_title_and_image
+        - group_wrapper
+        - group_info_company
+        - node_title
+        - 'dynamic_token_field:node-company_link_web'
+        - field_url_ecommerce
+        - field_body
+        - flag_favorites
+        - group_img_destacado_label
+        - field_tags_destacados
+        - field_logo
+        - field_tags_oferta_especializada
+    fields:
+      'dynamic_token_field:node-company_link_web':
+        plugin_id: 'dynamic_token_field:node-company_link_web'
+        weight: 5
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 4
+        label: hidden
+        formatter: default
+  field_group:
+    group_title_and_image:
+      children:
+        - group_img_destacado_label
+      label: Left
+      parent_name: group_wrapper
+      region: ds_content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-left col-md-4'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_info_company:
+      children:
+        - node_title
+        - 'dynamic_token_field:node-company_link_web'
+        - field_url_ecommerce
+        - field_body
+        - flag_favorites
+      label: Rigth
+      parent_name: group_wrapper
+      region: ds_content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-rigth col-md-8'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_wrapper:
+      children:
+        - group_title_and_image
+        - group_info_company
+      label: Wrapper
+      parent_name: ''
+      region: ds_content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-company row'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_img_destacado_label:
+      children:
+        - field_tags_destacados
+        - field_logo
+        - field_tags_oferta_especializada
+      label: img-destacado-label
+      parent_name: group_title_and_image
+      region: ds_content
+      weight: 25
+      format_type: html_element
+      format_settings:
+        classes: img-destacado-label
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.company.full
+targetEntityType: node
+bundle: company
+mode: full
+content:
+  field_body:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: ds_content
+  field_json_ld:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_logo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: max_325x325
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 27
+    region: ds_content
+  field_tags_destacados:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 26
+    region: ds_content
+  field_tags_oferta_especializada:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 28
+    region: ds_content
+  field_url_ecommerce:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: ds_content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: ds_content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_cellphone: true
+  field_charge: true
+  field_ciiu_code: true
+  field_contact_name: true
+  field_email: true
+  field_ext: true
+  field_nit: true
+  field_phone: true
+  field_previous_id: true
+  field_product_categories_list: true
+  field_semaphore_category: true
+  field_states: true
+  field_tags: true
+  field_ubication_city: true
+  field_ubication_state: true
+  field_web: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,77 @@
+uuid: c02de3c8-1515-41e5-a2be-c4682830818d
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.company
+    - node.type.old_company
+    - node.type.product
+    - taxonomy.vocabulary.categorization
+    - taxonomy.vocabulary.countries
+    - taxonomy.vocabulary.locations
+    - taxonomy.vocabulary.sectors
+  module:
+    - block_content
+    - content_translation
+    - field_permissions
+    - field_ui
+    - node
+    - system
+    - taxonomy_access_fix
+    - toolbar
+    - view_unpublished
+    - view_user_email
+id: asesor_administrativo
+label: 'Asesor administrativo NC'
+weight: 6
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access email field'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer block_content display'
+  - 'administer node display'
+  - 'administer nodes'
+  - 'administer users'
+  - 'create field_iframe'
+  - 'create field_tag_producto'
+  - 'create field_tags'
+  - 'edit any company content'
+  - 'edit any old_company content'
+  - 'edit any product content'
+  - 'edit field_iframe'
+  - 'edit field_tag_producto'
+  - 'edit field_tags'
+  - 'edit own company content'
+  - 'edit own field_iframe'
+  - 'edit own field_tag_producto'
+  - 'edit own field_tags'
+  - 'edit own product content'
+  - 'translate categorization taxonomy_term'
+  - 'translate company node'
+  - 'translate countries taxonomy_term'
+  - 'translate locations taxonomy_term'
+  - 'translate product node'
+  - 'translate sectors taxonomy_term'
+  - 'view all revisions'
+  - 'view any unpublished company content'
+  - 'view any unpublished content'
+  - 'view any unpublished product content'
+  - 'view field_iframe'
+  - 'view field_tag_producto'
+  - 'view field_tags'
+  - 'view own field_iframe'
+  - 'view own field_tag_producto'
+  - 'view own field_tags'
+  - 'view own unpublished content'
+  - 'view terms in categories_flow_semaphore'
+  - 'view terms in categorization'
+  - 'view terms in ciiu_codes'
+  - 'view terms in countries'
+  - 'view terms in home_macro_rueda'
+  - 'view terms in key_words'
+  - 'view terms in locations'
+  - 'view terms in sectors'
+  - 'view terms in tags'
+  - 'view the administration theme'

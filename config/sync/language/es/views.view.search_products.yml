@@ -1,0 +1,7 @@
+display:
+  page_1:
+    display_options:
+      fields:
+        nid_1:
+          alter:
+            text: 'Conocer más'

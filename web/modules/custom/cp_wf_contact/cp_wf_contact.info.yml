@@ -1,0 +1,8 @@
+name: 'CP workflow contact'
+type: module
+description: 'Module used to create tokens and send mails in the form to contact company in the detail of company and products'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+- block
+- webform

@@ -1,0 +1,74 @@
+uuid: ac4ed809-a11d-4088-9bb4-cf725e9fa21c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.drupal_block.field_block
+    - field.field.paragraph.drupal_block.field_c_classes
+    - field.field.paragraph.drupal_block.field_c_title
+    - field.field.paragraph.drupal_block.field_c_title_status
+    - field.field.paragraph.drupal_block.field_c_width
+    - field.field.paragraph.drupal_block.field_lead
+    - paragraphs.paragraphs_type.drupal_block
+  module:
+    - options
+    - text
+id: paragraph.drupal_block.default
+targetEntityType: paragraph
+bundle: drupal_block
+mode: default
+content:
+  field_block:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_c_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_c_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_c_title_status:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_c_width:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_lead:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

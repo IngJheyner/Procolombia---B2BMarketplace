@@ -1,0 +1,14 @@
+uuid: 9a9ef61f-5f19-4c07-a634-bf0e9c1a2a62
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_administrativo
+  module:
+    - user
+id: user_remove_role_action.asesor_administrativo
+label: 'Elimina el rol Asesor administrativo al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: asesor_administrativo

@@ -1,0 +1,6 @@
+display:
+  default:
+    display_options:
+      header:
+        area_text_custom:
+          content: "<div class=\"title text-align-center\">\r\n <h2>Events, fairs and special benefits</h2>\r\n <p> Discover the exportable offer Colombian catalog present at international events and fairs.</p>\r\n</div>"

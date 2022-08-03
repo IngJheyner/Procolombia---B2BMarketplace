@@ -1,0 +1,18 @@
+uuid: e8ec66ea-5143-450e-bb32-b8b53fcd6fc2
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sectors
+id: taxonomy_term.sectors.name
+field_name: name
+entity_type: taxonomy_term
+bundle: sectors
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

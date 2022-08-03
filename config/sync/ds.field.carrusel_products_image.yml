@@ -1,0 +1,10 @@
+id: carrusel_products_image
+label: 'Carrusel products image'
+ui_limit: ''
+type: block
+type_label: 'Block field'
+entities:
+  node: node
+properties:
+  block: 'views_block:slick_carrusel_images_product-block_1'
+  use_block_title: false

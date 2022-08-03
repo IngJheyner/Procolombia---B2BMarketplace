@@ -1,0 +1,14 @@
+uuid: a4551f74-e8fa-4289-a1c3-1876d1488ada
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_administrativo
+  module:
+    - user
+id: user_add_role_action.asesor_administrativo
+label: 'Añade el rol Asesor administrativo al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: asesor_administrativo

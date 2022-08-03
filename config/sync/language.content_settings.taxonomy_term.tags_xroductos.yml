@@ -1,0 +1,18 @@
+uuid: b8f89dd5-5f9a-4a07-83f6-4ef186bc331d
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tags_xroductos
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.tags_xroductos
+target_entity_type_id: taxonomy_term
+target_bundle: tags_xroductos
+default_langcode: site_default
+language_alterable: false

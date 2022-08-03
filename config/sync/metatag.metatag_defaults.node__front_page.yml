@@ -1,0 +1,7 @@
+uuid: 9ee5cbfd-69cf-446c-b0a5-25900db2de5f
+langcode: es
+status: true
+dependencies: {  }
+id: node__front_page
+label: 'Content: Front page'
+tags: {  }

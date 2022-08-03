@@ -1,0 +1,433 @@
+uuid: e2ecaeb2-d8b3-4f38-84ab-e774efd52258
+langcode: en
+status: closed
+dependencies:
+  module:
+    - cp_wf_contact
+weight: 0
+open: null
+close: null
+uid: 662
+template: false
+archive: false
+id: macro_rueda_form
+title: macro-rueda-form
+description: 'Contact company'
+category: ''
+elements: |-
+  title:
+    '#type': webform_markup
+    '#wrapper_attributes':
+      class:
+        - col-md-12
+    '#markup': '<h3><span>Contact</span> company</h3>'
+  want_to_communicate:
+    '#type': webform_markup
+    '#wrapper_attributes':
+      class:
+        - col-md-12
+    '#markup': '<p><span style="-webkit-text-stroke-width:0px; background-color:#ffffff; color:#000000; display:inline !important; float:none; font-family:Arial; font-size:13px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:pre-wrap; widows:2; word-spacing:0px">Do you want to contact this company? Please leave your name and contact information below.</span></p>'
+  company_title:
+    '#type': hidden
+    '#title': 'Company title'
+  company_nit:
+    '#type': hidden
+    '#title': 'Company nit'
+  contact_name:
+    '#type': textfield
+    '#title': 'Contact name'
+    '#required': true
+    '#wrapper_attributes':
+      class:
+        - col-md-6
+  mail:
+    '#type': email
+    '#title': Email
+    '#required': true
+    '#wrapper_attributes':
+      class:
+        - col-md-6
+    '#format': value
+  phone:
+    '#type': textfield
+    '#title': Phone
+    '#required': true
+    '#counter_type': character
+    '#counter_maximum': 20
+    '#wrapper_attributes':
+      class:
+        - col-md-6
+  country:
+    '#type': entity_autocomplete
+    '#title': Country
+    '#required': true
+    '#wrapper_attributes':
+      class:
+        - col-md-6
+    '#format': value
+    '#target_type': taxonomy_term
+    '#selection_handler': 'default:taxonomy_term'
+    '#selection_settings':
+      target_bundles:
+        countries: countries
+      sort:
+        field: name
+        direction: ASC
+      auto_create: false
+      auto_create_bundle: countries
+  categoria:
+    '#type': hidden
+    '#title': Categoria
+  comments:
+    '#type': textarea
+    '#title': Comments
+    '#required': true
+    '#wrapper_attributes':
+      class:
+        - col-md-12
+  terms_of_service:
+    '#type': webform_terms_of_service
+    '#title': 'I accept handling of personal information habeas data'
+    '#required': true
+    '#wrapper_attributes':
+      class:
+        - col-md-12
+    '#terms_title': 'Personal information'
+    '#terms_content': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+  data_protection:
+    '#type': webform_terms_of_service
+    '#title': 'I accept data protection law'
+    '#required': true
+    '#wrapper_attributes':
+      class:
+        - col-md-12
+    '#terms_title': 'Data protection'
+    '#terms_content': 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+  company_contact_name:
+    '#type': hidden
+    '#title': 'company contact name'
+  company_charge:
+    '#type': hidden
+    '#title': 'company charge'
+  company_email:
+    '#type': hidden
+    '#title': 'company email'
+  company_cellphone:
+    '#type': hidden
+    '#title': 'company cellphone'
+  company_state:
+    '#type': hidden
+    '#title': 'company state'
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: fullscreen
+  ajax_effect: fade
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes:
+    class:
+      - row
+    id: contacto
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: inline
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: "<div class=\"tks-macro-rueda\">\r\n<div class=\"en\">\r\n<p>Let&#39;s keep trade moving, thank you for<br />\r\nparticipating in the Colombian Origin Showroom.</p>\r\n\r\n<p><a href=\"[site:url]/mcr-80\">HOME</a></p>\r\n</div>\r\n\r\n<div class=\"es\">\r\n<p>Los negocios siguen adelante, gracias por<br />\r\nparticipar en el Showroom de Origen Colombiano.</p>\r\n\r\n<p><a href=\"[site:url]/mcr-80\">INICIO</a></p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"fondoModal\">&nbsp;</div>"
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    handler_id: email
+    label: 'Email to anonymous'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:mail:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'You have contacted a company through the ProColombia Export Offer Catalog!'
+      body: "<h3>Sr [webform_submission:values:contact_name]</h3>\r\n\r\n<p>You have received a message via the Catalog of the exportable offer of ProColombia. This is the information requested from the company.</p>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Contact Name</td>\r\n\t\t\t<td>[webform_submission:values:company_contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Charge</td>\r\n\t\t\t<td>[webform_submission:values:company_charge]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:company_email]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cellphone</td>\r\n\t\t\t<td>[webform_submission:values:company_cellphone]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Location</td>\r\n\t\t\t<td>[webform_submission:values:company_state]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      excluded_elements:
+        contact_name: contact_name
+        phone: phone
+        country: country
+        comments: comments
+        terms_of_service: terms_of_service
+        data_protection: data_protection
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email to company'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:company_email:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Someone is interested in your company!'
+      body: "<h3>Sr [webform_submission:values:company_contact_name]</h3>\r\n\r\n<p><strong>You have received a message</strong> via the Catalog of the exportable offer of ProColombia. Mr. <strong>[webform_submission:values:contact_name]</strong> wants to contact you to share a possible <strong>business opportunity</strong>:</p>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Name</td>\r\n\t\t\t<td>[webform_submission:values:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Location</td>\r\n\t\t\t<td>[webform_submission:values:country]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cellphone</td>\r\n\t\t\t<td>[webform_submission:values:phone]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Message</td>\r\n\t\t\t<td>[webform_submission:values:comments]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      excluded_elements:
+        terms_of_service: terms_of_service
+        data_protection: data_protection
+        company_charge: company_charge
+        company_cellphone: company_cellphone
+        company_state: company_state
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_to_assessor:
+    id: assesor_mail
+    handler_id: email_to_assessor
+    label: 'Email to assessor'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: _default
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: '¡Nuevo Contacto en el Catálogo Oferta Exportable!'
+      body: "<p>Asesor ha recibido un mensaje a trav&eacute;s del Cat&aacute;logo de la oferta exportable de ProColombia. Esta es la informaci&oacute;n de la compa&ntilde;&iacute;a contactada y la persona que desea contactar a esa compa&ntilde;&iacute;a.</p>\r\n\r\n<h3>Informaci&oacute;n de la Empresa</h3>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre de contacto</td>\r\n\t\t\t<td>[webform_submission:values:company_contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cargo</td>\r\n\t\t\t<td>[webform_submission:values:company_charge]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:company_email]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[webform_submission:values:company_cellphone]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h3>Informaci&oacute;n an&oacute;nimo</h3>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre</td>\r\n\t\t\t<td>[webform_submission:values:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Ubicaci&oacute;n</td>\r\n\t\t\t<td>[webform_submission:values:country]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[webform_submission:values:phone]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Mensaje</td>\r\n\t\t\t<td>[webform_submission:values:comments]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      excluded_elements:
+        terms_of_service: terms_of_service
+        data_protection: data_protection
+        company_state: company_state
+      ignore_access: 0
+      exclude_empty: true
+      exclude_empty_checkbox: 0
+      html: true
+      attachments: 0
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      exclude_attachments: false
+      parameters: {  }
+variants: {  }

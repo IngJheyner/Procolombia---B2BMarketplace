@@ -1,0 +1,12 @@
+uuid: 2b884feb-2d34-49b4-8b82-3904e950d6fb
+langcode: es
+status: 0
+dependencies: {  }
+id: medium
+label: Tablet
+weight: 0
+orientation: portrait
+dimensions:
+  width: 800
+  height: 1280
+  dppx: 1.325

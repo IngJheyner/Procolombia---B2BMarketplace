@@ -1,0 +1,18 @@
+uuid: 91093b11-6a60-47cf-b01d-03d17e2e100b
+langcode: es
+status: true
+dependencies:
+  config:
+    - media.type.audio
+id: media.audio.metatag
+field_name: metatag
+entity_type: media
+bundle: audio
+label: 'Meta etiquetas'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

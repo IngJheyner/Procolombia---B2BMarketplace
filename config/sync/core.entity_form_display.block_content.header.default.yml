@@ -1,0 +1,111 @@
+uuid: f21ff144-dd63-4a8d-9530-ee165cc843bc
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.header
+    - field.field.block_content.header.body
+    - field.field.block_content.header.field_log_in
+    - field.field.block_content.header.field_logo_procolombia
+    - field.field.block_content.header.field_sign_up
+    - image.style.thumbnail
+  module:
+    - field_group
+    - link
+    - svg_image
+third_party_settings:
+  field_group:
+    group_wrapper_tab:
+      children:
+        - info
+        - langcode
+      label: Información
+      region: content
+      parent_name: group_informacion
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_informacion:
+      children:
+        - group_wrapper_tab
+        - group_contenido
+      label: Wrapper_tab
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_contenido:
+      children:
+        - field_logo_procolombia
+        - field_log_in
+        - field_sign_up
+      label: Contenido
+      region: hidden
+      parent_name: group_informacion
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: block_content.header.default
+targetEntityType: block_content
+bundle: header
+mode: default
+content:
+  field_log_in:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_logo_procolombia:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_sign_up:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  body: true

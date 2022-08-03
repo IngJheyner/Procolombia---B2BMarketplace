@@ -1,0 +1,15 @@
+uuid: 77f181c2-a1f7-40ed-8051-c555ccb9755d
+langcode: en
+status: true
+dependencies: {  }
+name: mcr_interna_empresa
+label: 'mcr interna empresa'
+effects:
+  067e3c97-5ca1-4e48-a5c2-1098aad32c02:
+    uuid: 067e3c97-5ca1-4e48-a5c2-1098aad32c02
+    id: image_scale
+    weight: 1
+    data:
+      width: 160
+      height: null
+      upscale: false

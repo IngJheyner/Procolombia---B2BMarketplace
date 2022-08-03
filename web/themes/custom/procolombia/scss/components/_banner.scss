@@ -1,0 +1,116 @@
+.node__content {
+    margin-top: 0;
+}
+
+.cp-banner {
+    .views-element-container {
+        @media screen and (max-width: $small-max) {
+            padding: 0;
+        }
+        .slick__slider {
+            margin: 0;
+            @media screen and (max-width: $small-max) {
+                height: 222px;
+            }
+            .slick-list,
+            .slick-track,
+            .slide__media,
+            .media--slick {
+                height: 100%;
+            }
+            .slide__content {
+                position: relative;
+                @media screen and (max-width: $small-max) {
+                    height: 100%;
+                }
+                .media--image {
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                .container {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 100;
+                    .label {
+                        background-color: $primary-orange;
+                        display: inline-block;
+                        color: $secondary-grey;
+                        padding: 0.2rem 2rem;
+                        font-size: 1.3rem;
+                        @media screen and (max-width: $small-max) {
+                            padding: .1rem 1rem;
+                            font-size: 1rem;
+                            margin-bottom: .5rem;
+                        }
+                    }
+                    .url-redirect {
+                        background-color: $primary-orange;
+                        display: inline-block;
+                        color: $secondary-grey;
+                        font-size: 1.3rem;
+                        a{
+                            color: white;
+                            text-decoration: none;
+                            padding: 0.2rem 2rem;
+                            &:hover{
+                                text-decoration: none;
+                            }
+                        }
+                        &:hover{
+                            background-color: #b58329;
+                        }
+                        @media screen and (max-width: $small-max) {
+                            font-size: 1rem;
+                            margin-bottom: .5rem;
+                            a{
+                                padding: .1rem 1rem;
+                            }
+                        }
+                    }
+                    div.title {
+                        font-size: 3.75rem;
+                        font-weight: bold;
+                        text-shadow: 3px -2px 13px #000000;
+                        text-transform: uppercase;
+                        color: $secondary-grey;
+                        @media screen and (max-width: $small-max) {
+                            font-size: 1.75rem;
+                        }
+                    }
+                    div.subtitle {
+                        font-weight: 300;
+                        display: block;
+                        font-size: 3.1rem;
+                        color: $secondary-grey !important;
+                        text-shadow: 3px 0px 2px #000000;
+                        @media screen and (max-width: $small-max) {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.box-pc {
+    display: block;
+}
+
+#slick-views-hero-banner-block-1-1 {
+  .slick__slide {
+    display: none;
+  }
+  .slide--0 {
+    display: block;
+  }
+  .slick-list {
+    .slick__slide {
+      display: block;
+    }
+  }
+}

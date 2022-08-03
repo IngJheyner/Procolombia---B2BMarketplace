@@ -1,0 +1,4 @@
+name: 'Importing countries'
+widget:
+  config:
+    default_option_label: 'Countries to which you export'

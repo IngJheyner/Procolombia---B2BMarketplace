@@ -1,0 +1,426 @@
+uuid: 4c8e9028-d746-4992-a78e-e1dc6e0b731e
+langcode: es
+status: true
+dependencies:
+  config:
+    - page_manager.page.search_results
+id: search_results-layout_builder-0
+label: 'Constructor de diseños.'
+weight: 0
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  label: null
+  weight: 0
+  uuid: bd251e09-ddfd-41fa-9284-8f04cc6ecc76
+  sections:
+    -
+      layout_id: bs_1col
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: section
+          classes:
+            clearfix: clearfix
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              clearfix: clearfix
+            add_region_classes: 1
+            attributes: ''
+      components:
+        97113663-5e41-4837-b81d-c6b16b27f5fd:
+          uuid: 97113663-5e41-4837-b81d-c6b16b27f5fd
+          region: main
+          configuration:
+            id: 'views_block:banner_register_forms-block_5'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+    -
+      layout_id: bs_1col
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: section
+          classes:
+            clearfix: clearfix
+          add_layout_class: 1
+          attributes: id|busqueda-buscador
+        regions:
+          main:
+            wrapper: div
+            classes:
+              clearfix: clearfix
+            add_region_classes: 1
+            attributes: ''
+      components:
+        20ba9249-c147-48d2-b6d3-556b82fcbd6f:
+          uuid: 20ba9249-c147-48d2-b6d3-556b82fcbd6f
+          region: main
+          configuration:
+            id: 'block_content:01243725-a60b-40c6-bf7d-a8ebb1a03261'
+            label: 'Asistente de búsqueda'
+            label_display: '0'
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: container
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+        92de500d-8da5-4f34-9ebc-ed2b2a292a61:
+          uuid: 92de500d-8da5-4f34-9ebc-ed2b2a292a61
+          region: main
+          configuration:
+            id: 'views_exposed_filter_block:buscador_b2b_mp_2021-block_1'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+          weight: 1
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: container
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+      third_party_settings: {  }
+    -
+      layout_id: bs_1col
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: section
+          classes:
+            clearfix: clearfix
+          add_layout_class: 1
+          attributes: id|busqueda-resultado
+        regions:
+          main:
+            wrapper: div
+            classes:
+              clearfix: clearfix
+            add_region_classes: 1
+            attributes: ''
+      components:
+        eec01d0f-8f46-40c5-9bb9-cd19f8d9e7ff:
+          uuid: eec01d0f-8f46-40c5-9bb9-cd19f8d9e7ff
+          region: main
+          configuration:
+            id: 'quicktabs_block:buscador_qt'
+            label: 'QuickTabs - buscador'
+            label_display: '0'
+            provider: quicktabs
+            context_mapping: {  }
+          weight: 0
+          additional: {  }
+      third_party_settings: {  }
+    -
+      layout_id: bs_1col
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: section
+          classes:
+            clearfix: clearfix
+          add_layout_class: 1
+          attributes: id|busqueda-productos-destacados
+        regions:
+          main:
+            wrapper: div
+            classes:
+              clearfix: clearfix
+            add_region_classes: 1
+            attributes: ''
+      components:
+        9fbe15b2-1a17-4765-abe4-46369d5c7ed4:
+          uuid: 9fbe15b2-1a17-4765-abe4-46369d5c7ed4
+          region: main
+          configuration:
+            id: 'views_block:buscador_b2b_mp_2021-block_5'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: 'container desktop-productos-destacados'
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+        f9f93344-c2a4-4ec7-b74f-704968196921:
+          uuid: f9f93344-c2a4-4ec7-b74f-704968196921
+          region: main
+          configuration:
+            id: 'views_block:buscador_b2b_mp_2021-block_6'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 1
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: 'container mobil-productos-destacados'
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+      third_party_settings: {  }
+    -
+      layout_id: bs_1col
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: section
+          classes:
+            clearfix: clearfix
+          add_layout_class: 1
+          attributes: id|busqueda-empresas-destacadas
+        regions:
+          main:
+            wrapper: div
+            classes:
+              clearfix: clearfix
+            add_region_classes: 1
+            attributes: ''
+      components:
+        78623657-b051-4952-8558-b92f117354cb:
+          uuid: 78623657-b051-4952-8558-b92f117354cb
+          region: main
+          configuration:
+            id: 'views_block:buscador_b2b_mp_2021-block_4'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: 'container desktop-productos-destacados'
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+        b60177bb-2824-4fc3-9d2b-871e95c676d4:
+          uuid: b60177bb-2824-4fc3-9d2b-871e95c676d4
+          region: main
+          configuration:
+            id: 'views_block:buscador_b2b_mp_2021-block_7'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 1
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: 'container mobil-productos-destacados'
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+      third_party_settings: {  }
+    -
+      layout_id: bs_1col
+      layout_settings:
+        label: ''
+        layout:
+          wrapper: section
+          classes:
+            clearfix: clearfix
+          add_layout_class: 1
+          attributes: id|busqueda-categorias-destacadas
+        regions:
+          main:
+            wrapper: div
+            classes:
+              clearfix: clearfix
+            add_region_classes: 1
+            attributes: id|busqueda-categorias-destacadas
+      components:
+        3c55b510-0aba-4a36-a59d-d4d2fd8482c0:
+          uuid: 3c55b510-0aba-4a36-a59d-d4d2fd8482c0
+          region: main
+          configuration:
+            id: 'views_block:cat_rela_busqueda_b2b_2021-block_1'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 0
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: 'container desktop-productos-destacados'
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+        31c3e934-7fe5-4c9b-af7e-bafcae0ae24b:
+          uuid: 31c3e934-7fe5-4c9b-af7e-bafcae0ae24b
+          region: main
+          configuration:
+            id: 'views_block:cat_rela_busqueda_b2b_2021-block_3'
+            label: ''
+            label_display: '0'
+            provider: views
+            context_mapping: {  }
+            views_label: ''
+            items_per_page: none
+          weight: 1
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: 'container mobil-productos-destacados'
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+      third_party_settings: {  }
+    -
+      layout_id: layout_onecol
+      layout_settings:
+        label: 'Menu mobil'
+      components:
+        264caeef-3f7d-413a-a5fb-959bca53ad59:
+          uuid: 264caeef-3f7d-413a-a5fb-959bca53ad59
+          region: content
+          configuration:
+            id: 'block_content:a3b24cb8-8871-4bc0-838b-ee3a284d2b69'
+            label: 'Menu mobil'
+            label_display: '0'
+            provider: block_content
+            status: true
+            info: ''
+            view_mode: full
+            context_mapping: {  }
+          weight: 0
+          additional:
+            component_attributes:
+              block_attributes:
+                id: ''
+                class: mobil-productos-destacados
+                style: ''
+                data: ''
+              block_title_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+              block_content_attributes:
+                id: ''
+                class: ''
+                style: ''
+                data: ''
+      third_party_settings: {  }
+page: search_results
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

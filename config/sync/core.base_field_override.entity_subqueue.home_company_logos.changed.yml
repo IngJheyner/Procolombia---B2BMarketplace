@@ -1,0 +1,18 @@
+uuid: 4146086e-beda-4ade-ad0d-15ee801bfc1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_company_logos
+id: entity_subqueue.home_company_logos.changed
+field_name: changed
+entity_type: entity_subqueue
+bundle: home_company_logos
+label: Changed
+description: 'The time that the subqueue was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

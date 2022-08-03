@@ -1,0 +1,23 @@
+uuid: b4144d96-fa52-420f-bf42-663b025eae70
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accessconditioncontent_lin
+    - node.type.accessconditioncontent
+  module:
+    - link
+id: node.accessconditioncontent.field_accessconditioncontent_lin
+field_name: field_accessconditioncontent_lin
+entity_type: node
+bundle: accessconditioncontent
+label: AccessConditionContent_linkTool
+description: 'link de almacenamiento de la herramienta'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

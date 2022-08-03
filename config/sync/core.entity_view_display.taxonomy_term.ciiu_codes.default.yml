@@ -1,0 +1,36 @@
+uuid: 48abe1ee-dcff-42fa-a3d2-734ce161c2b2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.ciiu_codes.field_ciiu_code
+    - taxonomy.vocabulary.ciiu_codes
+  module:
+    - text
+id: taxonomy_term.ciiu_codes.default
+targetEntityType: taxonomy_term
+bundle: ciiu_codes
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ciiu_code:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

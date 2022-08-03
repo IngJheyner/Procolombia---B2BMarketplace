@@ -1,0 +1,18 @@
+uuid: 51b8c15c-fee9-47c3-9841-f499030ebf0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ciiu_codes
+id: taxonomy_term.ciiu_codes.name
+field_name: name
+entity_type: taxonomy_term
+bundle: ciiu_codes
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

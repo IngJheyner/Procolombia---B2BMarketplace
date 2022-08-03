@@ -1,0 +1,68 @@
+<div class="content">
+  <div class="row">
+    {{ attach_library('cp_search/cp_search') }}
+    <div class="header col-md-12">
+        {% if title_h1 is not empty %}
+          <h1 class="text-center">{{ title_h1 }}</h1>
+          <div class="text-justify search-descript">{{ name_cat_description | raw }}</div>
+          {% if name_cat_description|length > 160 %}
+            <div class="view-more-less-btn-descript  d-flex justify-content-center m-4">
+              <button type="button" class="btn more active">{{ 'Read more'|trans }} <i class="arrow down"></i></button>
+              <button type="button" class="btn less inactive">{{ 'Read less'|trans }} <i class="arrow up"></i></button>
+            </div>
+          {% endif %}
+        {% elseif title_h1 != none %}
+          <h1 class="text-center">{{ title_h1 }}</h1>
+          <div class="text-justify search-descript">{{ name_cat_description | raw }}</div>
+          {% if name_cat_description|length > 160 %}
+            <div class="view-more-less-btn-descript d-flex justify-content-center m-4">
+              <button type="button" class="btn more active">{{ 'Read more'|trans }} <i class="arrow down"></i></button>
+              <button type="button" class="btn less inactive">{{ 'Read less'|trans }} <i class="arrow up"></i></button>
+            </div>
+          {% endif %}
+        {% else %}
+          <h1 class="text-center">{{ 'Products'|trans }}</h1>
+        {% endif %}
+    </div>
+    <div class="col-md-3">
+      {% if num_elems is not empty%}
+        <div class="found-results">{{ num_elems }}&nbsp;{{ 'result(s) found'|trans }}</div>
+      {% endif %}
+
+      {% if li_exp_mark is not empty %}
+        <label class="label-filter">{{ 'Filter'|trans }}</label>
+      {% endif %}
+
+      {% if link_erase_all is not empty %}
+        {{ link_erase_all | raw }}
+      {% endif %}
+
+      {% if filters_selected is not empty %}
+        {{ filters_selected | raw }}
+      {% endif %}
+
+			{% if li_exp_mark is not empty %}
+        {{ li_exp_mark | raw }}
+			{% endif %}
+
+			{% if li_cert is not empty %}
+        {{ li_cert | raw }}
+      {% endif %}
+
+      {# Productos innovadores deshabilitado
+      {% if dante is not empty %}
+        {{ dante | raw }}
+      {% endif %}
+      #}
+
+      {% if ecom is not empty %}
+        {{ ecom | raw }}
+      {% endif %}
+
+    </div>
+    <div class="col-md-9">
+        {{ html_view }}
+    </div>
+
+  </div>
+</div>

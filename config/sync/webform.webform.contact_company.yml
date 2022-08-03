@@ -1,0 +1,351 @@
+uuid: 68186245-b281-4374-ab39-f1ece21c9a81
+langcode: en
+status: open
+dependencies:
+  module:
+    - cp_wf_contact
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: contact_company
+title: 'Contactar Empresa'
+description: 'Contact company'
+category: ''
+elements: |
+  title_form:
+    '#markup': '<h3>Contactar Empresa</h3>'
+  title:
+    '#markup': '<h3>Contactar empresa</h3>'
+  want_to_communicate:
+    '#markup': '<p>&iquest;Quieres comunicarte con esta empresa? D&eacute;janos tus datos</p>'
+  contact_name:
+    '#title': 'Nombre contacto'
+  mail:
+    '#title': 'Correo electrónico'
+  phone_number:
+    '#title': Teléfono
+  phone:
+    '#title': Teléfono
+  country:
+    '#title': País
+  category_of_interest:
+    '#title': 'Categoría de interés'
+  comments:
+    '#title': Comentarios
+  terms_of_service:
+    '#title': 'Acepto manejo de información personal <a href="https://procolombia.co/informacion/condiciones-de-uso" target="_blank">Habeas data</a> *'
+  data_protection:
+    '#title': 'He leído y Acepto la <a href="https://procolombia.co/informacion/proteccion-de-datos-personales" target="_blank">política de protección de datos personales</a> *'
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: page
+  ajax_progress_type: ''
+  ajax_effect: fade
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: "Formulario en mantenimiento<br />\r\n<br />\r\nEstamos trabajando para mejorar nuestro servicio, lo esperamos el próximo lunes.<br />\r\n<br />\r\nGracias."
+  form_exception_message: here
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: login
+  form_access_denied_title: ''
+  form_access_denied_message: "<h2 id=\"contacto\">Contacto*\r\n  <div class=\"arrow-c\">\r\n   <span class=\"arrow down\"></span>\r\n  </div></h2>\r\n\r\n<div class=\"text-contacto\"><b>Conozca m&aacute;s acerca de esta empresa y sus productos de exportación.</b> D&eacute;jenos aqu&iacute; sus comentarios.</div>\r\n\r\n<div class=\"contacto\">*Para establecer el contacto, usted debe <a  class=\"click\" >iniciar sesión o registrarse</a></div>\r\n\r\n<div id=\"Modal\" class=\"modal\" tabindex=\"-1\" role=\"dialog\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\"><span id=\"ui-id-2\" class=\"ui-dialog-title\">Tenga en cuenta</span></h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span class=\"close\" aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <p class=\"txt-1\">Para contactar a la empresa usted debe estar registrado en nuestra plataforma como <b>comprador internacional.</b></p>\r\n        <p>Lo invitamos a registrarse y continuar con su búsqueda.</p>\r\n        <div class=\"border-line\"> </div>\r\n        <p>\r\n        <a  class=\"click\" href=\"/es/user/login?destination=[current-page:url]\">Iniciar sesión</a>\r\n        <a  class=\"click\" href=\"/es/registro/comprador?destination=[current-page:url]\">Registrarse</a></p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes:
+    class:
+      - 'container row'
+    id: contacto
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: inline
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: "<a class=\"close close-action\" href=\"#\">Close</a> <img alt=\"\" src=\"/themes/custom/catalogo_public/images/icono_form_send.png\" />\r\n<h2>¡Gracias!</h2>\r\n\r\n<p>¡Su mensaje ha sido enviado!</p>\r\n<a class=\"close btn btn-primary\" href=\"#\">Aceptar</a>\r\n"
+  confirmation_attributes:
+    class:
+      - 'company-confirmation-message popup-message'
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    handler_id: email
+    label: 'Email to anonymous'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:mail:raw]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: '¡Ha contactado a una empresa a través del Catálogo Oferta Exportable de ProColombia!'
+      body: "Señor (a) [webform_submission:values:contact_name]\r\n\r\n<p>Usted ha recibido un mensaje a través del Catálogo de la oferta exportable de ProColombia. Esta es la información que solicito de la empresa.</p>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre de contacto</td>\r\n\t\t\t<td>[company_custom_tokens:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cargo</td>\r\n\t\t\t<td>[company_custom_tokens:charge]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[company_custom_tokens:contact_mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[company_custom_tokens:cellphone]</td>\r\n\t\t</tr>\r\n                <tr>\r\n\t\t\t<td>Ubicación</td>\r\n\t\t\t<td>[company_custom_tokens:contact_location]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      excluded_elements:
+        contact_name: contact_name
+        phone: phone
+        country: country
+        comments: comments
+        terms_of_service: terms_of_service
+        data_protection: data_protection
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_1:
+    id: email
+    handler_id: email_1
+    label: 'Email to company'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[company_custom_tokens:contact_mail]'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: '¡Alguien está interesado en su empresa!'
+      body: "<h3>Señor(a) [company_custom_tokens:contact_name]</h3>\r\n\r\n<p><strong>Ha sido contactado</strong> a través del Catálogo de la oferta exportable de ProColombia. El Señor(a). <strong>[webform_submission:values:contact_name]</strong> quiere contactarlo para compartir una posible <strong>oportunidad de negocio:</strong></p>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre</td>\r\n\t\t\t<td>[webform_submission:values:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Ubicación</td>\r\n\t\t\t<td>[webform_submission:values:country]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[webform_submission:values:phone]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Mensaje</td>\r\n\t\t\t<td>[webform_submission:values:comments]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      excluded_elements:
+        terms_of_service: terms_of_service
+        data_protection: data_protection
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+  email_to_assessor:
+    id: assesor_mail
+    handler_id: email_to_assessor
+    label: 'Email to assessor'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: _default
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: '¡Nuevo Contacto en el Colombian B2B Marketplace!'
+      body: "<p>Asesor ha recibido un mensaje a trav&eacute;s del Colombian B2B Marketplace de ProColombia. Esta es la informaci&oacute;n de la compa&ntilde;&iacute;a contactada y la persona que desea contactar a esa compa&ntilde;&iacute;a.</p>\r\n\r\n<h3>Informaci&oacute;n de la Empresa</h3>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre de contacto</td>\r\n\t\t\t<td>[company_custom_tokens:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Cargo</td>\r\n\t\t\t<td>[company_custom_tokens:charge]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[company_custom_tokens:contact_mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[company_custom_tokens:cellphone]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h3>Informaci&oacute;n an&oacute;nimo</h3>\r\n\r\n<table style=\"width:100%\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Nombre</td>\r\n\t\t\t<td>[webform_submission:values:contact_name]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Email</td>\r\n\t\t\t<td>[webform_submission:values:mail]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Ubicaci&oacute;n</td>\r\n\t\t\t<td>[webform_submission:values:country]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Celular</td>\r\n\t\t\t<td>[webform_submission:values:phone]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Mensaje</td>\r\n\t\t\t<td>[webform_submission:values:comments]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+      excluded_elements:
+        terms_of_service: terms_of_service
+        data_protection: data_protection
+      ignore_access: 0
+      exclude_empty: true
+      exclude_empty_checkbox: 0
+      html: true
+      attachments: 0
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      exclude_attachments: false
+      parameters: {  }
+variants: {  }

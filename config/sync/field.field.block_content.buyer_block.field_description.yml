@@ -1,0 +1,19 @@
+uuid: 756a6952-af95-4848-bfe3-a25afff3e226
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.buyer_block
+    - field.storage.block_content.field_description
+id: block_content.buyer_block.field_description
+field_name: field_description
+entity_type: block_content
+bundle: buyer_block
+label: Descripción
+description: 'Aquí se agrega la descripción del servicio que tiene el usuario comprador'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

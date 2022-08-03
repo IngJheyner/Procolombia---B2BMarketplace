@@ -1,0 +1,18 @@
+uuid: 4a9a7de0-118d-41ce-8665-4f80b723fb38
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.accessconditioncontent
+id: node.accessconditioncontent.title
+field_name: title
+entity_type: node
+bundle: accessconditioncontent
+label: 'Condiciones de acceso'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

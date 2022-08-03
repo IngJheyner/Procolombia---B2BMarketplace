@@ -1,0 +1,7 @@
+
+cp_core.admin_settings_states_form:
+  title: 'Configuración cambio dinámico de estados'
+  route_name: cp_core.admin_settings_states_form
+  description: 'Configuración cambio dinámico de estados en empresas y productos.'
+  parent: cp_migrate.admin_index
+  weight: 99

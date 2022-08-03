@@ -1,0 +1,18 @@
+uuid: 9bea77ca-fe3d-4bab-a3ec-63bacc6e31b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.categories_flow_semaphore
+id: taxonomy_term.categories_flow_semaphore.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: categories_flow_semaphore
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

@@ -1,0 +1,29 @@
+uuid: 79dd5603-9cfe-4e33-bcdd-ddf5f98bcf7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_key_words
+    - node.type.product
+    - taxonomy.vocabulary.key_words
+id: node.product.field_key_words
+field_name: field_key_words
+entity_type: node
+bundle: product
+label: 'key words'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      key_words: key_words
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

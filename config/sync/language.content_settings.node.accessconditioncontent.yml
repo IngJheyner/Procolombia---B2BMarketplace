@@ -1,0 +1,16 @@
+uuid: dd4d05ee-60ee-4cb2-b541-8fa3e348cf14
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.accessconditioncontent
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.accessconditioncontent
+target_entity_type_id: node
+target_bundle: accessconditioncontent
+default_langcode: site_default
+language_alterable: true

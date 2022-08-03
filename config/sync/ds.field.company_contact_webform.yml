@@ -1,0 +1,19 @@
+id: company_contact_webform
+label: 'Company contact webform'
+ui_limit: ''
+type: block
+type_label: 'Block field'
+entities:
+  node: node
+properties:
+  block: 'block_content:77446c63-8f55-4748-b1df-b65df05d8e73'
+  use_block_title: false
+  add_block_wrappers: false
+  config:
+    id: 'block_content:77446c63-8f55-4748-b1df-b65df05d8e73'
+    label: ''
+    label_display: visible
+    provider: block_content
+    status: true
+    info: ''
+    view_mode: full

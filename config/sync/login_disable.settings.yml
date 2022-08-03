@@ -1,0 +1,10 @@
+login_disable_is_active: false
+login_disable_key: admin
+login_disable_message: 'Colombian B2B Marketplace está en mantenimiento en estos momentos. Pronto estaremos de regreso. Gracias por su paciencia.'
+_core:
+  default_config_hash: RYEZ_al18Gat1sCWNZ6daEVwp4DM4tiC8IjyTyqRUVA
+langcode: es
+actions: null
+form_build_id: form-506WSHueqYhq8UP-1uX9XF21ZKxV1y3sbQq6bUo51Ik
+form_token: 99fITpYivcEmOUbXyiHQA4mfpFy75O1wf2O6FYFkLWc
+form_id: login_disable_settings_form

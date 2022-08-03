@@ -1,0 +1,27 @@
+uuid: b8eb250b-ea13-4a05-8eb6-0890f30561a9
+langcode: en
+status: false
+dependencies:
+  module:
+    - cp_search
+    - system
+  theme:
+    - procolombia
+id: procolombia_filterssearch
+theme: procolombia
+region: primary_menu
+weight: -14
+provider: null
+plugin: filters_search
+settings:
+  id: filters_search
+  label: 'Filters Search'
+  label_display: '0'
+  provider: cp_search
+  my_block_settings: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "<front>\r\n/products\r\n/products/*\r\n/products/*/*\r\n/productos\r\n/productos/*\r\n/productos/*/*"

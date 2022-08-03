@@ -1,0 +1,21 @@
+uuid: 7e05587f-5272-4614-8ef2-271662f05933
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cellphone
+    - node.type.old_company
+  module:
+    - telephone
+id: node.old_company.field_cellphone
+field_name: field_cellphone
+entity_type: node
+bundle: old_company
+label: Celular
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

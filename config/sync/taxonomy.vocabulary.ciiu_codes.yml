@@ -1,0 +1,8 @@
+uuid: 148f20f6-deea-4bce-9b0c-13f8a5915db2
+langcode: es
+status: true
+dependencies: {  }
+name: 'Codigos CIIU'
+vid: ciiu_codes
+description: 'Lista de codigos CIIU'
+weight: 0

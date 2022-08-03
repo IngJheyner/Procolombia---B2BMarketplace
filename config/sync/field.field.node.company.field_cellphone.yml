@@ -1,0 +1,21 @@
+uuid: f1c5eab2-1b5b-4544-8c15-146a9af2cbf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cellphone
+    - node.type.company
+  module:
+    - telephone
+id: node.company.field_cellphone
+field_name: field_cellphone
+entity_type: node
+bundle: company
+label: Cellphone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

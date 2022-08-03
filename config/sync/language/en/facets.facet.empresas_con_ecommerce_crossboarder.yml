@@ -1,0 +1,4 @@
+name: 'Companies with E Commerce Cross Border'
+widget:
+  config:
+    reset_text: 'Show all'

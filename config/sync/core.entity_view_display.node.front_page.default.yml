@@ -1,0 +1,241 @@
+uuid: 34bc2e72-0067-4eb4-beea-288c21f6140f
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.field.node.front_page.layout_builder__layout
+    - node.type.front_page
+    - views.view.buscador_b2b_mp_2021
+    - views.view.empresas_destacadas_head
+    - views.view.oferta_especializada_2021
+    - views.view.productos_destacados_head
+  module:
+    - bootstrap_layouts
+    - layout_builder
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: bs_1col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: section
+            classes:
+              clearfix: clearfix
+            add_layout_class: 1
+            attributes: id|primary-banner
+          regions:
+            main:
+              wrapper: div
+              classes:
+                clearfix: clearfix
+              add_region_classes: 1
+              attributes: ''
+        components:
+          fed60128-35b1-4c34-9fd1-b9ebe2ac0099:
+            uuid: fed60128-35b1-4c34-9fd1-b9ebe2ac0099
+            region: main
+            configuration:
+              id: 'views_block:hero_banner-block_1'
+              label: 'banner 2'
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: 'banner 2'
+              items_per_page: none
+            weight: -9
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: primary-banner
+                  class: 'w-0 p-0 cp-banner'
+                  style: ''
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+          c3627412-1242-4e63-b6d6-55879f5fb95f:
+            uuid: c3627412-1242-4e63-b6d6-55879f5fb95f
+            region: main
+            configuration:
+              id: 'inline_block:basic'
+              label: 'H1 tag'
+              label_display: '0'
+              provider: layout_builder
+              view_mode: full
+              context_mapping: {  }
+              block_revision_id: 29
+              block_serialized: null
+            weight: -10
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: bs_1col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: section
+            classes:
+              clearfix: clearfix
+            add_layout_class: 1
+            attributes: id|productos-destacados
+          regions:
+            main:
+              wrapper: div
+              classes:
+                clearfix: clearfix
+              add_region_classes: 1
+              attributes: ''
+        components:
+          014dd9ab-e824-405e-be64-cda69502a878:
+            uuid: 014dd9ab-e824-405e-be64-cda69502a878
+            region: main
+            configuration:
+              id: 'views_block:productos_destacados_head-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional: {  }
+          ca7a9c67-8e28-4b92-90f3-9e58f77bba1f:
+            uuid: ca7a9c67-8e28-4b92-90f3-9e58f77bba1f
+            region: main
+            configuration:
+              id: 'views_exposed_filter_block:buscador_b2b_mp_2021-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+            weight: -7
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: bs_1col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: section
+            classes:
+              clearfix: clearfix
+            add_layout_class: 1
+            attributes: id|eventos-destacados
+          regions:
+            main:
+              wrapper: div
+              classes:
+                clearfix: clearfix
+              add_region_classes: 1
+              attributes: ''
+        components:
+          dab98553-e5d0-44fc-a4f3-7822afc0c4c7:
+            uuid: dab98553-e5d0-44fc-a4f3-7822afc0c4c7
+            region: main
+            configuration:
+              id: 'views_block:oferta_especializada_2021-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: mt-3
+                  style: ''
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+        third_party_settings: {  }
+      -
+        layout_id: bs_1col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: section
+            classes:
+              clearfix: clearfix
+            add_layout_class: 1
+            attributes: id|empresas-destacadas
+          regions:
+            main:
+              wrapper: div
+              classes:
+                clearfix: clearfix
+              add_region_classes: 1
+              attributes: ''
+        components:
+          c6c4203d-2c60-4484-9267-e85172864bd7:
+            uuid: c6c4203d-2c60-4484-9267-e85172864bd7
+            region: main
+            configuration:
+              id: 'views_block:empresas_destacadas_head-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 0
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: mt-3
+                  style: ''
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+        third_party_settings: {  }
+id: node.front_page.default
+targetEntityType: node
+bundle: front_page
+mode: default
+content: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  layout_builder__layout: true
+  links: true
+  search_api_excerpt: true

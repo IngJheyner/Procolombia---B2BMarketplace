@@ -1,0 +1,27 @@
+uuid: f3f9701e-463c-4813-b710-9151327d67f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_certifications
+    - node.type.product
+  module:
+    - file
+id: node.product.field_file_certifications
+field_name: field_file_certifications
+entity_type: node
+bundle: product
+label: Certifications
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx png jpg'
+  max_filesize: '500 KB'
+  description_field: true
+field_type: file

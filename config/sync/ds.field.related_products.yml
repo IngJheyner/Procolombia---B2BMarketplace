@@ -1,0 +1,18 @@
+id: related_products
+label: 'Related products'
+ui_limit: ''
+type: block
+type_label: 'Block field'
+entities:
+  node: node
+properties:
+  block: 'views_block:related_products-block_1'
+  use_block_title: true
+  config:
+    id: 'views_block:related_products-block_1'
+    label: ''
+    label_display: visible
+    provider: views
+    context_mapping: {  }
+    views_label: ''
+    items_per_page: '5'

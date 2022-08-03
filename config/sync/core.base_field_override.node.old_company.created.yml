@@ -1,0 +1,18 @@
+uuid: 23d2c655-ffeb-4903-ab43-7c01ea0408a6
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.old_company
+id: node.old_company.created
+field_name: created
+entity_type: node
+bundle: old_company
+label: Fecha
+description: 'La fecha en que el nodo fue creado.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: 8ce9e0b3-6fca-4b5b-b5b9-4607d45f32e2
+langcode: en
+status: true
+dependencies:
+  theme:
+    - procolombia
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: procolombia_local_tasks
+theme: procolombia
+region: content
+weight: -30
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 43d602e1-a869-4aaa-b155-67523e5b8123
+langcode: es
+status: true
+dependencies: {  }
+name: 'Departamentos y ciudades'
+vid: locations
+description: 'Departamentos y ciudades'
+weight: 0

@@ -1,0 +1,22 @@
+uuid: 46081400-3a83-4929-983c-cfd9ea2f9bec
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.banner
+id: node.banner.sticky
+field_name: sticky
+entity_type: node
+bundle: banner
+label: 'Fijo al comienzo de las listas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

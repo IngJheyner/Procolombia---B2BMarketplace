@@ -1,0 +1,21 @@
+uuid: 7542a56a-3b6a-4659-af8a-3c1dbd6b2dff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lead
+    - paragraphs.paragraphs_type.drupal_block
+  module:
+    - text
+id: paragraph.drupal_block.field_lead
+field_name: field_lead
+entity_type: paragraph
+bundle: drupal_block
+label: Lead
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

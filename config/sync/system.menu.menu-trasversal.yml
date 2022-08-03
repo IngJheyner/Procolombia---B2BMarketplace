@@ -1,0 +1,8 @@
+uuid: f32a492b-7006-440b-ba8c-0a9bccd841c0
+langcode: en
+status: true
+dependencies: {  }
+id: menu-trasversal
+label: 'Menu transversal'
+description: 'Menú superior que esta en todos los sitios de Procolombia'
+locked: false

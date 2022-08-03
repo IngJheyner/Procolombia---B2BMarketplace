@@ -1,0 +1,23 @@
+uuid: 40f4d84b-8398-4caa-a04a-6fd3b9c57be0
+langcode: es
+status: true
+dependencies:
+  module:
+    - block_content
+    - field_permissions
+    - link
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: block_content.field_sign_up
+field_name: field_sign_up
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

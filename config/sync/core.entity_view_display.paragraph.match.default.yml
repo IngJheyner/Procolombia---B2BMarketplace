@@ -1,0 +1,26 @@
+uuid: f1ab3fb8-82d2-4b7b-a2c1-a5a10d77a644
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.match.field_variables_caracteristicas
+    - paragraphs.paragraphs_type.match
+  module:
+    - options
+id: paragraph.match.default
+targetEntityType: paragraph
+bundle: match
+mode: default
+content:
+  field_variables_caracteristicas:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

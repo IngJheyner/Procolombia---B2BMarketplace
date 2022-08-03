@@ -1,0 +1,22 @@
+uuid: d54a1f0a-19b1-4d62-83bc-4bba8c7ffd94
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.otros_eventos_destacados
+id: taxonomy_term.otros_eventos_destacados.status
+field_name: status
+entity_type: taxonomy_term
+bundle: otros_eventos_destacados
+label: Publicado
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

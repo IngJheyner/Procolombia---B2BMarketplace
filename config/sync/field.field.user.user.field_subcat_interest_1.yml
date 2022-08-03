@@ -1,0 +1,30 @@
+uuid: f47c2dd1-0824-4e1d-aaf3-d2554383a8c3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_subcat_interest_1
+    - taxonomy.vocabulary.categorization
+  module:
+    - user
+id: user.user.field_subcat_interest_1
+field_name: field_subcat_interest_1
+entity_type: user
+bundle: user
+label: 'Subcategoría de interés 1'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categorization: categorization
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

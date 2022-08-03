@@ -1,0 +1,21 @@
+uuid: ffa81523-c0b7-4c1b-bc4d-02c9e074bccb
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.match.field_variables_caracteristicas
+    - paragraphs.paragraphs_type.match
+id: paragraph.match.default
+targetEntityType: paragraph
+bundle: match
+mode: default
+content:
+  field_variables_caracteristicas:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

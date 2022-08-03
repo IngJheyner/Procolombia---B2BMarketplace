@@ -1,0 +1,21 @@
+uuid: d7a6ab88-f60f-4755-9e02-c5cc9c35f74d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_longtext
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - text
+id: paragraph.single_text.field_longtext
+field_name: field_longtext
+entity_type: paragraph
+bundle: single_text
+label: Longtext
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

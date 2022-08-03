@@ -1,0 +1,108 @@
+uuid: 06403cfc-ab76-41c5-a775-1b66895d19da
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.title_and_link
+    - field.field.node.company.field_body
+    - field.field.node.company.field_cellphone
+    - field.field.node.company.field_charge
+    - field.field.node.company.field_ciiu_code
+    - field.field.node.company.field_contact_name
+    - field.field.node.company.field_email
+    - field.field.node.company.field_ext
+    - field.field.node.company.field_json_ld
+    - field.field.node.company.field_logo
+    - field.field.node.company.field_nit
+    - field.field.node.company.field_phone
+    - field.field.node.company.field_previous_id
+    - field.field.node.company.field_product_categories_list
+    - field.field.node.company.field_semaphore_category
+    - field.field.node.company.field_states
+    - field.field.node.company.field_tags
+    - field.field.node.company.field_tags_destacados
+    - field.field.node.company.field_tags_oferta_especializada
+    - field.field.node.company.field_ubication_city
+    - field.field.node.company.field_ubication_state
+    - field.field.node.company.field_url_ecommerce
+    - field.field.node.company.field_web
+    - node.type.company
+  module:
+    - ds
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: null
+    regions:
+      content:
+        - node_title
+        - node_link
+        - field_url_ecommerce
+    fields:
+      node_link:
+        plugin_id: node_link
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          'link text': '+ Information'
+          'link class': ''
+          wrapper: ''
+          class: ''
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          wrapper: h5
+          class: ''
+id: node.company.title_and_link
+targetEntityType: node
+bundle: company
+mode: title_and_link
+content:
+  field_url_ecommerce:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_body: true
+  field_cellphone: true
+  field_charge: true
+  field_ciiu_code: true
+  field_contact_name: true
+  field_email: true
+  field_ext: true
+  field_json_ld: true
+  field_logo: true
+  field_nit: true
+  field_phone: true
+  field_previous_id: true
+  field_product_categories_list: true
+  field_semaphore_category: true
+  field_states: true
+  field_tags: true
+  field_tags_destacados: true
+  field_tags_oferta_especializada: true
+  field_ubication_city: true
+  field_ubication_state: true
+  field_web: true
+  flag_favorites: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

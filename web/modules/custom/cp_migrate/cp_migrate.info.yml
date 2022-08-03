@@ -1,0 +1,5 @@
+name: 'Migrate drupal 7'
+type: module
+description: 'This module allow uploading csv of user, taxonomies, empresas and products'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'

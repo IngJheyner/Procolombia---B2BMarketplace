@@ -1,0 +1,7 @@
+uuid: a2788a98-47c6-4dda-8edb-22dcaa0250a8
+langcode: es
+status: true
+dependencies: {  }
+formId: register_buyer_form
+captchaType: recaptcha/reCAPTCHA
+label: register-buyer-form

@@ -1,0 +1,18 @@
+diff --git a/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php b/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
+index 335f5d7..9e95090 100644
+--- a/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
++++ b/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
+@@ -68,11 +68,13 @@ class Xlsx extends BaseReader
+      */
+     public function canRead($pFilename)
+     {
++        echo "path:" . $pFilename;
+         File::assertFile($pFilename);
+ 
+         $xl = false;
+         // Load file
+         $zip = new ZipArchive();
++        $pFilename = drupal_realpath($pFilename);
+         if ($zip->open($pFilename) === true) {
+             // check if it is an OOXML archive
+             $rels = simplexml_load_string(

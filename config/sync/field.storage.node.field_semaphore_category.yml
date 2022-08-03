@@ -1,0 +1,20 @@
+uuid: 1c308126-bbee-41e8-85ad-a7a1bdc62b73
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_semaphore_category
+field_name: field_semaphore_category
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

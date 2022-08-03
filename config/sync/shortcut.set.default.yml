@@ -1,0 +1,8 @@
+uuid: d009b7fd-6607-41ed-99f4-8c7c09ecc36f
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: U5VlGjd_SfV0Qm_EfnaynOfc549cNscFAx48JfYoMRI
+id: default
+label: Máster

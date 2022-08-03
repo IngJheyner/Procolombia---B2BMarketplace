@@ -1,0 +1,23 @@
+uuid: 53c1a4a8-8dd4-4533-89f5-162d4089ec26
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mostrar_en_home
+    - node.type.product
+id: node.product.field_mostrar_en_home
+field_name: field_mostrar_en_home
+entity_type: node
+bundle: product
+label: 'Mostrar en home'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Si
+  off_label: 'No'
+field_type: boolean

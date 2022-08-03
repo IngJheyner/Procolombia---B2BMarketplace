@@ -1,0 +1,22 @@
+uuid: 2b8ed30f-4bd1-49e5-b12d-b18484745561
+langcode: es
+status: true
+dependencies:
+  module:
+    - language
+id: homepage
+label: Homepage
+description: ''
+use_admin_theme: false
+path: /homepage-panel
+access_logic: and
+access_conditions:
+  -
+    id: language
+    negate: false
+    context_mapping:
+      language: language_interface
+    langcodes:
+      en: en
+      es: es
+parameters: {  }

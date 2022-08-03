@@ -1,0 +1,18 @@
+uuid: 8bf237a2-19c1-4af3-8cac-ad71500be437
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.match_automatico
+id: node.match_automatico.title
+field_name: title
+entity_type: node
+bundle: match_automatico
+label: 'Titulo del Match'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

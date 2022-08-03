@@ -1,0 +1,15 @@
+cp_migrate.admin_index:
+  path: '/admin/config/catalogo'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Catálogo'
+  requirements:
+    _permission: 'access administration pages'
+
+cp_migrate.content:
+  path: '/admin/config/catalogo/import-csv'
+  defaults:
+    _controller: '\Drupal\cp_migrate\Controller\ImportCSV::content'
+    _title: 'Importación de usuarios, taxonomías, empresas y productos'
+  requirements:
+    _permission: 'access administration pages'

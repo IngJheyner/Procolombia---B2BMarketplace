@@ -1,0 +1,22 @@
+uuid: f25da314-973b-4c51-ab57-c64c3e242b61
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.accessconditioncontent
+id: node.accessconditioncontent.promote
+field_name: promote
+entity_type: node
+bundle: accessconditioncontent
+label: 'Promovido a la portada'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: 380bd2b2-7806-4f53-99da-cdd776d0f192
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.partida_arancelaria
+  module:
+    - path
+id: taxonomy_term.partida_arancelaria.path
+field_name: path
+entity_type: taxonomy_term
+bundle: partida_arancelaria
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

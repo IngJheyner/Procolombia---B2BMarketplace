@@ -1,0 +1,27 @@
+uuid: de59fa36-d81d-4e18-a9cd-91d061436b58
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: edge2edge
+      label: 'Full Screen'
+    -
+      value: container
+      label: Container
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

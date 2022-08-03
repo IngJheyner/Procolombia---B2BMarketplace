@@ -1,0 +1,21 @@
+uuid: b137304d-da7b-4739-8149-7ea797f63948
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_json_ld_old_companies
+    - node.type.old_company
+  module:
+    - text
+id: node.old_company.field_json_ld_old_companies
+field_name: field_json_ld_old_companies
+entity_type: node
+bundle: old_company
+label: Json-ld
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

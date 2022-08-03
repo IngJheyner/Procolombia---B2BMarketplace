@@ -1,0 +1,11 @@
+uuid: 1ac13131-3aac-43f3-b592-5a287942c30c
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.match_automatico
+id: node.match_automatico
+target_entity_type_id: node
+target_bundle: match_automatico
+default_langcode: site_default
+language_alterable: false

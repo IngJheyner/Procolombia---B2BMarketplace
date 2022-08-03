@@ -1,0 +1,18 @@
+uuid: 3b99263c-3329-4d7d-b8ec-874fd61a5089
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.categories_flow_semaphore
+id: taxonomy_term.categories_flow_semaphore.name
+field_name: name
+entity_type: taxonomy_term
+bundle: categories_flow_semaphore
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

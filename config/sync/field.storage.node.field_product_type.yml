@@ -1,0 +1,27 @@
+uuid: 64016408-a6f9-416d-81c3-53e4fe17e3ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_product_type
+field_name: field_product_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: product
+      label: Producto
+    -
+      value: service
+      label: Servicio
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

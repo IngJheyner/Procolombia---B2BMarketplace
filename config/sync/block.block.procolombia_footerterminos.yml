@@ -1,0 +1,25 @@
+uuid: c4714683-57b7-49b1-a891-4678000cf7e7
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.footer-terminos
+  module:
+    - system
+  theme:
+    - procolombia
+id: procolombia_footerterminos
+theme: procolombia
+region: footer_fourth
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-terminos'
+settings:
+  id: 'system_menu_block:footer-terminos'
+  label: 'Footer términos'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,27 @@
+uuid: 42261ce1-afe4-48fe-829d-c2c351ab4b62
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_type_data_policy
+field_name: field_type_data_policy
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: data_protection
+      label: 'Protección de datos.'
+    -
+      value: terms_of_use
+      label: 'Términos de uso y Privacidad'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

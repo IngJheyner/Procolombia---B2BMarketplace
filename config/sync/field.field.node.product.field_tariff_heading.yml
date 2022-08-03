@@ -1,0 +1,21 @@
+uuid: 591c3d4c-f5a7-4a6d-93ae-3f2fadafb4b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tariff_heading
+    - node.type.product
+  module:
+    - telephone
+id: node.product.field_tariff_heading
+field_name: field_tariff_heading
+entity_type: node
+bundle: product
+label: 'HS code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

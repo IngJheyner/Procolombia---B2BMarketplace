@@ -1,0 +1,18 @@
+uuid: 51f21ccb-e0b5-4e55-af96-64a201fa029d
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mostrar_en_home
+field_name: field_mostrar_en_home
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

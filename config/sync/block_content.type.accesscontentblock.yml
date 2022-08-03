@@ -1,0 +1,8 @@
+uuid: 9e8eda5d-0db1-4342-be91-bbff354452e2
+langcode: es
+status: true
+dependencies: {  }
+id: accesscontentblock
+label: AccessContentBlock
+revision: 0
+description: ''

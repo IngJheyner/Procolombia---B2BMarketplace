@@ -1,0 +1,1102 @@
+uuid: e9b8e7de-6de9-4617-adc5-f5485d4e8dd3
+langcode: es
+status: true
+dependencies:
+  config:
+    - search_api.index.categorias_b2b
+    - webform.webform.que_esta_buscando
+  module:
+    - advanced_text_formatter
+    - owlcarousel
+    - search_api
+    - views_bootstrap
+    - views_row_insert
+id: cat_rela_busqueda_b2b_2021
+label: 'Categorías Relacionadas Buscador B2B 2021'
+module: views
+description: ''
+tag: ''
+base_table: search_api_index_categorias_b2b
+base_field: search_api_id
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Categorías Relacionadas Buscador B2B 2021'
+      fields:
+        tid:
+          id: tid
+          table: search_api_index_categorias_b2b
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_numeric
+          fallback_options:
+            set_precision: false
+            precision: 0
+            decimal: .
+            separator: ','
+            format_plural: false
+            format_plural_string: !!binary MQNAY291bnQ=
+            prefix: ''
+            suffix: ''
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            format_plural_values:
+              - '1'
+              - '@count'
+        name:
+          id: name
+          table: search_api_index_categorias_b2b
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        search_api_rendered_item:
+          id: search_api_rendered_item
+          table: search_api_index_categorias_b2b
+          field: search_api_rendered_item
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_rendered_item
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view_modes:
+            'entity:taxonomy_term':
+              categorization: card_img_small
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 4
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Aplicar
+          reset_button: false
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: search_api_time
+        options:
+          results_lifespan: 518400
+          results_lifespan_custom: 0
+          output_lifespan: 518400
+          output_lifespan_custom: 0
+      empty: {  }
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_categorias_b2b
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: search_api_relevance
+          exposed: false
+        weight:
+          id: weight
+          table: search_api_index_categorias_b2b
+          field: weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: weight
+          exposed: false
+        parent_tid:
+          id: parent_tid
+          table: search_api_index_categorias_b2b
+          field: parent_tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: parent_tid
+          exposed: false
+        name:
+          id: name
+          table: search_api_index_categorias_b2b
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: name
+          exposed: false
+      arguments: {  }
+      filters:
+        search_api_language:
+          id: search_api_language
+          table: search_api_index_categorias_b2b
+          field: search_api_language
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        published:
+          id: published
+          table: search_api_index_categorias_b2b
+          field: published
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_categorias_b2b
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: 'Búsqueda por texto completo'
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: query
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              exportador: '0'
+              asesor_comercial: '0'
+              asesor_administrativo: '0'
+              buyer: '0'
+              web_services: '0'
+              moderador: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: 2
+          fields:
+            - body_cat_parent_search
+            - body_cp_search
+            - body_pr_search
+            - key_words_pr_search
+            - title_cat_parent_search
+            - title_cp_search
+            - title_pr_search
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: owlcarousel
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          items: '5'
+          itemsDesktop: '[1199,4]'
+          itemsDesktopSmall: '[979,3]'
+          itemsTablet: '[768,2]'
+          itemsMobile: '[479,1]'
+          singleItem: 0
+          itemsScaleUp: 0
+          slideSpeed: '200'
+          paginationSpeed: '800'
+          rewindSpeed: '1000'
+          autoPlay: 0
+          stopOnHover: 0
+          navigation: 0
+          prevText: anterior
+          nextText: siguiente
+          rewindNav: 1
+          scrollPerPage: 0
+          pagination: 1
+          paginationNumbers: 0
+          responsive: 1
+          responsiveRefreshRate: '200'
+          mouseDrag: 1
+          touchDrag: 1
+          transitionStyle: fade
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: search_api_query
+        options:
+          bypass_access: false
+          skip_access: false
+          preserve_facet_query_args: false
+      relationships: {  }
+      css_class: 'container category-f category-mobil'
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: 'Categorías <span>destacadas</span>'
+          tokenize: false
+      footer:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          plugin_id: entity
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:search_api.index.categorias_b2b'
+  block_1:
+    id: block_1
+    display_title: categorias
+    display_plugin: block
+    position: 1
+    display_options:
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          col_xs: none
+          col_sm: none
+          col_md: col-md-3
+          col_lg: none
+          col_xl: none
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      defaults:
+        css_class: false
+        style: false
+        row: false
+      css_class: 'container category-f category-desktop'
+      display_description: ''
+      exposed_block: true
+      display_extenders:
+        metatag_display_extender: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:search_api.index.categorias_b2b'
+  block_2:
+    id: block_2
+    display_title: 'categorias modal'
+    display_plugin: block
+    position: 1
+    display_options:
+      fields:
+        tid:
+          id: tid
+          table: search_api_index_categorias_b2b
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_numeric
+          fallback_options:
+            set_precision: false
+            precision: 0
+            decimal: .
+            separator: ','
+            format_plural: false
+            format_plural_string: !!binary MQNAY291bnQ=
+            prefix: ''
+            suffix: ''
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            format_plural_values:
+              - '1'
+              - '@count'
+        name:
+          id: name
+          table: search_api_index_categorias_b2b
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: advanced_text
+          settings:
+            trim_length: '0'
+            ellipsis: 0
+            word_boundary: 0
+            use_summary: 0
+            token_replace: 0
+            filter: none
+            format: plain_text
+            allowed_html:
+              - a
+              - b
+              - br
+              - dd
+              - dl
+              - dt
+              - em
+              - i
+              - li
+              - ol
+              - p
+              - strong
+              - u
+              - ul
+            autop: 0
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: true
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        search_api_rendered_item:
+          id: search_api_rendered_item
+          table: search_api_index_categorias_b2b
+          field: search_api_rendered_item
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_rendered_item
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view_modes:
+            'entity:taxonomy_term':
+              categorization: check_category
+      pager:
+        type: none
+        options:
+          offset: 0
+      empty:
+        entity_webform:
+          id: entity_webform
+          table: views
+          field: entity_webform
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: true
+          target: que_esta_buscando
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+      filters:
+        search_api_language:
+          id: search_api_language
+          table: search_api_index_categorias_b2b
+          field: search_api_language
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        published:
+          id: published
+          table: search_api_index_categorias_b2b
+          field: published
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        parent_tid:
+          id: parent_tid
+          table: search_api_index_categorias_b2b
+          field: parent_tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_numeric
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: '0'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_categorias_b2b
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: 'Búsqueda por texto completo'
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: query
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              exportador: '0'
+              asesor_comercial: '0'
+              asesor_administrativo: '0'
+              buyer: '0'
+              web_services: '0'
+              moderador: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: 2
+          fields:
+            - body_cat_parent_search
+            - body_cp_search
+            - body_pr_search
+            - key_words_pr_search
+            - title_cat_parent_search
+            - title_cp_search
+            - title_pr_search
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: row_insert
+        options:
+          row_class: 'col-md-4 col-6 term-checkbox'
+          use_plugin: true
+          data_mode: vri_text
+          block_name: 'inline_block:banner'
+          custom_row_data: "<div id=\"taxonomy-term-all\" class=\"taxonomy-checkbox\">\r\n  <label class=\"tx-label-checkbox checkbox\">\r\n     <input type=\"checkbox\" id=\"check-term-0\" value=\"all\" class=\"tx-input-checkbox\" checked=\"checked\" onclick=\"return false;\">\r\n     <span class=\"check\"></span>\r\n  Seleccionar Todas</label>\r\n</div>\r\n\r\n<script>\r\n     \r\n        jQuery('.tx-label-checkbox').addClass(\"checkbox\");\r\n\r\n        jQuery('.tx-input-checkbox').after('<span class=\"check\"></span>');\r\n\r\n        jQuery(\".tx-input-checkbox\").change(function(){\r\n        if( jQuery(this).is(':checked') ){\r\n            jQuery(this).parent().addClass('label-check');\r\n        }else{\r\n            jQuery(this).parent().removeClass('label-check');\r\n        }\r\n      });\r\n\r\n</script>"
+          rows_number: 400
+          class_name: 'col-md-4 col-6 term-checkbox'
+          default_rows: false
+          strip_rows: false
+          row_header: false
+          row_footer: true
+          row_limit_flag: true
+          row_limit: 1
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      defaults:
+        empty: false
+        css_class: false
+        pager: false
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+        footer: false
+      css_class: 'w-75 m-auto'
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"cats-relat-search\">\r\n<p>Su búsqueda <strong>\"{{ filters.search_api_fulltext }}\"</strong> aparece en <strong>[view:total-rows] Categorías</strong>.</p>\r\n<small>Seleccione en las que está interesado</small>\r\n</div>\r\n"
+            format: html
+          tokenize: true
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"block-modal-filter-buscador-b2b-mp-2021\" id=\"modal-actions\">\r\n<div class=\"row justify-content-around\">\r\n<a class=\"col-md-4 button js-form-submit form-submit btn btn-primary\" id=\"modal-submit-buscador-b2b-mp-2021\" href=\"{{ url('<front>') }}/search?query={{ filters.search_api_fulltext }}\">Continuar búsqueda</a>\r\n</div>\r\n</div>"
+            format: html
+          tokenize: true
+      exposed_block: true
+      display_extenders:
+        metatag_display_extender: {  }
+      block_hide_empty: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:search_api.index.categorias_b2b'
+  block_3:
+    id: block_3
+    display_title: 'categorias relacionadas mobil'
+    display_plugin: block
+    position: 1
+    display_options:
+      defaults:
+        css_class: false
+      css_class: 'container category-f category-mobil'
+      display_description: ''
+      exposed_block: true
+      display_extenders:
+        metatag_display_extender: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:search_api.index.categorias_b2b'

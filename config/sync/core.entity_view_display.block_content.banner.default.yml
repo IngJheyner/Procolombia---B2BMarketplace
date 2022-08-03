@@ -1,0 +1,45 @@
+uuid: 9fe28750-5f3b-4c96-beea-d68de11aa7c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - field.field.block_content.banner.field_banner
+    - field.field.block_content.banner.field_type
+    - image.style.results_banner
+  module:
+    - options
+    - svg_image
+id: block_content.banner.default
+targetEntityType: block_content
+bundle: banner
+mode: default
+content:
+  field_banner:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: results_banner
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

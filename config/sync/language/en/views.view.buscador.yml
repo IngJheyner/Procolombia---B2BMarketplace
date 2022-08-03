@@ -1,0 +1,15 @@
+label: Search
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Search
+      title: Search
+      header:
+        area:
+          content:
+            value: '<h1>Results</h1>'
+            format: html
+        result:
+          content: 'Approximately @total results'

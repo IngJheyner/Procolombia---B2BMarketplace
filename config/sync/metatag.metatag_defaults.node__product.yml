@@ -1,0 +1,12 @@
+uuid: 0723ec70-fd80-47f1-a197-442c84ae214c
+langcode: es
+status: true
+dependencies: {  }
+id: node__product
+label: 'Content: Producto'
+tags:
+  description: '[node:field_body] '
+  keywords: '[node:field_key_words_backup]'
+  robots: 'index, follow'
+  title: '[node:title] | [node:field_pr_ref_company]| [site:name]'
+  twitter_cards_type: product

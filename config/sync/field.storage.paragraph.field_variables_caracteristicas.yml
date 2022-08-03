@@ -1,0 +1,82 @@
+uuid: 466cc08b-9ce9-4346-8026-8a779da835cc
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_variables_caracteristicas
+field_name: field_variables_caracteristicas
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Categoría
+      label: Categoría
+    -
+      value: Subcategoría
+      label: Subcategoría
+    -
+      value: 'Subpartida Arancelaria'
+      label: 'Subpartida Arancelaria'
+    -
+      value: 'Características Producto (Descripción)'
+      label: 'Características Producto (Descripción)'
+    -
+      value: 'Características Producto (Estructuradas)'
+      label: 'Características Producto (Estructuradas)'
+    -
+      value: 'Tipo de Producto'
+      label: 'Tipo de Producto'
+    -
+      value: 'Capacidad de Producción'
+      label: 'Capacidad de Producción'
+    -
+      value: 'Cantidad Mínima de Compra'
+      label: 'Cantidad Mínima de Compra'
+    -
+      value: 'Producto Permanente o por Temporadas'
+      label: 'Producto Permanente o por Temporadas'
+    -
+      value: 'Temporada de Producción'
+      label: 'Temporada de Producción'
+    -
+      value: 'Mercado Objetivo 1'
+      label: 'Mercado Objetivo 1'
+    -
+      value: 'Mercado Objetivo 2'
+      label: 'Mercado Objetivo 2'
+    -
+      value: 'Mercado Objetivo 3'
+      label: 'Mercado Objetivo 3'
+    -
+      value: 'Paises a los que ha exportado'
+      label: 'Paises a los que ha exportado'
+    -
+      value: 'Mercados de exportación actual'
+      label: 'Mercados de exportación actual'
+    -
+      value: 'Canales de Venta'
+      label: 'Canales de Venta'
+    -
+      value: 'Años de Experiencia Exportando'
+      label: 'Años de Experiencia Exportando'
+    -
+      value: 'Idiomas de Negociación'
+      label: 'Idiomas de Negociación'
+    -
+      value: 'Tipo de Clientes Actuales'
+      label: 'Tipo de Clientes Actuales'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

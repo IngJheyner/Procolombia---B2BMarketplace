@@ -1,0 +1,22 @@
+uuid: f56ef8ec-a81a-481b-a8be-6574c3d6171a
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.key_words
+id: taxonomy_term.key_words.status
+field_name: status
+entity_type: taxonomy_term
+bundle: key_words
+label: Publicado
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean

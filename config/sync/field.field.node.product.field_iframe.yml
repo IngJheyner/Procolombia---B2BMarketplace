@@ -1,0 +1,31 @@
+uuid: 5b5752dc-c1c3-4959-9fef-81d4fd91e6a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_iframe
+    - node.type.product
+  module:
+    - iframe
+id: node.product.field_iframe
+field_name: field_iframe
+entity_type: node
+bundle: product
+label: 'Contenido embebido'
+description: 'Ingrese aquí contenido embebido (iframes) si son requeridos.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: null
+  headerlevel: null
+  class: ''
+  frameborder: '0'
+  scrolling: auto
+  transparency: '1'
+  allowfullscreen: '1'
+  tokensupport: '0'
+  width: null
+  height: null
+field_type: iframe

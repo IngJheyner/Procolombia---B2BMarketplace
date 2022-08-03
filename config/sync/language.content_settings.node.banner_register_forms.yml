@@ -1,0 +1,18 @@
+uuid: 9c6797ed-a401-4fb5-9207-acd92ac7cf57
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.banner_register_forms
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.banner_register_forms
+target_entity_type_id: node
+target_bundle: banner_register_forms
+default_langcode: site_default
+language_alterable: true

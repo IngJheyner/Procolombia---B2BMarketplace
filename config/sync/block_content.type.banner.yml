@@ -1,0 +1,8 @@
+uuid: 7befa02a-951f-4090-ba3d-39ffe6cbfd0e
+langcode: en
+status: true
+dependencies: {  }
+id: banner
+label: Banner
+revision: 0
+description: 'Header banner default search'

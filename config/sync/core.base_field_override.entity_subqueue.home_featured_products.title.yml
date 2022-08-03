@@ -1,0 +1,18 @@
+uuid: 99fc00a5-607c-4890-9950-f156d7e8c304
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_featured_products
+id: entity_subqueue.home_featured_products.title
+field_name: title
+entity_type: entity_subqueue
+bundle: home_featured_products
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+uuid: 77dfc042-e5e3-46b0-9e65-3e67c6db69c2
+langcode: es
+status: true
+dependencies: {  }
+name: 'Categorías flujo de semáforo'
+vid: categories_flow_semaphore
+description: 'Clasificación de empresas que usan los asesores administrativos para gestionar los estados'
+weight: 0

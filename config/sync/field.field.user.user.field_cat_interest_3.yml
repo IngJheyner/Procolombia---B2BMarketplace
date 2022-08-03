@@ -1,0 +1,30 @@
+uuid: 264037b4-7666-4d69-a1d0-81e0e0fcae6c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_cat_interest_3
+    - taxonomy.vocabulary.categorization
+  module:
+    - user
+id: user.user.field_cat_interest_3
+field_name: field_cat_interest_3
+entity_type: user
+bundle: user
+label: 'Categoría de interés 3'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categorization: categorization
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

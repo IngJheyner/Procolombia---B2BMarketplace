@@ -1,0 +1,21 @@
+uuid: 5d15c71a-0081-48a3-9e38-2558d5a79918
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_type
+    - node.type.product
+  module:
+    - options
+id: node.product.field_product_type
+field_name: field_product_type
+entity_type: node
+bundle: product
+label: 'Seleccione si es un producto o servicio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

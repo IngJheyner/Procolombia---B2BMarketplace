@@ -1,0 +1,22 @@
+uuid: b3f33885-d4b2-4d9e-ae79-064aa581d764
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.partida_arancelaria
+id: taxonomy_term.partida_arancelaria.status
+field_name: status
+entity_type: taxonomy_term
+bundle: partida_arancelaria
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

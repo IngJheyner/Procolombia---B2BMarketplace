@@ -1,0 +1,17 @@
+uuid: c35b0111-8d6c-4e30-8438-7323300136d2
+langcode: es
+status: true
+dependencies:
+  module:
+    - focal_point
+name: new_producto_destacado_grande
+label: 'new producto destacado grande'
+effects:
+  9b24a32e-75a3-434d-8d8b-6118191e2dbd:
+    uuid: 9b24a32e-75a3-434d-8d8b-6118191e2dbd
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 540
+      height: 153
+      crop_type: focal_point

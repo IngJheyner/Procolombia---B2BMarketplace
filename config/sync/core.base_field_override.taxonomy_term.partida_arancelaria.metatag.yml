@@ -1,0 +1,18 @@
+uuid: c0ef2359-c016-4c12-ba84-58c5dc35d6ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.partida_arancelaria
+id: taxonomy_term.partida_arancelaria.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: partida_arancelaria
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

@@ -1,0 +1,23 @@
+uuid: 43852e2c-c281-4954-aa5d-8a3757a4d5a2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_enlace
+    - taxonomy.vocabulary.home_macro_rueda
+  module:
+    - link
+id: taxonomy_term.home_macro_rueda.field_enlace
+field_name: field_enlace
+entity_type: taxonomy_term
+bundle: home_macro_rueda
+label: Enlace
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

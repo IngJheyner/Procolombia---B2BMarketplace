@@ -1,0 +1,10 @@
+uuid: 08b997bd-b490-4825-8662-75a7e14c1f0a
+langcode: es
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.color
+label: Color
+targetEntityType: taxonomy_term
+cache: true

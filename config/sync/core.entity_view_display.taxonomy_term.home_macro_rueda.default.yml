@@ -1,0 +1,57 @@
+uuid: ec49c957-a79a-4b41-ae1b-eba2bdde2b70
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.home_macro_rueda.field_enlace
+    - field.field.taxonomy_term.home_macro_rueda.field_image
+    - taxonomy.vocabulary.home_macro_rueda
+  module:
+    - link
+    - svg_image
+    - text
+id: taxonomy_term.home_macro_rueda.default
+targetEntityType: taxonomy_term
+bundle: home_macro_rueda
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_enlace:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

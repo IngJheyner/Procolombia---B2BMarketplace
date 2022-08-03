@@ -1,0 +1,283 @@
+uuid: c274ced0-e0e1-4682-896f-2562b0b64e9c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_uri_search
+    - field.storage.taxonomy_term.field_titulo_h1
+    - search_api.server.categorias_b2b
+    - core.entity_view_mode.taxonomy_term.card_img_small
+  module:
+    - taxonomy
+    - search_api
+id: categorias_b2b
+name: 'Categorías B2B'
+description: ''
+read_only: false
+field_settings:
+  body_cat_parent_search:
+    label: 'Categorization Parent Body prodct search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization_parent:body'
+    type: text
+  body_cp_search:
+    label: 'Body company search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization:field_pr_ref_company:entity:body'
+    type: text
+  body_pr_search:
+    label: 'Body Product search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization:body'
+    type: text
+  key_words_pr_search:
+    label: 'key words product search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization:field_key_words'
+    type: text
+  name:
+    label: 'Nombre Categoría'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  parent_name:
+    label: 'Los padres del término» Nombre'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: parent
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  parent_tid:
+    label: 'Los padres del término» ID del término'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'parent:entity:tid'
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  parent_uri_search:
+    label: 'Los padres del término » Uri search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'parent:entity:field_uri_search'
+    type: string
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_uri_search
+      module:
+        - taxonomy
+  published:
+    label: Publicado
+    datasource_id: 'entity:taxonomy_term'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - taxonomy
+  rendered_card_img_small:
+    label: 'Rendered HTML output Card img small'
+    property_path: rendered_item
+    type: text
+    boost: !!float 0
+    configuration:
+      roles:
+        - anonymous
+      view_mode:
+        'entity:taxonomy_term':
+          categorization: card_img_small
+  tid:
+    label: 'ID del término'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: tid
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  title_cat_parent_search:
+    label: 'Categorization Parent Título product search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization_parent:title'
+    type: text
+  title_cp_search:
+    label: 'Título company search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization:field_pr_ref_company:entity:title'
+    type: text
+  title_pr_search:
+    label: 'Título product search'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'search_api_reverse_entity_references_node__field_categorization:title'
+    type: text
+  titulo_h1:
+    label: 'Titulo h1'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_titulo_h1
+    type: string
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_titulo_h1
+  uri_search:
+    label: 'Uri búsqueda Categoría'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_uri_search
+    type: string
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_uri_search
+  weight:
+    label: Peso
+    datasource_id: 'entity:taxonomy_term'
+    property_path: weight
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+datasource_settings:
+  'entity:taxonomy_term':
+    bundles:
+      default: false
+      selected:
+        - categorization
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: false
+    fields:
+      - body_cat_parent_search
+      - body_cp_search
+      - body_pr_search
+      - key_words_pr_search
+      - name
+      - parent_name
+      - parent_uri_search
+      - title_cat_parent_search
+      - title_cp_search
+      - title_pr_search
+      - titulo_h1
+      - uri_search
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+  ignore_character:
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: false
+    fields:
+      - body_cat_parent_search
+      - body_cp_search
+      - body_pr_search
+      - key_words_pr_search
+      - name
+      - parent_name
+      - parent_uri_search
+      - title_cat_parent_search
+      - title_cp_search
+      - title_pr_search
+      - titulo_h1
+      - uri_search
+    ignorable: '[''¿¡!?,.:;]'
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: false
+    fields:
+      - body_cat_parent_search
+      - body_cp_search
+      - body_pr_search
+      - key_words_pr_search
+      - name
+      - parent_name
+      - parent_uri_search
+      - title_cat_parent_search
+      - title_cp_search
+      - title_pr_search
+      - titulo_h1
+      - uri_search
+  language_with_fallback: {  }
+  rendered_item: {  }
+  reverse_entity_references: {  }
+  stemmer:
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+    all_fields: false
+    fields:
+      - body_cat_parent_search
+      - body_cp_search
+      - body_pr_search
+      - key_words_pr_search
+      - title_cat_parent_search
+      - title_cp_search
+      - title_pr_search
+    exceptions:
+      mexican: mexic
+      texan: texa
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+    fields:
+      - body_cat_parent_search
+      - body_cp_search
+      - body_pr_search
+      - key_words_pr_search
+      - title_cat_parent_search
+      - title_cp_search
+      - title_pr_search
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 1
+    minimum_word_size: '2'
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: false
+    fields:
+      - body_cat_parent_search
+      - body_cp_search
+      - body_pr_search
+      - key_words_pr_search
+      - name
+      - parent_name
+      - parent_uri_search
+      - title_cat_parent_search
+      - title_cp_search
+      - title_pr_search
+      - titulo_h1
+      - uri_search
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: categorias_b2b

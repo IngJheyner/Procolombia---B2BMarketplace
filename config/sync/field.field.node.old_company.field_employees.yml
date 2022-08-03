@@ -1,0 +1,23 @@
+uuid: ea04bfff-30b5-4ded-afc4-47aa7e294345
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_employees
+    - node.type.old_company
+id: node.old_company.field_employees
+field_name: field_employees
+entity_type: node
+bundle: old_company
+label: 'Número de empleados'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

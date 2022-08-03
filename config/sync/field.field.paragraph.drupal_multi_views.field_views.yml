@@ -1,0 +1,46 @@
+uuid: 839d81b4-3d91-4e1f-8920-281a04917706
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_views
+    - paragraphs.paragraphs_type.drupal_multi_views
+    - paragraphs.paragraphs_type.drupal_view
+  module:
+    - entity_reference_revisions
+id: paragraph.drupal_multi_views.field_views
+field_name: field_views
+entity_type: paragraph
+bundle: drupal_multi_views
+label: Views
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      drupal_view: drupal_view
+    negate: 0
+    target_bundles_drag_drop:
+      custom_block:
+        weight: 7
+        enabled: false
+      drupal_block:
+        weight: 8
+        enabled: false
+      drupal_multi_views:
+        weight: 9
+        enabled: false
+      drupal_view:
+        weight: 10
+        enabled: true
+      slide:
+        weight: 11
+        enabled: false
+      slide_item:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+uuid: 56bb82a8-6460-4714-bf0d-c4582fb02594
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_data_policy
+    - node.type.page
+  module:
+    - options
+id: node.page.field_type_data_policy
+field_name: field_type_data_policy
+entity_type: node
+bundle: page
+label: 'Tipo de política de datos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

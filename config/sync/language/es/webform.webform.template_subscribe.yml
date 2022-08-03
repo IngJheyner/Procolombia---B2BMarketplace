@@ -1,0 +1,4 @@
+title: Suscribir
+handlers:
+  email_notification:
+    label: 'Notificación de correo electrónico'

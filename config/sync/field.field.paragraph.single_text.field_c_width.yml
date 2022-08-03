@@ -1,0 +1,21 @@
+uuid: 1ecd1132-ad04-48e6-9e58-0ea31ccc1b79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_width
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - options
+id: paragraph.single_text.field_c_width
+field_name: field_c_width
+entity_type: paragraph
+bundle: single_text
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

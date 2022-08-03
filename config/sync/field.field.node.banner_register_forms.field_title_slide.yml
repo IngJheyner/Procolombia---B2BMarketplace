@@ -1,0 +1,19 @@
+uuid: b1d039f7-9117-426b-8e5a-9816c311a991
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title_slide
+    - node.type.banner_register_forms
+id: node.banner_register_forms.field_title_slide
+field_name: field_title_slide
+entity_type: node
+bundle: banner_register_forms
+label: 'Title slide'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,7 @@
+uuid: 5a54246b-96d1-4c83-a771-61cc032c9566
+langcode: en
+status: true
+dependencies: {  }
+formId: register_step_one_form
+captchaType: recaptcha/reCAPTCHA
+label: register_step_one_form

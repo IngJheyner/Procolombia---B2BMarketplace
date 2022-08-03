@@ -1,0 +1,17 @@
+uuid: d5be3a52-5984-43f4-ad0b-1b9c1b2ee6b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: home_product_category
+label: 'Home product category'
+effects:
+  f150a188-34b0-44df-96ca-e6cb10f9411d:
+    uuid: f150a188-34b0-44df-96ca-e6cb10f9411d
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 685
+      height: 490
+      crop_type: focal_point

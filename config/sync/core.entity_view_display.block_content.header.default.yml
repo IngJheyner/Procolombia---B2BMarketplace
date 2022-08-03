@@ -1,0 +1,64 @@
+uuid: c23199f1-a99e-4553-b3d6-4dc318d96a84
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.header
+    - field.field.block_content.header.body
+    - field.field.block_content.header.field_log_in
+    - field.field.block_content.header.field_logo_procolombia
+    - field.field.block_content.header.field_sign_up
+  module:
+    - link
+    - svg_image
+id: block_content.header.default
+targetEntityType: block_content
+bundle: header
+mode: default
+content:
+  field_log_in:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_logo_procolombia:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_sign_up:
+    type: link_separate
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

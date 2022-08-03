@@ -1,0 +1,6 @@
+services:
+  cp_core_event_subscriber:
+    class: Drupal\cp_core\EventSubscriber\CpCoreSubscriber
+    arguments: []
+    tags:
+      - {name: event_subscriber}

@@ -1,0 +1,107 @@
+uuid: 2988bbd6-e7c9-47d7-b3d9-aa2a37f1c5d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_text.field_c_classes
+    - field.field.paragraph.single_text.field_c_title
+    - field.field.paragraph.single_text.field_c_title_status
+    - field.field.paragraph.single_text.field_c_width
+    - field.field.paragraph.single_text.field_image_bg
+    - field.field.paragraph.single_text.field_longtext
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - field_group
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_styling_settings:
+      children:
+        - field_image_bg
+        - field_c_classes
+        - field_c_width
+      label: 'Styling settings'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_component_title:
+      children:
+        - field_c_title
+        - field_c_title_status
+      label: 'Component title'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.single_text.default
+targetEntityType: paragraph
+bundle: single_text
+mode: default
+content:
+  field_c_classes:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_c_title_status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_c_width:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image_bg:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_longtext:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

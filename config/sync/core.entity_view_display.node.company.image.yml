@@ -1,0 +1,98 @@
+uuid: 1a0ac0a6-9bf8-41af-8017-8424280ba6a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.image
+    - field.field.node.company.field_body
+    - field.field.node.company.field_cellphone
+    - field.field.node.company.field_charge
+    - field.field.node.company.field_ciiu_code
+    - field.field.node.company.field_contact_name
+    - field.field.node.company.field_email
+    - field.field.node.company.field_ext
+    - field.field.node.company.field_json_ld
+    - field.field.node.company.field_logo
+    - field.field.node.company.field_nit
+    - field.field.node.company.field_phone
+    - field.field.node.company.field_previous_id
+    - field.field.node.company.field_product_categories_list
+    - field.field.node.company.field_semaphore_category
+    - field.field.node.company.field_states
+    - field.field.node.company.field_tags
+    - field.field.node.company.field_tags_destacados
+    - field.field.node.company.field_tags_oferta_especializada
+    - field.field.node.company.field_ubication_city
+    - field.field.node.company.field_ubication_state
+    - field.field.node.company.field_url_ecommerce
+    - field.field.node.company.field_web
+    - image.style.thumbnail
+    - node.type.company
+  module:
+    - ds
+    - svg_image
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_logo
+id: node.company.image
+targetEntityType: node
+bundle: company
+mode: image
+content:
+  field_logo:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: thumbnail
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_body: true
+  field_cellphone: true
+  field_charge: true
+  field_ciiu_code: true
+  field_contact_name: true
+  field_email: true
+  field_ext: true
+  field_json_ld: true
+  field_nit: true
+  field_phone: true
+  field_previous_id: true
+  field_product_categories_list: true
+  field_semaphore_category: true
+  field_states: true
+  field_tags: true
+  field_tags_destacados: true
+  field_tags_oferta_especializada: true
+  field_ubication_city: true
+  field_ubication_state: true
+  field_url_ecommerce: true
+  field_web: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

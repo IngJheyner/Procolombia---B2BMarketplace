@@ -1,0 +1,103 @@
+uuid: 94b8d5b7-a351-490c-a13d-d090d33e5d8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.categorization.field_asesor
+    - field.field.taxonomy_term.categorization.field_icon
+    - field.field.taxonomy_term.categorization.field_image
+    - field.field.taxonomy_term.categorization.field_metadescription
+    - field.field.taxonomy_term.categorization.field_previous_id
+    - field.field.taxonomy_term.categorization.field_titulo_h1
+    - field.field.taxonomy_term.categorization.field_uri_search
+    - taxonomy.vocabulary.categorization
+  module:
+    - svg_image
+    - text
+id: taxonomy_term.categorization.default
+targetEntityType: taxonomy_term
+bundle: categorization
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_asesor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_metadescription:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_previous_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_titulo_h1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_uri_search:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

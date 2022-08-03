@@ -1,0 +1,19 @@
+uuid: 14264f2d-baa3-4960-a2e1-cb0c4ec046a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_classes
+    - paragraphs.paragraphs_type.drupal_block
+id: paragraph.drupal_block.field_c_classes
+field_name: field_c_classes
+entity_type: paragraph
+bundle: drupal_block
+label: Classes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

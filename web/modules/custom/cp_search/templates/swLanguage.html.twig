@@ -1,0 +1,20 @@
+<div class="content">
+
+    {% if urls is not empty %}
+      <select class="dropdown-language-item dropbutton">
+      {% for value in urls %}
+          {% set selected = 'secondary-action'%}
+          {% if value.id == currentLang %}
+            {% set selected = ''%}
+          {% endif %}
+
+          <option class="dropbutton-action {{selected}}" data-href="{{ value.url }}" value="{{ value.name }}">
+            {{ value.name }}
+          </option>
+
+      {% endfor %}
+        {# <li class="dropbutton-toggle"><button type="button"><span class="dropbutton-arrow"><span class="visually-hidden">List additional actions</span></span></button></li> #}
+      </select>
+    {% endif %}
+
+</div>

@@ -1,0 +1,18 @@
+display:
+  block_2:
+    display_options:
+      header:
+        area:
+          content:
+            value: "<div class=\"cats-relat-search\">\r\n<p>Your search<strong>\"{{ filters.search_api_fulltext }}\"</strong> appears in <strong>[view:total-rows] Categories</strong>.</p>\r\n<small>Select the ones you are interested in</small>\r\n</div>\r\n"
+            format: html
+      footer:
+        area:
+          content:
+            value: "<div class=\"block-modal-filter-buscador-b2b-mp-2021\" id=\"modal-actions\">\r\n<div class=\"row justify-content-around\">\r\n<a class=\"col-md-4 button js-form-submit form-submit btn btn-primary\" id=\"modal-submit-buscador-b2b-mp-2021\" href=\"{{ url('<front>') }}/search?query={{ filters.search_api_fulltext }}\">Continue Serching</a>\r\n</div>\r\n</div>"
+            format: html
+  default:
+    display_options:
+      header:
+        area_text_custom:
+          content: 'Featured <span> Categories </span>'

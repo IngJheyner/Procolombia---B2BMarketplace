@@ -1,0 +1,21 @@
+uuid: e3b9cf44-8edf-4895-89c4-8049f08a565e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_titulo_bloque_final
+    - taxonomy.vocabulary.tags
+  module:
+    - text
+id: taxonomy_term.tags.field_titulo_bloque_final
+field_name: field_titulo_bloque_final
+entity_type: taxonomy_term
+bundle: tags
+label: 'Titulo bloque final'
+description: 'ej: Categorías <span>Destacadas</span>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

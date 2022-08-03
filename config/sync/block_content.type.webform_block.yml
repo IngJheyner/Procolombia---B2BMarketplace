@@ -1,0 +1,8 @@
+uuid: 62d7956b-51ea-4b17-b432-e836912bc8f5
+langcode: en
+status: true
+dependencies: {  }
+id: webform_block
+label: 'Webform block'
+revision: 0
+description: 'Webform block'

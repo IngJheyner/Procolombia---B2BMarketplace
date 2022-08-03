@@ -1,0 +1,8 @@
+uuid: 54bd993d-04c2-4f0f-accd-7f370b2039cf
+langcode: es
+status: true
+dependencies: {  }
+id: node__old_company
+label: 'Content: Empresas antiguas'
+tags:
+  robots: 'index, follow'

@@ -1,0 +1,34 @@
+uuid: 2f3570fb-eb10-45c6-99b6-e44a4c2d3338
+langcode: es
+status: true
+dependencies:
+  module:
+    - ctools
+    - language
+    - taxonomy
+id: specialized_offer
+label: 'Specialized Offer'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/specialized-offer/[term:name]'
+selection_criteria:
+  958dbe3e-ed96-4441-bfbc-ed9ecd4f32a8:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 958dbe3e-ed96-4441-bfbc-ed9ecd4f32a8
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      tags: tags
+  0568b4e7-b198-4ef4-94da-fcd117efb2f3:
+    id: language
+    negate: false
+    uuid: 0568b4e7-b198-4ef4-94da-fcd117efb2f3
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    langcodes:
+      en: en
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Idioma

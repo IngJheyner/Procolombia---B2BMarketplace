@@ -1,0 +1,334 @@
+uuid: 8f581f74-63d0-47a5-a083-7ca077c722d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.old_company.body
+    - field.field.node.old_company.field_address
+    - field.field.node.old_company.field_body_offer
+    - field.field.node.old_company.field_cellphone
+    - field.field.node.old_company.field_city
+    - field.field.node.old_company.field_comment
+    - field.field.node.old_company.field_contact_1
+    - field.field.node.old_company.field_contact_2
+    - field.field.node.old_company.field_email
+    - field.field.node.old_company.field_employees
+    - field.field.node.old_company.field_fax
+    - field.field.node.old_company.field_id_empresa
+    - field.field.node.old_company.field_json_ld_old_companies
+    - field.field.node.old_company.field_logo
+    - field.field.node.old_company.field_logo_added
+    - field.field.node.old_company.field_mail_1
+    - field.field.node.old_company.field_mercados_destino
+    - field.field.node.old_company.field_neighborhood
+    - field.field.node.old_company.field_nit
+    - field.field.node.old_company.field_nom_status_company
+    - field.field.node.old_company.field_phone
+    - field.field.node.old_company.field_phone_1
+    - field.field.node.old_company.field_phone_2
+    - field.field.node.old_company.field_position_1
+    - field.field.node.old_company.field_position_2
+    - field.field.node.old_company.field_previous_id
+    - field.field.node.old_company.field_previous_uri
+    - field.field.node.old_company.field_redirect_301_company
+    - field.field.node.old_company.field_sector
+    - field.field.node.old_company.field_subsector
+    - field.field.node.old_company.field_text_certifications
+    - field.field.node.old_company.field_text_tags
+    - field.field.node.old_company.field_uri_related_company
+    - field.field.node.old_company.field_website
+    - node.type.old_company
+  module:
+    - options
+    - svg_image
+    - telephone
+    - text
+    - user
+id: node.old_company.default
+targetEntityType: node
+bundle: old_company
+mode: default
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_body_offer:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_cellphone:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_city:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_comment:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_contact_1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_contact_2:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_employees:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_fax:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_id_empresa:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_json_ld_old_companies:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  field_logo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_logo_added:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_mail_1:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_mercados_destino:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_neighborhood:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_nit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_nom_status_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_phone_1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_phone_2:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_position_1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_position_2:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_previous_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  field_previous_uri:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_redirect_301_company:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_sector:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_subsector:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_text_certifications:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_text_tags:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_uri_related_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_website:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

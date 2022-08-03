@@ -1,0 +1,22 @@
+uuid: 02a6fbda-c6e0-4074-ace6-a277ae67738d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.webform_block
+id: block_content.webform_block.status
+field_name: status
+entity_type: block_content
+bundle: webform_block
+label: Publicado
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean

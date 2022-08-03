@@ -1,0 +1,10 @@
+uuid: 300607e0-f5c9-421b-8eb6-39a299d96b38
+langcode: en
+status: true
+dependencies: {  }
+id: single_text
+label: 'Texto enriquecido'
+icon_uuid: null
+icon_default: null
+description: 'Se usa para agregar un texto libre con editor de texto enriquecido'
+behavior_plugins: {  }

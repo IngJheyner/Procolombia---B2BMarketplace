@@ -1,0 +1,18 @@
+uuid: 291815d8-3d7e-4c3f-a286-513dd43d7941
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ciiu_codes
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.ciiu_codes
+target_entity_type_id: taxonomy_term
+target_bundle: ciiu_codes
+default_langcode: site_default
+language_alterable: false

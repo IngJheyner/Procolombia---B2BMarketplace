@@ -1,0 +1,19 @@
+uuid: a72da6c3-5037-4bc8-ae27-9b749abde21d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_body_offer
+field_name: field_body_offer
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

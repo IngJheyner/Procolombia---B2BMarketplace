@@ -1,0 +1,30 @@
+uuid: d3276495-08c5-4445-8c9e-20e62cdb986e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_cat_interest_1
+    - taxonomy.vocabulary.categorization
+  module:
+    - user
+id: user.user.field_cat_interest_1
+field_name: field_cat_interest_1
+entity_type: user
+bundle: user
+label: 'Categoría de interés 1'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categorization: categorization
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

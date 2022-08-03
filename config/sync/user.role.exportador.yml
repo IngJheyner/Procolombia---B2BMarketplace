@@ -1,0 +1,38 @@
+uuid: a83b78ca-2a49-4f59-92b2-455df409e111
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product
+    - taxonomy.vocabulary.partida_arancelaria
+  module:
+    - content_translation
+    - entityqueue
+    - field_permissions
+    - node
+    - taxonomy
+    - taxonomy_access_fix
+id: exportador
+label: Exportador
+weight: 4
+is_admin: null
+permissions:
+  - 'create terms in partida_arancelaria'
+  - 'delete terms in partida_arancelaria'
+  - 'edit any product content'
+  - 'edit terms in partida_arancelaria'
+  - 'reorder terms in partida_arancelaria'
+  - 'translate product node'
+  - 'update home_featured_products entityqueue'
+  - 'view field_iframe'
+  - 'view own unpublished content'
+  - 'view terms in categories_flow_semaphore'
+  - 'view terms in categorization'
+  - 'view terms in ciiu_codes'
+  - 'view terms in countries'
+  - 'view terms in home_macro_rueda'
+  - 'view terms in key_words'
+  - 'view terms in locations'
+  - 'view terms in partida_arancelaria'
+  - 'view terms in sectors'
+  - 'view terms in tags'

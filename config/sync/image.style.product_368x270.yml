@@ -1,0 +1,15 @@
+uuid: 47997572-d252-4e09-8a84-6466d9187997
+langcode: es
+status: true
+dependencies: {  }
+name: product_368x270
+label: 'Productos 368x270'
+effects:
+  03ad90f2-c3fb-49ef-b776-4be77c2b9339:
+    uuid: 03ad90f2-c3fb-49ef-b776-4be77c2b9339
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 369
+      height: 271
+      anchor: center-center

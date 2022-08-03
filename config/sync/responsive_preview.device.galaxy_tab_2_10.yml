@@ -1,0 +1,12 @@
+uuid: 583c81f5-080e-4ac6-bbb5-3026d752672b
+langcode: es
+status: 1
+dependencies: {  }
+id: galaxy_tab_2_10
+label: 'Galaxy Tab 2 10"'
+weight: -6
+orientation: portrait
+dimensions:
+  width: 800
+  height: 1280
+  dppx: !!float 1

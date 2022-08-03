@@ -1,0 +1,296 @@
+uuid: c55ebb73-6bd8-4f2f-936e-9f5016942f97
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.old_company.body
+    - field.field.node.old_company.field_address
+    - field.field.node.old_company.field_body_offer
+    - field.field.node.old_company.field_cellphone
+    - field.field.node.old_company.field_city
+    - field.field.node.old_company.field_comment
+    - field.field.node.old_company.field_contact_1
+    - field.field.node.old_company.field_contact_2
+    - field.field.node.old_company.field_email
+    - field.field.node.old_company.field_employees
+    - field.field.node.old_company.field_fax
+    - field.field.node.old_company.field_id_empresa
+    - field.field.node.old_company.field_json_ld_old_companies
+    - field.field.node.old_company.field_logo
+    - field.field.node.old_company.field_logo_added
+    - field.field.node.old_company.field_mail_1
+    - field.field.node.old_company.field_mercados_destino
+    - field.field.node.old_company.field_neighborhood
+    - field.field.node.old_company.field_nit
+    - field.field.node.old_company.field_nom_status_company
+    - field.field.node.old_company.field_phone
+    - field.field.node.old_company.field_phone_1
+    - field.field.node.old_company.field_phone_2
+    - field.field.node.old_company.field_position_1
+    - field.field.node.old_company.field_position_2
+    - field.field.node.old_company.field_previous_id
+    - field.field.node.old_company.field_previous_uri
+    - field.field.node.old_company.field_redirect_301_company
+    - field.field.node.old_company.field_sector
+    - field.field.node.old_company.field_subsector
+    - field.field.node.old_company.field_text_certifications
+    - field.field.node.old_company.field_text_tags
+    - field.field.node.old_company.field_uri_related_company
+    - field.field.node.old_company.field_website
+    - image.style.max_325x325
+    - node.type.old_company
+  module:
+    - ds
+    - field_group
+    - shs
+    - svg_image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - field_json_ld_old_companies
+        - group_left
+        - group_wrapper
+        - group_content_logo
+        - group_rigth
+        - group_content_info
+        - field_logo
+        - node_title
+        - field_city
+        - field_subsector
+        - body
+        - field_website
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 26
+        label: hidden
+        formatter: default
+  field_group:
+    group_wrapper:
+      children:
+        - group_left
+        - group_rigth
+      label: Wrapper
+      parent_name: ''
+      region: hidden
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-old_company row'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_left:
+      children:
+        - field_logo
+        - node_title
+        - field_city
+        - field_subsector
+        - field_website
+      label: Left
+      parent_name: group_wrapper
+      region: hidden
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-left col-md-6'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_rigth:
+      children:
+        - body
+      label: Rigth
+      parent_name: group_wrapper
+      region: hidden
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: 'wrapper-rigth col-md-6'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_content_logo:
+      children: {  }
+      label: Content-logo
+      parent_name: ''
+      region: hidden
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: col-md-4
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_content_info:
+      children: {  }
+      label: Content-info
+      parent_name: ''
+      region: hidden
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: col-md-8
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.old_company.full
+targetEntityType: node
+bundle: old_company
+mode: full
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 30
+    region: ds_content
+  field_city:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 28
+    region: ds_content
+  field_json_ld_old_companies:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_logo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: max_325x325
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 25
+    region: ds_content
+  field_subsector:
+    type: entity_reference_shs
+    label: hidden
+    settings:
+      link: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 29
+    region: ds_content
+  field_website:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 30
+    region: ds_content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_address: true
+  field_body_offer: true
+  field_cellphone: true
+  field_comment: true
+  field_contact_1: true
+  field_contact_2: true
+  field_email: true
+  field_employees: true
+  field_fax: true
+  field_id_empresa: true
+  field_logo_added: true
+  field_mail_1: true
+  field_mercados_destino: true
+  field_neighborhood: true
+  field_nit: true
+  field_nom_status_company: true
+  field_phone: true
+  field_phone_1: true
+  field_phone_2: true
+  field_position_1: true
+  field_position_2: true
+  field_previous_id: true
+  field_previous_uri: true
+  field_redirect_301_company: true
+  field_sector: true
+  field_text_certifications: true
+  field_text_tags: true
+  field_uri_related_company: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

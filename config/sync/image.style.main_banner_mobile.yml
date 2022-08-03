@@ -1,0 +1,15 @@
+uuid: 4925199f-756c-4607-bd5d-b23394a0f95a
+langcode: en
+status: true
+dependencies: {  }
+name: main_banner_mobile
+label: 'Main Banner Mobile'
+effects:
+  ec575fd6-5116-495d-bd49-a0594349b7c2:
+    uuid: ec575fd6-5116-495d-bd49-a0594349b7c2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 533
+      anchor: center-center

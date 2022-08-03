@@ -1,0 +1,27 @@
+uuid: 44baf2ef-413c-4b1e-9cd9-55eeb9924535
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.match_automatico.field_match
+    - node.type.match_automatico
+  module:
+    - user
+id: node.match_automatico.teaser
+targetEntityType: node
+bundle: match_automatico
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_match: true
+  langcode: true
+  search_api_excerpt: true

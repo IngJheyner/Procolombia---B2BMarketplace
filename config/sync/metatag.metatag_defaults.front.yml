@@ -1,0 +1,14 @@
+uuid: 53a52489-7f0e-488c-ad29-7ee7e0e51286
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  abstract: 'Colombia tiene exactamente lo que su cliente necesita. Descubra bienes y servicios únicos de origen colombiano en el Colombian B2B Marketplace. Ingresa ahora.'
+  canonical_url: '[site:url]'
+  description: 'Colombia tiene exactamente lo que su cliente necesita. Descubra bienes y servicios únicos de origen colombiano en el Colombian B2B Marketplace. Ingresa ahora.'
+  shortlink: '[site:url]'
+  title: 'B2B Marketplace | Productos y servicios colombianos'

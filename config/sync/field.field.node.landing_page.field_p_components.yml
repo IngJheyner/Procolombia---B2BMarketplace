@@ -1,0 +1,52 @@
+uuid: 916c64dd-6632-4435-95c3-6ef2bc0c0c81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_components
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.drupal_block
+    - paragraphs.paragraphs_type.drupal_multi_views
+    - paragraphs.paragraphs_type.drupal_view
+    - paragraphs.paragraphs_type.single_text
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_p_components
+field_name: field_p_components
+entity_type: node
+bundle: landing_page
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      drupal_block: drupal_block
+      drupal_multi_views: drupal_multi_views
+      drupal_view: drupal_view
+      single_text: single_text
+    negate: 0
+    target_bundles_drag_drop:
+      drupal_block:
+        weight: 6
+        enabled: true
+      drupal_multi_views:
+        weight: 7
+        enabled: true
+      drupal_view:
+        weight: 7
+        enabled: true
+      single_text:
+        weight: 12
+        enabled: true
+      slide:
+        weight: 5
+        enabled: false
+      slide_item:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,18 @@
+uuid: c0304f3c-eabd-4cbf-9c21-5486bbae7e22
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_company_logos
+id: entity_subqueue.home_company_logos.title
+field_name: title
+entity_type: entity_subqueue
+bundle: home_company_logos
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

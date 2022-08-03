@@ -1,0 +1,19 @@
+uuid: 4d6321ff-e52b-4cfc-9abb-7413dd519f99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_c_classes
+    - paragraphs.paragraphs_type.slide
+id: paragraph.slide.field_c_classes
+field_name: field_c_classes
+entity_type: paragraph
+bundle: slide
+label: Classes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

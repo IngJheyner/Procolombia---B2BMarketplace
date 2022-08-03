@@ -1,0 +1,15 @@
+diff --git a/web/core/modules/language/src/LanguageNegotiator.php b/web/core/modules/language/src/LanguageNegotiator.php
+index c4e083ab..6c2bce19 100644
+--- a/web/core/modules/language/src/LanguageNegotiator.php
++++ b/web/core/modules/language/src/LanguageNegotiator.php
+@@ -130,7 +130,9 @@ public function initializeType($type) {
+       // and return the first valid language found.
+       foreach ($this->getEnabledNegotiators($type) as $method_id => $info) {
+         if (!isset($this->negotiatedLanguages[$method_id])) {
+-          $this->negotiatedLanguages[$method_id] = $this->negotiateLanguage($type, $method_id);
++            if ($method_id != 'language-graphql') {
++              $this->negotiatedLanguages[$method_id] = $this->negotiateLanguage($type, $method_id);
++            }
+         }
+
+         // Since objects are references, we need to return a clone to prevent

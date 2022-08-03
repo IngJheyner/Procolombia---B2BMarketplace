@@ -1,0 +1,34 @@
+uuid: 90c551da-6293-4775-9c45-d0fefe16ba2e
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: productos
+label: Product
+type: 'canonical_entities:node'
+pattern: '[node:field_categorization_parent:entity:field_uri_search]/[node:field_categorization:entity:field_uri_search]/[node:title]-[node:nid]'
+selection_criteria:
+  a8a87923-425c-42b9-8e70-12a9261f4f2c:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a8a87923-425c-42b9-8e70-12a9261f4f2c
+    context_mapping:
+      node: node
+    bundles:
+      product: product
+  1dc37052-2c0b-4daa-adfe-cedeb449b6ce:
+    id: language
+    negate: false
+    uuid: 1dc37052-2c0b-4daa-adfe-cedeb449b6ce
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      es: es
+selection_logic: and
+weight: -5
+relationships:
+  'node:langcode:language':
+    label: Language

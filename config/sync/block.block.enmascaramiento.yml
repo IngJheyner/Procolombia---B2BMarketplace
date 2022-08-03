@@ -1,0 +1,28 @@
+uuid: eca8425c-9bd2-4a94-84c0-584cec25ebca
+langcode: es
+status: true
+dependencies:
+  module:
+    - masquerade
+    - user
+  theme:
+    - seven
+id: enmascaramiento
+theme: seven
+region: highlighted
+weight: 0
+provider: null
+plugin: masquerade
+settings:
+  id: masquerade
+  label: Enmascaramiento
+  label_display: visible
+  provider: masquerade
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
