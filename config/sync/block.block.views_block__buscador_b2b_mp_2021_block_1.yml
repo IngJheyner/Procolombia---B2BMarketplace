@@ -1,0 +1,38 @@
+uuid: 83fb8ab8-280b-4c95-88f5-67cd6d7447a1
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.buscador_b2b_mp_2021
+  module:
+    - block_class
+    - system
+    - user
+    - views
+  theme:
+    - catalogo_public
+id: views_block__buscador_b2b_mp_2021_block_1
+theme: catalogo_public
+region: content
+weight: -24
+provider: null
+plugin: 'views_block:buscador_b2b_mp_2021-block_1'
+settings:
+  id: 'views_block:buscador_b2b_mp_2021-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+  request_path:
+    id: request_path
+    negate: true
+    pages: '*/es/condicionesacceso'

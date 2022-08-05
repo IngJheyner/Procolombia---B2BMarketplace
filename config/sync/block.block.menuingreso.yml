@@ -1,0 +1,39 @@
+uuid: 2cfbbbc0-3079-4523-898a-d933aa96ae39
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-ingreso
+  module:
+    - block_class
+    - system
+    - user
+  theme:
+    - catalogo_public
+id: menuingreso
+theme: catalogo_public
+region: header_right
+weight: -34
+provider: null
+plugin: 'system_menu_block:menu-ingreso'
+settings:
+  id: 'system_menu_block:menu-ingreso'
+  label: 'Menu ingreso'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/mcr-80\r\n/mcr-80/*"

@@ -1,0 +1,26 @@
+uuid: 1477f971-b999-4113-ba40-b801559beb0a
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1111b147-6ac3-433f-8587-3b101b9b372e'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - catalogo_public
+id: ocultarbuscador
+theme: catalogo_public
+region: top_header
+weight: -32
+provider: null
+plugin: 'block_content:1111b147-6ac3-433f-8587-3b101b9b372e'
+settings:
+  id: 'block_content:1111b147-6ac3-433f-8587-3b101b9b372e'
+  label: 'Ocultar buscador'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

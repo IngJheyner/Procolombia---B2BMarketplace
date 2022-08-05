@@ -8,7 +8,7 @@ dependencies:
     - text
 third_party_settings:
   field_permissions:
-    permission_type: private
+    permission_type: public
 _core:
   default_config_hash: EBUo7qOWqaiZaQ_RC9sLY5IoDKphS34v77VIHSACmVY
 id: node.body

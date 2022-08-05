@@ -1,0 +1,21 @@
+uuid: c918efb6-ca83-4043-ab78-af20a3fc1d08
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descripcionherramienta
+    - paragraphs.paragraphs_type.accessconditionparagraph
+id: paragraph.accessconditionparagraph.field_descripcionherramienta
+field_name: field_descripcionherramienta
+entity_type: paragraph
+bundle: accessconditionparagraph
+label: DescripcionHerramienta
+description: 'descripcion de la herramienta'
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Descripcion de la herramienta'
+default_value_callback: ''
+settings: {  }
+field_type: string

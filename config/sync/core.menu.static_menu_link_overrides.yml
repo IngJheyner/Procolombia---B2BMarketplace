@@ -13,13 +13,13 @@ definitions:
     parent: ''
     weight: -48
     expanded: false
-    enabled: true
+    enabled: false
   user__logout:
     menu_name: account
     parent: ''
     weight: -46
     expanded: false
-    enabled: true
+    enabled: false
   system__admin_index:
     menu_name: admin
     parent: admin_toolbar_tools.help

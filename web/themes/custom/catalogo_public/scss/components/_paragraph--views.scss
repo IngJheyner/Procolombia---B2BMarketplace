@@ -1,0 +1,185 @@
+.component__view--productos-destacados {
+    .viewsreference--view-title {
+        padding: 1rem 3rem;
+        color: white;
+        background-color: $primary-blue;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .field--name-node-title {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        h3 {
+            color: white;
+            font-size: 2.0625rem;
+        }
+    }
+    .field--name-node-link {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        a {
+            color: white;
+            display: inline-block;
+            padding: 0 0.5rem;
+            background-color: $black;
+            opacity: 0.8;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+.component__view--grid-categories {
+    .col-md-6 {
+        padding: 0!important;
+    }
+    .container {
+        padding: 0;
+    }
+    .component__content {
+        .container {
+            @media screen and (max-width: $small-max) {
+                width: 100%!important;
+                max-width: 100%!important;
+            }
+        }
+    }
+    .field--name-field-view,
+    .product-item {
+        width: 100%;
+    }
+    .views-element-container {
+        padding: 0;
+    }
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .field-content {
+        >a {
+            .category-name {
+                position: absolute;
+                font-size: 1.875rem;
+                top: 4rem;
+                left: 2rem;
+                text-transform: uppercase;
+                color: $white;
+                text-shadow: 0px -2px 13px #000000;
+                font-weight: normal;
+                text-decoration: none;
+                width: 370px !important;
+                &::first-line {
+                    font-weight: bold;
+                }
+                @media screen and (max-width: $small-max) {
+                    font-size: 1.5rem;
+                    left: 4rem;
+                }
+                @media screen and (max-width: $mobile-screen) {
+                    font-size: 1.1rem;
+                    left: 1rem;
+                }
+            }
+            h3 {
+                display: none;
+            }
+        }
+    }
+}
+
+.info {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    width: 80%;
+    @media screen and (max-width: $small-max) {
+        left: 4rem;
+    }
+    @media screen and (max-width: $mobile-screen) {
+        left: 1rem;
+    }
+    h1,
+    h3 {
+        font-size: 1.3rem;
+        color: $white;
+        margin-bottom: 0;
+        text-shadow: 0px -2px 13px #000000;
+        text-align: left;
+        width: auto;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @media screen and (max-width: $mobile-screen) {
+            font-size: 1rem !important;
+        }
+        @media screen and (max-width: $small-max) {
+            font-size: 1.5rem;
+        }
+    }
+    .field--name-dynamic-token-fieldnode-link-name-company {
+        width: auto;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #f6f6f6;
+    }
+    h1 {
+        span {
+            background: none;
+            font-size: 1.3rem;
+        }
+    }
+    .layout--onecol {
+        h1 {
+            span {
+                font-size: 1rem;
+                color: white;
+                background: none;
+            }
+        }
+    }
+    h3 {
+        // font-size: 2.1rem;
+        a {
+            font-size: 1.3rem;
+            color: $white;
+            margin-bottom: 0;
+            text-shadow: 0px -2px 13px #000000;
+        }
+    }
+    a,
+    span {
+        color: $white;
+        text-shadow: 0px -2px 13px #000000;
+        // font-size: 1.5rem;
+        font-style: normal;
+        @media screen and (max-width: $small-max) {
+            font-size: 1rem;
+        }
+        background-color: rgba($secondary-black, .6);
+        padding: 0 0.31rem;
+        text-decoration: none;
+    }
+    em {
+        font-style: normal;
+    }
+    // em {
+    //     font-size: 1rem;
+    // }
+}
+
+.content-bottom {
+    margin-top: 2rem;
+    background: linear-gradient(to left, $secondary-grey 0%, $secondary-grey 50%, $secondary-grey 50%, white 50%, white 100%);
+    margin-bottom: 3rem;
+    .container {
+        background-color: $secondary-grey;
+        padding: 3rem 0
+    }
+}

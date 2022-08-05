@@ -1,0 +1,31 @@
+uuid: a871efbe-9080-4e26-a54d-92d205c0bf76
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-terminos
+  module:
+    - block_class
+    - system
+  theme:
+    - catalogo_public
+id: footerterminos
+theme: catalogo_public
+region: footer_fourth
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-terminos'
+settings:
+  id: 'system_menu_block:footer-terminos'
+  label: 'Footer términos'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/mcr-80\r\n/mcr-80/*"

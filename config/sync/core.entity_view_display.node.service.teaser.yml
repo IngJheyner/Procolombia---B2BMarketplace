@@ -1,0 +1,35 @@
+uuid: 56e06a64-c5d9-4269-9398-5b0a12cf660c
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.service.field_field_additionalinfoservic
+    - field.field.node.service.field_field_servicecategory
+    - field.field.node.service.field_field_servicedescription
+    - field.field.node.service.field_field_servicesubcategory
+    - field.field.node.service.field_field_technicalsheet
+    - node.type.service
+  module:
+    - user
+id: node.service.teaser
+targetEntityType: node
+bundle: service
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_field_additionalinfoservic: true
+  field_field_servicecategory: true
+  field_field_servicedescription: true
+  field_field_servicesubcategory: true
+  field_field_technicalsheet: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,5 @@
+matchmaking.homepage:
+  title: Gestionar los criterios de Match
+  description: 'Configurar el modulo de Matchmaking'
+  parent: system.admin
+  route_name: matchmaking.content

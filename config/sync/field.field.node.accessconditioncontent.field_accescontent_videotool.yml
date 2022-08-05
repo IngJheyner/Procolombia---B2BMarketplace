@@ -11,7 +11,7 @@ id: node.accessconditioncontent.field_accescontent_videotool
 field_name: field_accescontent_videotool
 entity_type: node
 bundle: accessconditioncontent
-label: AccesContent_VideoTool
+label: 'Video tutorial:'
 description: ''
 required: true
 translatable: false

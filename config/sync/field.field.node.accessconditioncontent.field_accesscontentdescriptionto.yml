@@ -1,0 +1,21 @@
+uuid: 33367e28-5a60-46d4-86e2-27cac4775f89
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accesscontentdescriptionto
+    - node.type.accessconditioncontent
+id: node.accessconditioncontent.field_accesscontentdescriptionto
+field_name: field_accesscontentdescriptionto
+entity_type: node
+bundle: accessconditioncontent
+label: AccessContentDescriptionTool
+description: 'Breve descripción de la herramienta.'
+required: true
+translatable: true
+default_value:
+  -
+    value: 'Breve descripción de la herramienta'
+default_value_callback: ''
+settings: {  }
+field_type: string

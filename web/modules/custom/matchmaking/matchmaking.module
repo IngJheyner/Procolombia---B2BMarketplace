@@ -1,0 +1,16 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+ 
+function matchmaking_theme($existing, $type, $theme, $path) {
+
+  return [
+    'matchmaking' => [
+      'variables' => array('items' => array(), 'title' => '')
+    ],
+    'matchmakingadd' => [
+      'variables' => array('items' => array(), 'title' => ''),
+    ],
+  ];
+}

@@ -1,0 +1,23 @@
+uuid: ad04538d-1870-4aca-b44c-b66818472c1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - catalogo_public
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: catalogo_public_content
+theme: catalogo_public
+region: content
+weight: -25
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

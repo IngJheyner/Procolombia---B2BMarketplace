@@ -1,0 +1,25 @@
+uuid: 4ebdd438-3446-4789-b382-a2e48eaf889e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accesibilidadparagraph.field_accesibilidad
+    - paragraphs.paragraphs_type.accesibilidadparagraph
+id: paragraph.accesibilidadparagraph.default
+targetEntityType: paragraph
+bundle: accesibilidadparagraph
+mode: default
+content:
+  field_accesibilidad:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

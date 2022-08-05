@@ -1,0 +1,24 @@
+{%
+  set classes = [
+    'component',
+    'component__' ~ paragraph.bundle|clean_class,
+  ]
+%}
+
+{# Sets Unique ID for paragraph from Paragraph ID. #}
+{% set paragraph_id = 'component-' ~ paragraph.id.value %}
+
+{# Add custom paragraph CSS class(es). #}
+{%  set c_clasess = content.field_c_classes|render %}
+{% if c_clasess %}
+  {% set striped_custom_classes = c_clasess|striptags|lower %}
+  {% set split_custom_classes = striped_custom_classes|split(' ') %}
+  {% for custom_class in split_custom_classes %}
+    {% set clened_custom_class = [ custom_class|clean_class ] %}
+    {% set classes = classes|merge(clened_custom_class) %}
+  {%  endfor %}
+{% endif %}
+
+<div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} >
+      {{ content }}
+</div>

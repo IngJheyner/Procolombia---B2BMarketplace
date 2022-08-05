@@ -1,0 +1,27 @@
+uuid: 2b92aed7-3bef-4464-a185-6881cd65fad7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_field_technicalsheet
+    - node.type.service
+  module:
+    - file
+id: node.service.field_field_technicalsheet
+field_name: field_field_technicalsheet
+entity_type: node
+bundle: service
+label: field_technicalSheet
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx'
+  max_filesize: '500 KB'
+  description_field: false
+field_type: file

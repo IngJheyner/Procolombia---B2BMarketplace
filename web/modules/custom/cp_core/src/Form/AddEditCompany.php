@@ -670,7 +670,7 @@ class AddEditCompany extends FormBase {
 
         // Set message node create.
         if (!empty($node) && !empty($node_es)) {
-          \Drupal\Core\Messenger\MessengerInterface::addMessage(t('Company content has been created correctly.'), 'status');
+          \Drupal::messenger()->addMessage(t('Company content has been created correctly.'), 'status');
           $url = Url::fromRoute('view.dashboard_user.page_1');
           $form_state->setRedirectUrl($url);
 
@@ -920,7 +920,7 @@ class AddEditCompany extends FormBase {
 
         // Set message update node.
         if (!empty($companyLoadEn) && !empty($companyLoadSp)) {
-          \Drupal\Core\Messenger\MessengerInterface::addMessage(t('Company content has been update correctly.'), 'status');
+          \Drupal::messenger()->addMessage(t('Company content has been update correctly.'), 'status');
 
           // Mail Notifications
           if (!$bool_fields_change) {

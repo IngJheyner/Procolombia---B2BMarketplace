@@ -1,0 +1,27 @@
+uuid: 8790f209-b7b7-458b-925a-1ef13dc894bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.buscador
+  module:
+    - block_class
+    - views
+  theme:
+    - catalogo_public
+third_party_settings:
+  block_class:
+    classes: 'col-md-4 col-sm-4 col-xs-2 header-top--right'
+id: formularioexpuesto_buscadorpage_1
+theme: catalogo_public
+region: secondary_menu
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:buscador-page_1'
+settings:
+  id: 'views_exposed_filter_block:buscador-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

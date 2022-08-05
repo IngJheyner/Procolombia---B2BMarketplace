@@ -157,6 +157,7 @@ class RegisterExporter extends FormBase {
           $bool_cp_in_neo = TRUE;
         }
       }
+$bool_cp_in_neo = TRUE;
       if (!$bool_cp_in_neo) {
         $form_state->setErrorByName('nit', $this->t('Your company isn’t registered as a ProColombia account. Please, send a request to abustos@procolombia.co'));
       }

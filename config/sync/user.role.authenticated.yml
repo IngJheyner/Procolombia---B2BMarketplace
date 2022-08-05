@@ -30,6 +30,7 @@ permissions:
   - 'view field_iframe'
   - 'view media'
   - 'view own field_iframe'
+  - 'view own field_nombreherramienta'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'

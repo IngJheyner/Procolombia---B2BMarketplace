@@ -1,0 +1,250 @@
+.peso-tabla-menor100{
+    background-color: yellow;
+    color: #fff;
+}
+.peso-tabla-igual100{
+    background-color: #31d394;
+    color: #fff;
+}
+.peso-tabla-mayor100{
+    background-color: #ba0c2f;
+    color: #fff;
+    padding: 7%;
+}
+.porcentaje{
+    color: #fff;
+}
+.wrapper-action-button{
+    text-align: end;
+}
+.table th{
+    color: #000 !important;
+    background: transparent !important;
+}
+.table thead tr {
+    border-bottom: 1px solid var(--colorGinTableBorder);
+}
+.table{
+    -webkit-box-shadow: 0px -1px 15px 1px rgba(0,0,0,0.19); 
+    box-shadow: 0px -1px 15px 1px rgba(0,0,0,0.19);
+    background-color: transparent !important;
+}
+.save-edition{
+    display: none !important;
+}
+.edit-match{
+    background-image: url('assets/editar.png');
+}
+.form-wrapper-mk{
+    width: 100%;
+}
+.form-group-mk{
+    width: 100%;
+}
+.form-group-mk #estado, .form-group-mk #add-peso{
+    width: 98%;
+}
+#variable, #match{
+    width: 100%;
+}
+
+.peso-tabla-mayor100 {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .wrapper-result-100 .tooltiptext {
+    visibility: hidden;
+    width: 600px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: -150%;
+    left: 67%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .wrapper-result-100 .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: -3%;
+    right: 98%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  
+  .wrapper-result-100:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  .ui-dialog .ui-dialog-titlebar {
+      background-color: transparent !important;
+  }
+  .ui-dialog-title{
+      color: #000 !important;
+  }
+  .adicionar-match  .ui-icon-closethick{
+      background: #3e83b9 !important;
+  }
+  .confirmacion-crear-match  .ui-icon-closethick{
+    background-color: #000 !important;
+  }
+
+  .ui-dialog .ui-widget-content.ui-dialog-buttonpane{
+      background: transparent !important;
+      display: flex;
+      justify-content: end;
+  }
+
+  .confirmacion-crear-match .ui-dialog-titlebar{
+      background-image: url('assets/icon-modal-alert.png') !important;
+      background-repeat: no-repeat !important;
+      background-position-y: center !important;
+      background-position-x: 3% !important;
+  }
+  .confirmacion-crear-match .ui-dialog-title{
+      margin-left: 8% !important;
+  }
+
+.adicionar-match  .ui-dialog-titlebar{
+    background-image: url('assets/icon-modal-crear.png') !important;
+    background-repeat: no-repeat !important;
+    background-position-y: center !important;
+    background-position-x: 3% !important;
+    border-bottom: 1px solid #d9d9d9 !important;
+}
+.adicionar-match .ui-dialog-title{
+    margin-left: 8% !important;
+}
+
+.informativo{
+    width: 20%;
+}
+.wrapper-result-100{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.js-form-type-checkbox{
+    display: table;
+}
+.form-item__label{
+    display: table !important;
+    vertical-align: middle;
+}
+
+.ui-dialog .ui-dialog-title {
+    font-weight: 900 !important;
+}
+:not(.form-checkboxes):not(td):not(.media-library-item__click-to-select-checkbox):not(.field-content) > .form-type--checkbox input:checked ~ .checkbox-toggle .checkbox-toggle__inner {
+    background-color: #1e6fad !important;
+}
+.table tbody tr td:first-child input{
+    accent-color:#31d394;
+}
+.table thead tr td:first-child input{
+    accent-color:#31d394;
+}
+
+.ui-dialog-buttonpane{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.ui-dialog-buttonpane p{
+    margin-right: 3%;
+}
+.save-edition {
+    background: #005ca4;
+    color: #ffffff;
+    padding: calc(1rem - 2px) calc(1.5rem - 2px);
+    border-radius: .5rem;
+    border: none;
+}
+.adicionar-match{
+    background: transparent;
+    color: #005ca4;
+    border:none;
+    padding: calc(1rem - 2px) calc(1.5rem - 2px);
+    border-radius: .5rem;
+    -webkit-box-shadow: 6px 7px 9px -8px rgba(0,0,0,0.87); 
+    box-shadow: 6px 7px 9px -8px rgba(0,0,0,0.87);
+}
+.adicionar-match:focus{
+    border-radius: .5rem;
+    -webkit-box-shadow: 6px 7px 9px -8px rgba(0,0,0,0.87); 
+    box-shadow: 6px 7px 9px -8px rgba(0,0,0,0.87);
+}
+.button--primary{
+    background-color: #005ca4 !important;
+}
+.adicionar-match .button:hover, .button:not(:focus):hover{
+    background-color: #fff !important;
+    border: 2px solid #005ca4 !important;
+}
+.save-edition .button:hover, .button:not(:focus):hover{
+    background-color: #005ca4 !important;
+    color: #fff !important;
+}
+.wrapper-peso{
+    display: flex;
+    align-items: center;
+}
+.wrapper-peso i{
+    margin-left: -2.7em;
+}
+.adicionar-match .wrapper-peso i{
+    margin-left: -16em;
+}
+
+.table tbody tr td:nth-child(3) {
+    background-color: #f4fdfa;
+}
+.page-title{
+    color: #1e6fad !important;
+}
+.pregunta{
+    margin-right: auto !important;
+}
+button.ui-button.ui-corner-all.ui-widget.button {
+    font-size: 0.8em;
+}
+.check-all{
+    accent-color: #31d394;
+}
+.page-wrapper *:focus, .ui-dialog *:focus, .dropbutton .dropbutton__item > *:focus, .dropbutton .dropbutton__item > *:focus:hover, .dropbutton__items > .dropbutton__item:first-of-type > *:focus, .dropbutton__items > .dropbutton__item:first-of-type ~ .dropbutton__item > *:focus, .dropbutton__items > .dropbutton__item:first-of-type ~ .dropbutton__item > *:focus:hover, .form-boolean:focus:active, .form-boolean:focus:hover, .cke.cke_chrome.cke_focus, .horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a:focus, .form-element:focus, .form-element:hover:focus, .form-element.error:hover:focus, .form-actions .action-link:focus, .paragraphs-tabs-wrapper .field-multiple-table .draggable.drag, .layout-paragraphs-field .layout-paragraphs-actions input.layout-paragraphs-edit:focus, .layout-paragraphs-field .layout-paragraphs-actions input.layout-paragraphs-remove:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+:not(.form-checkboxes):not(td):not(.media-library-item__click-to-select-checkbox):not(.field-content) > .form-type--checkbox input:active ~ .checkbox-toggle .checkbox-toggle__inner, :not(.form-checkboxes):not(td):not(.media-library-item__click-to-select-checkbox):not(.field-content) > .form-type--checkbox input:focus ~ .checkbox-toggle .checkbox-toggle__inner {
+    box-shadow: none;
+}
+:not(.form-checkboxes):not(td):not(.media-library-item__click-to-select-checkbox):not(.field-content) > .form-type--checkbox input:focus ~ .checkbox-toggle .checkbox-toggle__inner {
+    box-shadow: none !important;
+}
+.button, .button:not(:focus), .form-actions .button, .action-link--icon-trash.action-link{
+    border: none !important;
+}
+.adicionar-match:hover{
+    border: none;
+}
+
+.adicionar-match:focus{
+    border-radius: .5rem;
+    -webkit-box-shadow: 6px 7px 9px -8px rgba(0,0,0,0.87) !important; 
+    box-shadow: 6px 7px 9px -8px rgba(0,0,0,0.87) !important;
+}

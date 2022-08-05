@@ -1,0 +1,32 @@
+uuid: 2db6f9d3-a4fa-400f-8986-83d77d49127e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accessconditionparagraph.field_descripcionherramienta
+    - field.field.paragraph.accessconditionparagraph.field_nombreherramienta
+    - paragraphs.paragraphs_type.accessconditionparagraph
+id: paragraph.accessconditionparagraph.default
+targetEntityType: paragraph
+bundle: accessconditionparagraph
+mode: default
+content:
+  field_descripcionherramienta:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_nombreherramienta:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

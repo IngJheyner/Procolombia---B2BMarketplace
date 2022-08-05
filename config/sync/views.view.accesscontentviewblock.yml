@@ -1,21 +1,21 @@
 uuid: 36255a90-e94d-440f-ae38-fdbd39bcdbcd
 langcode: es
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.storage.node.body
+    - field.storage.node.field_accesconditionnametool
     - field.storage.node.field_accescontent_videotool
     - field.storage.node.field_accessconditioncontent_lin
-    - field.storage.node.field_accessconditioncontent_nam
     - field.storage.node.field_accesscontent_logo
+    - field.storage.node.field_accesscontentdescriptionto
+    - field.storage.node.field_pagina_web_
     - node.type.accessconditioncontent
   module:
     - ds
     - link
     - node
     - svg_image
-    - text
     - video_embed_field
 id: accesscontentviewblock
 label: AccessContentViewBlock
@@ -86,68 +86,6 @@ display:
           type: string
           settings:
             link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -294,68 +232,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_accessconditioncontent_nam:
-          id: field_accessconditioncontent_nam
-          table: node__field_accessconditioncontent_nam
-          field: field_accessconditioncontent_nam
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_accessconditioncontent_lin:
           id: field_accessconditioncontent_lin
           table: node__field_accessconditioncontent_lin
@@ -423,11 +299,204 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_accesconditionnametool:
+          id: field_accesconditionnametool
+          table: node__field_accesconditionnametool
+          field: field_accesconditionnametool
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: 'No hay resultados'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_accesscontentdescriptionto:
+          id: field_accesscontentdescriptionto
+          table: node__field_accesscontentdescriptionto
+          field: field_accesscontentdescriptionto
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_pagina_web_:
+          id: field_pagina_web_
+          table: node__field_pagina_web_
+          field: field_pagina_web_
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: false
+            url_plain: false
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: some
         options:
           offset: 0
-          items_per_page: 1
+          items_per_page: 0
       exposed_form:
         type: basic
         options:
@@ -527,11 +596,12 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_accesconditionnametool'
         - 'config:field.storage.node.field_accescontent_videotool'
         - 'config:field.storage.node.field_accessconditioncontent_lin'
-        - 'config:field.storage.node.field_accessconditioncontent_nam'
         - 'config:field.storage.node.field_accesscontent_logo'
+        - 'config:field.storage.node.field_accesscontentdescriptionto'
+        - 'config:field.storage.node.field_pagina_web_'
   block_1:
     id: block_1
     display_title: AccessContentViewBlock
@@ -565,8 +635,9 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_accesconditionnametool'
         - 'config:field.storage.node.field_accescontent_videotool'
         - 'config:field.storage.node.field_accessconditioncontent_lin'
-        - 'config:field.storage.node.field_accessconditioncontent_nam'
         - 'config:field.storage.node.field_accesscontent_logo'
+        - 'config:field.storage.node.field_accesscontentdescriptionto'
+        - 'config:field.storage.node.field_pagina_web_'

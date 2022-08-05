@@ -6,33 +6,40 @@ dependencies:
     - field.storage.node.field_accesscontent_logo
     - node.type.accessconditioncontent
   module:
+    - content_translation
     - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 id: node.accessconditioncontent.field_accesscontent_logo
 field_name: field_accesscontent_logo
 entity_type: node
 bundle: accessconditioncontent
 label: AccessContent_logo
-description: ''
+description: 'Campo para insertar una imagen de mínimo 560x540 px y tamaño máximo de 2MB.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'png gif jpg jpeg'
+  file_extensions: jpg
   max_filesize: '2 MB'
-  max_resolution: 560x540
-  min_resolution: ''
+  max_resolution: ''
+  min_resolution: 560x540
   alt_field: true
   alt_field_required: true
   title_field: false
   title_field_required: false
   default_image:
     uuid: ''
-    alt: ''
-    title: ''
+    alt: 'Logo de la herramienta'
+    title: 'Logo de la herramienta.'
     width: null
     height: null
 field_type: image

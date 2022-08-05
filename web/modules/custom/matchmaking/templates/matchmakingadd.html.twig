@@ -1,0 +1,63 @@
+{# In a Twig template we attach the library. #}
+{{ attach_library('matchmaking/myjs') }}
+<p>Por favor, deiligencie los campos para continuar con el proceso de la creación de un nuevo criterio Match</p>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--2">
+  <input  type="submit" id="edit-preview--2--gin-edit-form" name="op" value="Cancelar" class="button js-form-submit form-submit" form="node-article-form">
+  <input  type="submit" id="adicionar-match" name="op-crear-match" value="Crear" class="adicionar-match button button--primary js-form-submit form-submit" form="node-article-form">
+  
+</div>
+
+<label for="variable" class="form-item__label">Variables / Características <span style="color:red;">*</span></label>
+<select  id="variable" name="variable" class="form-element">
+<option value="All" selected="selected">- Cualquiera -</option>
+<option value="Categoría">Categoría</option>
+<option value="Subcategoría">Subcategoría</option>
+<option value="Subpartida Arancelaria">Subpartida Arancelaria</option>
+<option value="Características Producto (Descripción)">Características Producto (Descripción)</option>
+<option value="Características Producto (Estructuradas)">Características Producto (Estructuradas)</option>
+<option value="Tipo de Producto">Tipo de Producto</option>
+<option value="Capacidad de Producción">Capacidad de Producción</option>
+<option value="Cantidad Mínima de Compra">Cantidad Mínima de Compra</option>
+<option value="Producto Permanente o por Temporadas">Producto Permanente o por Temporadas</option>
+<option value="Temporada de Producción">Temporada de Producción</option>
+<option value=">Mercado Objetivo 1">Mercado Objetivo 1</option>
+<option value="Mercado Objetivo 2">Mercado Objetivo 2</option>
+<option value="Mercado Objetivo 3">Mercado Objetivo 3</option>
+<option value="Paises a los que ha exportado">Paises a los que ha exportado</option>
+<option value="Mercados de exportación actual">Mercados de exportación actual</option>
+<option value="Canales de Venta">Canales de Venta</option>
+<option value="Años de Experiencia Exportando">Años de Experiencia Exportando</option>
+<option value="Idiomas de Negociación">Idiomas de Negociación</option>
+<option value="Tipo de Clientes Actuales">Tipo de Clientes Actuales</option>
+</select>
+<div class="form-wrapper-mk" style="display: flex; justify-content: space-between;">
+<div class="form-group-mk">
+  <label for="peso" class="form-item__label">Peso<span style="color:red;">*</span></label>
+  <input class="form-element"  type="text" id="peso" name="peso" value="" size="10" maxlength="2" placeholder="" required="required" aria-required="true">
+</div>
+<div class="form-group-mk">
+  <label for="estado" class="form-item__label">Estado<span style="color:red;">*</span></label>
+  <select  id="estado" name="variable" class="form-element">
+    <option value="1">activo</option>
+    <option value="2">Inactivo</option>
+  </select>
+</div>
+</div>
+<label for="match" class="form-item__label">Match<span style="color:red;">*</span></label>
+<select  id="match" name="variable" class="form-element">
+
+<option value="Categoría">Categoría</option>
+<option value="Subcategoría">Subcategoría</option>
+<option value="Subpartida Arancelaria">Subpartida Arancelaria</option>
+<option value="Características Producto (Descripción)">Características Producto (Descripción)</option>
+<option value="Características Producto (Estructuradas)">Características Producto (Estructuradas)</option>
+<option value="Modelo de negocio">Modelo de negocio</option>
+<option value="Cantidad Mínima Requerida">Cantidad Mínima Requerida</option>
+<option value="Temporada de Compra">Temporada de Compra</option>
+<option value="País de destino del Producto">País de destino del Producto</option>
+<option value="Canal de Venta">Canal de Venta</option>
+<option value="Años de Experiencia">Años de Experiencia</option>
+<option value="Idiomas de Negociación">Idiomas de Negociación</option>
+<option value="Tipo de Comprador">Tipo de Comprador</option>
+</select>
+</div>

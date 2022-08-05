@@ -1,0 +1,177 @@
+{# In a Twig template we attach the library. #}
+{{ attach_library('matchmaking/myjs') }}
+
+<div class="wrapper-action-button">
+<button class="save-edition button--primary">Guardar edición</button>
+<button class="adicionar-match  button--action glyphicon glyphicon-plus glyphicon-align-left" >Crear un nuevo criterio</button>
+</div>
+<table class="table">
+  <thead class="">
+    <tr>
+      <th><input class="check-all" type="checkbox"></th>
+      <th>Variable / Características</th>
+      <th>Peso</th>
+      <th>Estado</th>
+      <th>Match</th>
+      <th>Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%set total=0 %}
+  {%set count=0 %}
+  {% for item in items%}
+  {% if item.estado == 1%}
+  {%set total=total+item.peso %}
+  {% endif %}
+  {%set count=count+1 %}
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>
+      {{item.variable}}<input class="variable variable-{{count}}"hidden value="{{item.variable}}">
+      </td>
+      <td>
+        <div class="wrapper-peso">
+        <input class="form-element peso peso-{{count}}" value="{{item.peso}}" type="text" id="peso" name="peso" maxlength="2" value="" size="2" max="99" min="0" placeholder="" required="required" aria-required="true" disabled="disabled">
+        <i>%</i>
+        </div>
+      </td>
+      <td>  <input class="estado-o" type="hidden" value="{{item.estado}}">
+            <div class="field--type-boolean field--name-status field--widget-boolean-checkbox js-form-wrapper form-wrapper" data-drupal-selector="edit-status-wrapper" id="edit-status-wrapper"><div class="js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-status-value form-item--status-value">
+            <input data-drupal-selector="edit-status-value" type="checkbox"  name="status[value]" value={{item.estado}} checked="checked" class="estado form-checkbox form-boolean form-boolean--type-checkbox estado-{{count}}">
+              <span class="checkbox-toggle">
+                <span class="checkbox-toggle__inner"></span>
+              </span>
+              <label for="edit-status-value" class="form-item__label option">Activo</label>
+            </div>
+      </td>
+      <td>
+        <input class="match-o" type="hidden" value="{{item.match}}">
+          <select  name="match" class="form-element match" required disabled="disabled">
+          <option value="" selected="selected">- Cualquiera -</option>
+         <option value="Años de Experiencia">Años de Experiencia</option>
+          <option value="Canal de Venta">Canal de Venta</option>
+          <option value="Cantidad Mínima Requerida">Cantidad Mínima Requerida</option>
+          <option value="Características Producto (Descripción)">Características Producto (Descripción)</option>
+          <option value="Características Producto (Estructuradas)">Características Producto (Estructuradas)</option>
+          <option value="Categoría">Categoría</option>
+          <option value="Idiomas de Negociación">Idiomas de Negociación</option>
+          <option value="Modelo de negocio">Modelo de negocio</option>
+          <option value="País de destino del Producto">País de destino del Producto</option>
+          <option value="Subcategoría">Subcategoría</option>
+          <option value="Subpartida Arancelaria">Subpartida Arancelaria</option>
+          <option value="Temporada de Compra">Temporada de Compra</option>
+          <option value="Tipo de Comprador">Tipo de Comprador</option>
+        </select>
+      </td>
+      {% set module_path = _self|split('/templates') %}
+    <td><img class="editar-teble-online" src="/{{ module_path[0] }}/css/assets/editar.png" alt="My Logo" /></td>
+    </tr>
+   {% endfor %}
+  </tbody>
+   <tfoot>
+    <tr>
+      <td></td>
+      <td>
+      </td>
+      {% if total > 100 %}
+      <td>
+      <div class="wrapper-result-100">
+        {% set module_path = _self|split('/templates') %}
+        <img class="informativo" src="/{{ module_path[0] }}/css/assets/informativo.png" alt="Icono Informativo" /> 
+        <div class="peso-tabla-mayor100">      
+          <span class="peso-total">{{total}}</span>
+          <span class="porcentaje">%</span>
+          <span class="tooltiptext">Todas las varíables/Características de acuerdo con su peso asignado deben de sumar 100%</span>
+        </div>
+        </div>
+      </td>
+      {% endif %}
+      {% if total == 100 %}
+      <td class="peso-tabla-igual100">
+        <span class="peso-total">{{total}}</span>
+        <span class="porcentaje">%</span>
+        </td>
+      {% endif %}
+      {% if total < 100 %}
+      <td class="peso-tabla-menor100">
+        <span class="peso-total">{{total}}</span>
+        <span class="porcentaje">%</span>
+        </td>
+      {% endif %}
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tfoot>
+</table>
+<div class="wrapper-action-button">
+<button class="save-edition button--primary">Guardar edición</button>
+<button class="adicionar-match  button--action glyphicon glyphicon-plus glyphicon-align-left" >Crear un nuevo criterio</button>
+</div>
+<div id="confirmacion-crear-match" style="display:none;" title="Administración manual de criterios">
+  <p style="display:none;" class="variable-correcta">¿Quieres confirmar la creación de este nuevo criterio  <span style="font-weight:900;"class="variable-confirm"></span>?</p>
+  <p style="display:none;" class="variable-sobrepasa">Todas las Variables/características de acuerdo con su peso asignado debe sumar el <span style="font-weight:900;">100%</span>, sin embargo con la creación del nuevo criterio Match <span style="font-weight:900;"class="variable-confirm"></span> sobrepasa el <span style="color:#BA0C2F; font-weight:900;" class="sobrepaso-total"></span> 
+  </p>
+</div>
+<div id="dialog-add-match" style="display:none;" title="Crear un nuevo criterio. Match">
+<p>Por favor, diligencie los campos para continuar con el proceso de la creación de un nuevo criterio Match</p>
+
+<label for="variable" class="form-item__label select ">Variables / Características <span style="color:red;">*</span></label>
+<select  id="variable" name="variable" class="form-element form-select form-element form-element--type-select" required>
+<option value="" selected="selected"></option>
+<option value="Años de Experiencia Exportando">Años de Experiencia Exportando</option>
+<option value="Canales de Venta">Canales de Venta</option>
+<option value="Cantidad Mínima de Compra">Cantidad Mínima de Compra</option>
+<option value="Capacidad de Producción">Capacidad de Producción</option>
+<option value="Características Producto (Descripción)">Características Producto (Descripción)</option>
+<option value="Características Producto (Estructuradas)">Características Producto (Estructuradas)</option>
+<option value="Categoría">Categoría</option>
+<option value="Idiomas de Negociación">Idiomas de Negociación</option>
+<option value="Mercado Objetivo 1">Mercado Objetivo 1</option>
+<option value="Mercado Objetivo 2">Mercado Objetivo 2</option>
+<option value="Mercado Objetivo 3">Mercado Objetivo 3</option>
+<option value="Mercados de exportación actual">Mercados de exportación actual</option>
+<option value="Paises a los que ha exportado">Paises a los que ha exportado</option>
+<option value="Producto Permanente o por Temporadas">Producto Permanente o por Temporadas</option>
+<option value="Subcategoría">Subcategoría</option>
+<option value="Subpartida Arancelaria">Subpartida Arancelaria</option>
+<option value="Temporada de Producción">Temporada de Producción</option>
+<option value="Tipo de Clientes Actuales">Tipo de Clientes Actuales</option>
+<option value="Tipo de Producto">Tipo de Producto</option>
+</select>
+<div class="form-wrapper-mk" style="display: flex; justify-content: space-between;">
+  <div class="form-group-mk">
+    <label for="peso" class="form-item__label">Peso<span style="color:red;">*</span></label>
+    <div class="wrapper-peso">
+      <input required class="form-element"  type="number" id="add-peso" name="add-peso" value=""  min="0" max="99"  maxlength="2" pattern="[0-99] size="2" required="required" aria-required="true">
+      <i>%</i>
+    </div>
+  </div>
+  <div class="form-group-mk">
+    <label for="estado" class="form-item__label">Estado<span style="color:red;">*</span></label>
+    <select required id="estado" name="variable" class="form-element form-select form-element form-element--type-select">
+      <option value="1">Activo</option>
+      <option value="0">Inactivo</option>
+    </select>
+  </div>
+  </div>
+<div>
+<label for="match" class="form-item__label">Match<span style="color:red;">*</span></label>
+<select  id="match" name="variable" class="form-element form-select form-element form-element--type-select" required>
+<option value="" selected="selected">- Cualquiera -</option>
+  <option value="Años de Experiencia">Años de Experiencia</option>
+  <option value="Canal de Venta">Canal de Venta</option>
+  <option value="Cantidad Mínima Requerida">Cantidad Mínima Requerida</option>
+  <option value="Características Producto (Descripción)">Características Producto (Descripción)</option>
+  <option value="Características Producto (Estructuradas)">Características Producto (Estructuradas)</option>
+  <option value="Categoría">Categoría</option>
+  <option value="Idiomas de Negociación">Idiomas de Negociación</option>
+  <option value="Modelo de negocio">Modelo de negocio</option>
+  <option value="País de destino del Producto">País de destino del Producto</option>
+  <option value="Subcategoría">Subcategoría</option>
+  <option value="Subpartida Arancelaria">Subpartida Arancelaria</option>
+  <option value="Temporada de Compra">Temporada de Compra</option>
+  <option value="Tipo de Comprador">Tipo de Comprador</option>
+</select>
+</div>
+</div>

@@ -1,0 +1,42 @@
+<header id="header" class="header" role="banner" aria-label="{{ 'Site header'|t}}">
+      {% block head %}
+          <div{{ navbar_top_attributes }}>
+              <div class="container">
+                  <div class="row">
+                      {% if page.secondary_menu %}
+                        <div class="col-md-8 col-sm-8 col-xs-10 header-top--left">
+                          <div class="is-mobile" id="logoMobile">
+                            <a href="{{ url('<front>') }}"><img src="/themes/custom/catalogo_public/logo_proco_mobile.png" width="287"></a>
+                          </div>
+                                {{ page.secondary_menu }}
+                          <div class="col-md-4 col-sm-4 col-xs-2 header-top--right">
+                            <div class="is-mobile" id="mobileNav">
+                              <img src="/themes/custom/catalogo_public/images/icons/menu-burger.svg" width="30">
+                            </div>
+                          </div>
+                      {% endif %}
+                  </div>
+              </div>
+              {% if page.mobile_menu %}
+                        <div class="col-md-12 col-sm-12 header-mobile-menu is-mobile is-hidden">
+                          {{ page.mobile_menu }}
+                        </div>
+                      {% endif %}
+          </div>
+
+        <nav{{ navbar_attributes }}>
+            <div class="container">
+              <div class="row">
+                {% if page.header_left or page.header_right %}
+                  <div class="col-md-3">
+                    {{ page.header_left }}
+                  </div>
+                  <div class="col-md-9">
+                    {{ page.header_right }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+        </nav>
+      {% endblock %}
+</header>

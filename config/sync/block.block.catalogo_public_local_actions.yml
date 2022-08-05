@@ -1,0 +1,22 @@
+uuid: acc9b689-a986-44a7-9d96-9c30a8cafa01
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+  theme:
+    - catalogo_public
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: catalogo_public_local_actions
+theme: catalogo_public
+region: content
+weight: -29
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

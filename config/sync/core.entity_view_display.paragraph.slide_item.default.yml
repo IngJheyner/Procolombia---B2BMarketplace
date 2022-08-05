@@ -11,8 +11,10 @@ dependencies:
     - field.field.paragraph.slide_item.field_image
     - field.field.paragraph.slide_item.field_label
     - paragraphs.paragraphs_type.slide_item
+    - responsive_image.styles.main_banner
   module:
     - options
+    - responsive_image
 id: paragraph.slide_item.default
 targetEntityType: paragraph
 bundle: slide_item
@@ -59,6 +61,15 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: main_banner
+      image_link: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
   field_label:
     type: string
     label: above
@@ -71,5 +82,4 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  field_image: true
   search_api_excerpt: true

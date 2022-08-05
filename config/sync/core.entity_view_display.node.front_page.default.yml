@@ -8,6 +8,7 @@ dependencies:
     - node.type.front_page
     - views.view.buscador_b2b_mp_2021
     - views.view.empresas_destacadas_head
+    - views.view.hero_banner
     - views.view.oferta_especializada_2021
     - views.view.productos_destacados_head
   module:

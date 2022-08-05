@@ -1,0 +1,11 @@
+<div class="category">
+	<div class ="categories-carousel">
+					{% for row in rows|batch(2) %}
+						<div class="row-cat-items">
+							{% for column in row %}
+								<div class="item-cat">{{ column.content }}</div>
+							{% endfor %}
+						</div>
+					{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,14 @@
+myjs:
+  version: 1.1.48x
+  css:
+    theme:
+      css/estilos.css: {}
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupal.dialog.ajax
+    - cores/query.form
+    - core/jquery.once
+    - core/jquery.inputmask

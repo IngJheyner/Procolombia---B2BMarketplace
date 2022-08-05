@@ -8,7 +8,7 @@ dependencies:
     - video_embed_field
 third_party_settings:
   field_permissions:
-    permission_type: private
+    permission_type: public
 id: node.field_accescontent_videotool
 field_name: field_accescontent_videotool
 entity_type: node

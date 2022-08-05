@@ -1,0 +1,41 @@
+uuid: 4e1165d4-498d-487d-b215-0db00e813269
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.videoembedfileaccesscontent.field_media_video_embed_field
+    - image.style.medium
+    - media.type.videoembedfileaccesscontent
+  module:
+    - svg_image
+id: media.videoembedfileaccesscontent.media_library
+targetEntityType: media
+bundle: videoembedfileaccesscontent
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_media_video_embed_field: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

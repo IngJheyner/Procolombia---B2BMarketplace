@@ -1,0 +1,331 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the SASS Starterkit subtheme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use \Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_form_system_theme_settings_alter() for settings form.
+ *
+ * Replace Barrio setting options with subtheme ones.
+ */
+function catalogo_public_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = array(
+      'bg-primary' => t('Primary'),
+      'bg-secondary' => t('Secondary'),
+      'bg-light' => t('Light'),
+      'bg-dark' => t('Dark'),
+      'bg-white' => t('White'),
+      'bg-transparent' => t('Transparent'),
+  );
+  $form['components']['navbar']['bootstrap_barrio_navbar_background']['#options'] = array(
+      'bg-primary' => t('Primary'),
+      'bg-secondary' => t('Secondary'),
+      'bg-light' => t('Light'),
+      'bg-dark' => t('Dark'),
+      'bg-white' => t('White'),
+      'bg-transparent' => t('Transparent'),
+  );
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function catalogo_public_preprocess_field(&$variables, $hook) {
+  if ($variables['element']['#entity_type'] == 'node' && $variables['element']['#bundle'] == 'product') {
+    if ($variables['element']['#field_name'] == 'field_file' && !empty($variables['items'])) {
+      $variables['uri'] = $variables['items'][0]['content']['#file']->getFileUri();
+    }
+  }
+
+}
+
+/**
+ * Implements preprocess image widget.
+ *
+ * @see https://drupal.stackexchange.com/questions/212480/form-api-image-preview
+ */
+function catalogo_public_preprocess_image_widget(&$variables) {
+
+  $element = $variables['element'];
+
+  $variables['attributes'] = [
+    'class' =>
+    ['image-widget', 'js-form-managed-file', 'form-managed-file', 'clearfix'],
+  ];
+
+  if (!empty($element['fids']['#value'])) {
+    $file = reset($element['#files']);
+    $element['file_' . $file->id()]['filename']['#suffix'] = ' <span class="file-size">(' . format_size($file->getSize()) . ')</span> ';
+    $file_variables = [
+      'style_name' => $element['#preview_image_style'],
+      'uri' => $file->getFileUri(),
+    ];
+
+    // Determine image dimensions.
+    if (isset($element['#value']['width']) && isset($element['#value']['height'])) {
+      $file_variables['width'] = $element['#value']['width'];
+      $file_variables['height'] = $element['#value']['height'];
+    }
+    else {
+      $image = \Drupal::service('image.factory')->get($file->getFileUri());
+      if ($image->isValid()) {
+        $file_variables['width'] = $image->getWidth();
+        $file_variables['height'] = $image->getHeight();
+      }
+      else {
+        $file_variables['width'] = $file_variables['height'] = NULL;
+      }
+    }
+
+    $element['preview'] = [
+      '#weight' => -10,
+      '#theme' => 'image_style',
+      '#width' => $file_variables['width'],
+      '#height' => $file_variables['height'],
+      '#style_name' => $file_variables['style_name'],
+      '#uri' => $file_variables['uri'],
+    ];
+
+    // Store the dimensions in the form so the file doesn't have to be
+    // accessed again. This is important for remote files.
+    $element['width'] = [
+      '#type' => 'hidden',
+      '#value' => $file_variables['width'],
+    ];
+    $element['height'] = [
+      '#type' => 'hidden',
+      '#value' => $file_variables['height'],
+    ];
+  }
+
+  $variables['data'] = [];
+  foreach (\Drupal\Core\Render\Element::children($element) as $child) {
+    $variables['data'][$child] = $element[$child];
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function catalogo_public_preprocess_html(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path_alias.manager')
+    ->getAliasByPath($path), '/');
+
+  $variables['base_path'] = base_path();
+
+  // Body classes for users paths.
+  if ($path == '/register/forget-mail' or $path == '/registro/olvido-mail') {
+    $variables['attributes']['class'][] = 'page-reset-pass';
+  }
+  if ($path == '/register/recover-pass' or $path == '/registro/recuperar-contrasena') {
+    $variables['attributes']['class'][] = 'page-reset-pass';
+  }
+  if ($path == '/register/user' or $path == '/registro/usuario') {
+    $variables['attributes']['class'][] = 'page-user-register';
+  }
+  if ($path == '/register/buyer' or $path == '/registro/comprador') {
+    $variables['attributes']['class'][] = 'page-buyer-register';
+  }
+
+  // Add body class for admin role user
+  $rolesCurrentUsr = \Drupal::currentUser()->getRoles();
+  if (in_array('administrator', $rolesCurrentUsr)) {
+    $variables['attributes']['class'][] = 'user-loggin-admin';
+  }
+
+  $variables['base_path'] = base_path();
+  $ct_paises = array(
+    //   'es',
+    //   'en',
+    //   'fr',
+    //   'de',
+    //   'zh',
+    //   'pt',
+    //   'ru',
+    //   'ja',
+    //   'ko',
+    //   'es-mx',
+    //   'es-ar',
+    //   'es-pe',
+    //   'en-us',
+    //   'en-ca',
+    // 'zh-hans-hk',
+    //   'de-de',
+    'en-US',
+    'en-GB',
+    'en-CA',
+    'en-AU',
+    'es-AR',
+    'es-MX',
+    'es-PE',
+    'es-ES',
+    'es-CL',
+    'es-PA',
+    // 'fr-FR',
+    // 'fr-CA',
+    // 'zh-CN',
+    // 'pt-BR',
+    // 'de-DE',
+    // 'es-FR'
+  );
+
+  $ct_host = \Drupal::request()->getSchemeAndHttpHost();
+  $current_uri = \Drupal::service('path.current')->getPath();
+  // get current language
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  // if ( $current_uri == "/node" ) {
+    // Agregado de hreflang construido con idioma específico
+  $variables['language'] = $language;
+
+    foreach ($ct_paises as $ct_pais) {
+      $ct_lang_code = explode("-", $ct_pais);
+      // add href lang on specific language pages
+      // if( $language ==  $ct_lang_code[0] ){
+        $hreflang_custom = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'alternate',
+            'hreflang' => $ct_pais,
+            'href' => $ct_host . "/" . $ct_lang_code[0],
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$hreflang_custom, $ct_pais];
+      // }
+    }
+  // }
+  /* else {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $ct_types = array("destino", "actividad", "article", "informacion_practica", "page");
+      // Tipo de contenido
+      $ct_content_type = \Drupal::request()->attributes->get('node')->bundle();
+      if ( in_array($ct_content_type, $ct_types) ) {
+        // URL actual traducida a idioma seleccionado
+        foreach ($ct_paises as $ct_pais) {
+          $current_uri = \Drupal::service('path.current')->getPath();
+          $ct_lang_code = explode("-", $ct_pais);
+          $current_uri = explode("/", $current_uri);
+          $alias_url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'. $current_uri[2], $ct_lang_code[0]);
+          // Validamos que el nodo en la versión traducida esté publicado. Si no lo está, no genera alias de URL y
+          // aparecerá la palabra "node" en la URL
+          //if ( strpos($alias_url, "node") != 1 ) {
+          if ($node->hasTranslation($ct_lang_code[0])) {
+            $traduccion = $node->getTranslation( $ct_lang_code[0] );
+            if ( $traduccion->isPublished() ) {
+              // // Construcción de URL para crear el hreflang
+              $ct_url = $ct_host . "/" . $ct_lang_code[0] . $alias_url;
+              // Agregado de hreflang construido con idioma específico
+              $hreflang_custom = [
+                '#tag' => 'link',
+                '#attributes' => [
+                  'rel' => 'alternate',
+                  'hreflang' => $ct_pais,
+                  'href' => $ct_url,
+                ],
+              ];
+              $variables['page']['#attached']['html_head'][] = [$hreflang_custom, $ct_pais];
+            }
+          }
+        }
+      }
+    }
+  } */
+}
+
+
+/**
+ * catalogo_public_preprocess_container
+ * @param  [type] &$variables [description]
+ * @return [type]             [description]
+ */
+function catalogo_public_preprocess_container(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $type = $node->getType();
+    if (!empty($type) && $type == 'company') {
+      if (isset($variables['attributes']) && !empty($variables['attributes'])) {
+        $attributes = (array) $variables['attributes'];
+        $keys = array_keys($attributes);
+        if (in_array('data-drupal-views-infinite-scroll-content-wrapper', $keys)) {
+          $variables['view_infinite_scroll'] = TRUE;
+        }
+      }
+    }
+  }
+  if(isset($variables['attributes']['id']) && $variables['attributes']['id'] == 'quicktabs-container-buscador_qt' ){
+    $variables['attributes']['class'][]= 'container' ;
+  }
+}
+
+function catalogo_public_preprocess_breadcrumb(&$variables) {
+	if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
+		$variables['breadcrumb'][] = array(
+			'text' => $node->getTitle(),
+			'url' => $node->toUrl()->toString()
+		);
+ 		$variables['#cache']['contexts'][] = 'url';
+	}
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function catalogo_public_theme_suggestions_paragraph_alter(&$suggestions, $variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  $suggestions[] = 'paragraph__' . $paragraph->bundle() . '__' . $paragraph->view_mode;
+  $suggestions[] = 'paragraph__' . $paragraph->bundle() . '__' . $paragraph->id();
+  $parent = $paragraph->getParentEntity();
+  if ($parent) {
+    $suggestions[] = 'paragraph__' . $parent->bundle() . '__' . $paragraph->bundle();
+  }
+}
+
+/**
+ * Change description to maximun 155 characters
+ * Implements hook_page_attachments_alter().
+ */
+function catalogo_public_page_attachments_alter(array &$variables) {
+  if ($variables['#attached']['html_head']) {
+    foreach ($variables['#attached']['html_head'] as $delta => $tag) {
+      if (isset($tag[0]['#tag']) && $tag[0]['#tag'] == 'meta' && isset($tag[0]['#attributes']['name']) && $tag[0]['#attributes']['name'] == 'description') {
+        $description = $tag[0]['#attributes']['content'];
+        $variables['#attached']['html_head'][$delta][0]['#attributes']['content'] = substr($description, 0, 153);
+      }
+    }
+  }
+}
+/*
+ * Implements hook_theme_suggestions_HOOK_alter()
+ */
+function catalogo_public_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+    $term = Term::load($tid);
+    $suggestions[] = 'page__taxonomy__vocabulary__' . $term->bundle();
+  }
+}
+/*
+ * Implements hook_theme_preprocess_taxonomy_term()
+ */
+function catalogo_public_preprocess_taxonomy_term(&$vars) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $vars['language'] = $language;
+}
+/*
+ * Implements hook_theme_preprocess_image_formatter()
+ */
+function catalogo_public_preprocess_image_formatter(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage();
+  $variables['language'] = $language;
+  $urlt = $variables['url'];
+  if( isset($urlt) ){
+    $urlt->setOption('language', $language);
+  }
+  $variables['urlt'] = $urlt;
+}

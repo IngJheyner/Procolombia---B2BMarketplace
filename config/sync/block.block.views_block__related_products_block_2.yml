@@ -1,0 +1,37 @@
+uuid: a1b85807-e092-4672-bbeb-90a1ec3d8526
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.related_products
+  module:
+    - block_class
+    - node
+    - views
+  theme:
+    - catalogo_public
+third_party_settings:
+  block_class:
+    classes: mobile-view
+id: views_block__related_products_block_2
+theme: catalogo_public
+region: featured_bottom_second
+weight: 0
+provider: null
+plugin: 'views_block:related_products-block_2'
+settings:
+  id: 'views_block:related_products-block_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      product: product

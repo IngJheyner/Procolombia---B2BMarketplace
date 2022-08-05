@@ -1,0 +1,49 @@
+<?php
+//use Drupal\Core\Database\Database;
+
+/**
+* Implemensizets hook_schema().
+ * 
+*/
+function matchmaking_schema() {
+  $schema['matchmaking'] = array(
+  'description' => 'Tabala de administracion de creterios Match',
+    'fields' => array(
+      'id' => array(
+        'description' => '', 
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),  
+      'variable' => array(
+        'description' => 'Variable / Carácterristica',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '', 
+      ),  
+      'peso' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Peso',
+      ),
+       'estado' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Estado',
+      ),
+       'match' => array(
+        'description' => 'Match',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '', 
+      ),  
+    ),  
+    'primary key' => array('id'),
+  );  
+  return $schema;
+}

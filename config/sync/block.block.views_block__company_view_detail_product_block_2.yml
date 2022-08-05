@@ -1,0 +1,37 @@
+uuid: 45098872-299a-4ec8-a0d4-aa5db8f6b30b
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.company_view_detail_product
+  module:
+    - block_class
+    - node
+    - views
+  theme:
+    - catalogo_public
+third_party_settings:
+  block_class:
+    classes: company-view-detail-product
+id: views_block__company_view_detail_product_block_2
+theme: catalogo_public
+region: content_bottom
+weight: 0
+provider: null
+plugin: 'views_block:company_view_detail_product-block_2'
+settings:
+  id: 'views_block:company_view_detail_product-block_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      product: product

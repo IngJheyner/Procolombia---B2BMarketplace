@@ -1,6 +1,6 @@
 uuid: 2b884feb-2d34-49b4-8b82-3904e950d6fb
 langcode: es
-status: 0
+status: 1
 dependencies: {  }
 id: medium
 label: Tablet

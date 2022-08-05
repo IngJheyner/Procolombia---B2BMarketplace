@@ -9,7 +9,7 @@ dependencies:
     - node
 third_party_settings:
   field_permissions:
-    permission_type: private
+    permission_type: public
 id: node.field_accesscontent_logo
 field_name: field_accesscontent_logo
 entity_type: node
@@ -21,7 +21,7 @@ settings:
   uri_scheme: public
   default_image:
     uuid: ''
-    alt: logo
+    alt: 'Logo de la herramienta'
     title: ''
     width: null
     height: null

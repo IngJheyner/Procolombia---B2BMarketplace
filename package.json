@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch web/themes/custom/procolombia/scss/style.scss:web/themes/custom/procolombia/css/style.css"
+    "sass": "sass --watch web/themes/custom/catalogo_public/scss/style.scss:web/themes/custom/catalogo_public/css/style.css"
   },
   "keywords": [],
   "author": "",

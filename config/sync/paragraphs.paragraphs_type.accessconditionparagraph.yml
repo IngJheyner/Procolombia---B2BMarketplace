@@ -1,0 +1,10 @@
+uuid: 05d009e6-e99d-49cc-acfb-e394e0146035
+langcode: es
+status: true
+dependencies: {  }
+id: accessconditionparagraph
+label: AccessConditionParagraph
+icon_uuid: null
+icon_default: null
+description: 'paragraph para las condiciones de acceso'
+behavior_plugins: {  }

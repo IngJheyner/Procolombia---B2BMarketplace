@@ -1,6 +1,6 @@
 uuid: 536f8cde-7ffe-42d0-8de5-c498c78dea66
 langcode: es
-status: 0
+status: 1
 dependencies: {  }
 id: large
 label: 'Typical desktop'

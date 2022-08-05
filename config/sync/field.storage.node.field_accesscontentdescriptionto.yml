@@ -1,0 +1,25 @@
+uuid: 6ad7b13f-f61f-43cf-8330-e29fd1ed8151
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_accesscontentdescriptionto
+field_name: field_accesscontentdescriptionto
+entity_type: node
+type: string
+settings:
+  max_length: 250
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

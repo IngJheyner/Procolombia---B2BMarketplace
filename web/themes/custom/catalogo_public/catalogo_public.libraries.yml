@@ -1,0 +1,65 @@
+global-styling:
+  version: VERSION
+  js:
+    js/popper.min.js: {}
+    js/bootstrap.min.js: {}
+    js/global.js: {}
+    js/filters-search.js: {}
+    js/company.js: {}
+    js/jquery.ddslick.min.js: {}
+    js/ddslick.config.js: {}
+    js/jquery.validate.min.js: {}
+    js/owl.carousel.min.js: {}
+    js/owlcarousel.js: {}
+    js/categories-menu.js: {}
+    js/jquery-expander.js: {}
+  css:
+    component:
+      css/style.css: {}
+      css/macrorueda.css: {}
+    theme:
+      css/owl.carousel.css: {}
+      css/owl.theme.css: {}
+      css/owl.transitions.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.ui.autocomplete
+    - core/jquery.once
+    - core/drupalSettings
+
+bootstrap:
+  js:
+    /libraries/popper/popper.min.js: {}
+    /libraries/bootstrap/dist/js/bootstrap.min.js: {}
+  css:
+    component:
+      /libraries/bootstrap/dist/css/bootstrap.min.css: {}
+
+slick:
+  version: VERSION
+  css:
+    component:
+      css/components/slick.css: {}
+      css/macrorueda.css: {}
+  js:
+    js/slick.min.js: {}
+    js/slick.config.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+owlcarousel:
+  css:
+    theme:
+      css/owl.carousel.css: {}
+      css/owl.theme.css: {}
+      css/owl.transitions.css: {}
+  js:
+    js/owl.carousel.min.js: {}
+    js/owlcarousel.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

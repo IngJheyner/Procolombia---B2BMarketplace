@@ -1,0 +1,21 @@
+matchmaking.content:
+    path: '/admin/config/matchmaking'
+    defaults:
+        _controller: '\Drupal\matchmaking\Controller\matchmakingController::content'
+        _title: ''
+    requirements:
+        _permission: 'match making'
+matchmaking.form:
+    path: '/admin/matchmaking/add'
+    defaults:
+        _title: 'Add matchmaking'
+        _controller: '\Drupal\matchmaking\Controller\matchmakingController::addmatch'
+    requirements:
+        _permission: 'match making'
+matchmaking.savematch:
+    path: '/admin/matchmaking/savematch'
+    defaults:
+        _title: 'Save Maatch'
+        _controller: '\Drupal\matchmaking\Controller\matchmakingController::savematch'
+    requirements:
+        _permission: 'match making'

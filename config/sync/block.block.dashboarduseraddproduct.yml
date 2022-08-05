@@ -1,0 +1,36 @@
+uuid: c31550b4-2821-4cb2-b4d9-35be11e2cfe0
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - cp_core
+    - system
+    - user
+  theme:
+    - catalogo_public
+id: dashboarduseraddproduct
+theme: catalogo_public
+region: content
+weight: -26
+provider: null
+plugin: dsb_add_product
+settings:
+  id: dsb_add_product
+  label: 'Dashboard user add product'
+  label_display: '0'
+  provider: cp_core
+  my_block_settings: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /dashboard
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      exportador: exportador

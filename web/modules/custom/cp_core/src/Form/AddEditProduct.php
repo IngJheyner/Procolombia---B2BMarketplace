@@ -8,6 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\cp_core\Controller\CpCoreController;
 use Drupal\user\Entity\User;
 use Drupal\file\Entity\File;
@@ -763,8 +764,12 @@ class AddEditProduct extends FormBase {
     }
 
     // Images
-    $destination = \Drupal::config('system.file')->get('default_scheme') . '://products';
-    prepareDirectory($destination, CREATE_DIRECTORY | MODIFY_PERMISSIONS);
+    //$destination = \Drupal::config('system.file')->get('default_scheme') . '://products'; 
+    //prepareDirectory($destination, CREATE_DIRECTORY | MODIFY_PERMISSIONS);
+
+    $destination = \Drupal::config('file_system')->get('default_scheme') . '://products';
+    $file_system = \Drupal::service('file_system');
+    $file_system->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
     $images_product = array();
     for ($i = 1; $i < 6; $i++) {
       $img_fid = $form_state->getValue('img_'. $i);

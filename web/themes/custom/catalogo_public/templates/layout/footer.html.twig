@@ -1,0 +1,36 @@
+<footer id="footer" class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer__contact col-md-5">
+        {% if page.footer_first %}
+          {{ page.footer_first }}
+        {% endif %}
+      </div>
+      <div class="footer__menu col-md-7">
+        {% if page.footer_second %}
+          {{ page.footer_second }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="footer__logos">
+    <div class="container">
+      <div class="row">
+          {% if page.footer_third %}
+            {{ page.footer_third }}
+          {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="footer__terminos">
+    <div class="container">
+      <div class="row">
+          {% if page.footer_fourth %}
+            {{ page.footer_fourth }}
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+

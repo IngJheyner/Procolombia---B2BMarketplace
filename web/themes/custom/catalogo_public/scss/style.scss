@@ -1,0 +1,46 @@
+/*
+Theme Name: Bootstrap 4 Sass
+Description: Bootstrap 4 with Sass
+*/
+
+// import files
+@import "variables";
+
+// typography
+@import "typography";
+
+//bootstrap
+// @import "../node_modules/bootstrap/scss/bootstrap";
+
+// Style guide: form
+ @import "./base/base";
+ @import "./base/drupal";
+ @import "./base/footer";
+ @import "./base/forms";
+
+// Style guide: components
+ @import "./components/banner";
+ @import "./components/blocks";
+ @import "./components/breadcrumb";
+ @import "./components/header-top";
+ @import "./components/header";
+ @import "./components/paragraph--blocks";
+ @import "./components/paragraph--single-text";
+ @import "./components/paragraph--views";
+ @import "./components/redesign";
+ @import "./components/redesignmobile";
+ @import "./components/register";
+
+// Style guide: states
+ @import "state/states";
+
+// componentes globales
+//@import "./components/header-top";
+//@import "./components/header";
+//@import "./components/banner";
+//@import "./components/blocks";
+
+//paragraphs
+//@import "./components/paragraph--single-text";
+//@import "./components/paragraph--views";
+//@import "./components/paragraph--blocks";

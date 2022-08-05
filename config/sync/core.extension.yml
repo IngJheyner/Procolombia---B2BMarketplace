@@ -12,6 +12,7 @@ module:
   backup_migrate: 0
   basic_auth: 0
   better_exposed_filters: 0
+  betterlogin: 0
   big_pipe: 0
   blazy: 0
   blazy_ui: 0
@@ -22,6 +23,7 @@ module:
   breakpoint: 0
   captcha: 0
   change_pwd_page: 0
+  civic_accessibility_toolbar: 0
   ckeditor: 0
   ckeditor_media_embed: 0
   color: 0
@@ -46,7 +48,6 @@ module:
   datetime: 0
   dblog: 0
   devel: 0
-  devel_php: 0
   dhw: 0
   disable_html5_validation: 0
   dropdown_language: 0
@@ -116,8 +117,10 @@ module:
   mailchimp_transactional: 0
   mailsystem: 0
   masquerade: 0
+  matchmaking: 0
   maxlength: 0
   media: 0
+  media_library: 0
   memcache: 0
   menu_ui: 0
   metatag: 0
@@ -177,6 +180,7 @@ module:
   slick_views: 0
   smart_trim: 0
   stage_file_proxy: 0
+  structure_sync: 0
   svg_image: 0
   system: 0
   taxonomy: 0
@@ -218,6 +222,7 @@ module:
   views_ui: 0
   viewsreference: 0
   webform: 0
+  webform_node: 0
   webform_shs: 0
   webform_templates: 0
   webform_ui: 0
@@ -238,10 +243,8 @@ module:
   tvi: 15
   standard: 1000
 theme:
-  seven: 0
-  stable: 0
   bootstrap_barrio: 0
+  catalogo_public: 0
   claro: 0
   gin: 0
-  procolombia: 0
 profile: standard

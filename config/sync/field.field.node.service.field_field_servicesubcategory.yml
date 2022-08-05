@@ -1,0 +1,29 @@
+uuid: ff3bb210-d6bb-449a-b2cd-093b1ee7373d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_field_servicesubcategory
+    - node.type.service
+    - taxonomy.vocabulary.categorization
+id: node.service.field_field_servicesubcategory
+field_name: field_field_servicesubcategory
+entity_type: node
+bundle: service
+label: field_serviceSubCategory
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      categorization: categorization
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

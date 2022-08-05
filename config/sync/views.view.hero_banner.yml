@@ -8,13 +8,13 @@ dependencies:
     - field.storage.node.field_subtitle_slide
     - field.storage.node.field_title_slide
     - field.storage.node.field_web
-    - image.style.main_banner
     - node.type.banner
+    - responsive_image.styles.main_banner
   module:
     - link
     - node
+    - responsive_image
     - slick_views
-    - svg_image
     - user
 id: hero_banner
 label: 'Hero banner'
@@ -82,16 +82,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: responsive_image
           settings:
+            responsive_image_style: main_banner
             image_link: ''
-            image_style: main_banner
-            svg_attributes:
-              width: null
-              height: null
-            svg_render_as_image: false
-            image_loading:
-              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -525,7 +519,6 @@ display:
             field_label_slide: '0'
             field_subtitle_slide: '0'
             field_title_slide: '0'
-            field_web: '0'
           optionset: banner
           class: ''
           id: ''
@@ -537,10 +530,11 @@ display:
           layout: ''
           cache: 0
           skin: ''
-          style: ''
-          grid: ''
-          grid_medium: ''
-          grid_small: ''
+          grid: null
+          grid_medium: null
+          grid_small: null
+          current_view_mode: block_1
+          grid_header: ''
           overridables:
             arrows: '0'
             autoplay: '0'
@@ -554,8 +548,6 @@ display:
           optionset_thumbnail: ''
           skin_thumbnail: ''
           thumbnail_caption: ''
-          thumbnail_effect: ''
-          thumbnail_position: ''
           override: false
           preserve_keys: false
           visible_items: null
@@ -593,9 +585,7 @@ display:
     position: 1
     display_options:
       display_extenders:
-        metatag_display_extender:
-          metatags: {  }
-          tokenize: false
+        metatag_display_extender: {  }
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,68 @@
+uuid: 8cd889c0-c839-474c-b212-a07d4b16b461
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.service.field_field_additionalinfoservic
+    - field.field.node.service.field_field_servicecategory
+    - field.field.node.service.field_field_servicedescription
+    - field.field.node.service.field_field_servicesubcategory
+    - field.field.node.service.field_field_technicalsheet
+    - node.type.service
+  module:
+    - file
+    - user
+id: node.service.default
+targetEntityType: node
+bundle: service
+mode: default
+content:
+  field_field_additionalinfoservic:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_field_servicecategory:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_field_servicedescription:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_field_servicesubcategory:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_field_technicalsheet:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

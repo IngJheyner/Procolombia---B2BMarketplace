@@ -1,0 +1,6 @@
+name: Criterios Match
+description: Módulo de Criterios Match
+package: Criterios Match
+
+type: module
+core_version_requirement: 9.x

@@ -1,0 +1,34 @@
+uuid: b0cb4a28-495c-4789-bbab-194c18407f3e
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.menu-ingreso
+  module:
+    - block_class
+    - system
+    - user
+  theme:
+    - catalogo_public
+id: menuingreso_2
+theme: catalogo_public
+region: mobile_menu
+weight: -32
+provider: null
+plugin: 'system_menu_block:menu-ingreso'
+settings:
+  id: 'system_menu_block:menu-ingreso'
+  label: 'Menu ingreso'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

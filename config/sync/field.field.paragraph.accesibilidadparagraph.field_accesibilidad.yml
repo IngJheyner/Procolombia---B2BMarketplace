@@ -1,0 +1,23 @@
+uuid: 7a0416cd-1b25-4715-8337-dd0f59334776
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accesibilidad
+    - paragraphs.paragraphs_type.accesibilidadparagraph
+id: paragraph.accesibilidadparagraph.field_accesibilidad
+field_name: field_accesibilidad
+entity_type: paragraph
+bundle: accesibilidadparagraph
+label: accesibilidad
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

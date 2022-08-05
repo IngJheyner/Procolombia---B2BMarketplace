@@ -1,0 +1,344 @@
+uuid: 899d8b85-c486-4c1d-890a-db45098bcd7c
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.accessconditioncontent.field_accesconditionnametool
+    - field.field.node.accessconditioncontent.field_accescontent_videotool
+    - field.field.node.accessconditioncontent.field_accessconditioncontent_lin
+    - field.field.node.accessconditioncontent.field_accesscontent_logo
+    - field.field.node.accessconditioncontent.field_accesscontentdescriptionto
+    - field.field.node.accessconditioncontent.field_pagina_web_
+    - field.field.node.accessconditioncontent.layout_builder__layout
+    - node.type.accessconditioncontent
+  module:
+    - bootstrap_layouts
+    - layout_builder
+    - link
+    - svg_image
+    - user
+    - video_embed_field
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: bs_2col_stacked
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: div
+            classes:
+              row: row
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            top:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
+            left:
+              wrapper: div
+              classes:
+                col-sm-6: col-sm-6
+              add_region_classes: 1
+              attributes: ''
+            right:
+              wrapper: div
+              classes:
+                col-sm-6: col-sm-6
+              add_region_classes: 1
+              attributes: ''
+            bottom:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
+        components:
+          6cb2577e-47b8-4cad-87f0-69edb112273a:
+            uuid: 6cb2577e-47b8-4cad-87f0-69edb112273a
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesconditionnametool'
+              label: AccesConditionNameTool
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: -10
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: 'font-weight:500;'
+                  data: ''
+          e1affa2b-2e8c-4b2f-b9d3-cef7589f44b2:
+            uuid: e1affa2b-2e8c-4b2f-b9d3-cef7589f44b2
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesscontentdescriptionto'
+              label: AccessContentDescriptionTool
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: -9
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: ''
+                  style: 'margin-top:2em;margin-bottom:2em;'
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+          725e14a5-81d6-4d40-966d-f72d5653a6a3:
+            uuid: 725e14a5-81d6-4d40-966d-f72d5653a6a3
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesscontent_logo'
+              label: AccessContent_logo
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: responsive_image
+                label: hidden
+                settings:
+                  responsive_image_style: narrow
+                  image_link: ''
+                third_party_settings: {  }
+            weight: -8
+            additional: {  }
+          8145014d-c6d6-4db2-8b61-18160bc31aa3:
+            uuid: 8145014d-c6d6-4db2-8b61-18160bc31aa3
+            region: right
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accescontent_videotool'
+              label: 'Video tutorial'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: video_embed_field_video
+                label: hidden
+                settings:
+                  autoplay: false
+                  responsive: true
+                  width: 854
+                  height: 480
+                third_party_settings: {  }
+            weight: 0
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: ''
+                  style: 'margin-bottom:2em;'
+                  data: ''
+                block_title_attributes:
+                  id: titulo
+                  class: ''
+                  style: 'font-size:1rem !important;'
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+          5cbcc565-8cf3-48db-b03c-c0b13b3c575f:
+            uuid: 5cbcc565-8cf3-48db-b03c-c0b13b3c575f
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_pagina_web_'
+              label: 'Página Web '
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: _blank
+                third_party_settings: {  }
+            weight: -7
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: ''
+                  style: 'margin-top:1em;'
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: 'font-size:1rem !important;'
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+          cbc0df53-a42f-4fba-a8eb-190e9044b6f8:
+            uuid: cbc0df53-a42f-4fba-a8eb-190e9044b6f8
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accessconditioncontent_lin'
+              label: 'Ir a la herramienta'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: _blank
+                third_party_settings: {  }
+            weight: -6
+            additional:
+              component_attributes:
+                block_attributes:
+                  id: ''
+                  class: ''
+                  style: 'margin-top:1em;margin-bottom:2em;'
+                  data: ''
+                block_title_attributes:
+                  id: ''
+                  class: ''
+                  style: 'font-size:1rem !important;'
+                  data: ''
+                block_content_attributes:
+                  id: ''
+                  class: ''
+                  style: ''
+                  data: ''
+        third_party_settings: {  }
+id: node.accessconditioncontent.full
+targetEntityType: node
+bundle: accessconditioncontent
+mode: full
+content:
+  field_accescontent_videotool:
+    type: video_embed_field_video
+    label: hidden
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_accessconditioncontent_lin:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_accessconditioncontent_nam:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_accessconditionparagraph:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_accesscontent_logo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_accesconditionnametool: true
+  field_accesscontentdescriptionto: true
+  field_pagina_web_: true
+  langcode: true
+  layout_builder__layout: true
+  search_api_excerpt: true

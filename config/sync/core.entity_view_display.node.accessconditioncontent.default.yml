@@ -3,30 +3,312 @@ langcode: es
 status: true
 dependencies:
   config:
-    - field.field.node.accessconditioncontent.body
+    - field.field.node.accessconditioncontent.field_accesconditionnametool
     - field.field.node.accessconditioncontent.field_accescontent_videotool
     - field.field.node.accessconditioncontent.field_accessconditioncontent_lin
-    - field.field.node.accessconditioncontent.field_accessconditioncontent_nam
     - field.field.node.accessconditioncontent.field_accesscontent_logo
+    - field.field.node.accessconditioncontent.field_accesscontentdescriptionto
+    - field.field.node.accessconditioncontent.field_pagina_web_
+    - field.field.node.accessconditioncontent.layout_builder__layout
     - node.type.accessconditioncontent
   module:
+    - bootstrap_layouts
+    - layout_builder
     - link
     - svg_image
-    - text
     - user
     - video_embed_field
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: bs_2col
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          layout:
+            wrapper: div
+            classes:
+              row: row
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            left:
+              wrapper: div
+              classes:
+                col-sm-6: col-sm-6
+              add_region_classes: 1
+              attributes: ''
+            right:
+              wrapper: div
+              classes:
+                col-sm-6: col-sm-6
+              add_region_classes: 1
+              attributes: ''
+        components:
+          883e388d-22d5-4f04-93d7-afa2b8f092a2:
+            uuid: 883e388d-22d5-4f04-93d7-afa2b8f092a2
+            region: right
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accescontent_videotool'
+              label: AccesContent_VideoTool
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: video_embed_field_video
+                label: above
+                settings:
+                  autoplay: false
+                  responsive: true
+                  width: 854
+                  height: 480
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          2cb059b3-f84f-4cbb-ae27-d60d657c7b14:
+            uuid: 2cb059b3-f84f-4cbb-ae27-d60d657c7b14
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accessconditioncontent_lin'
+              label: AccessConditionContent_linkTool
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: _blank
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          8dee5a2a-e373-4185-b73c-401a7cca7d30:
+            uuid: 8dee5a2a-e373-4185-b73c-401a7cca7d30
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesscontent_logo'
+              label: AccessContent_logo
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: above
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  svg_attributes:
+                    width: 560
+                    height: 537
+                  svg_render_as_image: true
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          d95d20bf-e0c6-441e-90d8-33bc5b260158:
+            uuid: d95d20bf-e0c6-441e-90d8-33bc5b260158
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesscontentdescriptionto'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          32b94164-91b8-4fb7-92fa-c7342335c8cc:
+            uuid: 32b94164-91b8-4fb7-92fa-c7342335c8cc
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesconditionnametool'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          83acce27-06e6-43ae-810a-47ac5fb289ae:
+            uuid: 83acce27-06e6-43ae-810a-47ac5fb289ae
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_pagina_web_'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          cf3a3c62-fcc0-4193-8c7b-b362ab24a045:
+            uuid: cf3a3c62-fcc0-4193-8c7b-b362ab24a045
+            region: content
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesscontent_logo'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  svg_attributes:
+                    width: null
+                    height: null
+                  svg_render_as_image: true
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          0a9ec21a-452d-4a1e-89b1-cb54ef66ac91:
+            uuid: 0a9ec21a-452d-4a1e-89b1-cb54ef66ac91
+            region: content
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accescontent_videotool'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: video_embed_field_video
+                label: hidden
+                settings:
+                  autoplay: true
+                  responsive: true
+                  width: 854
+                  height: 480
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          276ff5ef-b4eb-4e7e-98fd-1f6e2805ca90:
+            uuid: 276ff5ef-b4eb-4e7e-98fd-1f6e2805ca90
+            region: content
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accessconditioncontent_lin'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          6eec6cfd-abc8-4833-8d30-ff37e1b51d56:
+            uuid: 6eec6cfd-abc8-4833-8d30-ff37e1b51d56
+            region: content
+            configuration:
+              id: 'extra_field_block:node:accessconditioncontent:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 3
+            additional: {  }
+          88f0d2c0-8f39-4f64-8e86-c1d05142d9a3:
+            uuid: 88f0d2c0-8f39-4f64-8e86-c1d05142d9a3
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesscontentdescriptionto'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          9b384df7-d7f8-4733-901f-ccfea0bd758b:
+            uuid: 9b384df7-d7f8-4733-901f-ccfea0bd758b
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_accesconditionnametool'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          36c6c21d-d69e-4670-8030-2594cb04f836:
+            uuid: 36c6c21d-d69e-4670-8030-2594cb04f836
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_pagina_web_'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+        third_party_settings: {  }
 id: node.accessconditioncontent.default
 targetEntityType: node
 bundle: accessconditioncontent
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
+  field_accesconditionnametool:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 2
-    region: content
+    weight: 8
+    region: left
   field_accescontent_videotool:
     type: video_embed_field_video
     label: hidden
@@ -50,13 +332,6 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  field_accessconditioncontent_nam:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_accesscontent_logo:
     type: image
     label: hidden
@@ -72,6 +347,26 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_accesscontentdescriptionto:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: left
+  field_pagina_web_:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 9
+    region: left
   links:
     settings: {  }
     third_party_settings: {  }
@@ -82,4 +377,5 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   langcode: true
+  layout_builder__layout: true
   search_api_excerpt: true

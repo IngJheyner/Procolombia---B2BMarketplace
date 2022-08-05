@@ -1,0 +1,23 @@
+uuid: b00bb23d-7995-4af7-b397-965a49529450
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - help
+  theme:
+    - catalogo_public
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: catalogo_public_help
+theme: catalogo_public
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

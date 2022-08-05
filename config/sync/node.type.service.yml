@@ -1,0 +1,18 @@
+uuid: 63f93095-0683-4728-b64a-b6350edf31f2
+langcode: es
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Service
+type: service
+description: 'contenido diseñado para la creación de nuevos servicios.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

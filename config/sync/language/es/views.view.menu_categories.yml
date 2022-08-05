@@ -1,0 +1,8 @@
+display:
+  default:
+    display_options:
+      header:
+        area:
+          content:
+            value: "<div class=\"nav-menu-categories\">\r\n  <div class=\"btn btn-menu-categories\">\r\n     <a class=\"btn-open is-mobile\"  href=\"#\">Todas las Categorías</a>\r\n     <a class=\"btn-open is-desktop\"  href=\"#\"><span class=\"menu-burguer\"></span></a>\r\n     <a class=\"btn-close d-none r2l\" href=\"#\">✕</a>\r\n  </div>\r\n</div>"
+            format: full_html

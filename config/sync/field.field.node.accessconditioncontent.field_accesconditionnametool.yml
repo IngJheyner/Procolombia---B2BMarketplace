@@ -1,0 +1,19 @@
+uuid: a275d37d-63a1-4e68-b281-a4b691cbc651
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accesconditionnametool
+    - node.type.accessconditioncontent
+id: node.accessconditioncontent.field_accesconditionnametool
+field_name: field_accesconditionnametool
+entity_type: node
+bundle: accessconditioncontent
+label: AccesConditionNameTool
+description: 'Nombre de la herramienta.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

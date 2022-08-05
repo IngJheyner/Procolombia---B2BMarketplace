@@ -1,0 +1,26 @@
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      {% if css %}
+      <style type="text/css">
+          <!--
+          {{ css }}
+         -->
+      </style>
+      {% endif %}
+  </head>
+  <body id="mimemail-body" {% if ( module | length > 0 ) and ( key | length > 0 ) %}  {% set class = 'class="' ~ module ~ '-' ~ key ~ '"' %} {% endif %} >
+    <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto" width="600" align="center">
+      <tbody>
+        {% include '/themes/custom/catalogo_public/templates/mails/headermail.html.twig' %}
+        <tr>
+          <td style="padding:0px 20px 40px 25px;color:#58595b;font-size:14px;text-align:left;font-family:Arial,sans-serif;line-height:25px">
+            {{ body|raw }}
+          </td>
+        </tr>
+        {% include '/themes/custom/catalogo_public/templates/mails/footermail.html.twig' %}
+      </tbody>
+    </table>
+  </body>
+</html>
+

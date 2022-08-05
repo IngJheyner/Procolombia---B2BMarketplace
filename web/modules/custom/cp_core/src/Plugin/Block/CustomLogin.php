@@ -86,7 +86,7 @@ class CustomLogin extends BlockBase {
         ],
       ]),
     ];
-    $markup = '<a class="link-close">xclose</a>';
+    $markup = '<a class="link-close">x</a>';
     $markup .= '<p>'. $this->t('Sign in') .'</p>';
 
     return [

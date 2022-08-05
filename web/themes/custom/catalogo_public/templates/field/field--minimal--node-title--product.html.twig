@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Template to provide minimal HTML for the field.
+ *
+ * Available variables:
+ * - element: The field element.
+ * - label: The label of the field.
+ * - settings: The settings for the field.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+
+{% for item in items %}
+  {% set title = item.content[0]['#context']['output'] %}
+  {% set arr_title = title|split(' ', 2) %}
+  <h3>
+      <em>{{ attribute(arr_title, 0) }}</em>
+      {{ attribute(arr_title, 1) }}</h3>
+  {{item.content['#context']}}
+{% endfor %}

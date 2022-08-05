@@ -1,0 +1,25 @@
+uuid: 8bb58df6-f40b-4f4d-9930-a82a98f3ed89
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accesibilidadparagraph.field_accesibilidad
+    - paragraphs.paragraphs_type.accesibilidadparagraph
+id: paragraph.accesibilidadparagraph.default
+targetEntityType: paragraph
+bundle: accesibilidadparagraph
+mode: default
+content:
+  field_accesibilidad:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

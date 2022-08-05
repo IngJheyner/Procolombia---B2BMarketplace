@@ -1,0 +1,48 @@
+{% set base = url('<front>')|render|split('/') %} {% set base_url = base|slice(0, 3)|join('/') %}    
+<tr>
+    <td>
+        <table border="0" cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #000000;
+                padding-bottom: 10px;" width="600" align="center">
+            <tr>
+                <td>
+                    <p style="
+                            font-size:11px;
+                            font-family:Arial,sans-serif;
+                            margin:0px;
+                            line-height:18px;
+                            color:#58595b;
+                            margin-left: 15px">
+                        Calle 28 No 13A - 15 Piso 35-36 Bogotá-Colombia
+                    </p>
+                    <p style="font-size:11px;
+                            font-family:Arial,sans-serif;
+                            margin:0px;
+                            line-height:18px;
+                            color:#58595b;
+                            margin-left: 15px">
+                        PBX: +571 5600100 - Fax: +571 5600104
+                    </p>
+                    <p style="
+                            font-size:11px;
+                            font-family:Arial,sans-serif;
+                            margin:0px;
+                            line-height:18px;
+                            color:#58595b;
+                            margin-left: 15px">
+                        Horario de Atención: Lunes a Viernes 8:30 a.m. - 5:30 p.m.
+                    </p>
+                </td>
+                <td>
+                    <a href="https://id.presidencia.gov.co/" style="
+                            display: block;
+                            margin: 0px 0px 0px 0px;
+                            border: 0;
+                            font-size: 0;
+                            margin-left: 40px;" target="_blank">
+                        <img border="0" height="54" width="250" vspace="0" hspace="0" src="{{ base_url  }}/themes/custom/catalogo_public/images/footer-mail.jpg">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

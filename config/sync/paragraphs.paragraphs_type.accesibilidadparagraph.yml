@@ -1,0 +1,10 @@
+uuid: 40647830-4e4e-4e62-b2c5-d727405a11c7
+langcode: es
+status: true
+dependencies: {  }
+id: accesibilidadparagraph
+label: accesibilidadParagraph
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

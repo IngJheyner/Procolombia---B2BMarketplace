@@ -6,6 +6,4 @@ bootstrap_barrio_navbar_top_color: navbar-dark
 bootstrap_barrio_navbar_top_background: bg-secondary
 bootstrap_barrio_navbar_color: navbar-dark
 bootstrap_barrio_navbar_background: bg-primary
-bootstrap_barrio_messages_widget: toasts
-bootstrap_barrio_system_messages: messages_white
 bootstrap_barrio_table_style: table-striped

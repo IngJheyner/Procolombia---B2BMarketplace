@@ -4,16 +4,20 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - field.storage.node.field_body
     - field.storage.node.field_categorization
+    - field.storage.node.field_categorization_parent
     - field.storage.node.field_images
+    - field.storage.node.field_partida_arancelaria_tax
     - field.storage.node.field_states
-    - image.style.thumbnail
+    - image.style.img_300_x_250
     - node.type.product
     - user.role.administrator
     - user.role.exportador
   module:
     - node
     - options
+    - smart_trim
     - svg_image
     - text
     - user
@@ -44,7 +48,7 @@ display:
           entity_field: title
           plugin_id: field
           label: Nombre
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -109,7 +113,7 @@ display:
           entity_field: langcode
           plugin_id: field
           label: Idioma
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -173,7 +177,133 @@ display:
           admin_label: ''
           plugin_id: field
           label: Subsector
-          exclude: false
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_categorization_parent:
+          id: field_categorization_parent
+          table: node__field_categorization_parent
+          field: field_categorization_parent
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_partida_arancelaria_tax:
+          id: field_partida_arancelaria_tax
+          table: node__field_partida_arancelaria_tax
+          field: field_partida_arancelaria_tax
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -279,7 +409,80 @@ display:
           click_sort_column: summary
           type: text_summary_or_trimmed
           settings:
-            trim_length: 900
+            trim_length: 400
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_body:
+          id: field_body
+          table: node__field_body
+          field: field_body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: smart_trim
+          settings:
+            trim_length: 250
+            trim_type: chars
+            trim_suffix: ''
+            wrap_output: true
+            wrap_class: trimmed
+            more_link: false
+            more_class: more-link
+            more_text: More
+            trim_options:
+              text: true
+              trim_zero: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -299,7 +502,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: Imagen
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -343,11 +546,11 @@ display:
           type: image
           settings:
             image_link: ''
-            image_style: thumbnail
+            image_style: img_300_x_250
             svg_attributes:
               width: null
               height: null
-            svg_render_as_image: true
+            svg_render_as_image: false
             image_loading:
               attribute: lazy
           group_column: ''
@@ -369,7 +572,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: Estado
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -499,7 +702,7 @@ display:
           entity_field: status
           plugin_id: field
           label: Public.
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -567,7 +770,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="edit-product" href="/dashboard/product-edit/{{ nid }}">Edit</a>'
+            text: "<link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">\r\n  <div class=\"container py-3\">\r\n    <div class=\"card\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\">\r\n            {{ field_images }}\r\n         </div>\r\n          <div class=\"col-md-8 px-3\">\r\n            <div class=\"card-block px-3\">\r\n              <h2 class=\"card-title\">{{ title }} </h2>\r\n              <p>{{ field_body }}</p>\r\n               <p><strong>Categoría:</strong>{{ field_categorization }} </br>\r\n                <strong>Subcategoría:</strong>{{ field_categorization_parent }}  </br>\r\n                <strong>Estado:</strong>{{ field_states }} </br>\r\n                <strong>Partida arancelaria:</strong>{{ field_partida_arancelaria_tax }}</br>\r\n                </p>\r\n              <div>\r\n              <a href=\"/node/{{ nid }}?mode=preview\" data-dialog-options='{\"width\":\"70%\"}'  class=\"use-ajax btn btn-eye button button--action glyphicon glyphicon-plus glyphicon-align-right\" data-dialog-type=\"modal\"><img src=\"/sites/default/files/media-icons/icon-preview.svg\"/>Preview</a>\r\n           \r\n              <a href=\"/dashboard/product-edit/{{ nid }}\" data-dialog-options='{\"width\":\"60%\"}'  class=\"use-ajax btn btn-eye button button--action glyphicon glyphicon-plus glyphicon-align-right\" data-dialog-type=\"modal\"><img src=\"/sites/default/files/media-icons/icon-editar.svg\"/>Editar</a> \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -809,8 +1012,11 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_categorization'
+        - 'config:field.storage.node.field_categorization_parent'
         - 'config:field.storage.node.field_images'
+        - 'config:field.storage.node.field_partida_arancelaria_tax'
         - 'config:field.storage.node.field_states'
   page_1:
     id: page_1
@@ -833,6 +1039,9 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_categorization'
+        - 'config:field.storage.node.field_categorization_parent'
         - 'config:field.storage.node.field_images'
+        - 'config:field.storage.node.field_partida_arancelaria_tax'
         - 'config:field.storage.node.field_states'
