@@ -19,16 +19,16 @@
             "url": "https://asset-packagist.org"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "d3/d3",
-                "version": "v3.5.17",
-                "type": "drupal-library",
-                "dist": {
-                    "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
-                    "type": "zip"
-                }
-            }
+          "type": "package",
+          "package": {
+              "name": "d3/d3",
+              "version": "v3.5.17",
+              "type": "drupal-library",
+              "dist": {
+                  "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
+                  "type": "zip"
+              }
+          }
         },
         {
             "type": "package",
@@ -55,6 +55,21 @@
                   "url": "https://github.com/moxiecode/plupload/archive/v2.3.9.zip",
                   "type": "zip"
               }
+          }
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "jquery/simplecolor",
+            "version": "1.2.3",
+            "extra": {
+              "installer-name": "jquery-simple-color"
+            },
+            "dist": {
+              "url": "https://github.com/recurser/jquery-simple-color/archive/v1.2.3.zip",
+              "type": "zip"
+            },
+            "type": "drupal-library"
           }
         }
       ],
@@ -247,7 +262,8 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "wikimedia/composer-merge-plugin": "^2.0"
+        "wikimedia/composer-merge-plugin": "^2.0",
+        "jquery/simplecolor": "*"
     },
     "require-dev": {
         "drupal/core-dev": "^9.0.0@dev",
