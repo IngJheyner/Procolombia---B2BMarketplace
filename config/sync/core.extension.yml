@@ -48,7 +48,6 @@ module:
   datetime: 0
   dblog: 0
   devel: 0
-  dhw: 0
   disable_html5_validation: 0
   dropdown_language: 0
   dropzonejs: 0
