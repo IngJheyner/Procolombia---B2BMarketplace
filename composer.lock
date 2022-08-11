@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16117bfe831b26f3cf76afd59b507c63",
+    "content-hash": "87afbf2f12415410ac72d0952d527894",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -9599,7 +9599,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-1.11",
-                    "datestamp": "1659472597",
+                    "datestamp": "1660129564",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10431,6 +10431,62 @@
             }
         },
         {
+            "name": "drupal/restui",
+            "version": "1.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/restui.git",
+                "reference": "8.x-1.21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/restui-8.x-1.21.zip",
+                "reference": "8.x-1.21",
+                "shasum": "2a67dc2c1953dced0bddaff25e5c60784ee0178c"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.21",
+                    "datestamp": "1659086914",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "-enzo-",
+                    "homepage": "https://www.drupal.org/user/294937"
+                },
+                {
+                    "name": "clemens.tolboom",
+                    "homepage": "https://www.drupal.org/user/125814"
+                },
+                {
+                    "name": "juampynr",
+                    "homepage": "https://www.drupal.org/user/682736"
+                },
+                {
+                    "name": "klausi",
+                    "homepage": "https://www.drupal.org/user/262198"
+                }
+            ],
+            "description": "Provides a user interface to manage REST resources.",
+            "homepage": "https://www.drupal.org/project/restui",
+            "support": {
+                "source": "https://git.drupalcode.org/project/restui"
+            }
+        },
+        {
             "name": "drupal/rules",
             "version": "dev-3.x",
             "source": {
@@ -11204,16 +11260,16 @@
             ],
             "authors": [
                 {
-                    "name": "LukeLast",
-                    "homepage": "https://www.drupal.org/user/30151"
-                },
-                {
                     "name": "japerry",
                     "homepage": "https://www.drupal.org/user/45640"
                 },
                 {
                     "name": "josesanmartin",
                     "homepage": "https://www.drupal.org/user/72012"
+                },
+                {
+                    "name": "LukeLast",
+                    "homepage": "https://www.drupal.org/user/30151"
                 },
                 {
                     "name": "oadaeh",
@@ -20746,7 +20802,6 @@
         "drupal/quicktabs": 15,
         "drupal/responsive_preview": 15,
         "drupal/rules": 20,
-        "drupal/typed_data": 10,
         "drupal/security_review": 20,
         "drupal/shs": 5,
         "drupal/slick_extras": 10,
@@ -20755,6 +20810,7 @@
         "drupal/structure_sync": 20,
         "drupal/translation_views": 15,
         "drupal/tvi": 5,
+        "drupal/typed_data": 10,
         "drupal/ultimate_cron": 15,
         "drupal/username_enumeration_prevention": 10,
         "drupal/video": 15,

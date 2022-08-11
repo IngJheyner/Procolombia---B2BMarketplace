@@ -1,0 +1,22 @@
+uuid: 717d9458-964b-4e12-aad8-a441108fc634
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - matchmaking
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: matchmaking_content
+theme: matchmaking
+region: content
+weight: -25
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

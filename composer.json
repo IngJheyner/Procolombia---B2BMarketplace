@@ -20,9 +20,6 @@
     ],
     "require": {
         "composer/installers": "^1.9",
-        "drupal/core-composer-scaffold": "^9.4",
-        "drupal/core-project-message": "^9.4",
-        "drupal/core-recommended": "^9.4",
         "cweagans/composer-patches": "^1.7",
         "drupal/ace_editor": "^1.3",
         "drupal/admin_toolbar": "*",
@@ -31,7 +28,7 @@
         "drupal/advanced_text_formatter": "^2.1.1",
         "drupal/anchor_link": "^2.5",
         "drupal/autocomplete_deluxe": "^2.0",
-		 "drupal/backup_migrate": "^5.0",
+        "drupal/backup_migrate": "^5.0",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/betterlogin": "1.x-dev",
         "drupal/block_class": "^1.0",
@@ -43,7 +40,7 @@
         "drupal/civic_accessibility_toolbar": "^1.0",
         "drupal/ckeditor_media_embed": "^1.3",
         "drupal/coder": "^8.3",
-		"drupal/coffee": "^1.0@beta",
+        "drupal/coffee": "^1.0@beta",
         "drupal/color_field": "^2.4",
         "drupal/config_filter": "^2.3.0",
         "drupal/config_ignore": "^2.1",
@@ -51,7 +48,10 @@
         "drupal/config_perms": "^2.0-beta1",
         "drupal/config_update": "^1.5",
         "drupal/console": "^1.0.2",
-		"drupal/core_views_facets": "^2.0",
+        "drupal/core-composer-scaffold": "^9.4",
+        "drupal/core-project-message": "^9.4",
+        "drupal/core-recommended": "^9.4",
+        "drupal/core_views_facets": "^2.0",
         "drupal/crop": "^2.0-rc1",
         "drupal/csv_serialization": "^2.1",
         "drupal/ctools": "^3.0",
@@ -63,7 +63,8 @@
         "drupal/disable_html5_validation": "^1.0",
         "drupal/dropdown_language": "^3.0.0",
         "drupal/dropzonejs": "^2.5",
-		"drupal/dynamic_entity_reference": "^2.0@alpha",
+        "drupal/ds": "^3.12",
+        "drupal/dynamic_entity_reference": "^2.0@alpha",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/entity_browser": "^2.0",
         "drupal/entity_browser_enhanced": "^1.0@RC",
@@ -82,11 +83,10 @@
         "drupal/field_permissions": "^1.0@RC",
         "drupal/field_validation": "^1.0@beta",
         "drupal/flag": "4.x-dev",
-        "drupal/ds": "^3.12",
-		"drupal/focal_point": "^1.0@beta",
+        "drupal/focal_point": "^1.0@beta",
         "drupal/force_password_change": "^2.0.0",
         "drupal/gin": "^3.0@beta",
-		"drupal/gin_toolbar":"^1.0@beta",
+        "drupal/gin_toolbar": "^1.0@beta",
         "drupal/google_analytics": "^4.0.0",
         "drupal/graphql": "^3.1",
         "drupal/graphql_search_api": "^1.2",
@@ -103,7 +103,7 @@
         "drupal/libraries": "^3.0@alpha",
         "drupal/libraries_ui": "^2.0",
         "drupal/link_attributes": "^1.5",
-		 "drupal/linkit": "^6.0@beta",
+        "drupal/linkit": "^6.0@beta",
         "drupal/login_destination": "^2.0@beta",
         "drupal/login_disable": "^2.0",
         "drupal/mail_login": "^2.6",
@@ -120,26 +120,26 @@
         "drupal/owlcarousel": "^1.0@alpha",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.3",
-		"drupal/paragraphs": "^1.5",
+        "drupal/paragraphs": "^1.5",
         "drupal/paragraphs_previewer": "^1.2",
         "drupal/password_policy": "^3.0@alpha",
         "drupal/pathauto": "^1.3",
         "drupal/pathologic": "^1.0@alpha",
         "drupal/persistent_login": "^1.0",
         "drupal/php": "^1.1",
-		"drupal/plupload":"^2.0@beta",
+        "drupal/plupload": "^2.0@beta",
         "drupal/plupload_widget": "^2.0@beta",
         "drupal/prlp": "^1.6",
         "drupal/quicktabs": "^3.0@alpha",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
-		"drupal/redis": "^1.5",
+        "drupal/redis": "^1.5",
         "drupal/reroute_email": "^2.1",
         "drupal/responsive_preview": "^1.0@alpha",
-		"drupal/rules":"3.x-dev@dev",
-		"drupal/typed_data": "^1.0@beta",
+        "drupal/restui": "^1.21",
+        "drupal/rules": "3.x-dev@dev",
         "drupal/schema_metatag": "^2.3.0",
-		"drupal/search_api": "^1.10",
+        "drupal/search_api": "^1.10",
         "drupal/search_api_autocomplete": "^1.4",
         "drupal/security_review": "1.x-dev",
         "drupal/select2": "^1.13",
@@ -154,7 +154,7 @@
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/structure_sync": "2.x-dev@dev",
         "drupal/svg_image": "^1.9",
-		"drupal/taxonomy_access_fix": "^3.3",
+        "drupal/taxonomy_access_fix": "^3.3",
         "drupal/taxonomy_import": "^2.0",
         "drupal/taxonomy_manager": "^2.0",
         "drupal/translatable_menu_link_uri": "^2.0",
@@ -163,11 +163,12 @@
         "drupal/tvi": "^1.0@RC",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.1.3",
+        "drupal/typed_data": "^1.0@beta",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/user_account_language_negotiation": "^1.5",
         "drupal/user_pwreset_timeout": "^1.2",
         "drupal/username_enumeration_prevention": "^1.0@beta",
-		 "drupal/userprotect": "^1.0",
+        "drupal/userprotect": "^1.0",
         "drupal/vbo_export": "^4.0",
         "drupal/video": "^1.5@alpha",
         "drupal/video_embed_field": "^2.0",
@@ -175,7 +176,7 @@
         "drupal/view_user_email": "^1.0",
         "drupal/views_block_filter_block": "^1.2",
         "drupal/views_bootstrap": "^5.4",
-		"drupal/views_bulk_edit": "^2.2",
+        "drupal/views_bulk_edit": "^2.2",
         "drupal/views_bulk_operations": "^4.1",
         "drupal/views_data_export": "^1.0",
         "drupal/views_extras": "^2.0@alpha",
@@ -194,13 +195,12 @@
         "drupal/yoast_seo": "^1.3",
         "drush/drush": "10.6",
         "kint-php/kint": "^4.1",
-		
-		"npm-asset/ace-builds": "1.3.3",
+        "npm-asset/ace-builds": "1.3.3",
         "npm-asset/blazy": "^1.8",
         "npm-asset/dropzone": "^4.3.0",
         "npm-asset/jquery-ui-touch-punch": "^0.2.3",
         "npm-asset/slick-carousel": "^1.8",
-		 "predis/predis": "^2.0",
+        "predis/predis": "^2.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
@@ -220,54 +220,56 @@
             "cweagans/composer-patches": true,
             "oomphinc/composer-installers-extender": true,
             "drupal/console-extend-plugin": true,
-            "wikimedia/composer-merge-plugin": true
+            "wikimedia/composer-merge-plugin": true,
+            "drupal/core-vendor-hardening": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
     "extra": {
 		"enable-patching": true,
 		"patches": {
-            "drupal/core": {
-                "TypeError": "https://www.drupal.org/files/issues/2021-10-06/route-builder-undefined-null-path-3196793-11.patch",
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
-                "Make exposed filter values available as tokens for text areas": "https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch",
-                "Drupal Core Argument 1 passed ": "https://www.drupal.org/files/issues/2022-02-28/2701575-14.patch",
-                "htmlspecialchars": "https://www.drupal.org/files/issues/2022-03-18/fix-for-php-greater-8-1-3255637.patch",
-                "User context missing": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
-		            "recovery password link" : "patches/unicode.patch"
-            },
-            "drupal/redirect": {
-                "Loop redirect fails on save nodes": "patches/loop-redirect-fails-on-save-node.patch"
-            },
-            "drupal/select2": {
-                "change directory select 2 library": "patches/library-select-2-b2b.patch"
-            },
-            "drupal/taxonomy": {
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
-            },
-            "drupal/views": {
-                "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2021-05-13/8.9.x-2457999-267-views-relationship-rendered-entity.patch"
-            },
-            "drupal/dblog":{
-                "Make exposed filter values available as tokens for text areas":"https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch"
-            },
-            "drupal/redis":{
-                "If Redis connection is not configured, the report page shows warnings":"https://www.drupal.org/files/issues/2021-04-07/redis-report_warnings-3207574-2.patch"
-            },
-            "drupal/google_analytics":{
-                "Passing null to parameter #2": "https://www.drupal.org/files/issues/2022-06-03/google_analytics-jsonserialize-code-standard-fixes-3258588-20.patch"
-            },
-            "drupal/color_field":{
-                 "Warning Implicit color_field ColorRGB ": "https://www.drupal.org/files/issues/2022-02-23/3265958-implicit-conversion-float-int.patch"
-            },
-            "drupal/mailchimp_transactional":{
-              "The Mailchimp Transactional library has not been installed correctly": "https://www.drupal.org/files/issues/2022-04-07/mailchimp_transaction.install-ApiClient-misspelled.patch"
-            },
-            "drupal/webform":{
-              "eprecated function: preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in webform_css_alter()": "https://www.drupal.org/files/issues/2022-05-02/webform-3278191-3.patch"
-            }
+          "drupal/core": {
+              "TypeError": "https://www.drupal.org/files/issues/2021-10-06/route-builder-undefined-null-path-3196793-11.patch",
+              "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
+              "Make exposed filter values available as tokens for text areas": "https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch",
+              "Drupal Core Argument 1 passed ": "https://www.drupal.org/files/issues/2022-02-28/2701575-14.patch",
+              "htmlspecialchars": "https://www.drupal.org/files/issues/2022-03-18/fix-for-php-greater-8-1-3255637.patch",
+              "User context missing": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
+              "recovery password link" : "patches/unicode.patch"
+          },
+          "drupal/redirect": {
+              "Loop redirect fails on save nodes": "patches/loop-redirect-fails-on-save-node.patch"
+          },
+          "drupal/select2": {
+              "change directory select 2 library": "patches/library-select-2-b2b.patch"
+          },
+          "drupal/taxonomy": {
+              "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
+          },
+          "drupal/views": {
+              "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2021-05-13/8.9.x-2457999-267-views-relationship-rendered-entity.patch"
+          },
+          "drupal/dblog":{
+              "Make exposed filter values available as tokens for text areas":"https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch"
+          },
+          "drupal/redis":{
+              "If Redis connection is not configured, the report page shows warnings":"https://www.drupal.org/files/issues/2021-04-07/redis-report_warnings-3207574-2.patch"
+          },
+          "drupal/google_analytics":{
+              "Passing null to parameter #2": "https://www.drupal.org/files/issues/2022-06-03/google_analytics-jsonserialize-code-standard-fixes-3258588-20.patch"
+          },
+          "drupal/color_field":{
+                "Warning Implicit color_field ColorRGB ": "https://www.drupal.org/files/issues/2022-02-23/3265958-implicit-conversion-float-int.patch"
+          },
+          "drupal/mailchimp_transactional":{
+            "The Mailchimp Transactional library has not been installed correctly": "https://www.drupal.org/files/issues/2022-04-07/mailchimp_transaction.install-ApiClient-misspelled.patch"
+          },
+          "drupal/webform":{
+            "eprecated function: preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in webform_css_alter()": "https://www.drupal.org/files/issues/2022-05-02/webform-3278191-3.patch"
+          }
         },
-		
+
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

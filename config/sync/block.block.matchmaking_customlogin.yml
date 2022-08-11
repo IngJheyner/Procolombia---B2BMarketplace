@@ -1,0 +1,31 @@
+uuid: 15fed60b-2148-4999-9756-d8d4e36476fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - cp_core
+    - system
+  theme:
+    - matchmaking
+third_party_settings:
+  block_class:
+    classes: 'is-hidden block-custom-login'
+id: matchmaking_customlogin
+theme: matchmaking
+region: top_header
+weight: -32
+provider: null
+plugin: custom_login
+settings:
+  id: custom_login
+  label: 'Custom Login'
+  label_display: '0'
+  provider: cp_core
+  my_block_settings: null
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/mcr-80\r\n/mcr-80/*"

@@ -1,0 +1,27 @@
+uuid: 83a90e01-5016-406d-aede-b7109001d7fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - dropdown_language
+  theme:
+    - matchmaking
+third_party_settings:
+  block_class:
+    replaced_id: '<none>'
+id: matchmaking_dropdownlanguage_2
+theme: matchmaking
+region: top_header
+weight: -1
+provider: null
+plugin: 'dropdown_language:language_interface'
+settings:
+  id: 'dropdown_language:language_interface'
+  label: 'Dropdown Language'
+  label_display: '0'
+  provider: dropdown_language
+  labels:
+    es: Spa
+    en: Eng
+visibility: {  }

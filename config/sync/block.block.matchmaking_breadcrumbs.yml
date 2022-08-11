@@ -1,0 +1,27 @@
+uuid: 6b7e0a4f-9454-4080-9e06-f7d0b57dc07d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - matchmaking
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: matchmaking_breadcrumbs
+theme: matchmaking
+region: breadcrumb
+weight: -23
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/productos/*/*\r\n/productos/*\r\n/productos\r\n/products/*/*\r\n/products/*\r\n/products\r\n<front>\r\n/mcr-80\r\n/mcr-80/*\r\n/ecommerce-crossborder\r\n/ecommerce-crossborder/*\r\n/rueda-virtual-envases-empaques-y-soluciones-plasticas*"

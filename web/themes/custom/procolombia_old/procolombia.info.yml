@@ -1,6 +1,6 @@
-name: Procolombia
+name: Procolombia Old
 type: theme
-description: 'Tema principal del sitio procolombia.'
+description: 'Procolombia Old.'
 core: 8.x
 core_version_requirement: ^8 || ^9
 base theme: bootstrap_barrio

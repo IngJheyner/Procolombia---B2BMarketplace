@@ -1,0 +1,20 @@
+uuid: 2f078b41-72e9-48d6-944f-7d75a9aaf7e8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - matchmaking
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: matchmaking_local_actions
+theme: matchmaking
+region: content
+weight: -29
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

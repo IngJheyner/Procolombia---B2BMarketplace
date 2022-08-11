@@ -1,0 +1,22 @@
+uuid: 9adbc7f0-7ada-4738-ace1-d1d2de702df1
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - matchmaking
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: matchmaking_powered
+theme: matchmaking
+region: top_header
+weight: -30
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

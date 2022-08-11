@@ -1,0 +1,27 @@
+uuid: 60ca94a8-17d0-45cc-b226-476794c42d2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - cp_search
+    - system
+  theme:
+    - matchmaking
+id: matchmaking_bannercategory
+theme: matchmaking
+region: highlighted
+weight: -19
+provider: null
+plugin: banner_category
+settings:
+  id: banner_category
+  label: 'Banner Category'
+  label_display: '0'
+  provider: cp_search
+  my_block_settings: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/products\r\n/products/*\r\n/products/*/*\r\n/productos\r\n/productos/*\r\n/productos/*/*"
