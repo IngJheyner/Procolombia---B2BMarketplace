@@ -1,19 +1,16 @@
 uuid: 9f390fee-5dbe-4800-974f-5402f18c6fc0
 langcode: es
-status: true
+status: false
 dependencies:
   config:
-    - field.storage.node.field_background_image
     - field.storage.node.field_label_slide
     - field.storage.node.field_subtitle_slide
     - field.storage.node.field_title_slide
     - field.storage.node.field_web
     - node.type.banner
-    - responsive_image.styles.main_banner
   module:
     - link
     - node
-    - responsive_image
     - slick_views
     - user
 id: hero_banner
@@ -32,70 +29,6 @@ display:
     display_options:
       title: ''
       fields:
-        field_background_image:
-          id: field_background_image
-          table: node__field_background_image
-          field: field_background_image
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: responsive_image
-          settings:
-            responsive_image_style: main_banner
-            image_link: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_label_slide:
           id: field_label_slide
           table: node__field_label_slide
@@ -573,7 +506,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_background_image'
         - 'config:field.storage.node.field_label_slide'
         - 'config:field.storage.node.field_subtitle_slide'
         - 'config:field.storage.node.field_title_slide'
@@ -594,7 +526,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_background_image'
         - 'config:field.storage.node.field_label_slide'
         - 'config:field.storage.node.field_subtitle_slide'
         - 'config:field.storage.node.field_title_slide'

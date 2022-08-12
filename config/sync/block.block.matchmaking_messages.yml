@@ -1,5 +1,5 @@
-uuid: c84d9846-a26e-4e73-afd7-16dee508da84
-langcode: en
+uuid: 61f04ec8-88dd-456b-a43d-53f6c62773dc
+langcode: es
 status: true
 dependencies:
   module:
@@ -7,11 +7,11 @@ dependencies:
   theme:
     - matchmaking
 _core:
-  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+  default_config_hash: '-Ac3ISpIT0PQ-whzD7_dw0SdKi6dAbRFNWdSjOiVDqg'
 id: matchmaking_messages
 theme: matchmaking
 region: highlighted
-weight: -20
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:

@@ -1,18 +1,15 @@
-uuid: f9a741fc-ee28-4f21-8b17-36c546a45e63
-langcode: en
+uuid: 6770e5b5-b557-4c35-832c-a7bac0ea3374
+langcode: es
 status: true
 dependencies:
-  module:
-    - node
-    - system
   theme:
     - matchmaking
 _core:
-  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+  default_config_hash: fNwDdW063tk_ktzSWzZVeQS9wzvLooVO280BQ9WrsIs
 id: matchmaking_page_title
 theme: matchmaking
-region: content
-weight: -32
+region: header
+weight: -30
 provider: null
 plugin: page_title_block
 settings:
@@ -20,18 +17,4 @@ settings:
   label: 'Page title'
   label_display: '0'
   provider: core
-visibility:
-  request_path:
-    id: request_path
-    negate: true
-    context_mapping: {  }
-    pages: "<front>\r\n/ecommerce-crossborder\r\n/macrorueda85\r\n/macrorueda85/*"
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      landing_page: landing_page
-      page: page
-      product: product
+visibility: {  }

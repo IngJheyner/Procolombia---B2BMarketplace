@@ -34,6 +34,7 @@
         "drupal/block_class": "^1.0",
         "drupal/bootstrap_barrio": "^5.5",
         "drupal/bootstrap_layouts": "^5.1",
+        "drupal/bootstrap_sass": "^5.0",
         "drupal/bootstrap_simple_carousel": "^1.2",
         "drupal/captcha": "^1.2",
         "drupal/change_pwd_page": "^1.0@beta",

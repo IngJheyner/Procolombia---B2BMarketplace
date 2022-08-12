@@ -1,5 +1,5 @@
-uuid: 5136ba1b-7431-4602-a884-2d85e4325d4f
-langcode: en
+uuid: d5dc1873-116a-42b4-9ecc-a792825e5c2e
+langcode: es
 status: true
 dependencies:
   module:
@@ -7,11 +7,11 @@ dependencies:
   theme:
     - matchmaking
 _core:
-  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
 id: matchmaking_help
 theme: matchmaking
-region: content
-weight: -30
+region: top_header
+weight: 0
 provider: null
 plugin: help_block
 settings:

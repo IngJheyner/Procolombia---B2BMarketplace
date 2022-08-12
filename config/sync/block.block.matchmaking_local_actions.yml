@@ -1,15 +1,15 @@
-uuid: 2f078b41-72e9-48d6-944f-7d75a9aaf7e8
-langcode: en
+uuid: 48e990d6-c620-4001-99f5-01103206a934
+langcode: es
 status: true
 dependencies:
   theme:
     - matchmaking
 _core:
-  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
 id: matchmaking_local_actions
 theme: matchmaking
 region: content
-weight: -29
+weight: -10
 provider: null
 plugin: local_actions_block
 settings:

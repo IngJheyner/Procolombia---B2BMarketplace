@@ -503,6 +503,8 @@ display:
           metatags: {  }
           tokenize: false
       path: api/v1/business
+      auth:
+        - cookie
     cache_metadata:
       max-age: -1
       contexts:
