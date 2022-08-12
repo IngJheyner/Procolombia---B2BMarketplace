@@ -1,0 +1,24 @@
+uuid: bb2ef798-271c-46f1-870a-f58573639de2
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.condiciones_de_acceso
+  module:
+    - views
+  theme:
+    - catalogo_public
+id: views_block__condiciones_de_acceso_block_1
+theme: catalogo_public
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:condiciones_de_acceso-block_1'
+settings:
+  id: 'views_block:condiciones_de_acceso-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }
