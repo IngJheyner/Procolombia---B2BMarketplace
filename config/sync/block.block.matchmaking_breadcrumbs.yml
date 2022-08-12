@@ -1,0 +1,22 @@
+uuid: 3a51bc9c-e864-4422-9e9f-2e0aec07bfee
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - matchmaking
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: matchmaking_breadcrumbs
+theme: matchmaking
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }
