@@ -2,11 +2,6 @@ uuid: 37823be6-d5f1-4903-bed6-086593ee62e8
 langcode: es
 status: false
 dependencies:
-  content:
-    - 'block_content:basic:1d1ab10d-a1c9-4750-921b-2b72d7a716be'
-  module:
-    - block_class
-    - block_content
   theme:
     - catalogo_public
 id: tophomemacrorueda

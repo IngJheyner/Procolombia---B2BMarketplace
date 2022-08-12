@@ -5,7 +5,6 @@ dependencies:
   config:
     - system.menu.tools
   module:
-    - block_class
     - system
   theme:
     - catalogo_public

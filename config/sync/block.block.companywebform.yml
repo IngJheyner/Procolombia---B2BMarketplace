@@ -2,11 +2,7 @@ uuid: e890b37f-5063-4315-8efb-2c8ab2ede490
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:webform_block:77446c63-8f55-4748-b1df-b65df05d8e73'
   module:
-    - block_class
-    - block_content
     - node
   theme:
     - catalogo_public

@@ -4,5 +4,5 @@ langcode: es
 lifetime: 30
 max_tokens: 0
 login_form:
-  field_label: 'Remember me'
+  field_label: Recordarme
 cookie_prefix: PL

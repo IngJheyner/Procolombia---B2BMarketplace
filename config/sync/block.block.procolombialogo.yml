@@ -2,11 +2,8 @@ uuid: 83d45fde-3036-4ec5-88c4-c8c60042d7ab
 langcode: es
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:e81bd461-d4cc-491b-b83a-550d3b85a57b'
   module:
     - block_class
-    - block_content
   theme:
     - catalogo_public
 third_party_settings:

@@ -2,11 +2,7 @@ uuid: 7cb9c558-dce1-4f58-b037-7084f655cd39
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:0a1ce4a5-6c1b-4c76-b207-a05033f3a960'
   module:
-    - block_class
-    - block_content
     - system
   theme:
     - catalogo_public

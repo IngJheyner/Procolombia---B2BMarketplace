@@ -2,11 +2,7 @@ uuid: f28fbc30-ab55-430c-ae85-083aba988c73
 langcode: es
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:051128cf-4a9e-4b45-89a9-544dcdcb93d3'
   module:
-    - block_class
-    - block_content
     - node
   theme:
     - catalogo_public

@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.search_companies
   module:
-    - block_class
     - views
   theme:
     - catalogo_public

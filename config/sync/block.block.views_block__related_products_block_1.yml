@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.related_products
   module:
-    - block_class
     - node
     - views
   theme:

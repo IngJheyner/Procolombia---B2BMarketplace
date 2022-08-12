@@ -2,8 +2,6 @@ uuid: acc9b689-a986-44a7-9d96-9c30a8cafa01
 langcode: en
 status: true
 dependencies:
-  module:
-    - block_class
   theme:
     - catalogo_public
 _core:

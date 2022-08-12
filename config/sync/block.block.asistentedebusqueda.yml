@@ -2,11 +2,6 @@ uuid: 35d0c1b3-8029-432d-9762-d17dd5475201
 langcode: es
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:01243725-a60b-40c6-bf7d-a8ebb1a03261'
-  module:
-    - block_class
-    - block_content
   theme:
     - catalogo_public
 id: asistentedebusqueda

@@ -2,11 +2,7 @@ uuid: db08b150-1b53-40c2-b8a8-094c8d454297
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:2beb6731-c3b0-4e6f-b40e-1c6c94f4c81e'
   module:
-    - block_class
-    - block_content
     - system
   theme:
     - catalogo_public

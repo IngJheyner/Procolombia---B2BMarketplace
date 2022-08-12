@@ -3,7 +3,6 @@ langcode: es
 status: true
 dependencies:
   module:
-    - block_class
     - cp_search
     - system
   theme:
