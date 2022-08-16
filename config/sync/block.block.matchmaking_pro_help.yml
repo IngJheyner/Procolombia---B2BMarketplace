@@ -1,0 +1,22 @@
+uuid: c83557b4-9664-4568-8251-45b9d3506a22
+langcode: es
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - matchmaking_pro
+_core:
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
+id: matchmaking_pro_help
+theme: matchmaking_pro
+region: top_header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

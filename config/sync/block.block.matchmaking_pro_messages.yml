@@ -1,0 +1,22 @@
+uuid: 04f247f1-5963-4b22-b474-7d1b86cb7e93
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - matchmaking_pro
+_core:
+  default_config_hash: '-Ac3ISpIT0PQ-whzD7_dw0SdKi6dAbRFNWdSjOiVDqg'
+id: matchmaking_pro_messages
+theme: matchmaking_pro
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }
