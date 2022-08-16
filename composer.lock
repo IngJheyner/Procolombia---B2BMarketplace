@@ -3281,12 +3281,12 @@
             ],
             "authors": [
                 {
-                    "name": "Ricardo.Castaneda",
-                    "homepage": "https://www.drupal.org/user/3520894"
-                },
-                {
                     "name": "hatuhay",
                     "homepage": "https://www.drupal.org/user/827704"
+                },
+                {
+                    "name": "Ricardo.Castaneda",
+                    "homepage": "https://www.drupal.org/user/3520894"
                 }
             ],
             "description": "SASS subtheme for Barrio Theme.",
