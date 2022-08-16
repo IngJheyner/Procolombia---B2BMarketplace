@@ -1,0 +1,22 @@
+uuid: 8e361b04-d070-4a35-982a-606ce878c3ae
+langcode: es
+status: true
+dependencies:
+  theme:
+    - matchmaking_pro
+_core:
+  default_config_hash: ACjBZI5shAMiiUpsz-inLYVXDqNNXRnSzAWV3kV_8Hw
+id: matchmaking_pro_primary_local_tasks
+theme: matchmaking_pro
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

@@ -300,11 +300,8 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders:
-        metatag_display_extender:
-          metatags: {  }
-          tokenize: false
-      path: inicio
+      display_extenders: {  }
+      path: node
     cache_metadata:
       max-age: -1
       contexts:
