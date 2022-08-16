@@ -7,7 +7,7 @@
 
   'use strict';
 
-  Drupal.behaviors.matchmaking = {
+  Drupal.behaviors.matchmaking_pro = {
     attach: function(context, settings) {
 
       // Custom code here
