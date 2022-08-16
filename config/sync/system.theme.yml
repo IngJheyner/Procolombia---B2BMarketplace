@@ -2,8 +2,4 @@ _core:
   default_config_hash: fOjer9hADYYnbCJVZMFZIIM1azTFWyg84ZkFDHfAbUg
 langcode: es
 admin: gin
-<<<<<<< HEAD
-default: claro
-=======
 default: matchmaking_pro
->>>>>>> b9889bc9907b32f07398e6bbe890ad95dc405b50
