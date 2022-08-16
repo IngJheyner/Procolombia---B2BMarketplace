@@ -10,7 +10,7 @@ dependencies:
 _core:
   default_config_hash: waBU_eXNHzwqmAXPugM2-ZD5Cuvzw_OGwPfSITxymOE
 id: wide
-label: Wide
+label: Ancho
 image_style_mappings:
   -
     image_mapping_type: sizes

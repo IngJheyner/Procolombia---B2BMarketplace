@@ -48,7 +48,7 @@ module:
   datetime: 0
   dblog: 0
   devel: 0
-  dhw: 0
+  devel_generate: 0
   disable_html5_validation: 0
   dropdown_language: 0
   dropzonejs: 0
@@ -164,6 +164,7 @@ module:
   responsive_image: 0
   responsive_preview: 0
   rest: 0
+  restui: 0
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0
@@ -244,7 +245,7 @@ module:
   standard: 1000
 theme:
   bootstrap_barrio: 0
-  catalogo_public: 0
   claro: 0
   gin: 0
+  matchmaking: 0
 profile: standard
