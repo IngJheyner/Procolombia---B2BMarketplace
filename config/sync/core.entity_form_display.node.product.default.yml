@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.product.field_key_words
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_multilingual
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_previous_id
@@ -41,7 +42,7 @@ mode: default
 content:
   body_class:
     type: string_textfield
-    weight: 36
+    weight: 33
     region: content
     settings:
       size: 60
@@ -49,7 +50,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -70,7 +71,7 @@ content:
         show_token_tree: 0
   field_categorization:
     type: options_shs
-    weight: 19
+    weight: 20
     region: content
     settings:
       display_node_count: false
@@ -80,7 +81,7 @@ content:
     third_party_settings: {  }
   field_categorization_parent:
     type: entity_reference_autocomplete
-    weight: 28
+    weight: 29
     region: content
     settings:
       match_operator: CONTAINS
@@ -90,14 +91,14 @@ content:
     third_party_settings: {  }
   field_dependent_state:
     type: boolean_checkbox
-    weight: 23
+    weight: 24
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_exist_certifications:
     type: boolean_checkbox
-    weight: 20
+    weight: 21
     region: content
     settings:
       display_label: true
@@ -121,16 +122,17 @@ content:
     third_party_settings: {  }
   field_file_certifications:
     type: file_generic
-    weight: 21
+    weight: 22
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_iframe:
     type: iframe_urlwidthheight
-    weight: 30
+    weight: 31
     region: content
     settings:
+      headerlevel: '3'
       class: ''
       frameborder: '0'
       scrolling: auto
@@ -169,14 +171,14 @@ content:
     third_party_settings: {  }
   field_mostrar_en_home:
     type: boolean_checkbox
-    weight: 26
+    weight: 27
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_partida_arancelaria_tax:
     type: entity_reference_autocomplete
-    weight: 29
+    weight: 30
     region: content
     settings:
       match_operator: CONTAINS
@@ -196,7 +198,7 @@ content:
     third_party_settings: {  }
   field_previous_id:
     type: string_textfield
-    weight: 24
+    weight: 25
     region: content
     settings:
       size: 60
@@ -210,20 +212,20 @@ content:
     third_party_settings: {  }
   field_producto_innovador:
     type: boolean_checkbox
-    weight: 27
+    weight: 28
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_states:
     type: options_select
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
   field_tag_producto:
     type: options_shs
-    weight: 31
+    weight: 32
     region: content
     settings:
       display_node_count: false
@@ -240,7 +242,7 @@ content:
     third_party_settings: {  }
   field_trading_channel:
     type: string_textfield
-    weight: 25
+    weight: 26
     region: content
     settings:
       size: 60
@@ -255,34 +257,39 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   specific_node_class:
     type: boolean_checkbox
-    weight: 37
+    weight: 34
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 15
+    weight: 16
     region: content
     settings:
       display_label: true
@@ -296,13 +303,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -311,8 +318,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_multilingual: true

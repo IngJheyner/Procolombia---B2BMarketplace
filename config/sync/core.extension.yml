@@ -238,6 +238,7 @@ module:
   content_translation: 10
   password_policy: 10
   views: 10
+  mfd: 11
   paragraphs: 11
   tvi: 15
   standard: 1000

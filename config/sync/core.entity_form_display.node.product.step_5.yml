@@ -1,9 +1,9 @@
-uuid: 72672fab-faa8-4542-9cdc-209a888f0f51
+uuid: 685d019f-00d6-4c82-879a-912e45997f0a
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.image
+    - core.entity_form_mode.node.step_5
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
     - field.field.node.product.field_categorization_parent
@@ -29,49 +29,46 @@ dependencies:
     - field.field.node.product.field_trading_channel
     - node.type.product
   module:
-    - ds
-    - svg_image
-    - user
-id: node.product.image
+    - file
+id: node.product.step_5
 targetEntityType: node
 bundle: product
-mode: image
+mode: step_5
 content:
-  field_images:
-    type: image
-    label: above
+  field_body:
+    type: string_textarea
+    weight: 1
+    region: content
     settings:
-      image_link: ''
-      image_style: ''
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-      image_loading:
-        attribute: lazy
-    third_party_settings:
-      ds:
-        ds_limit: ''
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_file:
+    type: file_generic
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  title:
+    type: string_textfield
     weight: 0
     region: content
-  flag_favorites:
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    weight: 10
-    region: content
 hidden:
-  entity_print_view_epub: true
-  entity_print_view_pdf: true
-  entity_print_view_word_docx: true
-  field_body: true
+  body_class: true
+  created: true
   field_categorization: true
   field_categorization_parent: true
   field_dependent_state: true
   field_exist_certifications: true
   field_export_markets: true
-  field_file: true
   field_file_certifications: true
   field_iframe: true
+  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
@@ -86,5 +83,12 @@ hidden:
   field_tariff_heading: true
   field_trading_channel: true
   langcode: true
-  links: true
-  search_api_excerpt: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  specific_node_class: true
+  status: true
+  sticky: true
+  translation: true
+  uid: true
+  url_redirects: true

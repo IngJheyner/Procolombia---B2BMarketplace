@@ -1,0 +1,144 @@
+uuid: ac344b1e-eaae-4ad3-bfc0-76573834d410
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_2
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_multilingual
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - node.type.product
+  module:
+    - field_group
+    - mfd
+third_party_settings:
+  field_group:
+    group_left:
+      children:
+        - field_categorization_parent
+        - field_categorization
+      label: Left
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: group-left
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_right:
+      children:
+        - field_partida_arancelaria_tax
+        - field_multilingual
+      label: Right
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: group-left
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+id: node.product.step_2
+targetEntityType: node
+bundle: product
+mode: step_2
+content:
+  field_categorization:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_categorization_parent:
+    type: options_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_multilingual:
+    type: multilingual_form_display_widget
+    weight: 27
+    region: content
+    settings:
+      collapsible_state: '-1'
+      mfd_languages:
+        en: en
+      display_label: 0
+      display_description: 0
+    third_party_settings: {  }
+  field_partida_arancelaria_tax:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body_class: true
+  created: true
+  field_body: true
+  field_dependent_state: true
+  field_exist_certifications: true
+  field_export_markets: true
+  field_file: true
+  field_file_certifications: true
+  field_iframe: true
+  field_images: true
+  field_key_words: true
+  field_key_words_backup: true
+  field_mostrar_en_home: true
+  field_pr_ref_company: true
+  field_previous_id: true
+  field_product_type: true
+  field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
+  field_tariff_heading: true
+  field_trading_channel: true
+  langcode: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  specific_node_class: true
+  status: true
+  sticky: true
+  title: true
+  translation: true
+  uid: true
+  url_redirects: true

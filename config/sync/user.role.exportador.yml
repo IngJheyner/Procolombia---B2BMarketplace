@@ -9,6 +9,7 @@ dependencies:
     - content_translation
     - entityqueue
     - field_permissions
+    - mfd
     - node
     - taxonomy
     - taxonomy_access_fix
@@ -20,6 +21,7 @@ permissions:
   - 'create terms in partida_arancelaria'
   - 'delete terms in partida_arancelaria'
   - 'edit any product content'
+  - 'edit multilingual form'
   - 'edit terms in partida_arancelaria'
   - 'reorder terms in partida_arancelaria'
   - 'translate product node'

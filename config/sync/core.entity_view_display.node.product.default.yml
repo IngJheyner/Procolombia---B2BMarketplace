@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.product.field_key_words
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_multilingual
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_previous_id
@@ -30,6 +31,7 @@ dependencies:
     - ds
     - file
     - iframe
+    - mfd
     - options
     - svg_image
     - telephone
@@ -165,6 +167,17 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 19
+    region: content
+  field_multilingual:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 23
     region: content
   field_partida_arancelaria_tax:
     type: entity_reference_label

@@ -9,6 +9,7 @@ dependencies:
     - content_translation
     - field_permissions
     - media
+    - mfd
     - node
     - system
     - taxonomy_access_fix
@@ -26,6 +27,7 @@ permissions:
   - 'create field_tags'
   - 'edit field_iframe'
   - 'edit field_tags'
+  - 'edit multilingual form'
   - 'edit own field_iframe'
   - 'edit own field_tags'
   - 'translate company node'

@@ -1,0 +1,22 @@
+uuid: 43c14af5-4ea5-46c9-b8c2-26fa1eff7ae7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_multilingual
+    - node.type.service
+  module:
+    - mfd
+id: node.service.field_multilingual
+field_name: field_multilingual
+entity_type: node
+bundle: service
+label: Multi-languages
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: multilingual_form_display

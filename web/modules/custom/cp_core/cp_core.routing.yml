@@ -94,6 +94,22 @@ cp_core.addProduct:
     requirements:
         _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
 
+# cp_core.add_product_multistep:
+#     path: '/dashboard/product-add-multistep'
+#     defaults:
+#         _form: '\Drupal\cp_core\Form\AddEditProductMultiStep'
+#         _title: 'Add product multistep'
+#     requirements:
+#         _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
+cp_core.add_product_multistep:
+  path: '/dashboard/product-add-multistep'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms::multistepForm'
+    _title: 'Add product multistep'
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
 cp_core.editProduct:
     path: '/dashboard/product-edit/{nid}'
     defaults:
@@ -101,6 +117,23 @@ cp_core.editProduct:
         _title: 'Edit product'
     requirements:
         _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
+
+# cp_core.edit_product_multistep:
+#     path: '/dashboard/product-edit/{nid}'
+#     defaults:
+#         _form: '\Drupal\cp_core\Form\AddEditProductMultiStep'
+#         _title: 'Edit product '
+#     requirements:
+#         _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
+
+cp_core.edit_product_multistep:
+  path: '/dashboard/product-edit/{nid}'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms::multistepForm'
+    _title: 'Edit product multistep'
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
+
 
 cp_core.editUser:
   path: 'user-dashboard/edit'

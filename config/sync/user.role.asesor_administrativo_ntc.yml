@@ -15,6 +15,7 @@ dependencies:
     - content_translation
     - field_permissions
     - field_ui
+    - mfd
     - node
     - system
     - taxonomy_access_fix
@@ -42,6 +43,7 @@ permissions:
   - 'edit field_iframe'
   - 'edit field_tag_producto'
   - 'edit field_tags'
+  - 'edit multilingual form'
   - 'edit own company content'
   - 'edit own field_iframe'
   - 'edit own field_tag_producto'

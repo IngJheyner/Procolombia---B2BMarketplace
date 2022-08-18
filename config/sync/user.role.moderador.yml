@@ -14,6 +14,7 @@ dependencies:
   module:
     - force_password_change
     - metatag
+    - mfd
     - node
     - shortcut
     - taxonomy
@@ -44,6 +45,7 @@ permissions:
   - 'edit any page content'
   - 'edit any product content'
   - 'edit any webform'
+  - 'edit multilingual form'
   - 'edit own banner content'
   - 'edit own company content'
   - 'edit own landing_page content'
