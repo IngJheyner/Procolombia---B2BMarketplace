@@ -405,6 +405,10 @@ class CpCoreMultiStepForm extends FormBase {
    * Ajax callback.
    */
   public function changeProductType(array &$form, FormStateInterface $form_state) {
+    $form['#action'] = str_replace('&ajax_form=1', '', $form['#action']);
+    $form['#action'] = str_replace('ajax_form=1', '', $form['#action']);
+    $form['#action'] = str_replace('&_wrapper_format=drupal_ajax', '', $form['#action']);
+    $form['#action'] = str_replace('_wrapper_format=drupal_ajax', '', $form['#action']);
     return $form;
   }
 
