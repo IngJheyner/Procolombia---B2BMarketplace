@@ -5,6 +5,6 @@ dependencies:
   module:
     - node
 id: node.step_3
-label: 'step 3'
+label: 'Product and Merchandise certificate'
 targetEntityType: node
 cache: true

@@ -171,9 +171,6 @@ class AddEditProductMultiStep extends FormBase {
 
     }
 
-
-
-
     if ($type == 'edit') {
       global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);

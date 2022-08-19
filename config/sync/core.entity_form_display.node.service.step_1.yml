@@ -25,7 +25,7 @@ third_party_settings:
       label: Left
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: group-left
@@ -45,10 +45,48 @@ third_party_settings:
       label: Right
       region: content
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         classes: group-right
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_top:
+      children: {  }
+      label: Top
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: group-top
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_bottom:
+      children: {  }
+      label: Bottom
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: group-bottom
         show_empty_fields: false
         id: ''
         element: div
@@ -80,7 +118,7 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_multilingual:
-    type: multilingual_form_display_widget
+    type: cp_core_multilingual_field_widget
     weight: 2
     region: content
     settings:

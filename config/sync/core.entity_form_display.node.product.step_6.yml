@@ -29,43 +29,100 @@ dependencies:
     - field.field.node.product.field_trading_channel
     - node.type.product
   module:
-    - file
+    - field_group
+third_party_settings:
+  field_group:
+    group_left:
+      children: {  }
+      label: Left
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: group-left
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_right:
+      children: {  }
+      label: Right
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: group-left
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_top:
+      children: {  }
+      label: Top
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: group-top
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_bottom:
+      children: {  }
+      label: Bottom
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: group-bottom
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
 id: node.product.step_6
 targetEntityType: node
 bundle: product
 mode: step_6
-content:
-  field_body:
-    type: string_textarea
-    weight: 1
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_file:
-    type: file_generic
-    weight: 4
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+content: {  }
 hidden:
   body_class: true
   created: true
+  field_body: true
   field_categorization: true
   field_categorization_parent: true
   field_dependent_state: true
   field_exist_certifications: true
   field_export_markets: true
+  field_file: true
   field_file_certifications: true
   field_iframe: true
   field_images: true
@@ -89,6 +146,7 @@ hidden:
   specific_node_class: true
   status: true
   sticky: true
+  title: true
   translation: true
   uid: true
   url_redirects: true

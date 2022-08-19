@@ -257,14 +257,14 @@ class CpCoreMultiStepForm extends FormBase {
       }
       $form['#attributes']['novalidate'] = 'novalidate';
 
-      // $form['sidebar'] = [
-      //   '#theme' => [
-      //     'cp_core_node_multistep_sidebar',
-      //   ],
-      //   '#current' => $this->step,
-      //   '#steps' => $this->steps,
-      //   '#weight' => -10,
-      // ];
+      $form['sidebar'] = [
+        '#theme' => [
+          'cp_core_node_multistep_sidebar',
+        ],
+        '#current' => $this->step,
+        '#steps' => $this->steps,
+        '#weight' => -10,
+      ];
 
       $build['status_messages'] = [
         '#type' => 'status_messages',
