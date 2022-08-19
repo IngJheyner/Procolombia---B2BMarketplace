@@ -9,7 +9,7 @@ dependencies:
 _core:
   default_config_hash: xAduWBNBoi9WKBMCoVIKSueNYqPK84SiiZwQYKPbkaE
 id: narrow
-label: Narrow
+label: Estrecho
 image_style_mappings:
   -
     image_mapping_type: sizes

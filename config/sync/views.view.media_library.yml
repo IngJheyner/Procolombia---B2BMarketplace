@@ -25,11 +25,11 @@ base_field: mid
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Máster
     display_plugin: default
     position: 0
     display_options:
-      title: Media
+      title: Multimedia
       fields:
         media_bulk_form:
           id: media_bulk_form
@@ -81,7 +81,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: Acción
           include_exclude: exclude
           selected_actions: {  }
         rendered_entity:
@@ -147,19 +147,19 @@ display:
             previous: ‹‹
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Elementos por página'
             items_per_page_options: '6, 12, 24, 48'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Todo -'
             offset: false
-            offset_label: Offset
+            offset_label: Desplazamiento
       exposed_form:
         type: basic
         options:
           submit_button: 'Apply filters'
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -180,7 +180,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No media available.'
+          content: 'No hay medios disponibles'
           tokenize: false
       sorts:
         created:
@@ -260,7 +260,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: Published
+            label: Publicado
             description: ''
             identifier: status
             optional: true
@@ -271,11 +271,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Published
+                title: Publicado
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: 'Sin publicar'
                 operator: '='
                 value: '0'
         name:
@@ -294,7 +294,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nombre
             description: ''
             use_operator: false
             operator: name_op
@@ -421,7 +421,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: Idioma
             description: ''
             use_operator: false
             operator: langcode_op
@@ -487,7 +487,7 @@ display:
       tags: {  }
   page:
     id: page
-    display_title: Page
+    display_title: Página
     display_plugin: page
     position: 1
     display_options:
@@ -542,7 +542,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: Acción
           include_exclude: exclude
           selected_actions: {  }
         name:
@@ -909,7 +909,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Todo(s)
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -993,7 +993,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nombre
             description: ''
             use_operator: false
             operator: name_op
@@ -1127,7 +1127,7 @@ display:
           entity_type: media
           entity_field: thumbnail
           plugin_id: field
-          label: Thumbnail
+          label: Miniatura
           type: image
           settings:
             image_link: ''
@@ -1142,7 +1142,7 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: field
-          label: Name
+          label: Nombre
           type: string
           settings:
             link_to_entity: false
@@ -1154,7 +1154,7 @@ display:
           entity_type: media
           entity_field: uid
           plugin_id: field
-          label: Author
+          label: Autor
           type: entity_reference_label
           settings:
             link: true
@@ -1166,7 +1166,7 @@ display:
           entity_type: media
           entity_field: changed
           plugin_id: field
-          label: Updated
+          label: Actualizado
           type: timestamp
           settings:
             date_format: short
@@ -1191,7 +1191,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Todo(s)
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -1275,7 +1275,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nombre
             description: ''
             use_operator: false
             operator: name_op

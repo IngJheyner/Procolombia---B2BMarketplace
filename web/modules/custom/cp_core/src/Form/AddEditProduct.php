@@ -764,7 +764,7 @@ class AddEditProduct extends FormBase {
     }
 
     // Images
-    //$destination = \Drupal::config('system.file')->get('default_scheme') . '://products'; 
+    //$destination = \Drupal::config('system.file')->get('default_scheme') . '://products';
     //prepareDirectory($destination, CREATE_DIRECTORY | MODIFY_PERMISSIONS);
 
     $destination = \Drupal::config('file_system')->get('default_scheme') . '://products';
@@ -874,7 +874,7 @@ class AddEditProduct extends FormBase {
 
         // Set message node create
         if (!empty($node) && !empty($node_es)) {
-          addMessage(t('Product content has been created correctly.'), 'status');
+          //addMessage(t('Product content has been created correctly.'), 'status');
           $url = Url::fromRoute('view.dashboard_user.page_1');
           $form_state->setRedirectUrl($url);
 

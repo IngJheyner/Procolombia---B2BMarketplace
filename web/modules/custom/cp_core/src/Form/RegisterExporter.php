@@ -150,13 +150,13 @@ class RegisterExporter extends FormBase {
       $form_state->setErrorByName('nit', $this->t('The registration has not been completed correctly'));
     }
     elseif (!empty($nit)) {
-      $empresas = ConsultaNIT($nit);
+      /*$empresas = ConsultaNIT($nit);
       if (!empty($empresas)) {
         $comp_neo = reset($empresas);
         if (isset($comp_neo['nit'])) {
           $bool_cp_in_neo = TRUE;
         }
-      }
+      }*/
 $bool_cp_in_neo = TRUE;
       if (!$bool_cp_in_neo) {
         $form_state->setErrorByName('nit', $this->t('Your company isn’t registered as a ProColombia account. Please, send a request to abustos@procolombia.co'));
