@@ -98,6 +98,7 @@
         "drupal/image_resize_filter": "1.x-dev",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/jquery_ui_touch_punch": "^1.0.1",
+        "drupal/jsonapi_extras": "^3.21",
         "drupal/layout_bg": "^1.1",
         "drupal/layout_builder_browser": "^1.2",
         "drupal/layout_builder_component_attributes": "^2.0",
