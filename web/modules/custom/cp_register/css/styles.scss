@@ -64,6 +64,9 @@ $font-bold-maven: Maven-Bold;
 }
 
 
+.form-control:focus {
+  box-shadow: none !important;
+}
 
 *::-webkit-scrollbar-track {
   background: #00000000;
@@ -79,6 +82,10 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type=file] {
+  width: 100%;
 }
 
 input[type=number] {
@@ -127,7 +134,16 @@ a {
   text-decoration: none !important;
 }
 
+div#main-wrapper {
+  position: relative;
+}
 
+.pt-6 {
+  margin-top: 6rem;
+  border-top: 1px solid rgba(204, 204, 204, 0.3294117647) !important;
+  width: 100%;
+  padding-bottom: 1rem;
+}
 
 
 .logo {
@@ -137,7 +153,7 @@ a {
 }
 
 .btn-outline {
-  border: 1px solid $color-005ca4;
+  border: 1px solid $color-005ca4  !important;
   border-radius: 4px;
   font-weight: bold;
   font-size: 14px;
@@ -146,25 +162,26 @@ a {
   font-family: $font-bold;
 
   &:hover {
-    color: $color-ffffff;
-    background-color: $color-0085ca;
+    color: $color-ffffff  !important;
+    border-color: $color-0085ca  !important;
+    background-color: $color-0085ca  !important;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 }
 
 .btn-outline-d {
-  border: 1px solid $color-005ca4;
+  border: 1px solid $color-005ca4  !important;
   border-radius: 4px;
   font-weight: bold;
   font-size: 14px;
-  background-color: $color-005ca4;
+  background-color: $color-005ca4  !important;
   padding: 8px 11px;
-  color: $color-ffffff;
+  color: $color-ffffff  !important;
   font-family: $font-bold;
 
   &:hover {
     color: $color-ffffff;
-    background-color: $color-005ca4;
+    background-color: $color-005ca4  !important;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 }
@@ -175,7 +192,8 @@ a {
 
 .row {
   width: 100%;
-  margin: 0px;
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
 .menu-left {
@@ -198,7 +216,7 @@ a {
   }
 
   .menu-content {
-    padding: 6px 18px;
+    padding: 6px 67px 6px 18px;
     width: 305px;
     position: relative;
     z-index: 2;
@@ -206,6 +224,8 @@ a {
     align-items: center;
     height: 45px;
     color: $color-ffffff;
+    justify-content: center;
+    margin: 0 auto;
 
     i {
       font-size: 30px;
@@ -282,6 +302,15 @@ a {
   }
 }
 
+.btn-check:checked+.btn:focus,
+.btn-check:active+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.show:focus {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
 a.dropdown-item {
   padding: 5px 11px;
 
@@ -311,6 +340,7 @@ ul.dropdown-menu.show {
   color: $color-000000;
   font-size: 18px;
   font-weight: 200;
+  width: 100%;
   display: flex;
   align-items: center;
   font-family: $font-regular-maven;
@@ -358,12 +388,12 @@ button.btn.btn-secondary.dropdown-toggle.show {
 .left_bar {
   position: absolute;
   position: absolute;
-  left: 0.5rem;
+  left: 0rem;
   top: 3rem;
   background: #f4f4f4;
   padding-top: 2rem;
   height: calc(100vh - 7.1rem);
-  width: 99%;
+  width: 100%;
   z-index: 3;
   padding-left: 1.8rem;
   padding-right: 0.5rem;
@@ -379,7 +409,13 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
 .body_login {
   background: $color-ffffff;
-  padding: 5rem;
+  padding: 5rem 1.5rem;
+  height: calc(85vh - 1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
 }
 
 .card {
@@ -442,7 +478,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   }
 
   .card_text {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     margin-top: 43px;
     transition: all 0.5s ease-out;
     z-index: 2;
@@ -519,10 +555,31 @@ button.btn.btn-secondary.dropdown-toggle.show {
 }
 
 // Estilo de pagina de registro
+#success {
+  i {
+    font-size: 8rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    color: $color-31d394;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: $color-005ca4;
+    font-family: $font-bold;
+    padding-top: 1.6rem;
+    text-align: center;
+  }
+}
 
 .main_registre {
+
   .header_title {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
     background-image: url("../img/banner_2.webp");
     background-size: cover;
     background-repeat: no-repeat;
@@ -549,10 +606,13 @@ button.btn.btn-secondary.dropdown-toggle.show {
       text-transform: uppercase;
       margin: 0px;
     }
+
+
   }
 
   .body {
     padding: 2rem 4rem;
+    margin-top: 17rem;
 
     .body_title {
       font-size: 25px;
@@ -615,6 +675,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
       margin-right: 20px;
       margin-top: 0;
       height: 20px;
+
     }
 
     label {
@@ -629,6 +690,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
         font-family: $font-bold;
         margin-left: 5px;
         color: $color-0085ca;
+        display: contents;
       }
     }
 
@@ -708,7 +770,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   }
 }
 
-#alert_1 {
+#error_neo {
   p {
     font-family: $font-regular;
     font-size: 16px;
@@ -771,7 +833,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   }
 }
 
-#alert_3 {
+#error_user {
   p {
     font-family: $font-regular;
     font-size: 16px;
@@ -847,7 +909,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
         }
 
         svg {
-          width: 36px;
+          width: 50px;
           margin-bottom: 10px;
 
           .back {
@@ -866,7 +928,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
         border-bottom: 3px solid $color-0085ca;
 
         svg {
-          width: 36px;
+          width: 50px;
           margin-bottom: 10px;
 
           .back {
@@ -890,13 +952,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
       label {
         font-family: $font-bold;
         font-size: 15px;
+        margin-bottom: 0.5rem;
 
         span {
           color: $color-ba0c2f;
         }
       }
 
-      .input-group-text {
+      .input-group-text,
+      .input-group label {
         background-color: $color-005ca4;
         color: $color-ffffff;
         border-radius: 4px !important;
@@ -950,8 +1014,37 @@ button.btn.btn-secondary.dropdown-toggle.show {
         }
       }
 
+      .rihgt {
+        .input-group-text {
+          margin-left: -3px !important;
+        }
+
+        .input-group-text.eliminar {
+          background-color: $color-ba0c2f  !important;
+          font-family: $font-regular  !important;
+        }
+      }
+
+      .icon_help {
+        background-color: $color-fdca00;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: right;
+        border-radius: 100px;
+      }
+
       #pass-show {
         display: none;
+      }
+
+      .tooltip-inner {
+        text-align: left;
+        max-width: 400px;
+        border-radius: 8px;
+        padding: 20px;
       }
 
       input {
@@ -961,7 +1054,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
         padding: 7px 20px;
         color: $color-000000;
         border: 1px solid $color-cccccc;
-
+        border-radius: 4px;
 
         &:focus {
           outline: none;
@@ -972,10 +1065,264 @@ button.btn.btn-secondary.dropdown-toggle.show {
           outline: none;
         }
       }
+
+      select {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 96%;
+        background-position-y: 12px;
+        border: 1px solid #dfdfdf;
+        padding: 1rem;
+        padding-right: 2.4rem !important;
+      }
+
+      select,
+      textarea {
+        -webkit-appearance: none;
+        border: none;
+        outline: none;
+        padding: 7px 20px;
+        color: $color-000000;
+        border: 1px solid $color-cccccc;
+        width: 100%;
+        border-radius: 4px;
+
+        &:focus {
+          outline: none;
+
+        }
+
+        &:active {
+          outline: none;
+        }
+      }
+
+      .title_label {
+        font-size: 1.2rem;
+        font-family: $font-bold;
+        color: $color-000000;
+      }
     }
 
   }
 }
+
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+  .container,
+  .container-sm {
+    max-width: 100% !important;
+  }
+
+  .sub-header,
+  .pt-6 {
+    display: none;
+  }
+
+  .body_login {
+    padding: 0rem;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    padding-bottom: 2rem;
+
+    .row.g-5 {
+      .col-sm-12.col-md-12.col-lg-6 {
+        padding: 0px !important;
+      }
+
+    }
+
+    .pt-3 {
+      padding-top: 2rem !important;
+    }
+  }
+
+  .main_registre {
+    .body {
+      padding: 2rem 0rem;
+      margin-top: 17rem;
+    }
+
+    .header_title h1 {
+      padding: 5rem 2rem;
+    }
+
+  }
+
+  .continue {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .continue .continue,
+  .continue .cancel {
+    width: 100%;
+    text-align: center !important;
+    padding: 1.5rem;
+  }
+
+  .continue .cancel {
+    order: 1;
+  }
+
+  .continue .continue {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+
+}
+
+#logo_name {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: 12px;
+  border: none !important;
+  padding-left: 2.4rem !important;
+}
+
+.input_error {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-left: 8px;
+    color: $color-ba0c2f;
+    display: none;
+  }
+}
+
+#logo_img {
+  width: 80px;
+  height: 80px;
+  margin: 0.4rem;
+}
+
+.error::before {
+  border-color: $color-ba0c2f  !important;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+  .container,
+  .container-sm {
+    max-width: 90% !important;
+  }
+
+  .sub-header,
+  .pt-6 {
+    display: none;
+  }
+
+  .body_login {
+    padding: 0rem;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    padding-bottom: 2rem;
+
+    .row.g-5 {
+      .col-sm-12.col-md-12.col-lg-6 {
+        padding: 0px !important;
+      }
+
+    }
+
+    .pt-3 {
+      padding-top: 2rem !important;
+    }
+  }
+
+  .main_registre {
+    .body {
+
+      padding: 2rem 0rem;
+      margin-top: 17rem;
+    }
+  }
+
+  .continue {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .continue .continue,
+  .continue .cancel {
+    width: 100%;
+    text-align: center !important;
+    padding: 1.5rem;
+  }
+
+  .continue .cancel {
+    order: 1;
+  }
+
+  .continue .continue {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .sub-header,
+  .pt-6 {
+    display: none;
+  }
+
+  .pt-3 {
+    padding-top: 2rem !important;
+  }
+
+  .body_login {
+    padding: 0rem;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    padding-bottom: 2rem;
+
+    .row.g-5 {
+      .col-sm-12.col-md-12.col-lg-6 {
+        padding: 0px !important;
+      }
+
+    }
+  }
+
+  .main_registre {
+    .body {
+
+      padding: 2rem 0rem;
+      margin-top: 17rem;
+    }
+  }
+}
+
+
 
 
 

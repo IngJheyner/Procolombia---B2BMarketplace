@@ -155,7 +155,7 @@
         "drupal/smtp": "^1.0@beta",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/structure_sync": "2.x-dev@dev",
-        "drupal/svg_image": "^1.9",
+        "drupal/svg_image": "^1.16",
         "drupal/taxonomy_access_fix": "^3.3",
         "drupal/taxonomy_import": "^2.0",
         "drupal/taxonomy_manager": "^2.0",

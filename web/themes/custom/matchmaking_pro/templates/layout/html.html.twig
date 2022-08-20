@@ -33,23 +33,25 @@
   ]
 %}
 <!DOCTYPE html>
-<html{{ html_attributes }}>
-  <head>
-    <head-placeholder token="{{ placeholder_token|raw }}">
-    <title>{{ head_title|safe_join(' | ') }}</title>
-    <css-placeholder token="{{ placeholder_token|raw }}">
-    <js-placeholder token="{{ placeholder_token|raw }}">
-    <!-- Boxicons CSS -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-  </head>
-  <body{{ attributes.addClass(body_classes) }}>
-    <a href="#main-content" class="visually-hidden focusable skip-link">
-      {{ 'Skip to main content'|t }}
-    </a>
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-  </body>
-</html>
+<html{{html_attributes}}>
+	<head>
+
+		<head-placeholder token="{{ placeholder_token|raw }}">
+			<title>{{ head_title|safe_join(' | ') }}</title>
+			<css-placeholder token="{{ placeholder_token|raw }}">
+				<js-placeholder
+					token="{{ placeholder_token|raw }}">
+					<!-- Boxicons CSS -->
+					<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+					<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+				</head>
+				<body{{attributes.addClass(body_classes)}}>
+					<a href="#main-content" class="visually-hidden focusable skip-link">
+						{{ 'Skip to main content'|t }}
+					</a>
+					{{ page_top }}
+					{{ page }}
+					{{ page_bottom }}
+					<js-bottom-placeholder token="{{ placeholder_token|raw }}">
+					</body>
+				</html>

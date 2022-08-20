@@ -51,31 +51,18 @@ class CpRegisterController extends ControllerBase
     }
 
     /**
-     * Create step 1 of create form and save logo User::create().
+     * save file in multimedia drupal
      */
-    public function createStep1(Request $request)
+    public function saveFileMultimedia($fileToSave)
     {
-        $data = $request->request->all();
-        $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        $user = \Drupal\user\Entity\User::create();
-        $user->setPassword($data['password']);
-        $user->enforceIsNew();
-        $user->setEmail($data['email']);
-        $user->setUsername($data['nit']);
-        $user->set('init',$data['email']);
-        
-        $file = $request->files->get('logo');
-        $file2 = file_get_contents($file);
-        $user->set('user_picture', $this->saveFile($file2, $data['nit'].".".$file->getClientOriginalExtension()));
-        $user->set('preferred_langcode', $lang);
-        $user->set("field_step", 1);
-        $user->addRole('exportador');
-        $user->activate();
-        $user->save();
-        _user_mail_notify('status_activated', $user);
-        
-        return new JsonResponse(['status' => 'success']);
+        $logo = \Drupal\file\Entity\File::load($fileToSave);
+        $logo->setPermanent();
+        $logo->save();
+        return $logo;
     }
+    
+
+
     /**
      * return uid of user by nit with search by Username
      */
@@ -92,6 +79,42 @@ class CpRegisterController extends ControllerBase
         else{
             return 0;
         }
+    }
+
+        /**
+     * Create step 1 of create form and save logo User::create().
+     */
+    public function createStep1(Request $request)
+    {
+        $data = $request->request->all();
+        $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $data = $request->request->all();
+        if($this->getUid($data['nit'])){
+            $user = \Drupal\user\Entity\User::load();
+        }else{
+            $user = \Drupal\user\Entity\User::create();
+            $user->setPassword($data['password']);
+            $user->enforceIsNew();
+            $user->setEmail($data['email']);
+            $user->setUsername($data['nit']);
+            $user->set('init',$data['email']);
+            $user->addRole('exportador');
+            $user->set('preferred_langcode', $lang);
+            $user->set("field_step", 1);
+            $user->activate();
+        }
+        $file = $request->files->get('logo');
+        $file2 = file_get_contents($file);
+        $user->set("field_company_logo", $this->saveFile($file2, $data['nit'] . '-logo.' . $file->getClientOriginalName()));
+        $user->set("field_company_name", $data['business_name']);
+        $user->set("field_company_web_site", $data['website']);
+        $user->set("field_company_video_youtube", $data['video']);
+        $user->set("field_company_info", $data['description_business_spanish']);
+
+        $user->save();
+        _user_mail_notify('status_activated', $user);
+        
+        return new JsonResponse(['status' =>  200]);
     }
 
     /**

@@ -69,7 +69,7 @@ cp_register.registroUsuario:
   requirements:
     _permission: "access content"
 
-### Index check step
+### check step
 cp_register.check_step:
   path: "registro/check_step"
   defaults:
@@ -78,7 +78,7 @@ cp_register.check_step:
   requirements:
     _permission: "access content"
 
-### Index create_step_1
+### create_step_1
 cp_register.create_step_1:
   path: "registro/create_step_1"
   defaults:
@@ -87,7 +87,7 @@ cp_register.create_step_1:
   requirements:
     _permission: "access content"
 
-### Index update_step_2
+### update_step_2
 cp_register.update_step_2:
   path: "registro/update_step_2"
   defaults:
@@ -96,7 +96,7 @@ cp_register.update_step_2:
   requirements:
     _permission: "access content"
 
-### Index update_step_3
+### update_step_3
 cp_register.update_step_3:
   path: "registro/update_step_3"
   defaults:

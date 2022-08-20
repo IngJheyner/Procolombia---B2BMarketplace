@@ -1,3 +1,4 @@
+
 /*
  * Service for Check NIT
  */
@@ -22,37 +23,41 @@ function validateForm() {
   var email = jQuery("#email").val();
   var message = "";
   var isValid = true;
-  if (nit == "" || nit.length != 12 || isNaN(nit)) {
+  if (nit == "" || isNaN(nit)) {
     message += "<p>El NIT es requerido y debe tener 12 dígitos</p>";
-    jQuery("#error_nit").html(message);
+    jQuery("#nit").css("border-color", "#ba0c2f");
     jQuery("#error_nit").show();
+    jQuery('#error_nit').attr('data-bs-original-title', "Foo").tooltip('show');
     isValid = false;
   } else {
+    jQuery('#error_nit').tooltip('hide')
     jQuery("#error_nit").hide();
+    jQuery("#nit").css("border-color", "#cccccc");
   }
+
   if (email == "" || !isEmail(email)) {
     message += "<p>El email es requerido y debe ser un email válido</p>";
-    jQuery("#error_email").html(message);
-    jQuery("#error_email").show();
+    jQuery("#email").css("border-color", "#ba0c2f");
+    jQuery("#error_mail").show();
+    jQuery('#error_mail').attr('data-bs-original-title', "Foo").tooltip('show');
     isValid = false;
   } else {
-    jQuery("#error_email").hide();
+    jQuery('#error_mail').tooltip('hide')
+    jQuery("#error_mail").hide();
+    jQuery("#email").css("border-color", "#cccccc");
   }
   if (!jQuery("#policy").is(":checked")) {
-    message += "<p>Debe aceptar las políticas de privacidad</p>";
-    jQuery("#error_policy").html(message);
-    jQuery("#error_policy").show();
+    jQuery("#policy").addClass('error');
+
     isValid = false;
   } else {
     jQuery("#error_policy").hide();
+    jQuery("#policy").removeClass('error');
   }
   if (!jQuery("#conditions").is(":checked")) {
-    message += "<p>Debe aceptar las condiciones de uso</p>";
-    jQuery("#error_conditions").html(message);
-    jQuery("#error_conditions").show();
-    isValid = false;
+    jQuery("#conditions").addClass('error');
   } else {
-    jQuery("#error_conditions").hide();
+    jQuery("#conditions").removeClass('error');
   }
 
   return isValid;
@@ -67,6 +72,7 @@ function validateForm() {
 
 function checkNit() {
   if (validateForm()) {
+    jQuery("#loader").modal('show');
     var nit = jQuery("#nit").val();
     var email = jQuery("#email").val();
     var url = "/verification/validate_nit";
@@ -74,25 +80,50 @@ function checkNit() {
       nit: nit,
       email: email,
     };
+    var form_data = new FormData();
+    for ( var key in data ) {
+        form_data.append(key, data[key]);
+    }
+    
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: form_data,
     })
       .then(function (response) {
-        return response.json();
+        return response.text();
       })
       .then(function (data) {
-        if (data) {
-          localStorage.setItem("nit", nit);
-          localStorage.setItem("email", email);
-          window.location.href = "/registro/usuario";
+        console.log(data)
+        if (data.includes("success")) {
+          setTimeout(() => {  
+            jQuery("#loader").modal('hide');
+            jQuery("#success").modal('show');
+          }, 1000);
+          setTimeout(() => {
+            localStorage.setItem("nit", nit);
+            localStorage.setItem("email", email);
+            window.location.href = "/registro/usuario";
+          }, 2500);
         } else {
-          jQuery("#error_nit").html(data.message);
-          jQuery("#error_nit").show();
+          setTimeout(() => {
+            jQuery("#loader").modal('hide');
+            if (data.includes("user")) {
+              jQuery("#error_user").modal('show');
+            } else {
+              if (data.includes("neo")) {
+                jQuery("#error_neo").modal('show');
+              }else{
+                alert("ERROR INESPERADO")
+              }
+            }
+          }, 1000);
         }
       })
       .catch(function (error) {
-        console.log(error);
+        setTimeout(() => {
+          jQuery("#loader").modal('hide');
+          alert("ERROR INESPERADO")
+        }, 1000);
       });
   }
 }

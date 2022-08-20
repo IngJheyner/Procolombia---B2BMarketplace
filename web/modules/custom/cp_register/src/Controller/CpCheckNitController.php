@@ -23,22 +23,49 @@ class CpCheckNitController extends ControllerBase
         ];
     }
 
+    /**
+     * return uid of user by nit with search by Username
+     */
+    public function getUid($nit)
+    {
+        $query = \Drupal::entityQuery('user')
+            ->condition('name', $nit)
+            ->execute();
+        if(!empty($query)){
+            $user = \Drupal\user\Entity\User::load(reset($query));
+            $uid = $user->id();
+            return $uid;
+        }
+        else{
+            return null;
+        }
+    }
+
     //Check if nit is already registered
     public function checkNit(Request $request)
     {
         \Drupal::moduleHandler()->loadInclude('cp_register', 'inc', 'sf/servicios.sf');
         $bool_cp_in_neo = FALSE;
-        $nit = $request->get('nit');
-        /*$empresas = ConsultaNIT($nit);
+        $data = $request->request->all();
+        $user = $this->getUid($data['nit']);
+        if(isset($user)){
+            return new JsonResponse(['user' => true]);
+        }
+        
+        $empresas = ConsultaNIT($data['nit']);
         if (!empty($empresas)) {
             $comp_neo = reset($empresas);
             if (isset($comp_neo['nit'])) {
                 $bool_cp_in_neo = TRUE;
             }
-        }*/
-        $bool_cp_in_neo = TRUE;
+        }
         //return if cp is in neo
-        return new JsonResponse($bool_cp_in_neo);
+        if($bool_cp_in_neo){
+            return new JsonResponse(['success' => true]);
+        }else{
+            return new JsonResponse(['neo' => true]);
+        }
+
     }
 
 }

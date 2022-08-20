@@ -1,7 +1,6 @@
 name: 'CP Register'
 type: module
 description: 'Procolombia registration module'
-version: 1.0
 core_version_requirement: ^8.9 || ^9.0
 package: 'Custom'
 dependencies:
