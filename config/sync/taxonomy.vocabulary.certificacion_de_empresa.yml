@@ -1,0 +1,8 @@
+uuid: ca6ae8f6-1dbf-494b-8fce-347d412ba6a7
+langcode: es
+status: true
+dependencies: {  }
+name: 'Certificación de empresa'
+vid: certificacion_de_empresa
+description: 'Listado de Certificación de empresa'
+weight: 0

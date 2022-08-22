@@ -1,0 +1,16 @@
+uuid: 0a2f16ce-3bf9-42c8-a39d-71e177d7ae87
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.modelos_de_negocio
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.modelos_de_negocio
+target_entity_type_id: taxonomy_term
+target_bundle: modelos_de_negocio
+default_langcode: site_default
+language_alterable: true
