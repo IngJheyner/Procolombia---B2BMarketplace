@@ -20,7 +20,7 @@ base_field: mid
 display:
   default:
     id: default
-    display_title: Máster
+    display_title: 'Por defecto'
     display_plugin: default
     position: 0
     display_options:
@@ -533,7 +533,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Aplicar
+          submit_button: Filtrar
           reset_button: false
           reset_button_label: Reiniciar
           exposed_sorts_label: 'Ordenar por'

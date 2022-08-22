@@ -1,0 +1,7 @@
+name: 'CP Company Col'
+type: module
+description: 'Procolombia company col module'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+- block

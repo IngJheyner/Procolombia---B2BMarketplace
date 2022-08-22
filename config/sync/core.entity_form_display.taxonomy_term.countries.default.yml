@@ -3,10 +3,14 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.countries.field_bandera
+    - field.field.taxonomy_term.countries.field_indicativo
     - field.field.taxonomy_term.countries.field_previous_id
+    - image.style.thumbnail
     - taxonomy.vocabulary.countries
   module:
     - path
+    - svg_image
     - text
 id: taxonomy_term.countries.default
 targetEntityType: taxonomy_term
@@ -19,6 +23,21 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_bandera:
+    type: image_image
+    weight: 101
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_indicativo:
+    type: number
+    weight: 102
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_previous_id:
