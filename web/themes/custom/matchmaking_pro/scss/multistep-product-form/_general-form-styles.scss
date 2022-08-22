@@ -16,25 +16,22 @@
         max-width: 210px;
         border-right: 1px solid $procol-gray-200;
     }
-    .field-group-html-element { 
+    .field-group-html-element.group-row {
+        display: grid; 
         margin-top: 25px;
         grid-area: 2 / 2 / 4 / 4;
+        
     }
+    .field-group-html-element.group-left { 
+        grid-area: 2 / 2 / 4 / 3;
+        width: 100%; }
+    .field-group-html-element.group-right{ 
+        grid-area: 2 / 3 / 4 / 4; 
+        width: 100%;} 
     .js-form-wrapper { 
         grid-area: 4 / 2 / 5 / 4;
      }  
 }
 
-.parent {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-    
-    .div1 { grid-area: 2 / 1 / 5 / 2; }
-    .div2 { grid-area: 2 / 2 / 4 / 4; }
-    .div3 { grid-area: 4 / 2 / 5 / 4; }
     
     
