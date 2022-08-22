@@ -42,11 +42,11 @@ third_party_settings:
         - field_file
       label: Left
       region: content
-      parent_name: ''
-      weight: 1
+      parent_name: group_row
+      weight: 2
       format_type: html_element
       format_settings:
-        classes: group-left
+        classes: 'group-left col-sm-6'
         show_empty_fields: false
         id: ''
         element: div
@@ -62,11 +62,11 @@ third_party_settings:
         - field_multilingual
       label: Right
       region: content
-      parent_name: ''
-      weight: 2
+      parent_name: group_row
+      weight: 3
       format_type: html_element
       format_settings:
-        classes: group-right
+        classes: 'group-right col-sm-6'
         show_empty_fields: false
         id: ''
         element: div
@@ -78,7 +78,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_top:
-      children: {  }
+      children:
+        - field_product_type
       label: Top
       region: content
       parent_name: ''
@@ -101,10 +102,31 @@ third_party_settings:
       label: Bottom
       region: content
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         classes: group-bottom
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_row:
+      children:
+        - group_left
+        - group_right
+      label: Row
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'group-row row'
         show_empty_fields: false
         id: ''
         element: div
@@ -146,6 +168,12 @@ content:
       display_label: 0
       display_description: 0
     third_party_settings: {  }
+  field_product_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 4
@@ -172,7 +200,6 @@ hidden:
   field_partida_arancelaria_tax: true
   field_pr_ref_company: true
   field_previous_id: true
-  field_product_type: true
   field_producto_innovador: true
   field_states: true
   field_tag_producto: true

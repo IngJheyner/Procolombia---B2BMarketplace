@@ -44,6 +44,7 @@ class CpCoreMultiStepForm extends FormBase {
   protected $languageManager;
 
   /**
+   * The entity form builder.
    *
    * @var \Drupal\Core\Entity\EntityFormBuilderInterface
    */
@@ -64,32 +65,32 @@ class CpCoreMultiStepForm extends FormBase {
   protected $entity;
 
   /**
-   * Control vars
+   * Control vars.
    *
    * @var int
    */
   protected $step = 1;
 
   /**
-   * Control vars
+   * Max step to control the last step.
    *
    * @var int
    */
-  protected $max_step = 0;
+  protected $maxStep = 0;
 
   /**
-   * Control vars
+   * All the step names and control.
    *
    * @var array
    */
   protected $steps = [];
 
   /**
-   * Control vars
+   * Control var to save the form mode pattern as "step_".
    *
    * @var string
    */
-  protected $mode_form_pattern;
+  protected $formModePattern;
 
   /**
    * Constructs a new EmailExampleGetFormPage.
@@ -103,6 +104,7 @@ class CpCoreMultiStepForm extends FormBase {
    * @param \Drupal\Core\Entity\EntityFormBuilderInterface $entityFormBuilder
    *   The language manager.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager.
    */
   public function __construct(
     PrivateTempStoreFactory $temp_store_factory,
@@ -142,7 +144,7 @@ class CpCoreMultiStepForm extends FormBase {
    * Initialize the form state and the entity before the first form build.
    */
   protected function init(FormStateInterface $form_state, EntityInterface $entity, $mode_form_pattern) {
-    $this->mode_form_pattern = $mode_form_pattern;
+    $this->formModePattern = $mode_form_pattern;
     $form_state->set('entity', $entity);
     $form_state->set('original_entity', $entity);
 
@@ -150,14 +152,14 @@ class CpCoreMultiStepForm extends FormBase {
       // If a view mode called step_N exists we will aggregate it to show to the
       // form.
       if ($this->entityTypeManager->getStorage('entity_form_display')->load($entity->getEntityTypeId() . '.' . $entity->bundle() . '.' . "{$mode_form_pattern}_{$i}")) {
-        $this->steps[$i] = $this->t($this->entityTypeManager->getStorage('entity_form_mode')->load($entity->getEntityTypeId() . '.' . "{$mode_form_pattern}_{$i}")->label());
-        $this->max_step++;
+        $label = $this->entityTypeManager->getStorage('entity_form_mode')->load($entity->getEntityTypeId() . '.' . "{$mode_form_pattern}_{$i}")->label();
+        $this->steps[$i] = $this->t((string) $label);
+        $this->maxStep++;
       }
       else {
         break;
       }
     }
-
   }
 
   /**
@@ -179,7 +181,7 @@ class CpCoreMultiStepForm extends FormBase {
   protected function buildFormDisplay(FormStateInterface $form_state) {
     // Fetch the display used by the form. It is the display for the 'default'
     // form mode, with only the current field visible.
-    $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "{$this->mode_form_pattern}_{$this->step}");
+    $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "{$this->formModePattern}_{$this->step}");
     $display->removeComponent('revision_log');
     $form_state->set('form_display', $display);
   }
@@ -189,22 +191,13 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step') {
     $bundle = 'product';
-    $triggered_element = $form_state->getTriggeringElement();
-    if ($triggered_element && $triggered_element['#name'] == 'element_bundle') {
-      $storage = $form_state->getStorage();
-      unset($storage['entity']);
-      unset($storage['original_entity']);
-      $form_state->setStorage($storage);
-      $bundle = $form_state->getValue('element_bundle');
-    }
     if (!$form_state->has('entity')) {
       $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
         'type' => $bundle,
         'status' => 0,
       ]);
       $this->init($form_state, $entity, $mode_form_pattern);
-
-      if (!$this->max_step) {
+      if (!$this->maxStep) {
         \Drupal::messenger()->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');
         return [];
       }
@@ -212,7 +205,7 @@ class CpCoreMultiStepForm extends FormBase {
 
     $entity = $form_state->get('entity');
     $this->entity = $entity;
-    if ($this->step <= $this->max_step) {
+    if ($this->step <= $this->maxStep) {
       $this->buildFormDisplay($form_state);
 
       $display = $form_state->get('form_display');
@@ -276,21 +269,6 @@ class CpCoreMultiStepForm extends FormBase {
           '#theme' => 'cp_core_node_multistep_legal_modal',
           '#weight' => -11,
         ];
-        $form['element_bundle'] = [
-          '#type' => 'select',
-          '#title' => $this->t('Type'),
-          '#name' => 'element_bundle',
-          '#default_value' => $bundle,
-          '#options' => [
-            'product' => $this->t('Product'),
-            'service' => $this->t('Service'),
-          ],
-          '#ajax' => [
-            'callback' => '::changeProductType',
-            'wrapper' => 'cp-core-multistep-form',
-          ],
-          '#weight' => -8,
-        ];
       }
 
       $form['footer_form'] = [
@@ -327,7 +305,7 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
 
-      if ($this->step < $this->max_step) {
+      if ($this->step < $this->maxStep) {
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -377,7 +355,7 @@ class CpCoreMultiStepForm extends FormBase {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
     $input = $form_state->getUserInput();
-    if ($this->step <= $this->max_step && (!isset($input['_triggering_element_name']) || strpos($input['_triggering_element_name'], 'upload_button') === FALSE)) {
+    if ($this->step <= $this->maxStep && (!isset($input['_triggering_element_name']) || strpos($input['_triggering_element_name'], 'upload_button') === FALSE)) {
       $form_state->get('form_display')->validateFormValues($entity, $form, $form_state);
     }
   }
@@ -388,7 +366,7 @@ class CpCoreMultiStepForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
     $form_state->set('entity', $entity);
-    if ($this->step < $this->max_step) {
+    if ($this->step < $this->maxStep) {
       $form_state->setRebuild();
       $this->step++;
     }
