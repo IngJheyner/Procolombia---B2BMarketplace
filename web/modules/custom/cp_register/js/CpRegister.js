@@ -19,14 +19,15 @@ function onChangeCertificate() {
 
 // Declaracion de Slect Especiales
 
-new TomSelect("#production_chain", {
+var production_chain_select = new TomSelect("#production_chain", {
   create: false,
   sortField: {
     field: "text",
     direction: "asc"
   }
 });
-new TomSelect("#departament", {
+
+var departament_select = new TomSelect("#departament", {
   create: false,
   sortField: {
     field: "text",
@@ -46,7 +47,7 @@ var select_cities = new TomSelect("#ciudad", {
   },
   create: false
 });
-new TomSelect("#modelo_de_negocio", {
+var modelo_de_negocio_select = new TomSelect("#modelo_de_negocio", {
   plugins: ['remove_button'],
   create: true,
   onItemAdd: function () {
@@ -60,7 +61,7 @@ new TomSelect("#modelo_de_negocio", {
     }
   }
 });
-new TomSelect("#certificacion_de_empresa", {
+var certificacion_de_empresa_select = new TomSelect("#certificacion_de_empresa", {
   plugins: ['remove_button'],
   create: true,
   create: false,
@@ -74,29 +75,29 @@ new TomSelect("#certificacion_de_empresa", {
     }
   }
 });
-new TomSelect('#country_code_landline',{
+new TomSelect('#country_code_landline', {
   create: false,
   // use method disable()
   render: {
-      option: function (data, escape) {
-        return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-      },
-      item: function (item, escape) {
-        return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-      }
+    option: function (data, escape) {
+      return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
+    },
+    item: function (item, escape) {
+      return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
+    }
   }
 })
 
-new TomSelect('#country_code_mobile',{
+new TomSelect('#country_code_mobile', {
   create: false,
   // use method disable()
   render: {
-      option: function (data, escape) {
-        return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-      },
-      item: function (item, escape) {
-        return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-      }
+    option: function (data, escape) {
+      return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
+    },
+    item: function (item, escape) {
+      return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
+    }
   }
 })
 //
@@ -246,7 +247,7 @@ function createThumbnailYoutube() {
 }
 
 //fetch cities when departament changed and put options in select cities
-function getCities() {
+function getCities(value = "") {
   //get departament
   var departament = jQuery("#departament").val();
   //put in form data
@@ -270,6 +271,8 @@ function getCities() {
           title: ciudad.Name,
         });
       });
+      if (value !== "")
+        select_cities.setValue(value);
     })
     .catch((error) => {
       console.log(error);
@@ -590,6 +593,11 @@ function saveUser() {
           jQuery("#profile-tab-pane").addClass("show active");
           jQuery("#home-tab").removeClass("active");
           //Add class complete to tab 1
+          jQuery("#svg_home").hide();
+          jQuery("#home_title").hide();
+          jQuery("#check_home_tab").show();
+          jQuery("#profile_title").show();
+          jQuery("#validate_progresss").css("width", "66.66%");
           jQuery("#home-tab").addClass("complete");
           jQuery("#home-tab-pane").removeClass("show active");
         } else {
@@ -630,7 +638,7 @@ function validateForm2() {
   var certification_business = jQuery("#certification_business").val();
   var certification_business_file = jQuery("#certificateFile").prop(
     "files"
-  )[0]; 
+  )[0];
 
   if (production_chain == "") {
     console.log("hola");
@@ -774,10 +782,16 @@ function goToStep3() {
   jQuery("#contact-tab").addClass("active");
   jQuery("#contact-tab-pane").addClass("show active");
   jQuery("#profile-tab").removeClass("active");
-  //Add class complete to tab 1
   jQuery("#profile-tab").addClass("complete");
   jQuery("#profile-tab-pane").removeClass("show active");
   jQuery("#check_information").modal('hide');
+  //Add class complete to tab 3
+  jQuery("#svg_profile").hide();
+  jQuery("#profile_title").hide();
+  jQuery("#check_profile_tab").show();
+  jQuery("#contact_title").show();
+  jQuery("#validate_progresss").css("width", "100%");
+
 }
 
 /*
@@ -1039,6 +1053,8 @@ function updateDataForm3() {
         if (response.status === 200) {
           //show alert success
           jQuery("#success_modal").modal('show');
+          //clean local storage
+          localStorage.clear();
         } else {
           alert("Error al actualizar los datos");
         }
@@ -1053,6 +1069,210 @@ function updateDataForm3() {
 
 // function to go to step 3
 function goToMenu() {
-  jQuery("#success_modal").modal('show');
-  window.location.href = "url_menu"
+  window.location.href = "/dashboard/col/user"
 }
+
+//Addtional functional methods
+
+/*
+* check step in local storage and change tab with cases switch
+*/
+function goBackTab(step) {
+  switch (step) {
+    case 1:
+      jQuery("#profile-tab").removeClass("active");
+      jQuery("#profile-tab-pane").removeClass("show active");
+      jQuery("#home-tab").addClass("active");
+      //Add class complete to tab 1
+      jQuery("#svg_home").show();
+      jQuery("#home_title").show();
+      jQuery("#check_home_tab").hide();
+      jQuery("#profile_title").hide();
+      jQuery("#validate_progresss").css("width", "33.33%");
+      jQuery("#home-tab").removeClass("complete");
+      jQuery("#home-tab-pane").addClass("show active");
+      break;
+    case 2:
+      jQuery("#contact-tab").removeClass("active");
+      jQuery("#contact-tab-pane").removeClass("show active");
+      jQuery("#profile-tab").addClass("active");
+      //Add class complete to tab 1
+      jQuery("#svg_profile").show();
+      jQuery("#profile_title").show();
+      jQuery("#check_profile_tab").hide();
+      jQuery("#contact_title").hide();
+      jQuery("#validate_progresss").css("width", "66.66%");
+      jQuery("#profile-tab").removeClass("complete");
+      jQuery("#profile-tab-pane").addClass("show active");
+      break;
+  }
+}
+
+
+/*
+* open modal to cancel process
+*/
+function cancelProcess() {
+  jQuery("#cancel_modal").modal('show');
+}
+function hideCancelProcess() {
+  jQuery("#cancel_modal").modal('hide');
+}
+
+/*
+* delete user by fecth /delete_user
+*/
+
+function deleteUser() {
+  jQuery("#loading").show();
+  jQuery("#button").hide();
+  var data = {
+    nit: localStorage.getItem("nit"),
+  };
+  var formData = new FormData();
+  for (var key in data) {
+    formData.append(key, data[key]);
+  }
+
+  fetch("/delete_user", {
+    method: "POST",
+    body: formData,
+  })
+    .then(function (response) {
+      if (response.status === 200) {
+        //show alert success
+        //redirect to pre-registro
+        window.location.href = "/pre-registro";
+      } else {
+        alert("Error al eliminar el usuario");
+      }
+    })
+    .catch(function (error) {
+      jQuery("#loading").hide();
+      jQuery("#button").show();
+      alert("Error al eliminar el usuario");
+    });
+}
+
+/*
+* check if nit and email and data_neo is set in local storage and if not redirect to pre-registro
+*/
+function checkDataNeo() {
+  if (localStorage.getItem("nit") == null || localStorage.getItem("email") == null || localStorage.getItem("data_neo") == null) {
+    window.location.href = "/pre-registro";
+  }
+}
+checkDataNeo();
+
+/*
+* get data of user if not return 200 status code, use data_neo to fill form in other case fill form with data of user and show tab base in step + 1
+*/
+function getDataUser() {
+  var data = {
+    nit: localStorage.getItem("nit"),
+  };
+  var formData = new FormData();
+  for (var key in data) {
+    formData.append(key, data[key]);
+  }
+
+  fetch("/get_user", {
+    method: "POST",
+    body: formData,
+  }).then((response) => response.json())
+    .then((data) => {
+      if (data.status === 200) {
+        //show alert success
+        //redirect to pre-registro
+        //fill form with data of user
+        fillFormWithDataUser(data.data);
+        //show tab base in step
+        showTabBase(data.data.step);
+      } else {
+        //fill form with data_neo
+        fillFormWithDataNeo();
+      }
+    })
+    .catch(function (error) {
+      alert(error);
+    });
+}
+
+/*
+* fill form with data of user
+*/
+function fillFormWithDataUser(data) {
+  jQuery("#business_name").val(data.business_name);
+  jQuery("#empresa_popup").text(data.business_name);
+  jQuery("#website").val(data.website);
+  jQuery("#video").val(data.video);
+  jQuery("#description_business_spanish").val(data.description_spanish);
+  jQuery("#description_business_english").val(data.description_english);
+
+  production_chain_select.setValue(data.production_chain);
+  departament_select.setValue(data.departament);
+  getCities(data.ciudad); 
+  modelo_de_negocio_select.setValue([data.modelo_de_negocio]);
+  certificacion_de_empresa_select.setValue(data.certification_business);
+  jQuery("#principal_code_ciiu").val(data.principal_code_ciiu);
+  jQuery("#secondary_code_ciiu").val(data.secondary_code_ciiu);
+  jQuery("#third_code_ciiu").val(data.third_code_ciiu);
+}
+
+/*
+* fill form with data of neo
+*/
+function fillFormWithDataNeo() {
+  console.log("loggin with neo");
+  let data_neo = JSON.parse(localStorage.getItem("data_neo"));
+  //fill nit and bussines_name and landline
+  jQuery("#nit").val(data_neo.nit);
+  jQuery("#business_name").val(data_neo.nombre);
+  jQuery("#empresa_popup").text(data_neo.nombre);
+  jQuery("#landline").val(data_neo.telefono);
+  jQuery("#contact_email").val(data_neo.correo);
+}
+
+
+/*
+* show tab base in step
+*/
+function showTabBase(stepData) {
+  console.log(": " + stepData);
+  let step = parseInt(stepData);
+  switch (step) {
+    case 1:
+      jQuery("#profile-tab").addClass("active");
+      jQuery("#profile-tab-pane").addClass("show active");
+      jQuery("#home-tab").removeClass("active");
+      //Add class complete to tab 1
+      jQuery("#svg_home").hide();
+      jQuery("#home_title").hide();
+      jQuery("#check_home_tab").show();
+      jQuery("#profile_title").show();
+      jQuery("#validate_progresss").css("width", "66.66%");
+      jQuery("#home-tab").addClass("complete");
+      jQuery("#home-tab-pane").removeClass("show active");
+      break;
+    case 2:
+      jQuery("#contact-tab").addClass("active");
+      jQuery("#contact-tab-pane").addClass("show active");
+      jQuery("#home-tab").removeClass("active");
+      //Add class complete to tab 1
+      jQuery("#svg_home").hide();
+      jQuery("#svg_profile").hide();
+      jQuery("#home_title").hide();
+      jQuery("#check_home_tab").show();
+      jQuery("#check_profile_tab").show();
+      jQuery("#contact_title").show();
+      jQuery("#validate_progresss").css("width", "100%");
+      jQuery("#home-tab").addClass("complete");
+      jQuery("#profile-tab").addClass("complete");
+      jQuery("#home-tab-pane").removeClass("show active");
+      break;
+  }
+
+}
+
+// call getDataUser function
+getDataUser();

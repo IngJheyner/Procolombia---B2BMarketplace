@@ -253,39 +253,46 @@ class CpRegisterController extends ControllerBase
     {
         $data = $request->request->all();
         $user = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
-        //check if user exist
-        if($user){
+        //check if user exist and is not deleted
+        //ceck if user is not deleted in drupal
+
+        if($user->isActive()){
             $data_user = [
                 'step' => $user->get('field_step')->value,
-                'logo' => $user->get('field_company_logo')->entity->getFileUri(),
-                'name' => $user->get('field_company_name')->value,
-                'website' => $user->get('field_company_web_site')->value,
-                'video' => $user->get('field_company_video_youtube')->value,
-                'description_business_spanish' => $user->get('field_company_info')->value,
-                'description_business_english' => $user->get('field_company_info_english')->value,
-                'production_chain' => $user->get('field_productive_chain')->value,
+                //'logo' => $user->get('field_company_logo')->entity->getFileUri(),
+                'business_name' => $user->get('field_company_name')->value,
+                //get url field website and video youtube
+                'website' => $user->get('field_company_web_site')->uri,
+                'video' => $user->get('field_company_video_youtube')->uri,
+                'description_spanish' => $user->get('field_company_info')->value,
+                'description_english' => $user->get('field_company_info_english')->value,
+                'production_chain' => $user->get('field_productive_chain')->target_id,
                 'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
                 'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
                 'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
-                'departament' => $user->get('field_company_deparment')->value,
-                'city' => $user->get('field_company_city')->value,
-                'business_model' => $user->get('company_model')->value,
-                'certification_business' => $user->get('field_certification_business')->value,
-                'certification_business_file' => $user->get('certification_business_file')->entity->getFileUri(),
-                'name' => $user->get('field_company_contact_name')->value,
-                'last_name' => $user->get('field_company_contact_lastname')->value,
-                'position_spanish' => $user->get('field_company_contact_position')->value,
-                'position_english' => $user->get('field_company_contact_position_e')->value,
-                'country_code_landline' => $user->get('field_company_contact_phone')->value,
-                'landline' => $user->get('field_company_contact_phone')->value,
-                'country_code_mobile' => $user->get('field_company_contact_cell_phone')->value,
-                'mobile' => $user->get('field_company_contact_cell_phone')->value,
-                'contact_email' => $user->get('field_company_contact_email')->value,
+                'departament' => $user->get('field_company_deparment')->target_id,
+                'ciudad' => $user->get('field_company_city')->target_id,
+                'modelo_de_negocio' => $user->get('field_company_model')->target_id,
+                'certification_business' => $user->get('field_company_certification')->target_id,
             ];
     
-            return new JsonResponse(['status' => 'success', 'data' => $data_user]);
+            return new JsonResponse(['status' => 200, 'data' => $data_user]);
         }else{
             return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
         }
+    }
+
+    /**
+     * delete user by nit
+     */
+    public function deleteUser(Request $request)
+    {
+        //check if user exist and is active and is active delete user
+        $data = $request->request->all();
+        $user = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
+        if($user->isActive()){
+            $user->delete();
+        }
+        return new JsonResponse(['status' => 200]);
     }
 }

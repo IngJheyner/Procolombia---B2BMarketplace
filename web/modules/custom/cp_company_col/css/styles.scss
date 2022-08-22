@@ -137,19 +137,6 @@ a {
   text-decoration: none !important;
 }
 
-#check_home_tab,
-#check_profile_tab,
-#check_contact_tab {
-  display: none;
-}
-
-.title_tab {
-  font-family: $font-bold;
-  font-size: 0px;
-  margin-bottom: 0px;
-  display: none;
-}
-
 .ts-control>* {
   vertical-align: baseline;
   display: inline-block;
@@ -899,9 +886,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   }
 }
 
-#error_neo,
-#check_information,
-#success_modal {
+#error_neo {
   p {
     font-family: $font-regular;
     font-size: 16px;
@@ -1011,44 +996,6 @@ button.btn.btn-secondary.dropdown-toggle.show {
   padding: 5rem;
 }
 
-.strong_empresa {
-  font-family: $font-bold;
-}
-
-.btn_options {
-  text-align: end;
-
-  .yes {
-    background-color: $color-005ca4;
-    color: $color-ffffff;
-    font-family: $font-bold;
-    border: none;
-    border-radius: 4px;
-    padding: 0.4rem 1rem;
-
-    &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
-      box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
-    }
-  }
-
-  .no {
-    border-radius: 4px;
-    padding: 0.4rem 1rem;
-    margin-left: 10px;
-    font-family: $font-regular;
-    color: $color-005ca4;
-    transition: all 0.4s ease-out;
-    border: 1px solid $color-005ca4;
-
-    &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
-      box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
-    }
-  }
-}
 
 .steps {
   background-color: $color-ffffff;
@@ -1370,15 +1317,6 @@ button.btn.btn-secondary.dropdown-toggle.show {
     max-width: 100% !important;
   }
 
-  .title_tab {
-    font-family: $font-bold;
-    font-size: 15px;
-    margin-bottom: 1rem;
-    display: none;
-    margin-left: 6%;
-    margin-right: 6%;
-  }
-
   .sub-header,
   .pt-6 {
     display: none;
@@ -1572,7 +1510,6 @@ button.btn.btn-secondary.dropdown-toggle.show {
     align-items: center;
     margin-top: 0;
   }
-
   .col-lg-6.back {
     order: 1;
     margin-bottom: 14px;
@@ -1585,19 +1522,11 @@ button.btn.btn-secondary.dropdown-toggle.show {
     order: 2;
     margin: 0px !important;
   }
-
+  
   .step_registre {
     padding: 0rem;
   }
 
-  .title_tab {
-    font-family: $font-bold;
-    font-size: 15px;
-    margin-bottom: 1rem;
-    display: none;
-    margin-left: 6%;
-    margin-right: 6%;
-  }
 }
 
 // Medium devices (tablets, 768px and up)

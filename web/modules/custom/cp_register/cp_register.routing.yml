@@ -123,3 +123,12 @@ cp_register.get_user:
   methods:  [POST]
   requirements:
     _permission: "access content"
+
+### delete_user
+cp_register.delete_user:
+  path: "delete_user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::deleteUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
