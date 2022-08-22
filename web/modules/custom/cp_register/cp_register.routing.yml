@@ -104,3 +104,22 @@ cp_register.update_step_3:
   methods:  [POST]
   requirements:
     _permission: "access content"
+
+    
+### get_cities
+cp_register.get_cities:
+  path: "get_cities"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::getCity'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### get_user
+cp_register.get_user:
+  path: "get_user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::getDataUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"

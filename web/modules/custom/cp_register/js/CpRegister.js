@@ -5,7 +5,101 @@
 function openInputFile() {
   jQuery("#logo").click();
 }
+// open input file with button
+function openInputFileCertificate() {
+  jQuery("#certificateFile").click();
+}
 
+// onChangeFileCertificate Show name and size
+function onChangeCertificate() {
+  var file = jQuery("#certificateFile")[0].files[0];
+  var fileName = file.name;
+  jQuery("#fileNameCertificate").html(fileName);
+}
+
+// Declaracion de Slect Especiales
+
+new TomSelect("#production_chain", {
+  create: false,
+  sortField: {
+    field: "text",
+    direction: "asc"
+  }
+});
+new TomSelect("#departament", {
+  create: false,
+  sortField: {
+    field: "text",
+    direction: "asc"
+  }
+});
+var select_cities = new TomSelect("#ciudad", {
+  valueField: 'id',
+  labelField: 'title',
+  searchField: 'title',
+  options: [
+    { id: 1, title: 'Seleccione una opción' },
+  ],
+  sortField: {
+    field: "text",
+    direction: "asc"
+  },
+  create: false
+});
+new TomSelect("#modelo_de_negocio", {
+  plugins: ['remove_button'],
+  create: true,
+  onItemAdd: function () {
+    this.setTextboxValue('');
+    this.refreshOptions();
+  },
+  render: {
+    item: function (data, escape) {
+      console.log(data)
+      return '<div>' + escape(data.text) + '</div>';
+    }
+  }
+});
+new TomSelect("#certificacion_de_empresa", {
+  plugins: ['remove_button'],
+  create: true,
+  create: false,
+  onItemAdd: function () {
+    this.setTextboxValue('');
+    this.refreshOptions();
+  },
+  render: {
+    item: function (data, escape) {
+      return '<div>' + escape(data.text) + '</div>';
+    }
+  }
+});
+new TomSelect('#country_code_landline',{
+  create: false,
+  // use method disable()
+  render: {
+      option: function (data, escape) {
+        return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
+      },
+      item: function (item, escape) {
+        return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
+      }
+  }
+})
+
+new TomSelect('#country_code_mobile',{
+  create: false,
+  // use method disable()
+  render: {
+      option: function (data, escape) {
+        return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
+      },
+      item: function (item, escape) {
+        return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
+      }
+  }
+})
+//
 // onChangeFile Show Logo and name
 function onChangeLogo() {
   // get file
@@ -22,7 +116,7 @@ function onChangeLogo() {
   jQuery("#logo_name").val(fileName + "(" + fileSize.toFixed(2) + "KB)");
   jQuery("#logo_name").show();
   jQuery("#prew").show();
-  jQuery("#logo_input").hide();
+  jQuery("#logo_sub").hide();
 }
 
 // remove logo file and hide image
@@ -33,7 +127,7 @@ function removeLogo() {
   jQuery("#logo_name").val("");
   jQuery("#logo").val("");
   jQuery("#prew").hide();
-  jQuery("#logo_input").show();
+  jQuery("#logo_sub").show();
 }
 
 // toggle password to text
@@ -60,7 +154,7 @@ function textToPassword() {
 function valueProgressBar() {
   var password = jQuery("#password").val();
   let progress = 0;
-  if (password.length >= 8 && password.length <= 15) {
+  if (password.length >= 8) {
     progress += 25;
   }
   if (password.match(/[A-Z]/)) {
@@ -75,52 +169,24 @@ function valueProgressBar() {
 
   if (progress === 25) {
     jQuery("#progressbar").css("background", "#ba0c2f");
+    jQuery("#error_mensaje_pass").text("Debil");
   } else {
     if (progress === 50) {
       jQuery("#progressbar").css("background", "#fdca00");
+      jQuery("#error_mensaje_pass").text("Normal");
     } else {
       if (progress === 75) {
         jQuery("#progressbar").css("background", "#0085ca");
+        jQuery("#error_mensaje_pass").text("Buena");
       } else {
         if (progress === 100) {
+          jQuery("#error_mensaje_pass").text("Fuerte");
           jQuery("#progressbar").css("background", "#31d394");
         }
       }
     }
   }
   jQuery("#progressbar").css("width", progress + "%");
-}
-
-//create tumbnail youtube
-function createThumbnailYoutube(url) {
-  //validate is url youtube
-  if (isUrlYoutube(url)) {
-    let request_url = `https://youtube.com/oembed?url=${url}&format=json`;
-    fetch(request_url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        jQuery("#thumbnail").attr("src", data.thumbnail_url);
-        jQuery("#title").text(data.title);
-        jQuery("#author_name").text(data.author_name);
-      })
-      .catch((error) => {
-        let message = "No se reonoco el video";
-        jQuery("#video").css("border-color", "#ba0c2f");
-        jQuery("#error_video").show();
-        jQuery("#error_video")
-          .attr("data-bs-original-title", "Foo")
-          .tooltip("show");
-      });
-  } else {
-    //show video error
-    let message = "Url no es una url de youtube";
-    jQuery("#video").css("border-color", "#ba0c2f");
-    jQuery("#error_video").show();
-    jQuery("#error_video")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
-  }
 }
 
 //set NIT
@@ -140,6 +206,76 @@ function isUrl(s) {
     /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
   return regexp.test(s);
 }
+
+//create tumbnail youtube
+function createThumbnailYoutube() {
+  //get video url
+  var url = jQuery("#video").val();
+  //validate is url youtube
+  console.log(url)
+  if (isUrlYoutube(url)) {
+    let request_url = `https://youtube.com/oembed?url=${url}&format=json`;
+    fetch(request_url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        jQuery(".yotube").show();
+        jQuery("#thumbnail").attr("src", data.thumbnail_url);
+        jQuery("#title").text(data.title);
+        jQuery("#author_name").text(data.author_name);
+      })
+      .catch((error) => {
+        let message = "No se reonoco el video";
+        jQuery("#error_video_message").text(message)
+        jQuery("#video").css("border-color", "#ba0c2f");
+        jQuery("#error_video").show();
+        jQuery("#error_video")
+
+          ;
+      });
+  } else {
+    //show video error
+    let message = "Url no es una url de youtube";
+    jQuery("#video").css("border-color", "#ba0c2f");
+    jQuery("#error_video_message").text(message)
+    jQuery("#error_video").show();
+    jQuery("#error_video")
+
+      ;
+  }
+}
+
+//fetch cities when departament changed and put options in select cities
+function getCities() {
+  //get departament
+  var departament = jQuery("#departament").val();
+  //put in form data
+  var formData = new FormData();
+  //put message of loading cities
+  select_cities.clear();
+  select_cities.clearOptions();
+  formData.append("departament", departament);
+  //fetch cities
+  fetch("/get_cities", {
+    method: "POST",
+    body: formData,
+  }).then((response) => response.json())
+    .then((data) => {
+      //put options in select cities
+      select_cities.clearOptions();
+      data.ciudades.map((ciudad) => {
+        //create option inside select cities
+        select_cities.addOption({
+          id: ciudad.ID,
+          title: ciudad.Name,
+        });
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
+
 
 /*
  *  Validate Form 1
@@ -165,14 +301,20 @@ function validateForm1() {
   var description_business_spanish = jQuery(
     "#description_business_spanish"
   ).val();
+  var description_business_english = jQuery(
+    "#description_business_english"
+  ).val();
+
   var message = "";
   var isValid = true;
   if (logo == undefined) {
-    message +=
-      "Logo is required and is a image file and is png and jpg and have size less than 2MB and dimension less than 200x200\n";
-    jQuery("#logo").css("border-color", "#ba0c2f");
+    message =
+      "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+    jQuery("#logo_input").css("border-color", "#ba0c2f");
+    jQuery("#logo_name").css("border-color", "#ba0c2f");
+    jQuery("#error_logo_message").text(message)
     jQuery("#error_logo").show();
-    jQuery("#error_logo").attr("data-bs-original-title", "Foo").tooltip("show");
+    jQuery("#error_logo");
     isValid = false;
   } else {
     var file = logo.type;
@@ -180,87 +322,95 @@ function validateForm1() {
     var fileName = logo.name;
     var fileExtension = fileName.split(".").pop();
     if (fileExtension != "png" && fileExtension != "jpg") {
-      message +=
-        "Logo is required and is a image file and is png and jpg and have size less than 2MB and dimension less than 200x200\n";
-      jQuery("#logo").css("border-color", "#ba0c2f");
+      message =
+        "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+      jQuery("#logo_input").css("border-color", "#ba0c2f");
+      jQuery("#logo_name").css("border-color", "#ba0c2f");
+      jQuery("#error_logo_message").text(message)
       jQuery("#error_logo").show();
       jQuery("#error_logo")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
       if (fileSize > 2000000) {
-        message +=
-          "Logo is required and is a image file and is png and jpg and have size less than 2MB and dimension less than 200x200\n";
-        jQuery("#logo").css("border-color", "#ba0c2f");
+        message =
+          "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+        jQuery("#logo_input").css("border-color", "#ba0c2f");
+        jQuery("#logo_name").css("border-color", "#ba0c2f");
+        jQuery("#error_logo_message").text(message)
         jQuery("#error_logo").show();
         jQuery("#error_logo")
-          .attr("data-bs-original-title", "Foo")
-          .tooltip("show");
+
+          ;
         isValid = false;
       } else {
         if (logo.width > 200 || logo.height > 200) {
-          message +=
-            "Logo is required and is a image file and is png and jpg and have size less than 2MB and dimension less than 200x200\n";
-          jQuery("#logo").css("border-color", "#ba0c2f");
+          message =
+            "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+          jQuery("#logo_input").css("border-color", "#ba0c2f");
+          jQuery("#logo_name").css("border-color", "#ba0c2f");
+          jQuery("#error_logo_message").text(message)
           jQuery("#error_logo").show();
           jQuery("#error_logo")
-            .attr("data-bs-original-title", "Foo")
-            .tooltip("show");
+
+            ;
           isValid = false;
         } else {
-          jQuery("#error_logo").tooltip("hide");
           jQuery("#error_logo").hide();
-          jQuery("#logo").css("border-color", "#cccccc");
+          jQuery("#logo_name").css("border-color", "#cccccc");
+          jQuery("#logo_input").css("border-color", "#cccccc");
         }
       }
     }
   }
 
   if (business_name == "") {
-    message += "<p>El nombre de la empresa es requerido</p>";
+    message = "El nombre de la empresa es requerido";
     jQuery("#business_name").css("border-color", "#ba0c2f");
+    jQuery("#error_business_name_message").text(message)
     jQuery("#error_business_name").show();
     jQuery("#error_business_name")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
     if (business_name.length > 100) {
-      message +=
-        "<p>El nombre de la empresa no puede tener mas de 100 caracteres</p>";
+      message =
+        "El nombre de la empresa no puede tener mas de 100 caracteres";
       jQuery("#business_name").css("border-color", "#ba0c2f");
+      jQuery("#error_business_name_message").text(message)
       jQuery("#error_business_name").show();
       jQuery("#error_business_name")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
-      jQuery("#error_business_name").tooltip("hide");
       jQuery("#error_business_name").hide();
       jQuery("#business_name").css("border-color", "#cccccc");
     }
   }
 
   if (website == "") {
-    message += "<p>El website es requerido</p>";
+    message = "El website es requerido";
     jQuery("#website").css("border-color", "#ba0c2f");
+    jQuery("#error_website_message").text(message)
     jQuery("#error_website").show();
     jQuery("#error_website")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
     if (!isUrl(website)) {
-      message += "<p>El website no es valido</p>";
+      message = "El website no es valido";
       jQuery("#website").css("border-color", "#ba0c2f");
+      jQuery("#error_website_message").text(message)
       jQuery("#error_website").show();
       jQuery("#error_website")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
-      jQuery("#error_website").tooltip("hide");
       jQuery("#error_website").hide();
       jQuery("#website").css("border-color", "#cccccc");
     }
@@ -268,71 +418,62 @@ function validateForm1() {
 
   if (video != "") {
     if (!isUrlYoutube(video)) {
-      message += "<p>El video es requerido y debe ser una url</p>";
+      message = "El video es requerido y debe ser una url";
       jQuery("#video").css("border-color", "#ba0c2f");
       jQuery("#error_video").show();
-      jQuery("#error_video")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+      jQuery("#error_video_message").text(message)
       isValid = false;
     } else {
-      jQuery("#error_video").tooltip("hide");
       jQuery("#error_video").hide();
       jQuery("#video").css("border-color", "#cccccc");
     }
   } else {
-    jQuery("#error_video").tooltip("hide");
     jQuery("#error_video").hide();
     jQuery("#video").css("border-color", "#cccccc");
   }
 
   if (password == "") {
-    message += "<p>El password es requerido</p>";
+    message = "El password es requerido";
     jQuery("#password").css("border-color", "#ba0c2f");
+    jQuery("#error_password_message").text(message)
     jQuery("#error_password").show();
-    jQuery("#error_password")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
-    if (password.length < 8 || password.length > 15) {
-      message += "<p>El password debe tener entre 8 y 15 caracteres</p>";
+    if (password.length < 8) {
+      message = "El password debe tener entre 8 y 15 caracteres";
       jQuery("#password").css("border-color", "#ba0c2f");
+      jQuery("#error_password_message").text(message)
       jQuery("#error_password").show();
-      jQuery("#error_password")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
       isValid = false;
     } else {
       if (!password.match(/[A-Z]/)) {
-        message += "<p>El password debe tener al menos una mayúscula</p>";
+        message = "El password debe tener al menos una mayúscula";
         jQuery("#password").css("border-color", "#ba0c2f");
+        jQuery("#error_password_message").text(message)
         jQuery("#error_password").show();
-        jQuery("#error_password")
-          .attr("data-bs-original-title", "Foo")
-          .tooltip("show");
         isValid = false;
       } else {
         if (!password.match(/[0-9]/)) {
-          message += "<p>El password debe tener al menos un número</p>";
+          message = "El password debe tener al menos un número";
           jQuery("#password").css("border-color", "#ba0c2f");
+          jQuery("#error_password_message").text(message)
           jQuery("#error_password").show();
           jQuery("#error_password")
-            .attr("data-bs-original-title", "Foo")
-            .tooltip("show");
+
+            ;
           isValid = false;
         } else {
           if (!password.match(/[^a-zA-Z0-9]/)) {
-            message +=
-              "<p>El password debe tener al menos un caracter especial</p>";
+            message =
+              "El password debe tener al menos un caracter especial";
             jQuery("#password").css("border-color", "#ba0c2f");
+            jQuery("#error_password_message").text(message)
             jQuery("#error_password").show();
             jQuery("#error_password")
-              .attr("data-bs-original-title", "Foo")
-              .tooltip("show");
+
+              ;
             isValid = false;
           } else {
-            jQuery("#error_password").tooltip("hide");
             jQuery("#error_password").hide();
             jQuery("#password").css("border-color", "#cccccc");
           }
@@ -342,75 +483,61 @@ function validateForm1() {
   }
 
   if (confirm_password == "") {
-    message += "<p>El confirmar password es requerido</p>";
+    message = "El campo verificar contraseña es requerido";
     jQuery("#confirm_password").css("border-color", "#ba0c2f");
+    jQuery("#error_confirm_password_message").text(message)
     jQuery("#error_confirm_password").show();
-    jQuery("#error_confirm_password")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
     if (password != confirm_password) {
       console.log(password, confirm_password);
-      message += "<p>El password y confirmar password deben ser iguales</p>";
+      message = "El campo verificar contraseña y Contraseña deben ser iguales";
       jQuery("#confirm_password").css("border-color", "#ba0c2f");
+      jQuery("#error_confirm_password_message").text(message)
       jQuery("#error_confirm_password").show();
-      jQuery("#error_confirm_password")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
       isValid = false;
     } else {
-      jQuery("#error_confirm_password").tooltip("hide");
       jQuery("#error_confirm_password").hide();
       jQuery("#confirm_password").css("border-color", "#cccccc");
     }
   }
 
   if (description_business_spanish == "") {
-    message += "<p>La descripción en español es requerida</p>";
+    message = "La descripción en español es requerida";
     jQuery("#description_business_spanish").css("border-color", "#ba0c2f");
+    jQuery("#description_business_spanish_message").text(message)
     jQuery("#error_description_business_spanish").show();
-    jQuery("#error_description_business_spanish")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
     if (description_business_spanish.length > 1000) {
-      message +=
-        "<p>La descripción en español debe tener menos de 1000 caracteres</p>";
+      message =
+        "La descripción en español debe tener menos de 1000 caracteres";
       jQuery("#description_business_spanish").css("border-color", "#ba0c2f");
+      jQuery("#description_business_spanish_message").text(message)
       jQuery("#error_description_business_spanish").show();
-      jQuery("#error_description_business_spanish")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
       isValid = false;
     } else {
-      jQuery("#error_description_business_spanish").tooltip("hide");
       jQuery("#error_description_business_spanish").hide();
       jQuery("#description_business_spanish").css("border-color", "#cccccc");
     }
   }
 
   if (description_business_english == "") {
-    message += "<p>La descripción en inglés es requerida</p>";
+    message = "La descripción en inglés es requerida";
     jQuery("#description_business_english").css("border-color", "#ba0c2f");
+    jQuery("#description_business_english_message").text(message)
     jQuery("#error_description_business_english").show();
-    jQuery("#error_description_business_english")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
     if (description_business_english.length > 1000) {
-      message +=
-        "<p>La descripción en inglés debe tener menos de 1000 caracteres</p>";
+      message =
+        "La descripción en inglés debe tener menos de 1000 caracteres";
       jQuery("#description_business_english").css("border-color", "#ba0c2f");
+      jQuery("#description_business_english_message").text(message)
       jQuery("#error_description_business_english").show();
-      jQuery("#error_description_business_english")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
       isValid = false;
     } else {
-      jQuery("#error_description_business_english").tooltip("hide");
+      console.log(description_business_english)
       jQuery("#error_description_business_english").hide();
       jQuery("#description_business_english").css("border-color", "#cccccc");
     }
@@ -459,12 +586,12 @@ function saveUser() {
         jQuery("#loading").hide();
         jQuery("#button").show();
         if (response.status == 200) {
-          jQuery("#tab2").addClass("active");
-          jQuery("#content2").addClass("show active");
-          jQuery("#tab1").removeClass("active");
+          jQuery("#profile-tab").addClass("active");
+          jQuery("#profile-tab-pane").addClass("show active");
+          jQuery("#home-tab").removeClass("active");
           //Add class complete to tab 1
-          jQuery("#tab1").addClass("complete");
-          jQuery("#content1").removeClass("show active");
+          jQuery("#home-tab").addClass("complete");
+          jQuery("#home-tab-pane").removeClass("show active");
         } else {
           alert("Error al crear el usuario" + error);
         }
@@ -484,8 +611,8 @@ function saveUser() {
  *  - secondary_code_ciiu is optional
  *  - third_code_ciiu is optional
  *  - departament is requerid
- *  - city is requerid
- *  - business_model is requerid
+ *  - ciudad is requerid
+ *  - modelo_de_negocio is requerid
  *  - certification_business is optional
  *  - certification_business_file is optional and have size less than 2mb
  */
@@ -498,95 +625,88 @@ function validateForm2() {
   var secondary_code_ciiu = jQuery("#secondary_code_ciiu").val();
   var third_code_ciiu = jQuery("#third_code_ciiu").val();
   var departament = jQuery("#departament").val();
-  var city = jQuery("#city").val();
-  var business_model = jQuery("#business_model").val();
+  var ciudad = jQuery("#ciudad").val();
+  var modelo_de_negocio = jQuery("#modelo_de_negocio").val();
   var certification_business = jQuery("#certification_business").val();
-  var certification_business_file = jQuery("#certification_business_file").prop(
+  var certification_business_file = jQuery("#certificateFile").prop(
     "files"
-  )[0];
-  var certification_business_file_size_mb = Math.round(
-    certification_business_file_size / 1024 / 1024
-  );
+  )[0]; 
 
   if (production_chain == "") {
-    message += "<p>La cadena de producción es requerida</p>";
-    jQuery("#production_chain").css("border-color", "#ba0c2f");
+    console.log("hola");
+    message = "La cadena de producción es requerida";
+    jQuery("#production_chain_contain .ts-control").css("border-color", "#ba0c2f");
+    jQuery("#error_production_chain_message").text(message)
     jQuery("#error_production_chain").show();
-    jQuery("#error_production_chain")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
-    jQuery("#error_production_chain").tooltip("hide");
     jQuery("#error_production_chain").hide();
-    jQuery("#production_chain").css("border-color", "#cccccc");
+    jQuery("#production_chain_contain .ts-control").css("border-color", "#cccccc");
   }
   if (principal_code_ciiu == "") {
-    message += "<p>El código CIIU principal es requerido</p>";
+    message = "El código CIIU principal es requerido";
     jQuery("#principal_code_ciiu").css("border-color", "#ba0c2f");
     jQuery("#error_principal_code_ciiu").show();
-    jQuery("#error_principal_code_ciiu")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+    jQuery("#error_principal_code_ciiu_message").text(message)
+
     isValid = false;
   } else {
-    jQuery("#error_principal_code_ciiu").tooltip("hide");
     jQuery("#error_principal_code_ciiu").hide();
     jQuery("#principal_code_ciiu").css("border-color", "#cccccc");
   }
 
   if (departament == "") {
-    message += "<p>El departamento es requerido</p>";
-    jQuery("#departament").css("border-color", "#ba0c2f");
+    message = "El departamento es requerido";
+    jQuery("#departament_contain .ts-control").css("border-color", "#ba0c2f");
+    jQuery("#error_departament_message").text(message)
     jQuery("#error_departament").show();
-    jQuery("#error_departament")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
-    jQuery("#error_departament").tooltip("hide");
     jQuery("#error_departament").hide();
-    jQuery("#departament").css("border-color", "#cccccc");
+    jQuery("#departament_contain .ts-control").css("border-color", "#cccccc");
   }
 
-  if (city == "") {
-    message += "<p>La ciudad es requerida</p>";
-    jQuery("#city").css("border-color", "#ba0c2f");
-    jQuery("#error_city").show();
-    jQuery("#error_city").attr("data-bs-original-title", "Foo").tooltip("show");
+  if (ciudad == "") {
+    message = "La ciudad es requerida";
+    jQuery("#ciudad_contain .ts-control").css("border-color", "#ba0c2f");
+    jQuery("#error_ciudad").show();
     isValid = false;
   } else {
-    jQuery("#error_city").tooltip("hide");
-    jQuery("#error_city").hide();
-    jQuery("#city").css("border-color", "#cccccc");
+    jQuery("#error_ciudad").hide();
+    jQuery("#ciudad_contain .ts-control").css("border-color", "#cccccc");
   }
 
-  if (business_model == "") {
-    message += "<p>El modelo de negocio es requerido</p>";
-    jQuery("#business_model").css("border-color", "#ba0c2f");
-    jQuery("#error_business_model").show();
-    jQuery("#error_business_model")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+  if (modelo_de_negocio == "") {
+    message = "El modelo de negocio es requerido";
+    jQuery("#modelo_de_negocio_contain .ts-control").css("border-color", "#ba0c2f");
+    jQuery("#error_modelo_de_negocio_message").text(message)
+    jQuery("#error_modelo_de_negocio").show();
     isValid = false;
   } else {
-    jQuery("#error_business_model").tooltip("hide");
-    jQuery("#error_business_model").hide();
-    jQuery("#business_model").css("border-color", "#cccccc");
+    jQuery("#error_modelo_de_negocio").hide();
+    jQuery("#modelo_de_negocio_contain .ts-control").css("border-color", "#cccccc");
   }
   if (certification_business != "") {
-    if (certification_business_file_size_mb > 2) {
-      message += "<p>El archivo de certificación debe ser menor a 2mb</p>";
-      jQuery("#certification_business_file").css("border-color", "#ba0c2f");
+    if ((certification_business_file.size / 1024 / 1024) > 2) {
+      message = "El archivo de certificación debe ser menor a 2mb";
+      jQuery("#certificateFile").css("border-color", "#ba0c2f");
       jQuery("#error_certification_business_file").show();
       jQuery("#error_certification_business_file")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
-      jQuery("#error_certification_business_file").tooltip("hide");
-      jQuery("#error_certification_business_file").hide();
-      jQuery("#certification_business_file").css("border-color", "#cccccc");
+      //check is pdf
+      if (certification_business_file.type != "application/pdf") {
+        message = "El archivo de certificación debe ser un archivo PDF";
+        jQuery("#certificateFile").css("border-color", "#ba0c2f");
+        jQuery("#error_certification_business_file").show();
+        jQuery("#error_certification_business_file").text(message);
+        isValid = false;
+      } else {
+        jQuery("#error_certification_business_file").hide();
+        jQuery("#certificateFile").css("border-color", "#cccccc");
+      }
     }
   }
 
@@ -614,18 +734,20 @@ function updateForm2() {
     );
     formData.append("third_code_ciiu", jQuery("#third_code_ciiu").val());
     formData.append("departament", jQuery("#departament").val());
-    formData.append("city", jQuery("#city").val());
-    formData.append("business_model", jQuery("#business_model").val());
+    formData.append("ciudad", jQuery("#ciudad").val());
+    formData.append("modelo_de_negocio", jQuery("#modelo_de_negocio").val());
     formData.append(
       "certification_business",
-      jQuery("#certification_business").val()
+      jQuery("#certificacion_de_empresa").val()
     );
     formData.append(
       "certification_business_file",
-      jQuery("#certification_business_file").prop("files")[0]
+      jQuery("#certificateFile").prop("files")[0]
     );
     formData.append("nit", localStorage.getItem("nit"));
-    fetch("registro/update_step_2", {
+    //principal_advisor add
+    formData.append("principal_advisor", jQuery("#principal_advisor").val());
+    fetch("/registro/update_step_2", {
       method: "POST",
       body: formData,
     })
@@ -634,7 +756,7 @@ function updateForm2() {
         jQuery("#button").show();
         if (response.status === 200) {
           //show alert information
-          jQuery("#alert-information").show();
+          jQuery("#check_information").modal('show');
         } else {
           alert("Error al actualizar los datos");
         }
@@ -649,12 +771,13 @@ function updateForm2() {
 
 // function to go to step 3
 function goToStep3() {
-  jQuery("#tab3").addClass("active");
-  jQuery("#content3").addClass("show active");
-  jQuery("#tab2").removeClass("active");
+  jQuery("#contact-tab").addClass("active");
+  jQuery("#contact-tab-pane").addClass("show active");
+  jQuery("#profile-tab").removeClass("active");
   //Add class complete to tab 1
-  jQuery("#tab2").addClass("complete");
-  jQuery("#content1").removeClass("show active");
+  jQuery("#profile-tab").addClass("complete");
+  jQuery("#profile-tab-pane").removeClass("show active");
+  jQuery("#check_information").modal('hide');
 }
 
 /*
@@ -683,197 +806,183 @@ function validateForm3() {
   var contact_email = jQuery("#contact_email").val();
 
   if (name == "") {
-    message += "<p>El nombre es requerido</p>";
+    message = "El nombre es requerido";
     jQuery("#name").css("border-color", "#ba0c2f");
     jQuery("#error_name").show();
-    jQuery("#error_name").attr("data-bs-original-title", "Foo").tooltip("show");
+    jQuery("#error_name_message").text(message)
     isValid = false;
   } else {
     if (name.length > 20) {
-      message += "<p>El nombre no debe tener mas de 20 caracteres</p>";
+      message = "El nombre no debe tener mas de 20 caracteres";
       jQuery("#name").css("border-color", "#ba0c2f");
+      jQuery("#error_name_message").text(message)
       jQuery("#error_name").show();
-      jQuery("#error_name")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
       isValid = false;
     } else {
-      jQuery("#error_name").tooltip("hide");
       jQuery("#error_name").hide();
       jQuery("#name").css("border-color", "#cccccc");
     }
   }
   if (last_name == "") {
-    message += "<p>El apellido es requerido</p>";
+    message = "El apellido es requerido";
     jQuery("#last_name").css("border-color", "#ba0c2f");
     jQuery("#error_last_name").show();
-    jQuery("#error_last_name")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+    jQuery("#error_last_name_message").text(message)
     isValid = false;
   } else {
     if (last_name.length > 20) {
-      message += "<p>El apellido no debe tener mas de 20 caracteres</p>";
+      message = "El apellido no debe tener mas de 20 caracteres";
       jQuery("#last_name").css("border-color", "#ba0c2f");
+      jQuery("#error_last_name_message").text(message)
       jQuery("#error_last_name").show();
       jQuery("#error_last_name")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
-      jQuery("#error_last_name").tooltip("hide");
       jQuery("#error_last_name").hide();
       jQuery("#last_name").css("border-color", "#cccccc");
     }
   }
   if (position_spanish == "") {
-    message += "<p>La posición en español es requerida</p>";
+    message = "La posición en español es requerida";
     jQuery("#position_spanish").css("border-color", "#ba0c2f");
+    jQuery("#error_position_spanish_message").text(message)
     jQuery("#error_position_spanish").show();
-    jQuery("#error_position_spanish")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
     isValid = false;
   } else {
     if (position_spanish.length > 50) {
-      message +=
-        "<p>La posición en español no debe tener mas de 50 caracteres</p>";
+      message =
+        "La posición en español no debe tener mas de 50 caracteres";
       jQuery("#position_spanish").css("border-color", "#ba0c2f");
+      jQuery("#error_position_spanish_message").text(message)
       jQuery("#error_position_spanish").show();
-      jQuery("#error_position_spanish")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
       isValid = false;
     } else {
-      jQuery("#error_position_spanish").tooltip("hide");
       jQuery("#error_position_spanish").hide();
       jQuery("#position_spanish").css("border-color", "#cccccc");
     }
   }
   if (position_english == "") {
-    message += "<p>La posición en ingles es requerida</p>";
+    message = "La posición en ingles es requerida";
     jQuery("#position_english").css("border-color", "#ba0c2f");
+    jQuery("#error_position_english_message").text(message)
     jQuery("#error_position_english").show();
     jQuery("#error_position_english")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
     if (position_english.length > 50) {
-      message +=
-        "<p>La posición en ingles no debe tener mas de 50 caracteres</p>";
+      message =
+        "La posición en ingles no debe tener mas de 50 caracteres";
       jQuery("#position_english").css("border-color", "#ba0c2f");
+      jQuery("#error_position_english_message").text(message)
       jQuery("#error_position_english").show();
-      jQuery("#error_position_english")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
       isValid = false;
     } else {
-      jQuery("#error_position_english").tooltip("hide");
       jQuery("#error_position_english").hide();
       jQuery("#position_english").css("border-color", "#cccccc");
     }
   }
   if (country_code_landline == "") {
-    message += "<p>El codigo de pais de la linea de telefono es requerido</p>";
+    message = "El codigo de pais de la linea de telefono es requerido";
     jQuery("#country_code_landline").css("border-color", "#ba0c2f");
     jQuery("#error_country_code_landline").show();
     jQuery("#error_country_code_landline")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
-    jQuery("#error_country_code_landline").tooltip("hide");
     jQuery("#error_country_code_landline").hide();
     jQuery("#country_code_landline").css("border-color", "#cccccc");
   }
   if (landline == "") {
-    message += "<p>La linea de telefono es requerida</p>";
+    message = "La linea de telefono es requerida";
     jQuery("#landline").css("border-color", "#ba0c2f");
     jQuery("#error_landline").show();
     jQuery("#error_landline")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
     if (landline.length > 20) {
-      message +=
-        "<p>La linea de telefono no debe tener mas de 20 caracteres</p>";
+      message =
+        "La linea de telefono no debe tener mas de 20 caracteres";
       jQuery("#landline").css("border-color", "#ba0c2f");
       jQuery("#error_landline").show();
       jQuery("#error_landline")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
       if (!landline.match(/^[0-9]+$/)) {
-        message += "<p>La linea de telefono no debe tener letras</p>";
+        message = "La linea de telefono no debe tener letras";
         jQuery("#landline").css("border-color", "#ba0c2f");
         jQuery("#error_landline").show();
         jQuery("#error_landline")
-          .attr("data-bs-original-title", "Foo")
-          .tooltip("show");
+
+          ;
         isValid = false;
       } else {
-        jQuery("#error_landline").tooltip("hide");
         jQuery("#error_landline").hide();
         jQuery("#landline").css("border-color", "#cccccc");
       }
     }
   }
   if (country_code_mobile == "") {
-    message += "<p>El codigo de pais de la celular es requerido</p>";
+    message = "El codigo de pais de la celular es requerido";
     jQuery("#country_code_mobile").css("border-color", "#ba0c2f");
     jQuery("#error_country_code_mobile").show();
     jQuery("#error_country_code_mobile")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
-    jQuery("#error_country_code_mobile").tooltip("hide");
     jQuery("#error_country_code_mobile").hide();
     jQuery("#country_code_mobile").css("border-color", "#cccccc");
   }
   if (mobile == "") {
-    message += "<p>El celular es requerido</p>";
+    message = "El celular es requerido";
     jQuery("#mobile").css("border-color", "#ba0c2f");
     jQuery("#error_mobile").show();
     jQuery("#error_mobile")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
     if (mobile.length > 20) {
-      message += "<p>El celular no debe tener mas de 20 caracteres</p>";
+      message = "El celular no debe tener mas de 20 caracteres";
       jQuery("#mobile").css("border-color", "#ba0c2f");
       jQuery("#error_mobile").show();
       jQuery("#error_mobile")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
       if (!mobile.match(/^[0-9]+$/)) {
-        message += "<p>El celular no debe tener letras</p>";
+        message = "El celular no debe tener letras";
         jQuery("#mobile").css("border-color", "#ba0c2f");
         jQuery("#error_mobile").show();
         jQuery("#error_mobile")
-          .attr("data-bs-original-title", "Foo")
-          .tooltip("show");
+
+          ;
         isValid = false;
       } else {
-        jQuery("#error_mobile").tooltip("hide");
         jQuery("#error_mobile").hide();
         jQuery("#mobile").css("border-color", "#cccccc");
       }
     }
   }
   if (contact_email == "") {
-    message += "<p>El correo electronico es requerido</p>";
+    message = "El correo electronico es requerido";
     jQuery("#email").css("border-color", "#ba0c2f");
     jQuery("#error_email").show();
     jQuery("#error_email")
-      .attr("data-bs-original-title", "Foo")
-      .tooltip("show");
+
+      ;
     isValid = false;
   } else {
     if (
@@ -881,15 +990,14 @@ function validateForm3() {
         /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
       )
     ) {
-      message += "<p>El correo electronico no es valido</p>";
+      message = "El correo electronico no es valido";
       jQuery("#email").css("border-color", "#ba0c2f");
       jQuery("#error_email").show();
       jQuery("#error_email")
-        .attr("data-bs-original-title", "Foo")
-        .tooltip("show");
+
+        ;
       isValid = false;
     } else {
-      jQuery("#error_email").tooltip("hide");
       jQuery("#error_email").hide();
       jQuery("#email").css("border-color", "#cccccc");
     }
@@ -909,12 +1017,13 @@ function updateDataForm3() {
     var data = {
       name: jQuery("#name").val(),
       last_name: jQuery("#last_name").val(),
+      position_spanish: jQuery("#position_spanish").val(),
       position_english: jQuery("#position_english").val(),
       country_code_landline: jQuery("#country_code_landline").val(),
       landline: jQuery("#landline").val(),
       country_code_mobile: jQuery("#country_code_mobile").val(),
       mobile: jQuery("#mobile").val(),
-      contact_email: jQuery("#email").val(),
+      contact_email: jQuery("#contact_email").val(),
       nit: localStorage.getItem("nit"),
     };
     var formData = new FormData();
@@ -922,14 +1031,14 @@ function updateDataForm3() {
       formData.append(key, data[key]);
     }
 
-    fetch("/register/updateDataForm3", {
+    fetch("/registro/update_step_3", {
       method: "POST",
       body: formData,
     })
       .then(function (response) {
         if (response.status === 200) {
           //show alert success
-          jQuery("#alert-success").show();
+          jQuery("#success_modal").modal('show');
         } else {
           alert("Error al actualizar los datos");
         }
@@ -944,5 +1053,6 @@ function updateDataForm3() {
 
 // function to go to step 3
 function goToMenu() {
+  jQuery("#success_modal").modal('show');
   window.location.href = "url_menu"
 }

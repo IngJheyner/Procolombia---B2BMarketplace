@@ -63,6 +63,9 @@ $font-bold-maven: Maven-Bold;
   }
 }
 
+img.me-2 {
+  width: 20px !important;
+}
 
 .form-control:focus {
   box-shadow: none !important;
@@ -134,8 +137,92 @@ a {
   text-decoration: none !important;
 }
 
+.ts-control>* {
+  vertical-align: baseline;
+  display: inline-block;
+  padding: 2px 0px;
+  font-weight: 400;
+}
+
+.ts-wrapper {
+  width: 100% !important;
+}
+
+.ts-wrapper.single .ts-control,
+.ts-wrapper.single .ts-control input {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 2px 0px !important;
+  border-color: #cccccc;
+  color: #000 !important;
+  width: 100% !important;
+}
+
+.ts-wrapper.plugin-remove_button .item .remove {
+  border-left: none !important;
+  color: $color-ba0c2f  !important;
+}
+
+.ts-wrapper.multi .ts-control>div {
+  border-radius: 4px;
+}
+
 div#main-wrapper {
   position: relative;
+}
+
+.toltip_i {
+  position: relative;
+
+  .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: $color-000000;
+    color: $color-ffffff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 8;
+
+  }
+
+  .tooltiptext_error {
+    visibility: hidden;
+    width: 300px;
+    background-color: $color-ba0c2f;
+    color: $color-ffffff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 8;
+    font-family: 'Gothic-Regular';
+    font-size: 14px;
+    right: 1rem;
+  }
+
+  .tooltiptext_yotube {
+    visibility: hidden;
+    width: 420px;
+    background-color: $color-000000;
+    color: $color-ffffff;
+    text-align: start;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 8;
+    font-family: 'Gothic-Regular';
+    font-size: 14px;
+    right: 1.5rem;
+  }
+
+  &:hover .tooltiptext,
+  &:hover .tooltiptext_error,
+  &:hover .tooltiptext_yotube {
+    visibility: visible;
+  }
+
 }
 
 .pt-6 {
@@ -732,6 +819,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-005ca4;
+    transition: all 0.4s ease-out !important;
 
     &:hover {
       color: $color-ffffff;
@@ -748,6 +836,34 @@ button.btn.btn-secondary.dropdown-toggle.show {
     background-color: $color-005ca4;
     color: $color-ffffff;
     font-family: $font-regular;
+    transition: all 0.4s ease-out !important;
+
+
+    &:hover {
+      color: $color-ffffff;
+      background-color: $color-0085ca;
+      box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+    }
+  }
+}
+
+.back {
+  margin-top: 1rem;
+  font-family: Gothic-Regular;
+  display: flex;
+  align-items: flex-end;
+
+  .back_btn {
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 6px 20px;
+    margin-right: 10px;
+    font-family: $font-regular;
+    color: $color-005ca4;
+    background-color: $color-ffffff;
+    border: 1px solid $color-0085ca;
+    transition: all 0.4s ease-out;
 
     &:hover {
       color: $color-ffffff;
@@ -798,6 +914,17 @@ button.btn.btn-secondary.dropdown-toggle.show {
     i {
       margin-right: 7px;
     }
+  }
+}
+.cita_btn {
+  border-radius: 4px;
+  background-color: $color-005ca4;
+  color: $color-ffffff;
+  font-family: $font-bold;
+  font-size: 14px;
+
+  i {
+    margin-right: 7px;
   }
 }
 
@@ -1066,13 +1193,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
         }
       }
 
-      select {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>");
-        background-repeat: no-repeat;
-        background-position-x: 96%;
-        background-position-y: 12px;
+      select,
+      .ts-control {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>") !important;
+        background-repeat: no-repeat !important;
+        background-position-x: 96% !important;
+        background-position-y: 50% !important;
         border: 1px solid #dfdfdf;
-        padding: 1rem;
+        padding: 10px 1rem !important;
+        font-size: 15px;
         padding-right: 2.4rem !important;
       }
 
@@ -1188,8 +1317,9 @@ button.btn.btn-secondary.dropdown-toggle.show {
   background-repeat: no-repeat;
   background-position-x: 10px;
   background-position-y: 12px;
-  border: none !important;
+  border: 1px solid $color-cccccc;
   padding-left: 2.4rem !important;
+  margin-right: -23px;
 }
 
 .input_error {
@@ -1199,6 +1329,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
   i {
     margin-left: 8px;
     color: $color-ba0c2f;
+    display: none;
+  }
+}
+
+.error_select {
+  i {
+    margin-left: 8px;
+    color: $color-ba0c2f;
+    display: none;
     display: none;
   }
 }
@@ -1323,7 +1462,34 @@ button.btn.btn-secondary.dropdown-toggle.show {
 }
 
 
+.yotube {
+  background: #D9DADE;
+  box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+  border-radius: 4px;
 
+  img {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    height: 100%;
+  }
+
+  #title {
+    font-size: 15px;
+    font-family: $font-bold;
+  }
+
+  #author_name {
+    font-size: 13px;
+    font-family: $font-regular;
+  }
+
+  i {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
 
 
 

@@ -61,7 +61,7 @@ class CpCheckNitController extends ControllerBase
         }
         //return if cp is in neo
         if($bool_cp_in_neo){
-            return new JsonResponse(['success' => true]);
+            return new JsonResponse(['success' => true, 'data' => $empresas]);
         }else{
             return new JsonResponse(['neo' => true]);
         }

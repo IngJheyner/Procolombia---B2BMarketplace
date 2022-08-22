@@ -23,10 +23,11 @@ function validateForm() {
   var email = jQuery("#email").val();
   var message = "";
   var isValid = true;
-  if (nit == "" || isNaN(nit)) {
-    message += "<p>El NIT es requerido y debe tener 12 dígitos</p>";
+  if (nit == "" || isNaN(nit) || nit.length > 12) {
+    message = "El NIT es requerido y debe tener menos 12 dígitos";
     jQuery("#nit").css("border-color", "#ba0c2f");
     jQuery("#error_nit").show();
+    jQuery("#error_nit_message").text(message)
     jQuery('#error_nit').attr('data-bs-original-title', "Foo").tooltip('show');
     isValid = false;
   } else {
@@ -36,9 +37,10 @@ function validateForm() {
   }
 
   if (email == "" || !isEmail(email)) {
-    message += "<p>El email es requerido y debe ser un email válido</p>";
+    message = "El email es requerido y debe ser un email válido";
     jQuery("#email").css("border-color", "#ba0c2f");
     jQuery("#error_mail").show();
+    jQuery("#error_mail_message").text(message)
     jQuery('#error_mail').attr('data-bs-original-title', "Foo").tooltip('show');
     isValid = false;
   } else {
@@ -102,6 +104,8 @@ function checkNit() {
           setTimeout(() => {
             localStorage.setItem("nit", nit);
             localStorage.setItem("email", email);
+            let json = data.split(":[")[1].split("]")[0];
+            localStorage.setItem("data_neo", json);
             window.location.href = "/registro/usuario";
           }, 2500);
         } else {

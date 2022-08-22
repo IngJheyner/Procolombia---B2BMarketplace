@@ -34,6 +34,10 @@
   width: 7px;
 }
 
+img.me-2 {
+  width: 20px !important;
+}
+
 .form-control:focus {
   box-shadow: none !important;
 }
@@ -102,8 +106,84 @@ a {
   text-decoration: none !important;
 }
 
+.ts-control > * {
+  vertical-align: baseline;
+  display: inline-block;
+  padding: 2px 0px;
+  font-weight: 400;
+}
+
+.ts-wrapper {
+  width: 100% !important;
+}
+
+.ts-wrapper.single .ts-control,
+.ts-wrapper.single .ts-control input {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 2px 0px !important;
+  border-color: #cccccc;
+  color: #000 !important;
+  width: 100% !important;
+}
+
+.ts-wrapper.plugin-remove_button .item .remove {
+  border-left: none !important;
+  color: #ba0c2f !important;
+}
+
+.ts-wrapper.multi .ts-control > div {
+  border-radius: 4px;
+}
+
 div#main-wrapper {
   position: relative;
+}
+
+.toltip_i {
+  position: relative;
+}
+.toltip_i .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 8;
+}
+.toltip_i .tooltiptext_error {
+  visibility: hidden;
+  width: 300px;
+  background-color: #ba0c2f;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 8;
+  font-family: "Gothic-Regular";
+  font-size: 14px;
+  right: 1rem;
+}
+.toltip_i .tooltiptext_yotube {
+  visibility: hidden;
+  width: 420px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: start;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 8;
+  font-family: "Gothic-Regular";
+  font-size: 14px;
+  right: 1.5rem;
+}
+.toltip_i:hover .tooltiptext, .toltip_i:hover .tooltiptext_error, .toltip_i:hover .tooltiptext_yotube {
+  visibility: visible;
 }
 
 .pt-6 {
@@ -623,6 +703,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
+  transition: all 0.4s ease-out !important;
 }
 .continue .cancel:hover {
   color: #ffffff;
@@ -637,8 +718,33 @@ button.btn.btn-secondary.dropdown-toggle.show {
   background-color: #005ca4;
   color: #ffffff;
   font-family: Gothic-Regular;
+  transition: all 0.4s ease-out !important;
 }
 .continue .continue:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+}
+
+.back {
+  margin-top: 1rem;
+  font-family: Gothic-Regular;
+  display: flex;
+  align-items: flex-end;
+}
+.back .back_btn {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 6px 20px;
+  margin-right: 10px;
+  font-family: Gothic-Regular;
+  color: #005ca4;
+  background-color: #ffffff;
+  border: 1px solid #0085ca;
+  transition: all 0.4s ease-out;
+}
+.back .back_btn:hover {
   color: #ffffff;
   background-color: #0085ca;
   box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
@@ -890,13 +996,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
 .steps .step_content form input:active {
   outline: none;
 }
-.steps .step_content form select {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>");
-  background-repeat: no-repeat;
-  background-position-x: 96%;
-  background-position-y: 12px;
+.steps .step_content form select,
+.steps .step_content form .ts-control {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 96% !important;
+  background-position-y: 50% !important;
   border: 1px solid #dfdfdf;
-  padding: 1rem;
+  padding: 10px 1rem !important;
+  font-size: 15px;
   padding-right: 2.4rem !important;
 }
 .steps .step_content form select,
@@ -981,8 +1089,9 @@ button.btn.btn-secondary.dropdown-toggle.show {
   background-repeat: no-repeat;
   background-position-x: 10px;
   background-position-y: 12px;
-  border: none !important;
+  border: 1px solid #cccccc;
   padding-left: 2.4rem !important;
+  margin-right: -23px;
 }
 
 .input_error {
@@ -992,6 +1101,13 @@ button.btn.btn-secondary.dropdown-toggle.show {
 .input_error i {
   margin-left: 8px;
   color: #ba0c2f;
+  display: none;
+}
+
+.error_select i {
+  margin-left: 8px;
+  color: #ba0c2f;
+  display: none;
   display: none;
 }
 
@@ -1081,6 +1197,31 @@ button.btn.btn-secondary.dropdown-toggle.show {
     margin-top: 17rem;
   }
 }
+.yotube {
+  background: #D9DADE;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+}
+.yotube img {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  height: 100%;
+}
+.yotube #title {
+  font-size: 15px;
+  font-family: Gothic-Bold;
+}
+.yotube #author_name {
+  font-size: 13px;
+  font-family: Gothic-Regular;
+}
+.yotube i {
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
   .card_img img {
     height: 100%;

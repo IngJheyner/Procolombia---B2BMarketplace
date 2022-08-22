@@ -43,6 +43,13 @@ function cp_register_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_register_template',
+      'variables' => [
+        'deparments' => null,
+        'production_chain' => null,
+        'business_model' => null,
+        'certificacion_de_empresa' => null,
+        'countries' => null,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',

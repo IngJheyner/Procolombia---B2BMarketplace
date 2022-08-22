@@ -5,6 +5,9 @@ namespace Drupal\cp_register\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
 /**
  * An cp_register controller.
  */
@@ -16,9 +19,82 @@ class CpRegisterController extends ControllerBase
      */
     public function index()
     {
+        //List of terms to set a select field deparments.
+        $vid = 'locations';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_deparment=[];
+        foreach ($terms as $term) {
+            array_push($tree_deparment, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+        //List of terms to set a select field production_chain.
+        $vid = 'cadena_productiva_principal';
+        //load taxonomy_term storage.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_production_chain=[];
+        foreach ($terms as $term) {
+            array_push($tree_production_chain, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+        //List of terms to set a select field modelos_de_negocio.
+        $vid = 'modelos_de_negocio';
+        //load taxonomy_term storage.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_business_model=[];
+        foreach ($terms as $term) {
+            array_push($tree_business_model, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+        //List of terms to set a select field certificacion_de_empresa.
+        $vid = 'certificacion_de_empresa';
+        //load taxonomy_term storage.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_certificacion_de_empresa=[];
+        foreach ($terms as $term) {
+            array_push($tree_certificacion_de_empresa, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+        //List of terms to set a select field countries.
+        $vid = 'countries';
+        //load taxonomy_term storage.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_countries=[];
+        foreach ($terms as $term) {
+            //get file_create_url of field_bandera.
+            $image = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_bandera')->getValue();
+            $file = File::load($image[0]['target_id']);
+            $file_url = file_create_url($file->getFileUri());
+            //get image of field_indicativo.
+            $indicativo = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_indicativo')->getValue();
+            array_push($tree_countries, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name,
+                    "Image" => $file_url,
+                    "Indicativo" => $indicativo[0]['value']
+                ]
+            );
+        }
+
         return [
             // Your theme hook name.
             '#theme' => 'cp_register_template_hook',
+            '#deparments' => $tree_deparment,
+            '#production_chain' => $tree_production_chain,
+            '#business_model' => $tree_business_model,
+            '#certificacion_de_empresa' => $tree_certificacion_de_empresa,
+            '#countries' => $tree_countries,
         ];
     }
     /**
@@ -42,25 +118,12 @@ class CpRegisterController extends ControllerBase
     /**
      * Save file in drupal 9 media library and return file
      */
-    public function saveFile($fileToSave, $name)
+    public function saveFile($fileToSave, $name, $directory)
     {
-        $directory = 'public://logos/';
         \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
         $file = file_save_data($fileToSave, $directory . $name, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
         return $file;
     }
-
-    /**
-     * save file in multimedia drupal
-     */
-    public function saveFileMultimedia($fileToSave)
-    {
-        $logo = \Drupal\file\Entity\File::load($fileToSave);
-        $logo->setPermanent();
-        $logo->save();
-        return $logo;
-    }
-    
 
 
     /**
@@ -90,7 +153,7 @@ class CpRegisterController extends ControllerBase
         $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
         $data = $request->request->all();
         if($this->getUid($data['nit'])){
-            $user = \Drupal\user\Entity\User::load();
+            $user = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
         }else{
             $user = \Drupal\user\Entity\User::create();
             $user->setPassword($data['password']);
@@ -105,11 +168,12 @@ class CpRegisterController extends ControllerBase
         }
         $file = $request->files->get('logo');
         $file2 = file_get_contents($file);
-        $user->set("field_company_logo", $this->saveFile($file2, $data['nit'] . '-logo.' . $file->getClientOriginalName()));
+        $user->set("field_company_logo", $this->saveFile($file2, $data['nit'] . '-logo.' . $file->getClientOriginalName(), 'public://logos/'));
         $user->set("field_company_name", $data['business_name']);
         $user->set("field_company_web_site", $data['website']);
         $user->set("field_company_video_youtube", $data['video']);
         $user->set("field_company_info", $data['description_business_spanish']);
+        $user->set("field_company_info_english", $data['description_business_english']);
 
         $user->save();
         _user_mail_notify('status_activated', $user);
@@ -124,22 +188,104 @@ class CpRegisterController extends ControllerBase
     {
         $data = $request->request->all();
         $user = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
-        $user->set('field_company_name', $data['bussines']);
+        $user->set('field_productive_chain', $data['production_chain']);
+        $user->set('field_ciiu_principal', $data['principal_code_ciiu']);
+        $user->set('field_ciiu_secundario', $data['secondary_code_ciiu']);
+        $user->set('field_ciiu_terciario', $data['third_code_ciiu']);
+        $user->set('field_company_deparment', $data['departament']);
+        $user->set('field_company_city', $data['ciudad']);
+        $user->set('field_company_model', $data['modelo_de_negocio']);
+        //save certification_business only if is not empty and save file certification_business_file
+        if(!empty($data['certification_business'])){
+            $user->set('field_company_certification', $data['certification_business']);
+            $file = $request->files->get('certification_business_file');
+            $file2 = file_get_contents($file);
+            $user->set("field_company_certification_file", $this->saveFile($file2, $data['nit'] . '-certificado.' . $file->getClientOriginalName(), 'public://certificados/'));
+        }
+        //$user->set('field_productive_chain', $data['principal_advisor']);
         $user->set('field_step', 2);
         $user->save();
-        return new JsonResponse(['status' => 'success']);
+        return new JsonResponse(['status' =>  200]);
     }
 
     /**
-     * Update data of user step 2 with nit
+     * Update data of user step 3 with nit
      */
     public function updateStep3(Request $request)
     {
         $data = $request->request->all();
         $user = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
-        $user->set('field_company', $data['bussines']);
+        $user->set('field_company_contact_name', $data['name']);
+        $user->set('field_company_contact_lastname', $data['last_name']);
+        $user->set('field_company_contact_position', $data['position_spanish']);
+        $user->set('field_company_contact_position_e', $data['position_english']);
+        $user->set('field_company_contact_phone', $data['country_code_landline'].$data['landline']);
+        $user->set('field_company_contact_cell_phone', $data['country_code_mobile'].$data['mobile']);
+        $user->set('field_company_contact_email', $data['contact_email']);
         $user->set('field_step', 3);
         $user->save();
-        return new JsonResponse(['status' => 'success']);
+        return new JsonResponse(['status' =>  200]);
+    }
+
+    /**
+     * get city by departamento in request data
+     */
+    public function getCity(Request $request)
+    {
+        $data = $request->request->all();
+        $vid = 'locations';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid,$data['departament'],NULL,TRUE);
+        $tree_ciudades=[];
+        foreach ($terms as $term) {
+            array_push($tree_ciudades, [
+                    "ID" => $term->tid->value,
+                    "Name" => $term->getName(),
+                ]
+            );
+        }
+        return new JsonResponse(['status' => 'success', 'ciudades' => $tree_ciudades]);
+    }
+
+    /**
+     * get data user if nit exist and return in json format
+     */
+    public function getDataUser(Request $request)
+    {
+        $data = $request->request->all();
+        $user = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
+        //check if user exist
+        if($user){
+            $data_user = [
+                'step' => $user->get('field_step')->value,
+                'logo' => $user->get('field_company_logo')->entity->getFileUri(),
+                'name' => $user->get('field_company_name')->value,
+                'website' => $user->get('field_company_web_site')->value,
+                'video' => $user->get('field_company_video_youtube')->value,
+                'description_business_spanish' => $user->get('field_company_info')->value,
+                'description_business_english' => $user->get('field_company_info_english')->value,
+                'production_chain' => $user->get('field_productive_chain')->value,
+                'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
+                'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
+                'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
+                'departament' => $user->get('field_company_deparment')->value,
+                'city' => $user->get('field_company_city')->value,
+                'business_model' => $user->get('company_model')->value,
+                'certification_business' => $user->get('field_certification_business')->value,
+                'certification_business_file' => $user->get('certification_business_file')->entity->getFileUri(),
+                'name' => $user->get('field_company_contact_name')->value,
+                'last_name' => $user->get('field_company_contact_lastname')->value,
+                'position_spanish' => $user->get('field_company_contact_position')->value,
+                'position_english' => $user->get('field_company_contact_position_e')->value,
+                'country_code_landline' => $user->get('field_company_contact_phone')->value,
+                'landline' => $user->get('field_company_contact_phone')->value,
+                'country_code_mobile' => $user->get('field_company_contact_cell_phone')->value,
+                'mobile' => $user->get('field_company_contact_cell_phone')->value,
+                'contact_email' => $user->get('field_company_contact_email')->value,
+            ];
+    
+            return new JsonResponse(['status' => 'success', 'data' => $data_user]);
+        }else{
+            return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
+        }
     }
 }
