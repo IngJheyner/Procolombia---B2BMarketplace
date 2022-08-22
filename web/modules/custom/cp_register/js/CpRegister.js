@@ -14,7 +14,7 @@ function openInputFileCertificate() {
 function onChangeCertificate() {
   var file = jQuery("#certificateFile")[0].files[0];
   var fileName = file.name;
-  jQuery("#fileNameCertificate").html(fileName);
+  jQuery("#fileNameCertificate").text(fileName);
 }
 
 // Declaracion de Slect Especiales
@@ -98,8 +98,14 @@ new TomSelect('#country_code_mobile', {
     item: function (item, escape) {
       return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
     }
-  }
+  },
 })
+
+document.getElementById("country_code_landline-ts-control").disabled = true;
+document.getElementById("country_code_mobile-ts-control").disabled = true;
+jQuery("#country_code_landline-ts-control").attr('style', 'display: none !important');
+jQuery("#country_code_mobile-ts-control").attr('style', 'display: none !important');
+
 //
 // onChangeFile Show Logo and name
 function onChangeLogo() {
@@ -120,6 +126,10 @@ function onChangeLogo() {
   jQuery("#logo_sub").hide();
 }
 
+// close thumbnail 
+function closeThumbnail() {
+  jQuery(".yotube").hide();
+}
 // remove logo file and hide image
 function removeLogo() {
   jQuery("#logo_img").hide();
@@ -558,8 +568,8 @@ function validateForm1() {
 function saveUser() {
   if (validateForm1()) {
     //start loading
-    jQuery("#loading").show();
-    jQuery("#button").hide();
+    jQuery("#loading_1").show();
+    jQuery("#contunuar_1").hide();
     var data = {
       logo: jQuery("#logo").prop("files")[0],
       business_name: jQuery("#business_name").val(),
@@ -586,8 +596,8 @@ function saveUser() {
       body: formData,
     })
       .then(function (response) {
-        jQuery("#loading").hide();
-        jQuery("#button").show();
+        jQuery("#loading_1").hide();
+        jQuery("#contunuar_1").show();
         if (response.status == 200) {
           jQuery("#profile-tab").addClass("active");
           jQuery("#profile-tab-pane").addClass("show active");
@@ -605,8 +615,8 @@ function saveUser() {
         }
       })
       .catch(function (error) {
-        jQuery("#loading").hide();
-        jQuery("#button").show();
+        jQuery("#loading_1").hide();
+        jQuery("#contunuar_1").show();
         alert("Error al crear el usuario" + error);
       });
   }
@@ -728,8 +738,8 @@ function validateForm2() {
  */
 function updateForm2() {
   if (validateForm2()) {
-    jQuery("#loading").show();
-    jQuery("#button").hide();
+    jQuery("#loading_2").show();
+    jQuery("#contunuar_2").hide();
     var formData = new FormData();
     formData.append("production_chain", jQuery("#production_chain").val());
     formData.append(
@@ -760,8 +770,8 @@ function updateForm2() {
       body: formData,
     })
       .then(function (response) {
-        jQuery("#loading").hide();
-        jQuery("#button").show();
+        jQuery("#loading_2").hide();
+        jQuery("#contunuar_2").show();
         if (response.status === 200) {
           //show alert information
           jQuery("#check_information").modal('show');
@@ -770,8 +780,8 @@ function updateForm2() {
         }
       })
       .catch(function (error) {
-        jQuery("#loading").hide();
-        jQuery("#button").show();
+        jQuery("#loading_2").hide();
+        jQuery("#contunuar_2").show();
         alert("Error al actualizar los datos");
       });
   }
@@ -1026,8 +1036,8 @@ function validateForm3() {
  */
 function updateDataForm3() {
   if (validateForm3()) {
-    jQuery("#loading").show();
-    jQuery("#button").hide();
+    jQuery("#loading_3").show();
+    jQuery("#contunuar_3").hide();
     var data = {
       name: jQuery("#name").val(),
       last_name: jQuery("#last_name").val(),
@@ -1060,8 +1070,8 @@ function updateDataForm3() {
         }
       })
       .catch(function (error) {
-        jQuery("#loading").hide();
-        jQuery("#button").show();
+        jQuery("#loading_3").hide();
+        jQuery("#contunuar_3").show();
         alert("Error al actualizar los datos");
       });
   }
@@ -1124,8 +1134,8 @@ function hideCancelProcess() {
 */
 
 function deleteUser() {
-  jQuery("#loading").show();
-  jQuery("#button").hide();
+  jQuery("#loading_3").show();
+  jQuery("#contunuar_3").hide();
   var data = {
     nit: localStorage.getItem("nit"),
   };
@@ -1148,8 +1158,8 @@ function deleteUser() {
       }
     })
     .catch(function (error) {
-      jQuery("#loading").hide();
-      jQuery("#button").show();
+      jQuery("#loading_3").hide();
+      jQuery("#contunuar_3").show();
       alert("Error al eliminar el usuario");
     });
 }

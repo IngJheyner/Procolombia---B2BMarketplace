@@ -49,7 +49,12 @@ class CpCheckNitController extends ControllerBase
         $data = $request->request->all();
         $user = $this->getUid($data['nit']);
         if(isset($user)){
-            return new JsonResponse(['user' => true]);
+            //if step is equal 3 return true
+            $userData = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
+            $step = $userData->get('field_step')->value;
+            if($step == 3){
+                return new JsonResponse(['user' => true]);
+            }
         }
         
         $empresas = ConsultaNIT($data['nit']);
