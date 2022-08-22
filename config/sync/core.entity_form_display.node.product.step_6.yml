@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.step_6
+    - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
     - field.field.node.product.field_categorization_parent
@@ -116,6 +117,7 @@ content: {  }
 hidden:
   body_class: true
   created: true
+  field_aditional_information: true
   field_body: true
   field_categorization: true
   field_categorization_parent: true

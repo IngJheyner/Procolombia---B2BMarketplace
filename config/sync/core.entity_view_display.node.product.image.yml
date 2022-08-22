@@ -4,6 +4,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.image
+    - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
     - field.field.node.product.field_categorization_parent
@@ -63,6 +64,7 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  field_aditional_information: true
   field_body: true
   field_categorization: true
   field_categorization_parent: true

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
     - field.field.node.product.field_categorization_parent
@@ -41,6 +42,13 @@ targetEntityType: node
 bundle: product
 mode: default
 content:
+  field_aditional_information:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
   field_body:
     type: basic_string
     label: above
@@ -114,6 +122,7 @@ content:
     settings:
       url: ''
       title: ''
+      headerlevel: '3'
       class: ''
       frameborder: '0'
       scrolling: ''
@@ -122,7 +131,6 @@ content:
       tokensupport: '0'
       width: ''
       height: ''
-      expose_class: ''
     third_party_settings: {  }
     weight: 21
     region: content
@@ -172,11 +180,18 @@ content:
     type: multilingual_form_display_formatter
     label: above
     settings:
+      collapsible_state: '1'
+      display_translate_table: 0
       display_label: true
       display_description: true
-      collapsible_state: 1
-      display_translate_table: false
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 23
     region: content
   field_partida_arancelaria_tax:

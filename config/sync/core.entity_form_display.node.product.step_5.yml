@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.step_5
+    - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
     - field.field.node.product.field_categorization_parent
@@ -29,8 +30,8 @@ dependencies:
     - field.field.node.product.field_trading_channel
     - node.type.product
   module:
+    - cp_core
     - field_group
-    - mfd
 third_party_settings:
   field_group:
     group_left:
@@ -129,6 +130,7 @@ content:
 hidden:
   body_class: true
   created: true
+  field_aditional_information: true
   field_body: true
   field_categorization: true
   field_categorization_parent: true
