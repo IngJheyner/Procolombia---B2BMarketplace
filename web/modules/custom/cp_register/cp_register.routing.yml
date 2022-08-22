@@ -1,0 +1,134 @@
+cp_register.render:
+  requirements:
+    _permission: "access content"
+
+# pre_register routes
+
+###Index route
+cp_register.pre_register:
+  path: "pre-register"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+cp_register.pre_registro:
+  path: "pre-registro"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+# check NIT routes
+
+### Index route
+cp_register.verification_user:
+  path: "verification/user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpCheckNitController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+cp_register.verificacion_user:
+  path: "verificacion/usuario"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpCheckNitController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### Validate NIT route
+cp_register.validate_nit:
+  path: "verification/validate_nit"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpCheckNitController::checkNit'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+
+# register routes
+
+### Index route
+cp_register.registerUser:
+  path: "register/user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+cp_register.registroUsuario:
+  path: "registro/usuario"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### check step
+cp_register.check_step:
+  path: "registro/check_step"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::checkStep'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_1
+cp_register.create_step_1:
+  path: "registro/create_step_1"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::createStep1'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### update_step_2
+cp_register.update_step_2:
+  path: "registro/update_step_2"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::updateStep2'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### update_step_3
+cp_register.update_step_3:
+  path: "registro/update_step_3"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::updateStep3'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+    
+### get_cities
+cp_register.get_cities:
+  path: "get_cities"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::getCity'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### get_user
+cp_register.get_user:
+  path: "get_user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::getDataUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### delete_user
+cp_register.delete_user:
+  path: "delete_user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::deleteUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"

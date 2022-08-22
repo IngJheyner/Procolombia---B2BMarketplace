@@ -1,0 +1,189 @@
+<main class="main_registre">
+	<div class="header_title">
+		<h1>REGISTRARSE COMO EMPRESA COLOMBIANA</h1>
+	</div>
+	<div class="body">
+		<h3 class="body_title">REGISTRO</h3>
+		<p class="body_description">Regístrese en el Catálogo de exportaciones de Colombia para ampliar su oferta a
+			los mercados internacionales. Recuerde que debe ser
+			una cuenta de ProColombia para poder
+			registrarse
+		</p>
+		<div class="row gy-4">
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<label for="nit">Nit
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<input type="number" id="nit" name="nit" placeholder="0000000-0"
+						title="Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni caracteres especiales."
+						aria-label="Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni caracteres especiales.">
+					<i id="error_nit" class='bx bxs-info-circle toltip_i'>
+						<span id="error_nit_message" class="tooltiptext_error">
+							Campo Obligatorio
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content">
+					<i class='bx bxs-info-circle toltip_i'>
+						<span class="tooltiptext">
+							Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni
+							caracteres especiales.
+						</span>
+					</i>
+					<span>Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni
+						caracteres especiales.</span>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<label for="email">Correo Electrónico
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<input type="email" id="email" name="email" placeholder="Example@example.com"
+						title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web."
+						aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web.">
+					<i id="error_mail" class='bx bxs-info-circle toltip_i'>
+						<span id="error_mail_message" class="tooltiptext_error">
+							Campo Obligatorio
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content">
+					<i class='bx bxs-info-circle toltip_i'>
+						<span class="tooltiptext">
+							Escriba el correo electrónico institucional donde se enviará la correspondencia de este
+							sitio web.
+						</span>
+					</i>
+					<span>Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio
+						web.</span>
+				</div>
+			</div>
+			<div class="col-lg-12 check">
+				<label><input type="checkbox" id="conditions" value="first_checkbox">
+					He leído y acepto
+					<a href="http://" target="_blank" rel="noopener noreferrer">condiciones de uso *</a>
+				</label>
+				<label><input type="checkbox" id="policy" value="first_checkbox">
+					He leído y acepto
+					<a href="http://" target="_blank" rel="noopener noreferrer">política de tratamiento de datos
+						personales
+						*</a>
+				</label>
+				<div style="text-align: center;">
+					<div class="g-recaptcha" data-sitekey="6LdHDAMTAAAAAEWm5ZhL4j0QDtjsSIKk2RxtktT1"
+						data-callback="onSubmit">
+						<div style="width: 304px; height: 78px;">
+							<div>
+								<iframe title="reCAPTCHA"
+									src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdHDAMTAAAAAEWm5ZhL4j0QDtjsSIKk2RxtktT1&amp;co=aHR0cHM6Ly9hemNhcHRjaGEuY29tOjQ0Mw..&amp;hl=es&amp;v=mq0-U1BHZ5YTcoDC-CvsLPNc&amp;size=normal&amp;cb=ke9h20s24mfp"
+									width="304" height="78" role="presentation" name="a-iwinge827y8r" frameborder="0"
+									scrolling="no"
+									sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+							</div>
+							<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"
+								style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 continue">
+				<button class="cancel">CANCELAR</button>
+				<button onclick="checkNit()" id="contunuar" name="continuar" aria-label="Continuar con el registro"
+					class="continue">CONTINUAR</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="error_neo" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_1Label"><img
+							src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+						Solicitar Cita
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Su empresa no se encuentra registrada como cuenta ProColombia. Para ser atendido por un
+						asesor se
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform." target="_blank" rel="noopener noreferrer">
+							debe solicitar cita
+							previa de manera virtual.</a>
+						<br>
+						En este espacio, usted podrá
+						solucionar sus inquietudes de comercio exterior y conocer los diferentes servicios de
+						ProColombia para aprovechar las oportunidades que el mercado internacional ofrece.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform.'" type="button" class="btn cita_btn">
+						<i class='bx bx-link-external'></i>
+						SOLICITAR
+						CITA</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="loader" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_3Label"><img
+							src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+						Verificación del Correo
+					</h5>
+				</div>
+				<div class="modal-body">
+					<p>Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico
+						donde recibirá un e-mail con un link de verificación
+					</p>
+					</a>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<div class="spinner-border my-2 m-auto" role="status" style="color: #0085ca;">
+						<span class="visually-hidden">Loading...</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="success" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+					<i class='bx bxs-message-check'></i>
+					<p>Verificación Exitosa</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="error_user" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_3Label"><img
+							src="/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+						Cuenta Existente
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>La empresa consultada ya cuenta con un usuario registrado, por favor
+						<a href="http://">
+							Inicie sesión.</a>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn login_btn">
+						Iniciar sesión</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

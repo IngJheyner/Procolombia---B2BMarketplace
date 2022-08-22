@@ -1,0 +1,41 @@
+cp_company_col.render:
+  requirements:
+    _permission: "access content"
+
+# pre_register routes
+
+###Index route
+cp_company_col.dashboard:
+  path: "dashboard/col/user"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_company_col.tablero:
+  path: "tablero/col/usuario"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_company_col.edit:
+  path: "edit/col/user"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_company_col.editar:
+  path: "editar/col/usuario"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
