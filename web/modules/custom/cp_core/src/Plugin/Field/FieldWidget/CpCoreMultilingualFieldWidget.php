@@ -96,7 +96,7 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
         $this->translationManager->getTranslationMetadata($entity)->setSource($entity->language()->getId());
 
         $element['value'][$langcode] = [
-          '#title' => $language_name,
+          '#title' => '',
         ];
 
         // Create a form element to hold the entity's fields.
