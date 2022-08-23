@@ -1,0 +1,20 @@
+uuid: 0efa8a98-fdb4-4c59-8edd-05e0d22c269c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_contact_position_e
+  module:
+    - user
+id: user.user.field_company_contact_position_e
+field_name: field_company_contact_position_e
+entity_type: user
+bundle: user
+label: 'Company contact position english'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

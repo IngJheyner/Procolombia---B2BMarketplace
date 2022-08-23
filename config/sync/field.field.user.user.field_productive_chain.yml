@@ -1,0 +1,30 @@
+uuid: 19502eee-47ed-4f68-b421-fb8da2fbd888
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_productive_chain
+    - taxonomy.vocabulary.cadena_productiva_principal
+  module:
+    - user
+id: user.user.field_productive_chain
+field_name: field_productive_chain
+entity_type: user
+bundle: user
+label: 'Productive chain'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cadena_productiva_principal: cadena_productiva_principal
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

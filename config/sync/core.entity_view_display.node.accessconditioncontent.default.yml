@@ -4,11 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.accessconditioncontent.field_accesconditionnametool
-    - field.field.node.accessconditioncontent.field_accescontent_videotool
     - field.field.node.accessconditioncontent.field_accessconditioncontent_lin
     - field.field.node.accessconditioncontent.field_accesscontent_logo
     - field.field.node.accessconditioncontent.field_accesscontentdescriptionto
     - field.field.node.accessconditioncontent.field_pagina_web_
+    - field.field.node.accessconditioncontent.field_video
+    - field.field.node.accessconditioncontent.field_video_tutorial_ac
     - field.field.node.accessconditioncontent.layout_builder__layout
     - node.type.accessconditioncontent
   module:
@@ -17,7 +18,7 @@ dependencies:
     - link
     - svg_image
     - user
-    - video_embed_field
+    - video
 third_party_settings:
   layout_builder:
     enabled: true
@@ -48,28 +49,6 @@ third_party_settings:
               add_region_classes: 1
               attributes: ''
         components:
-          883e388d-22d5-4f04-93d7-afa2b8f092a2:
-            uuid: 883e388d-22d5-4f04-93d7-afa2b8f092a2
-            region: right
-            configuration:
-              id: 'field_block:node:accessconditioncontent:field_accescontent_videotool'
-              label: AccesContent_VideoTool
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: video_embed_field_video
-                label: above
-                settings:
-                  autoplay: false
-                  responsive: true
-                  width: 854
-                  height: 480
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
           2cb059b3-f84f-4cbb-ae27-d60d657c7b14:
             uuid: 2cb059b3-f84f-4cbb-ae27-d60d657c7b14
             region: left
@@ -106,7 +85,7 @@ third_party_settings:
                 view_mode: view_mode
               formatter:
                 type: image
-                label: above
+                label: hidden
                 settings:
                   image_link: ''
                   image_style: ''
@@ -124,12 +103,15 @@ third_party_settings:
             region: left
             configuration:
               id: 'field_block:node:accessconditioncontent:field_accesscontentdescriptionto'
+              label: AccessContentDescriptionTool
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: string
-                label: above
+                label: hidden
                 settings:
                   link_to_entity: false
                 third_party_settings: {  }
@@ -193,25 +175,6 @@ third_party_settings:
                     attribute: lazy
                 third_party_settings: {  }
             weight: 0
-            additional: {  }
-          0a9ec21a-452d-4a1e-89b1-cb54ef66ac91:
-            uuid: 0a9ec21a-452d-4a1e-89b1-cb54ef66ac91
-            region: content
-            configuration:
-              id: 'field_block:node:accessconditioncontent:field_accescontent_videotool'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: video_embed_field_video
-                label: hidden
-                settings:
-                  autoplay: true
-                  responsive: true
-                  width: 854
-                  height: 480
-                third_party_settings: {  }
-            weight: 1
             additional: {  }
           276ff5ef-b4eb-4e7e-98fd-1f6e2805ca90:
             uuid: 276ff5ef-b4eb-4e7e-98fd-1f6e2805ca90
@@ -295,6 +258,42 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 9
             additional: {  }
+          21a42f61-a892-44d3-9945-cd8c027ede78:
+            uuid: 21a42f61-a892-44d3-9945-cd8c027ede78
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_video_tutorial_ac'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: video_embed_player
+                label: above
+                settings:
+                  autoplay: true
+                  width: '854'
+                  height: '480'
+                  related_videos: false
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          200a4f99-4712-4713-a379-139dea841cfe:
+            uuid: 200a4f99-4712-4713-a379-139dea841cfe
+            region: left
+            configuration:
+              id: 'field_block:node:accessconditioncontent:field_video'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 11
+            additional: {  }
         third_party_settings: {  }
 id: node.accessconditioncontent.default
 targetEntityType: node
@@ -309,17 +308,6 @@ content:
     third_party_settings: {  }
     weight: 8
     region: left
-  field_accescontent_videotool:
-    type: video_embed_field_video
-    label: hidden
-    settings:
-      autoplay: true
-      responsive: true
-      width: 854
-      height: 480
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_accessconditioncontent_lin:
     type: link
     label: hidden
@@ -366,6 +354,26 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 9
+    region: left
+  field_video:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 11
+    region: left
+  field_video_tutorial_ac:
+    type: video_embed_player
+    label: above
+    settings:
+      autoplay: true
+      width: '854'
+      height: '480'
+      related_videos: false
+    third_party_settings: {  }
+    weight: 10
     region: left
   links:
     settings: {  }

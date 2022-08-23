@@ -1,0 +1,8 @@
+uuid: 7b2c7832-0abe-4d55-b495-0f5a87e963a5
+langcode: es
+status: true
+dependencies: {  }
+name: 'Cadena productiva principal'
+vid: cadena_productiva_principal
+description: ''
+weight: 0

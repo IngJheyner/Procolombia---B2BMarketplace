@@ -1,0 +1,8 @@
+uuid: f3e044b7-6a95-4628-beac-75232cf7e14d
+langcode: es
+status: true
+dependencies: {  }
+name: 'Modelos de negocio'
+vid: modelos_de_negocio
+description: ''
+weight: 0

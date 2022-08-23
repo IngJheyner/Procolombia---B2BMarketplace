@@ -1,0 +1,7 @@
+uuid: dd758036-cde8-47fb-b212-44db1be6a676
+langcode: es
+status: true
+dependencies: {  }
+name: imagen_articulo
+label: 'Imagen articulo'
+effects: {  }
