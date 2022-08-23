@@ -12,6 +12,10 @@
     .legal-modal { 
         grid-area: 1 / 1 / 2 / 4; 
     }
+    input, textarea{
+        @include fields-hover-and-focus;
+        resize: none;
+    }
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
@@ -22,6 +26,16 @@
     // Ends Main styles multistep sidebar
 
     // Start content form styles
+    .js-form-item{
+        position: relative;
+        margin-top: 22px;
+        >label{
+           @include label-style;
+        }
+        input[type="text"]{
+            height: 40px;
+        }
+    }
     .field-group-html-element.group-row {
         display: grid; 
         margin-top: 25px;
@@ -35,6 +49,7 @@
         border-right: 1px solid $procol-gray-200;
         margin-top: 31px;
         padding: 0 50px;
+        
     }
     .field-group-html-element.group-right{ 
         grid-area: 2 / 3 / 4 / 4; 
@@ -45,10 +60,8 @@
         justify-content: flex-end;
         align-items: flex-end;
         padding: 0 50px;
-        #edit-field-multilingual-wrapper {
+        #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
-            #edit-field-multilingual-0-value-en {
-                margin-bottom: 0px !important;
             }
         }
   
@@ -94,7 +107,7 @@
         // Ends Buttons styles
            
      }  
-}
+
 
     
     
