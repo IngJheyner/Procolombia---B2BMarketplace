@@ -35,24 +35,6 @@ cp_core.recuperarContrasena:
     requirements:
         _permission: 'access content'
 
-
-cp_core.registerUser:
-    path: 'register/user'
-    defaults:
-        _controller: '\Drupal\cp_core\Controller\CpCoreController::registerExporterFom'
-        _title: 'Register'
-    requirements:
-        _permission: 'access content'
-
-cp_core.registroUsuario:
-    path: 'registro/usuario'
-    defaults:
-        _controller: '\Drupal\cp_core\Controller\CpCoreController::registerExporterFom'
-        _title: 'Registro'
-    requirements:
-        _permission: 'access content'
-
-
 cp_core.registerBuyer:
     path: 'register/buyer'
     defaults:
@@ -191,18 +173,3 @@ cp_core.autocomplete_ciiu:
     _format: json
   requirements:
     _access: 'TRUE'
-
-cp_core.pre_register:
-  path: 'pre-register'
-  defaults:
-    _controller: '\Drupal\cp_core\Controller\CpCoreController::preRegister'
-    _title: 'Pre Register'
-  requirements:
-    _permission: 'access content'
-cp_core.pre_registro:
-  path: 'pre-registro'
-  defaults:
-    _controller: '\Drupal\cp_core\Controller\CpCoreController::preRegister'
-    _title: 'Pre Registro'
-  requirements:
-    _permission: 'access content'

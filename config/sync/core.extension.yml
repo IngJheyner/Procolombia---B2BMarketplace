@@ -37,8 +37,10 @@ module:
   config_update: 0
   contextual: 0
   core_views_facets: 0
+  cp_company_col: 0
   cp_core: 0
   cp_migrate: 0
+  cp_register: 0
   cp_search: 0
   cp_wf_contact: 0
   crop: 0
@@ -187,6 +189,7 @@ module:
   stage_file_proxy: 0
   structure_sync: 0
   svg_image: 0
+  svg_image_responsive: 0
   system: 0
   taxonomy: 0
   taxonomy_access_fix: 0

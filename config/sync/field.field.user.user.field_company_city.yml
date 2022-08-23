@@ -1,0 +1,30 @@
+uuid: ad08f91b-b6ae-44d9-acbb-9ca7462159a7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_city
+    - taxonomy.vocabulary.locations
+  module:
+    - user
+id: user.user.field_company_city
+field_name: field_company_city
+entity_type: user
+bundle: user
+label: company_city
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      locations: locations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

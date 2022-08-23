@@ -42,9 +42,10 @@ class CpCoreMultiStepForms extends ControllerBase {
    */
   public function multistepForm(Request $request, $nid = NULL) {
 
-    $form_state = (new FormState())->addBuildInfo('args', [$request, 'step']);
+    $form_state = (new FormState())->addBuildInfo('args', [$request, 'step', $nid]);
     // $form_state->setValues($request->query->all());
     return $this->formBuilder()->buildForm('Drupal\cp_core\Form\CpCoreMultiStepForm', $form_state);
   }
+
 
 }

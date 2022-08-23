@@ -1,0 +1,16 @@
+uuid: 3dd8b928-b510-44b3-aa04-ea7e81e91a0d
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cadena_productiva_principal
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.cadena_productiva_principal
+target_entity_type_id: taxonomy_term
+target_bundle: cadena_productiva_principal
+default_langcode: site_default
+language_alterable: true

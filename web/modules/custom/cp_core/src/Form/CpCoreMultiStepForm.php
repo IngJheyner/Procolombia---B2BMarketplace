@@ -189,13 +189,18 @@ class CpCoreMultiStepForm extends FormBase {
   /**
    * {@inheritdoc} Builds a form for a single entity field.
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step') {
+  public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step', $nid = NULL) {
     $bundle = 'product';
     if (!$form_state->has('entity')) {
-      $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
-        'type' => $bundle,
-        'status' => 0,
-      ]);
+      if (empty($nid)) {
+        $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
+          'type' => $bundle,
+          'status' => 0,
+        ]);
+      }
+      else {
+        $entity = $this->entityTypeManager->getStorage('node')->load($nid);
+      }
       $this->init($form_state, $entity, $mode_form_pattern);
       if (!$this->maxStep) {
         \Drupal::messenger()->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');

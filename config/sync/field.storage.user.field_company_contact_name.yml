@@ -1,20 +1,22 @@
-uuid: 3f0c9283-6609-4e9a-a44b-76d315768a8d
+uuid: 38c27dd7-6216-44bb-a0d8-712c2bac43c9
 langcode: es
 status: true
 dependencies:
   module:
     - field_permissions
-    - node
-    - video_embed_field
+    - user
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_accescontent_videotool
-field_name: field_accescontent_videotool
-entity_type: node
-type: video_embed_field
-settings: {  }
-module: video_embed_field
+id: user.field_company_contact_name
+field_name: field_company_contact_name
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
