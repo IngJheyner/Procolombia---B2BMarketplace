@@ -29,7 +29,7 @@
             &::before{
                 position: absolute;
                 content:'';
-                background-color: $procolo-dark-blue;
+                background-color: $procol-dark-blue;
                 top: -8%;
                 right: 95%;
                 height: 26px;
@@ -53,7 +53,7 @@
             &.current:hover:before{
                 content: url(../images/icons/icon-navigation-expand_more_24px.svg);
                 position: absolute;
-                background-color: $procolo-dark-blue;
+                background-color: $procol-dark-blue;
                 z-index: 2;
                 display: flex;
                 justify-content: center;
