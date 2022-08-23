@@ -17,8 +17,12 @@ dependencies:
     - field.field.node.product.field_key_words
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
-    - field.field.node.product.field_multilingual
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
@@ -32,6 +36,7 @@ dependencies:
   module:
     - file
     - iframe
+    - mfd
     - path
     - shs
     - svg_image
@@ -195,6 +200,56 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pr_multilingual_step1:
+    type: multilingual_form_display_widget
+    weight: 36
+    region: content
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      mfd_languages: {  }
+    third_party_settings: {  }
+  field_pr_multilingual_step2:
+    type: multilingual_form_display_widget
+    weight: 37
+    region: content
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      mfd_languages: {  }
+    third_party_settings: {  }
+  field_pr_multilingual_step3:
+    type: multilingual_form_display_widget
+    weight: 38
+    region: content
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      mfd_languages: {  }
+    third_party_settings: {  }
+  field_pr_multilingual_step4:
+    type: multilingual_form_display_widget
+    weight: 39
+    region: content
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      mfd_languages: {  }
+    third_party_settings: {  }
+  field_pr_multilingual_step5:
+    type: multilingual_form_display_widget
+    weight: 40
+    region: content
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      mfd_languages: {  }
+    third_party_settings: {  }
   field_pr_ref_company:
     type: entity_reference_autocomplete
     weight: 6
@@ -331,5 +386,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_multilingual: true
+hidden: {  }

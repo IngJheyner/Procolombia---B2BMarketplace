@@ -8,11 +8,9 @@ dependencies:
     - field.field.node.service.field_field_servicedescription
     - field.field.node.service.field_field_servicesubcategory
     - field.field.node.service.field_field_technicalsheet
-    - field.field.node.service.field_multilingual
     - node.type.service
   module:
     - file
-    - mfd
     - user
 id: node.service.default
 targetEntityType: node
@@ -56,17 +54,6 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     weight: 102
-    region: content
-  field_multilingual:
-    type: multilingual_form_display_formatter
-    label: above
-    settings:
-      display_label: true
-      display_description: true
-      collapsible_state: 1
-      display_translate_table: false
-    third_party_settings: {  }
-    weight: 106
     region: content
   links:
     settings: {  }

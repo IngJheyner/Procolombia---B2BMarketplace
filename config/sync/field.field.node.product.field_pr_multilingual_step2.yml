@@ -1,17 +1,17 @@
-uuid: 28651f86-a44d-4ba5-8055-b338f7519890
+uuid: 6b6bf164-88b8-458f-a626-f787e4ea9c06
 langcode: es
 status: true
 dependencies:
   config:
-    - field.storage.node.field_multilingual
+    - field.storage.node.field_pr_multilingual_step2
     - node.type.product
   module:
     - mfd
-id: node.product.field_multilingual
-field_name: field_multilingual
+id: node.product.field_pr_multilingual_step2
+field_name: field_pr_multilingual_step2
 entity_type: node
 bundle: product
-label: Multi-languages
+label: 'Multi-idioma paso 2'
 description: ''
 required: false
 translatable: false

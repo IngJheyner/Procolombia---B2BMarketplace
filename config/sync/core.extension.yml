@@ -23,6 +23,8 @@ module:
   breakpoint: 0
   captcha: 0
   change_pwd_page: 0
+  chosen: 0
+  chosen_lib: 0
   civic_accessibility_toolbar: 0
   ckeditor: 0
   ckeditor_media_embed: 0

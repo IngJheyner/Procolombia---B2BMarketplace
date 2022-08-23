@@ -17,8 +17,12 @@ dependencies:
     - field.field.node.product.field_key_words
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
-    - field.field.node.product.field_multilingual
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
@@ -176,24 +180,6 @@ content:
     third_party_settings: {  }
     weight: 19
     region: content
-  field_multilingual:
-    type: multilingual_form_display_formatter
-    label: above
-    settings:
-      collapsible_state: '1'
-      display_translate_table: 0
-      display_label: true
-      display_description: true
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-    weight: 23
-    region: content
   field_partida_arancelaria_tax:
     type: entity_reference_label
     label: above
@@ -201,6 +187,61 @@ content:
       link: true
     third_party_settings: {  }
     weight: 20
+    region: content
+  field_pr_multilingual_step1:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_pr_multilingual_step2:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_pr_multilingual_step3:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_pr_multilingual_step4:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_pr_multilingual_step5:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 29
     region: content
   field_pr_ref_company:
     type: entity_reference_label

@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.service.field_field_servicedescription
     - field.field.node.service.field_field_servicesubcategory
     - field.field.node.service.field_field_technicalsheet
-    - field.field.node.service.field_multilingual
     - node.type.service
   module:
     - user
@@ -32,6 +31,5 @@ hidden:
   field_field_servicedescription: true
   field_field_servicesubcategory: true
   field_field_technicalsheet: true
-  field_multilingual: true
   langcode: true
   search_api_excerpt: true

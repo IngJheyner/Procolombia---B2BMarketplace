@@ -18,8 +18,12 @@ dependencies:
     - field.field.node.product.field_key_words
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
-    - field.field.node.product.field_multilingual
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
@@ -38,8 +42,8 @@ third_party_settings:
       children: {  }
       label: Left
       region: content
-      parent_name: ''
-      weight: 1
+      parent_name: group_row
+      weight: 2
       format_type: html_element
       format_settings:
         classes: group-left
@@ -55,11 +59,11 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
-        - field_multilingual
+        - field_pr_multilingual_step5
       label: Right
       region: content
-      parent_name: ''
-      weight: 2
+      parent_name: group_row
+      weight: 3
       format_type: html_element
       format_settings:
         classes: group-left
@@ -77,11 +81,11 @@ third_party_settings:
       children: {  }
       label: Top
       region: content
-      parent_name: ''
-      weight: 0
+      parent_name: group_row
+      weight: 1
       format_type: html_element
       format_settings:
-        classes: group-top
+        classes: 'group-top col-sm-12'
         show_empty_fields: false
         id: ''
         element: div
@@ -96,11 +100,34 @@ third_party_settings:
       children: {  }
       label: Bottom
       region: content
-      parent_name: ''
-      weight: 3
+      parent_name: group_row
+      weight: 4
       format_type: html_element
       format_settings:
-        classes: group-bottom
+        classes: 'group-bottom col-sm-12'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_row:
+      children:
+        - group_top
+        - group_left
+        - group_right
+        - group_bottom
+      label: Row
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: 'group-row row'
         show_empty_fields: false
         id: ''
         element: div
@@ -116,9 +143,9 @@ targetEntityType: node
 bundle: product
 mode: step_5
 content:
-  field_multilingual:
+  field_pr_multilingual_step5:
     type: cp_core_multilingual_field_widget
-    weight: 4
+    weight: 5
     region: content
     settings:
       collapsible_state: '-1'
@@ -145,6 +172,10 @@ hidden:
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
+  field_pr_multilingual_step1: true
+  field_pr_multilingual_step2: true
+  field_pr_multilingual_step3: true
+  field_pr_multilingual_step4: true
   field_pr_ref_company: true
   field_previous_id: true
   field_product_type: true
