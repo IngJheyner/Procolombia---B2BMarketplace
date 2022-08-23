@@ -41,6 +41,7 @@ third_party_settings:
   field_group:
     group_left:
       children:
+        - field_product_type
         - title
         - field_body
         - field_file
@@ -82,8 +83,7 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_top:
-      children:
-        - field_product_type
+      children: {  }
       label: Top
       region: content
       parent_name: group_row
