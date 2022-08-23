@@ -4,14 +4,11 @@ status: true
 dependencies:
   module:
     - menu_ui
-    - node_type_class
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-  node_type_class:
-    classes: ''
 name: Product
 type: product
 description: 'Content type product'
