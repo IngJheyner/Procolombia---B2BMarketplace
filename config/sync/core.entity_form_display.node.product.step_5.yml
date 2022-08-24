@@ -34,7 +34,12 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -46,6 +51,8 @@ dependencies:
   module:
     - cp_core
     - field_group
+    - text
+    - video_embed_field
 third_party_settings:
   field_group:
     group_left:
@@ -134,7 +141,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 0
+      weight: 5
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -163,6 +170,40 @@ content:
         en: en
       display_label: 0
       display_description: 0
+    third_party_settings: {  }
+  field_pr_terms_of_condition:
+    type: options_buttons
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pr_video:
+    type: video_embed_field_textfield
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pr_video_2:
+    type: video_embed_field_textfield
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pr_video_description_1:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pr_video_description_2:
+    type: text_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   body_class: true

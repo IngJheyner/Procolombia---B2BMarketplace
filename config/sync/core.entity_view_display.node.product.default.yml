@@ -33,7 +33,12 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -49,7 +54,9 @@ dependencies:
     - options
     - svg_image
     - telephone
+    - text
     - user
+    - video_embed_field
 id: node.product.default
 targetEntityType: node
 bundle: product
@@ -367,6 +374,16 @@ content:
     third_party_settings: {  }
     weight: 34
     region: content
+  field_pr_terms_of_condition:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 44
+    region: content
   field_pr_type_certifications:
     type: entity_reference_label
     label: above
@@ -374,6 +391,42 @@ content:
       link: true
     third_party_settings: {  }
     weight: 31
+    region: content
+  field_pr_video:
+    type: video_embed_field_video
+    label: above
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    weight: 40
+    region: content
+  field_pr_video_2:
+    type: video_embed_field_video
+    label: above
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    weight: 42
+    region: content
+  field_pr_video_description_1:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 41
+    region: content
+  field_pr_video_description_2:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 43
     region: content
   field_previous_id:
     type: string

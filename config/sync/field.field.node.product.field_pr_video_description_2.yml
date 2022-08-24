@@ -1,0 +1,21 @@
+uuid: fd2de741-b44c-47ec-b8e5-631e3a2e1de9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_video_description_2
+    - node.type.product
+  module:
+    - text
+id: node.product.field_pr_video_description_2
+field_name: field_pr_video_description_2
+entity_type: node
+bundle: product
+label: 'Descripción video 2'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

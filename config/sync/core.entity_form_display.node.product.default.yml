@@ -33,7 +33,12 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -51,6 +56,8 @@ dependencies:
     - shs
     - svg_image
     - telephone
+    - text
+    - video_embed_field
 id: node.product.default
 targetEntityType: node
 bundle: product
@@ -347,6 +354,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pr_terms_of_condition:
+    type: boolean_checkbox
+    weight: 55
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_pr_type_certifications:
     type: entity_reference_autocomplete
     weight: 42
@@ -354,6 +368,34 @@ content:
     settings:
       match_operator: CONTAINS
       match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pr_video:
+    type: video_embed_field_textfield
+    weight: 51
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pr_video_2:
+    type: video_embed_field_textfield
+    weight: 53
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pr_video_description_1:
+    type: text_textfield
+    weight: 52
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pr_video_description_2:
+    type: text_textfield
+    weight: 54
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }

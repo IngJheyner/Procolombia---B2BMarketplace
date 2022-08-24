@@ -34,7 +34,12 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -228,7 +233,12 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_target_market: true
+  field_pr_terms_of_condition: true
   field_pr_type_certifications: true
+  field_pr_video: true
+  field_pr_video_2: true
+  field_pr_video_description_1: true
+  field_pr_video_description_2: true
   field_previous_id: true
   field_producto_innovador: true
   field_states: true
