@@ -56,7 +56,10 @@ dependencies:
 third_party_settings:
   field_group:
     group_left:
-      children: {  }
+      children:
+        - field_pr_certifications
+        - field_pr_type_certifications
+        - field_pr_product_availability
       label: Left
       region: content
       parent_name: group_row
@@ -76,14 +79,16 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
+        - field_pr_target_market
+        - field_pr_sales_channel
         - field_pr_multilingual_step3
       label: Right
       region: content
       parent_name: group_row
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
-        classes: group-left
+        classes: group-right
         show_empty_fields: false
         id: ''
         element: div
@@ -99,7 +104,7 @@ third_party_settings:
       label: Top
       region: content
       parent_name: group_row
-      weight: 1
+      weight: 0
       format_type: html_element
       format_settings:
         classes: 'group-top col-sm-12'
@@ -118,7 +123,7 @@ third_party_settings:
       label: Bottom
       region: content
       parent_name: group_row
-      weight: 4
+      weight: 5
       format_type: html_element
       format_settings:
         classes: 'group-bottom col-sm-12'
@@ -141,7 +146,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 5
+      weight: 1
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -169,7 +174,7 @@ content:
     third_party_settings: {  }
   field_pr_multilingual_step3:
     type: cp_core_multilingual_field_widget
-    weight: 5
+    weight: 4
     region: content
     settings:
       collapsible_state: '-1'
@@ -180,7 +185,7 @@ content:
     third_party_settings: {  }
   field_pr_product_availability:
     type: select2_entity_reference
-    weight: 2
+    weight: 3
     region: content
     settings:
       width: 100%
@@ -190,7 +195,7 @@ content:
     third_party_settings: {  }
   field_pr_sales_channel:
     type: select2_entity_reference
-    weight: 4
+    weight: 3
     region: content
     settings:
       width: 100%
@@ -200,7 +205,7 @@ content:
     third_party_settings: {  }
   field_pr_target_market:
     type: select2_entity_reference
-    weight: 3
+    weight: 2
     region: content
     settings:
       width: 100%
@@ -210,7 +215,7 @@ content:
     third_party_settings: {  }
   field_pr_type_certifications:
     type: select2_entity_reference
-    weight: 0
+    weight: 2
     region: content
     settings:
       width: 100%
