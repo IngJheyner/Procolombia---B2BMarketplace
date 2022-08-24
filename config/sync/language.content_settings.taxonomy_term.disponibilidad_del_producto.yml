@@ -1,0 +1,11 @@
+uuid: dffebe14-2794-41d1-a294-e817a2b2006e
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.disponibilidad_del_producto
+id: taxonomy_term.disponibilidad_del_producto
+target_entity_type_id: taxonomy_term
+target_bundle: disponibilidad_del_producto
+default_langcode: site_default
+language_alterable: false
