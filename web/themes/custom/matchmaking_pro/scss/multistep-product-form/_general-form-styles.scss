@@ -31,6 +31,11 @@
         margin-top: 22px;
         >label{
            @include label-style;
+           &#edit-field-file-0--label,
+           &#edit-field-file-en-0--label {
+            position: relative;
+            left: 0;
+            }
         }
         input[type="text"]{
             height: 40px;

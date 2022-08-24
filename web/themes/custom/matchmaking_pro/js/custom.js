@@ -10,8 +10,8 @@
   Drupal.behaviors.matchmaking_pro = {
     attach: function(context, settings) {
 
-      // Custom code here
-
+      // Custom code here 
+			
     }
   };
 
