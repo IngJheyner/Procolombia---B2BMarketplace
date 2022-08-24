@@ -19,12 +19,17 @@ dependencies:
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
     - field.field.node.product.field_pr_multilingual_step4
     - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
     - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_type_certifications
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -204,11 +209,16 @@ hidden:
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
+  field_pr_certifications: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
   field_pr_multilingual_step4: true
   field_pr_multilingual_step5: true
+  field_pr_product_availability: true
   field_pr_ref_company: true
+  field_pr_sales_channel: true
+  field_pr_target_market: true
+  field_pr_type_certifications: true
   field_previous_id: true
   field_producto_innovador: true
   field_states: true

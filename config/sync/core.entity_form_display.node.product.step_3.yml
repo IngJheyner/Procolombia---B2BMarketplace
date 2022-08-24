@@ -19,12 +19,17 @@ dependencies:
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
     - field.field.node.product.field_pr_multilingual_step4
     - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
     - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_type_certifications
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -36,6 +41,8 @@ dependencies:
   module:
     - cp_core
     - field_group
+    - file
+    - select2
 third_party_settings:
   field_group:
     group_left:
@@ -124,7 +131,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 0
+      weight: 5
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -143,6 +150,13 @@ targetEntityType: node
 bundle: product
 mode: step_3
 content:
+  field_pr_certifications:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_pr_multilingual_step3:
     type: cp_core_multilingual_field_widget
     weight: 5
@@ -153,6 +167,46 @@ content:
         en: en
       display_label: 0
       display_description: 0
+    third_party_settings: {  }
+  field_pr_product_availability:
+    type: select2_entity_reference
+    weight: 2
+    region: content
+    settings:
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
+    third_party_settings: {  }
+  field_pr_sales_channel:
+    type: select2_entity_reference
+    weight: 4
+    region: content
+    settings:
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
+    third_party_settings: {  }
+  field_pr_target_market:
+    type: select2_entity_reference
+    weight: 3
+    region: content
+    settings:
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
+    third_party_settings: {  }
+  field_pr_type_certifications:
+    type: select2_entity_reference
+    weight: 0
+    region: content
+    settings:
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
     third_party_settings: {  }
 hidden:
   body_class: true

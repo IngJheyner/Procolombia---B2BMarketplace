@@ -1,0 +1,8 @@
+uuid: 366bb8f0-797d-4b64-9879-11f769596d80
+langcode: es
+status: true
+dependencies: {  }
+name: 'Disponibilidad del producto'
+vid: disponibilidad_del_producto
+description: ''
+weight: 0
