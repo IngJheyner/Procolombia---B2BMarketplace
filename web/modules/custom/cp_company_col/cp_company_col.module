@@ -39,9 +39,3 @@ function cp_company_col_theme($existing, $type, $theme, $path)
     ],
   ];
 }
-
-function cp_company_col_page_attachments(array &$attachments) {
-
-  // Unconditionally attach an asset to the page.
-  $attachments['#attached']['library'][] = 'cp_company_col/cp_company_col';
-}

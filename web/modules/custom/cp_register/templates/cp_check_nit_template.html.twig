@@ -1,3 +1,4 @@
+{{ attach_library('cp_register/cp_register') }}
 <main class="main_registre">
 	<div class="header_title">
 		<h1>REGISTRARSE COMO EMPRESA COLOMBIANA</h1>
@@ -90,7 +91,7 @@
 			</div>
 			<div class="col-lg-12 continue">
 				<button class="cancel">CANCELAR</button>
-				<button onclick="checkNit()" id="contunuar" name="continuar" aria-label="Continuar con el registro"
+				<button id="check_nit" name="check_nit" aria-label="Continuar con el registro"
 					class="continue">CONTINUAR</button>
 			</div>
 		</div>
@@ -118,7 +119,7 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform.'" type="button" class="btn cita_btn">
+					<button id="go_form" type="button" class="btn cita_btn">
 						<i class='bx bx-link-external'></i>
 						SOLICITAR
 						CITA</button>

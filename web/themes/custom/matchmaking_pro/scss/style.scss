@@ -3,6 +3,10 @@ Theme Name: Bootstrap 4 Sass
 Description: Bootstrap 4 with Sass
 */
 
+
+
+
+
 // import files
 @import "import";
 
@@ -22,11 +26,11 @@ a {
 }
 
 .bg-inverse {
-    background: $primary-shade !important;
+    background: $primary-shade  !important;
 }
 
 .site-footer {
-    background: $accent-shade !important;
+    background: $accent-shade  !important;
 }
 
 .menu--main li a {

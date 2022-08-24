@@ -1,10 +1,12 @@
-cp_register:
+cp_company_col:
   version: 1.5
   css:
     theme:
-      css/styles.css: {}
+      css/cp_company_col.css: {}
   js:
-    js/main.js: {}
+    js/cp_company_col.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once
+
+    
