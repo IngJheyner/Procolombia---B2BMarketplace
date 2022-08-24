@@ -19,6 +19,11 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
@@ -38,7 +43,6 @@ dependencies:
     - field.field.node.product.field_trading_channel
     - node.type.product
   module:
-    - ds
     - file
     - iframe
     - mfd
@@ -200,6 +204,81 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     weight: 30
+    region: content
+  field_pr_image_1:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_pr_image_2:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_pr_image_3:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_pr_image_4:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_pr_image_5:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 39
     region: content
   field_pr_multilingual_step1:
     type: multilingual_form_display_formatter

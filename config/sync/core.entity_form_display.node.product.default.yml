@@ -19,6 +19,11 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
@@ -211,6 +216,46 @@ content:
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_pr_image_1:
+    type: image_image
+    weight: 46
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_2:
+    type: image_image
+    weight: 47
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_3:
+    type: image_image
+    weight: 48
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_4:
+    type: image_image
+    weight: 49
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_5:
+    type: image_image
+    weight: 50
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_pr_multilingual_step1:
     type: multilingual_form_display_widget

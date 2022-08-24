@@ -20,6 +20,11 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
@@ -37,10 +42,12 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
+    - image.style.thumbnail
     - node.type.product
   module:
     - cp_core
     - field_group
+    - svg_image
 third_party_settings:
   field_group:
     group_left:
@@ -129,7 +136,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 0
+      weight: 5
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -148,6 +155,46 @@ targetEntityType: node
 bundle: product
 mode: step_4
 content:
+  field_pr_image_1:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_2:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_3:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_4:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pr_image_5:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_pr_multilingual_step4:
     type: cp_core_multilingual_field_widget
     weight: 5

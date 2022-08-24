@@ -20,6 +20,11 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
@@ -88,6 +93,11 @@ hidden:
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
   field_pr_certifications: true
+  field_pr_image_1: true
+  field_pr_image_2: true
+  field_pr_image_3: true
+  field_pr_image_4: true
+  field_pr_image_5: true
   field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
