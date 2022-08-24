@@ -12,9 +12,18 @@
     .legal-modal { 
         grid-area: 1 / 1 / 2 / 4; 
     }
-    input, textarea{
+    input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
+    }
+    textarea{
+        height: 100px;
+    }
+    select{
+        height: 35px;
+        &:focus{
+            box-shadow: none;
+        }
     }
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
@@ -40,6 +49,13 @@
         input[type="text"]{
             height: 40px;
         }
+        input[type="file"]{
+            height: 33px;
+            &:hover{
+                border: 1px solid #A1A5AA;
+            }
+        }
+        
     }
     .field-group-html-element.group-row {
         display: grid; 
