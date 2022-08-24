@@ -56,11 +56,15 @@ dependencies:
 third_party_settings:
   field_group:
     group_left:
-      children: {  }
+      children:
+        - field_pr_video
+        - field_pr_video_description_1
+        - field_pr_video_description_2
+        - field_pr_video_2
       label: Left
       region: content
       parent_name: group_row
-      weight: 2
+      weight: 4
       format_type: html_element
       format_settings:
         classes: group-left
@@ -80,7 +84,7 @@ third_party_settings:
       label: Right
       region: content
       parent_name: group_row
-      weight: 3
+      weight: 5
       format_type: html_element
       format_settings:
         classes: group-left
@@ -99,7 +103,7 @@ third_party_settings:
       label: Top
       region: content
       parent_name: group_row
-      weight: 1
+      weight: 3
       format_type: html_element
       format_settings:
         classes: 'group-top col-sm-12'
@@ -118,7 +122,7 @@ third_party_settings:
       label: Bottom
       region: content
       parent_name: group_row
-      weight: 4
+      weight: 6
       format_type: html_element
       format_settings:
         classes: 'group-bottom col-sm-12'
@@ -185,7 +189,7 @@ content:
     third_party_settings: {  }
   field_pr_video_2:
     type: video_embed_field_textfield
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -199,7 +203,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: text_textfield
-    weight: 3
+    weight: 2
     region: content
     settings:
       size: 60
