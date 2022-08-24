@@ -48,13 +48,13 @@ dependencies:
     - field.field.node.product.field_trading_channel
     - node.type.product
   module:
+    - ds
     - file
     - iframe
     - mfd
     - options
     - svg_image
     - telephone
-    - text
     - user
     - video_embed_field
 id: node.product.default
@@ -378,10 +378,17 @@ content:
     type: boolean
     label: above
     settings:
-      format: default
+      format: unicode-yes-no
       format_custom_false: ''
       format_custom_true: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 44
     region: content
   field_pr_type_certifications:
@@ -393,40 +400,45 @@ content:
     weight: 31
     region: content
   field_pr_video:
-    type: video_embed_field_video
+    type: video_embed_field_thumbnail
     label: above
     settings:
-      autoplay: true
-      responsive: true
-      width: 854
-      height: 480
-    third_party_settings: {  }
+      image_style: ''
+      link_image_to: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 40
     region: content
   field_pr_video_2:
-    type: video_embed_field_video
+    type: video_embed_field_thumbnail
     label: above
     settings:
-      autoplay: true
-      responsive: true
-      width: 854
-      height: 480
+      image_style: ''
+      link_image_to: ''
     third_party_settings: {  }
     weight: 42
     region: content
   field_pr_video_description_1:
-    type: text_default
+    type: string
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 41
+    weight: 45
     region: content
   field_pr_video_description_2:
-    type: text_default
+    type: string
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 43
+    weight: 46
     region: content
   field_previous_id:
     type: string

@@ -56,7 +56,6 @@ dependencies:
     - shs
     - svg_image
     - telephone
-    - text
     - video_embed_field
 id: node.product.default
 targetEntityType: node
@@ -384,16 +383,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_pr_video_description_1:
-    type: text_textfield
-    weight: 52
+    type: string_textfield
+    weight: 56
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_pr_video_description_2:
-    type: text_textfield
-    weight: 54
+    type: string_textfield
+    weight: 57
     region: content
     settings:
       size: 60
