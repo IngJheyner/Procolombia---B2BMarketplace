@@ -192,6 +192,7 @@ class CpCoreMultiStepForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step', $nid = NULL) {
     $bundle = 'product';
     if (!$form_state->has('entity')) {
+      $form_state->set('language_values_en', []);
       if (empty($nid)) {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
           'type' => $bundle,
@@ -371,16 +372,28 @@ class CpCoreMultiStepForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
     $form_state->set('entity', $entity);
-    if ($this->step < $this->maxStep) {
+    // The last step is an empty step to show product list. The saving must be
+    // an previous step.
+    if ($this->step <= ($this->maxStep - 1)) {
+      $values = $form_state->getValues();
+      $language_values = $form_state->get('language_values_en');
+      foreach ($values as $k => $v) {
+        if (strpos($k, '_en') !== FALSE) {
+          $language_values[$k] = $v;
+        }
+      }
+      $form_state->set('language_values_en', $language_values);
       $form_state->setRebuild();
+      if ($this->step == ($this->maxStep - 1)) {
+        if (!$entity->label()) {
+          $entity->title = 'Generated el: ' . date('d/m/Y H:i');
+        }
+        $entity->save();
+      }
       $this->step++;
     }
     else {
-      if (!$entity->label()) {
-        $entity->name = 'Generated el: ' . date('d/m/Y H:i');
-      }
-      $entity->save();
-      \Drupal::messenger()->addMessage(t('Se ha enviado el formulario correctamente'));
+      // Show the last step.
     }
   }
 

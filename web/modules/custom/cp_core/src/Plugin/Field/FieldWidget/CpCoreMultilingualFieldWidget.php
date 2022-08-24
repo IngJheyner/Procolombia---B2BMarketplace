@@ -125,9 +125,16 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
             $widget = $form_display->getRenderer($field_name);
 
             if (!is_null($widget)) {
+              $field_name_with_ident = $this->getUniqueName($field_name, $langcode);
+              foreach ($form_state->get('language_values_' . $langcode) as $fn => $fv) {
+                if ($fn == $field_name_with_ident) {
+                  foreach ($fv as $delta => $dv) {
+                    $translated_items->appendItem($dv);
+                  }
+                }
+              }
               $component_form = $widget->form($translated_items, $translated_form, $form_state);
               // Avoid namespace collisions.
-              $field_name_with_ident = $this->getUniqueName($field_name, $langcode);
               $component_form['#field_name'] = $field_name_with_ident;
               $component_form['#multiform_display_use'] = TRUE;
 
