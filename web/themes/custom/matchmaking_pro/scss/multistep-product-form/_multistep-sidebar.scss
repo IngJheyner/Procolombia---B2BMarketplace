@@ -38,27 +38,34 @@
                 z-index: -1;
                 
             }
-            
             &.current{
                 &::before{
                     background-color: $procol-gray-400;
                     
                 }
             }
-            &::before,
+            &.current{
+                &::before{
+                    background-color: $procol-gray-400;
+                    
+                }
+            }  
             &.current::before{
                 transition: background-color 0.4s ease-in-out;
             }
+            &.completed{
+                &::marker{
+                    opacity: 0;
+                }
+                &::before{
+                    background-color: $procol-light-green;
+                    @include check-step;
+                }
+            }
             &:hover::before,
             &.current:hover:before{
-                content: url(../images/icons/icon-navigation-expand_more_24px.svg);
-                position: absolute;
                 background-color: $procol-dark-blue;
-                z-index: 2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding-top: 5px;
+                @include check-step;
               }
                 &::marker{
                     opacity: 0;
