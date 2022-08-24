@@ -330,7 +330,8 @@ class CpCoreMultiStepForm extends FormBase {
           '#type' => 'submit',
           '#value' => t('Send'),
         ];
-
+        $form['#submit'][] = '::saveForm';
+        $form['#submit'][] = 'mfd_form_submit';
       }
 
     }
@@ -372,29 +373,43 @@ class CpCoreMultiStepForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
     $form_state->set('entity', $entity);
+    $values = $form_state->getValues();
+    $language_values = $form_state->get('language_values_en');
+    foreach ($values as $k => $v) {
+      if (strpos($k, '_en') !== FALSE) {
+        $language_values[$k] = $v;
+      }
+    }
+    $form_state->set('language_values_en', $language_values);
+
     // The last step is an empty step to show product list. The saving must be
     // an previous step.
     if ($this->step <= ($this->maxStep - 1)) {
-      $values = $form_state->getValues();
-      $language_values = $form_state->get('language_values_en');
-      foreach ($values as $k => $v) {
-        if (strpos($k, '_en') !== FALSE) {
-          $language_values[$k] = $v;
-        }
-      }
-      $form_state->set('language_values_en', $language_values);
       $form_state->setRebuild();
-      if ($this->step == ($this->maxStep - 1)) {
-        if (!$entity->label()) {
-          $entity->title = 'Generated el: ' . date('d/m/Y H:i');
-        }
-        $entity->save();
-      }
       $this->step++;
     }
     else {
       // Show the last step.
     }
+  }
+
+  /**
+   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   */
+  public function saveForm(array &$form, FormStateInterface $form_state) {
+    $entity = $this->buildEntity($form, $form_state);
+    $language_values = $form_state->get('language_values_en');
+    foreach ($language_values as $k => $v) {
+      if (strpos($k, '_en') !== FALSE) {
+        $form_state->setValue($k, $v);
+      }
+    }
+    if (!$entity->label()) {
+      $entity->title = 'Generated el: ' . date('d/m/Y H:i');
+    }
+    $entity->save();
+    $form_state->set('entity', $entity);
+    $this->entity = $entity;
   }
 
   /**

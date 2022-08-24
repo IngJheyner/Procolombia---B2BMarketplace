@@ -88,7 +88,7 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
         }
         else {
           $translated_entity = $entity->addTranslation($langcode, [
-            'title' => '',
+            'title' => 'untitled',
           ]);
 
         }
@@ -141,6 +141,9 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
               $component_form['widget']['#field_name'] = $field_name_with_ident;
               $parents_flipped = array_flip($component_form['widget']['#parents']);
               $component_form['widget']['#parents'][$parents_flipped[$field_name]] = $field_name_with_ident;
+              if ($field_name == 'title') {
+                $component_form['widget'][0]['value']['#default_value'] = '';
+              }
               // Create a container for the entity's fields.
               $element['value'][$langcode][$field_name] = $component_form;
             }
