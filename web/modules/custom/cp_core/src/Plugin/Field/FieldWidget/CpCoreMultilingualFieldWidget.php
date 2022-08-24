@@ -88,7 +88,7 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
         }
         else {
           $translated_entity = $entity->addTranslation($langcode, [
-            'title' => '',
+            'title' => 'untitled',
           ]);
 
         }
@@ -125,15 +125,25 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
             $widget = $form_display->getRenderer($field_name);
 
             if (!is_null($widget)) {
+              $field_name_with_ident = $this->getUniqueName($field_name, $langcode);
+              foreach ($form_state->get('language_values_' . $langcode) as $fn => $fv) {
+                if ($fn == $field_name_with_ident) {
+                  foreach ($fv as $delta => $dv) {
+                    $translated_items->appendItem($dv);
+                  }
+                }
+              }
               $component_form = $widget->form($translated_items, $translated_form, $form_state);
               // Avoid namespace collisions.
-              $field_name_with_ident = $this->getUniqueName($field_name, $langcode);
               $component_form['#field_name'] = $field_name_with_ident;
               $component_form['#multiform_display_use'] = TRUE;
 
               $component_form['widget']['#field_name'] = $field_name_with_ident;
               $parents_flipped = array_flip($component_form['widget']['#parents']);
               $component_form['widget']['#parents'][$parents_flipped[$field_name]] = $field_name_with_ident;
+              if ($field_name == 'title') {
+                $component_form['widget'][0]['value']['#default_value'] = '';
+              }
               // Create a container for the entity's fields.
               $element['value'][$langcode][$field_name] = $component_form;
             }
