@@ -18,12 +18,17 @@ dependencies:
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
     - field.field.node.product.field_pr_multilingual_step1
     - field.field.node.product.field_pr_multilingual_step2
     - field.field.node.product.field_pr_multilingual_step3
     - field.field.node.product.field_pr_multilingual_step4
     - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
     - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_type_certifications
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -188,6 +193,14 @@ content:
     third_party_settings: {  }
     weight: 20
     region: content
+  field_pr_certifications:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 30
+    region: content
   field_pr_multilingual_step1:
     type: multilingual_form_display_formatter
     label: above
@@ -243,6 +256,14 @@ content:
     third_party_settings: {  }
     weight: 29
     region: content
+  field_pr_product_availability:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 33
+    region: content
   field_pr_ref_company:
     type: entity_reference_label
     label: above
@@ -250,6 +271,30 @@ content:
       link: true
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_pr_sales_channel:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_pr_target_market:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_pr_type_certifications:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 31
     region: content
   field_previous_id:
     type: string
