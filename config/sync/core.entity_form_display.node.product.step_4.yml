@@ -56,7 +56,10 @@ dependencies:
 third_party_settings:
   field_group:
     group_left:
-      children: {  }
+      children:
+        - field_pr_image_1
+        - field_pr_image_2
+        - field_pr_image_3
       label: Left
       region: content
       parent_name: group_row
@@ -76,6 +79,8 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
+        - field_pr_image_4
+        - field_pr_image_5
         - field_pr_multilingual_step4
       label: Right
       region: content
@@ -83,7 +88,7 @@ third_party_settings:
       weight: 3
       format_type: html_element
       format_settings:
-        classes: group-left
+        classes: group-right
         show_empty_fields: false
         id: ''
         element: div

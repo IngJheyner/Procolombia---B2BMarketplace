@@ -101,7 +101,7 @@ third_party_settings:
       label: Top
       region: content
       parent_name: group_row
-      weight: 1
+      weight: 0
       format_type: html_element
       format_settings:
         classes: 'group-top col-sm-12'
@@ -183,7 +183,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: 'group-row row'

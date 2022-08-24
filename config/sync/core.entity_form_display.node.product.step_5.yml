@@ -55,7 +55,12 @@ dependencies:
 third_party_settings:
   field_group:
     group_left:
-      children: {  }
+      children:
+        - field_pr_video
+        - field_pr_video_description_1
+        - field_pr_video_2
+        - field_pr_video_description_2
+        - field_pr_terms_of_condition
       label: Left
       region: content
       parent_name: group_row
@@ -82,7 +87,7 @@ third_party_settings:
       weight: 3
       format_type: html_element
       format_settings:
-        classes: group-left
+        classes: group-right
         show_empty_fields: false
         id: ''
         element: div
