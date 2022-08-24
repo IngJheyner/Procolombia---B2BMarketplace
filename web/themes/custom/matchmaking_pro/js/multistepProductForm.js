@@ -18,6 +18,7 @@
                   modalFirstStep.classList.add('modal');
                   let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {})
                   const btnAgreeFirstSt = document.querySelector('.agree-stp1');
+                  const btnCloseFirstSt = document.querySelector('.modal-top-close')
   
                   //Variables para Agregar un contenedor con los elementos del modal custom.
                   let newDiv = document.createElement("div");				
@@ -27,6 +28,7 @@
                   const modalFooter = document.querySelector('.modal-footer');
                   // Estruturación del modal custom
                   modalContainer.classList.add('modal-container');
+                  modalHeader.classList.add('modal-header')
                   modalContainer.appendChild(modalHeader);
                   modalContainer.appendChild(modalBody);
                   modalContainer.appendChild(modalFooter);
@@ -37,10 +39,10 @@
                       hideModal(btnAgreeFirstSt,showFirstStepModal);					
                   }else{
                       showFirstStepModal.hide();
-                  }
-                  
+                    }
+                    
+                    hideModal(btnAgreeFirstSt,showFirstStepModal)
                   function hideModal(btn, modal){
-                          e = e || n;
                           btn.addEventListener('click',()=>{
                           modal.hide();                          
                       })

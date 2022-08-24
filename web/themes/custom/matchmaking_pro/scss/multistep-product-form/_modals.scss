@@ -1,0 +1,69 @@
+.legal-modal{
+    .modal-container{
+        @include modals-basic-style;
+        .modal-header{
+            padding: 20px;
+            padding-left: 25px;
+            &.modal-top{
+                position: relative;
+                .modal-top-title{
+                    margin: auto;
+                    @include media-breakpoint-down(sm) { 
+                        font-size: 14px;
+                     }
+                }
+                .modal-top-close{
+                    position: absolute;
+                    color: transparent;
+                    right: 14px;
+                    top: 12px;
+                    cursor: pointer;
+                    &::after{
+                        position: absolute;
+                        content: url(../images/icons/Cerrar-azul.svg);
+                        height: 16px;
+                        width: 16px;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+                &::before{
+                    content: '';
+                    background-image: url(../images/icons/Modal-Recomendacion.svg);
+                    background-size: 17px 27px;
+                    width: 17px;
+                    height: 27px;
+                }
+            }
+        }
+        .modal-body{
+            padding-left: 35px;
+            @include media-breakpoint-down(sm) { 
+                padding-left: 25px;
+             }
+            span{
+                font-size: 14px;
+                
+                }
+        }
+        .modal-footer{
+            @include media-breakpoint-down(sm) {
+                padding: 16px 12px;
+            }
+            button{
+                font-size: 14px;
+                line-height: 17px;
+                margin: 0;
+                @include blue-btn;
+                @include media-breakpoint-down(sm) { 
+                    width: 100%;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                 }
+            }
+        }
+    }
+}
