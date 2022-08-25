@@ -143,7 +143,22 @@
             width: 100%;
             margin-bottom: 0 !important;
             padding-bottom: 16px !important;
+            @include media-breakpoint-down(xxl){
+                max-width: 882px;
+            }
+            @include media-breakpoint-down(xl){
+                max-width: 702px;
+            }
+            @include media-breakpoint-down(lg){
+                max-width: 462px;
+                #edit-actions{
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+            }
             @include media-breakpoint-down(md){
+                padding-left: 15px;
+                padding-right: 15px;
                 border-left: none;
             }
         }
