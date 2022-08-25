@@ -47,7 +47,7 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
-    - image.style.thumbnail
+    - image.style.226_x_218
     - node.type.product
   module:
     - cp_core
@@ -60,6 +60,8 @@ third_party_settings:
         - field_pr_image_1
         - field_pr_image_2
         - field_pr_image_3
+        - field_pr_image_4
+        - field_pr_image_5
       label: Left
       region: content
       parent_name: group_row
@@ -79,8 +81,6 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
-        - field_pr_image_4
-        - field_pr_image_5
         - field_pr_multilingual_step4
       label: Right
       region: content
@@ -171,7 +171,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: 226_x_218
     third_party_settings: {  }
   field_pr_image_2:
     type: image_image
@@ -179,7 +179,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: 226_x_218
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
@@ -187,7 +187,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: 226_x_218
     third_party_settings: {  }
   field_pr_image_4:
     type: image_image
@@ -195,7 +195,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: 226_x_218
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
@@ -203,7 +203,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: 226_x_218
     third_party_settings: {  }
   field_pr_multilingual_step4:
     type: cp_core_multilingual_field_widget
