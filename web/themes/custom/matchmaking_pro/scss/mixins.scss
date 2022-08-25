@@ -59,3 +59,37 @@
     align-items: center;
     padding-top: 5px;
 }
+
+@mixin upload-files {
+    padding:0;
+        &::file-selector-button{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: $procol-dark-blue;
+            color: $white;
+            padding-left: 45px;
+            padding-right: 20px;
+            margin-right: 20px;
+            background-image: url(../images/icons/Icono_ElegirArchivos.svg);
+            background-size: 30px 30px;
+            background-repeat: no-repeat;
+            background-position-x: 10px;
+            border: 1px solid $procol-dark-blue;
+        }
+        &:hover:not(:disabled):not([readonly])::file-selector-button{
+            background-color: $procol-dark-blue;
+        }
+}
+@mixin remove-files {
+    height: 35px;
+    border: 1px solid $procol-red;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: $procol-red;
+    background-image: url(../images/icons/Icono_Eliminar_Blanco.svg);
+    background-repeat: no-repeat;
+    background-position: 10px 3px;
+    padding-left: 40px;
+}

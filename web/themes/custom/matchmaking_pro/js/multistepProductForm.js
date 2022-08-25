@@ -11,13 +11,11 @@
       attach: function(context, settings) {
         // Custom code here 
         // Agregar clase a los pasos anteriores
-        
         $(document).ready(function(){
           $("li.current").prevAll().addClass("completed");
         });
         //Cargar modales 
         $(context).find('body').once('legal-modal').each(function () {
-
           //Variables para mostrar y ocultar el modal
           let modalFirstStep = document.getElementById('legal-modal');
           modalFirstStep.classList.add('modal');
