@@ -14,7 +14,7 @@
         justify-content: center;
         @include media-breakpoint-down(md){
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             flex-wrap: nowrap;
             gap: 5px;
             margin: 0;
@@ -44,6 +44,9 @@
                 }
             }
         }
+        @include media-breakpoint-down(sm){
+            transform: translateX(-5%);
+        }
         &::before{
             position: absolute;
             top: 0;
@@ -63,6 +66,9 @@
             font-size: $font-size-xs;
             max-width: 126px;
             padding-left: 40px;
+            @include media-breakpoint-down(sm){
+                padding-left: 1px;
+            }
 
             &::marker{
                 color: $white;

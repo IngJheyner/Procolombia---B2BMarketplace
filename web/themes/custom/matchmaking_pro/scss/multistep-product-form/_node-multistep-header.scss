@@ -12,6 +12,9 @@
     font-size: 18px;
     font-family: Maven-Regular;
     line-height: 21px;
+    @include media-breakpoint-down(md){
+        gap: 13px;
+    }
     strong{
         font-family: Maven-Bold;
     }
@@ -26,6 +29,14 @@
         background-position: 6px;
         font-size: 14px;
         font-weight: lighter;
+        @include media-breakpoint-down(md){
+            width: 56px;
+            height: 56px;
+            background-size: 38px 38px;   
+            overflow: hidden;
+            color: transparent;
+            background-position: center;
+        }
 
     }
 }
