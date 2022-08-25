@@ -7,6 +7,11 @@
     .form-container{
         display: flex;
         flex-wrap: wrap;
+        justify-content: end;
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+            align-items: center;
+        }
         .row{
             margin: 0;
         }
@@ -41,7 +46,9 @@
         .cp-core-node-multistep-sidebar {
             padding-top: 42px; 
             max-width: 210px;
-            border-right: 1px solid $procol-gray-200;
+            @include media-breakpoint-down(md) {
+                max-width: 100%;
+            }
         }
         // Ends Main styles multistep sidebar
     
@@ -57,6 +64,10 @@
                &#edit-field-file-en-0--label {
                 position: relative;
                 left: 0;
+                }
+                @include media-breakpoint-down(md){
+                    position: static;
+                    height: auto;
                 }
             }
             
@@ -118,21 +129,42 @@
             }
     }
         .field-group-html-element.group-row {
+            border-left: 1px solid #D8DADD;
             margin-top: 25px;
             grid-area: 2 / 2 / 4 / 4;
+            @include media-breakpoint-down(md){
+                border-left: none;
+            }
             
         }
+        #edit-footer-form{
+            border-left: 1px solid #D8DADD;
+            max-width: 1060px;
+            width: 100%;
+            margin-bottom: 0 !important;
+            padding-bottom: 16px !important;
+            @include media-breakpoint-down(md){
+                border-left: none;
+            }
+        }
         .field-group-html-element.group-left { 
-            width: 100%; 
+            width: 50%;
             padding-right: 50px;
             border-right: 1px solid $procol-gray-200;
             margin-top: 31px;
-            padding: 0 50px;
+            @include media-breakpoint-down(lg){
+                border-right: none;
+            }
+            @include media-breakpoint-down(md){
+                margin-top: 0;
+                border-top: 1px solid $procol-gray-200;
+                padding-top: 50px;
+            }
             
         }
-        .field-group-html-element.group-right{ 
+        .field-group-html-element.group-right{
+            width: 50%;
             grid-area: 2 / 3 / 4 / 4; 
-            width: 100%;
             padding-right: 50px;
             display: flex;
             flex-direction: column;
@@ -149,6 +181,31 @@
             }
         .field-group-html-element.group-right,
         .field-group-html-element.group-left{
+            @include media-breakpoint-down(xl) {
+                padding: 0 25PX;
+             }
+             
+             @include media-breakpoint-down(lg){
+                width: 100%;
+                padding: 0 15PX;
+             }
+             @include media-breakpoint-down(md){
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                .field--name-field-product-type{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+                #ajax-wrapper{
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                }
+             }
             &.step-1{
                 .form-type-managed-file{
                     label{
@@ -178,6 +235,11 @@
             }
             &.step-5{
                 grid-area: initial;
+            }
+        }
+        .field-group-html-element.group-left{
+            @include media-breakpoint-down(md){
+                padding-top: 50px;
             }
         }
         
@@ -215,6 +277,13 @@
                         background-color: $procol-light-blue;
                         border-color: $procol-light-blue;
                         box-shadow: 0px 3px 6px $gray-shadow;
+                    }
+                }
+                @include media-breakpoint-down(md){
+                    padding: 0 20px;
+                    flex-wrap: wrap;
+                    button{
+                        width: 100%;
                     }
                 }
                    

@@ -11,16 +11,23 @@
       attach: function(context, settings) {
         // Custom code here 
         // Agregar clase a los pasos anteriores
-        $(document).ready(function(){
-          $("li.current").prevAll().addClass("completed");
-        });
+       
+        const currentStep = $("li.current");
+        currentStep.prevAll().addClass("completed");
+        const textCurrent = currentStep.wrapInner("<span></span>");
 
-        //Creación de contenedor que envuel multipaso y formlario
+        //Cargar modales 
+        $(context).find('body').once('legal-modal').each(function () {
+          //Creación de contenedor que envuel multipaso y formlario
         const divContainer = document.createElement('div')
-        divContainer.classList.add('form-container');
+        divContainer.classList.add('form-container', 'row');
         const fieldGroupElement = document.querySelector('.field-group-html-element');
+        fieldGroupElement.classList.add('col');
+        fieldGroupElement.classList.remove('col-12');
         const cpMultistepSitebar = document.querySelector('.cp-core-node-multistep-sidebar');
+        cpMultistepSitebar.classList.add('col')
         const footerForm = document.getElementById('edit-footer-form');
+        footerForm.classList.add('col-10');
         function wrap (toWrap, wrapper) {
           wrapper = wrapper || document.createElement('div');
           toWrap.parentNode.appendChild(wrapper);
@@ -29,8 +36,7 @@
         wrap(cpMultistepSitebar,divContainer);
         wrap(fieldGroupElement,divContainer);
         wrap(footerForm,divContainer);
-        //Cargar modales 
-        $(context).find('body').once('legal-modal').each(function () {
+
           //Variables para mostrar y ocultar el modal
           let modalFirstStep = document.getElementById('legal-modal');
           modalFirstStep.classList.add('modal');
