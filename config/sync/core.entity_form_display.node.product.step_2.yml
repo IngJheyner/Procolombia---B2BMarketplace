@@ -64,7 +64,7 @@ third_party_settings:
       weight: 2
       format_type: html_element
       format_settings:
-        classes: 'group-left col-sm-6'
+        classes: 'group-left col-sm-6 step-1'
         show_empty_fields: false
         id: ''
         element: div
@@ -85,7 +85,7 @@ third_party_settings:
       weight: 3
       format_type: html_element
       format_settings:
-        classes: 'group-right col-sm-6'
+        classes: 'group-right col-sm-6 step-2'
         show_empty_fields: false
         id: ''
         element: div
