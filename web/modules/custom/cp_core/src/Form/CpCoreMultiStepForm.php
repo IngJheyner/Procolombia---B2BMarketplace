@@ -266,10 +266,14 @@ class CpCoreMultiStepForm extends FormBase {
       }
       $form['#attributes']['novalidate'] = 'novalidate';
 
+
+      $form['header'] = [
+        '#theme' => 'cp_core_node_multistep_header',
+        '#weight' => -99,
+      ];
+
       $form['sidebar'] = [
-        '#theme' => [
-          'cp_core_node_multistep_sidebar',
-        ],
+        '#theme' => 'cp_core_node_multistep_sidebar',
         '#current' => $this->step,
         '#steps' => $this->steps,
         '#weight' => -10,
@@ -360,7 +364,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#type' => 'checkboxes',
           '#options' => $options,
         ];
-        $options = ['query' => ['store-entities', implode('+', $saved_entities)]];
+        $options = ['query' => ['store-entities' => implode('+', $saved_entities)]];
         $url = Url::fromRoute('<current>', [], $options);
         $form['footer_form']['actions']['add_other'] = [
           '#type' => 'link',
@@ -379,7 +383,6 @@ class CpCoreMultiStepForm extends FormBase {
           '#type' => 'submit',
           '#value' => t('Save and publish'),
           '#submit' => ['::saveAndPublishSubmit'],
-          '#limit_validation_errors' => [],
         ];
       }
     }
@@ -400,8 +403,8 @@ class CpCoreMultiStepForm extends FormBase {
    *
    */
   public function cancelForm(array &$form, FormStateInterface $form_state) {
-    $form_state->setRebuild();
-    $this->step--;
+    $url = Url::fromUri('internal:/dashboard');
+    $form_state->setRedirectUrl($url);
   }
 
   /**
@@ -452,6 +455,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form_state->setValue($k, $v);
       }
     }
+    $form_state->setValue('status_en', [0 => FALSE]);
     if (!$entity->label()) {
       $entity->title = 'Generated el: ' . date('d/m/Y H:i');
     }
