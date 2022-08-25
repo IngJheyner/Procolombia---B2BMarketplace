@@ -24,7 +24,7 @@
 				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="row p-0">
-							<div class="col-md-6" style="border-right: 1px solid #ccc;">
+							<div class="col-sm-12 col-md-6 col-lg-6" style="border-right: 1px solid #ccc;">
 								<div class="row">
 
 									<div class="col-md-12">
@@ -159,7 +159,7 @@
 
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-sm-12 col-md-6 col-lg-6">
 								<div class="row">
 									<div class="col-md-12">
 										<label for="principal_code_ciiu" class="form-label">Código CIIU Principal o
@@ -256,7 +256,7 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<p class="title_label">Información en Español</p>
 							<label for="asesor" class="form-label">Descripción de la empresa
 								<span>*</span>
@@ -272,7 +272,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<p class="title_label">Information in English</p>
 							<label for="asesor" class="form-label">Company Description
 								<span>*</span>
@@ -325,7 +325,7 @@
 				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<label for="asesor" class="form-label">Nombre del contacto
 								<span>*</span>
 							</label>
@@ -360,16 +360,17 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<label for="sitio" class="form-label">Teléfono fijo de la empresa<span>*</span>
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_landline">
-										{% for countries_item in countries %}
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										{# {% for countries_item in countries %}
 											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
 												+{{countries_item.Indicativo}}</option>
-										{% endfor %}
+										{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
@@ -377,7 +378,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<label for="asesor" class="form-label">Apellido del contacto
 								<span>*</span>
 							</label>
@@ -412,16 +413,17 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<label for="sitio" class="form-label">Celular<span>*</span>
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_mobile">
-										{% for countries_item in countries %}
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										{# {% for countries_item in countries %}
 											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
 												+{{countries_item.Indicativo}}</option>
-										{% endfor %}
+										{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
@@ -429,7 +431,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<label for="asesor" class="form-label">Correo electrónico
 								<span>*</span>
 							</label>
@@ -464,7 +466,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-6 col-lg-6">
 							<label for="asesor" class="form-label">Nombre del Cargo
 								<span>*</span>
 							</label>
@@ -521,17 +523,17 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="alert_1Label"><img src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Editar el perfil de la compañía y contacto</h5>
+				<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Editar el perfil de la compañía y contacto</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<p>
 					Todo contenido cargado debe cumplir con la
-					<a href="#" target="_blank">politica de publicación</a>
+					<a href="#" target="_blank" style="text-decoration: underline !important;">politica de publicación</a>
 				</p>
 			</div>
 			<div class="modal-footer">
-				<button id="go_to_step_3" type="button" class="btn cita_btn" data-bs-dismiss="modal">ENTENDIDO</button>
+				<button id="go_to_step_3" type="button" class="btn btn_save" data-bs-dismiss="modal">ENTENDIDO</button>
 			</div>
 		</div>
 	</div>
@@ -543,7 +545,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="alert_3Label"><img src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
+				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
 				</h5>
 			</div>
 			<div class="modal-body">
@@ -552,9 +554,9 @@
 			</a>
 		</p>
 	</div>
-	<div class="modal-footer">
-		<button id="confirm_save" type="button" class="btn cita_btn">SI</button>
-		<button data-bs-dismiss="modal" type="button" class="btn cita_btn">NO</button>
+	<div class="modal-footer btn_options">
+		<button id="confirm_save" type="button" class="btn yes">SI</button>
+		<button data-bs-dismiss="modal" type="button" class="btn no">NO</button>
 	</div>
 </div></div></div>
 
@@ -563,7 +565,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="alert_3Label"><img src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
+				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
 				</h5>
 			</div>
 			<div class="modal-body">
@@ -581,7 +583,7 @@
 <!-- Modal --><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
 	<div class="modal-header">
-		<h5 class="modal-title" id="alert_3Label"><img src="/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+		<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
 			Cancelar
 		</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

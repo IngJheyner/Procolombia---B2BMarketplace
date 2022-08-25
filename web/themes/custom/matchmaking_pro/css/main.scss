@@ -314,6 +314,7 @@ a {
 .row {
 	width: 100% !important;
 	margin-left: 0px !important;
+	padding-right: 0.5rem;
 }
 
 .menu-left {
@@ -454,6 +455,106 @@ a {
 	}
 }
 
+
+.right_bar {
+	position: absolute;
+	right: 0rem;
+	background: #f4f4f4;
+	padding-top: 2rem;
+	height: 88%;
+	width: 500px;
+	z-index: 3;
+	padding-left: 1.8rem;
+	padding-right: 0.5rem;
+	padding-bottom: 1.8rem;
+	transition: all 0.5s ease-out;
+	bottom: 0;
+
+	.bar_content {
+		overflow: auto;
+		height: 100%;
+		width: 100%;
+		padding-right: 0.5rem;
+		word-break: break-all;
+
+		.title {
+			font-family: 'Gothic-Bold';
+			font-size: 1.5rem;
+		}
+
+		.noticie {
+
+
+			display: flex;
+			justify-content: space-around;
+			align-items: stretch;
+			background-color: $color-White;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			padding: 0.6rem;
+			border-left: 4px solid $color-Pantone-116-C;
+
+			.notici_img {
+				width: 14%;
+				display: flex;
+				align-items: center;
+
+				img {
+					border-radius: 50%;
+					height: 49px;
+					width: 49px;
+					-o-object-fit: cover;
+					object-fit: cover;
+					-o-object-position: center center;
+					object-position: center center;
+				}
+			}
+
+			.noticie_content {
+				width: 64%;
+
+				.title {
+					font-family: $font-bold;
+					margin-bottom: 4px;
+					font-size: 14px;
+
+				}
+
+				.description {
+					font-size: 11px;
+					margin: 0px;
+				}
+			}
+
+			.time_content {
+				width: 19%;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-content: flex-end;
+
+				.time {
+					text-align: end;
+					margin-bottom: 1%;
+				}
+
+				.more {
+					font-family: 'Gothic-Bold';
+					text-align: center;
+					color: #ccc;
+					font-size: 21px;
+					margin: 0px;
+				}
+
+			}
+		}
+	}
+}
+
+div#page {
+	position: relative;
+}
+
 .icon_secction {
 	display: flex;
 	justify-content: flex-end;
@@ -469,6 +570,7 @@ a {
 		margin: 0rem 0.2rem;
 		position: relative;
 		padding-bottom: 4px;
+		cursor: pointer;
 
 		.img_icon {
 			transition: all 0.5s ease-out;
@@ -530,7 +632,9 @@ a {
 	}
 }
 
-
+.logo {
+	cursor: pointer;
+}
 
 .dropdown-cont {
 	width: 100%;
@@ -704,11 +808,12 @@ a {
 	// 	animation: fadeInRight .3s ease;
 	// 	-webkit-animation: fadeInRight .3s ease;
 	// }
-	
+
 
 
 }
-.drop.active  {
+
+.drop.active {
 	display: block;
 	animation: fadeInRight .3s ease;
 	-webkit-animation: fadeInRight .3s ease;

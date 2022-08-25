@@ -226,8 +226,8 @@
 								<div class="input-group mb-3">
 									<input type="password" id="password" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<span class="input-group-text">
-										<img id="pass_bloq" style="display:none" src="/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
-										<img id="pass_show" src="/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+										<img id="pass_bloq" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 									</span>
 									<div class="input_error">
 										<i id="error_password" class='bx bxs-info-circle toltip_i'>
@@ -260,8 +260,8 @@
 								<div class="input-group mb-3">
 									<input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
 									<span class="input-group-text">
-										<img id="pass_bloq_confirm" style="display:none" src="/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
-										<img id="pass_show_confirm" src="/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+										<img id="pass_bloq_confirm" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show_confirm" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 									</span>
 									<div class="input_error">
 										<i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
@@ -660,10 +660,11 @@
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_landline">
-										{% for countries_item in countries %}
+									<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										{# {% for countries_item in countries %}
 											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
 												+{{countries_item.Indicativo}}</option>
-										{% endfor %}
+										{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
@@ -677,10 +678,11 @@
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_mobile">
-										{% for countries_item in countries %}
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										{# {% for countries_item in countries %}
 											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
 												+{{countries_item.Indicativo}}</option>
-										{% endfor %}
+										{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
@@ -718,7 +720,7 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="alert_1Label"><img src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Información de
+					<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Información de
 												Contacto</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
@@ -744,7 +746,7 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img src="/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Proceso exitoso
+					<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Proceso exitoso
 					</h5>
 				</div>
 				<div class="modal-body">
@@ -766,7 +768,7 @@
 <div class="modal-dialog modal-dialog-centered">
 	<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="alert_3Label"><img src="/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+			<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
 				Cancelar proceso
 			</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

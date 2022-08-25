@@ -70,7 +70,7 @@ class CpEditCompanyColController extends ControllerBase
         //load taxonomy_term storage.
         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
         $tree_countries=[];
-        foreach ($terms as $term) {
+       /*  foreach ($terms as $term) {
             //get file_create_url of field_bandera.
             $image = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_bandera')->getValue();
             $file = File::load($image[0]['target_id']);
@@ -84,7 +84,7 @@ class CpEditCompanyColController extends ControllerBase
                     "Indicativo" => $indicativo[0]['value']
                 ]
             );
-        }
+        } */
 
         return [
             // Your theme hook name.

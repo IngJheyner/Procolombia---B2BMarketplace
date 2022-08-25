@@ -133,6 +133,11 @@
         });
     }
   }
+
+  //go_home
+  function goHome() {
+    window.location.href = "/";
+  }
   // **********************
   // *** Call functions ***
   // **********************
@@ -149,6 +154,10 @@
       //call function to redirect to google form
       $("#go_login", context).click(function () {
         window.location.href = "/user/login";
+      });
+      //call function go home
+      $("#go_to_home", context).click(function () {
+        goHome();
       });
     }
   };

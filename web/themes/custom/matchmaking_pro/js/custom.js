@@ -3,7 +3,7 @@
  * Global utilities.
  *
  */
-(function($, Drupal) {
+(function ($, Drupal) {
 
   'use strict';
 
@@ -24,8 +24,21 @@
     window.location.href = "/dashboard/col/user"
   }
 
+  function show_right_menu() {
+    var x = document.getElementById("right_menu");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      x.style.opacity = "1";
+    } else {
+      x.style.display = "none";
+      x.style.opacity = "0";
+    }
+  }
+
+
+
   Drupal.behaviors.matchmaking_pro = {
-    attach: function(context, settings) {
+    attach: function (context, settings) {
       //call function login
       $("#btn_login", context).click(function () {
         goToLogin();
@@ -49,8 +62,25 @@
       });
       //if click outside menu_user, remove css
       $(document).click(function (e) {
-        if ($(e.target).closest("#menu_user").length === 0) {
-          $("#menu_drop").removeClass("active");
+        if ($(e.target).closest("#menu_drop").length === 0 && $(e.target).closest("#menu_user").length === 0) {
+          //delay to remove css
+          setTimeout(function () {
+            $("#menu_drop").removeClass("active");
+          }, 200);
+
+        }
+      });
+
+      //click alert icon
+      $("#right_bar", context).click(function () {
+        show_right_menu()
+      });
+      //if click outside right_bar, remove css
+      $(document).click(function (e) {
+        if ($(e.target).closest("#right_menu").length === 0 && $(e.target).closest("#right_bar").length === 0) {
+          var x = document.getElementById("right_menu");
+          x.style.display = "none";
+          x.style.opacity = "0";
         }
       });
     }
