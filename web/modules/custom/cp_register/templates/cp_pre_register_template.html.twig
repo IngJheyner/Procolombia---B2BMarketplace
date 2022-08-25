@@ -1,18 +1,19 @@
+ {{ attach_library('cp_register/cp_register') }}
    <main class="body_login">
       <div class="row g-5">
          <div class="col-sm-12 col-md-12 col-lg-6">
             <a href="/verificacion/usuario">
                <div class="card">
                   <div class="card_img">
-                     <img src="/sites/default/files/2022-08/RegistroEmpresaCol.jpg" alt="">
+                     <img src="http://52.201.168.42/sites/default/files/2022-08/RegistroEmpresaCol.jpg" alt="">
                   </div>
                   <div class="card_icon">
-                  <img src="/sites/default/files/2022-08/RegistreseComoEmpresaColombiana.svg"></img>
+                  <img src="http://52.201.168.42/sites/default/files/2022-08/RegistreseComoEmpresaColombiana.svg"></img>
                   </div>
                   <div class="card_text">
                      <div class="text">
                         <h3 class="sub_title">
-                           Regístrese como
+                           {{ 'Regístrese como'|t }}
                         </h3>
                         <h4 class="title">
                            EMPRESA COLOMBIANA
@@ -28,10 +29,10 @@
          <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="card">
                <div class="card_img">
-                  <img src="/sites/default/files/2022-08/RegistroComprador.jpg" alt="">
+                  <img src="http://52.201.168.42/sites/default/files/2022-08/RegistroComprador.jpg" alt="">
                </div>
                <div class="card_icon">
-                <img src="/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"></img>
+                <img src="http://52.201.168.42/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"></img>
                </div>
                <div class="card_text">
                   <div class="text">
@@ -54,7 +55,7 @@
          <span aria-label="¿Tienes una cuenta?">
             ¿Tienes una cuenta?
          </span>
-         <button class="ms-2" title="Iniciar Sesión" aria-label="Iniciar Sesión">
+         <button id="go_login" class="ms-2" title="Iniciar Sesión" aria-label="Iniciar Sesión">
             INICIAR SESIÓN
          </button>
       </div>
