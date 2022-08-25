@@ -14,6 +14,21 @@
         $(document).ready(function(){
           $("li.current").prevAll().addClass("completed");
         });
+
+        //Creación de contenedor que envuel multipaso y formlario
+        const divContainer = document.createElement('div')
+        divContainer.classList.add('form-container');
+        const fieldGroupElement = document.querySelector('.field-group-html-element');
+        const cpMultistepSitebar = document.querySelector('.cp-core-node-multistep-sidebar');
+        const footerForm = document.getElementById('edit-footer-form');
+        function wrap (toWrap, wrapper) {
+          wrapper = wrapper || document.createElement('div');
+          toWrap.parentNode.appendChild(wrapper);
+          return wrapper.appendChild(toWrap);
+        };
+        wrap(cpMultistepSitebar,divContainer);
+        wrap(fieldGroupElement,divContainer);
+        wrap(footerForm,divContainer);
         //Cargar modales 
         $(context).find('body').once('legal-modal').each(function () {
           //Variables para mostrar y ocultar el modal

@@ -58,9 +58,7 @@ third_party_settings:
       children:
         - field_pr_video
         - field_pr_video_description_1
-        - field_pr_video_2
-        - field_pr_video_description_2
-        - field_pr_terms_of_condition
+        - group_right
       label: Left
       region: content
       parent_name: group_row
@@ -80,10 +78,12 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
+        - field_pr_video_2
+        - field_pr_video_description_2
         - field_pr_multilingual_step5
       label: Right
       region: content
-      parent_name: group_row
+      parent_name: group_left
       weight: 3
       format_type: html_element
       format_settings:
@@ -118,7 +118,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_bottom:
-      children: {  }
+      children:
+        - field_pr_terms_of_condition
       label: Bottom
       region: content
       parent_name: group_row
@@ -140,7 +141,6 @@ third_party_settings:
       children:
         - group_top
         - group_left
-        - group_right
         - group_bottom
       label: Row
       region: content
@@ -166,7 +166,7 @@ mode: step_5
 content:
   field_pr_multilingual_step5:
     type: cp_core_multilingual_field_widget
-    weight: 5
+    weight: 4
     region: content
     settings:
       collapsible_state: '-1'
