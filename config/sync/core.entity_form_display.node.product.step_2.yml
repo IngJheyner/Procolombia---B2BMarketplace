@@ -34,6 +34,7 @@ dependencies:
     - field.field.node.product.field_pr_product_availability
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_status
     - field.field.node.product.field_pr_target_market
     - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
@@ -65,7 +66,7 @@ third_party_settings:
       weight: 2
       format_type: html_element
       format_settings:
-        classes: 'group-left col-sm-6'
+        classes: 'group-left col-sm-6 step-1'
         show_empty_fields: false
         id: ''
         element: div
@@ -86,7 +87,7 @@ third_party_settings:
       weight: 3
       format_type: html_element
       format_settings:
-        classes: 'group-right col-sm-6'
+        classes: 'group-right col-sm-6 step-2'
         show_empty_fields: false
         id: ''
         element: div
@@ -274,6 +275,7 @@ hidden:
   field_pr_product_availability: true
   field_pr_ref_company: true
   field_pr_sales_channel: true
+  field_pr_status: true
   field_pr_target_market: true
   field_pr_terms_of_condition: true
   field_pr_type_certifications: true

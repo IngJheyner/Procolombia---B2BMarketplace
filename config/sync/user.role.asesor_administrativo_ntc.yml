@@ -17,6 +17,7 @@ dependencies:
     - field_ui
     - mfd
     - node
+    - statistics
     - system
     - taxonomy_access_fix
     - toolbar
@@ -67,6 +68,7 @@ permissions:
   - 'view own field_tag_producto'
   - 'view own field_tags'
   - 'view own unpublished content'
+  - 'view post access counter'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'

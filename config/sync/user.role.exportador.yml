@@ -11,6 +11,7 @@ dependencies:
     - field_permissions
     - mfd
     - node
+    - statistics
     - taxonomy
     - taxonomy_access_fix
 id: exportador
@@ -28,6 +29,7 @@ permissions:
   - 'update home_featured_products entityqueue'
   - 'view field_iframe'
   - 'view own unpublished content'
+  - 'view post access counter'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'

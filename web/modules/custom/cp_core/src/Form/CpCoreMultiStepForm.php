@@ -191,7 +191,7 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step', $nid = NULL) {
     $bundle = 'product';
-    if (!$form_state->has('entity')) {
+    if (empty($form_state->get('entity'))) {
       $form_state->set('language_values_en', []);
       if (empty($nid)) {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
@@ -201,14 +201,24 @@ class CpCoreMultiStepForm extends FormBase {
       }
       else {
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
+        $entity->setUnpublished();
       }
       $this->init($form_state, $entity, $mode_form_pattern);
+      if (!empty($this->getRequest()->query->get('store-entities'))) {
+        $saved_entities = $this->getRequest()->query->get('store-entities');
+        $form_state->set('saved_entities', explode('+', $saved_entities));
+      }
+      if (!empty($this->getRequest()->query->get('saved-entities'))) {
+        $this->step = $this->maxStep;
+        $saved_entities = explode(' ', $this->getRequest()->query->get('saved-entities'));
+        $form_state->set('saved_entities', $saved_entities);
+      }
       if (!$this->maxStep) {
         \Drupal::messenger()->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');
         return [];
       }
     }
-
+    $form['#cache']['max-age'] = 0;
     $entity = $form_state->get('entity');
     $this->entity = $entity;
     if ($this->step <= $this->maxStep) {
@@ -249,6 +259,7 @@ class CpCoreMultiStepForm extends FormBase {
             $query[$qk] = $qv;
           }
         }
+        unset($query['saved-entities']);
         $form['#action'] = Url::fromRoute('<current>', $query, [
           'fragment' => Html::getId($this->getFormId()),
           '_no_path' => TRUE,
@@ -256,10 +267,14 @@ class CpCoreMultiStepForm extends FormBase {
       }
       $form['#attributes']['novalidate'] = 'novalidate';
 
+
+      $form['header'] = [
+        '#theme' => 'cp_core_node_multistep_header',
+        '#weight' => -99,
+      ];
+
       $form['sidebar'] = [
-        '#theme' => [
-          'cp_core_node_multistep_sidebar',
-        ],
+        '#theme' => 'cp_core_node_multistep_sidebar',
         '#current' => $this->step,
         '#steps' => $this->steps,
         '#weight' => -10,
@@ -300,7 +315,7 @@ class CpCoreMultiStepForm extends FormBase {
         ],
       ];
 
-      if ($this->step > 1) {
+      if ($this->step < $this->maxStep) {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
           '#value' => t('Previous'),
@@ -311,7 +326,7 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
 
-      if ($this->step < $this->maxStep) {
+      if ($this->step < ($this->maxStep -1)) {
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -325,7 +340,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#value' => t('Next'),
         ];
       }
-      else {
+      else if ($this->step == ($this->maxStep -1)) {
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
           '#value' => t('Send'),
@@ -333,7 +348,44 @@ class CpCoreMultiStepForm extends FormBase {
         $form['#submit'][] = '::saveForm';
         $form['#submit'][] = 'mfd_form_submit';
       }
-
+      else {
+        // Show view with product presaving.
+        $saved_entities = $form_state->get('saved_entities');
+        if (empty($saved_entities)) {
+          $saved_entities = [];
+        }
+        $options = [];
+        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+        $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($saved_entities);
+        foreach ($nodes as $nid => $node) {
+          $options[$nid] = $view_builder->view($node, 'product_service_presave_list');
+        }
+        $form['product_list'] = [
+          '#title' => NULL,
+          '#type' => 'checkboxes',
+          '#options' => $options,
+        ];
+        $options = ['query' => ['store-entities' => implode('+', $saved_entities)]];
+        $url = Url::fromRoute('<current>', [], $options);
+        $form['footer_form']['actions']['add_other'] = [
+          '#type' => 'link',
+          '#title' => t('Load another product'),
+          '#url' => $url,
+          '#attributes' => ['class' => ['button', 'btn']],
+        ];
+        $url = Url::fromUri('internal:/dashboard');
+        $form['footer_form']['actions']['cancel'] = [
+          '#type' => 'link',
+          '#title' => t('Cancel'),
+          '#url' => $url,
+          '#attributes' => ['class' => ['button', 'btn', 'btn-cancel']],
+        ];
+        $form['footer_form']['actions']['save_publish'] = [
+          '#type' => 'submit',
+          '#value' => t('Save and publish'),
+          '#submit' => ['::saveAndPublishSubmit'],
+        ];
+      }
     }
     $form['#cache']['contexts'][] = 'url.query_args';
 
@@ -352,8 +404,8 @@ class CpCoreMultiStepForm extends FormBase {
    *
    */
   public function cancelForm(array &$form, FormStateInterface $form_state) {
-    $form_state->setRebuild();
-    $this->step--;
+    $url = Url::fromUri('internal:/dashboard');
+    $form_state->setRedirectUrl($url);
   }
 
   /**
@@ -404,24 +456,58 @@ class CpCoreMultiStepForm extends FormBase {
         $form_state->setValue($k, $v);
       }
     }
+    $form_state->setValue('status_en', [0 => FALSE]);
     if (!$entity->label()) {
       $entity->title = 'Generated el: ' . date('d/m/Y H:i');
     }
     $entity->save();
+    $saved_entities = $form_state->get('saved_entities');
+    if (empty($saved_entities)) {
+      $saved_entities = [];
+    }
+    $saved_entities[] = $entity->id();
     $form_state->set('entity', $entity);
     $this->entity = $entity;
+    $form_state->set('saved_entities', $saved_entities);
+    $form_state->set('saved', TRUE);
+    $options = ['query' => ['saved-entities', implode('+', $saved_entities)]];
+    $url = Url::fromRoute('<current>', [], $options);
+    $form_state->setRedirectUrl($url);
   }
 
   /**
-   * Ajax callback.
+   * {@inheritdoc} Saves the entity with updated values for the edited field.
    */
-  public function changeProductType(array &$form, FormStateInterface $form_state) {
-    $form['#action'] = str_replace('&ajax_form=1', '', $form['#action']);
-    $form['#action'] = str_replace('ajax_form=1', '', $form['#action']);
-    $form['#action'] = str_replace('&_wrapper_format=drupal_ajax', '', $form['#action']);
-    $form['#action'] = str_replace('_wrapper_format=drupal_ajax', '', $form['#action']);
-    return $form;
+  public function addOtherSubmit(array &$form, FormStateInterface $form_state) {
+    $this->entity = NULL;
+    $form_state->set('entity', NULL);
+    $form_state->set('saved', FALSE);
+    if (!empty($this->getRequest()->query->get('saved-entities'))) {
+      $saved_entities = $this->getRequest()->query->get('saved-entities');
+      $form_state->set('saved_entities', explode('+', $saved_entities));
+    }
+    $form_state->setRebuild();
+    $this->step = NULL;
   }
+
+  /**
+   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   */
+  public function saveAndPublishSubmit(array &$form, FormStateInterface $form_state) {
+    $product_list = $form_state->getValue('product_list');
+    $nodeStorage = $this->entityTypeManager->getStorage('node');
+    foreach($product_list as $nid) {
+      if ($nid) {
+        $node = $nodeStorage->load($nid);
+        $node->setPublished();
+        $node->save();
+      }
+    }
+    $url = Url::fromUri('internal:/dashboard');
+    $form_state->setRedirectUrl($url);
+  }
+
+
 
   /**
    * Get Entity method.

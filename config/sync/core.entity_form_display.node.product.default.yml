@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.product.field_pr_product_availability
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_status
     - field.field.node.product.field_pr_target_market
     - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
@@ -353,6 +354,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_pr_status:
+    type: options_select
+    weight: 58
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_pr_target_market:
     type: entity_reference_autocomplete

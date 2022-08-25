@@ -1,9 +1,9 @@
-uuid: b32e69fa-2b24-427e-ba93-f11320213cce
+uuid: ff1bbcff-8abc-4989-a8a5-451a3d6dc7ae
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.step_1
+    - core.entity_view_mode.node.product_service_presave_list
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -20,7 +20,6 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
-    - field.field.node.product.field_pr_country
     - field.field.node.product.field_pr_image_1
     - field.field.node.product.field_pr_image_2
     - field.field.node.product.field_pr_image_3
@@ -49,171 +48,122 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
+    - image.style.medium
     - node.type.product
   module:
-    - cp_core
-    - field_group
-    - file
+    - advanced_text_formatter
+    - ds
+    - layout_builder
+    - svg_image
+    - user
 third_party_settings:
-  field_group:
-    group_left:
-      children:
-        - field_product_type
-        - title
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  ds:
+    layout:
+      id: bs_2col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          left:
+            wrapper: div
+            classes:
+              col-sm-4: col-sm-4
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-8: col-sm-8
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      left:
+        - field_pr_image_1
+      right:
+        - node_title
         - field_body
-        - field_file
-      label: Left
-      region: content
-      parent_name: group_row
-      weight: 1
-      format_type: html_element
-      format_settings:
-        classes: 'group-left col-sm-6 step-1'
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-    group_right:
-      children:
-        - field_pr_multilingual_step1
-      label: Right
-      region: content
-      parent_name: group_row
-      weight: 2
-      format_type: html_element
-      format_settings:
-        classes: 'group-right col-sm-6 step-1'
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-    group_top:
-      children: {  }
-      label: Top
-      region: content
-      parent_name: group_row
-      weight: 0
-      format_type: html_element
-      format_settings:
-        classes: 'group-top col-sm-12'
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-    group_bottom:
-      children: {  }
-      label: Bottom
-      region: content
-      parent_name: group_row
-      weight: 3
-      format_type: html_element
-      format_settings:
-        classes: 'group-bottom col-sm-12'
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-    group_row:
-      children:
-        - group_top
-        - group_left
-        - group_right
-        - group_bottom
-      label: Row
-      region: content
-      parent_name: ''
-      weight: 1
-      format_type: html_element
-      format_settings:
-        classes: 'group-row row col-12'
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-id: node.product.step_1
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          'link class': ''
+          wrapper: h2
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.product.product_service_presave_list
 targetEntityType: node
 bundle: product
-mode: step_1
+mode: product_service_presave_list
 content:
   field_body:
-    type: string_textarea
+    type: advanced_text
+    label: hidden
+    settings:
+      trim_length: 600
+      ellipsis: 1
+      word_boundary: 1
+      token_replace: 0
+      filter: input
+      format: plain_text
+      allowed_html: '<a> <b> <br> <dd> <dl> <dt> <em> <i> <li> <ol> <p> <strong> <u> <ul>'
+      autop: 0
+      use_summary: 0
+    third_party_settings: {  }
     weight: 2
-    region: content
+    region: right
+  field_pr_image_1:
+    type: image
+    label: hidden
     settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_file:
-    type: file_generic
-    weight: 3
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  field_pr_multilingual_step1:
-    type: cp_core_multilingual_field_widget
+      image_link: ''
+      image_style: medium
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 0
-    region: content
-    settings:
-      collapsible_state: '-1'
-      mfd_languages:
-        en: en
-      display_label: 0
-      display_description: 0
-    third_party_settings: {  }
-  field_product_type:
-    type: options_select
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+    region: left
 hidden:
-  body_class: true
-  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   field_aditional_information: true
   field_categorization: true
   field_categorization_parent: true
   field_dependent_state: true
   field_exist_certifications: true
   field_export_markets: true
+  field_file: true
   field_file_certifications: true
   field_iframe: true
   field_images: true
@@ -222,12 +172,11 @@ hidden:
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
   field_pr_certifications: true
-  field_pr_country: true
-  field_pr_image_1: true
   field_pr_image_2: true
   field_pr_image_3: true
   field_pr_image_4: true
   field_pr_image_5: true
+  field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
   field_pr_multilingual_step4: true
@@ -244,18 +193,13 @@ hidden:
   field_pr_video_description_1: true
   field_pr_video_description_2: true
   field_previous_id: true
+  field_product_type: true
   field_producto_innovador: true
   field_states: true
   field_tag_producto: true
   field_tariff_heading: true
   field_trading_channel: true
+  flag_favorites: true
   langcode: true
-  path: true
-  promote: true
-  simple_sitemap: true
-  specific_node_class: true
-  status: true
-  sticky: true
-  translation: true
-  uid: true
-  url_redirects: true
+  links: true
+  search_api_excerpt: true
