@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.step_3
+    - entity_browser.browser.paises
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -20,6 +21,7 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_country
     - field.field.node.product.field_pr_image_1
     - field.field.node.product.field_pr_image_2
     - field.field.node.product.field_pr_image_3
@@ -50,6 +52,7 @@ dependencies:
     - node.type.product
   module:
     - cp_core
+    - entity_browser
     - field_group
     - file
     - select2
@@ -60,10 +63,11 @@ third_party_settings:
         - field_pr_certifications
         - field_pr_type_certifications
         - field_pr_product_availability
+        - field_pr_country
       label: Left
       region: content
       parent_name: group_row
-      weight: 2
+      weight: 1
       format_type: html_element
       format_settings:
         classes: group-left
@@ -85,7 +89,7 @@ third_party_settings:
       label: Right
       region: content
       parent_name: group_row
-      weight: 4
+      weight: 3
       format_type: html_element
       format_settings:
         classes: group-right
@@ -123,7 +127,7 @@ third_party_settings:
       label: Bottom
       region: content
       parent_name: group_row
-      weight: 5
+      weight: 4
       format_type: html_element
       format_settings:
         classes: 'group-bottom col-sm-12'
@@ -146,7 +150,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -171,6 +175,20 @@ content:
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_pr_country:
+    type: entity_browser_entity_reference
+    weight: 4
+    region: content
+    settings:
+      entity_browser: paises
+      field_widget_display: label
+      field_widget_edit: false
+      field_widget_remove: true
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
     third_party_settings: {  }
   field_pr_multilingual_step3:
     type: cp_core_multilingual_field_widget

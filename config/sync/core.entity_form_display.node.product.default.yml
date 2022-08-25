@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
     - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_country
     - field.field.node.product.field_pr_image_1
     - field.field.node.product.field_pr_image_2
     - field.field.node.product.field_pr_image_3
@@ -222,6 +223,16 @@ content:
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_pr_country:
+    type: entity_reference_autocomplete
+    weight: 58
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_pr_image_1:
     type: image_image
