@@ -201,6 +201,7 @@ class CpCoreMultiStepForm extends FormBase {
       }
       else {
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
+        $entity->setUnpublished();
       }
       $this->init($form_state, $entity, $mode_form_pattern);
       if (!empty($this->getRequest()->query->get('store-entities'))) {

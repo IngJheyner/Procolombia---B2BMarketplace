@@ -17,6 +17,7 @@ dependencies:
     - mfd
     - node
     - shortcut
+    - statistics
     - taxonomy
     - toolbar
     - view_unpublished
@@ -59,3 +60,4 @@ permissions:
   - 'view any unpublished old_company content'
   - 'view any unpublished product content'
   - 'view own unpublished content'
+  - 'view post access counter'
