@@ -82,8 +82,105 @@ img.me-2 {
 	border: 0px solid #ffffff;
 }
 
+.bg-danger {
+	background: $color-Pantone-200  !important;
+}
+
 a {
 	text-decoration: none !important;
+}
+
+.toltip_i {
+	position: relative;
+
+	.tooltiptext {
+		visibility: hidden;
+		width: 300px;
+		background-color: $color-Black;
+		color: $color-White;
+		text-align: center;
+		border-radius: 6px;
+		padding: 10px;
+		position: absolute;
+		z-index: 8;
+
+	}
+
+	.tooltiptext_error {
+		visibility: hidden;
+		width: 300px;
+		background-color: $color-Pantone-200;
+		color: $color-White;
+		text-align: center;
+		border-radius: 6px;
+		padding: 10px;
+		position: absolute;
+		z-index: 8;
+		font-family: 'Gothic-Regular';
+		font-size: 14px;
+		right: 1rem;
+	}
+
+	.tooltiptext_yotube {
+		visibility: hidden;
+		width: 420px;
+		background-color: $color-Black;
+		color: $color-White;
+		text-align: start;
+		border-radius: 6px;
+		padding: 10px;
+		position: absolute;
+		z-index: 8;
+		font-family: 'Gothic-Regular';
+		font-size: 14px;
+		right: 1.5rem;
+	}
+
+	.tooltiptext_menu {
+		visibility: hidden;
+		width: 100px;
+		background-color: $color-Gris-Oscuro;
+		color: $color-White;
+		text-align: center;
+		border-radius: 4px;
+		padding: 6px;
+		position: absolute;
+		z-index: 8;
+		bottom: -15px;
+		font-size: 12px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		//
+		// Esto se debe cambiar por medio de Script para el gradient de la Gamyficacion
+		// Main-top: color de arriba
+		// Alt-stop: color secundario
+		//
+
+		svg {
+			width: 10px;
+			height: 10px;
+			margin-right: 6px;
+
+			.main-stop {
+				stop-color: red;
+			}
+
+			.alt-stop {
+				stop-color: green;
+			}
+		}
+
+	}
+
+	&:hover .tooltiptext,
+	&:hover .tooltiptext_error,
+	&:hover .tooltiptext_yotube,
+	&:hover .tooltiptext_menu {
+		visibility: visible;
+	}
+
 }
 
 //Estilos Menu
@@ -360,18 +457,54 @@ a {
 .icon_secction {
 	display: flex;
 	justify-content: flex-end;
-	border-right: 1px solid;
-	padding-right: 1.5rem;
+	border-right: 1px solid $color-cccccc;
+	padding-right: 0.6rem;
 
 	.icono {
 		display: flex;
 		flex-direction: column;
 		align-content: center;
-		width: 60px;
+		width: 70px;
 		align-items: center;
-		margin: 0.3rem;
+		margin: 0rem 0.2rem;
+		position: relative;
+		padding-bottom: 4px;
+
+		.img_icon {
+			transition: all 0.5s ease-out;
+
+			svg {
+				height: 27px !important;
+				width: 27px !important;
+			}
+		}
+
+		.titlle {
+			text-align: center;
+			line-height: normal;
+			font-size: 12px;
+			font-family: $font-regular;
+		}
+
+		.badge {
+			font-size: 9px !important;
+			font-family: $font-regular;
+			top: 8px !important;
+		}
 
 		&:hover {
+
+			.img_icon {
+				transform: rotate(-13deg) scale(0.95);
+
+				svg {
+					background-color: $color-White;
+					box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+					padding: 3px;
+					border-radius: 5px;
+				}
+			}
+
 			&::after {
 				background: $color-Pantone-116-C;
 				height: 3px;
@@ -391,7 +524,8 @@ a {
 			display: block;
 			width: 100%;
 			margin-top: 0.4rem;
-
+			position: absolute;
+			bottom: -6px;
 		}
 	}
 }
@@ -407,7 +541,7 @@ a {
 	z-index: 4;
 	transition: all 0.2s ease-out;
 	cursor: pointer;
-	padding-left: 1.5rem;
+	padding-left: 0.6rem;
 
 	p {
 		font-family: $font-regular;
@@ -425,16 +559,53 @@ a {
 	}
 
 	.logo_img_menu {
+		border-bottom: 1px solid $color-cccccc;
+		padding-bottom: 0.4rem !important;
+		padding-top: 0.5rem !important;
+		margin-bottom: 0.5rem;
+		background-color: $color-White  !important;
+
 		.circle_status {
 			background: rgb(161, 165, 170);
-			background: linear-gradient(0deg, rgba(161, 165, 170, 1) 0%, rgba(244, 244, 244, 1) 100%);
+			background: linear-gradient(0deg, #D88D00 0%, #FDCA00 100%);
 			padding: 3px;
 			border-radius: 50%;
-			height: 41px;
-			width: 41px;
+			height: 53px;
+			width: 53px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			box-shadow: 0px 3px 6px #00000029;
+		}
+
+		.name {
+			color: #000;
+			font-size: 16px;
+			font-family: 'Gothic-Regular';
+		}
+
+		.status {
+			color: #000;
+			font-size: 16px;
+			font-family: 'Gothic-Bold';
+		}
+
+		.small_editar {
+			border: none;
+			border-radius: 4px;
+			font-size: 14px;
+			padding: 1px 16px;
+			background-color: $color-Pantone-116-C;
+			color: $color-White;
+			font-family: $font-regular;
+			transition: all 0.4s ease-out !important;
+
+
+			&:hover {
+				color: $color-White;
+				background-color: $color-Pantone-process-Blue;
+				box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+			}
 		}
 	}
 
@@ -468,40 +639,79 @@ a {
 		border-radius: 2px;
 		box-shadow: 0 0 5px rgba(#000, .15);
 		display: none;
+		padding: 0.4rem;
 
 		>li {
 			clear: both;
 			list-style: none;
 			display: block;
-			padding: 0 10px;
+			padding: 9px 10px !important;
 			margin: 0;
 			width: 100%;
+			padding: 1rem 0.7rem;
+			color: $color-White;
+
+			svg {
+				margin-right: 10px;
+			}
+
+			>a {
+				color: $color-Black;
+				font-size: 16px;
+				font-family: $font-regular;
+			}
 
 			&:hover {
-				background: lighten($color-Pantone-116-C, 40);
+				background: $color-Pantone-116-C;
+
+				svg {
+					#llenar {
+						fill: $color-White  !important;
+					}
+
+				}
 
 				>a {
-					background: lighten($color-Verde-aprobacion, 40);
 					color: $color-White;
+				}
+			}
+
+			&:last-child {
+				border-top: 1px solid $color-cccccc;
+
+				&:hover {
+					background: $color-Gris-Claro;
+
+					svg {
+						#llenar {
+							fill: inherit !important;
+						}
+
+					}
+
+					>a {
+						//background: lighten($color-Verde-aprobacion, 40);
+						color: $color-Pantone-200;
+					}
 				}
 			}
 		}
 
 	}
 
-	.drop {
-		display: block;
-		animation: fadeInRight .3s ease;
-		-webkit-animation: fadeInRight .3s ease;
-	}
-
-	// &:hover {
-	// 	>.drop {
-	// 		display: block;
-	// 		animation: fadeInRight .3s ease;
-	// 		-webkit-animation: fadeInRight .3s ease;
-	// 	}
+	// .drop {
+	// 	display: block;
+	// 	animation: fadeInRight .3s ease;
+	// 	-webkit-animation: fadeInRight .3s ease;
 	// }
+	
+
+
+}
+.drop.active  {
+	display: block;
+	animation: fadeInRight .3s ease;
+	-webkit-animation: fadeInRight .3s ease;
 
 }
 

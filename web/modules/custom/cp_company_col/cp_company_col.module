@@ -23,6 +23,9 @@ function cp_company_col_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_dashboard_company_col_template',
+      'variables' => [
+        'data' => null,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',
@@ -33,6 +36,13 @@ function cp_company_col_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_edit_company_col_template',
+      'variables' => [
+        'deparments' => null,
+        'production_chain' => null,
+        'business_model' => null,
+        'certificacion_de_empresa' => null,
+        'countries' => null,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',

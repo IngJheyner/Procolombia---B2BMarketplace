@@ -102,59 +102,7 @@ div#main-wrapper {
   position: relative;
 }
 
-.toltip_i {
-  position: relative;
 
-  .tooltiptext {
-    visibility: hidden;
-    width: 300px;
-    background-color: $color-Black;
-    color: $color-White;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 8;
-
-  }
-
-  .tooltiptext_error {
-    visibility: hidden;
-    width: 300px;
-    background-color: $color-Pantone-200;
-    color: $color-White;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 8;
-    font-family: 'Gothic-Regular';
-    font-size: 14px;
-    right: 1rem;
-  }
-
-  .tooltiptext_yotube {
-    visibility: hidden;
-    width: 420px;
-    background-color: $color-Black;
-    color: $color-White;
-    text-align: start;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 8;
-    font-family: 'Gothic-Regular';
-    font-size: 14px;
-    right: 1.5rem;
-  }
-
-  &:hover .tooltiptext,
-  &:hover .tooltiptext_error,
-  &:hover .tooltiptext_yotube {
-    visibility: visible;
-  }
-
-}
 
 
 

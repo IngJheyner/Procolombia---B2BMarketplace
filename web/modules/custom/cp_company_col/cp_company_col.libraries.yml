@@ -1,10 +1,12 @@
 cp_company_col:
-  version: 1.5
+  version: 1.7
   css:
     theme:
       css/cp_company_col.css: {}
   js:
     js/cp_company_col.js: {}
+    js/edit_company_col.js: {}
+    js/edit_modal_company_col.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

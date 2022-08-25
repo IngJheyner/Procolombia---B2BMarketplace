@@ -1,5 +1,5 @@
 /*
- * Service for Check NIT
+ * Service for Register
  */
 
 // open input file with button
@@ -1015,11 +1015,9 @@
     }
     if (contact_email == "") {
       message = "El correo electronico es requerido";
-      $("#email").css("border-color", "#ba0c2f");
+      $("#contact_email").css("border-color", "#ba0c2f");
       $("#error_email").show();
-      $("#error_email")
-
-        ;
+      $("#error_email");
       isValid = false;
     } else {
       if (
@@ -1028,7 +1026,7 @@
         )
       ) {
         message = "El correo electronico no es valido";
-        $("#email").css("border-color", "#ba0c2f");
+        $("#contact_email").css("border-color", "#ba0c2f");
         $("#error_email").show();
         $("#error_email")
 
@@ -1036,7 +1034,7 @@
         isValid = false;
       } else {
         $("#error_email").hide();
-        $("#email").css("border-color", "#cccccc");
+        $("#contact_email").css("border-color", "#cccccc");
       }
     }
 
@@ -1092,7 +1090,7 @@
 
   // function to go to step 3
   function goToMenu() {
-    window.location.href = "/dashboard/col/user"
+    window.location.href = "/user/login";
   }
 
   //Addtional functional methods

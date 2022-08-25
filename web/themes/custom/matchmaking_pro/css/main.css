@@ -52,8 +52,85 @@ img.me-2 {
   border: 0px solid #ffffff;
 }
 
+.bg-danger {
+  background: #ba0c2f !important;
+}
+
 a {
   text-decoration: none !important;
+}
+
+.toltip_i {
+  position: relative;
+}
+.toltip_i .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 8;
+}
+.toltip_i .tooltiptext_error {
+  visibility: hidden;
+  width: 300px;
+  background-color: #ba0c2f;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 8;
+  font-family: "Gothic-Regular";
+  font-size: 14px;
+  right: 1rem;
+}
+.toltip_i .tooltiptext_yotube {
+  visibility: hidden;
+  width: 420px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: start;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 8;
+  font-family: "Gothic-Regular";
+  font-size: 14px;
+  right: 1.5rem;
+}
+.toltip_i .tooltiptext_menu {
+  visibility: hidden;
+  width: 100px;
+  background-color: #3b3d42;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 6px;
+  position: absolute;
+  z-index: 8;
+  bottom: -15px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toltip_i .tooltiptext_menu svg {
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+}
+.toltip_i .tooltiptext_menu svg .main-stop {
+  stop-color: red;
+}
+.toltip_i .tooltiptext_menu svg .alt-stop {
+  stop-color: green;
+}
+.toltip_i:hover .tooltiptext, .toltip_i:hover .tooltiptext_error, .toltip_i:hover .tooltiptext_yotube, .toltip_i:hover .tooltiptext_menu {
+  visibility: visible;
 }
 
 .pt-6 {
@@ -300,16 +377,45 @@ a {
 .icon_secction {
   display: flex;
   justify-content: flex-end;
-  border-right: 1px solid;
-  padding-right: 1.5rem;
+  border-right: 1px solid #cccccc;
+  padding-right: 0.6rem;
 }
 .icon_secction .icono {
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 60px;
+  width: 70px;
   align-items: center;
-  margin: 0.3rem;
+  margin: 0rem 0.2rem;
+  position: relative;
+  padding-bottom: 4px;
+}
+.icon_secction .icono .img_icon {
+  transition: all 0.5s ease-out;
+}
+.icon_secction .icono .img_icon svg {
+  height: 27px !important;
+  width: 27px !important;
+}
+.icon_secction .icono .titlle {
+  text-align: center;
+  line-height: normal;
+  font-size: 12px;
+  font-family: Gothic-Regular;
+}
+.icon_secction .icono .badge {
+  font-size: 9px !important;
+  font-family: Gothic-Regular;
+  top: 8px !important;
+}
+.icon_secction .icono:hover .img_icon {
+  transform: rotate(-13deg) scale(0.95);
+}
+.icon_secction .icono:hover .img_icon svg {
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 3px;
+  border-radius: 5px;
 }
 .icon_secction .icono:hover::after {
   background: #005ca4;
@@ -328,6 +434,8 @@ a {
   display: block;
   width: 100%;
   margin-top: 0.4rem;
+  position: absolute;
+  bottom: -6px;
 }
 
 .dropdown-cont {
@@ -339,7 +447,7 @@ a {
   z-index: 4;
   transition: all 0.2s ease-out;
   cursor: pointer;
-  padding-left: 1.5rem;
+  padding-left: 0.6rem;
 }
 .dropdown-cont p {
   font-family: Gothic-Regular;
@@ -353,16 +461,49 @@ a {
   border-color: #ffffff;
   border-radius: 6px;
 }
+.dropdown-cont .logo_img_menu {
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 0.4rem !important;
+  padding-top: 0.5rem !important;
+  margin-bottom: 0.5rem;
+  background-color: #ffffff !important;
+}
 .dropdown-cont .logo_img_menu .circle_status {
   background: rgb(161, 165, 170);
-  background: linear-gradient(0deg, rgb(161, 165, 170) 0%, rgb(244, 244, 244) 100%);
+  background: linear-gradient(0deg, #D88D00 0%, #FDCA00 100%);
   padding: 3px;
   border-radius: 50%;
-  height: 41px;
-  width: 41px;
+  height: 53px;
+  width: 53px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+}
+.dropdown-cont .logo_img_menu .name {
+  color: #000;
+  font-size: 16px;
+  font-family: "Gothic-Regular";
+}
+.dropdown-cont .logo_img_menu .status {
+  color: #000;
+  font-size: 16px;
+  font-family: "Gothic-Bold";
+}
+.dropdown-cont .logo_img_menu .small_editar {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 1px 16px;
+  background-color: #005ca4;
+  color: #ffffff;
+  font-family: Gothic-Regular;
+  transition: all 0.4s ease-out !important;
+}
+.dropdown-cont .logo_img_menu .small_editar:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
 }
 .dropdown-cont > a {
   position: relative;
@@ -390,23 +531,49 @@ a {
   border-radius: 2px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   display: none;
+  padding: 0.4rem;
 }
 .dropdown-cont ul > li {
   clear: both;
   list-style: none;
   display: block;
-  padding: 0 10px;
+  padding: 9px 10px !important;
   margin: 0;
   width: 100%;
-}
-.dropdown-cont ul > li:hover {
-  background: #71c1ff;
-}
-.dropdown-cont ul > li:hover > a {
-  background: #d9f7eb;
+  padding: 1rem 0.7rem;
   color: #ffffff;
 }
-.dropdown-cont .drop {
+.dropdown-cont ul > li svg {
+  margin-right: 10px;
+}
+.dropdown-cont ul > li > a {
+  color: #000000;
+  font-size: 16px;
+  font-family: Gothic-Regular;
+}
+.dropdown-cont ul > li:hover {
+  background: #005ca4;
+}
+.dropdown-cont ul > li:hover svg #llenar {
+  fill: #ffffff !important;
+}
+.dropdown-cont ul > li:hover > a {
+  color: #ffffff;
+}
+.dropdown-cont ul > li:last-child {
+  border-top: 1px solid #cccccc;
+}
+.dropdown-cont ul > li:last-child:hover {
+  background: #f0f0f0;
+}
+.dropdown-cont ul > li:last-child:hover svg #llenar {
+  fill: inherit !important;
+}
+.dropdown-cont ul > li:last-child:hover > a {
+  color: #ba0c2f;
+}
+
+.drop.active {
   display: block;
   animation: fadeInRight 0.3s ease;
   -webkit-animation: fadeInRight 0.3s ease;

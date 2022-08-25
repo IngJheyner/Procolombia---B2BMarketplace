@@ -146,6 +146,10 @@
       $("#go_form", context).click(function () {
         window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform";
       });
+      //call function to redirect to google form
+      $("#go_login", context).click(function () {
+        window.location.href = "/user/login";
+      });
     }
   };
 
