@@ -187,6 +187,7 @@ module:
   slick_views: 0
   smart_trim: 0
   stage_file_proxy: 0
+  statistics: 0
   structure_sync: 0
   svg_image: 0
   svg_image_responsive: 0

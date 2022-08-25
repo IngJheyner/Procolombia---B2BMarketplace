@@ -1,9 +1,9 @@
-uuid: 72672fab-faa8-4542-9cdc-209a888f0f51
+uuid: ff1bbcff-8abc-4989-a8a5-451a3d6dc7ae
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.image
+    - core.entity_view_mode.node.product_service_presave_list
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -48,22 +48,95 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
+    - image.style.medium
     - node.type.product
   module:
+    - advanced_text_formatter
     - ds
+    - layout_builder
     - svg_image
     - user
-id: node.product.image
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  ds:
+    layout:
+      id: bs_2col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          left:
+            wrapper: div
+            classes:
+              col-sm-4: col-sm-4
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-8: col-sm-8
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      left:
+        - field_pr_image_1
+      right:
+        - node_title
+        - field_body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          'link class': ''
+          wrapper: h2
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.product.product_service_presave_list
 targetEntityType: node
 bundle: product
-mode: image
+mode: product_service_presave_list
 content:
-  field_images:
+  field_body:
+    type: advanced_text
+    label: hidden
+    settings:
+      trim_length: 600
+      ellipsis: 1
+      word_boundary: 1
+      token_replace: 0
+      filter: input
+      format: plain_text
+      allowed_html: '<a> <b> <br> <dd> <dl> <dt> <em> <i> <li> <ol> <p> <strong> <u> <ul>'
+      autop: 0
+      use_summary: 0
+    third_party_settings: {  }
+    weight: 2
+    region: right
+  field_pr_image_1:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
-      image_style: ''
+      image_style: medium
       svg_attributes:
         width: null
         height: null
@@ -72,20 +145,19 @@ content:
         attribute: lazy
     third_party_settings:
       ds:
-        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 0
-    region: content
-  flag_favorites:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 10
-    region: content
+    region: left
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_aditional_information: true
-  field_body: true
   field_categorization: true
   field_categorization_parent: true
   field_dependent_state: true
@@ -94,12 +166,12 @@ hidden:
   field_file: true
   field_file_certifications: true
   field_iframe: true
+  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
   field_pr_certifications: true
-  field_pr_image_1: true
   field_pr_image_2: true
   field_pr_image_3: true
   field_pr_image_4: true
@@ -127,6 +199,7 @@ hidden:
   field_tag_producto: true
   field_tariff_heading: true
   field_trading_channel: true
+  flag_favorites: true
   langcode: true
   links: true
   search_api_excerpt: true

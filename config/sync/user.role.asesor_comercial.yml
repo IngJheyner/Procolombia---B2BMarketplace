@@ -11,6 +11,7 @@ dependencies:
     - media
     - mfd
     - node
+    - statistics
     - system
     - taxonomy_access_fix
     - toolbar
@@ -38,6 +39,7 @@ permissions:
   - 'view own field_iframe'
   - 'view own field_tags'
   - 'view own unpublished media'
+  - 'view post access counter'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'

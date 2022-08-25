@@ -120,6 +120,9 @@ function cp_core_theme($existing, $type, $theme, $path) {
       ],
       'template' => 'pre_register',
     ],
+    'cp_core_node_multistep_header' => [
+      'variables' => [],
+    ],
     'cp_core_node_multistep_sidebar' => [
       'variables' => [
         'steps' => [ ],
