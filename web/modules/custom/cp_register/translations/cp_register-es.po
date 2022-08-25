@@ -1,0 +1,3 @@
+# Text for button
+msgid "Sign up as"
+msgstr "Regístrese como"

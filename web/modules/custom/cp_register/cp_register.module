@@ -56,9 +56,3 @@ function cp_register_theme($existing, $type, $theme, $path)
     ],
   ];
 }
-
-function cp_register_page_attachments(array &$attachments) {
-
-  // Unconditionally attach an asset to the page.
-  $attachments['#attached']['library'][] = 'cp_register/cp_register';
-}

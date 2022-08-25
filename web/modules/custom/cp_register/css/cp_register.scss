@@ -1,85 +1,5 @@
-@font-face {
-  font-family: Maven-Medium;
-  src: url('../font/MavenPro-Medium.ttf');
-}
 
-@font-face {
-  font-family: Maven-Regular;
-  src: url('../font/MavenPro-Regular.ttf');
-}
 
-@font-face {
-  font-family: Maven-Bold;
-  src: url('../font/MavenPro-Bold.ttf');
-}
-
-@font-face {
-  font-family: Gothic-Regular;
-  src: url('../font/Century-Gothic.otf');
-
-}
-
-@font-face {
-  font-family: Gothic-Bold;
-  src: url('../font/Century-Gothic-Bold.otf');
-}
-
-$color-e3f3ff: #e3f3ff;
-$color-31d394: #31d394;
-$color-f0f0f0: #f0f0f0;
-$color-cccccc: #cccccc;
-$color-6a6d71: #6a6d71;
-$color-3b3d42: #3b3d42;
-$color-504672: #504672;
-$color-ba0c2f: #ba0c2f;
-$color-0085ca: #0085ca;
-$color-005ca4: #005ca4;
-$color-fdca00: #fdca00;
-$color-000000: #000000;
-$color-ffffff: #ffffff;
-$color-5c5c5c: #5C5C5C;
-$color-f7f8f8: #f7f8f8;
-/* Font/text values */
-$font-regular: Gothic-Regular;
-$font-medium: Maven-Medium;
-$font-bold: Gothic-Bold;
-$font-black: Maven-Black;
-$font-regular-maven: Maven-Regular;
-$font-bold-maven: Maven-Bold;
-
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #6a6d71 #00000000;
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 7px;
-
-  &:hover {
-    width: 7px;
-  }
-}
-
-img.me-2 {
-  width: 20px !important;
-}
-
-.form-control:focus {
-  box-shadow: none !important;
-}
-
-*::-webkit-scrollbar-track {
-  background: #00000000;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #6a6d71;
-  border-radius: 100px;
-  border: 0px solid #ffffff;
-}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -118,7 +38,7 @@ input[type=checkbox]:checked:after {
   display: block;
   width: 5px;
   height: 10px;
-  border: solid $color-ffffff;
+  border: solid $color-White;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -129,13 +49,11 @@ input[type=checkbox]:checked:after {
 }
 
 input[type=checkbox]:checked:before {
-  background-color: $color-0085ca;
+  background-color: $color-Pantone-process-Blue;
   border: rgba(0, 0, 0, 0);
 }
 
-a {
-  text-decoration: none !important;
-}
+
 
 #check_home_tab,
 #check_profile_tab,
@@ -173,7 +91,7 @@ a {
 
 .ts-wrapper.plugin-remove_button .item .remove {
   border-left: none !important;
-  color: $color-ba0c2f  !important;
+  color: $color-Pantone-200  !important;
 }
 
 .ts-wrapper.multi .ts-control>div {
@@ -184,331 +102,12 @@ div#main-wrapper {
   position: relative;
 }
 
-.toltip_i {
-  position: relative;
-
-  .tooltiptext {
-    visibility: hidden;
-    width: 300px;
-    background-color: $color-000000;
-    color: $color-ffffff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 8;
-
-  }
-
-  .tooltiptext_error {
-    visibility: hidden;
-    width: 300px;
-    background-color: $color-ba0c2f;
-    color: $color-ffffff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 8;
-    font-family: 'Gothic-Regular';
-    font-size: 14px;
-    right: 1rem;
-  }
-
-  .tooltiptext_yotube {
-    visibility: hidden;
-    width: 420px;
-    background-color: $color-000000;
-    color: $color-ffffff;
-    text-align: start;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 8;
-    font-family: 'Gothic-Regular';
-    font-size: 14px;
-    right: 1.5rem;
-  }
-
-  &:hover .tooltiptext,
-  &:hover .tooltiptext_error,
-  &:hover .tooltiptext_yotube {
-    visibility: visible;
-  }
-
-}
-
-.pt-6 {
-  margin-top: 6rem;
-  border-top: 1px solid rgba(204, 204, 204, 0.3294117647) !important;
-  width: 100%;
-  padding-bottom: 1rem;
-}
 
 
-.logo {
-  width: 230px;
-  height: 49px;
-  padding-left: 19px;
-}
 
-.btn-outline {
-  border: 1px solid $color-005ca4  !important;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 8px 11px;
-  margin-right: 10px;
-  font-family: $font-bold;
-
-  &:hover {
-    color: $color-ffffff  !important;
-    border-color: $color-0085ca  !important;
-    background-color: $color-0085ca  !important;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-}
-
-.btn-outline-d {
-  border: 1px solid $color-005ca4  !important;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: $color-005ca4  !important;
-  padding: 8px 11px;
-  color: $color-ffffff  !important;
-  font-family: $font-bold;
-
-  &:hover {
-    color: $color-ffffff;
-    background-color: $color-005ca4  !important;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-}
-
-.sub-header {
-  background-color: #F4F4F4;
-}
-
-.row {
-  width: 100%;
-  margin: 0px !important;
-  padding: 0px !important;
-}
-
-.menu-left {
-  width: 94%;
-  left: 18px;
-  height: 0px;
-  border-right: 45px solid transparent;
-  border-left: 0px solid transparent;
-  border-bottom: 45px solid #5C5C5C;
-  cursor: pointer;
-  z-index: 4;
-  position: absolute;
-  transition: all 0.5s ease-out;
-
-  &:hover {
-    transition: all 0.5s ease-out;
-    border-right: 45px solid transparent;
-    border-left: 0px solid transparent;
-    border-bottom: 45px solid $color-000000;
-  }
-
-  .menu-content {
-    padding: 6px 67px 6px 18px;
-    width: 305px;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    height: 45px;
-    color: $color-ffffff;
-    justify-content: center;
-    margin: 0 auto;
-
-    i {
-      font-size: 30px;
-      margin-right: 20px;
-    }
-
-    p {
-      margin: 0px;
-      font-family: $font-medium;
-    }
-  }
-}
-
-.search_box {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  position: relative;
-
-  input {
-    width: 100%;
-    -webkit-appearance: none;
-    border: none;
-    outline: none;
-    padding: 7px 20px;
-    color: #3B3D42;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 4px 12px;
-    font-family: $font-regular;
-
-    &:focus {
-      border: none;
-      outline: none;
-      width: 95%;
-    }
-
-    &:active {
-      border: none;
-      outline: none;
-    }
-  }
-
-  .search_btn {
-    background-color: $color-f7f8f8;
-    border: none;
-    outline: none;
-    border: none;
-    outline: none;
-    padding: 4px 8px;
-    font-size: 20px;
-    border-radius: 4px;
-    position: absolute;
-    right: 0;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-
-    &:focus {
-      border: none;
-      outline: none;
-    }
-
-    &:active {
-      border: none;
-      outline: none;
-    }
-
-    &:hover {
-      background-color: $color-0085ca;
-      color: $color-ffffff;
-
-      #Trazado_23 {
-        fill: $color-ffffff;
-      }
-    }
-  }
-}
-
-.btn-check:checked+.btn:focus,
-.btn-check:active+.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.show:focus {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-
-a.dropdown-item {
-  padding: 5px 11px;
-
-  span {
-    font-family: $font-regular-maven;
-    font-size: 18px;
-    font-weight: 200;
-  }
-}
-
-ul.dropdown-menu.show {
-
-  min-width: 100%;
-  padding: 5px 0px;
-  inset: -3px auto auto 0px !important;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border: none;
-  border-top: 1px solid #000;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.btn.btn-secondary.dropdown-toggle {
-  background-color: $color-f7f8f8;
-  border: none;
-  box-shadow: none;
-  color: $color-000000;
-  font-size: 18px;
-  font-weight: 200;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  font-family: $font-regular-maven;
-  padding: 9px 10px;
-  border-bottom: 1px solid $color-000000;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-
-  i {
-    margin-right: 8px;
-    font-size: 25px;
-  }
-}
-
-a.dropdown-item {
-  border: none;
-  box-shadow: none;
-  color: $color-000000;
-  font-size: 18px;
-  font-weight: 200;
-  display: flex;
-  font-family: $font-regular-maven;
-  align-items: center;
-
-
-  i {
-    margin-right: 8px;
-    font-size: 25px;
-  }
-}
-
-button.btn.btn-secondary.dropdown-toggle.show {
-  background-color: $color-ffffff  !important;
-}
-
-.dropdown-toggle::after {
-  display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
-  content: "\ea4a";
-  font-family: 'boxicons';
-  border: none !important;
-}
-
-.left_bar {
-  position: absolute;
-  position: absolute;
-  left: 0rem;
-  top: 3rem;
-  background: #f4f4f4;
-  padding-top: 2rem;
-  height: calc(100vh - 7.1rem);
-  width: 100%;
-  z-index: 3;
-  padding-left: 1.8rem;
-  padding-right: 0.5rem;
-  padding-bottom: 1.8rem;
-  transition: all 0.5s ease-out;
-
-  .bar_content {
-    overflow: auto;
-    height: 100%;
-    padding-right: 0.5rem;
-  }
-}
 
 .body_login {
-  background: $color-ffffff;
+  background: $color-White;
   padding: 5rem 1.5rem;
   height: calc(85vh - 1rem);
   display: flex;
@@ -592,14 +191,14 @@ button.btn.btn-secondary.dropdown-toggle.show {
       font-size: 1.5rem;
       font-weight: 200;
       font-family: $font-regular;
-      color: $color-000000;
+      color: $color-Black;
     }
 
     .title {
       font-size: 1.6rem;
       font-weight: bold;
       text-transform: uppercase;
-      color: $color-005ca4;
+      color: $color-Pantone-116-C;
       font-family: $font-bold;
     }
 
@@ -607,7 +206,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   }
 
   .card_footer {
-    background-color: $color-f0f0f0;
+    background-color: $color-Gris-Claro;
     font-size: 16px;
     font-weight: 300;
     padding: 1rem;
@@ -620,7 +219,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
     p {
       margin: 0px;
-      color: $color-000000;
+      color: $color-Black;
     }
   }
 
@@ -630,20 +229,20 @@ button.btn.btn-secondary.dropdown-toggle.show {
   font-family: $font-regular;
 
   button {
-    background-color: $color-ffffff;
+    background-color: $color-White;
     border: none;
     box-shadow: none;
-    color: $color-005ca4;
+    color: $color-Pantone-116-C;
     font-size: 14px;
     font-weight: 200;
     font-family: $font-bold;
     padding: 6px 9px;
-    border: 1px solid $color-ffffff;
+    border: 1px solid $color-White;
     border-radius: 6px;
     transition: all 0.2s ease-out;
 
     &:hover {
-      border: 1px solid $color-fdca00;
+      border: 1px solid $color-Pantone-Y;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
   }
@@ -661,12 +260,12 @@ button.btn.btn-secondary.dropdown-toggle.show {
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    color: $color-31d394;
+    color: $color-Verde-aprobacion;
   }
 
   p {
     font-size: 1.4rem;
-    color: $color-005ca4;
+    color: $color-Pantone-116-C;
     font-family: $font-bold;
     padding-top: 1.6rem;
     text-align: center;
@@ -699,7 +298,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
     h1 {
       font-family: $font-bold;
       font-size: 2.4rem;
-      color: $color-ffffff;
+      color: $color-White;
       text-align: center;
       padding: 7rem 2rem;
       position: relative;
@@ -718,25 +317,25 @@ button.btn.btn-secondary.dropdown-toggle.show {
       font-size: 25px;
       font-family: $font-bold;
       text-transform: uppercase;
-      color: $color-005ca4;
+      color: $color-Pantone-116-C;
     }
 
     .body_description {
       font-size: 17px;
       font-family: $font-regular;
-      color: $color-000000;
+      color: $color-Black;
       font-weight: 300;
     }
 
     label {
       font-size: 17px;
       font-family: $font-bold;
-      color: $color-000000;
+      color: $color-Black;
       font-weight: 600;
       width: 100%;
 
       sup {
-        color: $color-ba0c2f;
+        color: $color-Pantone-200;
       }
     }
 
@@ -746,7 +345,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
       border: none;
       outline: none;
       padding: 7px 20px;
-      color: $color-000000;
+      color: $color-Black;
       border-radius: 5px;
       border: 1px solid $color-cccccc;
       box-shadow: rgba(0, 0, 0, 0.02) 0px 4px 12px;
@@ -789,7 +388,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
       a {
         font-family: $font-bold;
         margin-left: 5px;
-        color: $color-0085ca;
+        color: $color-Pantone-process-Blue;
         display: contents;
       }
     }
@@ -807,7 +406,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   i {
     margin-top: 0px;
     margin-right: 5px;
-    color: $color-3b3d42;
+    color: $color-Gris-Oscuro;
   }
 
   span {
@@ -831,12 +430,12 @@ button.btn.btn-secondary.dropdown-toggle.show {
     padding: 6px 20px;
     margin-right: 10px;
     font-family: $font-regular;
-    color: $color-005ca4;
+    color: $color-Pantone-116-C;
     transition: all 0.4s ease-out !important;
 
     &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
+      color: $color-White;
+      background-color: $color-Pantone-process-Blue;
       box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
     }
   }
@@ -846,15 +445,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
     border-radius: 4px;
     font-size: 14px;
     padding: 6px 20px;
-    background-color: $color-005ca4;
-    color: $color-ffffff;
+    background-color: $color-Pantone-116-C;
+    color: $color-White;
     font-family: $font-regular;
     transition: all 0.4s ease-out !important;
 
 
     &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
+      color: $color-White;
+      background-color: $color-Pantone-process-Blue;
       box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
     }
   }
@@ -873,14 +472,14 @@ button.btn.btn-secondary.dropdown-toggle.show {
     padding: 6px 20px;
     margin-right: 10px;
     font-family: $font-regular;
-    color: $color-005ca4;
-    background-color: $color-ffffff;
-    border: 1px solid $color-0085ca;
+    color: $color-Pantone-116-C;
+    background-color: $color-White;
+    border: 1px solid $color-Pantone-process-Blue;
     transition: all 0.4s ease-out;
 
     &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
+      color: $color-White;
+      background-color: $color-Pantone-process-Blue;
       box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
     }
   }
@@ -888,7 +487,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
 .modal-header {
   font-size: 22px;
-  color: $color-3b3d42;
+  color: $color-Gris-Oscuro;
   font-family: $font-bold;
   border-color: #00000033;
 }
@@ -908,21 +507,21 @@ button.btn.btn-secondary.dropdown-toggle.show {
     font-weight: 300;
     line-height: 1.3em;
     margin: 0px;
-    color: $color-3b3d42;
+    color: $color-Gris-Oscuro;
 
     a {
       font-size: 15px;
       font-weight: 500;
       font-family: $font-bold;
-      color: $color-000000;
+      color: $color-Black;
     }
 
   }
 
   .cita_btn {
     border-radius: 4px;
-    background-color: $color-005ca4;
-    color: $color-ffffff;
+    background-color: $color-Pantone-116-C;
+    color: $color-White;
     font-family: $font-bold;
     font-size: 14px;
 
@@ -934,8 +533,8 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
 .cita_btn {
   border-radius: 4px;
-  background-color: $color-005ca4;
-  color: $color-ffffff;
+  background-color: $color-Pantone-116-C;
+  color: $color-White;
   font-family: $font-bold;
   font-size: 14px;
 
@@ -952,21 +551,21 @@ button.btn.btn-secondary.dropdown-toggle.show {
     line-height: 1.3em;
     margin: 0px;
     margin-bottom: 20px;
-    color: $color-3b3d42;
+    color: $color-Gris-Oscuro;
 
     a {
       font-size: 15px;
       font-weight: 500;
       font-family: $font-bold;
-      color: $color-0085ca;
+      color: $color-Pantone-process-Blue;
     }
 
   }
 
   .login_btn {
     border-radius: 2px;
-    background-color: $color-0085ca;
-    color: $color-ffffff;
+    background-color: $color-Pantone-process-Blue;
+    color: $color-White;
     font-family: $font-regular;
     font-size: 18px;
     width: 37%;
@@ -989,15 +588,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
       font-size: 15px;
       font-weight: 500;
       font-family: $font-bold;
-      color: $color-0085ca;
+      color: $color-Pantone-process-Blue;
     }
 
   }
 
   .login_btn {
     border-radius: 2px;
-    background-color: $color-0085ca;
-    color: $color-ffffff;
+    background-color: $color-Pantone-process-Blue;
+    color: $color-White;
     font-family: $font-regular;
     font-size: 18px;
     width: 37%;
@@ -1019,16 +618,16 @@ button.btn.btn-secondary.dropdown-toggle.show {
   text-align: end;
 
   .yes {
-    background-color: $color-005ca4;
-    color: $color-ffffff;
+    background-color: $color-Pantone-116-C;
+    color: $color-White;
     font-family: $font-bold;
     border: none;
     border-radius: 4px;
     padding: 0.4rem 1rem;
 
     &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
+      color: $color-White;
+      background-color: $color-Pantone-process-Blue;
       box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
     }
   }
@@ -1038,31 +637,31 @@ button.btn.btn-secondary.dropdown-toggle.show {
     padding: 0.4rem 1rem;
     margin-left: 10px;
     font-family: $font-regular;
-    color: $color-005ca4;
+    color: $color-Pantone-116-C;
     transition: all 0.4s ease-out;
-    border: 1px solid $color-005ca4;
+    border: 1px solid $color-Pantone-116-C;
 
     &:hover {
-      color: $color-ffffff;
-      background-color: $color-0085ca;
+      color: $color-White;
+      background-color: $color-Pantone-process-Blue;
       box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
     }
   }
 }
 
 .steps {
-  background-color: $color-ffffff;
+  background-color: $color-White;
   border-radius: 4px;
   box-shadow: 0px 3px 6px #00000029;
 
   .step_tittle {
-    background: transparent linear-gradient(180deg, $color-005ca4 0%, $color-0085ca 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(180deg, $color-Pantone-116-C 0%, $color-Pantone-process-Blue 100%) 0% 0% no-repeat padding-box;
     font-size: 17px;
     font-family: $font-bold-maven;
     border-radius: 4px;
     padding: 0.5rem 1rem;
     box-shadow: 0px 3px 6px #00000029;
-    color: $color-ffffff;
+    color: $color-White;
     z-index: 1;
   }
 
@@ -1074,7 +673,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
       height: 5px;
 
       .progress-bar {
-        background-color: $color-0085ca;
+        background-color: $color-Pantone-process-Blue;
       }
     }
 
@@ -1082,14 +681,14 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
       a {
         font-family: $font-bold;
-        color: $color-000000;
+        color: $color-Black;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 130px;
         text-align: center;
         font-size: 14px;
-        border-bottom: 3px solid $color-ffffff;
+        border-bottom: 3px solid $color-White;
         transition: all 0.2s ease-out;
 
         svg {
@@ -1101,7 +700,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
           }
 
           .num {
-            fill: $color-ffffff;
+            fill: $color-White;
           }
         }
 
@@ -1115,18 +714,18 @@ button.btn.btn-secondary.dropdown-toggle.show {
           margin-bottom: 10px;
 
           .back {
-            fill: $color-0085ca;
+            fill: $color-Pantone-process-Blue;
           }
 
           .num {
-            fill: $color-ffffff;
+            fill: $color-White;
           }
         }
       }
     }
 
     form {
-      background-color: $color-ffffff;
+      background-color: $color-White;
       box-shadow: 0px 3px 6px #00000029;
       margin-top: 20px;
       border-radius: 4px;
@@ -1138,14 +737,14 @@ button.btn.btn-secondary.dropdown-toggle.show {
         margin-bottom: 0.5rem;
 
         span {
-          color: $color-ba0c2f;
+          color: $color-Pantone-200;
         }
       }
 
       .input-group-text,
       .input-group label {
-        background-color: $color-005ca4;
-        color: $color-ffffff;
+        background-color: $color-Pantone-116-C;
+        color: $color-White;
         border-radius: 4px !important;
         margin-right: -3px;
         z-index: 2;
@@ -1160,7 +759,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
       .password {
         .input-group-text {
           background-color: #fff;
-          color: $color-ffffff;
+          color: $color-White;
           border-radius: 4px !important;
           margin-left: -3px !important;
           z-index: 2;
@@ -1184,7 +783,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
             width: 100%;
 
             .progress-bar {
-              background-color: $color-31d394;
+              background-color: $color-Verde-aprobacion;
             }
           }
 
@@ -1203,13 +802,13 @@ button.btn.btn-secondary.dropdown-toggle.show {
         }
 
         .input-group-text.eliminar {
-          background-color: $color-ba0c2f  !important;
+          background-color: $color-Pantone-200  !important;
           font-family: $font-regular  !important;
         }
       }
 
       .icon_help {
-        background-color: $color-fdca00;
+        background-color: $color-Pantone-Y;
         width: 20px;
         height: 20px;
         display: flex;
@@ -1235,7 +834,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
         border: none;
         outline: none;
         padding: 7px 20px;
-        color: $color-000000;
+        color: $color-Black;
         border: 1px solid $color-cccccc;
         border-radius: 4px;
 
@@ -1280,7 +879,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
         border: none;
         outline: none;
         padding: 7px 20px;
-        color: $color-000000;
+        color: $color-Black;
         border: 1px solid $color-cccccc;
         width: 100%;
         border-radius: 4px;
@@ -1298,7 +897,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
       .title_label {
         font-size: 1.2rem;
         font-family: $font-bold;
-        color: $color-000000;
+        color: $color-Black;
       }
     }
 
@@ -1323,7 +922,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
   i {
     margin-left: 8px;
-    color: $color-ba0c2f;
+    color: $color-Pantone-200;
     display: none;
   }
 }
@@ -1331,7 +930,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
 .error_select {
   i {
     margin-left: 8px;
-    color: $color-ba0c2f;
+    color: $color-Pantone-200;
     display: none;
     display: none;
   }
@@ -1344,7 +943,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
 }
 
 .error::before {
-  border-color: $color-ba0c2f  !important;
+  border-color: $color-Pantone-200  !important;
 }
 
 .yotube {
@@ -1662,6 +1261,15 @@ button.btn.btn-secondary.dropdown-toggle.show {
   }
 
 }
+
+
+//Fin de los estilos de Login
+
+
+
+
+
+
 
 
 @supports(object-fit: cover) {
