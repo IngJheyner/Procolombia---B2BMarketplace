@@ -16,7 +16,7 @@
         @include fields-hover-and-focus;
         resize: none;
     }
-    textarea{
+    .form-textarea{
         height: 100px;
     }
     select{
@@ -25,6 +25,17 @@
             box-shadow: none;
         }
     }
+    input[type="file"].form-control{
+        @include upload-files;
+        
+    }
+    .form-select{
+        background-image: url(../images/icons/Fecha.svg);
+        background-size: 32px 32px;
+        padding-right: 45px;
+    }
+    
+    
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
@@ -38,6 +49,8 @@
     .js-form-item{
         position: relative;
         margin-top: 22px;
+        max-width: 442px;
+        width: 100%;
         >label{
            @include label-style;
            &#edit-field-file-0--label,
@@ -55,8 +68,59 @@
                 border: 1px solid #A1A5AA;
             }
         }
-        
     }
+    .field--type-file,.field--type-image{
+        width: 100%;
+        .form-managed-file {
+            display: flex;
+            justify-content: space-between;
+            max-width: 442px;
+            align-items: flex-end;
+            padding-top: 20px;
+            
+            #edit-field-file-0--label{
+                top: 0;
+            }
+            .file {
+                flex-grow: 1;
+                height: 35px;
+                border: 1px solid $procol-gray-200;
+                border-radius: 4px;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+                margin-top: 35px;
+                display: flex;
+                align-items: center;
+                background-position-x: 10px;
+                padding-left: 35px;
+               }
+                button{
+                    @include remove-files;
+               }
+        }
+        
+        .image-widget{
+            display: flex;
+            flex-direction: column;
+            .image-preview{
+                width: 100%;
+                .image-style-thumbnail {
+                    width: 229px;
+                    height: 221px;
+                    object-fit: cover;
+                   }
+                   
+            }
+            .image-widget-data{
+                width: 100%;
+                display: flex;
+                align-items: flex-end;
+                .file--mime-image-jpeg{
+                    margin-top: 0;
+                }
+            }
+        }
+}
     .field-group-html-element.group-row {
         display: grid; 
         margin-top: 25px;
@@ -85,8 +149,11 @@
             margin-bottom: 0px !important;
             }
         }
+        .field--type-entity-reference{
+            width: 100%;
+        }
   
-    }
+    
     // Ends content form styles
 
     // Start Buttons styles 
@@ -127,8 +194,8 @@
            }
         // Ends Buttons styles
            
-     }  
-
+     } 
+}
 
     
     
