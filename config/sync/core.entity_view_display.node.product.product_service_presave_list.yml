@@ -1,0 +1,511 @@
+uuid: ff1bbcff-8abc-4989-a8a5-451a3d6dc7ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.product_service_presave_list
+    - field.field.node.product.field_aditional_information
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
+    - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - node.type.product
+  module:
+    - ds
+    - file
+    - iframe
+    - layout_builder
+    - mfd
+    - options
+    - svg_image
+    - telephone
+    - user
+    - video_embed_field
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.product.product_service_presave_list
+targetEntityType: node
+bundle: product
+mode: product_service_presave_list
+content:
+  field_aditional_information:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_body:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_categorization:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_categorization_parent:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_dependent_state:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_exist_certifications:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_export_markets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_file_certifications:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_iframe:
+    type: iframe_default
+    label: above
+    settings:
+      url: ''
+      title: ''
+      headerlevel: '3'
+      class: ''
+      frameborder: '0'
+      scrolling: ''
+      transparency: '0'
+      allowfullscreen: '0'
+      tokensupport: '0'
+      width: ''
+      height: ''
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_images:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 3
+    region: content
+  field_key_words:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_key_words_backup:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_mostrar_en_home:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_partida_arancelaria_tax:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_pr_certifications:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_pr_image_1:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_pr_image_2:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_pr_image_3:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_pr_image_4:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_pr_image_5:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 39
+    region: content
+  field_pr_multilingual_step1:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_pr_multilingual_step2:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_pr_multilingual_step3:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_pr_multilingual_step4:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_pr_multilingual_step5:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_pr_product_availability:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_pr_ref_company:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_pr_sales_channel:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_pr_target_market:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_pr_terms_of_condition:
+    type: boolean
+    label: above
+    settings:
+      format: unicode-yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 44
+    region: content
+  field_pr_type_certifications:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_pr_video:
+    type: video_embed_field_thumbnail
+    label: above
+    settings:
+      image_style: ''
+      link_image_to: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 40
+    region: content
+  field_pr_video_2:
+    type: video_embed_field_thumbnail
+    label: above
+    settings:
+      image_style: ''
+      link_image_to: ''
+    third_party_settings: {  }
+    weight: 42
+    region: content
+  field_pr_video_description_1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 45
+    region: content
+  field_pr_video_description_2:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 46
+    region: content
+  field_previous_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_product_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_states:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_tag_producto:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_tariff_heading:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_trading_channel:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_producto_innovador: true
+  langcode: true
+  search_api_excerpt: true

@@ -311,7 +311,7 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
 
-      if ($this->step < $this->maxStep) {
+      if ($this->step < ($this->maxStep -1)) {
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -325,7 +325,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#value' => t('Next'),
         ];
       }
-      else {
+      else if ($this->step == ($this->maxStep -1)) {
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
           '#value' => t('Send'),
@@ -333,7 +333,33 @@ class CpCoreMultiStepForm extends FormBase {
         $form['#submit'][] = '::saveForm';
         $form['#submit'][] = 'mfd_form_submit';
       }
-
+      else {
+        // Show view with product presaving.
+        $saved_entities = $form_state->get('saved_entities');
+        if (empty($saved_entities)) {
+          $saved_entities = [];
+        }
+        $form['product_list'] = [
+          '#theme' => 'view',
+          '#name' => 'product_service_presave_list',
+          '#display_id' => 'embed_1',
+          '#arguments' => [
+            implode('+', $saved_entities),
+          ],
+        ];
+        $form['footer_form']['actions']['add_other'] = [
+          '#type' => 'submit',
+          '#value' => t('Add other Product / Service'),
+          '#submit' => '::addOtherSubmit',
+          '#limit_validation_errors' => [],
+        ];
+        $form['footer_form']['actions']['send_for_validation'] = [
+          '#type' => 'submit',
+          '#value' => t('Send for validation'),
+          '#submit' => '::sendForValidation',
+          '#limit_validation_errors' => [],
+        ];
+      }
     }
     $form['#cache']['contexts'][] = 'url.query_args';
 
@@ -408,19 +434,34 @@ class CpCoreMultiStepForm extends FormBase {
       $entity->title = 'Generated el: ' . date('d/m/Y H:i');
     }
     $entity->save();
+    $saved_entities = $form_state->get('saved_entities');
+    if (empty($saved_entities)) {
+      $saved_entities = [];
+    }
+    $saved_entities[] = $entity->id();
     $form_state->set('entity', $entity);
     $this->entity = $entity;
+    $form_state->set('saved_entities', $saved_entities);
   }
 
   /**
-   * Ajax callback.
+   * {@inheritdoc} Saves the entity with updated values for the edited field.
    */
-  public function changeProductType(array &$form, FormStateInterface $form_state) {
-    $form['#action'] = str_replace('&ajax_form=1', '', $form['#action']);
-    $form['#action'] = str_replace('ajax_form=1', '', $form['#action']);
-    $form['#action'] = str_replace('&_wrapper_format=drupal_ajax', '', $form['#action']);
-    $form['#action'] = str_replace('_wrapper_format=drupal_ajax', '', $form['#action']);
-    return $form;
+  public function addOtherSubmit(array &$form, FormStateInterface $form_state) {
+    $this->entity = NULL;
+    $form_state->set('entity', NULL);
+    $form_state->setRebuild();
+    $this->step = NULL;
+  }
+
+  /**
+   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   */
+  public function sendForValidation(array &$form, FormStateInterface $form_state) {
+    $this->entity = NULL;
+    $form_state->set('entity', NULL);
+    $form_state->setRebuild();
+    $this->step = NULL;
   }
 
   /**
