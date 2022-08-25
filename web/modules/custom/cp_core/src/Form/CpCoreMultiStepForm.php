@@ -191,7 +191,7 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step', $nid = NULL) {
     $bundle = 'product';
-    if (!$form_state->has('entity')) {
+    if (empty($form_state->get('entity'))) {
       $form_state->set('language_values_en', []);
       if (empty($nid)) {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
@@ -203,12 +203,21 @@ class CpCoreMultiStepForm extends FormBase {
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
       }
       $this->init($form_state, $entity, $mode_form_pattern);
+      if (!empty($this->getRequest()->query->get('store-entities'))) {
+        $saved_entities = $this->getRequest()->query->get('store-entities');
+        $form_state->set('saved_entities', explode('+', $saved_entities));
+      }
+      if (!empty($this->getRequest()->query->get('saved-entities'))) {
+        $this->step = $this->maxStep;
+        $saved_entities = explode(' ', $this->getRequest()->query->get('saved-entities'));
+        $form_state->set('saved_entities', $saved_entities);
+      }
       if (!$this->maxStep) {
         \Drupal::messenger()->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');
         return [];
       }
     }
-
+    $form['#cache']['max-age'] = 0;
     $entity = $form_state->get('entity');
     $this->entity = $entity;
     if ($this->step <= $this->maxStep) {
@@ -249,6 +258,7 @@ class CpCoreMultiStepForm extends FormBase {
             $query[$qk] = $qv;
           }
         }
+        unset($query['saved-entities']);
         $form['#action'] = Url::fromRoute('<current>', $query, [
           'fragment' => Html::getId($this->getFormId()),
           '_no_path' => TRUE,
@@ -300,7 +310,7 @@ class CpCoreMultiStepForm extends FormBase {
         ],
       ];
 
-      if ($this->step > 1) {
+      if ($this->step < $this->maxStep) {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
           '#value' => t('Previous'),
@@ -339,24 +349,36 @@ class CpCoreMultiStepForm extends FormBase {
         if (empty($saved_entities)) {
           $saved_entities = [];
         }
+        $options = [];
+        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+        $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($saved_entities);
+        foreach ($nodes as $nid => $node) {
+          $options[$nid] = $view_builder->view($node, 'product_service_presave_list');
+        }
         $form['product_list'] = [
-          '#theme' => 'view',
-          '#name' => 'product_service_presave_list',
-          '#display_id' => 'embed_1',
-          '#arguments' => [
-            implode('+', $saved_entities),
-          ],
+          '#title' => NULL,
+          '#type' => 'checkboxes',
+          '#options' => $options,
         ];
+        $options = ['query' => ['store-entities', implode('+', $saved_entities)]];
+        $url = Url::fromRoute('<current>', [], $options);
         $form['footer_form']['actions']['add_other'] = [
-          '#type' => 'submit',
-          '#value' => t('Add other Product / Service'),
-          '#submit' => '::addOtherSubmit',
-          '#limit_validation_errors' => [],
+          '#type' => 'link',
+          '#title' => t('Load another product'),
+          '#url' => $url,
+          '#attributes' => ['class' => ['button', 'btn']],
         ];
-        $form['footer_form']['actions']['send_for_validation'] = [
+        $url = Url::fromUri('internal:/dashboard');
+        $form['footer_form']['actions']['cancel'] = [
+          '#type' => 'link',
+          '#title' => t('Cancel'),
+          '#url' => $url,
+          '#attributes' => ['class' => ['button', 'btn', 'btn-cancel']],
+        ];
+        $form['footer_form']['actions']['save_publish'] = [
           '#type' => 'submit',
-          '#value' => t('Send for validation'),
-          '#submit' => '::sendForValidation',
+          '#value' => t('Save and publish'),
+          '#submit' => ['::saveAndPublishSubmit'],
           '#limit_validation_errors' => [],
         ];
       }
@@ -442,6 +464,10 @@ class CpCoreMultiStepForm extends FormBase {
     $form_state->set('entity', $entity);
     $this->entity = $entity;
     $form_state->set('saved_entities', $saved_entities);
+    $form_state->set('saved', TRUE);
+    $options = ['query' => ['saved-entities', implode('+', $saved_entities)]];
+    $url = Url::fromRoute('<current>', [], $options);
+    $form_state->setRedirectUrl($url);
   }
 
   /**
@@ -450,6 +476,11 @@ class CpCoreMultiStepForm extends FormBase {
   public function addOtherSubmit(array &$form, FormStateInterface $form_state) {
     $this->entity = NULL;
     $form_state->set('entity', NULL);
+    $form_state->set('saved', FALSE);
+    if (!empty($this->getRequest()->query->get('saved-entities'))) {
+      $saved_entities = $this->getRequest()->query->get('saved-entities');
+      $form_state->set('saved_entities', explode('+', $saved_entities));
+    }
     $form_state->setRebuild();
     $this->step = NULL;
   }
@@ -457,12 +488,21 @@ class CpCoreMultiStepForm extends FormBase {
   /**
    * {@inheritdoc} Saves the entity with updated values for the edited field.
    */
-  public function sendForValidation(array &$form, FormStateInterface $form_state) {
-    $this->entity = NULL;
-    $form_state->set('entity', NULL);
-    $form_state->setRebuild();
-    $this->step = NULL;
+  public function saveAndPublishSubmit(array &$form, FormStateInterface $form_state) {
+    $product_list = $form_state->getValue('product_list');
+    $nodeStorage = $this->entityTypeManager->getStorage('node');
+    foreach($product_list as $nid) {
+      if ($nid) {
+        $node = $nodeStorage->load($nid);
+        $node->setPublished();
+        $node->save();
+      }
+    }
+    $url = Url::fromUri('internal:/dashboard');
+    $form_state->setRedirectUrl($url);
   }
+
+
 
   /**
    * Get Entity method.

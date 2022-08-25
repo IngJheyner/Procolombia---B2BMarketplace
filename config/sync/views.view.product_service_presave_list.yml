@@ -8,6 +8,7 @@ dependencies:
   module:
     - node
     - user
+    - views_bulk_operations
 id: product_service_presave_list
 label: 'Product / Service Presave List'
 module: views
@@ -23,32 +24,49 @@ display:
     position: 0
     display_options:
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: title
-          plugin_id: field
+          plugin_id: rendered_entity
           label: ''
           exclude: false
           alter:
             alter_text: false
+            text: ''
             make_link: false
+            path: ''
             absolute: false
-            word_boundary: false
-            ellipsis: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: false
+            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -56,30 +74,81 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          view_mode: product_service_presave_list
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_bulk_operations_bulk_form
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          batch: false
+          batch_size: 10
+          form_step: true
+          buttons: true
+          action_title: ''
+          clear_on_exposed: false
+          force_selection_info: false
+          selected_actions:
+            17:
+              action_id: 'entity:publish_action:node'
+              preconfiguration:
+                add_confirmation: false
+                label_override: 'Guardar y publicar'
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 10
-          total_pages: null
+          total_pages: 3
           id: 0
           tags:
-            next: ››
-            previous: ‹‹
+            next: Siguiente
+            previous: Anterior
+            first: ''
+            last: ''
           expose:
             items_per_page: false
             items_per_page_label: 'Elementos por página'
@@ -88,6 +157,7 @@ display:
             items_per_page_options_all_label: '- Todo -'
             offset: false
             offset_label: Desplazamiento
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -174,6 +244,48 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
         options:
@@ -182,10 +294,12 @@ display:
           default_row_class: true
           uses_fields: false
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          relationship: none
-          view_mode: product_service_presave_list
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
@@ -196,18 +310,63 @@ display:
           query_tags: {  }
       relationships: {  }
       header: {  }
-      footer: {  }
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: true
+          content: 'Total de items <span class="total">@total</span>'
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.node.accessconditioncontent.default'
+        - 'config:core.entity_view_display.node.accessconditioncontent.full'
+        - 'config:core.entity_view_display.node.accessconditioncontent.teaser'
+        - 'config:core.entity_view_display.node.banner.default'
+        - 'config:core.entity_view_display.node.banner.teaser'
+        - 'config:core.entity_view_display.node.banner_register_forms.default'
+        - 'config:core.entity_view_display.node.company.card_img_small'
+        - 'config:core.entity_view_display.node.company.default'
+        - 'config:core.entity_view_display.node.company.full'
+        - 'config:core.entity_view_display.node.company.image'
+        - 'config:core.entity_view_display.node.company.teaser'
+        - 'config:core.entity_view_display.node.company.title_and_link'
+        - 'config:core.entity_view_display.node.front_page.default'
+        - 'config:core.entity_view_display.node.landing_page.default'
+        - 'config:core.entity_view_display.node.landing_page.full'
+        - 'config:core.entity_view_display.node.landing_page.teaser'
+        - 'config:core.entity_view_display.node.match_automatico.default'
+        - 'config:core.entity_view_display.node.match_automatico.teaser'
+        - 'config:core.entity_view_display.node.old_company.default'
+        - 'config:core.entity_view_display.node.old_company.full'
+        - 'config:core.entity_view_display.node.old_company.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.full'
+        - 'config:core.entity_view_display.node.page.search_index'
+        - 'config:core.entity_view_display.node.page.search_result'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.product.card_img_small'
+        - 'config:core.entity_view_display.node.product.default'
+        - 'config:core.entity_view_display.node.product.full'
+        - 'config:core.entity_view_display.node.product.image'
+        - 'config:core.entity_view_display.node.product.product_service_presave_list'
+        - 'config:core.entity_view_display.node.product.teaser'
+        - 'config:core.entity_view_display.node.service.default'
+        - 'config:core.entity_view_display.node.service.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
   embed_1:
     id: embed_1
     display_title: Incrustar
@@ -219,12 +378,47 @@ display:
           metatags: {  }
           tokenize: false
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.node.accessconditioncontent.default'
+        - 'config:core.entity_view_display.node.accessconditioncontent.full'
+        - 'config:core.entity_view_display.node.accessconditioncontent.teaser'
+        - 'config:core.entity_view_display.node.banner.default'
+        - 'config:core.entity_view_display.node.banner.teaser'
+        - 'config:core.entity_view_display.node.banner_register_forms.default'
+        - 'config:core.entity_view_display.node.company.card_img_small'
+        - 'config:core.entity_view_display.node.company.default'
+        - 'config:core.entity_view_display.node.company.full'
+        - 'config:core.entity_view_display.node.company.image'
+        - 'config:core.entity_view_display.node.company.teaser'
+        - 'config:core.entity_view_display.node.company.title_and_link'
+        - 'config:core.entity_view_display.node.front_page.default'
+        - 'config:core.entity_view_display.node.landing_page.default'
+        - 'config:core.entity_view_display.node.landing_page.full'
+        - 'config:core.entity_view_display.node.landing_page.teaser'
+        - 'config:core.entity_view_display.node.match_automatico.default'
+        - 'config:core.entity_view_display.node.match_automatico.teaser'
+        - 'config:core.entity_view_display.node.old_company.default'
+        - 'config:core.entity_view_display.node.old_company.full'
+        - 'config:core.entity_view_display.node.old_company.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.full'
+        - 'config:core.entity_view_display.node.page.search_index'
+        - 'config:core.entity_view_display.node.page.search_result'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.product.card_img_small'
+        - 'config:core.entity_view_display.node.product.default'
+        - 'config:core.entity_view_display.node.product.full'
+        - 'config:core.entity_view_display.node.product.image'
+        - 'config:core.entity_view_display.node.product.product_service_presave_list'
+        - 'config:core.entity_view_display.node.product.teaser'
+        - 'config:core.entity_view_display.node.service.default'
+        - 'config:core.entity_view_display.node.service.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
