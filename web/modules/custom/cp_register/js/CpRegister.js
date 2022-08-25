@@ -704,7 +704,7 @@ function validateForm2() {
     jQuery("#error_modelo_de_negocio").hide();
     jQuery("#modelo_de_negocio_contain .ts-control").css("border-color", "#cccccc");
   }
-  if (certification_business != "") {
+  /*if (certification_business != "") {
     if ((certification_business_file.size / 1024 / 1024) > 2) {
       message = "El archivo de certificación debe ser menor a 2mb";
       jQuery("#certificateFile").css("border-color", "#ba0c2f");
@@ -715,6 +715,8 @@ function validateForm2() {
       isValid = false;
     } else {
       //check is pdf
+     
+
       if (certification_business_file.type != "application/pdf") {
         message = "El archivo de certificación debe ser un archivo PDF";
         jQuery("#certificateFile").css("border-color", "#ba0c2f");
@@ -726,7 +728,7 @@ function validateForm2() {
         jQuery("#certificateFile").css("border-color", "#cccccc");
       }
     }
-  }
+  }*/
 
   return isValid;
 }

@@ -742,12 +742,15 @@
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_landline">
-										{% for countries_item in countries %}
+                                                                       
+                                                                             
+									{#	{% for countries_item in countries %}
 										<option value="{{countries_item.Indicativo}}"
 											data-src="{{countries_item.Image}}">
 											+{{countries_item.Indicativo}}</option>
-										{% endfor %}
-									</select>
+										{% endfor %} #}
+                                                                          <option value="+57">+57</option>
+									</select> 
 								</div>
 								<div class="col-lg-9">
 									<input class="w-100" style="height: 100%;" type="tel" name="" id="landline">
@@ -760,11 +763,12 @@
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_mobile">
-										{% for countries_item in countries %}
+									{#	{% for countries_item in countries %}
 										<option value="{{countries_item.Indicativo}}"
 											data-src="{{countries_item.Image}}">
 											+{{countries_item.Indicativo}}</option>
-										{% endfor %}
+										{% endfor %} #}
+<option value="+57">+57</option>
 									</select>
 								</div>
 								<div class="col-lg-9">
