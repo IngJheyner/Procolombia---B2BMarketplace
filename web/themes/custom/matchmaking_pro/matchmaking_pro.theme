@@ -49,7 +49,13 @@ function matchmaking_pro_preprocess_page(array &$variables) {
     $variables['business_name'] = $user->get('field_company_name')->value;
     //check if has exporter rol
     if($user->hasRole('exportador')){
-      $variables['company_logo'] = file_create_url($user->get('field_company_logo')->entity->getFileUri());
+      //check if has company_logo
+      if($user->hasField('field_company_logo')){
+        $variables['company_logo'] = file_create_url($user->get('field_company_logo')->entity->getFileUri());
+      }
+      else{
+        $variables['company_logo'] = '';
+      }
     }
   }
 }
