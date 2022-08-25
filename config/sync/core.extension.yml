@@ -26,7 +26,6 @@ module:
   civic_accessibility_toolbar: 0
   ckeditor: 0
   ckeditor_media_embed: 0
-  color: 0
   color_field: 0
   comment: 0
   config: 0
@@ -87,7 +86,6 @@ module:
   google_analytics: 0
   graphql: 0
   graphql_core: 0
-  hal: 0
   help: 0
   history: 0
   honeypot: 0
