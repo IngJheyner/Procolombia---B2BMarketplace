@@ -1,12 +1,12 @@
 cp_register:
-  version: 1.6
+  version: 2.2
   css:
     theme:
-      css/styles.css: {}
+      css/cp_register.css: {}
   js:
     js/main.js: {}
-    js/CpCheckNit.js: {}
-    js/CpRegister.js: {}
+    js/cp_check_nit.js: {}
+    js/cp_register.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

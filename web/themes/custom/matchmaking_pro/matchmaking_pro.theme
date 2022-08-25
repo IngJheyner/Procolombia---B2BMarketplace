@@ -30,3 +30,34 @@ function matchmaking_pro_form_system_theme_settings_alter(&$form, FormStateInter
     'bg-transparent' => t('Transparent'),
   );
 }
+
+function matchmaking_pro_page_attachments(&$variables) {
+  $variables['#attached']['library'][] = 'matchmaking_pro/bootstrap';
+  $variables['#attached']['library'][] = 'matchmaking_pro/bootstrap_cdn';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function matchmaking_pro_preprocess_page(array &$variables) {
+  $uid = \Drupal::currentUser();
+  $user = \Drupal\user\Entity\User::load($uid->id());
+  //ceck if user is not deleted in drupal
+
+  if($user->isActive()){
+
+    //check if has exporter rol
+    // chek if user is not root
+    if($user->hasRole('exportador')){
+      //is not empty field_company_name
+      if(!empty($user->get('field_company_name')->value)){
+        $variables['business_name'] = $user->get('field_company_name')->value;
+        $variables['company_logo'] = file_create_url($user->get('field_company_logo')->entity->getFileUri());
+      }
+      else{
+        $variables['company_logo'] = '';
+        $variables['business_name'] = '';
+      }
+    }
+  }
+}

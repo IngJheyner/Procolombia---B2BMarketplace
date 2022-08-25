@@ -1,1 +1,606 @@
-<div>Hola mundo edit</div>
+{{ attach_library('cp_company_col/cp_company_col') }}
+<main class="step_registre">
+	<div class="steps">
+		<div class="row p-0 step_tittle">
+			<div class="col-md-9">
+				<div class="">EDITAR - Perfil de la compañía y contacto</div>
+			</div>
+			<div class="col-md-3" style="text-align: end;">
+				<button id="cancel_process" class="bt_eliminar">
+					<svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26" height="26" viewbox="0 0 26 26">
+						<rect id="Rectángulo_2982" data-name="Rectángulo 2982" width="26" height="26" fill="none"/>
+						<g id="Grupo_1291" data-name="Grupo 1291" transform="translate(3.651 3.651)">
+							<path id="Trazado_55" data-name="Trazado 55" d="M907.176,15.355V9.405a.595.595,0,1,1,1.19,0v5.95a.595.595,0,1,1-1.19,0m4.165-1.785a.6.6,0,0,1-.6-.6V9.405a.6.6,0,1,1,1.19,0v3.57a.6.6,0,0,1-.595.6m0,2.38a.6.6,0,1,1,.595-.6.6.6,0,0,1-.595.6M916.7,6.43h-11.6a1.488,1.488,0,0,0-1.488,1.488v8.925a1.488,1.488,0,0,0,1.488,1.488h8.925a1.488,1.488,0,0,0,1.488-1.488V11.785a.6.6,0,1,1,1.19,0v5.355a2.379,2.379,0,0,1-2.38,2.38H904.8a2.38,2.38,0,0,1-2.38-2.38V7.62a2.381,2.381,0,0,1,2.38-2.38h11.9a1.19,1.19,0,0,0,0-2.38h-4.463c-.658,0-.83-1.19-1.488-1.19h-2.38c-.657,0-.83,1.19-1.487,1.19h-4.463a1.19,1.19,0,0,0-1.19,1.19.6.6,0,1,1-1.19,0,2.381,2.381,0,0,1,2.38-2.38h3.273c.657,0,.83-1.19,1.488-1.19h4.76c.658,0,.83,1.19,1.488,1.19H916.7a2.38,2.38,0,0,1,0,4.76" transform="translate(-900.036 -0.48)" fill="#fff" fill-rule="evenodd"/>
+							<path id="Trazado_56" data-name="Trazado 56" d="M951.929,26.48a.893.893,0,1,1-.892.893.893.893,0,0,1,.892-.893" transform="translate(-935.863 -18.745)" fill="#fff" fill-rule="evenodd"/>
+						</g>
+					</svg>
+					Cancelar
+				</button>
+			</div>
+		</div>
+
+		<div class="step_content">
+			<div>
+				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
+						<div class="row p-0">
+							<div class="col-sm-12 col-md-6 col-lg-6" style="border-right: 1px solid #ccc;">
+								<div class="row">
+
+									<div class="col-md-12">
+										<label for="logo" class="form-label">Logo
+											<span>*</span>
+										</label>
+										<div style="display: flex;">
+											<div id="prew" class=" w-100">
+												<img id="logo_img" src="" alt="" srcset="" class="mb-3" style="width: 80px; height: 80px;">
+												<div class="input-group mb-3">
+													<input type="text" id="logo_name" class="form-control" placeholder="https://www.youtube.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+													<span id="remove_logo" style="background: #ba0c2f;" class="input-group-text">
+														<svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26" height="26" viewbox="0 0 26 26">
+															<rect id="Rectángulo_2982" data-name="Rectángulo 2982" width="26" height="26" fill="none"/>
+															<g id="Grupo_1291" data-name="Grupo 1291" transform="translate(3.651 3.651)">
+																<path id="Trazado_55" data-name="Trazado 55" d="M907.176,15.355V9.405a.595.595,0,1,1,1.19,0v5.95a.595.595,0,1,1-1.19,0m4.165-1.785a.6.6,0,0,1-.6-.6V9.405a.6.6,0,1,1,1.19,0v3.57a.6.6,0,0,1-.595.6m0,2.38a.6.6,0,1,1,.595-.6.6.6,0,0,1-.595.6M916.7,6.43h-11.6a1.488,1.488,0,0,0-1.488,1.488v8.925a1.488,1.488,0,0,0,1.488,1.488h8.925a1.488,1.488,0,0,0,1.488-1.488V11.785a.6.6,0,1,1,1.19,0v5.355a2.379,2.379,0,0,1-2.38,2.38H904.8a2.38,2.38,0,0,1-2.38-2.38V7.62a2.381,2.381,0,0,1,2.38-2.38h11.9a1.19,1.19,0,0,0,0-2.38h-4.463c-.658,0-.83-1.19-1.488-1.19h-2.38c-.657,0-.83,1.19-1.487,1.19h-4.463a1.19,1.19,0,0,0-1.19,1.19.6.6,0,1,1-1.19,0,2.381,2.381,0,0,1,2.38-2.38h3.273c.657,0,.83-1.19,1.488-1.19h4.76c.658,0,.83,1.19,1.488,1.19H916.7a2.38,2.38,0,0,1,0,4.76" transform="translate(-900.036 -0.48)" fill="#fff" fill-rule="evenodd"/>
+																<path id="Trazado_56" data-name="Trazado 56" d="M951.929,26.48a.893.893,0,1,1-.892.893.893.893,0,0,1,.892-.893" transform="translate(-935.863 -18.745)" fill="#fff" fill-rule="evenodd"/>
+															</g>
+														</svg>
+														Eliminar
+													</span>
+												</div>
+											</div>
+											<div id="logo_sub" class="input-group" style="display: none;">
+												<label id="open_input_file" class="input-group-text" form="logo" style="height:40px; border-radius:4px" id="basic-addon3">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Grupo_1453" data-name="Grupo 1453" width="32" height="29" viewbox="0 0 32 29">
+														<defs>
+															<linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+																<stop offset="0" stop-color="#d88d00"/>
+																<stop offset="1" stop-color="#edc500"/>
+															</linearGradient>
+														</defs>
+														<rect id="Rectángulo_2985" data-name="Rectángulo 2985" width="32" height="29" fill="none"/>
+														<g id="Grupo_1451" data-name="Grupo 1451" transform="translate(5 5.393)">
+															<path id="Trazado_95" data-name="Trazado 95" d="M619.281,326.35h-16.5a2.749,2.749,0,0,1-2.749-2.749v-9.623a2.746,2.746,0,0,1,2.59-2.741l1-1.763a2.354,2.354,0,0,1,1.941-.994h4.124a2.378,2.378,0,0,1,1.949.994l1.013,1.755h5.939a.687.687,0,1,1,0,1.375h-6.186a1.081,1.081,0,0,1-.36-.068h0a1.344,1.344,0,0,1-.72-.59l-.779-1.429a1.476,1.476,0,0,0-1.228-.663h-3.466a1.462,1.462,0,0,0-1.222.663l-.768,1.429a1.115,1.115,0,0,1-1.079.657,1.66,1.66,0,0,0-1.375,1.718v8.935a1.713,1.713,0,0,0,1.58,1.7.682.682,0,0,0,.138.014h15.808a1.719,1.719,0,0,0,1.718-1.718v-6.186a1.719,1.719,0,0,0-1.718-1.718H605.191a1.031,1.031,0,0,0-1.031,1.031v3.78a.687.687,0,0,1-1.375,0v-3.437c0-.077.006-.154.011-.229,0-.039-.011-.076-.011-.114v-.344a2.062,2.062,0,0,1,2.062-2.062h.344c.039,0,.076.009.114.011.076-.005.153-.011.229-.011h13.746a2.75,2.75,0,0,1,2.749,2.749V323.6a2.749,2.749,0,0,1-2.749,2.749" transform="translate(-600.036 -308.48)" fill="#fff" fill-rule="evenodd"/>
+															<path id="Trazado_96" data-name="Trazado 96" d="M608.067,347.48a1.031,1.031,0,1,1-1.031,1.031,1.032,1.032,0,0,1,1.031-1.031" transform="translate(-604.63 -334.077)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+														</g>
+													</svg>
+													Elegir archivos
+												</label>
+												<div id="logo_input" class="form-control" style="height:40px; border-radius:4px">
+													<input type="file" id="logo" style="opacity:0">
+												</div>
+
+											</div>
+											<div class="input_error">
+												<i id="error_logo" class='bx bxs-info-circle toltip_i'>
+													<span id="error_logo_message" class="tooltiptext_error">
+														Campo Obligatorio
+													</span>
+												</i>
+											</div>
+										</div>
+
+										<div class="toltip_content">
+											<i class='bx bxs-info-circle toltip_i'>
+												<span class="tooltiptext">
+													Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones
+																																																											mínimas de 200x200 px
+												</span>
+											</i>
+											<span>Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones
+																																																						mínimas de 200x200 px</span>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<label for="business_name" class="form-label">Nombre de la empresa
+											<span>*</span>
+										</label>
+										<div class="input_error">
+											<input type="text" class="form-control" id="business_name" placeholder="">
+											<i id="error_business_name" class='bx bxs-info-circle toltip_i'>
+												<span id="error_business_name_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+										<div class="toltip_content">
+											<i class='bx bxs-info-circle toltip_i'>
+												<span class="tooltiptext">
+													“PTE REDACCIÓN NOMBRE COMERCIAL”
+												</span>
+											</i>
+											<span>“PTE REDACCIÓN NOMBRE COMERCIAL”</span>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<label for="website" class="form-label">Sitio Web de la compañía
+											<span>*</span>
+										</label>
+										<div class="input_error">
+											<input type="text" class="form-control" id="website">
+											<i id="error_website" class='bx bxs-info-circle toltip_i'>
+												<span id="error_website_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<label for="asesor" class="form-label ">Cadena productiva principal
+											<span>*</span>
+										</label>
+										<div class="d-flex align-items-center error_select">
+											<div id="production_chain_contain" class="w-100">
+												<select id="production_chain" class="single_select" placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+													<option value="">Ingrese la palabra clave o seleccione una opción
+													</option>
+													{% for production_chain_item in production_chain %}
+														<option value="{{production_chain_item.ID}}">
+															{{production_chain_item.Name}}
+														</option>
+													{% endfor %}
+												</select>
+											</div>
+
+											<i id="error_production_chain" class='bx bxs-info-circle toltip_i'>
+												<span id="error_production_chain_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+
+
+									</div>
+									<div class="col-md-12">
+										<label for="nit">NIT
+											<span>*</span>
+										</label>
+										<input id="nit" class="form-control" type="num" disabled placeholder="830070123">
+									</div>
+
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-6 col-lg-6">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="principal_code_ciiu" class="form-label">Código CIIU Principal o
+																																												Actividad
+																																												Económica
+											<span>*</span>
+										</label>
+										<div class="input_error">
+											<input type="text" class="form-control" id="principal_code_ciiu" placeholder="">
+											<i id="error_principal_code_ciiu" class='bx bxs-info-circle toltip_i'>
+												<span id="error_principal_code_ciiu_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<label for="nombre_del_sitio" class="form-label">Código CIIU Secundario o
+																																												Actividad
+																																												Económica
+										</label>
+										<input type="text" class="form-control" id="secondary_code_ciiu" placeholder="">
+										<div class="toltip_content">
+											<i class='bx bxs-info-circle toltip_i'>
+												<span class="tooltiptext">
+													Indique el código CIIU o la actividad económica a la que pertenece
+																																																				su empresa.
+												</span>
+											</i>
+											<span>Indique el código CIIU o la actividad económica a la que pertenece su
+																																																empresa.</span>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<label for="sitio" class="form-label">Departamento<span>*</span>
+										</label>
+										<div class="d-flex align-items-center error_select">
+											<div id="departament_contain" class="w-100">
+												<select id="departament" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+													<option value="">Seleccione una opción</option>
+													{% for deparment in deparments %}
+														<option value="{{deparment.ID}}">{{deparment.Name}}</option>
+													{% endfor %}
+												</select>
+											</div>
+
+											<i id="error_departament" class='bx bxs-info-circle toltip_i'>
+												<span id="error_departament_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+
+									</div>
+									<div class="col-md-12">
+										<label for="ciudad" class="form-label">Ciudad o Municipio<span>*</span>
+										</label>
+										<div class="d-flex align-items-center error_select">
+											<div id="ciudad_contain" class="w-100">
+												<select id="ciudad" class="single_select" placeholder="Seleccione una opción..." autocomplete="off"></select>
+											</div>
+
+											<i id="error_ciudad" class='bx bxs-info-circle toltip_i'>
+												<span id="error_ciudad_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+
+									</div>
+									<div class="col-md-12">
+										<label for="modelo_de_negocio" class="form-label">Modelo de
+																																												negocio<span>*</span>
+										</label>
+
+										<div class="d-flex align-items-center error_select">
+											<div id="modelo_de_negocio_contain" class="w-100">
+												<select id="modelo_de_negocio" multiple placeholder="Ingrese la palabra clave o seleccione varias opciones">
+													<option value="">Seleccione una opción</option>
+													{% for business_model_item in business_model %}
+														<option value="{{business_model_item.ID}}">
+															{{business_model_item.Name}}</option>
+													{% endfor %}
+												</select>
+											</div>
+											<i id="error_modelo_de_negocio" class='bx bxs-info-circle toltip_i'>
+												<span id="error_modelo_de_negocio_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<p class="title_label">Información en Español</p>
+							<label for="asesor" class="form-label">Descripción de la empresa
+								<span>*</span>
+							</label>
+							<div style="display:flex">
+								<textarea id="description_business_spanish" rows="4" cols="4"></textarea>
+								<div class="input_error">
+									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
+										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+											Campo Obligatorio
+										</span>
+									</i>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<p class="title_label">Information in English</p>
+							<label for="asesor" class="form-label">Company Description
+								<span>*</span>
+							</label>
+							<div style="display:flex">
+								<textarea id="description_business_english" rows="4" cols="4"></textarea>
+								<div class="input_error">
+									<i id="error_description_business_english" class='bx bxs-info-circle toltip_i'>
+										<span id="error_description_business_english_message" class="tooltiptext_error">
+											Campo Obligatorio
+										</span>
+									</i>
+								</div>
+							</div>
+
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-lg-12 continue">
+							<button id="cancel_process_1" class="cancel">CANCELAR</button>
+							<button id="save_only" name="save_only" aria-label="Continuar con el registro" class="save_only">GUARDAR
+							</button>
+							<button id="save_1" name="save_1" aria-label="Continuar con el registro" class="continue">GUARDAR Y
+																																SALIR
+							</button>
+							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								CARGANDO
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="steps">
+		<div class="row p-0 step_tittle">
+			<div class="col-md-9">
+				<div class="">EDITAR - Información de Contacto</div>
+			</div>
+
+		</div>
+		<div class="description">
+			<p class="title">! TENGA PRESENTE LO SIGUIENTE!</p>
+			<p class="desc">La información diligenciada en estos campos es la que sera utilizada para enviar todas las
+																notificaciones que surjan del formulario de "contactar empresa".</p>
+		</div>
+		<div class="step_content">
+			<div>
+				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
+
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label for="asesor" class="form-label">Nombre del contacto
+								<span>*</span>
+							</label>
+							<div style="display:flex">
+								<div class="input-group flex-nowrap">
+									<span class="input-group-text group_transparent" id="addon-wrapping">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 25 25">
+											<defs>
+												<linearGradient id="linear-user" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#005ca4"/>
+													<stop offset="1" stop-color="#008cce"/>
+												</linearGradient>
+												<linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#d88d00"/>
+													<stop offset="1" stop-color="#edc500"/>
+												</linearGradient>
+											</defs>
+											<g id="Grupo_1371" data-name="Grupo 1371" transform="translate(0 0)">
+												<path id="Trazado_33" data-name="Trazado 33" d="M321.911,925.48h-18.75a3.125,3.125,0,0,1-3.125-3.125v-2.344c0-1.276.988-2.44,2.638-3.365l0,0a.725.725,0,1,1,.7,1.27l.005.009c-1.125.617-1.785,1.339-1.785,2.082v2.344a1.562,1.562,0,0,0,1.563,1.563h18.75a1.562,1.562,0,0,0,1.563-1.562v-2.344c0-2.157-4.9-3.906-10.938-3.906a6.257,6.257,0,0,1-6.225-5.771c-.013-.159-.025-.318-.025-.479v-4.687a4.688,4.688,0,0,1,4.688-4.687H314.1a4.688,4.688,0,0,1,4.688,4.687v4.688a4.534,4.534,0,0,1-.025.479,6.153,6.153,0,0,1-.752,2.5.778.778,0,1,1-1.426-.609l-.008-.005a4.653,4.653,0,0,0,.647-2.367v-4.687a3.125,3.125,0,0,0-3.125-3.125h-3.125a3.126,3.126,0,0,0-3.125,3.125v4.688a4.685,4.685,0,0,0,4.479,4.677c.063.006.132.01.208.01a27.6,27.6,0,0,1,3.81.259c.307.043.61.093.906.145l.033.007c.289.051.572.108.85.169l.072.016q.828.186,1.581.421c.023.008.048.016.073.022q.369.117.718.247l.047.017c.23.086.453.174.668.267l.023.009c.213.092.418.189.616.286l.084.043c.2.1.385.2.564.307l.007,0c.176.1.34.209.5.318l.069.048c.154.108.3.219.435.331l.065.055c.13.112.254.224.367.339l.02.019a4.534,4.534,0,0,1,.314.359l.057.075a3.779,3.779,0,0,1,.246.368c.009.016.017.032.026.049a3.084,3.084,0,0,1,.165.352c.009.022.02.043.027.065a2.623,2.623,0,0,1,.108.385c.005.027.009.055.014.083a2.471,2.471,0,0,1,.038.405v2.344a3.125,3.125,0,0,1-3.125,3.125" transform="translate(-300.036 -900.481)" fill-rule="evenodd" fill="url(#linear-user)"/>
+												<path id="Trazado_34" data-name="Trazado 34" d="M313.3,936.48a1.267,1.267,0,0,1,1.2,1.665,1.227,1.227,0,0,1-.8.8,1.265,1.265,0,1,1-.4-2.464" transform="translate(-307.386 -922.532)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+											</g>
+										</svg>
+									</span>
+									<input id="name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input_error">
+									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
+										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+											Campo Obligatorio
+										</span>
+									</i>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label for="sitio" class="form-label">Teléfono fijo de la empresa<span>*</span>
+							</label>
+							<div class="row">
+								<div class="col-lg-3" style="padding: 0px;">
+									<select id="country_code_landline">
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										{# {% for countries_item in countries %}
+											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
+												+{{countries_item.Indicativo}}</option>
+										{% endfor %} #}
+									</select>
+								</div>
+								<div class="col-lg-9">
+									<input id="landline" class="w-100" style="height: 100%;" type="tel" name="" id="landline">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label for="asesor" class="form-label">Apellido del contacto
+								<span>*</span>
+							</label>
+							<div style="display:flex">
+								<div class="input-group flex-nowrap">
+									<span class="input-group-text group_transparent" id="addon-wrapping">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 25 25">
+											<defs>
+												<linearGradient id="linear-user" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#005ca4"/>
+													<stop offset="1" stop-color="#008cce"/>
+												</linearGradient>
+												<linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#d88d00"/>
+													<stop offset="1" stop-color="#edc500"/>
+												</linearGradient>
+											</defs>
+											<g id="Grupo_1371" data-name="Grupo 1371" transform="translate(0 0)">
+												<path id="Trazado_33" data-name="Trazado 33" d="M321.911,925.48h-18.75a3.125,3.125,0,0,1-3.125-3.125v-2.344c0-1.276.988-2.44,2.638-3.365l0,0a.725.725,0,1,1,.7,1.27l.005.009c-1.125.617-1.785,1.339-1.785,2.082v2.344a1.562,1.562,0,0,0,1.563,1.563h18.75a1.562,1.562,0,0,0,1.563-1.562v-2.344c0-2.157-4.9-3.906-10.938-3.906a6.257,6.257,0,0,1-6.225-5.771c-.013-.159-.025-.318-.025-.479v-4.687a4.688,4.688,0,0,1,4.688-4.687H314.1a4.688,4.688,0,0,1,4.688,4.687v4.688a4.534,4.534,0,0,1-.025.479,6.153,6.153,0,0,1-.752,2.5.778.778,0,1,1-1.426-.609l-.008-.005a4.653,4.653,0,0,0,.647-2.367v-4.687a3.125,3.125,0,0,0-3.125-3.125h-3.125a3.126,3.126,0,0,0-3.125,3.125v4.688a4.685,4.685,0,0,0,4.479,4.677c.063.006.132.01.208.01a27.6,27.6,0,0,1,3.81.259c.307.043.61.093.906.145l.033.007c.289.051.572.108.85.169l.072.016q.828.186,1.581.421c.023.008.048.016.073.022q.369.117.718.247l.047.017c.23.086.453.174.668.267l.023.009c.213.092.418.189.616.286l.084.043c.2.1.385.2.564.307l.007,0c.176.1.34.209.5.318l.069.048c.154.108.3.219.435.331l.065.055c.13.112.254.224.367.339l.02.019a4.534,4.534,0,0,1,.314.359l.057.075a3.779,3.779,0,0,1,.246.368c.009.016.017.032.026.049a3.084,3.084,0,0,1,.165.352c.009.022.02.043.027.065a2.623,2.623,0,0,1,.108.385c.005.027.009.055.014.083a2.471,2.471,0,0,1,.038.405v2.344a3.125,3.125,0,0,1-3.125,3.125" transform="translate(-300.036 -900.481)" fill-rule="evenodd" fill="url(#linear-user)"/>
+												<path id="Trazado_34" data-name="Trazado 34" d="M313.3,936.48a1.267,1.267,0,0,1,1.2,1.665,1.227,1.227,0,0,1-.8.8,1.265,1.265,0,1,1-.4-2.464" transform="translate(-307.386 -922.532)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+											</g>
+										</svg>
+									</span>
+									<input id="last_name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input_error">
+									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
+										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+											Campo Obligatorio
+										</span>
+									</i>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label for="sitio" class="form-label">Celular<span>*</span>
+							</label>
+							<div class="row">
+								<div class="col-lg-3" style="padding: 0px;">
+									<select id="country_code_mobile">
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										{# {% for countries_item in countries %}
+											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
+												+{{countries_item.Indicativo}}</option>
+										{% endfor %} #}
+									</select>
+								</div>
+								<div class="col-lg-9">
+									<input id="mobile" class="w-100" style="height: 100%;" type="tel" name="" id="mobile">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label for="asesor" class="form-label">Correo electrónico
+								<span>*</span>
+							</label>
+							<div style="display:flex">
+								<div class="input-group flex-nowrap">
+									<span class="input-group-text group_transparent" id="addon-wrapping">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26.958" height="22.319" viewbox="0 0 26.958 22.319">
+											<defs>
+												<linearGradient id="linear-mail" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#005ca4"/>
+													<stop offset="1" stop-color="#008cce"/>
+												</linearGradient>
+												<linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#d88d00"/>
+													<stop offset="1" stop-color="#edc500"/>
+												</linearGradient>
+											</defs>
+											<g id="Grupo_1285" data-name="Grupo 1285" transform="translate(0 0)">
+												<path id="Trazado_19" data-name="Trazado 19" d="M4.35,26.065a.84.84,0,0,1,0-1.19l2.382-2.382a.842.842,0,1,1,1.19,1.19L5.54,26.065a.84.84,0,0,1-1.19,0m17.134,0L19.1,23.682a.842.842,0,1,1,1.19-1.19l2.383,2.382a.842.842,0,1,1-1.19,1.19m4.535-12.676L15.894,22.672a3.369,3.369,0,0,1-4.764,0l-5.94-5.94-2-2-.007,0a.842.842,0,0,0-.618-.355.843.843,0,0,0-.842.842V27.009A1.684,1.684,0,0,0,3.4,28.694H23.619A1.684,1.684,0,0,0,25.3,27.009V16.9a.842.842,0,1,1,1.684,0V27.009a3.369,3.369,0,0,1-3.369,3.369H3.4A3.369,3.369,0,0,1,.036,27.009V15.218a2.527,2.527,0,0,1,2.527-2.527,2.45,2.45,0,0,1,1.684.729v-.013l8.074,8.073a1.684,1.684,0,0,0,2.382,0L24.827,12.2a1.663,1.663,0,0,0,.486-1.192H25.3c0-.931-.754-.842-1.684-.842H5.932a.842.842,0,1,1,0-1.684H23.619c1.546,0,2.845.462,3.241,1.684h.025a3.355,3.355,0,0,1-.866,3.224" transform="translate(-0.036 -8.059)" fill-rule="evenodd" fill="url(#linear-mail)"/>
+												<path id="Trazado_20" data-name="Trazado 20" d="M1.3,7.48A1.263,1.263,0,1,1,.036,8.743,1.264,1.264,0,0,1,1.3,7.48" transform="translate(-0.036 -7.48)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+											</g>
+										</svg>
+									</span>
+									<input id="contact_email" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input_error">
+									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
+										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+											Campo Obligatorio
+										</span>
+									</i>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label for="asesor" class="form-label">Nombre del Cargo
+								<span>*</span>
+							</label>
+							<div style="display:flex">
+								<div class="input-group flex-nowrap">
+									<span class="input-group-text group_transparent" id="addon-wrapping">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27.373" height="25.267" viewbox="0 0 27.373 25.267">
+											<defs>
+												<linearGradient id="linear-job" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#005ca4"/>
+													<stop offset="1" stop-color="#008cce"/>
+												</linearGradient>
+												<linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+													<stop offset="0" stop-color="#d88d00"/>
+													<stop offset="1" stop-color="#edc500"/>
+												</linearGradient>
+											</defs>
+											<g id="Grupo_1386" data-name="Grupo 1386" transform="translate(0 0)">
+												<path id="Trazado_209" data-name="Trazado 209" d="M473.619,1075.747H453.4a3.369,3.369,0,0,1-3.369-3.369v-6.329a2.106,2.106,0,0,1,2.106-2.106,2.206,2.206,0,0,1,1.378.514c.01.008.014,0,.021.008a5.019,5.019,0,0,0,3.233,1.175h3.579a2.1,2.1,0,0,1,1.75.935c.007.011.017.016.025.024a1.68,1.68,0,0,0,2.765,0c.008-.008.019-.012.025-.024a2.1,2.1,0,0,1,1.751-.935h3.58a5.053,5.053,0,0,0,4.962-4.109,1.649,1.649,0,0,0,.091-.524V1058.9a1.684,1.684,0,0,0-1.684-1.684H453.4a1.684,1.684,0,0,0-1.684,1.684v2.527a.842.842,0,1,1-1.684,0V1058.9a3.37,3.37,0,0,1,3.369-3.369h20.214a3.37,3.37,0,0,1,3.369,3.369v1.684a6.706,6.706,0,0,1-1.685,4.447,6.454,6.454,0,0,1-.477.489l-.028.026q-.236.215-.491.409c-.021.017-.043.032-.064.048-.158.117-.323.227-.493.331l-.1.064c-.159.092-.322.177-.487.256l-.143.07c-.157.07-.317.132-.48.191-.06.023-.119.047-.18.066-.156.052-.317.094-.477.135-.069.017-.137.038-.206.052-.164.037-.333.06-.5.084-.068.01-.132.024-.2.031a6.626,6.626,0,0,1-.72.04h-2.974a.843.843,0,0,0-.709.387.043.043,0,0,1-.029.018,2.511,2.511,0,0,1-2.183,1.279H462.67a2.511,2.511,0,0,1-2.183-1.279.043.043,0,0,1-.029-.018.843.843,0,0,0-.709-.387h-2.975a6.685,6.685,0,0,1-4.364-1.623c.015.026.019.04.008.028a.422.422,0,0,0-.7.319v6.329a1.684,1.684,0,0,0,1.684,1.685h20.214a1.684,1.684,0,0,0,1.684-1.685v-.842a.842.842,0,0,1,1.685,0v.842a3.369,3.369,0,0,1-3.369,3.369m-5.9-21.9a.843.843,0,0,1-.842-.842.843.843,0,0,0-.842-.842h-5.053a.843.843,0,0,0-.842.842.842.842,0,0,1-1.684,0v-.421a2.106,2.106,0,0,1,2.106-2.106h5.9a2.106,2.106,0,0,1,2.106,2.106v.421a.842.842,0,0,1-.842.842" transform="translate(-450.036 -1050.479)" fill-rule="evenodd" fill="url(#linear-job)"/>
+												<path id="Trazado_210" data-name="Trazado 210" d="M510.3,1089.48a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263" transform="translate(-484.19 -1073.056)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+											</g>
+										</svg>
+									</span>
+									<input id="position_spanish" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input_error">
+									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
+										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+											Campo Obligatorio
+										</span>
+									</i>
+								</div>
+							</div>
+						</div>
+
+					</form>
+					<div class="row">
+						<div class="col-lg-12 continue">
+							<button id="cancel_process_2" class="cancel">CANCELAR</button>
+							<button id="save_2" name="save_2" aria-label="Continuar con el registro" class="continue">GUARDAR</button>
+							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								CARGANDO
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="information" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Editar el perfil de la compañía y contacto</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>
+					Todo contenido cargado debe cumplir con la
+					<a href="#" target="_blank" style="text-decoration: underline !important;">politica de publicación</a>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button id="go_to_step_3" type="button" class="btn btn_save" data-bs-dismiss="modal">ENTENDIDO</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="question_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
+				</h5>
+			</div>
+			<div class="modal-body">
+				<p>Está a punto de guardar los campos modificados ¿Desea actualizar la información?
+				</p>
+			</a>
+		</p>
+	</div>
+	<div class="modal-footer btn_options">
+		<button id="confirm_save" type="button" class="btn yes">SI</button>
+		<button data-bs-dismiss="modal" type="button" class="btn no">NO</button>
+	</div>
+</div></div></div>
+
+<!-- Modal -->
+<div class="modal fade" id="question_modal2" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
+				</h5>
+			</div>
+			<div class="modal-body">
+				<p>Está a punto de guardar los campos modificados ¿Desea actualizar la información?
+				</p>
+			</a>
+		</p>
+	</div>
+	<div class="modal-footer">
+		<button id="confirm_save2" type="button" class="btn cita_btn">SI</button>
+		<button data-bs-dismiss="modal" type="button" class="btn cita_btn">NO</button>
+	</div>
+</div></div></div>
+
+<!-- Modal --><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+			Cancelar
+		</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	</div>
+	<div class="modal-body">
+		<p>Está a punto de eliminar los cambios realizados.</strong>
+		</p>
+	</div>
+	<div class="modal-footer ">
+		<div class="row">
+			<div class="col-6 fs-6">
+				<strong>¿Desea continuar?</strong>
+			</div>
+			<div class="col-6 btn_options">
+				<button id="confirm_cancel" class="yes">SI</button>
+				<button data-bs-dismiss="modal" class="no">NO</button>
+			</div>
+		</div>
+	</div>
+</div></div></div></main>
