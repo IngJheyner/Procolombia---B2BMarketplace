@@ -45,7 +45,7 @@ function matchmaking_pro_preprocess_page(array &$variables) {
   //ceck if user is not deleted in drupal
 
   if($user->isActive()){
-      
+
     $variables['business_name'] = $user->get('field_company_name')->value;
     //check if has exporter rol
     if($user->hasRole('exportador')){
