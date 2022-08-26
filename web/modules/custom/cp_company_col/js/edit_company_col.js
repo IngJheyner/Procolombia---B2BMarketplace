@@ -307,7 +307,7 @@
         if (description_business_spanish == "") {
             message = "La descripción en español es requerida";
             $("#description_business_spanish").css("border-color", "#ba0c2f");
-            $("#description_business_spanish_message").text(message)
+            $("#error_description_business_spanish_message").text(message)
             $("#error_description_business_spanish").show();
             isValid = false;
         } else {
@@ -315,7 +315,7 @@
                 message =
                     "La descripción en español debe tener menos de 1000 caracteres";
                 $("#description_business_spanish").css("border-color", "#ba0c2f");
-                $("#description_business_spanish_message").text(message)
+                $("#error_description_business_spanish_message").text(message)
                 $("#error_description_business_spanish").show();
                 isValid = false;
             } else {
@@ -327,7 +327,7 @@
         if (description_business_english == "") {
             message = "La descripción en inglés es requerida";
             $("#description_business_english").css("border-color", "#ba0c2f");
-            $("#description_business_english_message").text(message)
+            $("#error_description_business_english_message").text(message)
             $("#error_description_business_english").show();
             isValid = false;
         } else {
@@ -335,7 +335,7 @@
                 message =
                     "La descripción en inglés debe tener menos de 1000 caracteres";
                 $("#description_business_english").css("border-color", "#ba0c2f");
-                $("#description_business_english_message").text(message)
+                $("#error_description_business_english_message").text(message)
                 $("#error_description_business_english").show();
                 isValid = false;
             } else {
@@ -446,7 +446,8 @@
                     //show question save
                     alert("Usuario actualizado con exito");
                     if (sw == 0) {
-                        $("#question_modal").modal("hide");
+                        //reload page
+                        window.location.reload();
                     } else {
                         window.location.href = "/dashboard/col/user";
                     }
