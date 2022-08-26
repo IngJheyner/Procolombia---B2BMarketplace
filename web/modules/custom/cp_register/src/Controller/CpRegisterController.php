@@ -31,7 +31,7 @@ class CpRegisterController extends ControllerBase
             );
         }
         //List of terms to set a select field production_chain.
-        $vid = 'cadena_productiva_principal';
+        $vid = 'categories_flow_semaphore';
         //load taxonomy_term storage.
         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
         $tree_production_chain=[];

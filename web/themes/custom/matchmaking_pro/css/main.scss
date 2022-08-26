@@ -90,11 +90,71 @@ a {
 	text-decoration: none !important;
 }
 
+
 .site-footer {
 	background-color: #fff !important;
+	padding: 0px !important;
+
+	.top_footer {
+		padding: 1rem 0.1rem;
+		background-color: #F2F2F2;
+
+		.logo_footer {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			img {
+				width: 450px;
+			}
+		}
+
+		.logo_footer_2 {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			img {
+				width: 250px;
+			}
+		}
+	}
+
+	.footer {
+		background-color: $color-Pantone-116-C;
+		.bg_gris {
+			background-color: $color-Gris-Oscuro;
+		}
+	}
+
+	.anuncio {
+		margin: 14px 21px;
+		display: flex;
+		align-items: center;
+
+		.img {
+			width: 20px;
+			height: 20px;
+			margin-right: 9px;
+		}
+
+		.description {
+			.title {
+				color: $color-Pantone-Y;
+				font-size: 12px;
+				font-family: 'Gothic-Regular';
+			}
+
+			.text {
+				color: $color-White;
+				font-size: 13px;
+			}
+		}
+	}
 }
+
 div#main {
-    padding-bottom: 60px;
+	padding-bottom: 60px;
 }
 
 
