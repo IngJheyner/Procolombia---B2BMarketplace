@@ -21,6 +21,7 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\Entity\Node;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
 /**
  * Implements hook_mail().
@@ -948,3 +949,34 @@ function cp_core_page_attachments(array &$page) {
   }
 }
 
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function cp_core_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['node']['product']['display']['cp_core_presave_preview'] = [
+    'label' => t('CP Core: Presave preview'),
+    'description' => t('Enables a preview link.'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('cp_core_presave_preview')) {
+     $build['cp_core_presave_preview'] = [
+        '#type' => 'link',
+        '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $entity->id()]),
+        '#title' => t('Preview'),
+        '#attributes' => ['class' => ['use-ajax'], 'data-dialog-type' => 'modal'],
+        '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+     ];
+  }
+}

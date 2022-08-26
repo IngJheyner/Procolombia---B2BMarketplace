@@ -190,7 +190,8 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   *
+   * This function builds the form based the base entity and the current
+   * display.
    */
   protected function buildFormDisplay(FormStateInterface $form_state) {
     // Fetch the display used by the form. It is the display for the 'default'
@@ -237,12 +238,13 @@ class CpCoreMultiStepForm extends FormBase {
     $form['#cache']['max-age'] = 0;
     $entity = $form_state->get('entity');
     $this->entity = $entity;
+    // We must iterate on every step.
     if ($this->step <= $this->maxStep) {
       $this->buildFormDisplay($form_state);
 
       $display = $form_state->get('form_display');
 
-      // Add the field form.
+      // Build the form based on the entity.
       $display->buildForm($entity, $form, $form_state);
 
       $form['#attributes']['class'][] = $display->getMode();
@@ -388,16 +390,17 @@ class CpCoreMultiStepForm extends FormBase {
           '#url' => $url,
           '#attributes' => ['class' => ['button', 'btn']],
         ];
-        $url = Url::fromUri('internal:/dashboard');
         $form['footer_form']['actions']['cancel'] = [
-          '#type' => 'link',
-          '#title' => t('Cancel'),
-          '#url' => $url,
-          '#attributes' => ['class' => ['button', 'btn', 'btn-cancel']],
+          '#type' => 'submit',
+          '#value' => t('Cancel'),
+          '#submit' => [
+            '::cancelForm',
+          ],
+          '#limit_validation_errors' => [],
         ];
         $form['footer_form']['actions']['save_publish'] = [
           '#type' => 'submit',
-          '#value' => t('Save and publish'),
+          '#value' => t('Save and send for aprobation'),
           '#submit' => ['::saveAndPublishSubmit'],
         ];
       }
@@ -408,7 +411,7 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   *
+   * Submit function that return to previous page.
    */
   public function previousPage(array &$form, FormStateInterface $form_state) {
     $form_state->setRebuild();
@@ -416,9 +419,15 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   *
+   * Cancel button must delete all saved entities and go to dashboard.
    */
   public function cancelForm(array &$form, FormStateInterface $form_state) {
+    // We must delete all created at the moment.
+    $nids = $form_state->get('saved_entities');
+    $nodeStorage = $this->entityTypeManager->getStorage('node');
+    $nodes = $nodeStorage->loadMultiple($nids);
+    $nodeStorage->delete($nodes);
+
     $url = Url::fromUri('internal:/dashboard');
     $form_state->setRedirectUrl($url);
   }
@@ -435,7 +444,7 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
@@ -461,7 +470,7 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   * Saves the entity with updated values for the edited field.
    */
   public function saveForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
@@ -491,7 +500,7 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   * Return to first step with saved entities array.
    */
   public function addOtherSubmit(array &$form, FormStateInterface $form_state) {
     $this->entity = NULL;
@@ -506,7 +515,7 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc} Saves the entity with updated values for the edited field.
+   * Allow to save and publish all nodes.
    */
   public function saveAndPublishSubmit(array &$form, FormStateInterface $form_state) {
     $product_list = $form_state->getValue('product_list');

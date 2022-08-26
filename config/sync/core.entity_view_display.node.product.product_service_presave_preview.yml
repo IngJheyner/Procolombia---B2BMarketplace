@@ -1,9 +1,9 @@
-uuid: ff1bbcff-8abc-4989-a8a5-451a3d6dc7ae
+uuid: 0ffa727e-3403-460d-943c-0243a5cbbf40
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.product_service_presave_list
+    - core.entity_view_mode.node.product_service_presave_preview
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -91,10 +91,9 @@ third_party_settings:
     regions:
       left:
         - field_pr_image_1
+      right:
         - node_title
         - field_body
-      right:
-        - cp_core_presave_preview
     fields:
       node_title:
         plugin_id: node_title
@@ -112,16 +111,11 @@ third_party_settings:
             lb: ''
             lb-col: false
             classes: {  }
-id: node.product.product_service_presave_list
+id: node.product.product_service_presave_preview
 targetEntityType: node
 bundle: product
-mode: product_service_presave_list
+mode: product_service_presave_preview
 content:
-  cp_core_presave_preview:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: right
   field_body:
     type: advanced_text
     label: hidden
@@ -137,7 +131,7 @@ content:
       use_summary: 0
     third_party_settings: {  }
     weight: 2
-    region: left
+    region: right
   field_pr_image_1:
     type: image
     label: hidden
