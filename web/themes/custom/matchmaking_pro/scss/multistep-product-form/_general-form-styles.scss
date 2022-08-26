@@ -4,309 +4,356 @@
     box-shadow: 0px 3px 6px $gray-shadow;
     margin-bottom: 18px;
     border-radius: 4px;
-    .form-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: end;
-        @include media-breakpoint-down(md) {
-            flex-direction: column;
-            align-items: center;
-        }
-        .row{
-            margin: 0;
-        }
-        .legal-modal { 
-            grid-area: 1 / 1 / 2 / 4; 
-        }
-        input, textarea, select{
-            @include fields-hover-and-focus;
-            resize: none;
-        }
-        .form-textarea{
-            height: 100px;
-        }
-        select{
-            height: 35px;
-            &:focus{
-                box-shadow: none;
-            }
-        }
-        input[type="file"].form-control{
-            @include upload-files;
-            
-        }
-        .form-select{
-            background-image: url(../images/icons/Fecha.svg);
-            background-size: 32px 32px;
-            padding-right: 45px;
-        }
-        
-        
-        // Start Main styles multistep sidebar
-        .cp-core-node-multistep-sidebar {
-            padding-top: 42px; 
-            max-width: 210px;
-            @include media-breakpoint-down(md) {
-                max-width: 100%;
-            }
-        }
-        // Ends Main styles multistep sidebar
-    
-        // Start content form styles
-        .js-form-item{
-            position: relative;
-            margin-top: 22px;
-            max-width: 442px;
-            width: 100%;
-            >label{
-               @include label-style;
-               &#edit-field-file-0--label,
-               &#edit-field-file-en-0--label {
-                position: relative;
-                left: 0;
-                }
-                @include media-breakpoint-down(md){
-                    position: static;
-                    height: auto;
-                }
-            }
-            
-            input[type="text"]{
-                height: 40px;
-            }
-            input[type="file"]{
-                height: 33px;
-                &:hover{
-                    border: 1px solid #A1A5AA;
-                }
-            }
-        }
-        .field--type-file,.field--type-image{
-            width: 100%;
-            .form-managed-file {
-                display: flex;
-                justify-content: space-between;
-                max-width: 442px;
-                align-items: flex-end;
-                padding-top: 20px;
-                
-                #edit-field-file-0--label{
-                    top: 0;
-                }
-                .file {
-                    flex-grow: 1;
-                    height: 35px;
-                    border: 1px solid $procol-gray-200;
-                    border-radius: 4px;
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                    margin-top: 35px;
-                    display: flex;
-                    align-items: center;
-                    background-position-x: 10px;
-                    padding-left: 35px;
-                   }
-                    button{
-                        @include remove-files;
-                   }
-            }
-            
-            .image-widget{
-                display: flex;
-                flex-direction: column;
-                .image-preview{
-                    width: 100%;
-                       
-                }
-                .image-widget-data{
-                    width: 100%;
-                    display: flex;
-                    align-items: flex-end;
-                    .file--mime-image-jpeg{
-                        margin-top: 0;
-                    }
-                }
-            }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: 210px repeat(2, 1fr);
+    grid-template-rows: auto repeat(2, 1fr) auto;
+    @include media-breakpoint-down(md){
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto 1fr auto;
     }
-        .field-group-html-element.group-row {
-            border-left: 1px solid #D8DADD;
-            margin-top: 25px;
-            grid-area: 2 / 2 / 4 / 4;
-            @include media-breakpoint-down(md){
-                border-left: none;
+    .row{
+        margin: 0;
+    }
+    .legal-modal { 
+        grid-area: 1 / 1 / 2 / 4; 
+    }
+    input, textarea, select{
+        @include fields-hover-and-focus;
+        resize: none;
+    }
+    .form-textarea{
+        height: 100px;
+    }
+    select{
+        height: 35px;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    input[type="file"].form-control{
+        @include upload-files;
+        
+    }
+    .form-select{
+        background-image: url(../images/icons/Fecha.svg);
+        background-size: 32px 32px;
+        padding-right: 45px;
+    }
+    
+    
+    // Start Main styles multistep sidebar
+    .cp-core-node-multistep-sidebar {
+        padding-top: 42px; 
+        max-width: 210px;
+        @include media-breakpoint-down(md) {
+            max-width: 100%;
+        }
+    }
+    // Ends Main styles multistep sidebar
+
+    // Start content form styles
+    .js-form-item{
+        position: relative;
+        margin-top: 22px;
+        max-width: 442px;
+        width: 100%;
+        @include media-breakpoint-down(md){
+            max-width: 760px;
+        }
+        >label{
+           @include label-style;
+           &#edit-field-file-0--label,
+           &#edit-field-file-en-0--label {
+            position: relative;
+            left: 0;
             }
+            @include media-breakpoint-down(md){
+                position: static;
+                height: auto;
+            }
+        }
+        
+        input[type="text"]{
+            height: 40px;
+        }
+        input[type="file"]{
+            height: 33px;
+            &:hover{
+                border: 1px solid #A1A5AA;
+            }
+        }
+    }
+    .field--type-file,.field--type-image{
+        width: 100%;
+        .form-managed-file {
+            display: flex;
+            justify-content: space-between;
+            max-width: 442px;
+            align-items: flex-end;
+            padding-top: 20px;
             
+            #edit-field-file-0--label{
+                top: 0;
+            }
+            .file {
+                flex-grow: 1;
+                height: 35px;
+                border: 1px solid $procol-gray-200;
+                border-radius: 4px;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+                margin-top: 35px;
+                display: flex;
+                align-items: center;
+                background-position-x: 10px;
+                padding-left: 35px;
+               }
+                button{
+                    @include remove-files;
+               }
         }
-        #edit-footer-form{
-            border-left: 1px solid #D8DADD;
-            max-width: 1060px;
-            width: 100%;
-            margin-bottom: 0 !important;
-            padding-bottom: 16px !important;
-            @include media-breakpoint-down(xxl){
-                max-width: 882px;
-            }
-            @include media-breakpoint-down(xl){
-                max-width: 702px;
-            }
-            @include media-breakpoint-down(lg){
-                max-width: 462px;
-                #edit-actions{
-                    padding-left: 20px;
-                    padding-right: 20px;
-                }
-            }
-            @include media-breakpoint-down(md){
-                padding-left: 15px;
-                padding-right: 15px;
-                border-left: none;
-            }
-        }
-        .field-group-html-element.group-left { 
-            width: 50%;
-            padding-right: 50px;
-            border-right: 1px solid $procol-gray-200;
-            margin-top: 31px;
-            @include media-breakpoint-down(lg){
-                border-right: none;
-            }
-            @include media-breakpoint-down(md){
-                margin-top: 0;
-                border-top: 1px solid $procol-gray-200;
-                padding-top: 50px;
-            }
-            
-        }
-        .field-group-html-element.group-right{
-            width: 50%;
-            grid-area: 2 / 3 / 4 / 4; 
-            padding-right: 50px;
+        
+        .image-widget{
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            padding: 0 50px;
-            
-            #edit-field-pr-multilingual-step1-wrapper {
-                margin-bottom: 0px !important;
-                }
-            }
-            .field--type-entity-reference{
+            max-width: 670px;   
+            width: 100%;
+            .image-preview{
                 width: 100%;
+                   
             }
-        .field-group-html-element.group-right,
-        .field-group-html-element.group-left{
-            @include media-breakpoint-down(xl) {
-                padding: 0 25PX;
-             }
-             
-             @include media-breakpoint-down(lg){
+            .image-widget-data{
                 width: 100%;
-                padding: 0 15PX;
-             }
-             @include media-breakpoint-down(md){
-                justify-content: center;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-                .field--name-field-product-type{
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                }
-                #ajax-wrapper{
-                    display: flex;
-                    width: 100%;
-                    justify-content: center;
-                }
-             }
-            &.step-1{
-                .form-type-managed-file{
-                    label{
-                        left: 0;
-                    }
-                    .form-managed-file{
-                        padding-top: 0;
-                        .file{
-                            margin-top: 20px;
-                        }
-                    }
-                }            
-            }
-            &.step-3{
-                .js-form-type-managed-file{
-                    label{
-                        left: 0;
-                    }
+                align-items: flex-end;
+                .file--mime-image-jpeg{
+                    margin-top: 0;
                 }
             }
-            &.step-4{
-                justify-content: flex-start;
-                margin-top: 35px;
+        }
+}
+    .field-group-html-element.group-row {
+        border-left: 1px solid #D8DADD;
+        margin-top: 25px;
+        grid-area: 2 / 2 / 4 / 4;
+        @include media-breakpoint-down(md){
+            border-left: none;
+            grid-area: 3 / 1 / 4 / 4;
+        }
+        
+    }
+    #edit-footer-form{
+        border-left: 1px solid #D8DADD;
+        max-width: 1060px;
+        width: 100%;
+        margin-bottom: 0 !important;
+        padding-bottom: 16px !important;
+        @include media-breakpoint-down(xxl){
+            max-width: 882px;
+        }
+        @include media-breakpoint-down(xl){
+            max-width: 702px;
+        }
+        @include media-breakpoint-down(lg){
+            max-width: 462px;
+            #edit-actions{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        @include media-breakpoint-down(md){
+            padding-left: 15px;
+            padding-right: 15px;
+            max-width: 100%;
+            border-left: none;
+            grid-area: 4 / 1 / 5 / 4;
+        }
+    }
+    .field-group-html-element.group-left { 
+        width: 50%;
+        padding: 0 50px;
+        border-right: 1px solid $procol-gray-200;
+        margin-top: 31px;
+        @include media-breakpoint-down(lg){
+            border-right: none;
+        }
+        @include media-breakpoint-down(md){
+            margin-top: 0;
+        }
+        
+    }
+    .field-group-html-element.group-right{
+        width: 50%;
+        grid-area: 2 / 3 / 4 / 4; 
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 0 50px;
+        
+        #edit-field-pr-multilingual-step1-wrapper {
+            margin-bottom: 0px !important;
+            }
+        }
+        .field--type-entity-reference{
+            width: 100%;
+        }
+    .field-group-html-element.group-right,
+    .field-group-html-element.group-left{
+        .information-title{
+            width: 100%;
+        }
+        @include media-breakpoint-down(xl) {
+            padding: 0 25PX;
+         }
+         
+         @include media-breakpoint-down(lg){
+            width: 100%;
+            padding: 0 15PX;
+         }
+         @include media-breakpoint-down(md){
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .field--name-field-product-type{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            #ajax-wrapper{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+         }
+        &.step-1{
+            @include media-breakpoint-down(md){
+                span{
+                transform: translateX(-20px);
+                }
+            }
+            .form-type-managed-file{
+                label{
+                    left: 0;
+                }
+                .form-managed-file{
+                    padding-top: 0;
+                    .file{
+                        margin-top: 20px;
+                    }
+                }
+            }            
+        }
+        &.step-2{
+            @include media-breakpoint-down(md){
+                span{
+                    transform: translateX(-20%);
+                }
+            }
+        }
+        &.step-3{
+            @include media-breakpoint-down(md){
+                span{
+                    transform: translateX(-37%);
+                }
+            }
+            .js-form-type-managed-file{
                 label{
                     left: 0;
                 }
             }
-            &.step-5{
-                grid-area: initial;
-            }
         }
-        .field-group-html-element.group-left{
+        &.step-4{
+            justify-content: flex-start;
+            margin-top: 35px;
             @include media-breakpoint-down(md){
-                padding-top: 50px;
+                span{
+                    transform: translateX(-53%);
+                }
+                margin-top: 0;;
+            }
+            label{
+                left: 0;
             }
         }
-        
-        // Ends content form styles
+        &.step-5{
+            @include media-breakpoint-down(md){
+                span{
+                    transform: translateX(-70%);
+                }
+                margin-top: 0;;
+            }
+            grid-area: initial;
+        }
+        &.step-6{
+            span{
+                transform: translateX(-87%);
+            }
+        }
+    }
+    .field-group-html-element.group-left{
+        @include media-breakpoint-down(md){
+            padding-top: 0px;
+        }
+    }
     
-        // Start Buttons styles 
-        .js-form-wrapper { 
-            grid-area: 4 / 2 / 5 / 4;
-            #edit-actions {
-                display: flex;
-                width: 100%;
-                justify-content: flex-end;
-                align-items: center;
-                gap: 22px;
-                padding:0 50px;
-                button{
-                    border-radius: 4px;
-                    background-color: $procol-dark-blue;
-                    &#edit-previous {
-                        margin: auto;
-                        margin-left: 0px;
-                        background-color: $white;
-                        border: 1px solid $procol-light-blue;
-                        color: $procol-gray-400;
-                        &:hover{
-                            box-shadow: 0px 3px 6px $gray-shadow;
-                        }
-                       }
-                    &#edit-cancel{
-                        background-color: $procol-gray-100;
-                        color: $procol-dark-blue;
-                        border-color: $procol-gray-100;
-                    }
-                    &#edit-next:hover{
-                        background-color: $procol-light-blue;
-                        border-color: $procol-light-blue;
+    // Ends content form styles
+
+    // Start Buttons styles 
+    .js-form-wrapper { 
+        grid-area: 4 / 2 / 5 / 4;
+        width: 100%;
+        #edit-actions {
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 22px;
+            padding:0 50px;
+            button{
+                border-radius: 4px;
+                background-color: $procol-dark-blue;
+                &#edit-previous {
+                    margin: auto;
+                    margin-left: 0px;
+                    background-color: $white;
+                    border: 1px solid $procol-light-blue;
+                    color: $procol-gray-400;
+                    &:hover{
                         box-shadow: 0px 3px 6px $gray-shadow;
                     }
+                   }
+                &#edit-cancel{
+                    background-color: $procol-gray-100;
+                    color: $procol-dark-blue;
+                    border-color: $procol-gray-100;
                 }
-                @include media-breakpoint-down(md){
-                    padding: 0 20px;
-                    flex-wrap: wrap;
-                    button{
-                        width: 100%;
-                    }
+                &#edit-next:hover{
+                    background-color: $procol-light-blue;
+                    border-color: $procol-light-blue;
+                    box-shadow: 0px 3px 6px $gray-shadow;
                 }
-                   
-               }
-            // Ends Buttons styles
+            }
+            @include media-breakpoint-down(md){
+                padding: 0 20px;
+                flex-wrap: wrap;
+                width: 100%;
+                button{
+                    width: 100%;
+                }
+            }
                
-         } 
-    }
+           }
+        // Ends Buttons styles
+           
+     } 
 }
 
     
