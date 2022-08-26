@@ -60,7 +60,6 @@ third_party_settings:
       children:
         - field_pr_video
         - field_pr_video_description_1
-        - group_right
       label: Left
       region: content
       parent_name: group_row
@@ -85,7 +84,7 @@ third_party_settings:
         - field_pr_multilingual_step5
       label: Right
       region: content
-      parent_name: group_left
+      parent_name: group_row
       weight: 3
       format_type: html_element
       format_settings:
@@ -143,6 +142,7 @@ third_party_settings:
       children:
         - group_top
         - group_left
+        - group_right
         - group_bottom
       label: Row
       region: content
