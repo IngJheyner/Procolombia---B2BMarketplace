@@ -339,8 +339,8 @@ display:
           type: link
           settings:
             trim_length: 80
-            url_only: false
-            url_plain: false
+            url_only: true
+            url_plain: true
             rel: '0'
             target: '0'
           group_column: ''
@@ -362,7 +362,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -406,8 +406,8 @@ display:
           type: link
           settings:
             trim_length: 80
-            url_only: false
-            url_plain: false
+            url_only: true
+            url_plain: true
             rel: '0'
             target: '0'
           group_column: ''
@@ -482,55 +482,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: custom
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div class=\"row mt-4 mb-4\">\r\n      <div class=\"col-sm-12 col-md-6\">\r\n        <h5 class=\"border-bottom border-dark\">{{ title }}</h5>\r\n        <p>{{ field_accesscontentdescriptionto }}</p>\r\n        <img class=\"img-fluid\" src=\"{{ field_accesscontent_logo }}\">\r\n        <h5>Pagina Web</h5>\r\n        <a id=\"pagina-web\" href=\"{{ field_pagina_web_ }}\">{{ field_pagina_web_ }}</a>\r\n        <h5>Ir a la herramienta</h5>\r\n        <a id=\"pagina-web\" href=\"{{ field_accessconditioncontent_lin }} \">{{ field_accessconditioncontent_lin }} </a>\r\n      </div>\r\n      <div class=\"col-sm-12 col-md-6\">\r\n        <h5>Video Tutorial</h5>\r\n      <iframe class=\"embed-responsive-item\" src=\"https://youtu.be/ZeFVM6GpvTM\" allowfullscreen></iframe>\r\n        \r\n      </div>\r\n    </div>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
       pager:
         type: some
         options:
@@ -659,18 +610,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          empty: false
-          content: ''
-          tokenize: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
