@@ -13,6 +13,8 @@
     font-size: 18px;
     font-family: Maven-Regular;
     line-height: 21px;
+    position: relative;
+    z-index: 10;
     @include media-breakpoint-down(md){
         gap: 13px;
     }

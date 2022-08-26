@@ -1,3 +1,6 @@
+.path-dashboard.toast-wrapper{
+    display: none !important;
+}
 .cp-core-multistep-form{
     max-width: 1270px;
     margin: auto;
@@ -21,6 +24,11 @@
     .legal-modal { 
         grid-area: 1 / 1 / 2 / 4; 
     }
+    .form-control.is-invalid{
+        border: 2px solid $procol-red !important;
+        background: none;
+    }
+    
     input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
@@ -43,7 +51,15 @@
         background-size: 32px 32px;
         padding-right: 45px;
     }
-    
+    small{
+        width: 100%;
+        display: flex;
+        padding:10px 20px;
+        background-image: url(../images/icons/tool-tip.svg);
+        background-repeat: no-repeat;
+        background-position-y: 11px;
+
+    }
     
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
@@ -54,7 +70,7 @@
         }
     }
     // Ends Main styles multistep sidebar
-
+   
     // Start content form styles
     .js-form-item{
         position: relative;
@@ -64,6 +80,21 @@
         @include media-breakpoint-down(md){
             max-width: 760px;
         }
+        &.js-form-type-checkbox {
+            padding: 0 50px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+            input[type=checkbox]:checked{
+                background-color: transparent;
+                
+            }
+            input[type=checkbox]:before {
+                top: -2px;
+                left: -2px;
+              }
+        }
         >label{
            @include label-style;
            &#edit-field-file-0--label,
@@ -71,12 +102,15 @@
             position: relative;
             left: 0;
             }
+            &.form-check-label {
+                position: static !important;
+            }
             @include media-breakpoint-down(md){
                 position: static;
                 height: auto;
             }
         }
-        
+                
         input[type="text"]{
             height: 40px;
         }
@@ -135,7 +169,7 @@
                 }
             }
         }
-}
+    }
     .field-group-html-element.group-row {
         border-left: 1px solid #D8DADD;
         margin-top: 25px;
@@ -199,10 +233,10 @@
         #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
             }
-        }
-        .field--type-entity-reference{
+    }
+    .field--type-entity-reference{
             width: 100%;
-        }
+    }
     .field-group-html-element.group-right,
     .field-group-html-element.group-left{
         .information-title{
@@ -259,6 +293,7 @@
             }
         }
         &.step-3{
+            
             @include media-breakpoint-down(md){
                 span{
                     transform: translateX(-37%);
@@ -303,7 +338,27 @@
             padding-top: 0px;
         }
     }
-    
+    //Step 6 base styles
+    #edit-product-list{
+        flex-direction: column;
+        flex-wrap: wrap;
+        grid-area: 2 / 2 / 4 / 4;
+        .js-form-item{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+            .form-check-label{
+                display: flex;
+                justify-content: center;
+                .node--type-product.node--view-mode-product-service-presave-list{
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    // Ends base styles step 6
     // Ends content form styles
 
     // Start Buttons styles 
