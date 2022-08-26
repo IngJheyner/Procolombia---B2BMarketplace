@@ -31,7 +31,7 @@ class CpRegisterController extends ControllerBase
             );
         }
         //List of terms to set a select field production_chain.
-        $vid = 'cadena_productiva_principal';
+        $vid = 'categories_flow_semaphore';
         //load taxonomy_term storage.
         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
         $tree_production_chain=[];
@@ -176,7 +176,7 @@ class CpRegisterController extends ControllerBase
         $user->set("field_company_info_english", $data['description_business_english']);
 
         $user->save();
-        _user_mail_notify('status_activated', $user);
+        //_user_mail_notify('status_activated', $user);
         
         return new JsonResponse(['status' =>  200]);
     }

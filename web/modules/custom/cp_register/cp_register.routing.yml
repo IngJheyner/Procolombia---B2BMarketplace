@@ -132,3 +132,38 @@ cp_register.delete_user:
   methods:  [POST]
   requirements:
     _permission: "access content"
+
+### index pre_register_buyer
+cp_register.pre_register_buyer:
+  path: "pre-register/buyer"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+cp_register.pre_registro_comprador:
+  path: "pre-registro/comprador"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### index register_buyer
+cp_register.register_buyer:
+  path: "register/user/buyer"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### index registro_comprador
+cp_register.registro_comprador:
+  path: "registro/usuario/comprador"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
