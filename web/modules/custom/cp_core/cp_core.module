@@ -132,6 +132,18 @@ function cp_core_theme($existing, $type, $theme, $path) {
     'cp_core_node_multistep_legal_modal' => [
       'variables' => [],
     ],
+    'cp_core_node_multistep_generic_modal' => [
+      'variables' => [
+        'class' => NULL,
+        'title' => NULL,
+        'message' => NULL,
+        'question' => NULL,
+        'button_text' => NULL,
+        'button_link' => NULL,
+        'button_no_text' => NULL,
+        'button_no_link' => NULL,
+      ],
+    ],
   ];
 }
 
