@@ -534,7 +534,7 @@
     if (description_business_spanish == "") {
       message = "La descripción en español es requerida";
       $("#description_business_spanish").css("border-color", "#ba0c2f");
-      $("#description_business_spanish_message").text(message)
+      $("#error_description_business_spanish_message").text(message)
       $("#error_description_business_spanish").show();
       isValid = false;
     } else {
@@ -542,7 +542,7 @@
         message =
           "La descripción en español debe tener menos de 1000 caracteres";
         $("#description_business_spanish").css("border-color", "#ba0c2f");
-        $("#description_business_spanish_message").text(message)
+        $("#error_description_business_spanish_message").text(message)
         $("#error_description_business_spanish").show();
         isValid = false;
       } else {
@@ -554,7 +554,7 @@
     if (description_business_english == "") {
       message = "La descripción en inglés es requerida";
       $("#description_business_english").css("border-color", "#ba0c2f");
-      $("#description_business_english_message").text(message)
+      $("#error_description_business_english_message").text(message)
       $("#error_description_business_english").show();
       isValid = false;
     } else {
@@ -562,7 +562,7 @@
         message =
           "La descripción en inglés debe tener menos de 1000 caracteres";
         $("#description_business_english").css("border-color", "#ba0c2f");
-        $("#description_business_english_message").text(message)
+        $("#error_description_business_english_message").text(message)
         $("#error_description_business_english").show();
         isValid = false;
       } else {
@@ -717,26 +717,34 @@
       $("#error_modelo_de_negocio").hide();
       $("#modelo_de_negocio_contain .ts-control").css("border-color", "#cccccc");
     }
-    if (certification_business_file) {
+    if (certification_business_file || certification_business != "") {
       //get size of certification_business_file
 
-      if ((certification_business_file.size / 1024 / 1024) > 2) {
-        message = "El archivo de certificación debe ser menor a 2mb";
+      if (certification_business != "" && !certification_business_file) {
+        message = "El archivo de certificación es requerido";
         $("#certificateFile").css("border-color", "#ba0c2f");
         $("#error_certification_business_file").show();
         $("#error_certification_business_file_message").text(message)
         isValid = false;
       } else {
-        //check is pdf
-        if (certification_business_file.type != "application/pdf") {
-          message = "El archivo de certificación debe ser un archivo PDF";
+        if ((certification_business_file.size / 1024 / 1024) > 2) {
+          message = "El archivo de certificación debe ser menor a 2mb";
           $("#certificateFile").css("border-color", "#ba0c2f");
           $("#error_certification_business_file").show();
-          $("#error_certification_business_file_message").text(message);
+          $("#error_certification_business_file_message").text(message)
           isValid = false;
         } else {
-          $("#error_certification_business_file").hide();
-          $("#certificateFile").css("border-color", "#cccccc");
+          //check is pdf
+          if (certification_business_file.type != "application/pdf") {
+            message = "El archivo de certificación debe ser un archivo PDF";
+            $("#certificateFile").css("border-color", "#ba0c2f");
+            $("#error_certification_business_file").show();
+            $("#error_certification_business_file_message").text(message);
+            isValid = false;
+          } else {
+            $("#error_certification_business_file").hide();
+            $("#certificateFile").css("border-color", "#cccccc");
+          }
         }
       }
     }

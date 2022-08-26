@@ -1,4 +1,51 @@
+@font-face {
+  font-family: Maven-Medium;
+  src: url('../font/MavenPro-Medium.ttf');
+}
 
+@font-face {
+  font-family: Maven-Regular;
+  src: url('../font/MavenPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: Maven-Bold;
+  src: url('../font/MavenPro-Bold.ttf');
+}
+
+@font-face {
+  font-family: Gothic-Regular;
+  src: url('../font/Century-Gothic.otf');
+
+}
+
+@font-face {
+  font-family: Gothic-Bold;
+  src: url('../font/Century-Gothic-Bold.otf');
+}
+
+$color-Azul-Claro: #e3f3ff;
+$color-Verde-aprobacion: #31d394;
+$color-Gris-Claro: #f0f0f0;
+$color-cccccc: #cccccc;
+$color-Gris-Claro-2: #6a6d71;
+$color-Gris-Oscuro: #3b3d42;
+$color-504672: #504672;
+$color-Pantone-200: #ba0c2f;
+$color-Pantone-process-Blue: #0085ca;
+$color-Pantone-116-C: #005ca4;
+$color-Pantone-Y: #fdca00;
+$color-Black: #000000;
+$color-White: #ffffff;
+$color-5c5c5c: #5C5C5C;
+$color-f7f8f8: #f7f8f8;
+/* Font/text values */
+$font-regular: Gothic-Regular;
+$font-medium: Maven-Medium;
+$font-bold: Gothic-Bold;
+$font-black: Maven-Black;
+$font-regular-maven: Maven-Regular;
+$font-bold-maven: Maven-Bold;
 
 
 input[type=number]::-webkit-inner-spin-button,
@@ -101,7 +148,6 @@ input[type=checkbox]:checked:before {
 div#main-wrapper {
   position: relative;
 }
-
 
 
 
@@ -410,7 +456,7 @@ div#main-wrapper {
   }
 
   span {
-    color: $color-6a6d71;
+    color: $color-Gris-Claro-2;
     font-family: $font-regular;
     line-height: 16px;
     font-size: 14px;
@@ -905,10 +951,10 @@ div#main-wrapper {
 }
 
 #logo_name {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='14.643' height='19.523' viewBox='0 0 14.643 19.523'> <defs> <linearGradient id='linear-gradient_5' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> </defs> <path id='file-image-solid' d='M8.542,4.881V0H1.83A1.83,1.83,0,0,0,0,1.83V17.693a1.831,1.831,0,0,0,1.83,1.83H12.812a1.83,1.83,0,0,0,1.83-1.83V6.1H9.8A1.227,1.227,0,0,1,8.542,4.881ZM3.661,8.542a1.22,1.22,0,1,1-1.22,1.22A1.22,1.22,0,0,1,3.661,8.542Zm8.469,8.217a.605.605,0,0,1-.538.324H3.051a.61.61,0,0,1-.508-.948l2.034-3.051a.533.533,0,0,1,.507-.272.57.57,0,0,1,.508.272l.511.765L7.83,11.255a.61.61,0,0,1,1.017,0L12.1,16.134A.606.606,0,0,1,12.13,16.759ZM9.762,0V4.881h4.881Z' fill='url(#linear-gradient_5)'/> </svg>");
+  background-image: url("http://52.201.168.42/sites/default/files/2022-08/Icono_file-image.svg");
   background-repeat: no-repeat;
   background-position-x: 10px;
-  background-position-y: 12px;
+  background-position-y: 9px;
   border: 1px solid $color-cccccc;
   padding-left: 2.4rem !important;
   margin-right: -23px;
@@ -987,8 +1033,8 @@ div#main-wrapper {
 
   .title_tab {
     font-family: $font-bold;
-    font-size: 15px;
-    margin-bottom: 1rem;
+    font-size: 19px !important;
+    margin-bottom: -3rem !important;
     display: none;
     margin-left: 6%;
     margin-right: 6%;
@@ -1209,8 +1255,8 @@ div#main-wrapper {
 
   .title_tab {
     font-family: $font-bold;
-    font-size: 15px;
-    margin-bottom: 1rem;
+    font-size: 19px !important;
+    margin-bottom: -3rem !important;
     display: none;
     margin-left: 6%;
     margin-right: 6%;
