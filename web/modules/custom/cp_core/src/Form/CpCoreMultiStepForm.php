@@ -303,8 +303,20 @@ class CpCoreMultiStepForm extends FormBase {
       ];
 
       if ($this->step == 1) {
+        // $form['legal_terms'] = [
+        //   '#theme' => 'cp_core_node_multistep_legal_modal',
+        //   '#weight' => -11,
+        // ];
         $form['legal_terms'] = [
-          '#theme' => 'cp_core_node_multistep_legal_modal',
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'legal-modal',
+          '#title' => $this->t('Add product / service'),
+          '#message' => $this->t('All uploaded content must comply with the <a href="/cp-core-legal" target="_BLANK">publishing policy.</a>'),
+          '#question' => NULL,
+          '#button_text' => $this->t('I agree'),
+          '#button_link' => NULL,
+          '#button_no_text' => NULL,
+          '#button_no_link' => NULL,
           '#weight' => -11,
         ];
       }
