@@ -14,6 +14,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
 use Drupal\cp_core\CpCoreMultiStepHelper;
 
@@ -56,6 +57,14 @@ class CpCoreMultiStepForm extends FormBase {
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
+
+
+  /**
+   * The messenger service.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
 
   /**
    * The entity.
@@ -105,19 +114,23 @@ class CpCoreMultiStepForm extends FormBase {
    *   The language manager.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
+   * @param Drupal\Core\Messenger\MessengerInterface $messenger
+   *   The messenger service.
    */
   public function __construct(
     PrivateTempStoreFactory $temp_store_factory,
     MailManagerInterface $mail_manager,
     LanguageManagerInterface $language_manager,
     EntityFormBuilderInterface $entityFormBuilder,
-    EntityTypeManagerInterface $entityTypeManager
+    EntityTypeManagerInterface $entityTypeManager,
+    MessengerInterface $messenger
   ) {
     $this->tempStoreFactory = $temp_store_factory;
     $this->mailManager = $mail_manager;
     $this->languageManager = $language_manager;
     $this->entityFormBuilder = $entityFormBuilder;
     $this->entityTypeManager = $entityTypeManager;
+    $this->messenger = $messenger;
   }
 
   /**
@@ -129,7 +142,8 @@ class CpCoreMultiStepForm extends FormBase {
     $container->get('plugin.manager.mail'),
     $container->get('language_manager'),
     $container->get('entity.form_builder'),
-    $container->get('entity_type.manager')
+    $container->get('entity_type.manager'),
+    $container->get('messenger')
     );
   }
 
@@ -187,9 +201,9 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   * {@inheritdoc} Builds a form for a single entity field.
+   * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $request = [], $mode_form_pattern = 'step', $nid = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $request = NULL, $mode_form_pattern = 'step', $nid = NULL) {
     $bundle = 'product';
     if (empty($form_state->get('entity'))) {
       $form_state->set('language_values_en', []);
@@ -200,6 +214,7 @@ class CpCoreMultiStepForm extends FormBase {
         ]);
       }
       else {
+
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
         $entity->setUnpublished();
       }
@@ -214,7 +229,8 @@ class CpCoreMultiStepForm extends FormBase {
         $form_state->set('saved_entities', $saved_entities);
       }
       if (!$this->maxStep) {
-        \Drupal::messenger()->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');
+        $this->mesesenger->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');
+
         return [];
       }
     }
@@ -266,7 +282,6 @@ class CpCoreMultiStepForm extends FormBase {
         ])->toString();
       }
       $form['#attributes']['novalidate'] = 'novalidate';
-
 
       $form['header'] = [
         '#theme' => 'cp_core_node_multistep_header',
@@ -326,7 +341,7 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
 
-      if ($this->step < ($this->maxStep -1)) {
+      if ($this->step < ($this->maxStep - 1)) {
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -340,7 +355,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#value' => t('Next'),
         ];
       }
-      else if ($this->step == ($this->maxStep -1)) {
+      elseif ($this->step == ($this->maxStep - 1)) {
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
           '#value' => t('Send'),
@@ -355,7 +370,7 @@ class CpCoreMultiStepForm extends FormBase {
           $saved_entities = [];
         }
         $options = [];
-        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+        $view_builder = $this->entityTypeManager->getViewBuilder('node');
         $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($saved_entities);
         foreach ($nodes as $nid => $node) {
           $options[$nid] = $view_builder->view($node, 'product_service_presave_list');
@@ -496,18 +511,24 @@ class CpCoreMultiStepForm extends FormBase {
   public function saveAndPublishSubmit(array &$form, FormStateInterface $form_state) {
     $product_list = $form_state->getValue('product_list');
     $nodeStorage = $this->entityTypeManager->getStorage('node');
-    foreach($product_list as $nid) {
-      if ($nid) {
-        $node = $nodeStorage->load($nid);
-        $node->setPublished();
-        $node->save();
+    $taxonomyManager = $this->entityTypeManager->getStorage('taxonomy_term');
+    $terms = $taxonomyManager->loadByProperties(['vid' => 'product_states', 'name' => 'En espera']);
+    $term = NULL;
+    // If not exists wait term we must do nothing.
+    if (!empty($terms)) {
+      $term = reset($terms);
+      foreach ($product_list as $nid) {
+        if ($nid) {
+          // Set wait status.
+          $node = $nodeStorage->load($nid);
+          $node->field_pr_status = $term->id();
+          $node->save();
+        }
       }
     }
     $url = Url::fromUri('internal:/dashboard');
     $form_state->setRedirectUrl($url);
   }
-
-
 
   /**
    * Get Entity method.

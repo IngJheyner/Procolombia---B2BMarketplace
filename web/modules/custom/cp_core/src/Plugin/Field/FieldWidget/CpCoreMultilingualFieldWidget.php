@@ -141,8 +141,11 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
               $component_form['widget']['#field_name'] = $field_name_with_ident;
               $parents_flipped = array_flip($component_form['widget']['#parents']);
               $component_form['widget']['#parents'][$parents_flipped[$field_name]] = $field_name_with_ident;
-              if ($field_name == 'title') {
+              if ($field_name == 'title' && $component_form['widget'][0]['value']['#default_value'] == 'untitled') {
                 $component_form['widget'][0]['value']['#default_value'] = '';
+                if (!empty($form_state->get('language_values_' . $langcode)['title_' . $langcode][0])) {
+                  $component_form['widget'][0]['value']['#default_value'] = $form_state->get('language_values_' . $langcode)['title_' . $langcode][0];
+                }
               }
               // Create a container for the entity's fields.
               $element['value'][$langcode][$field_name] = $component_form;

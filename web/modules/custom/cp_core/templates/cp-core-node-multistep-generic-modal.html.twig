@@ -1,0 +1,20 @@
+<div class="generic-modal {{ class }}" id="generic-modal">
+  <div class="modal-top">
+    <span class="modal-top-title">{{ title }}</span>
+    <span class="modal-top-close">x</span>
+  </div>
+  <div class="modal-body">
+    <span class="modal-top-title">{{ message }}</span>
+  </div>
+  <div class="modal-footer">
+    <div class="modal-footer-left">
+     {{ question }}
+    </div>
+    <div class="modal-footer-right">
+      {% if question %}
+        <a class="button btn btn-cancel" href="{{ button_no_text }}">{{ button_no_link }}</a>
+      {% %}
+      <a class="button btn" href="{{ button_link }}">{{ button_text }}</a>
+    </div>
+  </div>
+</div>
