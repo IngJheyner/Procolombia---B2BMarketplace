@@ -102,14 +102,14 @@
             setTimeout(() => {
               $("#loader").modal('hide');
               $("#success").modal('show');
-            }, 1000);
+            }, 4000);
             setTimeout(() => {
               localStorage.setItem("nit", nit);
               localStorage.setItem("email", email);
               let json = data.split(":[")[1].split("]")[0];
               localStorage.setItem("data_neo", json);
               window.location.href = "/registro/usuario";
-            }, 2500);
+            }, 6000);
           } else {
             setTimeout(() => {
               $("#loader").modal('hide');

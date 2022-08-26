@@ -176,7 +176,7 @@ class CpRegisterController extends ControllerBase
         $user->set("field_company_info_english", $data['description_business_english']);
 
         $user->save();
-        _user_mail_notify('status_activated', $user);
+        //_user_mail_notify('status_activated', $user);
         
         return new JsonResponse(['status' =>  200]);
     }

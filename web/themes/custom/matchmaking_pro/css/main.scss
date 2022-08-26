@@ -90,6 +90,14 @@ a {
 	text-decoration: none !important;
 }
 
+.site-footer {
+	background-color: #fff !important;
+}
+div#main {
+    padding-bottom: 60px;
+}
+
+
 .toltip_i {
 	position: relative;
 
@@ -635,6 +643,22 @@ div#page {
 .logo {
 	cursor: pointer;
 }
+
+.active_dropdown {
+	position: absolute;
+	inset: 0px auto auto 0px;
+	margin: 0px;
+	transform: translate(0px, 45px);
+	display: block;
+	min-width: 100%;
+	border: none;
+	border-top: 1px solid $color-cccccc;
+	border-radius: 0px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
 
 .dropdown-cont {
 	width: 100%;
