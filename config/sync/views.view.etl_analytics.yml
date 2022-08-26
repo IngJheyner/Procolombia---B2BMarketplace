@@ -10,13 +10,11 @@ dependencies:
     - field.storage.node.field_states
     - node.type.company
     - node.type.product
-    - taxonomy.vocabulary.categorization
   module:
     - node
     - options
     - rest
     - serialization
-    - taxonomy
     - user
 id: etl_analytics
 label: 'ETL - Analitica'
@@ -1490,6 +1488,11 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
       row:
         type: data_field
         options:
