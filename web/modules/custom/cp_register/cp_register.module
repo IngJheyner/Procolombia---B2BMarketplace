@@ -54,5 +54,25 @@ function cp_register_theme($existing, $type, $theme, $path)
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',
     ],
+    'cp_pre_register_buyer_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_pre_register_buyer_template',
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+    'cp_register_buyer_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_register_buyer_template',
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
   ];
 }
