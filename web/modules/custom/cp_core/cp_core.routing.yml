@@ -193,7 +193,7 @@ cp_core.company_toggle_published:
     _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggleCompanyPublished'
     _title: 'Change company published'
   requirements:
-    _permission: "tcp core access dashboard"
+    _permission: "cp core access dashboard"
     node: \d+
   options:
     parameters:
