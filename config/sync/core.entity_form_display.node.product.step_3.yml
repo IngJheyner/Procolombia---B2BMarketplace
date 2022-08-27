@@ -59,8 +59,8 @@ third_party_settings:
   field_group:
     group_left:
       children:
-        - field_pr_certifications
         - field_pr_type_certifications
+        - field_pr_certifications
         - field_pr_product_availability
       label: Left
       region: content
@@ -169,7 +169,7 @@ mode: step_3
 content:
   field_pr_certifications:
     type: file_generic
-    weight: 1
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
@@ -186,14 +186,10 @@ content:
       display_description: 0
     third_party_settings: {  }
   field_pr_product_availability:
-    type: select2_entity_reference
-    weight: 3
+    type: options_buttons
+    weight: 5
     region: content
-    settings:
-      width: 100%
-      autocomplete: false
-      match_operator: CONTAINS
-      match_limit: 10
+    settings: {  }
     third_party_settings: {  }
   field_pr_sales_channel:
     type: select2_entity_reference
@@ -217,7 +213,7 @@ content:
     third_party_settings: {  }
   field_pr_type_certifications:
     type: select2_entity_reference
-    weight: 2
+    weight: 3
     region: content
     settings:
       width: 100%

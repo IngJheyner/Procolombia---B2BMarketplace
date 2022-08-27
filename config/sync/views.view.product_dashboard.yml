@@ -5,16 +5,16 @@ dependencies:
   config:
     - field.storage.node.field_categorization
     - field.storage.node.field_pr_image_1
-    - field.storage.node.field_pr_product_availability
     - field.storage.node.field_pr_status
     - image.style.thumbnail
     - node.type.product
     - taxonomy.vocabulary.categorization
-    - taxonomy.vocabulary.disponibilidad_del_producto
     - taxonomy.vocabulary.product_states
   module:
     - better_exposed_filters
+    - cp_core
     - node
+    - statistics
     - svg_image
     - taxonomy
     - user
@@ -364,14 +364,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_pr_product_availability:
-          id: field_pr_product_availability
-          table: node__field_pr_product_availability
-          field: field_pr_product_availability
+        cp_core_product_availability_on_off:
+          id: cp_core_product_availability_on_off
+          table: node
+          field: cp_core_product_availability_on_off
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
+          entity_type: node
+          plugin_id: cp_core_product_availability_on_off
           label: Disponibilidad
           exclude: false
           alter:
@@ -413,20 +414,63 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+        totalcount:
+          id: totalcount
+          table: node_counter
+          field: totalcount
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: statistics_numeric
+          label: Visualización
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
         created:
           id: created
           table: node_field_data
@@ -481,8 +525,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: d/m/Y
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -548,8 +592,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: d/m/Y
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -996,28 +1040,28 @@ display:
           hierarchy: true
           limit: true
           error_message: true
-        field_pr_product_availability_target_id:
-          id: field_pr_product_availability_target_id
+        field_pr_product_availability_value:
+          id: field_pr_product_availability_value
           table: node__field_pr_product_availability
-          field: field_pr_product_availability_target_id
+          field: field_pr_product_availability_value
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
+          plugin_id: boolean
+          operator: '='
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: field_pr_product_availability_target_id_op
+            operator_id: ''
             label: 'Disponibilidad del producto'
             description: ''
             use_operator: false
-            operator: field_pr_product_availability_target_id_op
+            operator: field_pr_product_availability_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_pr_product_availability_target_id
-            required: false
+            identifier: field_pr_product_availability_value
+            required: true
             remember: false
             multiple: false
             remember_roles:
@@ -1031,25 +1075,30 @@ display:
               buyer: '0'
               web_services: '0'
               moderador: '0'
-            reduce: false
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'Disponibilidad del producto/servicio (field_pr_product_availability)'
             description: ''
-            identifier: ''
+            identifier: field_pr_product_availability_value
             optional: true
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '1'
             default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: disponibilidad_del_producto
-          type: select
-          hierarchy: true
-          limit: true
-          error_message: true
+            group_items:
+              1:
+                title: Disponible
+                operator: '='
+                value: '1'
+              2:
+                title: 'No disponible'
+                operator: '!='
+                value: '0'
+              3:
+                title: ''
+                operator: '='
+                value: ''
         changed:
           id: changed
           table: node_field_data
@@ -1112,6 +1161,97 @@ display:
           1: AND
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            nid: nid
+            title: title
+            langcode: langcode
+            field_categorization: field_categorization
+            field_pr_image_1: field_pr_image_1
+            totalcount: totalcount
+            created: created
+            changed: changed
+            field_pr_status: field_pr_status
+            nothing: nothing
+          default: changed
+          info:
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            langcode:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_categorization:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pr_image_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            totalcount:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pr_status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -1123,7 +1263,18 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: "<div class=\"row\">\r\n  <div class=\"col-sm-9\">\r\n    <h1>Productos / Servicios</h1>\r\n  </div>\r\n  <div class=\"col-sm-3\">\r\n    <a class=\"button btn\" href=\"/dashboard/product-add-multistep\">Agregar producto / servicio</a>\r\n  </div>\r\n</div>"
+          tokenize: false
       footer:
         result:
           id: result
@@ -1149,7 +1300,6 @@ display:
       tags:
         - 'config:field.storage.node.field_categorization'
         - 'config:field.storage.node.field_pr_image_1'
-        - 'config:field.storage.node.field_pr_product_availability'
         - 'config:field.storage.node.field_pr_status'
   page_1:
     id: page_1
@@ -1175,5 +1325,4 @@ display:
       tags:
         - 'config:field.storage.node.field_categorization'
         - 'config:field.storage.node.field_pr_image_1'
-        - 'config:field.storage.node.field_pr_product_availability'
         - 'config:field.storage.node.field_pr_status'

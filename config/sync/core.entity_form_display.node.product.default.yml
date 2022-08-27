@@ -326,14 +326,11 @@ content:
       mfd_languages: {  }
     third_party_settings: {  }
   field_pr_product_availability:
-    type: entity_reference_autocomplete
-    weight: 44
+    type: boolean_checkbox
+    weight: 59
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      display_label: true
     third_party_settings: {  }
   field_pr_ref_company:
     type: entity_reference_autocomplete

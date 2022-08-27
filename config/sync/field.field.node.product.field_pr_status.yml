@@ -10,7 +10,7 @@ id: node.product.field_pr_status
 field_name: field_pr_status
 entity_type: node
 bundle: product
-label: 'EStado del producto'
+label: 'Estado del producto'
 description: ''
 required: false
 translatable: false
