@@ -22,6 +22,15 @@ cp_company_col.tablero:
   requirements:
     _permission: "access content"
 
+###edit_email_password
+cp_company_col.edit_email_password:
+  path: "dashboard/col/edit_email_password"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::edit_email_password'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
 ###Index route
 cp_company_col.edit:
   path: "edit/col/user"
@@ -37,5 +46,32 @@ cp_company_col.editar:
   defaults:
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
   methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###get logged user
+cp_company_col.get_logged_user:
+  path: "editar/get_logged_user"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::get_logged_user'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###update_form1
+cp_company_col.update_form1:
+  path: "editar/update_form1"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::update_form1'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###update_form2
+cp_company_col.update_form2:
+  path: "editar/update_form2"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::update_form2'
+  methods:  [POST]
   requirements:
     _permission: "access content"

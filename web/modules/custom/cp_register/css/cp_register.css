@@ -19,39 +19,6 @@
   src: url("../font/Century-Gothic-Bold.otf");
 }
 /* Font/text values */
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #6a6d71 rgba(0, 0, 0, 0);
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 7px;
-}
-*::-webkit-scrollbar:hover {
-  width: 7px;
-}
-
-img.me-2 {
-  width: 20px !important;
-}
-
-.form-control:focus {
-  box-shadow: none !important;
-}
-
-*::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #6a6d71;
-  border-radius: 100px;
-  border: 0px solid #ffffff;
-}
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -102,8 +69,17 @@ input[type=checkbox]:checked:before {
   border: rgba(0, 0, 0, 0);
 }
 
-a {
-  text-decoration: none !important;
+#check_home_tab,
+#check_profile_tab,
+#check_contact_tab {
+  display: none;
+}
+
+.title_tab {
+  font-family: Gothic-Bold;
+  font-size: 0px;
+  margin-bottom: 0px;
+  display: none;
 }
 
 .ts-control > * {
@@ -138,300 +114,6 @@ a {
 
 div#main-wrapper {
   position: relative;
-}
-
-.toltip_i {
-  position: relative;
-}
-.toltip_i .tooltiptext {
-  visibility: hidden;
-  width: 300px;
-  background-color: #000000;
-  color: #ffffff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 8;
-}
-.toltip_i .tooltiptext_error {
-  visibility: hidden;
-  width: 300px;
-  background-color: #ba0c2f;
-  color: #ffffff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 8;
-  font-family: "Gothic-Regular";
-  font-size: 14px;
-  right: 1rem;
-}
-.toltip_i .tooltiptext_yotube {
-  visibility: hidden;
-  width: 420px;
-  background-color: #000000;
-  color: #ffffff;
-  text-align: start;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 8;
-  font-family: "Gothic-Regular";
-  font-size: 14px;
-  right: 1.5rem;
-}
-.toltip_i:hover .tooltiptext, .toltip_i:hover .tooltiptext_error, .toltip_i:hover .tooltiptext_yotube {
-  visibility: visible;
-}
-
-.pt-6 {
-  margin-top: 6rem;
-  border-top: 1px solid rgba(204, 204, 204, 0.3294117647) !important;
-  width: 100%;
-  padding-bottom: 1rem;
-}
-
-.logo {
-  width: 230px;
-  height: 49px;
-  padding-left: 19px;
-}
-
-.btn-outline {
-  border: 1px solid #005ca4 !important;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 8px 11px;
-  margin-right: 10px;
-  font-family: Gothic-Bold;
-}
-.btn-outline:hover {
-  color: #ffffff !important;
-  border-color: #0085ca !important;
-  background-color: #0085ca !important;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.btn-outline-d {
-  border: 1px solid #005ca4 !important;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: #005ca4 !important;
-  padding: 8px 11px;
-  color: #ffffff !important;
-  font-family: Gothic-Bold;
-}
-.btn-outline-d:hover {
-  color: #ffffff;
-  background-color: #005ca4 !important;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.sub-header {
-  background-color: #F4F4F4;
-}
-
-.row {
-  width: 100%;
-  margin: 0px !important;
-  padding: 0px !important;
-}
-
-.menu-left {
-  width: 94%;
-  left: 18px;
-  height: 0px;
-  border-right: 45px solid transparent;
-  border-left: 0px solid transparent;
-  border-bottom: 45px solid #5C5C5C;
-  cursor: pointer;
-  z-index: 4;
-  position: absolute;
-  transition: all 0.5s ease-out;
-}
-.menu-left:hover {
-  transition: all 0.5s ease-out;
-  border-right: 45px solid transparent;
-  border-left: 0px solid transparent;
-  border-bottom: 45px solid #000000;
-}
-.menu-left .menu-content {
-  padding: 6px 67px 6px 18px;
-  width: 305px;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  height: 45px;
-  color: #ffffff;
-  justify-content: center;
-  margin: 0 auto;
-}
-.menu-left .menu-content i {
-  font-size: 30px;
-  margin-right: 20px;
-}
-.menu-left .menu-content p {
-  margin: 0px;
-  font-family: Maven-Medium;
-}
-
-.search_box {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  position: relative;
-}
-.search_box input {
-  width: 100%;
-  -webkit-appearance: none;
-  border: none;
-  outline: none;
-  padding: 7px 20px;
-  color: #3B3D42;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 4px 12px;
-  font-family: Gothic-Regular;
-}
-.search_box input:focus {
-  border: none;
-  outline: none;
-  width: 95%;
-}
-.search_box input:active {
-  border: none;
-  outline: none;
-}
-.search_box .search_btn {
-  background-color: #f7f8f8;
-  border: none;
-  outline: none;
-  border: none;
-  outline: none;
-  padding: 4px 8px;
-  font-size: 20px;
-  border-radius: 4px;
-  position: absolute;
-  right: 0;
-  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-}
-.search_box .search_btn:focus {
-  border: none;
-  outline: none;
-}
-.search_box .search_btn:active {
-  border: none;
-  outline: none;
-}
-.search_box .search_btn:hover {
-  background-color: #0085ca;
-  color: #ffffff;
-}
-.search_box .search_btn:hover #Trazado_23 {
-  fill: #ffffff;
-}
-
-.btn-check:checked + .btn:focus,
-.btn-check:active + .btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.show:focus {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-
-a.dropdown-item {
-  padding: 5px 11px;
-}
-a.dropdown-item span {
-  font-family: Maven-Regular;
-  font-size: 18px;
-  font-weight: 200;
-}
-
-ul.dropdown-menu.show {
-  min-width: 100%;
-  padding: 5px 0px;
-  inset: -3px auto auto 0px !important;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border: none;
-  border-top: 1px solid #000;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.btn.btn-secondary.dropdown-toggle {
-  background-color: #f7f8f8;
-  border: none;
-  box-shadow: none;
-  color: #000000;
-  font-size: 18px;
-  font-weight: 200;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  font-family: Maven-Regular;
-  padding: 9px 10px;
-  border-bottom: 1px solid #000000;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.btn.btn-secondary.dropdown-toggle i {
-  margin-right: 8px;
-  font-size: 25px;
-}
-
-a.dropdown-item {
-  border: none;
-  box-shadow: none;
-  color: #000000;
-  font-size: 18px;
-  font-weight: 200;
-  display: flex;
-  font-family: Maven-Regular;
-  align-items: center;
-}
-a.dropdown-item i {
-  margin-right: 8px;
-  font-size: 25px;
-}
-
-button.btn.btn-secondary.dropdown-toggle.show {
-  background-color: #ffffff !important;
-}
-
-.dropdown-toggle::after {
-  display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
-  content: "\ea4a";
-  font-family: "boxicons";
-  border: none !important;
-}
-
-.left_bar {
-  position: absolute;
-  position: absolute;
-  left: 0rem;
-  top: 3rem;
-  background: #f4f4f4;
-  padding-top: 2rem;
-  height: calc(100vh - 7.1rem);
-  width: 100%;
-  z-index: 3;
-  padding-left: 1.8rem;
-  padding-right: 0.5rem;
-  padding-bottom: 1.8rem;
-  transition: all 0.5s ease-out;
-}
-.left_bar .bar_content {
-  overflow: auto;
-  height: 100%;
-  padding-right: 0.5rem;
 }
 
 .body_login {
@@ -761,7 +443,9 @@ button.btn.btn-secondary.dropdown-toggle.show {
   margin-right: 10px;
 }
 
-#error_neo p {
+#error_neo p,
+#check_information p,
+#success_modal p {
   font-family: Gothic-Regular;
   font-size: 16px;
   font-weight: 300;
@@ -769,20 +453,26 @@ button.btn.btn-secondary.dropdown-toggle.show {
   margin: 0px;
   color: #3b3d42;
 }
-#error_neo p a {
+#error_neo p a,
+#check_information p a,
+#success_modal p a {
   font-size: 15px;
   font-weight: 500;
   font-family: Gothic-Bold;
   color: #000000;
 }
-#error_neo .cita_btn {
+#error_neo .cita_btn,
+#check_information .cita_btn,
+#success_modal .cita_btn {
   border-radius: 4px;
   background-color: #005ca4;
   color: #ffffff;
   font-family: Gothic-Bold;
   font-size: 14px;
 }
-#error_neo .cita_btn i {
+#error_neo .cita_btn i,
+#check_information .cita_btn i,
+#success_modal .cita_btn i {
   margin-right: 7px;
 }
 
@@ -848,6 +538,41 @@ button.btn.btn-secondary.dropdown-toggle.show {
 
 .step_registre {
   padding: 5rem;
+}
+
+.strong_empresa {
+  font-family: Gothic-Bold;
+}
+
+.btn_options {
+  text-align: end;
+}
+.btn_options .yes {
+  background-color: #005ca4;
+  color: #ffffff;
+  font-family: Gothic-Bold;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+}
+.btn_options .yes:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+}
+.btn_options .no {
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  margin-left: 10px;
+  font-family: Gothic-Regular;
+  color: #005ca4;
+  transition: all 0.4s ease-out;
+  border: 1px solid #005ca4;
+}
+.btn_options .no:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
 }
 
 .steps {
@@ -1017,6 +742,12 @@ button.btn.btn-secondary.dropdown-toggle.show {
   font-size: 15px;
   padding-right: 2.4rem !important;
 }
+.steps .step_content form select:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
+}
+.steps .step_content form .ts-control:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
+}
 .steps .step_content form select,
 .steps .step_content form textarea {
   -webkit-appearance: none;
@@ -1043,10 +774,10 @@ button.btn.btn-secondary.dropdown-toggle.show {
 }
 
 #logo_name {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>");
+  background-image: url("http://52.201.168.42/sites/default/files/2022-08/Icono_file-image.svg");
   background-repeat: no-repeat;
   background-position-x: 10px;
-  background-position-y: 12px;
+  background-position-y: 9px;
   border: 1px solid #cccccc;
   padding-left: 2.4rem !important;
   margin-right: -23px;
@@ -1102,6 +833,7 @@ button.btn.btn-secondary.dropdown-toggle.show {
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 
 @media (max-width: 575.98px) {
@@ -1109,8 +841,17 @@ button.btn.btn-secondary.dropdown-toggle.show {
 .container-sm {
     max-width: 100% !important;
   }
+  .title_tab {
+    font-family: Gothic-Bold;
+    font-size: 19px !important;
+    margin-bottom: -3rem !important;
+    display: none;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
   .sub-header,
-.pt-6 {
+.pt-6,
+.btn_header {
     display: none;
   }
   .body_login {
@@ -1207,7 +948,8 @@ button.btn.btn-secondary.dropdown-toggle.show {
     max-width: 90% !important;
   }
   .sub-header,
-.pt-6 {
+.pt-6,
+.btn_header {
     display: none;
   }
   .body_login {
@@ -1265,10 +1007,19 @@ button.btn.btn-secondary.dropdown-toggle.show {
   .step_registre {
     padding: 0rem;
   }
+  .title_tab {
+    font-family: Gothic-Bold;
+    font-size: 19px !important;
+    margin-bottom: -3rem !important;
+    display: none;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .sub-header,
-.pt-6 {
+.pt-6,
+.btn_header {
     display: none;
   }
   .pt-3 {
@@ -1303,4 +1054,4 @@ button.btn.btn-secondary.dropdown-toggle.show {
     -o-object-position: center center;
        object-position: center center;
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=cp_register.css.map */

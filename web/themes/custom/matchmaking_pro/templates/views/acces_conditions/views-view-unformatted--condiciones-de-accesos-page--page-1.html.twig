@@ -17,7 +17,7 @@
 #}
 
 <nav class="rounded-2 navbar navbar-dark bg-degradado ">
- <h4 class="ms-3 text-white">Condiciones de Accesos</h4>
+ <h4 class="ms-3 text-white">Condiciones de Acceso</h4>
  <button class="btn btn-primary" onclick="window.location.href = '/';"><i class="fa fa-trash"></i> Cancelar</button>
 </nav>
 
@@ -29,13 +29,20 @@
         <p>{{ row.content['#row']._entity.field_accesscontentdescriptionto.value }}</p>
         <img class="img-fluid" src="{{file_url(row.content['#row']._entity.field_accesscontent_logo.entity.fileuri)}}">
         <h5>Pagina Web</h5>
-        <a id="pagina-web" href="{{ row.content['#row']._entity.field_pagina_web_.0.url}}">{{ row.content['#row']._entity.field_pagina_web_.0.title}}</a>
+        <a id="pagina-web"  href="{{ row.content['#row']._entity.field_pagina_web_.0.url}}">
+        <i class="fa fa-external-link-alt"></i>
+        {{ row.content['#row']._entity.field_pagina_web_.0.title}}
+        </a>
         <h5>Ir a la herramienta</h5>
-        <a id="pagina-web" href="{{ row.content['#row']._entity.field_accessconditioncontent_lin.0.url}}">{{ row.content['#row']._entity.field_accessconditioncontent_lin.0.title}}</a>
+        
+        <a id="pagina-web"  href="{{ row.content['#row']._entity.field_accessconditioncontent_lin.0.url}}">
+        <i class="fa fa-external-link-alt"></i>
+        {{ row.content['#row']._entity.field_accessconditioncontent_lin.0.title}}
+        </a>
       </div>
       <div class="col-sm-12 col-md-6">
         <h5>Video Tutorial</h5>
-        <div class="embed-responsive embed-responsive-16by9">
+        <div class="ratio ratio-16x9">
           <iframe title="YouTube video" style="max-width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ row.content['#row']._entity.field_video_tutorial_ac.entity.fileuri | replace({'youtube://': '', }) }}?rel=0" allowfullscreen></iframe>
 
         </div>
