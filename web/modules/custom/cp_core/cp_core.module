@@ -966,10 +966,23 @@ function cp_core_page_attachments(array &$page) {
  */
 function cp_core_entity_extra_field_info() {
   $extra = [];
+  $extra['node']['product']['display']['cp_core_title_h2_no_link'] = [
+    'label' => t('CP Core: Title h2 no link'),
+    'description' => t('Shows the title of the node'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
 
   $extra['node']['product']['display']['cp_core_presave_preview'] = [
     'label' => t('CP Core: Presave preview'),
     'description' => t('Enables a preview link.'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
+  $extra['node']['product']['display']['cp_core_close_modal'] = [
+    'label' => t('CP Core: Close Modal'),
+    'description' => t('Show the close link.'),
     'weight' => 100,
     'visible' => FALSE,
   ];
@@ -982,13 +995,29 @@ function cp_core_entity_extra_field_info() {
  */
 function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   if ($display->getComponent('cp_core_presave_preview')) {
-     $build['cp_core_presave_preview'] = [
-        '#type' => 'link',
-        '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $entity->id()]),
-        '#title' => t('Preview'),
-        '#attributes' => ['class' => ['use-ajax'], 'data-dialog-type' => 'modal'],
-        '#attached' => ['library' => 'core/drupal.dialog.ajax'],
-     ];
+    $build['cp_core_presave_preview'] = [
+      '#type' => 'link',
+      '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $entity->id()]),
+      '#title' => t('Preview'),
+      '#attributes' => ['class' => ['use-ajax'], 'data-dialog-type' => 'modal'],
+      '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+    ];
+  }
+  if ($display->getComponent('cp_core_title_h2_no_link')) {
+    $build['cp_core_title_h2_no_link'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => $entity->label(),
+    ];
+  }
+
+  if ($display->getComponent('cp_core_close_modal')) {
+    $build['cp_core_close_modal'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'button',
+      '#value' => t('Go back to process'),
+      '#attributes' => ['class' => ['close']],
+    ];
   }
 }
 

@@ -52,8 +52,9 @@ dependencies:
     - image.style.medium
     - node.type.product
   module:
-    - advanced_text_formatter
     - ds
+    - field_group
+    - formatter_suite
     - layout_builder
     - svg_image
     - user
@@ -61,77 +62,216 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-  ds:
-    layout:
-      id: bs_2col
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        label: ''
-        layout:
-          wrapper: div
-          classes:
-            row: row
-          add_layout_class: 1
-          attributes: ''
-        regions:
-          left:
-            wrapper: div
-            classes:
-              col-sm-4: col-sm-4
-            add_region_classes: 1
-            attributes: ''
-          right:
-            wrapper: div
-            classes:
-              col-sm-8: col-sm-8
-            add_region_classes: 1
-            attributes: ''
-    regions:
-      left:
+  field_group:
+    group_row:
+      children:
+        - group_left
+        - group_right
+      label: Row
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: 'group-row row'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_left:
+      children:
         - field_pr_image_1
-      right:
-        - node_title
+      label: Left
+      parent_name: group_row
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: 'group-left col-sm-4'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_right:
+      children:
+        - cp_core_title_h2_no_link
         - field_body
-    fields:
-      node_title:
-        plugin_id: node_title
-        weight: 1
-        label: hidden
-        formatter: default
-        settings:
-          link: false
-          'link class': ''
-          wrapper: h2
-          class: ''
+        - field_categorization_parent
+        - field_categorization
+        - field_partida_arancelaria_tax
+        - field_pr_country
+        - group_footer_links
+      label: Right
+      parent_name: group_row
+      region: content
+      weight: 21
+      format_type: html_element
+      format_settings:
+        classes: 'group-right col-sm-8'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_footer_links:
+      children:
+        - field_file
+        - field_file_certifications
+        - cp_core_close_modal
+      label: 'Footer links'
+      parent_name: group_right
+      region: content
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: group-footer-links
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.product.product_service_presave_preview
+targetEntityType: node
+bundle: product
+mode: product_service_presave_preview
+content:
+  cp_core_close_modal:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  cp_core_title_h2_no_link:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_body:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_categorization:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
         ft:
           id: default
           settings:
             lb: ''
             lb-col: false
             classes: {  }
-id: node.product.product_service_presave_preview
-targetEntityType: node
-bundle: product
-mode: product_service_presave_preview
-content:
-  field_body:
-    type: advanced_text
+    weight: 4
+    region: content
+  field_categorization_parent:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 3
+    region: content
+  field_file:
+    type: formatter_suite_general_file_link
     label: hidden
     settings:
-      trim_length: 600
-      ellipsis: 1
-      word_boundary: 1
-      token_replace: 0
-      filter: input
-      format: plain_text
-      allowed_html: '<a> <b> <br> <dd> <dl> <dt> <em> <i> <li> <ol> <p> <strong> <u> <ul>'
-      autop: 0
-      use_summary: 0
+      titleStyle: text_custom
+      titleCustomText: 'Ver Ficha técnica'
+      classes: ''
+      showLink: '1'
+      openLinkIn: _blank
+      linkTopic: any
+      showSize: 0
+      showIcon: 0
+      listStyle: span
+      listSeparator: ', '
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 15
+    region: content
+  field_file_certifications:
+    type: formatter_suite_general_file_link
+    label: hidden
+    settings:
+      titleStyle: text_custom
+      titleCustomText: 'Ver Certificación del producto'
+      classes: ''
+      showLink: '1'
+      openLinkIn: _self
+      linkTopic: any
+      listStyle: span
+      listSeparator: ', '
+      showSize: 0
+      showIcon: 0
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 16
+    region: content
+  field_partida_arancelaria_tax:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 5
+    region: content
+  field_pr_country:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 2
-    region: right
+    weight: 6
+    region: content
   field_pr_image_1:
     type: image
     label: hidden
@@ -153,28 +293,22 @@ content:
             lb-col: false
             classes: {  }
     weight: 0
-    region: left
+    region: content
 hidden:
   cp_core_presave_preview: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_aditional_information: true
-  field_categorization: true
-  field_categorization_parent: true
   field_dependent_state: true
   field_exist_certifications: true
   field_export_markets: true
-  field_file: true
-  field_file_certifications: true
   field_iframe: true
   field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
-  field_partida_arancelaria_tax: true
   field_pr_certifications: true
-  field_pr_country: true
   field_pr_image_2: true
   field_pr_image_3: true
   field_pr_image_4: true

@@ -11,6 +11,7 @@
       attach: function(context, settings) {
         // Custom code here
 
+        // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
           let modal = $('.generic-modal:not(.generic-modal-legal-modal)');
           if (!modal.hasClass('modal-closed'))
@@ -18,6 +19,13 @@
           modal.once().show();
           $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function() {
             $(this).closest('.generic-modal:not(.generic-modal-legal-modal)').addClass('modal-closed').hide();
+          });
+        }
+
+        // Close drupal default modal.
+        if ($('.node--view-mode-product-service-presave-preview .close').length) {
+          $('.node--view-mode-product-service-presave-preview .close').once().click(function () {
+            Drupal.dialog($('#drupal-modal').get(0)).close();
           });
         }
 
