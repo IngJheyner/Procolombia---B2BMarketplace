@@ -729,9 +729,9 @@ display:
             first: ''
             last: ''
           expose:
-            items_per_page: false
+            items_per_page: true
             items_per_page_label: 'Elementos por página'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '5, 10, 20, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Todo -'
             offset: false
@@ -760,15 +760,11 @@ display:
               secondary_label: 'Opciones avanzadas'
               secondary_open: false
               reset_button_always_show: false
+            pager:
+              plugin_id: default
+              advanced:
+                is_secondary: true
             filter:
-              status:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                  collapsible: false
-                  is_secondary: false
               title:
                 plugin_id: default
                 advanced:
@@ -791,7 +787,15 @@ display:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
-              field_pr_product_availability_target_id:
+              field_states_value:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_pr_product_availability_value:
                 plugin_id: default
                 advanced:
                   sort_options: false

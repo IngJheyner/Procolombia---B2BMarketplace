@@ -586,6 +586,17 @@ function cp_core_form_views_exposed_form_alter(&$form, FormStateInterface $form_
     $form['actions']['submit']['#attributes']['class'][] = 'btn-submit';
     $form['actions']['reset']['#attributes']['class'][] = 'btn-reset';
   }
+
+  $view = $form_state->get('view');
+  if ($view->id() == 'product_dashboard' && $view->current_display == 'page_1') {
+    if (isset($form['items_per_page'])) {
+      $form['items_per_page']['#weight'] = 99;
+      $form['actions']['#weight'] = 98;
+      foreach ($form['items_per_page']['#options'] as &$item) {
+        $item = t('@num items', ['@num' => $item]);
+      }
+    }
+  }
 }
 
 /**
