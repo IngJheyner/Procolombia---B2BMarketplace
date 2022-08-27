@@ -980,3 +980,19 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
      ];
   }
 }
+
+/**
+ * Implements hook_views_data().
+ */
+function cp_core_views_data() {
+  $data = [];
+  $data['node']['cp_core_product_availability_on_off'] = [
+    'title' => t('CP Core: Change the product availability'),
+    'help' => 'Enables a toggle field for the product availability.',
+    'field' => [
+      'id' => 'cp_core_product_availability_on_off',
+    ],
+  ];
+
+  return $data;
+}

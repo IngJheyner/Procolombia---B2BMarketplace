@@ -173,3 +173,16 @@ cp_core.autocomplete_ciiu:
     _format: json
   requirements:
     _access: 'TRUE'
+
+cp_core.product_toggle_availability:
+  path: '/node/{node}/availability-toggle'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggle'
+    _title: 'Change product availability'
+  requirements:
+    _permission: "translate product node"
+    node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node

@@ -353,12 +353,14 @@ content:
     weight: 29
     region: content
   field_pr_product_availability:
-    type: entity_reference_label
+    type: boolean
     label: above
     settings:
-      link: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    weight: 33
+    weight: 48
     region: content
   field_pr_ref_company:
     type: entity_reference_label
@@ -515,6 +517,7 @@ content:
     weight: 1
     region: content
 hidden:
+  cp_core_presave_preview: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true

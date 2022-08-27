@@ -1,29 +1,23 @@
-uuid: 1e95602f-3e33-4bca-a4d7-d8297754fab3
+uuid: f1755b82-7d4a-4c8b-9758-077d3957db08
 langcode: es
 status: true
 dependencies:
   config:
     - field.storage.node.field_pr_product_availability
     - node.type.product
-    - taxonomy.vocabulary.disponibilidad_del_producto
 id: node.product.field_pr_product_availability
 field_name: field_pr_product_availability
 entity_type: node
 bundle: product
-label: 'Disponibilidad del producto'
+label: 'Disponibilidad del producto/servicio'
 description: ''
-required: true
+required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 0
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
-  handler_settings:
-    target_bundles:
-      disponibilidad_del_producto: disponibilidad_del_producto
-    sort:
-      field: name
-      direction: asc
-    auto_create: false
-    auto_create_bundle: categorization
-field_type: entity_reference
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean
