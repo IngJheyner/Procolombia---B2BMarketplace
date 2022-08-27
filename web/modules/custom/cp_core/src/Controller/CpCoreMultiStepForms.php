@@ -68,7 +68,7 @@ class CpCoreMultiStepForms extends ControllerBase {
   /**
    * Function to toggle tue user status.
    */
-  public function toggle(NodeInterface $node) {
+  public function toggleProductAvailability(NodeInterface $node) {
     $response = new AjaxResponse();
     if ($node->field_pr_product_availability->value) {
       $status = 'off';
@@ -91,6 +91,35 @@ class CpCoreMultiStepForms extends ControllerBase {
     ];
     $link = $this->renderer->render($build);
     $response->addcommand(new ReplaceCommand('#product-availability-toggle-' . $node->id(), $link));
+    return $response;
+  }
+
+  /**
+   * Function to toggle tue user status.
+   */
+  public function toggleCompanyPublished(NodeInterface $node) {
+    $response = new AjaxResponse();
+    if ($node->field_com_published->value) {
+      $status = 'off';
+      $node->field_com_published->value = FALSE;
+    }
+    else {
+      $status = 'on';
+      $node->field_com_published->value = TRUE;
+    }
+    $node->save();
+    $url = Url::fromRoute('cp_core.company_toggle_published', ['node' => $node->id()]);
+    $build = [
+      '#type' => 'link',
+      '#title' => $status == 'on' ? $this->t('Yes') : $this->t('No'),
+      '#url' => $url,
+      '#attributes' => [
+        'class' => [$status, 'use-ajax', 'toggle'],
+        'id' => 'company-published-toggle-' . $node->id(),
+      ],
+    ];
+    $link = $this->renderer->render($build);
+    $response->addcommand(new ReplaceCommand('#company-published-toggle-' . $node->id(), $link));
     return $response;
   }
 

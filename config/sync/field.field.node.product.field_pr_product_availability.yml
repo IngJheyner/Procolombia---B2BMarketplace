@@ -18,6 +18,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: Activado
-  off_label: Desactivado
+  on_label: Disponible
+  off_label: 'No disponible'
 field_type: boolean

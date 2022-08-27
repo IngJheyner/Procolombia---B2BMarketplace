@@ -5,15 +5,15 @@ dependencies:
   config:
     - field.storage.node.field_categorization
     - field.storage.node.field_pr_image_1
-    - field.storage.node.field_pr_status
+    - field.storage.node.field_states
     - image.style.thumbnail
     - node.type.product
     - taxonomy.vocabulary.categorization
-    - taxonomy.vocabulary.product_states
   module:
     - better_exposed_filters
     - cp_core
     - node
+    - options
     - statistics
     - svg_image
     - taxonomy
@@ -605,10 +605,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_pr_status:
-          id: field_pr_status
-          table: node__field_pr_status
-          field: field_pr_status
+        field_states:
+          id: field_states
+          table: node__field_states
+          field: field_states
           relationship: none
           group_type: group
           admin_label: ''
@@ -648,17 +648,16 @@ display:
           element_label_class: ''
           element_label_colon: true
           element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_class: '{{ field_states }}'
           element_default_classes: true
-          empty: Borrador
+          empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -809,11 +808,22 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'cp core access dashboard'
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: "<div class=\"generic-modal modal view-no-results\" id=\"generic-modal-view-no-results\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <span class=\"modal-header-title\">Error de filtrado</span>\r\n        <button class=\"modal-header-close close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <span class=\"modal-top-title\">No se encuentran resgistros para los filtros aplicados.<br />Por favor, revíselos e intente nuevamente</span>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <div class=\"modal-footer-left\">\r\n          <button class=\"modal-header-close close\" data-dismiss=\"modal\" aria-label=\"Close\"><span>Entendido</span></button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+          tokenize: false
       sorts: {  }
       arguments: {  }
       filters:
@@ -986,27 +996,27 @@ display:
           hierarchy: true
           limit: true
           error_message: true
-        field_pr_status_target_id:
-          id: field_pr_status_target_id
-          table: node__field_pr_status
-          field: field_pr_status_target_id
+        field_states_value:
+          id: field_states_value
+          table: node__field_states
+          field: field_states_value
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: taxonomy_index_tid
+          plugin_id: list_field
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: field_pr_status_target_id_op
+            operator_id: field_states_value_op
             label: 'Estado de aprobación'
             description: ''
             use_operator: false
-            operator: field_pr_status_target_id_op
+            operator: field_states_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_pr_status_target_id
+            identifier: field_states_value
             required: false
             remember: false
             multiple: false
@@ -1035,11 +1045,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: product_states
-          type: select
-          hierarchy: true
-          limit: true
-          error_message: true
         field_pr_product_availability_value:
           id: field_pr_product_availability_value
           table: node__field_pr_product_availability
@@ -1300,7 +1305,7 @@ display:
       tags:
         - 'config:field.storage.node.field_categorization'
         - 'config:field.storage.node.field_pr_image_1'
-        - 'config:field.storage.node.field_pr_status'
+        - 'config:field.storage.node.field_states'
   page_1:
     id: page_1
     display_title: Page
@@ -1311,7 +1316,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: product-dashboard
+      path: dashboard
     cache_metadata:
       max-age: -1
       contexts:
@@ -1325,4 +1330,4 @@ display:
       tags:
         - 'config:field.storage.node.field_categorization'
         - 'config:field.storage.node.field_pr_image_1'
-        - 'config:field.storage.node.field_pr_status'
+        - 'config:field.storage.node.field_states'

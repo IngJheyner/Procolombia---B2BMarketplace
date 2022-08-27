@@ -532,19 +532,12 @@ class CpCoreMultiStepForm extends FormBase {
   public function saveAndPublishSubmit(array &$form, FormStateInterface $form_state) {
     $product_list = $form_state->getValue('product_list');
     $nodeStorage = $this->entityTypeManager->getStorage('node');
-    $taxonomyManager = $this->entityTypeManager->getStorage('taxonomy_term');
-    $terms = $taxonomyManager->loadByProperties(['vid' => 'product_states', 'name' => 'En espera']);
-    $term = NULL;
-    // If not exists wait term we must do nothing.
-    if (!empty($terms)) {
-      $term = reset($terms);
-      foreach ($product_list as $nid) {
-        if ($nid) {
-          // Set wait status.
-          $node = $nodeStorage->load($nid);
-          $node->field_pr_status = $term->id();
-          $node->save();
-        }
+    foreach ($product_list as $nid) {
+      if ($nid) {
+        // Set wait status.
+        $node = $nodeStorage->load($nid);
+        $node->field_states = 'waiting';
+        $node->save();
       }
     }
     $url = Url::fromUri('internal:/dashboard');

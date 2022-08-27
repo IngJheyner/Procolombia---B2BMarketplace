@@ -177,10 +177,23 @@ cp_core.autocomplete_ciiu:
 cp_core.product_toggle_availability:
   path: '/node/{node}/availability-toggle'
   defaults:
-    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggle'
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggleProductAvailability'
     _title: 'Change product availability'
   requirements:
-    _permission: "translate product node"
+    _permission: "cp core access dashboard"
+    node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+cp_core.company_toggle_published:
+  path: '/node/{node}/availability-toggle'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggleCompanyPublished'
+    _title: 'Change company published'
+  requirements:
+    _permission: "tcp core access dashboard"
     node: \d+
   options:
     parameters:

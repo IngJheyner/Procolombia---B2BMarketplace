@@ -993,6 +993,13 @@ function cp_core_views_data() {
       'id' => 'cp_core_product_availability_on_off',
     ],
   ];
+  $data['node']['cp_core_company_published_on_off'] = [
+    'title' => t('CP Core: Change the company published status'),
+    'help' => 'Enables a toggle field for the company published.',
+    'field' => [
+      'id' => 'cp_core_company_published_on_off',
+    ],
+  ];
 
   return $data;
 }

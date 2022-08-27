@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.company.field_cellphone
     - field.field.node.company.field_charge
     - field.field.node.company.field_ciiu_code
+    - field.field.node.company.field_com_published
     - field.field.node.company.field_contact_name
     - field.field.node.company.field_email
     - field.field.node.company.field_ext
@@ -119,6 +120,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_com_published:
+    type: boolean_checkbox
+    weight: 34
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_contact_name:
     type: string_textfield
@@ -291,6 +299,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   specific_node_class:
     type: boolean_checkbox

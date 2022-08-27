@@ -7,6 +7,7 @@ dependencies:
     - taxonomy.vocabulary.partida_arancelaria
   module:
     - content_translation
+    - cp_core
     - entityqueue
     - field_permissions
     - mfd
@@ -19,6 +20,7 @@ label: Exportador
 weight: 4
 is_admin: null
 permissions:
+  - 'cp core access dashboard'
   - 'create terms in partida_arancelaria'
   - 'delete terms in partida_arancelaria'
   - 'edit any product content'
