@@ -49,19 +49,15 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
-    - image.style.226_x_218
+    - image.style.thumbnail
     - node.type.product
   module:
     - cp_core
     - field_group
-    - svg_image
 third_party_settings:
   field_group:
     group_left:
-      children:
-        - field_pr_image_1
-        - field_pr_image_2
-        - field_pr_image_3
+      children: {  }
       label: Left
       region: content
       parent_name: group_row
@@ -80,10 +76,7 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_right:
-      children:
-        - field_pr_image_4
-        - field_pr_image_5
-        - field_pr_multilingual_step4
+      children: {  }
       label: Right
       region: content
       parent_name: group_row
@@ -102,7 +95,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_top:
-      children: {  }
+      children:
+        - field_images
       label: Top
       region: content
       parent_name: group_row
@@ -121,7 +115,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_bottom:
-      children: {  }
+      children:
+        - field_pr_multilingual_step4
       label: Bottom
       region: content
       parent_name: group_row
@@ -148,7 +143,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 5
+      weight: 0
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -167,45 +162,16 @@ targetEntityType: node
 bundle: product
 mode: step_4
 content:
-  field_pr_image_1:
-    type: image_image
-    weight: 0
+  field_images:
+    type: cp_core_image_multi_widget
+    weight: 26
     region: content
     settings:
+      delta_limit: '5'
+      first_title: 'Imagen @weight - Imagen Principal'
+      custom_title: 'Imagen @weight'
+      preview_image_style: thumbnail
       progress_indicator: throbber
-      preview_image_style: 226_x_218
-    third_party_settings: {  }
-  field_pr_image_2:
-    type: image_image
-    weight: 1
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: 226_x_218
-    third_party_settings: {  }
-  field_pr_image_3:
-    type: image_image
-    weight: 2
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: 226_x_218
-    third_party_settings: {  }
-  field_pr_image_4:
-    type: image_image
-    weight: 3
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: 226_x_218
-    third_party_settings: {  }
-  field_pr_image_5:
-    type: image_image
-    weight: 4
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: 226_x_218
     third_party_settings: {  }
   field_pr_multilingual_step4:
     type: cp_core_multilingual_field_widget
@@ -231,13 +197,17 @@ hidden:
   field_file: true
   field_file_certifications: true
   field_iframe: true
-  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
   field_pr_certifications: true
   field_pr_country: true
+  field_pr_image_1: true
+  field_pr_image_2: true
+  field_pr_image_3: true
+  field_pr_image_4: true
+  field_pr_image_5: true
   field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true

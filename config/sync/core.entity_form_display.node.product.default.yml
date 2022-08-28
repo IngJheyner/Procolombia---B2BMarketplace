@@ -53,7 +53,6 @@ dependencies:
   module:
     - file
     - iframe
-    - mfd
     - path
     - shs
     - svg_image
@@ -275,56 +274,6 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  field_pr_multilingual_step1:
-    type: multilingual_form_display_widget
-    weight: 36
-    region: content
-    settings:
-      display_label: true
-      display_description: true
-      collapsible_state: 1
-      mfd_languages: {  }
-    third_party_settings: {  }
-  field_pr_multilingual_step2:
-    type: multilingual_form_display_widget
-    weight: 37
-    region: content
-    settings:
-      display_label: true
-      display_description: true
-      collapsible_state: 1
-      mfd_languages: {  }
-    third_party_settings: {  }
-  field_pr_multilingual_step3:
-    type: multilingual_form_display_widget
-    weight: 38
-    region: content
-    settings:
-      display_label: true
-      display_description: true
-      collapsible_state: 1
-      mfd_languages: {  }
-    third_party_settings: {  }
-  field_pr_multilingual_step4:
-    type: multilingual_form_display_widget
-    weight: 39
-    region: content
-    settings:
-      display_label: true
-      display_description: true
-      collapsible_state: 1
-      mfd_languages: {  }
-    third_party_settings: {  }
-  field_pr_multilingual_step5:
-    type: multilingual_form_display_widget
-    weight: 40
-    region: content
-    settings:
-      display_label: true
-      display_description: true
-      collapsible_state: 1
-      mfd_languages: {  }
-    third_party_settings: {  }
   field_pr_product_availability:
     type: boolean_checkbox
     weight: 59
@@ -539,4 +488,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_pr_multilingual_step1: true
+  field_pr_multilingual_step2: true
+  field_pr_multilingual_step3: true
+  field_pr_multilingual_step4: true
+  field_pr_multilingual_step5: true
