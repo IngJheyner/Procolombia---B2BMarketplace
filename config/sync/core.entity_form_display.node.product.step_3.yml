@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.step_3
+    - entity_browser.browser.paises
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -52,6 +53,7 @@ dependencies:
     - node.type.product
   module:
     - cp_core
+    - entity_browser
     - field_group
     - file
     - select2
@@ -82,6 +84,7 @@ third_party_settings:
     group_right:
       children:
         - field_pr_target_market
+        - field_pr_country
         - field_pr_sales_channel
         - field_pr_multilingual_step3
       label: Right
@@ -174,9 +177,23 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  field_pr_country:
+    type: entity_browser_entity_reference
+    weight: 3
+    region: content
+    settings:
+      entity_browser: paises
+      field_widget_display: label
+      field_widget_edit: false
+      field_widget_remove: true
+      field_widget_replace: false
+      open: true
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
+    third_party_settings: {  }
   field_pr_multilingual_step3:
     type: cp_core_multilingual_field_widget
-    weight: 4
+    weight: 5
     region: content
     settings:
       collapsible_state: '-1'
@@ -193,7 +210,7 @@ content:
     third_party_settings: {  }
   field_pr_sales_channel:
     type: select2_entity_reference
-    weight: 3
+    weight: 4
     region: content
     settings:
       width: 100%
@@ -239,7 +256,6 @@ hidden:
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
-  field_pr_country: true
   field_pr_image_1: true
   field_pr_image_2: true
   field_pr_image_3: true

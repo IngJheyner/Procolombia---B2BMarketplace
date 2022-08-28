@@ -261,7 +261,7 @@ class CpCoreMultiStepForm extends FormBase {
 
       field_group_attach_groups($form, $context);
       $form['#process'][] = [FormatterHelper::class, 'formProcess'];
-      $form['#process'][] = [CpCoreMultiStepHelper::class, 'formProcess'];
+      // $form['#process'][] = [CpCoreMultiStepHelper::class, 'formProcess'];
       $input = $form_state->getUserInput();
       if ((!isset($input['_triggering_element_name']) || strpos($input['_triggering_element_name'], 'upload_button') === FALSE)) {
         $query = $this->getRequest()->query->all();

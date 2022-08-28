@@ -29,6 +29,14 @@
           });
         }
 
+        // Close the Contries entity browser in modal.
+        if ($('form .entity-browser-paises-close').length) {
+          $('form .entity-browser-paises-close').once().click(function (e) {
+            e.preventDefault();
+            $(".entity-browser-modal .ui-dialog-titlebar-close").click();
+          });
+        }
+
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
 

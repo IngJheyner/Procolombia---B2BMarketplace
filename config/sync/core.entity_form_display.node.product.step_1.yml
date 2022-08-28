@@ -146,7 +146,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: html_element
       format_settings:
         classes: 'group-row row col-12'
@@ -182,7 +182,7 @@ content:
     third_party_settings: {  }
   field_pr_multilingual_step1:
     type: cp_core_multilingual_field_widget
-    weight: 0
+    weight: 2
     region: content
     settings:
       collapsible_state: '-1'

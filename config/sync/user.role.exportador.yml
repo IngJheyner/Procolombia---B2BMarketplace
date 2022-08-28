@@ -8,6 +8,7 @@ dependencies:
   module:
     - content_translation
     - cp_core
+    - entity_browser
     - entityqueue
     - field_permissions
     - mfd
@@ -20,6 +21,7 @@ label: Exportador
 weight: 4
 is_admin: null
 permissions:
+  - 'access paises entity browser pages'
   - 'cp core access dashboard'
   - 'create terms in partida_arancelaria'
   - 'delete terms in partida_arancelaria'

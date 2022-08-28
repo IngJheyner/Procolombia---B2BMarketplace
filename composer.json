@@ -69,7 +69,7 @@
         "drupal/ds": "^3.12",
         "drupal/dynamic_entity_reference": "^2.0@alpha",
         "drupal/easy_breadcrumb": "^2.0",
-        "drupal/entity_browser": "^2.0",
+        "drupal/entity_browser": "^2.8",
         "drupal/entity_browser_enhanced": "^1.0@RC",
         "drupal/entity_clone": "1.x-dev",
         "drupal/entity_embed": "^1.0@beta",

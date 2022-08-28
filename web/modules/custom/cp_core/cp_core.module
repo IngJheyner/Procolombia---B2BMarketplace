@@ -670,6 +670,18 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['#submit'][] = 'delete_cookie_password_submit';
       break;
 
+    case 'entity_browser_paises_form':
+      // Add cancel button to paises browser.
+      $form['actions']['cancel'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'a',
+        '#value' => t('Cancel'),
+        '#attributes' => [
+          'class' => ['entity-browser-paises-close', 'button', 'btn'],
+          'href' => '#',
+        ],
+        '#weight' => -99,
+      ];
   }
   $form['#attached']['library'][] = 'webform/webform';
 }
