@@ -210,7 +210,9 @@ content:
     weight: 1
     region: main
 hidden:
+  cp_core_close_modal: true
   cp_core_presave_preview: true
+  cp_core_title_h2_no_link: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
