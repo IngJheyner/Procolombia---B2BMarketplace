@@ -383,6 +383,25 @@ class CpCoreMultiStepForm extends FormBase {
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
+          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
+        ];
+        $form['footer_form']['actions']['cancel_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Cancel'),
+          '#attributes' => ['class' => ['cancel-confirm-link', 'button', 'btn'], 'href' => '#'],
+        ];
+        $form['footer_form']['actions']['modal_cancel'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'cancel-confirm-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Cancel process'),
+          '#message' => $this->t('You are about to cancel the "Upload product or service" process.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
         ];
         $form['footer_form']['actions']['next'] = [
           '#type' => 'submit',
@@ -397,6 +416,25 @@ class CpCoreMultiStepForm extends FormBase {
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
+          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
+        ];
+        $form['footer_form']['actions']['cancel_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Cancel'),
+          '#attributes' => ['class' => ['cancel-confirm-link', 'btn', 'button'], 'href' => '#'],
+        ];
+        $form['footer_form']['actions']['modal_cancel'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'cancel-confirm-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Cancel process'),
+          '#message' => $this->t('You are about to cancel the "Upload product or service" process.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
         ];
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
@@ -468,6 +506,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#button_no_link' => '#',
           '#weight' => -11,
         ];
+
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -475,11 +514,26 @@ class CpCoreMultiStepForm extends FormBase {
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
+          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
         ];
-        $buttons = [
-          '#type' => 'container',
+        $form['footer_form']['actions']['cancel_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Cancel'),
+          '#attributes' => ['class' => ['cancel-confirm-link', 'btn', 'button'], 'href' => '#'],
         ];
-
+        $form['footer_form']['actions']['modal_cancel'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'cancel-confirm-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Cancel process'),
+          '#message' => $this->t('You are about to cancel the "Upload product or service" process.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
+        ];
 
         $form['footer_form']['actions']['save_publish_modal'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',

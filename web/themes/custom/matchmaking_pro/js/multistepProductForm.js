@@ -42,6 +42,23 @@
           });
         }
 
+        if ($('.cancel-confirm-link').length) {
+          $('.cancel-confirm-link').once().click(function (e) {
+            e.preventDefault();
+            let modal = $('.cancel-confirm-question-modal');
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+            Drupal.behaviors.attach();
+          });
+        }
+
+        if ($('.save-publish-question-modal').length) {
+          $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            $(this).closest('form').find('button.cancel-confirm-submit').click();
+          });
+        }
+
+
         if ($('.save-publish-question-modal').length) {
           $('.save-publish-question-modal a.btn.btn-ok').once().click(function (e) {
             $(this).closest('form').find('button.save-and-publish').click();
