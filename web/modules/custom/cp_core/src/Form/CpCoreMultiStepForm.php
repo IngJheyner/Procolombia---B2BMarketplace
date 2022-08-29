@@ -344,7 +344,7 @@ class CpCoreMultiStepForm extends FormBase {
         ],
       ];
 
-      if ($this->step < $this->maxStep) {
+      if ($this->step <= $this->maxStep) {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
           '#value' => t('Previous'),
@@ -370,9 +370,17 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
+        $form['footer_form']['actions']['cancel'] = [
+          '#type' => 'submit',
+          '#value' => t('Cancel'),
+          '#submit' => [
+            '::cancelForm',
+          ],
+          '#limit_validation_errors' => [],
+        ];
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
-          '#value' => t('Send'),
+          '#value' => t('Next'),
         ];
         $form['#submit'][] = '::saveForm';
         $form['#submit'][] = 'mfd_form_submit';

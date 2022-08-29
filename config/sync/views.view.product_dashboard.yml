@@ -682,8 +682,8 @@ display:
           label: Estado
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "<div class=\"{{ field_states__value }}\">\r\n{{ field_states }} \r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -714,9 +714,9 @@ display:
           element_label_class: ''
           element_label_colon: true
           element_wrapper_type: ''
-          element_wrapper_class: '{{ field_states }}'
+          element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: Borrador
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1242,18 +1242,27 @@ display:
           default_row_class: true
           columns:
             nid: nid
+            langcode_1: langcode_1
             title: title
             langcode: langcode
             field_categorization: field_categorization
             field_pr_image_1: field_pr_image_1
+            cp_core_product_availability_on_off: cp_core_product_availability_on_off
             totalcount: totalcount
             created: created
             changed: changed
-            field_pr_status: field_pr_status
+            field_states: field_states
             nothing: nothing
           default: changed
           info:
             nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            langcode_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1288,6 +1297,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            cp_core_product_availability_on_off:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             totalcount:
               sortable: true
               default_sort_order: asc
@@ -1309,7 +1325,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_pr_status:
+            field_states:
               sortable: true
               default_sort_order: asc
               align: ''

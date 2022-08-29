@@ -117,6 +117,7 @@ class CpCoreVideoTextfield extends VideoTextfield implements ContainerFactoryPlu
         '#type' => 'submit',
         '#value' => $this->t('Add'),
         '#limit_validation_errors' => [$tempParents],
+        '#name' => "add_preview-" . $field_name,
         '#submit' => [[CpCoreVideoTextfield::class,'ajaxRefreshEmbedCodeSubmit']],
         '#ajax' => [
           'callback' => [$this, 'ajaxRefreshEmbedCode'],
@@ -135,7 +136,7 @@ class CpCoreVideoTextfield extends VideoTextfield implements ContainerFactoryPlu
         $value = !empty($item->getValue()['value']) ? $item->getValue()['value'] : NULL;
       }
       // Add a preview container to the element.
-      $element['preview'] = $this->renderPreviewElement($value, $this->generateVideoEmbedId($parents));
+      $element['preview'] = $this->renderPreviewElement($value, $this->generateVideoEmbedId($parents), $field_name);
     }
     return $element;
   }
@@ -156,8 +157,9 @@ class CpCoreVideoTextfield extends VideoTextfield implements ContainerFactoryPlu
     $form_parents = explode('/', $request->query->get('element_parents'));
     $values = $form_state->getValues();
     $value = NestedArray::getValue($values, $form_parents);
+    $field_name = reset($form_parents);
     $video_embed_id = $this->generateVideoEmbedId($form_parents);
-    $element = $this->renderPreviewElement($value, $video_embed_id, TRUE);
+    $element = $this->renderPreviewElement($value, $video_embed_id, $field_name, TRUE);
     $response->addCommand(new ReplaceCommand('.video-embed-with-preview[data-video-embed-id="' . $video_embed_id . '"]', $element));
     return $response;
   }
@@ -173,8 +175,8 @@ class CpCoreVideoTextfield extends VideoTextfield implements ContainerFactoryPlu
    * @return array
    *   The render array of the preview element.
    */
-  protected function renderPreviewElement($value, $video_embed_id, $withValue = FALSE) {
-    $classes = ['video-embed-with-preview'];
+  protected function renderPreviewElement($value, $video_embed_id, $field_name, $withValue = FALSE) {
+    $classes = ['video-embed-with-preview', str_replace('_', '-', $field_name)];
     if ($withValue) {
       $classes += ['video-embed-preview'];
     }
