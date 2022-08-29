@@ -16,7 +16,8 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
-use Drupal\cp_core\CpCoreMultiStepHelper;
+use Drupal\cp_core\Controller\CpCoreController;
+use Drupal\Core\Session\AccountProxyInterface;
 
 /**
  * Implements an example form.
@@ -74,6 +75,13 @@ class CpCoreMultiStepForm extends FormBase {
   protected $entity;
 
   /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $account;
+
+  /**
    * Control vars.
    *
    * @var int
@@ -116,6 +124,8 @@ class CpCoreMultiStepForm extends FormBase {
    *   The entity type manager.
    * @param Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger service.
+   * @param \Drupal\Core\Session\AccountProxyInterface $account
+   *   The current user.
    */
   public function __construct(
     PrivateTempStoreFactory $temp_store_factory,
@@ -123,7 +133,8 @@ class CpCoreMultiStepForm extends FormBase {
     LanguageManagerInterface $language_manager,
     EntityFormBuilderInterface $entityFormBuilder,
     EntityTypeManagerInterface $entityTypeManager,
-    MessengerInterface $messenger
+    MessengerInterface $messenger,
+    AccountProxyInterface $account
   ) {
     $this->tempStoreFactory = $temp_store_factory;
     $this->mailManager = $mail_manager;
@@ -131,6 +142,7 @@ class CpCoreMultiStepForm extends FormBase {
     $this->entityFormBuilder = $entityFormBuilder;
     $this->entityTypeManager = $entityTypeManager;
     $this->messenger = $messenger;
+    $this->account = $account;
   }
 
   /**
@@ -138,12 +150,13 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-    $container->get('tempstore.private'),
-    $container->get('plugin.manager.mail'),
-    $container->get('language_manager'),
-    $container->get('entity.form_builder'),
-    $container->get('entity_type.manager'),
-    $container->get('messenger')
+      $container->get('tempstore.private'),
+      $container->get('plugin.manager.mail'),
+      $container->get('language_manager'),
+      $container->get('entity.form_builder'),
+      $container->get('entity_type.manager'),
+      $container->get('messenger'),
+      $container->get('current_user')
     );
   }
 
@@ -205,6 +218,14 @@ class CpCoreMultiStepForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $request = NULL, $mode_form_pattern = 'step', $nid = NULL) {
+
+    $CpCoreController = new CpCoreController();
+    $company_nid = $CpCoreController->_cp_core_get_company_nid_by_user($this->account->id());
+    if (empty($company_nid)) {
+      $this->messenger()->addMessage($this->t('You need to create a company to create your products.'));
+      $this->redirect('view.product_dashboard.page_1');
+    }
+
     $bundle = 'product';
     if (empty($form_state->get('entity'))) {
       $form_state->set('language_values_en', []);
@@ -212,11 +233,13 @@ class CpCoreMultiStepForm extends FormBase {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
           'type' => $bundle,
           'status' => 0,
+          'field_pr_ref_company' => ['target_id' => $company_nid],
         ]);
       }
       else {
 
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
+        $entity->field_pr_ref_company->target_id = $company_nid;
         $entity->setUnpublished();
       }
       $this->init($form_state, $entity, $mode_form_pattern);
@@ -310,13 +333,10 @@ class CpCoreMultiStepForm extends FormBase {
         $form['legal_terms'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
           '#class' => 'legal-modal',
+          '#autoload' => TRUE,
           '#title' => $this->t('Add product / service'),
           '#message' => $this->t('All uploaded content must comply with the <a href="/cp-core-legal" target="_BLANK">publishing policy.</a>'),
-          '#question' => NULL,
           '#button_text' => $this->t('I agree'),
-          '#button_link' => NULL,
-          '#button_no_text' => NULL,
-          '#button_no_link' => NULL,
           '#weight' => -11,
         ];
       }
@@ -363,6 +383,25 @@ class CpCoreMultiStepForm extends FormBase {
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
+          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
+        ];
+        $form['footer_form']['actions']['cancel_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Cancel'),
+          '#attributes' => ['class' => ['cancel-confirm-link', 'button', 'btn'], 'href' => '#'],
+        ];
+        $form['footer_form']['actions']['modal_cancel'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'cancel-confirm-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Cancel process'),
+          '#message' => $this->t('You are about to cancel the "Upload product or service" process.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
         ];
         $form['footer_form']['actions']['next'] = [
           '#type' => 'submit',
@@ -377,6 +416,25 @@ class CpCoreMultiStepForm extends FormBase {
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
+          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
+        ];
+        $form['footer_form']['actions']['cancel_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Cancel'),
+          '#attributes' => ['class' => ['cancel-confirm-link', 'btn', 'button'], 'href' => '#'],
+        ];
+        $form['footer_form']['actions']['modal_cancel'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'cancel-confirm-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Cancel process'),
+          '#message' => $this->t('You are about to cancel the "Upload product or service" process.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
         ];
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
@@ -391,13 +449,38 @@ class CpCoreMultiStepForm extends FormBase {
         if (empty($saved_entities)) {
           $saved_entities = [];
         }
+        $saved_entities = array_unique($saved_entities);
         $options = [];
         $view_builder = $this->entityTypeManager->getViewBuilder('node');
         $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($saved_entities);
+        $productTitles = [];
         foreach ($nodes as $nid => $node) {
           $options[$nid] = $view_builder->view($node, 'product_service_presave_list');
+          $productTitles[] = $node->label();
         }
+
         $form['product_list'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['product-list']],
+        ];
+        $form['product_list']['product_list_links'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['product-list-links']],
+        ];
+        $form['product_list']['product_list_links']['select_all'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Select All'),
+          '#attributes' => ['class' => ['button', 'btn', 'select-all'], 'href' => '#'],
+        ];
+        $form['product_list']['product_list_links']['unselect_all'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Unselect All'),
+          '#attributes' => ['class' => ['button', 'btn', 'unselect-all'], 'href' => '#'],
+        ];
+
+        $form['product_list']['product_list_items'] = [
           '#title' => NULL,
           '#type' => 'checkboxes',
           '#options' => $options,
@@ -405,11 +488,25 @@ class CpCoreMultiStepForm extends FormBase {
         $options = ['query' => ['store-entities' => implode('+', $saved_entities)]];
         $url = Url::fromRoute('<current>', [], $options);
         $form['footer_form']['actions']['add_other'] = [
-          '#type' => 'link',
-          '#title' => t('Load another product'),
-          '#url' => $url,
-          '#attributes' => ['class' => ['button', 'btn']],
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Load another product'),
+          '#attributes' => ['class' => ['button', 'btn', 'add-other'], 'href' => '#'],
         ];
+        $form['footer_form']['actions']['add_other_modal'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'add-other-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Add product / service'),
+          '#message' => $this->t('You are about to upload another product/service, you must start the <strong>"Product or service information"</strong> process to add a new product.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => $url->toString(),
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
+          '#weight' => -11,
+        ];
+
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -417,12 +514,70 @@ class CpCoreMultiStepForm extends FormBase {
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
+          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
         ];
+        $form['footer_form']['actions']['cancel_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Cancel'),
+          '#attributes' => ['class' => ['cancel-confirm-link', 'btn', 'button'], 'href' => '#'],
+        ];
+        $form['footer_form']['actions']['modal_cancel'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'cancel-confirm-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Cancel process'),
+          '#message' => $this->t('You are about to cancel the "Upload product or service" process.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
+        ];
+
+        $form['footer_form']['actions']['save_publish_modal'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'save-publish-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Send to aprobation'),
+          '#message' => $this->t('Do you want send to aprobation the loaded product/services?<br /><strong>@products</strong>', ['@products' => implode(', ', $productTitles)]),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => '#',
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
+        ];
+
         $form['footer_form']['actions']['save_publish'] = [
           '#type' => 'submit',
-          '#value' => t('Save and send for aprobation'),
+          '#value' => t('Save and publish'),
           '#submit' => ['::saveAndPublishSubmit'],
+          '#attributes' => ['class' => ['visually-hidden', 'save-and-publish']],
         ];
+
+        $form['footer_form']['actions']['save_publish_link'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Save and publish'),
+          '#attributes' => ['class' => ['button', 'btn', 'save-publish-button'], 'href' => '#'],
+        ];
+
+        if ($form_state->get('sent_publish_entities')) {
+          $elements = [];
+          $sent_publish_entities = $form_state->get('sent_publish_entities');
+          $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($sent_publish_entities);
+          foreach ($nodes as $node) {
+            $elements[] = $node->label();
+          }
+          $form['modal_save_publish_correct'] = [
+            '#theme' => 'cp_core_node_multistep_generic_modal',
+            '#class' => 'save-publish-correct-modal',
+            '#autoload' => TRUE,
+            '#title' => $this->t('Successful process'),
+            '#message' => $this->t('Your products <strong>"@elements"</strong> are in pending status for approval by ProColombia.<br /><br />Products without selection have been successfully saved in the system. If you want to publish them, you must go to the user dashboard and select the Edit option.', ['@elements' => implode(', ', $elements)]),
+            '#button_text' => $this->t('I got it'),
+          ];
+        }
       }
     }
     $form['#cache']['contexts'][] = 'url.query_args';
@@ -444,6 +599,7 @@ class CpCoreMultiStepForm extends FormBase {
   public function cancelForm(array &$form, FormStateInterface $form_state) {
     // We must delete all created at the moment.
     $nids = $form_state->get('saved_entities');
+    $nids = array_unique($nids);
     $nodeStorage = $this->entityTypeManager->getStorage('node');
     $nodes = $nodeStorage->loadMultiple($nids);
     $nodeStorage->delete($nodes);
@@ -538,18 +694,33 @@ class CpCoreMultiStepForm extends FormBase {
    * Allow to save and publish all nodes.
    */
   public function saveAndPublishSubmit(array &$form, FormStateInterface $form_state) {
-    $product_list = $form_state->getValue('product_list');
+    $product_list = $form_state->getValue('product_list_items');
     $nodeStorage = $this->entityTypeManager->getStorage('node');
+    $entity = $form_state->get('entity');
+    if (count($product_list)) {
+      $product_list = array_filter($product_list);
+      $product_list = array_keys($product_list);
+    }
     foreach ($product_list as $nid) {
       if ($nid) {
         // Set wait status.
         $node = $nodeStorage->load($nid);
         $node->field_states = 'waiting';
+        $node->setPublished();
         $node->save();
+        if ($entity->id() == $nid) {
+          $form_state->set('entity', $node);
+        }
       }
     }
-    $url = Url::fromUri('internal:/dashboard');
-    $form_state->setRedirectUrl($url);
+    if (empty($product_list)) {
+      $form_state->setRebuild();
+    }
+    else {
+
+      $form_state->setRebuild();
+      $form_state->set('sent_publish_entities', $product_list);
+    }
   }
 
   /**

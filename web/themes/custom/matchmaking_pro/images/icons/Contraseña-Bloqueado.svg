@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Grupo_3614" data-name="Grupo 3614" transform="translate(244.637 20958.465)">
+    <g id="Grupo_1425" data-name="Grupo 1425" transform="translate(-644.637 -22432.465)">
+      <rect id="Rectángulo_2973" data-name="Rectángulo 2973" width="32" height="32" transform="translate(400 1474)" fill="none"/>
+      <g id="Grupo_1411" data-name="Grupo 1411" transform="translate(2.988 -838.085)">
+        <g id="Grupo_664" data-name="Grupo 664" transform="translate(400.012 2320.085)">
+          <circle id="Elipse_1" data-name="Elipse 1" cx="3.903" cy="3.903" r="3.903" transform="translate(9.099 4.366)" fill="#3b3d42"/>
+          <g id="Grupo_656" data-name="Grupo 656">
+            <path id="Trazado_253" data-name="Trazado 253" d="M316.966,15.222a4.895,4.895,0,0,1,0,6.991,5.075,5.075,0,0,1-7.1,0,4.807,4.807,0,0,1-1.469-3.5h.005a.812.812,0,0,1,.244-.582.844.844,0,0,1,1.183,0,.806.806,0,0,1,.241.6,3.2,3.2,0,0,0,.979,2.313,3.382,3.382,0,0,0,4.731,0,3.262,3.262,0,0,0,0-4.66,3.3,3.3,0,0,0-2.328-.964.84.84,0,0,1-.629-.237.815.815,0,0,1,0-1.166.839.839,0,0,1,.591-.241v-.005a4.982,4.982,0,0,1,3.549,1.447m9,4.32a.834.834,0,0,1-.753-.471,14.148,14.148,0,0,0-11.792-6.943,13.4,13.4,0,0,0-11.576,6.591,13.48,13.48,0,0,0,17.832,5.057l0,.007a.835.835,0,0,1,1.267.7.822.822,0,0,1-.566.776,15.1,15.1,0,0,1-6.961,1.7,14.926,14.926,0,0,1-13.381-8.238,15.091,15.091,0,0,1,26.557-.618,1.839,1.839,0,0,1,.151.332.811.811,0,0,1,.054.285.83.83,0,0,1-.836.824m-3.345,2.472a.824.824,0,1,1-.836.824.83.83,0,0,1,.836-.824" transform="translate(-300.036 -10.48)" fill="#6a6d71" fill-rule="evenodd"/>
+            <path id="Trazado_254" data-name="Trazado 254" d="M323.272,19.48a1.236,1.236,0,1,1-1.236,1.236,1.237,1.237,0,0,1,1.236-1.236" transform="translate(-312.822 -15.773)" fill="#6a6d71" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Grupo_3418" data-name="Grupo 3418" transform="translate(-702.887 -20958.465)">
+      <line id="Línea_233" data-name="Línea 233" x2="21" y2="18" transform="translate(463.5 7.5)" fill="none" stroke="#f7f8f8" stroke-linecap="round" stroke-width="2"/>
+      <line id="Línea_234" data-name="Línea 234" x2="21" y2="18" transform="translate(463.5 7.5)" fill="none" stroke="#6a6d71" stroke-linecap="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

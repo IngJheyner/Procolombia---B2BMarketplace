@@ -3,6 +3,36 @@
     max-width: 561px;
     
 }
+.ui-dialog-titlebar{
+  background-color: $white;
+  border: none;
+  font-size: 22px;
+  border: none;
+  font-weight: bold;
+  padding: 26px !important;
+  padding-left: 75px !important;
+  background-image: url(../images/icons/Icono-Menu-Idioma.svg);
+  background-repeat: no-repeat;
+  background-position: 32px center;
+  background-size: 31px 31px;
+  .ui-dialog-titlebar-close {
+    background-color: transparent;
+    border: none;
+    background-image:  url(../images/icons/Cerrar-negro.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    position: absolute;
+    top: 26px;
+    right: 26px;
+  }
+}
+.ui-dialog .ui-dialog-content {
+    height: 550px !important;
+    }
+    #entity_browser_iframe_paises {
+        height: 550px;
+      }
 
 .entity-browser-paises-form{
     padding: 20px;
@@ -13,6 +43,7 @@
     margin: auto;
     padding: 0;
     position: relative;
+    height: 550px;
     .view-paises {
         width: 100%;
         #views-exposed-form-paises-entity-browser-1 {
@@ -45,9 +76,51 @@
                         overflow: hidden;
                         color: transparent;
                         padding: 0;
+                        background-image: url(../images/icons/Icono-buscar.svg);
+                        background-repeat: no-repeat;
+                        background-position: center;
                     }
                 }
             }
+            .table-striped tbody tr:nth-of-type(odd) {
+                background-color: $white !important;
+              }
           }
+        
+        .view-content.row{
+            height: 318px;
+            margin-bottom: 0;
+            overflow-y:scroll ;
+        }
       }
+    
+      #edit-actions--2{
+        order: 2;
+        flex-grow: 1;
+        display: flex;  
+        align-items: baseline;
+        height: 37px;
+        justify-content: flex-end;
+        button{
+            @include blue-btn;
+            font-weight: lighter;
+            height: 37px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 213px;
+            width: 100%;
+        }
+      }
+      a.entity-browser-paises-close {
+        align-self: flex-start;
+        display: flex;
+        @include gray-btn;
+        height: 37px;
+        justify-content: center;
+        align-items: center;
+        max-width: 213px;
+        width: 100%;
+       }
+       
 }
