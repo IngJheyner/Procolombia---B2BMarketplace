@@ -97,7 +97,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_top:
-      children: {  }
+      children:
+        - group_step_5_title
       label: Top
       region: content
       parent_name: group_row
@@ -144,7 +145,7 @@ third_party_settings:
       label: Row
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: 'group-row row'
@@ -158,6 +159,20 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
+    group_step_5_title:
+      children: {  }
+      label: 'Step 5 title'
+      region: content
+      parent_name: group_top
+      weight: 0
+      format_type: cp_core_group_markup
+      format_settings:
+        show_empty_fields: 1
+        id: ''
+        classes: form-wrapper
+        markup:
+          value: "<h2>Agregar Vídeos del producto</h2>\r\n<p>Se recomienda cargar vídeos reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>\r\n"
+          format: html
 id: node.product.step_5
 targetEntityType: node
 bundle: product
