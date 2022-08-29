@@ -1,4 +1,9 @@
-<div class="generic-modal modal {{ class }}" id="generic-modal-{{ class }}">
+{% if autoload %}
+  {% set autoloadclass = 'autoload' %}
+{% else %}
+  {% set autoloadclass = 'no-autoload' %}
+{% endif %}
+<div class="generic-modal modal {{ class }} {{ autoloadclass }}" id="generic-modal-{{ class }}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,13 +18,18 @@
         {{ question }}
         </div>
         <div class="modal-footer-right">
-          {% if question %}
-            <a class="button btn btn-cancel" href="{{ button_no_text }}">{{ button_no_link }}</a>
-          {% endif %}
-          {% if button_link %}
-            <a class="button btn" href="{{ button_link }}">{{ button_text }}</a>
+          {% if is_form %}
+            {{ button_yes }}
+            {{ button_no }}
           {% else %}
-            <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span>{{ button_text }}</span></button>
+            {% if question %}
+              <a class="button btn btn-cancel" href="{{ button_no_link }}">{{ button_no_text }}</a>
+            {% endif %}
+            {% if button_link %}
+              <a class="button btn" href="{{ button_link }}">{{ button_text }}</a>
+            {% else %}
+              <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span>{{ button_text }}</span></button>
+            {% endif %}
           {% endif %}
         </div>
       </div>

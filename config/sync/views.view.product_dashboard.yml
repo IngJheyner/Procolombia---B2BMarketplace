@@ -895,7 +895,41 @@ display:
           content: "<div class=\"generic-modal modal view-no-results\" id=\"generic-modal-view-no-results\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <span class=\"modal-header-title\">Error de filtrado</span>\r\n        <button class=\"modal-header-close close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <span class=\"modal-top-title\">No se encuentran resgistros para los filtros aplicados.<br />Por favor, revíselos e intente nuevamente</span>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <div class=\"modal-footer-left\">\r\n          <button class=\"modal-header-close close\" data-dismiss=\"modal\" aria-label=\"Close\"><span>Entendido</span></button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
           tokenize: false
       sorts: {  }
-      arguments: {  }
+      arguments:
+        field_pr_ref_company_target_id:
+          id: field_pr_ref_company_target_id
+          table: node__field_pr_ref_company
+          field: field_pr_ref_company_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: cp_core_current_company
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: none
+            fail: 'access denied'
+          validate_options: {  }
+          break_phrase: false
+          not: false
       filters:
         type:
           id: type
@@ -1379,7 +1413,7 @@ display:
           content: 'Total de items @total'
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1404,7 +1438,7 @@ display:
           tokenize: false
       path: dashboard
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

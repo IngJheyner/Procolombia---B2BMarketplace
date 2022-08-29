@@ -16,7 +16,8 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
-use Drupal\cp_core\CpCoreMultiStepHelper;
+use Drupal\cp_core\Controller\CpCoreController;
+use Drupal\Core\Session\AccountProxyInterface;
 
 /**
  * Implements an example form.
@@ -74,6 +75,13 @@ class CpCoreMultiStepForm extends FormBase {
   protected $entity;
 
   /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $account;
+
+  /**
    * Control vars.
    *
    * @var int
@@ -116,6 +124,8 @@ class CpCoreMultiStepForm extends FormBase {
    *   The entity type manager.
    * @param Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger service.
+   * @param \Drupal\Core\Session\AccountProxyInterface $account
+   *   The current user.
    */
   public function __construct(
     PrivateTempStoreFactory $temp_store_factory,
@@ -123,7 +133,8 @@ class CpCoreMultiStepForm extends FormBase {
     LanguageManagerInterface $language_manager,
     EntityFormBuilderInterface $entityFormBuilder,
     EntityTypeManagerInterface $entityTypeManager,
-    MessengerInterface $messenger
+    MessengerInterface $messenger,
+    AccountProxyInterface $account
   ) {
     $this->tempStoreFactory = $temp_store_factory;
     $this->mailManager = $mail_manager;
@@ -131,6 +142,7 @@ class CpCoreMultiStepForm extends FormBase {
     $this->entityFormBuilder = $entityFormBuilder;
     $this->entityTypeManager = $entityTypeManager;
     $this->messenger = $messenger;
+    $this->account = $account;
   }
 
   /**
@@ -138,12 +150,13 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-    $container->get('tempstore.private'),
-    $container->get('plugin.manager.mail'),
-    $container->get('language_manager'),
-    $container->get('entity.form_builder'),
-    $container->get('entity_type.manager'),
-    $container->get('messenger')
+      $container->get('tempstore.private'),
+      $container->get('plugin.manager.mail'),
+      $container->get('language_manager'),
+      $container->get('entity.form_builder'),
+      $container->get('entity_type.manager'),
+      $container->get('messenger'),
+      $container->get('current_user')
     );
   }
 
@@ -205,6 +218,14 @@ class CpCoreMultiStepForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $request = NULL, $mode_form_pattern = 'step', $nid = NULL) {
+
+    $CpCoreController = new CpCoreController();
+    $company_nid = $CpCoreController->_cp_core_get_company_nid_by_user($this->account->id());
+    if (empty($company_nid)) {
+      $this->messenger()->addMessage($this->t('You need to create a company to create your products.'));
+      $this->redirect('view.product_dashboard.page_1');
+    }
+
     $bundle = 'product';
     if (empty($form_state->get('entity'))) {
       $form_state->set('language_values_en', []);
@@ -212,11 +233,13 @@ class CpCoreMultiStepForm extends FormBase {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
           'type' => $bundle,
           'status' => 0,
+          'field_pr_ref_company' => ['target_id' => $company_nid],
         ]);
       }
       else {
 
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
+        $entity->field_pr_ref_company->target_id = $company_nid;
         $entity->setUnpublished();
       }
       $this->init($form_state, $entity, $mode_form_pattern);
@@ -310,13 +333,10 @@ class CpCoreMultiStepForm extends FormBase {
         $form['legal_terms'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
           '#class' => 'legal-modal',
+          '#autoload' => TRUE,
           '#title' => $this->t('Add product / service'),
           '#message' => $this->t('All uploaded content must comply with the <a href="/cp-core-legal" target="_BLANK">publishing policy.</a>'),
-          '#question' => NULL,
           '#button_text' => $this->t('I agree'),
-          '#button_link' => NULL,
-          '#button_no_text' => NULL,
-          '#button_no_link' => NULL,
           '#weight' => -11,
         ];
       }
@@ -391,13 +411,36 @@ class CpCoreMultiStepForm extends FormBase {
         if (empty($saved_entities)) {
           $saved_entities = [];
         }
+        $saved_entities = array_unique($saved_entities);
         $options = [];
         $view_builder = $this->entityTypeManager->getViewBuilder('node');
         $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($saved_entities);
         foreach ($nodes as $nid => $node) {
           $options[$nid] = $view_builder->view($node, 'product_service_presave_list');
         }
+
         $form['product_list'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['product-list']],
+        ];
+        $form['product_list']['product_list_links'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['product-list-links']],
+        ];
+        $form['product_list']['product_list_links']['select_all'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Select All'),
+          '#attributes' => ['class' => ['button', 'btn', 'select-all'], 'href' => '#'],
+        ];
+        $form['product_list']['product_list_links']['unselect_all'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Unselect All'),
+          '#attributes' => ['class' => ['button', 'btn', 'unselect-all'], 'href' => '#'],
+        ];
+
+        $form['product_list']['product_list_items'] = [
           '#title' => NULL,
           '#type' => 'checkboxes',
           '#options' => $options,
@@ -405,10 +448,23 @@ class CpCoreMultiStepForm extends FormBase {
         $options = ['query' => ['store-entities' => implode('+', $saved_entities)]];
         $url = Url::fromRoute('<current>', [], $options);
         $form['footer_form']['actions']['add_other'] = [
-          '#type' => 'link',
-          '#title' => t('Load another product'),
-          '#url' => $url,
-          '#attributes' => ['class' => ['button', 'btn']],
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Load another product'),
+          '#attributes' => ['class' => ['button', 'btn', 'add-other']],
+        ];
+        $form['footer_form']['actions']['add_other_modal'] = [
+          '#theme' => 'cp_core_node_multistep_generic_modal',
+          '#class' => 'add-other-question-modal',
+          '#autoload' => FALSE,
+          '#title' => $this->t('Add product / service'),
+          '#message' => $this->t('You are about to upload another product/service, you must start the <strong>"Product or service information"</strong> process to add a new product.'),
+          '#question' => $this->t('Do you wish to continue?'),
+          '#button_text' => $this->t('Yes'),
+          '#button_link' => $url->toString(),
+          '#button_no_text' => $this->t('No'),
+          '#button_no_link' => '#',
+          '#weight' => -11,
         ];
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
@@ -444,6 +500,7 @@ class CpCoreMultiStepForm extends FormBase {
   public function cancelForm(array &$form, FormStateInterface $form_state) {
     // We must delete all created at the moment.
     $nids = $form_state->get('saved_entities');
+    $nids = array_unique($nids);
     $nodeStorage = $this->entityTypeManager->getStorage('node');
     $nodes = $nodeStorage->loadMultiple($nids);
     $nodeStorage->delete($nodes);
@@ -545,6 +602,7 @@ class CpCoreMultiStepForm extends FormBase {
         // Set wait status.
         $node = $nodeStorage->load($nid);
         $node->field_states = 'waiting';
+        $node->setPublished();
         $node->save();
       }
     }

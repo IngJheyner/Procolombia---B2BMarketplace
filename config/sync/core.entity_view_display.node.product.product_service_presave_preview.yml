@@ -252,7 +252,7 @@ content:
     type: owlcarousel_field_formatter
     label: hidden
     settings:
-      image_style: 200x300
+      image_style: 280x270
       image_link: ''
       items: '1'
       itemsDesktop: '[1199,4]'
