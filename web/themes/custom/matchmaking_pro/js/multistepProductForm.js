@@ -49,6 +49,20 @@
           });
         }
 
+        if ($('.product-list-links .select-all').length) {
+          $('.product-list-links .select-all').once().click(function (e) {
+            e.preventDefault();
+            $('.product-list .form-check-input').prop('checked', true);
+          });
+        }
+
+        if ($('.product-list-links .unselect-all').length) {
+          $('.product-list-links .unselect-all').once().click(function (e) {
+            e.preventDefault();
+            $('.product-list .form-check-input').prop('checked', false);
+          });
+        }
+
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
 

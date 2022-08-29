@@ -419,23 +419,28 @@ class CpCoreMultiStepForm extends FormBase {
           $options[$nid] = $view_builder->view($node, 'product_service_presave_list');
         }
 
-        $form['product_list_links'] = [
+        $form['product_list'] = [
           '#type' => 'container',
+          '#attributes' => ['class' => ['product-list']],
         ];
-        $form['product_list_links']['select_all'] = [
+        $form['product_list']['product_list_links'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['product-list-links']],
+        ];
+        $form['product_list']['product_list_links']['select_all'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
           '#value' => t('Select All'),
           '#attributes' => ['class' => ['button', 'btn', 'select-all'], 'href' => '#'],
         ];
-        $form['product_list_links']['unselect_all'] = [
+        $form['product_list']['product_list_links']['unselect_all'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
           '#value' => t('Unselect All'),
           '#attributes' => ['class' => ['button', 'btn', 'unselect-all'], 'href' => '#'],
         ];
 
-        $form['product_list'] = [
+        $form['product_list']['product_list_items'] = [
           '#title' => NULL,
           '#type' => 'checkboxes',
           '#options' => $options,
