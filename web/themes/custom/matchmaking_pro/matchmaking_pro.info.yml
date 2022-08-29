@@ -8,6 +8,7 @@ base theme: bootstrap_barrio
 
 libraries:
   - matchmaking_pro/global-styling
+  - matchmaking_pro/swiper
 libraries-override:
   bootstrap_barrio/global-styling: false
 regions:
