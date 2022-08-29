@@ -199,6 +199,20 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
+    group_step_2_tittle:
+      children: {  }
+      label: 'Step 2 tittle'
+      region: hidden
+      parent_name: ''
+      weight: 20
+      format_type: cp_core_group_markup
+      format_settings:
+        show_empty_fields: 1
+        id: ''
+        classes: form-wrapper
+        markup:
+          value: '<h2>Campos para ambos idiomas</h2>'
+          format: html
 id: node.product.step_2
 targetEntityType: node
 bundle: product

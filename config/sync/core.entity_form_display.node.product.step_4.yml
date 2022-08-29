@@ -96,6 +96,7 @@ third_party_settings:
         required_fields: true
     group_top:
       children:
+        - group_step_4_tittle
         - field_images
       label: Top
       region: content
@@ -157,6 +158,20 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
+    group_step_4_tittle:
+      children: {  }
+      label: 'Step 4 tittle'
+      region: content
+      parent_name: group_top
+      weight: 20
+      format_type: cp_core_group_markup
+      format_settings:
+        show_empty_fields: 1
+        id: ''
+        classes: form-wrapper
+        markup:
+          value: '<h2>Agregar imágenes del producto</h2>'
+          format: html
 id: node.product.step_4
 targetEntityType: node
 bundle: product
@@ -164,7 +179,7 @@ mode: step_4
 content:
   field_images:
     type: cp_core_image_multi_widget
-    weight: 26
+    weight: 21
     region: content
     settings:
       delta_limit: '5'
