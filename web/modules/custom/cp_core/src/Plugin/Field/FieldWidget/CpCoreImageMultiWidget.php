@@ -113,8 +113,15 @@ class CpCoreImageMultiWidget extends ImageWidget {
    */
   protected function formMultipleElements(FieldItemListInterface $items, array &$form, FormStateInterface $form_state) {
     $delta = $this->getSetting('delta_limit');
-    for ($i = 0; $i < $delta; $i++) {
-      $items->appendItem();
+    if (count($items) == 0) {
+      for ($i = 0; $i < $delta; $i++) {
+        $items->appendItem();
+      }
+    }
+    if (count($items) > $delta) {
+      for ($i = count($items); $i > $delta; $i--) {
+        $items->removeItem($i);
+      }
     }
     $field_name = $this->fieldDefinition->getName();
     $parents = $form['#parents'];
@@ -126,7 +133,16 @@ class CpCoreImageMultiWidget extends ImageWidget {
     if (isset($field_state['items'])) {
       $field_state['items_count'] = $delta;
       for ($i = 0; $i < $delta; $i++) {
-        $field_state['items'][] = [];
+        if (!isset($field_state['items'][$i])) {
+          $field_state['items'][] = [];
+        }
+      }
+      if (count($field_state['items']) > $delta) {
+        for ($i = count($items); $i > $delta; $i--) {
+          if(isset($field_state['items'][$i])) {
+            unset($field_state['items'][$i]);
+          }
+        }
       }
       $items->setValue($field_state['items']);
     }
@@ -137,7 +153,7 @@ class CpCoreImageMultiWidget extends ImageWidget {
       case FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED:
         $max = count($items);
         $is_multiple = TRUE;
-        break;
+         break;
 
       default:
         $max = $cardinality - 1;

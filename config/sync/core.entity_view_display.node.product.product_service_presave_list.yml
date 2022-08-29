@@ -49,13 +49,12 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
-    - image.style.medium
     - node.type.product
   module:
     - advanced_text_formatter
     - ds
     - layout_builder
-    - svg_image
+    - owlcarousel
     - user
 third_party_settings:
   layout_builder:
@@ -90,15 +89,15 @@ third_party_settings:
             attributes: ''
     regions:
       left:
-        - field_pr_image_1
         - node_title
+        - field_images
         - field_body
       right:
         - cp_core_presave_preview
     fields:
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 0
         label: hidden
         formatter: default
         settings:
@@ -138,27 +137,47 @@ content:
     third_party_settings: {  }
     weight: 2
     region: left
-  field_pr_image_1:
-    type: image
+  field_images:
+    type: owlcarousel_field_formatter
     label: hidden
     settings:
+      image_style: 280x270
       image_link: ''
-      image_style: medium
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-      image_loading:
-        attribute: lazy
+      items: '1'
+      itemsDesktop: '[1199,4]'
+      itemsDesktopSmall: '[979,3]'
+      itemsTablet: '[768,2]'
+      itemsMobile: '[479,1]'
+      itemsScaleUp: '1'
+      slideSpeed: '200'
+      paginationSpeed: '800'
+      rewindSpeed: '1000'
+      autoPlay: '1'
+      navigation: '1'
+      prevText: '<'
+      nextText: '>'
+      rewindNav: '1'
+      pagination: '1'
+      responsive: '1'
+      responsiveRefreshRate: '200'
+      mouseDrag: '1'
+      touchDrag: '1'
+      transitionStyle: fade
+      singleItem: 0
+      stopOnHover: 0
+      scrollPerPage: 0
+      paginationNumbers: 0
+      navigationText: '["prev","next"]'
     third_party_settings:
       ds:
+        ds_limit: ''
         ft:
           id: default
           settings:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 0
+    weight: 1
     region: left
 hidden:
   cp_core_close_modal: true
@@ -175,13 +194,13 @@ hidden:
   field_file: true
   field_file_certifications: true
   field_iframe: true
-  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_partida_arancelaria_tax: true
   field_pr_certifications: true
   field_pr_country: true
+  field_pr_image_1: true
   field_pr_image_2: true
   field_pr_image_3: true
   field_pr_image_4: true

@@ -6,21 +6,65 @@
  (function($, Drupal) {
 
     'use strict';
-
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
 
         // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
-          let modal = $('.generic-modal:not(.generic-modal-legal-modal)');
-          if (!modal.hasClass('modal-closed'))
-          new bootstrap.Modal(modal, {});
-          modal.once().show();
+          let modal = $('.generic-modal.autoload:not(.generic-modal-legal-modal)');
+          if (!modal.hasClass('modal-closed') && !modal.hasClass('no-autoload')) {
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+          }
           $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function() {
             $(this).closest('.generic-modal:not(.generic-modal-legal-modal)').addClass('modal-closed').hide();
           });
         }
+
+        if ($('.button.add-other').length) {
+          $('.button.add-other').once().click(function (e) {
+            e.preventDefault();
+            let modal = $('#generic-modal-add-other-question-modal');
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+          });
+        }
+
+        if ($('.save-publish-button').length) {
+          $('.save-publish-button').once().click(function (e) {
+            e.preventDefault();
+            let modal = $('#generic-modal-save-publish-question-modal');
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+            Drupal.behaviors.attach();
+          });
+        }
+
+        if ($('.cancel-confirm-link').length) {
+          $('.cancel-confirm-link').once().click(function (e) {
+            e.preventDefault();
+            let modal = $('.cancel-confirm-question-modal');
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+            Drupal.behaviors.attach();
+          });
+        }
+
+        if ($('.save-publish-question-modal').length) {
+          $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            $(this).closest('form').find('button.cancel-confirm-submit').click();
+          });
+        }
+
+
+        if ($('.save-publish-question-modal').length) {
+          $('.save-publish-question-modal a.btn.btn-ok').once().click(function (e) {
+            $(this).closest('form').find('button.save-and-publish').click();
+          });
+        }
+
+
 
         // Close drupal default modal.
         if ($('.node--view-mode-product-service-presave-preview .close').length) {
@@ -34,6 +78,20 @@
           $('form .entity-browser-paises-close').once().click(function (e) {
             e.preventDefault();
             $(".entity-browser-modal .ui-dialog-titlebar-close").click();
+          });
+        }
+
+        if ($('.product-list-links .select-all').length) {
+          $('.product-list-links .select-all').once().click(function (e) {
+            e.preventDefault();
+            $('.product-list .form-check-input').prop('checked', true);
+          });
+        }
+
+        if ($('.product-list-links .unselect-all').length) {
+          $('.product-list-links .unselect-all').once().click(function (e) {
+            e.preventDefault();
+            $('.product-list .form-check-input').prop('checked', false);
           });
         }
 
@@ -73,6 +131,8 @@
 
           }, true);
 
+          const countriesSelect = document.querySelector('details.js-form-wrapper');
+          countriesSelect.setAttribute("open","")
         });
       }
     };

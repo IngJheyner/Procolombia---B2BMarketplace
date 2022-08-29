@@ -134,8 +134,10 @@ function cp_core_theme($existing, $type, $theme, $path) {
       'variables' => [],
     ],
     'cp_core_node_multistep_generic_modal' => [
+      'render element' => 'form',
       'variables' => [
         'class' => NULL,
+        'autoload' => FALSE,
         'title' => NULL,
         'message' => NULL,
         'question' => NULL,

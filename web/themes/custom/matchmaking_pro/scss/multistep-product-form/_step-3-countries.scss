@@ -1,0 +1,54 @@
+
+.group-right.step-3{
+    .field--name-field-pr-country{
+        
+        #edit-field-pr-country {
+            border: none;
+            summary{
+                list-style: none;
+                font-size: 14px;
+                font-weight: bold;
+            }   
+          }
+        .details{
+            border: none;
+        }
+        .details-wrapper{
+            padding: 0;
+            .js-form-submit,
+            .entity-browser-processed{
+                background-color: $white;
+                border: none;
+            }
+            .entity-browser-processed{
+                width: 100%;
+                position: relative;
+                
+                &::before{
+                    width: 90%;
+                    height: 35px;
+                    border: 2px solid $procol-gray-300;
+                    border-radius: 4px;
+                    content: "";        
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &::after{
+                    background-color: $procol-dark-blue;
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    height: 34px;
+                    width: 34px;
+                    border-radius: 4px;background-image: url(../images/icons/Icono-buscar.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+
+    }
+}
