@@ -49,13 +49,12 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
-    - image.style.medium
     - node.type.product
   module:
     - advanced_text_formatter
     - ds
     - layout_builder
-    - svg_image
+    - owlcarousel
     - user
 third_party_settings:
   layout_builder:
@@ -139,17 +138,36 @@ content:
     weight: 2
     region: left
   field_pr_image_1:
-    type: image
+    type: owlcarousel_field_formatter
     label: hidden
     settings:
-      image_link: ''
       image_style: medium
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-      image_loading:
-        attribute: lazy
+      image_link: ''
+      items: '3'
+      itemsDesktop: '[1199,4]'
+      itemsDesktopSmall: '[979,3]'
+      itemsTablet: '[768,2]'
+      itemsMobile: '[479,1]'
+      slideSpeed: '200'
+      paginationSpeed: '800'
+      rewindSpeed: '1000'
+      prevText: '<'
+      nextText: '>'
+      rewindNav: '1'
+      pagination: '1'
+      responsive: '1'
+      responsiveRefreshRate: '200'
+      mouseDrag: '1'
+      touchDrag: '1'
+      transitionStyle: fade
+      singleItem: 0
+      itemsScaleUp: 0
+      autoPlay: 0
+      stopOnHover: 0
+      navigation: 0
+      scrollPerPage: 0
+      paginationNumbers: 0
+      navigationText: '["prev","next"]'
     third_party_settings:
       ds:
         ft:
