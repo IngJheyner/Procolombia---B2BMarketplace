@@ -51,6 +51,12 @@
     }  
 }
 
+@mixin gray-btn {
+    background-color: $procol-gray-100;
+    color: $procol-dark-blue;
+    border-color: $procol-gray-100; 
+}
+
 @mixin check-step {
     position: absolute;
     content: url(../images/icons/icon-navigation-expand_more_24px.svg);
