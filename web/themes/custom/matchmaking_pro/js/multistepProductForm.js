@@ -6,7 +6,6 @@
  (function($, Drupal) {
 
     'use strict';
-
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
@@ -73,6 +72,8 @@
 
           }, true);
 
+          const countriesSelect = document.querySelector('details.js-form-wrapper');
+          countriesSelect.setAttribute("open","")
         });
       }
     };

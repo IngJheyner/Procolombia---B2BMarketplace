@@ -3,8 +3,12 @@
     max-width: 561px;
     
 }
-
-
+.ui-dialog .ui-dialog-content {
+    height: 550px !important;
+    }
+    #entity_browser_iframe_paises {
+        height: 550px;
+      }
 .entity-browser-paises-form{
     padding: 20px;
     display: flex;
@@ -14,6 +18,7 @@
     margin: auto;
     padding: 0;
     position: relative;
+    height: 550px;
     .view-paises {
         width: 100%;
         #views-exposed-form-paises-entity-browser-1 {
@@ -49,6 +54,9 @@
                     }
                 }
             }
+            .table-responsive.col {
+                height: 320px;
+              }
           }
       }
 }

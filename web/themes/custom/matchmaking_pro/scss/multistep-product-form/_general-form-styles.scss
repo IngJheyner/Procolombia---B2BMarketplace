@@ -307,6 +307,12 @@
         &.step-4{
             justify-content: flex-start;
             margin-top: 35px;
+            .js-form-wrapper{
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-template-rows: repeat(3, auto);
+                grid-auto-flow: column;
+            }
             @include media-breakpoint-down(md){
                 span{
                     transform: translateX(-53%);
@@ -368,12 +374,12 @@
         grid-area: 4 / 2 / 5 / 4;
         width: 100%;
         &.field--widget-cp-core-image-multi-widget{
-            #edit-field-images{
+            .js-form-wrapper{
+
                 display: grid;
                 grid-template-columns: repeat(2, auto);
                 grid-template-rows: repeat(3, auto);
                 grid-auto-flow: column;
-
             }
         }
         #edit-actions {
