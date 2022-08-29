@@ -13,7 +13,7 @@
 
         // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
-          let modal = $('.generic-modal:not(.generic-modal-legal-modal)');
+          let modal = $('.generic-modal.autoload:not(.generic-modal-legal-modal)');
           if (!modal.hasClass('modal-closed') && !modal.hasClass('no-autoload')) {
             new bootstrap.Modal(modal, {});
             modal.once().show();
@@ -27,12 +27,28 @@
           $('.button.add-other').once().click(function (e) {
             e.preventDefault();
             let modal = $('#generic-modal-add-other-question-modal');
-            if (!modal.hasClass('modal-closed')) {
-              new bootstrap.Modal(modal, {});
-              modal.once().show();
-            }
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
           });
         }
+
+        if ($('.save-publish-button').length) {
+          $('.save-publish-button').once().click(function (e) {
+            e.preventDefault();
+            let modal = $('#generic-modal-save-publish-question-modal');
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+            Drupal.behaviors.attach();
+          });
+        }
+
+        if ($('.save-publish-question-modal').length) {
+          $('.save-publish-question-modal a.btn.btn-ok').once().click(function (e) {
+            $(this).closest('form').find('button.save-and-publish').click();
+          });
+        }
+
+
 
         // Close drupal default modal.
         if ($('.node--view-mode-product-service-presave-preview .close').length) {
