@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="113" height="113" viewBox="0 0 113 113">
+  <defs>
+    <filter id="Elipse_175" x="0" y="0" width="113" height="113" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#005ca4"/>
+      <stop offset="1" stop-color="#008cce"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d88d00"/>
+      <stop offset="1" stop-color="#edc500"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_3701" data-name="Grupo 3701" transform="translate(-244 -95.25)">
+    <g transform="matrix(1, 0, 0, 1, 244, 95.25)" filter="url(#Elipse_175)">
+      <circle id="Elipse_175-2" data-name="Elipse 175" cx="47.5" cy="47.5" r="47.5" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="Grupo_3392" data-name="Grupo 3392" transform="translate(266.956 118.748)">
+      <path id="Trazado_141" data-name="Trazado 141" d="M661.511,647.827a1.979,1.979,0,0,1-1.983-1.973V614.289a1.979,1.979,0,0,0-1.983-1.973h-3.966a1.979,1.979,0,0,0-1.983,1.973v40.442a4.947,4.947,0,0,1-4.958,4.932h-1.983a4.947,4.947,0,0,1-4.958-4.932V634.017a1.979,1.979,0,0,0-1.983-1.973h-3.966a1.979,1.979,0,0,0-1.983,1.973v20.714a4.947,4.947,0,0,1-4.958,4.932h-1.983a4.947,4.947,0,0,1-4.958-4.932V641.908a1.979,1.979,0,0,0-1.983-1.973h-3.966a1.979,1.979,0,0,0-1.983,1.973v13.81a3.955,3.955,0,0,1-3.966,3.945,7.911,7.911,0,0,1-7.932-7.891v-49.32a1.983,1.983,0,0,1,3.966,0v49.32c0,2.18,1.527,3.946,2.975,3.946a.988.988,0,0,0,.992-.986v-13.81a4.946,4.946,0,0,1,4.958-4.932h5.949a4.946,4.946,0,0,1,4.958,4.932v12.823a1.983,1.983,0,0,0,3.966,0V633.031a4.947,4.947,0,0,1,4.958-4.932h5.949a4.947,4.947,0,0,1,4.958,4.932v20.714a1.983,1.983,0,0,0,3.966,0V613.3a4.947,4.947,0,0,1,4.958-4.932h5.949a4.947,4.947,0,0,1,4.958,4.932v32.551a1.979,1.979,0,0,1-1.983,1.973" transform="translate(-600.036 -600.48)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+      <path id="Trazado_142" data-name="Trazado 142" d="M662.981,651.48a3.945,3.945,0,1,1-3.945,3.945,3.948,3.948,0,0,1,3.945-3.945" transform="translate(-600.838 -600.187)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+    </g>
+  </g>
+</svg>
