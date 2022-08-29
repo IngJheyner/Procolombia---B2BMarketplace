@@ -136,6 +136,7 @@ function cp_core_theme($existing, $type, $theme, $path) {
     'cp_core_node_multistep_generic_modal' => [
       'variables' => [
         'class' => NULL,
+        'autoload' => FALSE,
         'title' => NULL,
         'message' => NULL,
         'question' => NULL,
@@ -143,6 +144,9 @@ function cp_core_theme($existing, $type, $theme, $path) {
         'button_link' => NULL,
         'button_no_text' => NULL,
         'button_no_link' => NULL,
+        'is_form' => FALSE,
+        'button_yes' => NULL,
+        'button_no' => NULL,
       ],
     ],
     'cp_core_file_widget_multiple' => [

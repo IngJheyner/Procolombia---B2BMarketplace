@@ -14,11 +14,23 @@
         // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
           let modal = $('.generic-modal:not(.generic-modal-legal-modal)');
-          if (!modal.hasClass('modal-closed'))
-          new bootstrap.Modal(modal, {});
-          modal.once().show();
+          if (!modal.hasClass('modal-closed') && !modal.hasClass('no-autoload')) {
+            new bootstrap.Modal(modal, {});
+            modal.once().show();
+          }
           $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function() {
             $(this).closest('.generic-modal:not(.generic-modal-legal-modal)').addClass('modal-closed').hide();
+          });
+        }
+
+        if ($('.button.add-other').length) {
+          $('.button.add-other').once().click(function (e) {
+            e.preventDefault();
+            let modal = $('#generic-modal-add-other-question-modal');
+            if (!modal.hasClass('modal-closed')) {
+              new bootstrap.Modal(modal, {});
+              modal.once().show();
+            }
           });
         }
 
