@@ -65,6 +65,7 @@ third_party_settings:
     group_row:
       children:
         - group_left
+        - field_images
         - group_right
       label: Row
       parent_name: ''
@@ -83,8 +84,7 @@ third_party_settings:
         effect: none
         speed: fast
     group_left:
-      children:
-        - field_pr_image_1
+      children: {  }
       label: Left
       parent_name: group_row
       region: content
@@ -113,7 +113,7 @@ third_party_settings:
       label: Right
       parent_name: group_row
       region: content
-      weight: 21
+      weight: 22
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-8'
@@ -248,6 +248,48 @@ content:
             classes: {  }
     weight: 16
     region: content
+  field_images:
+    type: owlcarousel_field_formatter
+    label: hidden
+    settings:
+      image_style: 200x300
+      image_link: ''
+      items: '1'
+      itemsDesktop: '[1199,4]'
+      itemsDesktopSmall: '[979,3]'
+      itemsTablet: '[768,2]'
+      itemsMobile: '[479,1]'
+      itemsScaleUp: '1'
+      slideSpeed: '200'
+      paginationSpeed: '800'
+      rewindSpeed: '1000'
+      prevText: prev
+      nextText: next
+      rewindNav: '1'
+      pagination: '1'
+      responsive: '1'
+      responsiveRefreshRate: '200'
+      mouseDrag: '1'
+      touchDrag: '1'
+      transitionStyle: fade
+      singleItem: 0
+      autoPlay: 0
+      stopOnHover: 0
+      navigation: 0
+      scrollPerPage: 0
+      paginationNumbers: 0
+      navigationText: '["prev","next"]'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 21
+    region: content
   field_partida_arancelaria_tax:
     type: entity_reference_label
     label: inline
@@ -271,47 +313,6 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_pr_image_1:
-    type: owlcarousel_field_formatter
-    label: hidden
-    settings:
-      image_style: medium
-      image_link: ''
-      items: '3'
-      itemsDesktop: '[1199,4]'
-      itemsDesktopSmall: '[979,3]'
-      itemsTablet: '[768,2]'
-      itemsMobile: '[479,1]'
-      slideSpeed: '200'
-      paginationSpeed: '800'
-      rewindSpeed: '1000'
-      prevText: '<'
-      nextText: '>'
-      rewindNav: '1'
-      pagination: '1'
-      responsive: '1'
-      responsiveRefreshRate: '200'
-      mouseDrag: '1'
-      touchDrag: '1'
-      transitionStyle: fade
-      singleItem: 0
-      itemsScaleUp: 0
-      autoPlay: 0
-      stopOnHover: 0
-      navigation: 0
-      scrollPerPage: 0
-      paginationNumbers: 0
-      navigationText: '["prev","next"]'
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-    weight: 0
-    region: content
 hidden:
   cp_core_presave_preview: true
   entity_print_view_epub: true
@@ -322,11 +323,11 @@ hidden:
   field_exist_certifications: true
   field_export_markets: true
   field_iframe: true
-  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_pr_certifications: true
+  field_pr_image_1: true
   field_pr_image_2: true
   field_pr_image_3: true
   field_pr_image_4: true
