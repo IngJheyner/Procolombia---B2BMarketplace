@@ -24,11 +24,10 @@
     .legal-modal { 
         grid-area: 1 / 1 / 2 / 4; 
     }
-    .form-control.is-invalid{
+    .form-control.is-invalid,.form-select.is-invalid{
         border: 2px solid $procol-red !important;
-        background: none;
+        background: none !important;
     }
-    
     input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
