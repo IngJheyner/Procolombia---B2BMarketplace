@@ -197,6 +197,7 @@
         ).val();
         var production_chain = $("#production_chain").val();
         var principal_code_ciiu = $("#principal_code_ciiu").val();
+        var secondary_code_ciiu = $("#secondary_code_ciiu").val();
         var departament = $("#departament").val();
         var ciudad = $("#ciudad").val();
         var modelo_de_negocio = $("#modelo_de_negocio").val();
@@ -252,7 +253,6 @@
                 }
             }
         }
-
         if (business_name == "") {
             message = "El nombre de la empresa es requerido";
             $("#business_name").css("border-color", "#ba0c2f");
@@ -380,6 +380,7 @@
         if (ciudad == "") {
             message = "La ciudad es requerida";
             $("#ciudad_contain .ts-control").css("border-color", "#ba0c2f");
+            $("#error_ciudad_message").text(message)
             $("#error_ciudad").show();
             isValid = false;
         } else {
@@ -444,13 +445,16 @@
                 $("#save_1").show();
                 if (response.status == 200) {
                     //show question save
-                    alert("Usuario actualizado con exito");
-                    if (sw == 0) {
-                        //reload page
-                        window.location.reload();
-                    } else {
-                        window.location.href = "/dashboard/col/user";
-                    }
+                    successProcess();
+                    setTimeout(() => {
+                        if (sw == 0) {
+                            //reload page
+                            window.location.reload();
+                        } else {
+                            window.location.href = "/dashboard/col/user";
+                        }
+                    }, 2000);
+
                 } else {
                     $("#question_modal").modal("hide");
                     alert("Error al crear el usuario" + error);
@@ -707,7 +711,12 @@
             .then(function (response) {
                 if (response.status === 200) {
                     //show alert success
-                    alert("Usuario actualizado con exito");
+                    successProcess();
+                    setTimeout(() => {
+
+                        window.location.reload();
+
+                    }, 2000);
                 } else {
                     alert("Error al actualizar los datos");
                 }
@@ -730,6 +739,12 @@
     */
     function cancelProcess() {
         $("#cancel_modal").modal('show');
+    }
+    //show succes modal
+    function successProcess() {
+        $("#question_modal").modal("hide");
+
+        $("#success_modal").modal('show');
     }
 
     /*
@@ -805,7 +820,7 @@
         attach: function (context, settings) {
 
             //if document is ready call init
-            if (context === document) {
+            if (context === document && $("#production_chain").length > 0) {
                 init();
             }
             //call function openInputFile
@@ -863,6 +878,12 @@
             //call function getCities on input
             $("#departament", context).on("input", function () {
                 getCities();
+            });
+
+            // remove display none toltip_content when description_business_spanish onInput  
+
+            $("#description_business_spanish", context).on("input", function () {
+                $("#notification_english").css("display", "block");
             });
         }
     };

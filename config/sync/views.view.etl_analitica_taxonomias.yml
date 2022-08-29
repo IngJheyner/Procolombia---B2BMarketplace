@@ -264,8 +264,9 @@ display:
       style:
         type: serializer
         options:
-          formats:
-            json: json
+          grouping: {  }
+          uses_fields: false
+          formats: {  }
       row:
         type: data_field
         options:
@@ -648,11 +649,6 @@ display:
         operator: AND
         groups:
           1: AND
-      style:
-        type: serializer
-        options:
-          formats:
-            json: json
       row:
         type: data_field
         options:
