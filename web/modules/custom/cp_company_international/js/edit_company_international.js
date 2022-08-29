@@ -816,7 +816,7 @@
     // **********************
     // *** Call functions ***
     // **********************
-    Drupal.behaviors.edit_company_col = {
+    Drupal.behaviors.edit_company_international = {
         attach: function (context, settings) {
 
             //if document is ready call init

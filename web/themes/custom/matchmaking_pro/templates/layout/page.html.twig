@@ -144,18 +144,18 @@
 				<div class="icon_secction col-lg-4">
 					<div class="icono toltip_i">
 						<span id="menu_status" class="tooltiptext_menu">
-							<svg class="green" width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+							<svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px"
+								viewbox="0 0 512 512">
 								<linearGradient id="gradient">
 									<stop class="main-stop" offset="0%" />
 									<stop class="alt-stop" offset="100%" />
 								</linearGradient>
-								<rect width="100" height="50" fill="url(#gradient)" />
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
 								<path
-									d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" />
+									d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z"
+									fill="url(#gradient)" />
 							</svg>
-							silver
+							Status <strong id="Estado"> GOLD</strong>
 						</span>
 						<div class="img_icon py-1">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -379,14 +379,27 @@
 								<div class="row p-1 align-items-center">
 									<div class="col-2 py-2 p-0">
 										<div class="circle_status">
-											<img style="width: 47.7px !important;height: 47.7px !important;margin: 0px !important;"
-												src="{{ company_logo }}" alt="" class="image-cover">
+											<img style="width: 56px !important;
+											height: 56px !important;
+											margin-top: 10px !important;" src="http://52.201.168.42/sites/default/files/2022-08/RegistreseComoEmpresaColombiana.svg"
+												alt="" class="image-cover">
 										</div>
 
 									</div>
 									<div class="col-10">
 										<p class="name">{{ business_name }}</p>
-										<p class="status">Status Gold +85 puntos</p>
+										<p class="status">
+											<svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px"
+												height="512px" viewbox="0 0 512 512">
+												<linearGradient id="gradient">
+													<stop class="main-stop" offset="0%" />
+													<stop class="alt-stop" offset="100%" />
+												</linearGradient>
+												<path
+													d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z"
+													fill="url(#gradient)" />
+											</svg> Status Gold +85 puntos
+										</p>
 										<button id="edit_company_col" class="small_editar">Editar perfil</button>
 									</div>
 								</div>
@@ -1350,7 +1363,8 @@
 		<div class="col-lg-3 d-flex flex-column justify-content-center px-4">
 			<div class="anuncio">
 				<div class="img">
-					<img src="http://52.201.168.42/sites/default/files/2022-08/Fotter-ServicioAlCliente.svg" alt="" srcset="">
+					<img src="http://52.201.168.42/sites/default/files/2022-08/Fotter-ServicioAlCliente.svg" alt=""
+						srcset="">
 				</div>
 				<div class="description">
 					<div class="text">Servicio al ciudadano</div>
@@ -1373,7 +1387,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-3 d-flex flex-column justify-content-centerc px-4">
+		<div class="col-lg-3 d-flex flex-column justify-content-center px-4">
 			<div class="anuncio">
 				<div class="img">
 					<img src="http://52.201.168.42/sites/default/files/2022-08/Fotter-Contacto.svg" alt="" srcset="">
@@ -1384,7 +1398,8 @@
 			</div>
 			<div class="anuncio">
 				<div class="img">
-					<img src="http://52.201.168.42/sites/default/files/2022-08/Fotter-PreguntasFrecuentes.svg" alt="" srcset="">
+					<img src="http://52.201.168.42/sites/default/files/2022-08/Fotter-PreguntasFrecuentes.svg" alt=""
+						srcset="">
 				</div>
 				<div class="description">
 					<div class="text">Preguntas frecuentes</div>
@@ -1399,10 +1414,46 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-2">
-			asas
+		<div class="col-lg-2 d-flex flex-column justify-content-center">
+			<h6>Redes Sociales</h6>
+			<div class="social-buttons">
+				<a href="https://www.facebook.com/procolombiaco" target="_blank"
+					class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
+					<i class='bx bxl-facebook bx-tada-hover'></i>
+				</a>
+				<a href="https://twitter.com/procolombiaco" target="_blank"
+					class="social-buttons__button social-button social-button--linkedin" aria-label="Twitter">
+					<i class='bx bxl-twitter bx-tada-hover'></i>
+				</a>
+				<a href="https://www.instagram.com/procolombiaco/" target="_blank"
+					class="social-buttons__button social-button social-button--instagram" aria-label="Instagram">
+					<i class='bx bxl-instagram bx-tada-hover'></i>
+				</a>
+				<a href="https://www.youtube.com/channel/UCJcfl1AklKSvGXfUwV5kJow" target="_blank"
+					class="social-buttons__button social-button social-button--youtube" aria-label="YouTube">
+					<i class='bx bxl-youtube bx-tada-hover'></i>
+				</a>
+
+			</div>
 		</div>
 	</div>
+	<div class="bottom_footer">
+		<div class="link"><a href="http://">Acerca del sitio</a></div>
+		<div class="link center"><a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso"
+				target="_blank">Condiciones de uso</a></div>
+		<div class="link"><a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad"
+				target="_blank">Política de privacidad y manejo de datos</a></div>
+	</div>
+	<div class="bottom_footer_mobile d-sm-block d-md-block d-lg-none">
+		<ul class="list_footer">
+			<li><a href="http://">Acerca del sitio</a></li>
+			<li><a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso" target="_blank">Condiciones de
+					uso</a></li>
+			<li><a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad"
+					target="_blank">Política de privacidad y manejo de datos</a></li>
+		</ul>
+	</div>
+
 </footer>
 </div>
 </div>
