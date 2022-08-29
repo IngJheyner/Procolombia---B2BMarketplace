@@ -49,7 +49,7 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
-    - image.style.thumbnail
+    - image.style.226_x_218
     - node.type.product
   module:
     - cp_core
@@ -168,9 +168,9 @@ content:
     region: content
     settings:
       delta_limit: '5'
-      first_title: 'Imagen @weight - Imagen Principal'
       custom_title: 'Imagen @weight'
-      preview_image_style: thumbnail
+      first_title: 'Imagen @weight - Imagen Principal'
+      preview_image_style: 226_x_218
       progress_indicator: throbber
     third_party_settings: {  }
   field_pr_multilingual_step4:
