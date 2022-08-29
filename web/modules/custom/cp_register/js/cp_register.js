@@ -1306,8 +1306,8 @@
   Drupal.behaviors.cp_register = {
     attach: function (context, settings) {
 
-      //if document is ready call init
-      if (context === document) {
+      //if document is ready call init and check if production_chain is in dom
+      if (context === document &&  $("#production_chain").length > 0) {
         init();
       }
       //call function openInputFile

@@ -122,14 +122,14 @@
                   alert("ERROR INESPERADO")
                 }
               }
-            }, 1000);
+            }, 4000);
           }
         })
         .catch(function (error) {
           setTimeout(() => {
             $("#loader").modal('hide');
             alert("ERROR INESPERADO")
-          }, 1000);
+          }, 4000);
         });
     }
   }
@@ -152,13 +152,14 @@
         window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform";
       });
       //call function to redirect to google form
-      $("#go_login", context).click(function () {
+      $("#login_btn", context).click(function () {
         window.location.href = "/user/login";
       });
       //call function go home
       $("#go_to_home", context).click(function () {
         goHome();
       });
+      
     }
   };
 
