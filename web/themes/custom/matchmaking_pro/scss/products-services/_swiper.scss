@@ -3,6 +3,11 @@
 }
 
 .swiper-thumbs {
+	.swiper-slide,
+	img {
+		width: 58px !important;
+	}
+
 	img {
 		width: 58px;
 		height: auto;
