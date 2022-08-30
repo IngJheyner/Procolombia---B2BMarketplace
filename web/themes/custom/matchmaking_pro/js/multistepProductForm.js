@@ -84,7 +84,6 @@
             if (modal.length) {
               new bootstrap.Modal(modal, {});
               modal.once().show();
-              Drupal.behaviors.attach();
             }
           });
         }
@@ -96,7 +95,6 @@
             if (modal.length) {
               new bootstrap.Modal(modal, {});
               modal.once().show();
-              Drupal.behaviors.attach();
             }
           });
         }
@@ -142,6 +140,13 @@
           $('.product-list-links .unselect-all').once().click(function (e) {
             e.preventDefault();
             $('.product-list .form-check-input').prop('checked', false);
+          });
+        }
+
+        if ($('.generic-modal.modal .modal-header button.close').length) {
+          $('.generic-modal.modal .modal-header button.close').once().click(function(e) {
+            e.preventDefault();
+            $(this).closest('.generic-modal.modal').hide();
           });
         }
 
