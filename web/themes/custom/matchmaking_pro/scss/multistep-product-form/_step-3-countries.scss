@@ -52,7 +52,7 @@
         }
     }
     .field--name-field-pr-country{
-        
+
         #edit-field-pr-country {
             border: none;
             summary{
@@ -60,7 +60,7 @@
                 font-size: 14px;
                 font-weight: bold;
                 padding-bottom: 10px;
-            }   
+            }
           }
         .details{
             border: none;
@@ -75,13 +75,13 @@
             .entity-browser-processed{
                 width: 100%;
                 position: relative;
-                
+
                 &::before{
                     width: 90%;
                     height: 35px;
                     border: 2px solid $procol-gray-300;
                     border-radius: 4px;
-                    content: "";        
+                    content: "";
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -110,6 +110,7 @@
             align-items: center;
             padding: 6px;
             margin-bottom: 0 !important;
+            margin-left: 0;
             .remove-button{
                 background-color: $procol-gray-200;
                 height: 11px;
