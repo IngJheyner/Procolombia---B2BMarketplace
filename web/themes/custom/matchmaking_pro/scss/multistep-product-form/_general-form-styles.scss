@@ -15,6 +15,24 @@
     grid-template-columns: 210px repeat(2, 1fr);
     grid-template-rows: auto repeat(2, 1fr) auto;
     background-color: $white;
+    &.step-2,
+    &.step_3,
+    &.step_4,
+    &.step_5{
+        .group-top h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .form-wrapper h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .group-left h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    }
     @include media-breakpoint-down(md){
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto 1fr auto;
