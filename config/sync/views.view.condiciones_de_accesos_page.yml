@@ -637,7 +637,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: condiciones-de-accesos
+      path: condiciones-de-acceso
     cache_metadata:
       max-age: -1
       contexts:

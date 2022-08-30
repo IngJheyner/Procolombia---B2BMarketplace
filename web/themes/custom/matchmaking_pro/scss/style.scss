@@ -1,12 +1,7 @@
-/* 
+/*
 Theme Name: Bootstrap 4 Sass
 Description: Bootstrap 4 with Sass
 */
-
-
-
-
-
 // import files
 @import "import";
 
@@ -15,8 +10,8 @@ Description: Bootstrap 4 with Sass
 
 body {
     background: $white;
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 13px/16px var(--unnamed-font-family-century-gothic);
-    letter-spacing: var(--unnamed-character-spacing-0);
+    //font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 13px/16px var(--unnamed-font-family-century-gothic);
+    //letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--unnamed-color-3b3d42);
     text-align: left;
     font: normal normal normal 13px/16px Century Gothic;
@@ -25,13 +20,22 @@ body {
     opacity: 1;
 }
 
+/* ==============================
+TAMANIO DE LOS TITULOS INTERNOS 
+DIFERENTES A LOS PRINCIPALES
+============================== */
+h5,
+h6{
+  font-size: 15px;
+}
 
-/* COLORS 
+
+/* COLORS
 --------------------------------------------------*/
 /*******************/
 
 .bg-degradado{
-    background: linear-gradient($colorTop,$colorBottom); 
+    background: linear-gradient($colorTop,$colorBottom);
 }
 a {
     color: $accent-shade;
