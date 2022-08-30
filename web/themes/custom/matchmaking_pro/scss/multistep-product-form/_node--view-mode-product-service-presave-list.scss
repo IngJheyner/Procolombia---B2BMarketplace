@@ -7,34 +7,27 @@
         padding: 20px;
         .node--view-mode-product-service-presave-list{
             width: 100%;
-            .col-sm-4.bs-region.bs-region--left{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                .field--type-image{
-                    width: auto;
-                }
-            }
-            &.col-sm-4{
-                width: 100%;
-            }
+            display: flex;
+            justify-content: space-between;
             .bs-region{
                 &.bs-region--left{
-                    display: flex;
-                    width: 100%;
-
-                    .field--name-node-title{
-                        display: flex;
-                        color: $procol-dark-blue;
-                        order: 2;
-                        width: 100%;
+                    padding: 0;
+                    .field--type-image{
+                        width: auto;
                     }
                 }
                 &.bs-region--right{
-                    width: 100%;
-                    display: flex;
                     justify-content: flex-end;
-                    a{
+                    position: relative;
+                    .field--name-node-title h2{
+                        color: $procol-dark-blue;
+                        width: 100%;
+                    }
+                    a.use-ajax{
+                        position: absolute;
+                        z-index: 1;
+                        bottom: 1.1rem;
+                        right: 1.1rem;
                         @include blue-btn;
                         background-color: $white;
                         color: $procol-dark-blue;
@@ -49,23 +42,31 @@
   .js-form-item {
     max-width: 1160px;
     position: relative;
+    padding: 0;
     &:before {
         content: '';
         position: absolute;
         right: 0;
         top: 0;
-        z-index: 0;
+        z-index: 1;
         display: block;
         width: 50px;
         height: 50px;
-        background: grey;
+        background: $procol-gray-50;
     }
-    input.form-checkbox {
+    .form-checkbox {
         position: absolute;
         right: 0;
         top: 0;
-        margin: 30px;
-        z-index: 1;
+        margin: 1.1rem;
+        z-index: 2;
+        float: none;
+    }
+    .form-check-label {
+        position: relative;
+        z-index: 0;
+        display: block;
+        padding: 0;
     }
   }
 
