@@ -21,8 +21,8 @@
     .row{
         margin: 0;
     }
-    .legal-modal { 
-        grid-area: 1 / 1 / 2 / 4; 
+    .generic-modal {
+        grid-area: 1 / 1 / 2 / 4;
     }
     .form-control.is-invalid,.form-select.is-invalid{
         border: 2px solid $procol-red !important;
@@ -31,7 +31,6 @@
     input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
-        border: 1px solid #A1A5AA;
     }
     .form-textarea{
         height: 100px;
@@ -44,7 +43,7 @@
     }
     input[type="file"].form-control{
         @include upload-files;
-        
+
     }
     .form-select{
         background-image: url(../images/icons/Fecha.svg);
@@ -63,7 +62,6 @@
             display: flex;
             align-items: center;
             border-radius: 4px;
-            border: 1px solid #A1A5AA;
             &:hover{
                 border: 2px solid $procol-dark-blue;
             }
@@ -98,17 +96,17 @@
         background-position-y: 11px;
 
     }
-    
+
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
-        padding-top: 42px; 
+        padding-top: 42px;
         max-width: 210px;
         @include media-breakpoint-down(md) {
             max-width: 100%;
         }
     }
     // Ends Main styles multistep sidebar
-   
+
     // Start content form styles
     .js-form-item{
         position: relative;
@@ -121,12 +119,12 @@
         &.js-form-type-checkbox {
             padding: 0 50px;
             display: flex;
-            gap: 10px;
+            gap: 20px;
             align-items: center;
             position: relative;
             input[type=checkbox]:checked{
-                box-shadow: none;
-                
+                background-color: transparent;
+
             }
             input[type=checkbox]:before {
                 top: -2px;
@@ -148,7 +146,7 @@
                 height: auto;
             }
         }
-                
+
         input[type="text"]{
             height: 40px;
         }
@@ -167,7 +165,7 @@
             max-width: 442px;
             align-items: flex-end;
             padding-top: 20px;
-            
+
             #edit-field-file-0--label{
                 top: 0;
             }
@@ -189,15 +187,15 @@
                     @include remove-files;
                }
         }
-        
+
         .image-widget{
             display: flex;
             flex-direction: column;
-            max-width: 670px;   
+            max-width: 670px;
             width: 100%;
             .image-preview{
                 width: 100%;
-                   
+
             }
             .image-widget-data{
                 width: 100%;
@@ -217,7 +215,7 @@
             border-left: none;
             grid-area: 3 / 1 / 4 / 4;
         }
-        
+
     }
     #edit-footer-form{
         border-left: 1px solid #D8DADD;
@@ -246,32 +244,29 @@
             grid-area: 4 / 1 / 5 / 4;
         }
     }
-    .field-group-html-element.group-left { 
+    .field-group-html-element.group-left {
         width: 50%;
         padding: 0 50px;
         border-right: 1px solid $procol-gray-200;
         margin-top: 31px;
-        &.step-5{
-            margin-top: 0;
-        }
         @include media-breakpoint-down(lg){
             border-right: none;
         }
         @include media-breakpoint-down(md){
             margin-top: 0;
         }
-        
+
     }
     .field-group-html-element.group-right{
         width: 50%;
-        grid-area: 2 / 3 / 4 / 4; 
+        grid-area: 2 / 3 / 4 / 4;
         padding-right: 50px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
         padding: 0 50px;
-        
+
         #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
             }
@@ -287,7 +282,7 @@
         @include media-breakpoint-down(xl) {
             padding: 0 25PX;
          }
-         
+
          @include media-breakpoint-down(lg){
             width: 100%;
             padding: 0 15PX;
@@ -297,7 +292,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            
+
             .field--name-field-product-type{
                 width: 100%;
                 display: flex;
@@ -310,14 +305,10 @@
             }
          }
         &.step-1{
-            label#edit-field-aditional-information-0-value{
-                position: static;
-                height: auto;
-            }
             @include media-breakpoint-down(md){
-                // span{
-                // transform: translateX(-20px);
-                // }
+                span{
+                transform: translateX(-20px);
+                }
             }
             .form-type-managed-file{
                 label{
@@ -329,7 +320,7 @@
                         margin-top: 20px;
                     }
                 }
-            }            
+            }
         }
         &.step-2{
             @include media-breakpoint-down(md){
@@ -339,7 +330,12 @@
             }
         }
         &.step-3{
-            margin-top: 0;
+
+            @include media-breakpoint-down(md){
+                span{
+                    transform: translateX(-37%);
+                }
+            }
             .js-form-type-managed-file{
                 label{
                     left: 0;
@@ -356,6 +352,9 @@
                 grid-auto-flow: column;
             }
             @include media-breakpoint-down(md){
+                span{
+                    transform: translateX(-53%);
+                }
                 margin-top: 0;;
             }
             label{
@@ -364,11 +363,17 @@
         }
         &.step-5{
             @include media-breakpoint-down(md){
+                span{
+                    transform: translateX(-70%);
+                }
                 margin-top: 0;;
             }
-            align-self: flex-start;
+            grid-area: initial;
         }
         &.step-6{
+            span{
+                transform: translateX(-87%);
+            }
         }
     }
     .field-group-html-element.group-left{
@@ -402,8 +407,8 @@
     // Ends base styles step 6
     // Ends content form styles
 
-    // Start Buttons styles 
-    .js-form-wrapper { 
+    // Start Buttons styles
+    .js-form-wrapper {
         grid-area: 4 / 2 / 5 / 4;
         width: 100%;
         &.field--widget-cp-core-image-multi-widget{
@@ -413,22 +418,6 @@
                 grid-template-columns: repeat(2, auto);
                 grid-template-rows: repeat(3, auto);
                 grid-auto-flow: column;
-                column-gap: 50px;
-                padding: 0 50px;
-                column-gap: 50px;
-                padding: 0 50px;
-                @include media-breakpoint-down(lg){
-                    grid-template-columns: 1fr;
-                    grid-template-rows: repeat(5, 1fr);
-                    padding: 0; 
-                }
-                @include media-breakpoint-down(md){
-                    .image-preview {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        }
-                }
             }
         }
         #edit-actions {
@@ -459,26 +448,20 @@
                 }
             .cancel-confirm-link{
                  @include gray-btn;
-                 @include media-breakpoint-down(md){
-                    width: 100%;
-                 }
             }
             @include media-breakpoint-down(md){
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-
+                padding: 0 20px;
                 flex-wrap: wrap;
                 width: 100%;
                 button{
                     width: 100%;
                 }
             }
-               
+
            }
         // Ends Buttons styles
-           
-     } 
+
+     }
 }
 
-    
-    
+

@@ -46,17 +46,12 @@
     height: 550px;
     .view-paises {
         width: 100%;
-        background-color: #F7F8F8;
-        border-radius: 10px;
-        padding-bottom: 2;
-        margin-bottom: 20px;
         #views-exposed-form-paises-entity-browser-1 {
             padding: 20px;
             display: flex;
             justify-content: space-between;
             height: 80px;
             position: sticky;
-            background-color: transparent;
             .row{
                 display: flex;
                 justify-content: space-between;
@@ -115,19 +110,6 @@
             align-items: center;
             max-width: 213px;
             width: 100%;
-        }
-      }
-      .table-responsive{
-        tr{
-            background-color: $white;
-        }
-        td{
-            div{
-                margin-bottom: 0 !important;
-                .form-check-input[type="checkbox"]{
-                    border-radius: 50px;
-                }
-            }
         }
       }
       a.entity-browser-paises-close {
