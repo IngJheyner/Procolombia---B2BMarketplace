@@ -272,6 +272,7 @@ class CpCoreMultiStepForm extends FormBase {
 
       $form['#attributes']['class'][] = $display->getMode();
       $form['#attributes']['id'] = 'cp-core-multistep-form';
+      $form['#attributes']['class'][] = 'cp-core-multistep-form';
 
       $context = [
         'entity_type' => $entity->getEntityTypeId(),
@@ -576,6 +577,8 @@ class CpCoreMultiStepForm extends FormBase {
             '#title' => $this->t('Successful process'),
             '#message' => $this->t('Your products <strong>"@elements"</strong> are in pending status for approval by ProColombia.<br /><br />Products without selection have been successfully saved in the system. If you want to publish them, you must go to the user dashboard and select the Edit option.', ['@elements' => implode(', ', $elements)]),
             '#button_text' => $this->t('I got it'),
+            '#button_link' => Url::fromUri('internal:/dashboard')->toString(),
+
           ];
         }
       }
