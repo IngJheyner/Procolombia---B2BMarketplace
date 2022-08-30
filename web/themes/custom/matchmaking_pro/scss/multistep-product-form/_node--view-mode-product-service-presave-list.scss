@@ -1,6 +1,24 @@
-.cp-core-multistep-form #edit-product-list{
+.cp-core-multistep-form.step_6 {
+    grid-template-rows: auto repeat(2, auto) auto;
+    .field-group-html-element.group-row {
+        grid-area: 2 / 2 / 2 / 4;
+        padding: 0 50px;
+        margin-top: 0;
+        padding-top: 30px;
+        .required-fields {
+            padding: 0;
+            h2{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+    #edit-product-list{
     display: flex;
     padding: 20px 50px;
+    grid-area: 3/ 2 / 4 / 4;
+    border-left: 1px solid #D8DADD;
+    margin-bottom: 0 !important;
     .product-list-links {
         width: 100%;
         text-align: right;
@@ -126,4 +144,5 @@
      }
   }
 
+    }
 }
