@@ -6,5 +6,26 @@
 			max-height: none !important;
 		}
 	}
-	
+
+	#main {
+		> .row {
+			display: grid;
+			grid-template-columns: 1fr 270px;
+			gap: 17px;
+		}
+	}
+
+	#content {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+		width: 100%;
+		padding: 0;
+	}
+
+	#sidebar_second {
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;
+		width: 100%;
+		padding: 0;
+	}
 }
