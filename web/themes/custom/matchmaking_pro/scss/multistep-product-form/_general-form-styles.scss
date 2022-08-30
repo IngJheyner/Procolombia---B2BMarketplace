@@ -442,8 +442,9 @@
         #edit-actions {
             display: flex;
             width: 100%;
-            justify-content: flex-end;
             align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 22px;
             padding:0 50px;
             button{
