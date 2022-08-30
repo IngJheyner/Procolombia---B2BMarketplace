@@ -1,4 +1,4 @@
-.generic-modal.modal {
+.legal-modal{
     .modal-content{
         @include modals-basic-style;
         .modal-header{
@@ -9,7 +9,7 @@
                 margin: auto;
                 font-size: 22px;
                 font-weight: bold;
-                @include media-breakpoint-down(sm) {
+                @include media-breakpoint-down(sm) { 
                     font-size: 14px;
                  }
             }
@@ -24,7 +24,7 @@
                 background-image: url(../images/icons/Cerrar-azul.svg);
                 background-size: 16px 16px;
                 background-repeat: no-repeat;
-                background-color: transparent !important;
+                background-color: transparent;
                 border: none;
             }
             &::before{
@@ -37,25 +37,25 @@
         }
         .modal-body{
             padding-left: 35px;
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-down(sm) { 
                 padding-left: 25px;
              }
             span{
                 font-size: 14px;
-
+                
                 }
         }
         .modal-footer{
             @include media-breakpoint-down(sm) {
                 padding: 16px 12px;
             }
-            .modal-footer-right {
-                a.button, button{
+            .modal-footer-right{
+                button{
                     font-size: 14px;
                     line-height: 17px;
                     margin: 0;
                     @include blue-btn;
-                    @include media-breakpoint-down(sm) {
+                    @include media-breakpoint-down(sm) { 
                         width: 100%;
                         padding-top: 20px;
                         padding-bottom: 20px;
