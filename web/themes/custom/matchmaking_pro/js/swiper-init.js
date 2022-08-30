@@ -15,6 +15,8 @@
 			imagesField.wrap('<div class="swiper swiper-main" />');
 			fieldClone.wrap('<div class="swiper swiper-thumbs" />');
 
+			$('<div class="swiper-button-prev"></div><div class="swiper-button-next"></div>').insertAfter('.swiper-main');
+
 
 			var swiper = new Swiper(".swiper-thumbs", {
 				loop: true,

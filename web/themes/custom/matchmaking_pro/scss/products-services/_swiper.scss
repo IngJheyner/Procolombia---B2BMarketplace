@@ -1,14 +1,30 @@
 .swiper-main {
 	
+	
+	
+
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .swiper-thumbs {
+	margin-left: -8px !important;
+
 	.swiper-slide,
 	img {
 		width: 58px !important;
 	}
+	
+	.swiper-slide {
+		border: 1px solid #D8DADD;
+		border-radius: 5px;
+		overflow: hidden;
+	}
 
 	img {
+		margin: 0;
 		width: 58px;
 		height: auto;
 	}
