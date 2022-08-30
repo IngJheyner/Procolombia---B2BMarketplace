@@ -2,7 +2,6 @@
 	Drupal.behaviors.viewSlides = {
 		attach: function(context, settings) {
 			let node = document.querySelector('.node--type-product');
-			
 			let imagesField = $('.field--name-field-images');
 			imagesField.addClass('swiper-wrapper');
 			imagesField.children('.field__item').addClass('swiper-slide');

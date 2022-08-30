@@ -21,3 +21,9 @@ swiper:
   js:
     https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js: {type: external, minified: true}
     js/swiper-init.js: {}
+sumoselect:
+  css:
+    theme:
+      libs/sumoselect/sumoselect.min.css: {}
+  js:
+    libs/sumoselect/jquery.sumoselect.min.js: {}
