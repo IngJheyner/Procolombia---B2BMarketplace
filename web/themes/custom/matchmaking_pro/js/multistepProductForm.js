@@ -10,6 +10,13 @@
       attach: function(context, settings) {
         // Custom code here
 
+        //Uso de Sumo select para personlizar campos tipo select
+        $('#edit-field-product-type').SumoSelect();
+        $('#edit-field-categorization-parent').SumoSelect();
+        $('#edit-field-categorization').SumoSelect();
+        $('#edit-field-partida-arancelaria-tax').SumoSelect();
+        $('#edit-field-pr-product-availability').SumoSelect();
+        
         // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
           let modal = $('.generic-modal.autoload:not(.generic-modal-legal-modal)');
@@ -95,6 +102,7 @@
           });
         }
 
+        
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
 
@@ -131,8 +139,8 @@
 
           }, true);
 
-          const countriesSelect = document.querySelector('details.js-form-wrapper');
-          countriesSelect.setAttribute("open","")
+          
+        
         });
       }
     };
