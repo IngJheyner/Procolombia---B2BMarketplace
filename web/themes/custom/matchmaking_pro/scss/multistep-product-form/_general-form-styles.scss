@@ -141,7 +141,8 @@
                 border-top-right-radius: 0;
                 margin-top: 35px;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
+                overflow: hidden;
                 background-position-x: 10px;
                 padding-left: 35px;
                }
@@ -402,16 +403,14 @@
                         box-shadow: 0px 3px 6px $gray-shadow;
                     }
                    }
-                &#edit-cancel{
-                    background-color: $procol-gray-100;
-                    color: $procol-dark-blue;
-                    border-color: $procol-gray-100;
+                   &#edit-next:hover{
+                       background-color: $procol-light-blue;
+                       border-color: $procol-light-blue;
+                       box-shadow: 0px 3px 6px $gray-shadow;
+                    }
                 }
-                &#edit-next:hover{
-                    background-color: $procol-light-blue;
-                    border-color: $procol-light-blue;
-                    box-shadow: 0px 3px 6px $gray-shadow;
-                }
+            .cancel-confirm-link{
+                 @include gray-btn;
             }
             @include media-breakpoint-down(md){
                 padding: 0 20px;
