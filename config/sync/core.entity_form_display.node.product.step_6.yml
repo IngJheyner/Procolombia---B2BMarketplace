@@ -59,7 +59,7 @@ third_party_settings:
       label: Left
       region: content
       parent_name: group_row
-      weight: 2
+      weight: 11
       format_type: html_element
       format_settings:
         classes: group-left
@@ -78,7 +78,7 @@ third_party_settings:
       label: Right
       region: content
       parent_name: group_row
-      weight: 3
+      weight: 12
       format_type: html_element
       format_settings:
         classes: group-left
@@ -93,11 +93,12 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_top:
-      children: {  }
+      children:
+        - group_step_6_title
       label: Top
       region: content
       parent_name: group_row
-      weight: 1
+      weight: 9
       format_type: html_element
       format_settings:
         classes: 'group-top col-sm-12'
@@ -116,7 +117,7 @@ third_party_settings:
       label: Bottom
       region: content
       parent_name: group_row
-      weight: 4
+      weight: 13
       format_type: html_element
       format_settings:
         classes: 'group-bottom col-sm-12'
@@ -153,6 +154,20 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
+    group_step_6_title:
+      children: {  }
+      label: 'Step 6 title'
+      region: content
+      parent_name: group_top
+      weight: 10
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: "<h2>Previsualización del Producto / Servicio</h2>\r\n<p>Seleccione los productos y servicios que desea guardar y enviar a aprobación para publicar. Los artículos que no sean seleccionados se guardarán en el sistema como modo borrador.</p>"
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper title-step-6'
 id: node.product.step_6
 targetEntityType: node
 bundle: product
