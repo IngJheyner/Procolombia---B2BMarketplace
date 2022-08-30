@@ -95,8 +95,10 @@
 			}
 
 			.js-form-wrapper {
-				display: flex;
+				display: grid !important;
+				grid-template-columns: 1fr 1fr !important;
 				align-items: flex-end;
+				gap: 15px !important;
 				margin: 0 !important;
 				padding: 0 !important;
 				width: 100% !important;
