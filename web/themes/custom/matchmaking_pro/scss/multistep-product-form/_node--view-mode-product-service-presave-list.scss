@@ -19,6 +19,19 @@
                 &.bs-region--right{
                     justify-content: flex-end;
                     position: relative;
+                    font-weight: normal;
+                    .field {
+                        .field__label {
+                            font-weight: 900;
+                            &:after {
+                                content: ': ';
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    .field--name-field-body  {
+                        margin-bottom: 2rem;
+                    }
                     .field--name-node-title h2{
                         color: $procol-dark-blue;
                         width: 100%;

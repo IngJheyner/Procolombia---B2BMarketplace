@@ -16,5 +16,44 @@
 			letter-spacing: 0px;
 			color: #005CA4;
 		}
+		
+		.field {
+			display: grid;
+			grid-template-columns: 224px 1fr;
+			gap: 12px 8px;
+			margin: 0;
+			font-size: 14px;
+			line-height: 17px;
+			letter-spacing: 0px;
+			color: #3B3D42;
+		}
+
+		.field__label {
+			font-weight: bold;
+		}
+		
+		.field__item {
+
+		}
+
+		.field--name-field-body {
+			display: block;
+			margin-bottom: 20px;
+		}
+		
+		.group-footer-links {
+			display: flex;
+			margin-top: 20px;
+
+			a {
+				background: #FFFFFF 0% 0% no-repeat padding-box;
+				box-shadow: 0px 3px 6px #00000029;
+				border-radius: 4px;
+			}
+
+			button {
+				margin-left: auto;
+			}
+		}
 	}
 }
