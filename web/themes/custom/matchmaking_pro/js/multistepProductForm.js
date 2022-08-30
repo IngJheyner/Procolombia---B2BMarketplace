@@ -10,15 +10,15 @@
       attach: function(context, settings) {
         // Custom code here
 
-        //Uso de Sumo select para personlizar campos tipo select
-        $('#edit-field-product-type').SumoSelect();
-        $('#edit-field-categorization-parent').SumoSelect();
-        $('#edit-field-categorization').SumoSelect();
-        $('#edit-field-partida-arancelaria-tax').SumoSelect();
-        $('#edit-field-pr-product-availability').SumoSelect();
-
+        
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
+          //Uso de Sumo select para personlizar campos tipo select
+          $('#edit-field-product-type').SumoSelect();
+          $('#edit-field-categorization-parent').SumoSelect();
+          $('#edit-field-categorization').SumoSelect();
+          $('#edit-field-partida-arancelaria-tax').SumoSelect();
+          $('#edit-field-pr-product-availability').SumoSelect();
 
           // Agregar clase a los pasos anteriores
           const currentStep = $("li.current");
@@ -30,8 +30,7 @@
           let modalFirstStep = document.getElementById('generic-modal-legal-modal');
           let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
           const btnCloseFirstSt = document.querySelector('.close');
-
-
+      
           hideModal(btnCloseFirstSt,showFirstStepModal)
               function hideModal(btn, modal){
                 btn.addEventListener('click',()=>{
