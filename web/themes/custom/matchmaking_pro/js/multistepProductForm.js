@@ -10,7 +10,7 @@
       attach: function(context, settings) {
         // Custom code here
 
-        
+
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
           //Uso de Sumo select para personlizar campos tipo select
@@ -28,37 +28,36 @@
 
           //Creación Variables del legal modal
           let modalFirstStep = document.getElementById('generic-modal-legal-modal');
-          let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
-          const btnCloseFirstSt = document.querySelector('.close');
-      
-          hideModal(btnCloseFirstSt,showFirstStepModal)
-              function hideModal(btn, modal){
-                btn.addEventListener('click',()=>{
-                modal.hide();
-                })
-              }
+          if (modalFirstStep) {
+            let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
+            const btnCloseFirstSt = document.querySelector('.close');
 
-          //Cargar modal primer paso cuando el formulario se abre la primera vez
-          document.addEventListener('load', function(e) {
-            showFirstStepModal.show();
-              //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
-              if(window.location.hash !== "#cp-core-multistep-form" ) {
-                  showFirstStepModal.show();
-                  hideModal(btnCloseFirstSt,showFirstStepModal);
-                  document.body.classList.add('multistep-form')
-              }else{
-                showFirstStepModal.hide();
-              }
+            hideModal(btnCloseFirstSt,showFirstStepModal)
+            function hideModal(btn, modal){
+              btn.addEventListener('click',()=>{
+              modal.hide();
+              })
+            }
+            //Cargar modal primer paso cuando el formulario se abre la primera vez
+            document.addEventListener('load', function(e) {
+              showFirstStepModal.show();
+                //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
+                if(window.location.hash !== "#cp-core-multistep-form" ) {
+                    showFirstStepModal.show();
+                    hideModal(btnCloseFirstSt,showFirstStepModal);
+                    document.body.classList.add('multistep-form')
+                }else{
+                  showFirstStepModal.hide();
+                }
 
-          }, true);
-
+            }, true);
+          }
         });
 
-        
         // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
           let modal = $('.generic-modal.autoload:not(.generic-modal-legal-modal)');
-          if (!modal.hasClass('modal-closed') && !modal.hasClass('no-autoload')) {
+          if (modal.length && !modal.hasClass('modal-closed') && !modal.hasClass('no-autoload')) {
             new bootstrap.Modal(modal, {});
             modal.once().show();
           }
@@ -71,8 +70,10 @@
           $('.button.add-other').once().click(function (e) {
             e.preventDefault();
             let modal = $('#generic-modal-add-other-question-modal');
-            new bootstrap.Modal(modal, {});
-            modal.once().show();
+            if (modal.length) {
+              new bootstrap.Modal(modal, {});
+              modal.once().show();
+            }
           });
         }
 
@@ -80,9 +81,10 @@
           $('.save-publish-button').once().click(function (e) {
             e.preventDefault();
             let modal = $('#generic-modal-save-publish-question-modal');
-            new bootstrap.Modal(modal, {});
-            modal.once().show();
-            Drupal.behaviors.attach();
+            if (modal.length) {
+              new bootstrap.Modal(modal, {});
+              modal.once().show();
+            }
           });
         }
 
@@ -90,9 +92,10 @@
           $('.cancel-confirm-link').once().click(function (e) {
             e.preventDefault();
             let modal = $('.cancel-confirm-question-modal');
-            new bootstrap.Modal(modal, {});
-            modal.once().show();
-            Drupal.behaviors.attach();
+            if (modal.length) {
+              new bootstrap.Modal(modal, {});
+              modal.once().show();
+            }
           });
         }
 
@@ -139,6 +142,28 @@
             $('.product-list .form-check-input').prop('checked', false);
           });
         }
+
+        if ($('.generic-modal.modal .modal-header button.close').length) {
+          $('.generic-modal.modal .modal-header button.close').once().click(function(e) {
+            e.preventDefault();
+            $(this).closest('.generic-modal.modal').hide();
+          });
+        }
+
+        if ($('.generic-modal.modal .btn-cancel').length) {
+          $('.generic-modal.modal .btn-cancel').once().click(function(e) {
+            e.preventDefault();
+            $(this).closest('.generic-modal.modal').hide();
+          });
+        }
+        if ($('.generic-modal.modal .modal-header-close').length) {
+          $('.generic-modal.modal .modal-header-close').once().click(function(e) {
+            e.preventDefault();
+            $(this).closest('.generic-modal.modal').hide();
+          });
+        }
+
+
 
       }
     };
