@@ -4,17 +4,19 @@
     .product-list-links {
         width: 100%;
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
         a {
-            background: $button-lighter-gray;
-            border-radius: 0;
-            padding: 0.5rem 1.2rem;
-            border: 0;
+            @include gray-btn;
+            border-radius: 5px;
             &:hover {
                 border-radius: 0;
                 border: 0;
             }
         }
     }
+    
     .js-form-item{
         border-radius: 5px;
         box-shadow: 0px 3px 6px $gray-shadow;

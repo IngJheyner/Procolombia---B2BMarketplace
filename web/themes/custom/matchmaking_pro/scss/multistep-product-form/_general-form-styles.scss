@@ -463,6 +463,21 @@
                     width: 100%;
                  }
             }
+            .save-publish-button{
+                @include blue-btn;
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                 }
+            }
+            .add-other{
+                @include gray-btn;
+                background-color: $white;
+                border-color: #D8DADD;
+                color: $procol-gray-300;
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                 }
+            }
             @include media-breakpoint-down(md){
                 padding-left: 0 !important;
                 padding-right: 0 !important;
