@@ -10,6 +10,52 @@
       attach: function(context, settings) {
         // Custom code here
 
+        //Uso de Sumo select para personlizar campos tipo select
+        $('#edit-field-product-type').SumoSelect();
+        $('#edit-field-categorization-parent').SumoSelect();
+        $('#edit-field-categorization').SumoSelect();
+        $('#edit-field-partida-arancelaria-tax').SumoSelect();
+        $('#edit-field-pr-product-availability').SumoSelect();
+
+        //Cargar modales
+        $(context).find('body').once('.cp-core-multistep-form').each(function () {
+
+          // Agregar clase a los pasos anteriores
+          const currentStep = $("li.current");
+          currentStep.prevAll().addClass("completed");
+          const textCurrent = currentStep.wrapInner("<span class='title-step'></span>");
+          $(textCurrent).clone().appendTo(".cp-core-node-multistep-sidebar");
+
+          //Creación Variables del legal modal
+          let modalFirstStep = document.getElementById('generic-modal-legal-modal');
+          let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
+          const btnCloseFirstSt = document.querySelector('.close');
+
+
+          hideModal(btnCloseFirstSt,showFirstStepModal)
+              function hideModal(btn, modal){
+                btn.addEventListener('click',()=>{
+                modal.hide();
+                })
+              }
+
+          //Cargar modal primer paso cuando el formulario se abre la primera vez
+          document.addEventListener('load', function(e) {
+            showFirstStepModal.show();
+              //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
+              if(window.location.hash !== "#cp-core-multistep-form" ) {
+                  showFirstStepModal.show();
+                  hideModal(btnCloseFirstSt,showFirstStepModal);
+                  document.body.classList.add('multistep-form')
+              }else{
+                showFirstStepModal.hide();
+              }
+
+          }, true);
+
+        });
+
+        
         // Open modal for all generic items.
         if ($('.generic-modal:not(.generic-modal-legal-modal)').length) {
           let modal = $('.generic-modal.autoload:not(.generic-modal-legal-modal)');
@@ -95,45 +141,6 @@
           });
         }
 
-        //Cargar modales
-        $(context).find('body').once('.cp-core-multistep-form').each(function () {
-
-          // Agregar clase a los pasos anteriores
-          const currentStep = $("li.current");
-          currentStep.prevAll().addClass("completed");
-          const textCurrent = currentStep.wrapInner("<span class='title-step'></span>");
-          $(textCurrent).clone().appendTo(".cp-core-node-multistep-sidebar");
-
-          //Creación Variables del legal modal
-          let modalFirstStep = document.getElementById('generic-modal-legal-modal');
-          let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
-          const btnCloseFirstSt = document.querySelector('.close');
-
-
-          hideModal(btnCloseFirstSt,showFirstStepModal)
-              function hideModal(btn, modal){
-                btn.addEventListener('click',()=>{
-                modal.hide();
-                })
-              }
-
-          //Cargar modal primer paso cuando el formulario se abre la primera vez
-          document.addEventListener('load', function(e) {
-            showFirstStepModal.show();
-              //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
-              if(window.location.hash !== "#cp-core-multistep-form" ) {
-                  showFirstStepModal.show();
-                  hideModal(btnCloseFirstSt,showFirstStepModal);
-                  document.body.classList.add('multistep-form')
-              }else{
-                showFirstStepModal.hide();
-              }
-
-          }, true);
-
-          const countriesSelect = document.querySelector('details.js-form-wrapper');
-          countriesSelect.setAttribute("open","")
-        });
       }
     };
   })(jQuery, Drupal);

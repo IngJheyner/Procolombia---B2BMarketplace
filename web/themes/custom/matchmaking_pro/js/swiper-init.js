@@ -2,8 +2,12 @@
 	Drupal.behaviors.viewSlides = {
 		attach: function(context, settings) {
 			let node = document.querySelector('.node--type-product');
+<<<<<<< HEAD
 			
 			let imagesField = $('.node--type-product.node--view-mode-product-service-presave-preview .field--name-field-images');
+=======
+			let imagesField = $('.field--name-field-images');
+>>>>>>> 786eead6dc7b1c7a50ba7e48e73e8594f4384dde
 			imagesField.addClass('swiper-wrapper');
 			imagesField.children('.field__item').addClass('swiper-slide');
 			let fieldClone = imagesField.clone(true);

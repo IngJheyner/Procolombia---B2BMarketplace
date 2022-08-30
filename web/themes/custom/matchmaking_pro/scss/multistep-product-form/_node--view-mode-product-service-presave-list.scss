@@ -10,6 +10,7 @@
             .col-sm-4.bs-region.bs-region--left{
                 width: 100%;
                 display: flex;
+                justify-content: space-between;
                 .field--type-image{
                     width: auto;
                 }
@@ -25,6 +26,8 @@
                     .field--name-node-title{
                         display: flex;
                         color: $procol-dark-blue;
+                        order: 2;
+                        width: 100%;
                     }
                 }
                 &.bs-region--right{
@@ -43,4 +46,35 @@
             }
         }
     }
+.js-form-item {
+    max-width: 1160px;
+  }
+
+//   Estilos carrusel paso 6
+  .owl-slider-wrapper.owl-carousel.owl-theme {
+    width: 280px;
+  }
+  
+  .owl-pagination {
+    display: none;
+  }
+ 
+  .owl-buttons {
+    /* -50%: ; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+     div{
+        background-color: $white;
+        height: 31px;
+        width: 31px;
+        opacity: 0.8;
+        border-radius: 4px;
+     }
+  }
+  
 }
