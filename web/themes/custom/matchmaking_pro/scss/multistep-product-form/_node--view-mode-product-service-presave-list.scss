@@ -1,20 +1,59 @@
-.cp-core-multistep-form #edit-product-list{
+.cp-core-multistep-form.step_6 {
+    grid-template-rows: auto repeat(2, auto) auto;
+    @include media-breakpoint-down(md){
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        .node-multistep-header {
+            grid-area: 1 / 1 / 2 / 2;
+            }
+            .cp-core-node-multistep-sidebar {
+            grid-area: 2 / 1 / 3 / 2;
+            }
+            .required-fields {
+            grid-area: 3 / 1 / 4 / 2 !important;
+            }
+            #edit-product-list {
+            grid-area: 4 / 1 / 5 / 2 !important;
+            }
+            #edit-footer-form {
+            grid-area: 5 / 1 / 6 / 2;
+            }
+    }
+    .field-group-html-element.group-row {
+        grid-area: 2 / 2 / 2 / 4;
+        padding: 0 50px;
+        margin-top: 0;
+        padding-top: 30px;
+        .required-fields {
+            padding: 0;
+            h2{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+    #edit-product-list{
     display: flex;
     padding: 20px 50px;
+    grid-area: 3/ 2 / 4 / 4;
+    border-left: 1px solid #D8DADD;
+    margin-bottom: 0 !important;
     .product-list-links {
         width: 100%;
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
         a {
-            background: $button-lighter-gray;
-            border-radius: 0;
-            padding: 0.5rem 1.2rem;
-            border: 0;
+            @include gray-btn;
+            border-radius: 5px;
             &:hover {
                 border-radius: 0;
                 border: 0;
             }
         }
     }
+    
     .js-form-item{
         border-radius: 5px;
         box-shadow: 0px 3px 6px $gray-shadow;
@@ -88,6 +127,12 @@
         margin: 1.1rem;
         z-index: 2;
         float: none;
+        border: none;
+        height: 18px;
+        width: 18px;
+    }
+    input[type="checkbox"]:checked{
+        background-color: $procol-light-green;
     }
     .form-check-label {
         position: relative;
@@ -124,4 +169,5 @@
      }
   }
 
+    }
 }
