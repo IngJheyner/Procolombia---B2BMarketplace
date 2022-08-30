@@ -1,0 +1,117 @@
+.view-product-dashboard {
+	&.view-display-id-page_1 {
+		h1 {
+			display: flex;
+			align-items: center;
+			margin: 0;
+			padding-top: 8px;
+			padding-left: 70px;
+			height: 70px;
+			font-family: 'century_gothicregular';
+			font-size: 18px;
+			line-height: 22px;
+			letter-spacing: 0px;
+			background: url(../images/icons-2/icon-briefcase.png) no-repeat 8px 50% / auto 45px;
+		}
+
+		.button {
+			display: flex;
+			align-items: center;
+			height: 40px;
+			background: #005CA4 0% 0% no-repeat padding-box;
+			border: 1px solid #D8DADD;
+			border-radius: 4px;
+			opacity: 1;
+			color: #fff;
+		}
+
+		label {
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			font-family: 'century_gothicbold';
+			padding-bottom: 5px;
+			line-height: 20px;
+		}
+
+		.view-header {
+			border-bottom: 1px solid #D8DADD;
+
+			[class*="col"] {
+				display: flex;
+				align-items: center;
+				padding: 0;
+			}
+		}
+
+		.view-filters,
+		.view-content {
+			padding: 22px;
+			background: #FFFFFF 0% 0% no-repeat padding-box;
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 4px;
+		}
+
+		.view-filters {
+			margin-bottom: 57px;
+			padding-top: 0;
+
+			.bef-exposed-form .row {
+				.js-form-item-items-per-page {
+					top: calc(100% + 35px);
+					left: 0;
+				}
+			}
+		}
+
+		form {
+			padding-top: 20px;
+			
+			> .row {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 20px;
+			}
+
+			.js-form-item {
+				padding: 0 !important;
+				width: 100% !important;
+			}
+
+			.js-form-wrapper {
+				display: flex;
+				align-items: flex-end;
+				margin: 0 !important;
+				padding: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
+
+				button {
+					width: 100% !important;
+				}
+			}
+		}
+
+		.mb-3 {
+			margin-bottom: 0 !important;
+		}
+		
+		.after-filters-container {
+			
+		}
+		
+		.view-content {
+			
+		}
+		
+		.pagination-heading--2 {
+			
+		}
+		
+		.view-footer {
+			
+		}
+	}
+}
