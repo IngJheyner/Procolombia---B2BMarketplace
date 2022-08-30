@@ -9,7 +9,7 @@ id: node.product.field_pr_video_description_2
 field_name: field_pr_video_description_2
 entity_type: node
 bundle: product
-label: 'Descripción video 2'
+label: 'Título Vídeo 2'
 description: ''
 required: false
 translatable: false
