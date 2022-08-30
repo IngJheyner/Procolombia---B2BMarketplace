@@ -253,6 +253,7 @@
         margin-top: 31px;
         &.step-5{
             margin-top: 0;
+            
         }
         @include media-breakpoint-down(lg){
             border-right: none;
@@ -271,10 +272,16 @@
         justify-content: flex-end;
         align-items: flex-end;
         padding: 0 50px;
-        
         #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
             }
+        #edit-field-pr-multilingual-step5-wrapper{
+            display: none;
+        }
+
+        #edit-field-pr-video-description-2-wrapper{
+            margin-bottom: 0 !important;
+        }
     }
     .field--type-entity-reference{
             width: 100%;
@@ -419,7 +426,7 @@
                 padding: 0 50px;
                 @include media-breakpoint-down(lg){
                     grid-template-columns: 1fr;
-                    grid-template-rows: repeat(5, 1fr);
+                    grid-template-rows: repeat(5, auto);
                     padding: 0; 
                 }
                 @include media-breakpoint-down(md){
