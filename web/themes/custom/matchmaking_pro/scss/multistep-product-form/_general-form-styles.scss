@@ -14,6 +14,7 @@
     grid-row-gap: 0px;
     grid-template-columns: 210px repeat(2, 1fr);
     grid-template-rows: auto repeat(2, 1fr) auto;
+    background-color: $white;
     @include media-breakpoint-down(md){
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto 1fr auto;
