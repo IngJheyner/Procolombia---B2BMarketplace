@@ -188,7 +188,7 @@ cp_core.product_toggle_availability:
         type: entity:node
 
 cp_core.company_toggle_published:
-  path: '/node/{node}/availability-toggle'
+  path: '/node/{node}/availability-toggle-company'
   defaults:
     _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggleCompanyPublished'
     _title: 'Change company published'
