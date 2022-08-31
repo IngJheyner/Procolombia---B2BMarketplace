@@ -1,0 +1,29 @@
+uuid: a8e8dbaf-7a95-43cd-8fdd-5a53991bd734
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.company_info
+  module:
+    - system
+    - views
+  theme:
+    - matchmaking_pro
+id: views_block__company_info_block_1
+theme: matchmaking_pro
+region: sidebar_second
+weight: -4
+provider: null
+plugin: 'views_block:company_info-block_1'
+settings:
+  id: 'views_block:company_info-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /dashboard

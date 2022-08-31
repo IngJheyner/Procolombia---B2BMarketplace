@@ -1,0 +1,8 @@
+uuid: b8069982-e17b-4274-8569-9d6866e863cd
+langcode: es
+status: true
+dependencies: {  }
+name: 'Mercado Objetivo'
+vid: mercado_objetivo
+description: ''
+weight: 0

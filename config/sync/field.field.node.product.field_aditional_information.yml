@@ -1,0 +1,19 @@
+uuid: 3b134f20-5534-4a60-a467-599d1bbd5ebf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aditional_information
+    - node.type.product
+id: node.product.field_aditional_information
+field_name: field_aditional_information
+entity_type: node
+bundle: product
+label: 'Información adicional o complementaria del producto'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

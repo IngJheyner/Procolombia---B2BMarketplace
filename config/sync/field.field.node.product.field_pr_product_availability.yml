@@ -1,0 +1,23 @@
+uuid: f1755b82-7d4a-4c8b-9758-077d3957db08
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_product_availability
+    - node.type.product
+id: node.product.field_pr_product_availability
+field_name: field_pr_product_availability
+entity_type: node
+bundle: product
+label: 'Disponibilidad del producto/servicio'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Disponible
+  off_label: 'No disponible'
+field_type: boolean

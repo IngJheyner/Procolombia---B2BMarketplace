@@ -1,9 +1,12 @@
 <?php
+
 /**
  * @file
  * General Features procolombia catalogo.
  */
 
+use Symfony\Cmf\Component\Routing\RouteObjectInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\cp_core\Controller\CpCoreController;
 use Drupal\cp_search\Controller\CpSearchController;
 use Drupal\Core\Form\FormStateInterface;
@@ -14,29 +17,27 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\redirect\Entity\Redirect;
-
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
-
-use Drupal\Component\Utility\Html;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\Entity\Node;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Component\Serialization\Json;
 
 /**
  * Implements hook_mail().
  */
 function cp_core_mail($key, &$message, $params) {
-  // Test
-  $options = array(
+  // Test.
+  $options = [
     'langcode' => $message['langcode'],
-  );
+  ];
   $message['headers']['MIME-Version'] = '1.0';
   $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
   $message['from'] = \Drupal::config('system.site')->get('mail');
   $message['subject'] = $params['title'];
   $message['body'][] = $params['message'];
 }
-
 
 /**
  * Implements hook_user_login().
@@ -54,13 +55,13 @@ function cp_core_user_login($account) {
     $is_buyer = TRUE;
   }
 
-  // First login - Redirect change password
+  // First login - Redirect change password.
   if ($is_exporter && !$account->getLastAccessedTime() && $account->id() < 8828) {
-    user_cookie_save(['first_login' => true]);
+    user_cookie_save(['first_login' => TRUE]);
     $path_redirect = "/user/" . $account->id() . "/change-password";
   }
 
-  // Redirect
+  // Redirect.
   if ($is_exporter or $is_buyer) {
     $response = new RedirectResponse($path_redirect);
     $request = \Drupal::request();
@@ -70,7 +71,6 @@ function cp_core_user_login($account) {
     $response->send();
   }
 }
-
 
 /**
  * Implements hook_theme().
@@ -84,9 +84,9 @@ function cp_core_theme($existing, $type, $theme, $path) {
         'name_company' => NULL,
         'nit' => NULL,
         'label_state' => NULL,
-        'bool_publish' => NULL
+        'bool_publish' => NULL,
       ],
-      'template' => 'dsb_company_info'
+      'template' => 'dsb_company_info',
     ],
     'dsb_add_product' => [
       'variables' => [
@@ -101,7 +101,7 @@ function cp_core_theme($existing, $type, $theme, $path) {
         'url_logout' => NULL,
         'path_dsbd' => NULL,
       ],
-      'template' => 'hello_user'
+      'template' => 'hello_user',
     ],
     'dsb_info_user' => [
       'variables' => [
@@ -114,26 +114,55 @@ function cp_core_theme($existing, $type, $theme, $path) {
         'country' => NULL,
         'first_login' => NULL,
       ],
-      'template' => 'dsb_info_user'
+      'template' => 'dsb_info_user',
     ],
     'pre_register' => [
       'variables' => [
         'urls' => NULL,
       ],
-      'template' => 'pre_register'
+      'template' => 'pre_register',
+    ],
+    'cp_core_node_multistep_header' => [
+      'variables' => [],
+    ],
+    'cp_core_node_multistep_sidebar' => [
+      'variables' => [
+        'steps' => [ ],
+        'current' => NULL
+      ],
+    ],
+    'cp_core_node_multistep_legal_modal' => [
+      'variables' => [],
+    ],
+    'cp_core_node_multistep_generic_modal' => [
+      'render element' => 'form',
+      'variables' => [
+        'class' => NULL,
+        'autoload' => FALSE,
+        'title' => NULL,
+        'message' => NULL,
+        'question' => NULL,
+        'button_text' => NULL,
+        'button_link' => NULL,
+        'button_no_text' => NULL,
+        'button_no_link' => NULL,
+      ],
+    ],
+    'cp_core_file_widget_multiple' => [
+      'render element' => 'element',
+      'file' => 'cp_core.field.inc',
     ],
   ];
 }
 
-
 /**
  * Implements hook_entity_presave().
  */
-function cp_core_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+function cp_core_entity_presave(EntityInterface $entity) {
   switch ($entity->bundle()) {
     case 'product':
       // Save dependence state in Bulk operations
-      // The dependence state is used by company for publish - unpublish products
+      // The dependence state is used by company for publish - unpublish products.
       $curr_url = Url::fromRoute('<current>');
       $curr_uri = ltrim($curr_url->toString(), '/');
       if ($curr_uri) {
@@ -153,7 +182,7 @@ function cp_core_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
 /**
  * Implements hook_entity_update().
  */
-function cp_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+function cp_core_entity_update(EntityInterface $entity) {
   switch ($entity->bundle()) {
     case 'product':
 
@@ -203,13 +232,13 @@ function cp_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
             $label_lang = ($langId == 'en') ? 'Inglés' : 'Español';
 
             $key = ($state == 'approved') ? 'product_edit_enabled' : 'product_chg_state';
-            $prmsts = array(
+            $prmsts = [
               'key' => $key,
               'prod_name' => $prod_name,
               'new_state' => $label_state,
               'label_lang' => $label_lang,
-            );
-            // Exporter
+            ];
+            // Exporter.
             if (!empty($exporter_mail)) {
               $prmsts['user_type'] = 'exporter';
               $prmsts['exporter_mail'] = $exporter_mail;
@@ -221,7 +250,6 @@ function cp_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
         }
       }
       break;
-
 
     case 'company':
 
@@ -261,7 +289,7 @@ function cp_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
               $company_name = $entity->get('title')->getValue()[0]['value'];
             }
 
-            // Active - inactive products
+            // Active - inactive products.
             $_SESSION["not_bulk_mails_products"] = TRUE;
             if ($state == 'approved') {
               $cpCoreController->publish_products_by_company_nid($entity->id());
@@ -271,13 +299,13 @@ function cp_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
             }
 
             $key = ($state == 'approved') ? 'company_edit_enabled' : 'company_chg_state';
-            $prmsts = array(
+            $prmsts = [
               'key' => $key,
               'company_name' => $company_name,
               'new_state' => $label_state,
-            );
+            ];
 
-            // Exporter
+            // Exporter.
             if (!empty($exporter_mail)) {
               $prmsts['user_type'] = 'exporter';
               $prmsts['exporter_mail'] = $exporter_mail;
@@ -295,7 +323,6 @@ function cp_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
       break;
   }
 }
-
 
 /**
  * Implements hook_system_breadcrumb_alter().
@@ -315,7 +342,7 @@ function cp_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
       $breadcrumb->addLink(Link::createFromRoute(t('Home'), '<front>'));
       switch ($node->bundle()) {
         case 'company':
-          $breadcrumb->addLink(Link::fromTextAndUrl(t('Company'), Url::fromUri('internal:/'.$lang.'/ecommerce-crossborder')));
+          $breadcrumb->addLink(Link::fromTextAndUrl(t('Company'), Url::fromUri('internal:/' . $lang . '/ecommerce-crossborder')));
           if (count($arr_uri) == 3) {
             $tid = $node->get('field_product_categories_list')->getValue()[0]['target_id'];
             $sector = Term::load(intval($tid));
@@ -329,7 +356,7 @@ function cp_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
 
         case 'product':
           if (count($arr_uri) == 4) {
-            // Sector and subsector
+            // Sector and subsector.
             for ($i = 1; $i < 3; $i++) {
 
               $tid = NULL;
@@ -355,11 +382,11 @@ function cp_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
 
                 if (!empty($cat->get('field_uri_search')->getValue())) {
                   $search_uri = $cat->get('field_uri_search')->getValue()[0]['value'];
-                  // Sector
+                  // Sector.
                   if ($i == 1) {
                     $uri = $uri_parent = $uri_base . '/' . $search_uri;
                   }
-                  // Subsector
+                  // Subsector.
                   elseif ($i == 2) {
                     $uri = $uri_parent . '/' . $search_uri;
                   }
@@ -377,7 +404,7 @@ function cp_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
       }
     }
 
-    // Edit company
+    // Edit company.
     if ($route_match->getRouteName() == 'cp_core.editCompany' || $route_match->getRouteName() == 'cp_core.EditarEmpresa') {
       $breadcrumb = new Breadcrumb();
       $breadcrumb->addLink(Link::createFromRoute(t('Home'), '<front>'));
@@ -385,7 +412,7 @@ function cp_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
       $breadcrumb->addLink(Link::createFromRoute(t('Edit company'), '<nolink>'));
     }
 
-    // Edit product
+    // Edit product.
     if ($route_match->getRouteName() == 'cp_core.editProduct') {
       $breadcrumb = new Breadcrumb();
       $breadcrumb->addLink(Link::createFromRoute(t('Home'), '<front>'));
@@ -394,7 +421,6 @@ function cp_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
     }
   }
 }
-
 
 /**
  * Implements hook_views_pre_view()
@@ -408,24 +434,33 @@ function cp_core_views_pre_view(ViewExecutable $view, $display_id, array &$args)
   $is_asesor_administrativo = in_array('asesor_administrativo', $current_user_roles);
 
   switch ($view->id()) {
-    // Semaphore companies
+    // Semaphore companies.
     case 'flujo_de_estados_empresas':
-      // Context #0
-      if ($is_admin || $is_asesor_administrativo_ntc)
-        $args[0] = '1'; // Can view all
-      elseif ($is_asesor_administrativo)
-        $args[0] = $current_user->id(); // Limit to categories in their profile
-      break;
-    // Semaphore products
-    case 'flujo_de_estados_productos':
-      // Context #1
-      if ($is_admin || $is_asesor_administrativo_ntc)
-        $args[1] = 'all'; // Can view all
-      elseif ($is_asesor_administrativo)
-        $args[1] = $current_user->id(); // Limit to categories in their profile
+      // Context #0.
+      if ($is_admin || $is_asesor_administrativo_ntc) {
+        // Can view all.
+        $args[0] = '1';
+      }
+      elseif ($is_asesor_administrativo) {
+        // Limit to categories in their profile.
+        $args[0] = $current_user->id();
+      }
       break;
 
-    // First login message
+    // Semaphore products.
+    case 'flujo_de_estados_productos':
+      // Context #1.
+      if ($is_admin || $is_asesor_administrativo_ntc) {
+        // Can view all.
+        $args[1] = 'all';
+      }
+      elseif ($is_asesor_administrativo) {
+        // Limit to categories in their profile.
+        $args[1] = $current_user->id();
+      }
+      break;
+
+    // First login message.
     case 'dashboard_user':
       if (!empty($_COOKIE['Drupal_visitor_first_login'])) {
         $messenger = \Drupal::messenger();
@@ -440,44 +475,47 @@ function cp_core_views_pre_view(ViewExecutable $view, $display_id, array &$args)
 
 }
 
-
 /**
  * Implements hook_FORM_ID_form_alter().
  */
-function cp_core_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
-  if( str_contains($form['#id'], "views-exposed-form-buscador-b2b-mp-2021") ){
+function cp_core_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (str_contains($form['#id'], "views-exposed-form-buscador-b2b-mp-2021")) {
     $form['tariff']['#maxlength'] = 1024;
     $form['tariff']['#attributes']['placeholder'] = t("# tariff item");
   }
-  if(
+  if (
     $form['#id'] == 'views-exposed-form-search-companies-block-1' ||
     $form['#id'] == 'views-exposed-form-search-companies-block-2' ||
     $form['#id'] == 'views-exposed-form-specialized-offer-search-companies-block-1'
-  ){
+  ) {
     $options = $form['field_categorization']['#options'];
     $options['All'] = t('- Category -');
-    // Get all terms lvl 1 Categorization taxonomy
+    // Get all terms lvl 1 Categorization taxonomy.
     $ancestors = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree(
-      'categorization', // This is your taxonomy term vocabulary (machine name).
-      0,                 // This is "tid" of parent. Set "0" to get all.
-      1,                 // Get only 1st level.
-      FALSE               // Get full load of taxonomy term entity.
+    // This is your taxonomy term vocabulary (machine name).
+      'categorization',
+    // This is "tid" of parent. Set "0" to get all.
+      0,
+    // Get only 1st level.
+      1,
+    // Get full load of taxonomy term entity.
+      FALSE
     );
 
-    // Get all tids for ancestors
+    // Get all tids for ancestors.
     $list_tids_ancestors = [];
-    foreach( $ancestors as $term ){
+    foreach ($ancestors as $term) {
       $list_tids_ancestors[] = (int) $term->tid;
     }
-    // Clean options
+    // Clean options.
     $items_removed = [];
-    foreach( $options as $index => $option ){
+    foreach ($options as $index => $option) {
       $attributes = ['class' => 'first'];
       $opt = $option->option;
-      if( isset($opt) && count($opt) > 0 ){
-        foreach( $opt as $tid => $term ){
-          if( !in_array($tid, $list_tids_ancestors) ){
-            // Remove term in otions list
+      if (isset($opt) && count($opt) > 0) {
+        foreach ($opt as $tid => $term) {
+          if (!in_array($tid, $list_tids_ancestors)) {
+            // Remove term in otions list.
             $items_removed[] = $options[$index];
             unset($options[$index]);
           }
@@ -488,13 +526,13 @@ function cp_core_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormSta
     $filtersMobile = '<div class="is-mobile">';
     $filtersMobile .= '<span class="show-filter">';
     $filtersMobile .= t('filter by') . '</span>';
-    $filtersMobile .= '<span class="view-mode cols-1">'. t('to show');
+    $filtersMobile .= '<span class="view-mode cols-1">' . t('to show');
     $filtersMobile .= '</span></div>';
 
-    $form['is_mobile'] = array(
+    $form['is_mobile'] = [
       '#markup' => $filtersMobile,
-        '#weight' => -11,
-    );
+      '#weight' => -11,
+    ];
 
     // $list_sector = '<div class="form-item-sector"><span>' . t('Category') . '</span>';
     $list_sector = '<div class="form-item-sector">';
@@ -506,20 +544,20 @@ function cp_core_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormSta
       $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $url_search = $cpSearch->_cp_search_get_url_search();
       $str_opt_dflt = t('- Category -');
-      $opt_dflt = array($str_opt_dflt);
-      $opts_img_icons = array();
+      $opt_dflt = [$str_opt_dflt];
+      $opts_img_icons = [];
       if (isset($parents['icons_uris'])) {
-        $dflt_ico_option = array(array('name' => $str_opt_dflt));
+        $dflt_ico_option = [['name' => $str_opt_dflt]];
         $opts_img_icons = $dflt_ico_option + $parents['icons_uris'];
       }
       foreach ($opts_img_icons as $tid => $values) {
         $tid_dflt_cat = isset($tid_dflt_cat) ? $tid_dflt_cat : 0;
         $class = $tid_dflt_cat == $tid ? "sector" : "sector";
-        $selected = ($tid_dflt_cat == $tid ? ' selected="selected" ' : null);
-        $list_sector .= '<option class="'. $class .'" lang="'. $lang .'"' . $selected;
-        $list_sector .= ' value='. $tid;
+        $selected = ($tid_dflt_cat == $tid ? ' selected="selected" ' : NULL);
+        $list_sector .= '<option class="' . $class . '" lang="' . $lang . '"' . $selected;
+        $list_sector .= ' value=' . $tid;
         if (isset($values['ico'])) {
-          $list_sector .= ' data-imagesrc="'. $values['ico'] .'"';
+          $list_sector .= ' data-imagesrc="' . $values['ico'] . '"';
         }
         $list_sector .= '>';
         $list_sector .= $values['name'];
@@ -527,27 +565,27 @@ function cp_core_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormSta
         $inx++;
       }
       $list_sector .= '</select></div>';
-      $list_sector .= '<small class="description text-muted">'. t('Ex: Agricultural') .'</small>';
+      $list_sector .= '<small class="description text-muted">' . t('Ex: Agricultural') . '</small>';
 
-      $form['field_list_sector'] = array(
+      $form['field_list_sector'] = [
         '#prefix' => '<div class="row justify-content-center w-100"><div class="list-sector-company">',
         '#suffix' => '</div>',
         '#markup' => $list_sector,
         '#weight' => -10,
         '#allowed_tags' => ['select', 'option', 'small'],
-      );
+      ];
     }
 
-    $form['title_company_search']['#title_display']   = 'invisible';
-    $form['title_company_search']['#placeholder']     = t("Company");
-    $form['title_product_search']['#title_display']   = 'invisible';
-    $form['title_product_search']['#placeholder']     = t("Product");
-    $form['title_product_search']['#suffix']          = '</div>';
-    $form['field_categorization']['#title_display']   = 'invisible';
-    $form['#attached']['library'][] = 'cp_search/cp_search';
-    $form['#attached']['library'][] = 'cp_core/cp_core_select_company';
-    $form['field_categorization']['#attributes']['class'][]   = 'd-none';
-    $form['field_categorization']['#options']   = $options;
+    $form['title_company_search']['#title_display']         = 'invisible';
+    $form['title_company_search']['#placeholder']           = t("Company");
+    $form['title_product_search']['#title_display']         = 'invisible';
+    $form['title_product_search']['#placeholder']           = t("Product");
+    $form['title_product_search']['#suffix']                = '</div>';
+    $form['field_categorization']['#title_display']         = 'invisible';
+    $form['#attached']['library'][]                         = 'cp_search/cp_search';
+    $form['#attached']['library'][]                         = 'cp_core/cp_core_select_company';
+    $form['field_categorization']['#attributes']['class'][] = 'd-none';
+    $form['field_categorization']['#options']               = $options;
 
     $form['#attributes']['class'][] = 'filter-search-companies';
     $form['actions']['#attributes']['class'][] = 'col-md-12';
@@ -555,26 +593,38 @@ function cp_core_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormSta
     $form['actions']['submit']['#attributes']['class'][] = 'btn-submit';
     $form['actions']['reset']['#attributes']['class'][] = 'btn-reset';
   }
+
+  $view = $form_state->get('view');
+  if ($view->id() == 'product_dashboard' && $view->current_display == 'page_1') {
+    if (isset($form['items_per_page'])) {
+      $form['items_per_page']['#weight'] = 99;
+      $form['actions']['#weight'] = 98;
+      foreach ($form['items_per_page']['#options'] as &$item) {
+        $item = t('@num items', ['@num' => $item]);
+      }
+    }
+  }
 }
 
 /**
  * Implements hook_form_alter().
  */
-function cp_core_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   switch ($form_id) {
     case 'user_login_form':
       $form['name']['#title'] = t('Email or NIT');
       break;
+
     case 'node_company_edit_form':
-      // Field hide
+      // Field hide.
       $val_old_state = NULL;
       if (isset($form['field_states']['widget']['#default_value'])) {
         $val_old_state = $form['field_states']['widget']['#default_value'][0];
       }
-      $form['hd_old_state'] = array(
+      $form['hd_old_state'] = [
         '#type' => 'hidden',
-        '#value' => $val_old_state
-      );
+        '#value' => $val_old_state,
+      ];
 
       $form['status']['#access'] = FALSE;
       foreach (array_keys($form['actions']) as $action) {
@@ -585,14 +635,14 @@ function cp_core_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
       break;
 
     case 'node_product_edit_form':
-      // Field hide
+      // Field hide.
       if (isset($form['field_states']['widget']['#default_value'])) {
         $val_old_state = $form['field_states']['widget']['#default_value'][0];
       }
-      $form['hd_old_state'] = array(
+      $form['hd_old_state'] = [
         '#type' => 'hidden',
-        '#value' => $val_old_state
-      );
+        '#value' => $val_old_state,
+      ];
       $form['field_dependent_state']['#access'] = FALSE;
       $form['status']['#access'] = FALSE;
       foreach (array_keys($form['actions']) as $action) {
@@ -611,7 +661,7 @@ function cp_core_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
       break;
 
     case 'views_bulk_operations_configure_action':
-      // Bulk product operations 'flujo_de_estados_productos'
+      // Bulk product operations 'flujo_de_estados_productos'.
       $arr_uri = explode('/', \Drupal::request()->getUri());
       if (!empty($arr_uri) && isset($arr_uri[6]) && $arr_uri[6] == 'flujo_de_estados_productos') {
         unset($_SESSION["not_bulk_mails_products"]);
@@ -625,35 +675,45 @@ function cp_core_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
 
       $form['account']['current_pass']['#description'] = in_array("exportador", $currentUserRoles) ? $description : '';
       $form['#submit'][] = 'delete_cookie_password_submit';
-    break;
+      break;
 
+    case 'entity_browser_paises_form':
+      // Add cancel button to paises browser.
+      $form['actions']['cancel'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'a',
+        '#value' => t('Cancel'),
+        '#attributes' => [
+          'class' => ['entity-browser-paises-close', 'button', 'btn'],
+          'href' => '#',
+        ],
+        '#weight' => -99,
+      ];
   }
   $form['#attached']['library'][] = 'webform/webform';
 }
 
-
 /**
- * Function to changes states and publish-unpublish company
+ * Function to changes states and publish-unpublish company.
  *
- * @param $form array.
- * @param $form_state Drupal\Core\Form\FormStateInterface
+ * @param array $form
+ * @param Drupal\Core\Form\FormStateInterface $form_state
  */
 function delete_cookie_password_submit(array $form, FormStateInterface $form_state) {
-    user_cookie_delete('first_login');
-    $response = new RedirectResponse("/dashboard");
-    $request = \Drupal::request();
-    $request->getSession()->save();
-    $response->prepare($request);
-    \Drupal::service('kernel')->terminate($request, $response);
-    $response->send();
+  user_cookie_delete('first_login');
+  $response = new RedirectResponse("/dashboard");
+  $request = \Drupal::request();
+  $request->getSession()->save();
+  $response->prepare($request);
+  \Drupal::service('kernel')->terminate($request, $response);
+  $response->send();
 }
 
-
 /**
- * Function to changes states and publish-unpublish company
+ * Function to changes states and publish-unpublish company.
  *
- * @param $form array.
- * @param $form_state Drupal\Core\Form\FormStateInterface
+ * @param array $form
+ * @param Drupal\Core\Form\FormStateInterface $form_state
  */
 function cp_core_states_company_submit(array $form, FormStateInterface $form_state) {
   $company = $form_state->getFormObject()->getEntity();
@@ -700,7 +760,7 @@ function cp_core_states_company_submit(array $form, FormStateInterface $form_sta
           break;
       }
 
-      // Mail Notifications
+      // Mail Notifications.
       $usrOwn = User::load($uidOwn);
       $exporter_mail = $usrOwn->getEmail();
 
@@ -708,13 +768,13 @@ function cp_core_states_company_submit(array $form, FormStateInterface $form_sta
       $label_state = $cpCoreController->get_label_by_state($state);
 
       $key = ($state == 'approved') ? 'company_edit_enabled' : 'company_chg_state';
-      $prmsts = array(
+      $prmsts = [
         'key' => $key,
         'company_name' => $company_name,
         'new_state' => $label_state,
-      );
+      ];
 
-      // Exporter
+      // Exporter.
       if (!empty($exporter_mail)) {
         $prmsts['user_type'] = 'exporter';
         $prmsts['exporter_mail'] = $exporter_mail;
@@ -725,12 +785,11 @@ function cp_core_states_company_submit(array $form, FormStateInterface $form_sta
   }
 }
 
-
 /**
- * Function to changes states and publish-unpublish product
+ * Function to changes states and publish-unpublish product.
  *
- * @param $form array.
- * @param $form_state Drupal\Core\Form\FormStateInterface
+ * @param array $form
+ * @param Drupal\Core\Form\FormStateInterface $form_state
  */
 function cp_core_states_product_submit(array $form, FormStateInterface $form_state) {
 
@@ -761,7 +820,7 @@ function cp_core_states_product_submit(array $form, FormStateInterface $form_sta
       $product->field_dependent_state->value = $publish;
       $product->save();
 
-      // Mail Notifications
+      // Mail Notifications.
       $usrOwn = User::load($uidOwn);
       $exporter_mail = $usrOwn->getEmail();
       $label_lang = ($lang == 'en') ? 'Inglés' : 'Español';
@@ -770,13 +829,13 @@ function cp_core_states_product_submit(array $form, FormStateInterface $form_sta
       $label_state = $cpCoreController->get_label_by_state($state);
 
       $key = ($state == 'approved') ? 'product_edit_enabled' : 'product_chg_state';
-      $prmsts = array(
+      $prmsts = [
         'key' => $key,
         'prod_name' => $prod_name,
         'new_state' => $label_state,
         'label_lang' => $label_lang,
-      );
-      // Exporter
+      ];
+      // Exporter.
       if (!empty($exporter_mail)) {
         $prmsts['user_type'] = 'exporter';
         $prmsts['exporter_mail'] = $exporter_mail;
@@ -787,12 +846,11 @@ function cp_core_states_product_submit(array $form, FormStateInterface $form_sta
   }
 }
 
-
 /**
- * Function to add redirect 301 to company
+ * Function to add redirect 301 to company.
  *
- * @param $form array.
- * @param $form_state Drupal\Core\Form\FormStateInterface
+ * @param array $form
+ * @param Drupal\Core\Form\FormStateInterface $form_state
  */
 function cp_core_redirect_301_old_company_submit(array $form, FormStateInterface $form_state) {
   if (!empty($form_state->getValue('field_redirect_301_company')[0]['target_id'])) {
@@ -800,7 +858,7 @@ function cp_core_redirect_301_old_company_submit(array $form, FormStateInterface
     $nidToRedirect = $form_state->getValue('field_redirect_301_company')[0]['target_id'];
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $source_uri = $form_state->getValue('field_previous_uri')[0]['value'];
-    $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $nidToRedirect, $lang);
+    $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nidToRedirect, $lang);
     $redirect_uri = 'internal:' . $alias;
     $module_handler = \Drupal::service('module_handler');
     $bool_module_redirect = $module_handler->moduleExists('redirect');
@@ -831,7 +889,8 @@ function cp_core_redirect_301_old_company_submit(array $form, FormStateInterface
 }
 
 /**
- * Alter query view to show the categories selected by the user
+ * Alter query view to show the categories selected by the user.
+ *
  * @return void
  */
 function cp_core_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
@@ -839,7 +898,7 @@ function cp_core_views_query_alter(ViewExecutable $view, QueryPluginBase $query)
     // kint($query);
   }
   if ($view->id() === 'buyer_view_products') {
-    $cpController = new CpCoreController;
+    $cpController = new CpCoreController();
     $category_list = $cpController->buyerCategories();
 
     $query->where[1]['conditions'][2]['field'] = "node__field_categorization_parent.field_categorization_parent_target_id";
@@ -863,7 +922,7 @@ function cp_core_views_query_alter(ViewExecutable $view, QueryPluginBase $query)
 function cp_core_page_attachments(array &$page) {
   $current_path = \Drupal::service('path.current')->getPath();
 
-  if (strpos($current_path, 'productos') !== false || strpos($current_path, 'products')) {
+  if (strpos($current_path, 'productos') !== FALSE || strpos($current_path, 'products')) {
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $endmetadescription = '';
     switch ($language) {
@@ -871,36 +930,37 @@ function cp_core_page_attachments(array &$page) {
         $keywords = explode("productos/", $current_path);
         $metadescription = t("Encuentre aquí");
         $endmetadescription = t(". ProColombia es una entidad que promueve la internacionalización de empresas colombianas.");
-      break;
+        break;
+
       case 'en':
         $keywords = explode("products/", $current_path);
         $metadescription = t("Find here");
         $endmetadescription = t("ProColombia is an entity that promotes the Internationalization of Colombian companies.");
-      break;
+        break;
     }
 
-    $keywords  = str_replace('/', ',',$keywords);
+    $keywords = str_replace('/', ',', $keywords);
     $metatag = [
       '#tag' => 'meta',
       '#attributes' => [
         'name' => 'description',
-        'content' => $metadescription . ' ' .$keywords[true]. ' ' .$endmetadescription,
+        'content' => $metadescription . ' ' . $keywords[TRUE] . ' ' . $endmetadescription,
       ],
     ];
 
     $metadescription = '';
     $title = '';
-    $tid = null;
+    $tid = NULL;
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $request = \Drupal::request();
-    if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+    if ($route = $request->attributes->get(RouteObjectInterface::ROUTE_OBJECT)) {
       $title = \Drupal::service('title_resolver')->getTitle($request, $route);
     }
 
-    if(isset($title) && !empty($title)){
+    if (isset($title) && !empty($title)) {
       $CpSearchController = new CpSearchController();
       $tid = $CpSearchController->_cp_search_get_taxonomy_tid_by_name($title, 'categorization');
-      if(isset($tid) && is_numeric($tid)){
+      if (isset($tid) && is_numeric($tid)) {
         $term_cat = Term::load(intval($tid));
         if (isset($term_cat) && !empty($term_cat)) {
           if ($term_cat->hasTranslation($lang)) {
@@ -911,10 +971,98 @@ function cp_core_page_attachments(array &$page) {
       }
     }
 
-    if( isset($metadescription) && !empty($metadescription) ){
+    if (isset($metadescription) && !empty($metadescription)) {
       $metatag['#attributes']['content'] = $metadescription;
     }
 
     $page['#attached']['html_head'][] = [$metatag, 'keywords'];
   }
+}
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function cp_core_entity_extra_field_info() {
+  $extra = [];
+  $extra['node']['product']['display']['cp_core_title_h2_no_link'] = [
+    'label' => t('CP Core: Title h2 no link'),
+    'description' => t('Shows the title of the node'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
+  $extra['node']['product']['display']['cp_core_presave_preview'] = [
+    'label' => t('CP Core: Presave preview'),
+    'description' => t('Enables a preview link.'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
+  $extra['node']['product']['display']['cp_core_close_modal'] = [
+    'label' => t('CP Core: Close Modal'),
+    'description' => t('Show the close link.'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('cp_core_presave_preview')) {
+    $build['cp_core_presave_preview'] = [
+      '#type' => 'link',
+      '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $entity->id()]),
+      '#title' => t('Preview'),
+      '#attributes' => [
+        'class' => ['use-ajax'],
+        'data-dialog-type' => 'modal',
+        'data-dialog-options' => Json::encode(['width' => '90%']),
+      ],
+      '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+    ];
+  }
+  if ($display->getComponent('cp_core_title_h2_no_link')) {
+    $build['cp_core_title_h2_no_link'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => $entity->label(),
+    ];
+  }
+
+  if ($display->getComponent('cp_core_close_modal')) {
+    $build['cp_core_close_modal'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'button',
+      '#value' => t('Go back to process'),
+      '#attributes' => ['class' => ['close']],
+    ];
+  }
+}
+
+/**
+ * Implements hook_views_data().
+ */
+function cp_core_views_data() {
+  $data = [];
+  $data['node']['cp_core_product_availability_on_off'] = [
+    'title' => t('CP Core: Change the product availability'),
+    'help' => 'Enables a toggle field for the product availability.',
+    'field' => [
+      'id' => 'cp_core_product_availability_on_off',
+    ],
+  ];
+  $data['node']['cp_core_company_published_on_off'] = [
+    'title' => t('CP Core: Change the company published status'),
+    'help' => 'Enables a toggle field for the company published.',
+    'field' => [
+      'id' => 'cp_core_company_published_on_off',
+    ],
+  ];
+
+  return $data;
 }

@@ -1,0 +1,343 @@
+uuid: 0ffa727e-3403-460d-943c-0243a5cbbf40
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.product_service_presave_preview
+    - field.field.node.product.field_aditional_information
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_country
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
+    - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - image.style.280x270
+    - node.type.product
+  module:
+    - ds
+    - field_group
+    - formatter_suite
+    - layout_builder
+    - svg_image
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  field_group:
+    group_row:
+      children:
+        - group_left
+        - field_images
+        - group_right
+      label: Row
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: 'group-row row'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_left:
+      children: {  }
+      label: Left
+      parent_name: group_row
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: 'group-left col-sm-4'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_right:
+      children:
+        - cp_core_title_h2_no_link
+        - field_body
+        - field_categorization_parent
+        - field_categorization
+        - field_partida_arancelaria_tax
+        - field_pr_country
+        - group_footer_links
+      label: Right
+      parent_name: group_row
+      region: content
+      weight: 22
+      format_type: html_element
+      format_settings:
+        classes: 'group-right col-sm-8'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_footer_links:
+      children:
+        - field_file
+        - field_file_certifications
+        - cp_core_close_modal
+      label: 'Footer links'
+      parent_name: group_right
+      region: content
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: group-footer-links
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.product.product_service_presave_preview
+targetEntityType: node
+bundle: product
+mode: product_service_presave_preview
+content:
+  cp_core_close_modal:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  cp_core_title_h2_no_link:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_body:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_categorization:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 4
+    region: content
+  field_categorization_parent:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 3
+    region: content
+  field_file:
+    type: formatter_suite_general_file_link
+    label: hidden
+    settings:
+      titleStyle: text_custom
+      titleCustomText: 'Ver Ficha técnica'
+      classes: ''
+      showLink: '1'
+      openLinkIn: _blank
+      linkTopic: any
+      showSize: 0
+      showIcon: 0
+      listStyle: span
+      listSeparator: ', '
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 15
+    region: content
+  field_file_certifications:
+    type: formatter_suite_general_file_link
+    label: hidden
+    settings:
+      titleStyle: text_custom
+      titleCustomText: 'Ver Certificación del producto'
+      classes: ''
+      showLink: '1'
+      openLinkIn: _self
+      linkTopic: any
+      listStyle: span
+      listSeparator: ', '
+      showSize: 0
+      showIcon: 0
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 16
+    region: content
+  field_images:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 280x270
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 21
+    region: content
+  field_partida_arancelaria_tax:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 5
+    region: content
+  field_pr_country:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  cp_core_presave_preview: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_aditional_information: true
+  field_dependent_state: true
+  field_exist_certifications: true
+  field_export_markets: true
+  field_iframe: true
+  field_key_words: true
+  field_key_words_backup: true
+  field_mostrar_en_home: true
+  field_pr_certifications: true
+  field_pr_image_1: true
+  field_pr_image_2: true
+  field_pr_image_3: true
+  field_pr_image_4: true
+  field_pr_image_5: true
+  field_pr_multilingual_step1: true
+  field_pr_multilingual_step2: true
+  field_pr_multilingual_step3: true
+  field_pr_multilingual_step4: true
+  field_pr_multilingual_step5: true
+  field_pr_product_availability: true
+  field_pr_ref_company: true
+  field_pr_sales_channel: true
+  field_pr_status: true
+  field_pr_target_market: true
+  field_pr_terms_of_condition: true
+  field_pr_type_certifications: true
+  field_pr_video: true
+  field_pr_video_2: true
+  field_pr_video_description_1: true
+  field_pr_video_description_2: true
+  field_previous_id: true
+  field_product_type: true
+  field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
+  field_tariff_heading: true
+  field_trading_channel: true
+  flag_favorites: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

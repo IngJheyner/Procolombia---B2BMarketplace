@@ -28,3 +28,13 @@ cp_core_select_company:
     js/cp_core_select_company.js: {}
   dependencies:
     - core/jquery
+
+video_embed_preview:
+  version: VERSION
+  js:
+    js/video_embed_preview.js: {}
+  css:
+    component:
+      css/video_embed_preview.css: {}
+  dependencies:
+    - core/jquery
