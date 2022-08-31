@@ -1,0 +1,22 @@
+uuid: a520b1ec-0809-460d-bfb0-e235659c30ca
+langcode: es
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pr_product_availability
+field_name: field_pr_product_availability
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

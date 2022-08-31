@@ -1,0 +1,10 @@
+uuid: cedb19c5-eef5-4b21-aedb-cda6ce05c096
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_2
+label: 'Product / Service details'
+targetEntityType: node
+cache: true

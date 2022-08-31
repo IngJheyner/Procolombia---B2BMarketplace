@@ -61,3 +61,16 @@ function matchmaking_pro_preprocess_page(array &$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param [type] $variables
+ * @return void
+ */
+function matchmaking_pro_preprocess_views_view_table(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'paises') {
+    $variables['table_class'] = '';
+  }
+}

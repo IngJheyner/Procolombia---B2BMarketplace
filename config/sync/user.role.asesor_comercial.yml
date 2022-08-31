@@ -9,7 +9,9 @@ dependencies:
     - content_translation
     - field_permissions
     - media
+    - mfd
     - node
+    - statistics
     - system
     - taxonomy_access_fix
     - toolbar
@@ -26,6 +28,7 @@ permissions:
   - 'create field_tags'
   - 'edit field_iframe'
   - 'edit field_tags'
+  - 'edit multilingual form'
   - 'edit own field_iframe'
   - 'edit own field_tags'
   - 'translate company node'
@@ -36,6 +39,7 @@ permissions:
   - 'view own field_iframe'
   - 'view own field_tags'
   - 'view own unpublished media'
+  - 'view post access counter'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'

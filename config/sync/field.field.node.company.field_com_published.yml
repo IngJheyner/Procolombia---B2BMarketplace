@@ -1,0 +1,23 @@
+uuid: e7a98603-1434-490d-876e-eb2cf3b5c5e8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_com_published
+    - node.type.company
+id: node.company.field_com_published
+field_name: field_com_published
+entity_type: node
+bundle: company
+label: Publicado
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Sí
+  off_label: 'No'
+field_type: boolean

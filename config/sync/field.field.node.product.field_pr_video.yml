@@ -1,0 +1,25 @@
+uuid: a77792d8-7f16-4860-82ae-0ef045ac9ae3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_video
+    - node.type.product
+  module:
+    - video_embed_field
+id: node.product.field_pr_video
+field_name: field_pr_video
+entity_type: node
+bundle: product
+label: 'Video principal'
+description: 'Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

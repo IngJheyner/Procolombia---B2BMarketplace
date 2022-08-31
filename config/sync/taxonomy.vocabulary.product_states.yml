@@ -1,0 +1,8 @@
+uuid: 3e0e4715-2a2c-494b-a208-61917df15667
+langcode: es
+status: true
+dependencies: {  }
+name: 'Estados de los productos'
+vid: product_states
+description: ''
+weight: 0
