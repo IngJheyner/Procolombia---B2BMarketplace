@@ -159,7 +159,7 @@
       $("#go_to_home", context).click(function () {
         goHome();
       });
-      
+
     }
   };
 

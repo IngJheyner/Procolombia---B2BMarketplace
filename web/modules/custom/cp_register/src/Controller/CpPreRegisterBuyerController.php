@@ -24,5 +24,5 @@ class CpPreRegisterBuyerController extends ControllerBase
             '#theme' => 'cp_pre_register_buyer_template_hook',
         ];
     }
- 
+
 }
