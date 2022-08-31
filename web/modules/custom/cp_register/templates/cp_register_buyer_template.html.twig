@@ -1,23 +1,13 @@
 {{ attach_library('cp_register/cp_register') }}
 <main class="step_registre">
-	<div class="steps">
-		<div class="step_tittle">Registro de la Empresa Colombiana - Información</div>
+	<div class="steps_buyer">
+		<div class="step_tittle">Configure su perfil de comprador gratuitamente</div>
 		<div class="step_content">
 			<ul class="nav justify-content-center" role="tablist">
 				<li class="nav-item">
 					<a class="nav-link active" id="home-tab" data-bs-target="#home-tab-pane" type="button" role="tab"
-						aria-controls="home-tab-pane" aria-selected="true">
-						<svg id="svg_home" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
-							<title>icono_3</title>
-							<g id="Capa_2" data-name="Capa 2">
-								<g id="Capa_1-2" data-name="Capa 1">
-									<path class="back"
-										d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z" />
-									<path class="num" d="M84.66,61.62H99.39v51.71H89.62V70.87H79Z" />
-								</g>
-							</g>
-						</svg>
-						<svg id="check_home_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+						aria-controls="home-tab-pane" aria-="true">
+						<svg id="datos_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<defs>
 								<style>
 									.cls-1 {
@@ -43,9 +33,9 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="profile-tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
-						aria-controls="profile-tab-pane" aria-selected="false">
-						<svg id="svg_profile" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+					<a class="nav-link" id="step_2_tab" data-bs-target="#step_2_tab" type="button" role="tab"
+						aria-controls="profile-tab-pane" aria-="false">
+						<svg id="step_2_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<g id="Capa_2" data-name="Capa 2">
 								<g id="Capa_1-2" data-name="Capa 1">
 									<path class="back"
@@ -55,7 +45,7 @@
 								</g>
 							</g>
 						</svg>
-						<svg id="check_profile_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+						<svg id="check_step_2" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<defs>
 								<style>
 									.cls-1 {
@@ -81,9 +71,9 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="contact-tab" data-bs-target="#contact-tab-pane" type="button" role="tab"
-						aria-controls="contact-tab-pane" aria-selected="false">
-						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+					<a class="nav-link" id="step_3_tab" data-bs-target="#step_3_tab" type="button" role="tab"
+						aria-controls="interes_1-tab-pane" aria-="false">
+						<svg id="step_3_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<g id="Capa_2" data-name="Capa 2">
 								<g id="Capa_1-2" data-name="Capa 1">
 									<path class="back"
@@ -93,7 +83,7 @@
 								</g>
 							</g>
 						</svg>
-						<svg id="check_contact_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+						<svg id="check_step_3" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<defs>
 								<style>
 									.cls-1 {
@@ -119,9 +109,9 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="contact-tab" data-bs-target="#contact-tab-pane" type="button" role="tab"
-						aria-controls="contact-tab-pane" aria-selected="false">
-						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+					<a class="nav-link" id="step_4_tab" data-bs-target="#step_3_tab" type="button" role="tab"
+						aria-controls="interes_2-tab-pane" aria-="false">
+						<svg id="step_4_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<g id="Capa_2" data-name="Capa 2">
 								<g id="Capa_1-2" data-name="Capa 1">
 									<path class="back"
@@ -131,7 +121,7 @@
 								</g>
 							</g>
 						</svg>
-						<svg id="check_contact_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+						<svg id="check_step_4" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<defs>
 								<style>
 									.cls-1 {
@@ -157,9 +147,9 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="contact-tab" data-bs-target="#contact-tab-pane" type="button" role="tab"
-						aria-controls="contact-tab-pane" aria-selected="false">
-						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+					<a class="nav-link" id="step_5_tab" data-bs-target="#step_5_tab" type="button" role="tab"
+						aria-controls="interes_3-tab-pane" aria-="false">
+						<svg is="step_4_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<g id="Capa_2" data-name="Capa 2">
 								<g id="Capa_1-2" data-name="Capa 1">
 									<path class="back"
@@ -169,7 +159,7 @@
 								</g>
 							</g>
 						</svg>
-						<svg id="check_contact_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+						<svg id="check_step_5" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
 							<defs>
 								<style>
 									.cls-1 {
@@ -197,7 +187,7 @@
 
 			</ul>
 			<div class="progress validate_buyer">
-				<div class="progress-bar" id="validate_progresss" style="width:33.33%" role="progressbar"
+				<div class="progress-bar" id="validate_progresss" style="width:13%" role="progressbar"
 					aria-label="Basic example" aria-valuemin="0" aria-valuemax="100"></div>
 			</div>
 			<p class="title_tab" id="home_title" style="display:block">Perfil de la compañía</p>
@@ -205,24 +195,22 @@
 			<p class="title_tab" id="contact_title">Información del Contacto</p>
 
 			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+				<div class="tab-pane fade show active" id="step_2" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
 							<label for="sitio" class="form-label">País<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
-									<select id="departament" class="single_select"
-										placeholder="Seleccione una opción..." autocomplete="off">
+									<select id="country" class="single_select" placeholder="Seleccione una opción..."
+										autocomplete="off">
 										<option value="">Seleccione una opción</option>
-										{% for deparment in deparments %}
-										<option value="{{deparment.ID}}">{{deparment.Name}}</option>
-										{% endfor %}
+										<option value="usa">Estados Unidos</option>
 									</select>
 								</div>
 
-								<i id="error_departament" class='bx bxs-info-circle toltip_i'>
-									<span id="error_departament_message" class="tooltiptext_error">
+								<i id="error_country" class='bx bxs-info-circle toltip_i'>
+									<span id="error_country_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -230,13 +218,13 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="nombre_cargo" class="form-label">Nombre del cargo
+							<label for="position" class="form-label">Nombre del cargo
 								<span>*</span>
 							</label>
 							<div class="input_error">
-								<input type="text" class="form-control" id="principal_code_ciiu" placeholder="">
-								<i id="nombre_cargo" class='bx bxs-info-circle toltip_i'>
-									<span id="error_principal_code_ciiu_message" class="tooltiptext_error">
+								<input type="text" class="form-control" id="position" placeholder="">
+								<i id="error_position" class='bx bxs-info-circle toltip_i'>
+									<span id="error_position_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -251,16 +239,19 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="ciudad" class="form-label">Ciudad<span>*</span>
+							<label for="city" class="form-label">Ciudad<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
-								<div id="ciudad_contain" class="w-100">
-									<select id="ciudad" class="single_select" placeholder="Seleccione una opción..."
-										autocomplete="off"></select>
+								<div id="" class="w-100">
+									<select id="city" class="single_select" placeholder="Seleccione una opción..."
+										autocomplete="off">
+										<option value="">Seleccione una opción</option>
+										<option value="usa">Estados Unidos</option>
+									</select>
 								</div>
 
-								<i id="error_ciudad" class='bx bxs-info-circle toltip_i'>
-									<span id="error_ciudad_message" class="tooltiptext_error">
+								<i id="error_city" class='bx bxs-info-circle toltip_i'>
+									<span id="error_city_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -268,13 +259,13 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="website" class="form-label">Sitio Web de la compañía
+							<label for="web_site" class="form-label">Sitio Web de la compañía
 								<span>*</span>
 							</label>
 							<div class="input_error">
-								<input type="text" class="form-control" id="website">
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<input type="text" class="form-control" id="web_site">
+								<i id="error_web_site" class='bx bxs-info-circle toltip_i'>
+									<span id="error_web_site_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -292,7 +283,7 @@
 							<label for="principal_advisor" class="form-label">Asesor Principal de ProColombia
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
-								<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+								<option disabled hidden >Ingrese la palabra clave o seleccione una opción
 								</option>
 								<option value="Jaime Francisco">Jaime Francisco</option>
 								<option value="Ruth Silvana">Ruth Silvana</option>
@@ -319,7 +310,7 @@
 					<div class="row">
 						<div class="col-lg-12 continue">
 							<button id="cancel_process_1" class="cancel">CANCELAR</button>
-							<button id="save_1" name="save_1" aria-label="Continuar con el registro"
+							<button id="save_buyer_1" name="save_buyer_1" aria-label="Continuar con el registro"
 								class="continue">CONTINUAR
 							</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
@@ -330,25 +321,24 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade show active" id="" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+				<div class="tab-pane fade" id="step_3" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-5" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Estoy interesado en… (Categoría de
+							<label for="cat_interest_1" class="form-label">Estoy interesado en… (Categoría de
 								interés)
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="cat_interest_1_cont" class="input_error">
+								<select name="cat_interest_1" id="cat_interest_1" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
+									{% for categorization_item in tree_categorization %}
+									<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+									{% endfor %}
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_cat_interest_1" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cat_interest_1_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -356,21 +346,20 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Modelo de negocio
+							<label for="company_model" class="form-label">Modelo de negocio
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="company_model_cont" class="input_error">
+								<select name="company_model" id="company_model" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
+									{% for company_model_item in tree_business_model %}
+									<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+									{% endfor %}
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_company_model" class='bx bxs-info-circle toltip_i'>
+									<span id="error_company_model_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -378,22 +367,18 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Particularmente en… (Subcategoría de
+							<label for="subcat_interest_1" class="form-label">Particularmente en… (Subcategoría de
 								Interés)
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="subcat_interest_1_cont" class="input_error">
+								<select name="subcat_interest_1" id="subcat_interest_1">
+									<option disabled hidden >Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_subcat_interest_1" class='bx bxs-info-circle toltip_i'>
+									<span id="error_subcat_interest_1_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -412,12 +397,13 @@
 									</svg>
 									<span class="tooltiptext_yotube">
 										<p class="note">NOTA:</p>
-										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.
+										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10
+										primeros productos coincidentes.
 									</span>
 								</div>
 								<div class="input_error">
 									<select name="principal_advisor" id="principal_advisor">
-										<option disabled hidden selected>Ingrese la palabra clave o seleccione una
+										<option disabled hidden >Ingrese la palabra clave o seleccione una
 											opción
 										</option>
 										<option value="Jaime Francisco">Jaime Francisco</option>
@@ -434,10 +420,16 @@
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó.
+											Si el producto que busca no aparece en la lista, por favor escriba una
+											palabra, o el código arancelario a 6 dígitos, que defina su producto.
+											Después del tercer carácter que ingrese, el sistema buscará los primeros 10
+											productos que incluyan los caracteres/la palabra que ingresó.
 										</span>
 									</i>
-									<span>Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó.</span>
+									<span>Si el producto que busca no aparece en la lista, por favor escriba una
+										palabra, o el código arancelario a 6 dígitos, que defina su producto. Después
+										del tercer carácter que ingrese, el sistema buscará los primeros 10 productos
+										que incluyan los caracteres/la palabra que ingresó.</span>
 								</div>
 							</div>
 						</div>
@@ -448,7 +440,7 @@
 						</div>
 						<div class="col-lg-6 continue">
 							<button id="cancel_process_2" class="cancel">CANCELAR</button>
-							<button id="save_2" name="save_2" aria-label="Continuar con el registro"
+							<button id="save_buyer_2" name="save_buyer_2" aria-label="Continuar con el registro"
 								class="continue">CONTINUAR</button>
 							<button style="display:none" class="continue" id="loading_2" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status"
@@ -458,25 +450,23 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade show active" id="" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+				<div class="tab-pane fade" id="step_4" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-5" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Estoy interesado en… (Categoría de
+							<label for="cat_interest_2" class="form-label">Estoy interesado en… (Categoría de
 								interés) No.2
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
-									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
+							<div id="cat_interest_2_cont" class="input_error">
+								<select name="cat_interest_2" id="cat_interest_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
+									{% for categorization_item in tree_categorization %}
+									<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+									{% endfor %}
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_cat_interest_2" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cat_interest_2_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -484,21 +474,20 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Modelo de negocio No.2
+							<label for="company_model_2" class="form-label">Modelo de negocio No.2
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="company_model_2_cont" class="input_error">
+								<select name="company_model_2" id="company_model_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
+									{% for company_model_item in tree_business_model %}
+									<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+									{% endfor %}
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_company_model_2" class='bx bxs-info-circle toltip_i'>
+									<span id="error_company_model_2_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -506,22 +495,18 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Particularmente en… (Subcategoría de
+							<label for="subcat_interest_2" class="form-label">Particularmente en… (Subcategoría de
 								Interés) No.2
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="subcat_interest_2_cont" class="input_error">
+								<select name="subcat_interest_2" id="subcat_interest_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_subcat_interest_2" class='bx bxs-info-circle toltip_i'>
+									<span id="error_subcat_interest_2_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -540,12 +525,13 @@
 									</svg>
 									<span class="tooltiptext_yotube">
 										<p class="note">NOTA:</p>
-										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.
+										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10
+										primeros productos coincidentes.
 									</span>
 								</div>
 								<div class="input_error">
 									<select name="principal_advisor" id="principal_advisor">
-										<option disabled hidden selected>Ingrese la palabra clave o seleccione una
+										<option disabled hidden >Ingrese la palabra clave o seleccione una
 											opción
 										</option>
 										<option value="Jaime Francisco">Jaime Francisco</option>
@@ -562,10 +548,16 @@
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó.
+											Si el producto que busca no aparece en la lista, por favor escriba una
+											palabra, o el código arancelario a 6 dígitos, que defina su producto.
+											Después del tercer carácter que ingrese, el sistema buscará los primeros 10
+											productos que incluyan los caracteres/la palabra que ingresó.
 										</span>
 									</i>
-									<span>Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó.</span>
+									<span>Si el producto que busca no aparece en la lista, por favor escriba una
+										palabra, o el código arancelario a 6 dígitos, que defina su producto. Después
+										del tercer carácter que ingrese, el sistema buscará los primeros 10 productos
+										que incluyan los caracteres/la palabra que ingresó.</span>
 								</div>
 							</div>
 						</div>
@@ -576,7 +568,7 @@
 						</div>
 						<div class="col-lg-6 continue">
 							<button id="cancel_process_2" class="cancel">CANCELAR</button>
-							<button id="save_2" name="save_2" aria-label="Continuar con el registro"
+							<button id="save_buyer_3" name="save_2" aria-label="Continuar con el registro"
 								class="continue">CONTINUAR</button>
 							<button style="display:none" class="continue" id="loading_2" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status"
@@ -586,47 +578,45 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade show active" id="" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+				<div class="tab-pane fade" id="step_5" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-5" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Estoy interesado en… (Categoría de
+							<label for="cat_interest_3" class="form-label">Estoy interesado en… (Categoría de
 								interés) No.3
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="cat_interest_3_cont" class="input_error">
+								<select name="cat_interest_3" id="cat_interest_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
+									{% for categorization_item in tree_categorization %}
+									<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+									{% endfor %}
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_cat_interest_3" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cat_interest_3_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
 							</div>
 
 						</div>
-						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Modelo de negocio No.3
+						<div  class="col-md-6">
+							<label for="company_model_3" class="form-label">Modelo de negocio No.3
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="company_model_3_cont" class="input_error">
+								<select name="company_model_3" id="company_model_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
+									{% for company_model_item in tree_business_model %}
+									<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+									{% endfor %}
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_company_model_3" class='bx bxs-info-circle toltip_i'>
+									<span id="error_company_model_3_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -634,22 +624,18 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Particularmente en… (Subcategoría de
+							<label for="subcat_interest_3" class="form-label">Particularmente en… (Subcategoría de
 								Interés) No.3
 								<span>*</span>
 							</label>
 
-							<div class="input_error">
-								<select name="principal_advisor" id="principal_advisor">
-									<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+							<div id="subcat_interest_3_cont" class="input_error">
+								<select name="subcat_interest_3" id="subcat_interest_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+									<option value="">Ingrese la palabra clave o seleccione una opción
 									</option>
-									<option value="Jaime Francisco">Jaime Francisco</option>
-									<option value="Ruth Silvana">Ruth Silvana</option>
-									<option value="Luis Felipe">Luis Felipe</option>
-									<option value="Montserrat Carolina">Montserrat Carolina</option>
 								</select>
-								<i id="error_website" class='bx bxs-info-circle toltip_i'>
-									<span id="error_website_message" class="tooltiptext_error">
+								<i id="error_subcat_interest_3" class='bx bxs-info-circle toltip_i'>
+									<span id="error_subcat_interest_3_message" class="tooltiptext_error">
 										Campo Obligatorio
 									</span>
 								</i>
@@ -668,12 +654,13 @@
 									</svg>
 									<span class="tooltiptext_yotube">
 										<p class="note">NOTA:</p>
-										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.
+										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10
+										primeros productos coincidentes.
 									</span>
 								</div>
 								<div class="input_error">
 									<select name="principal_advisor" id="principal_advisor">
-										<option disabled hidden selected>Ingrese la palabra clave o seleccione una
+										<option disabled hidden >Ingrese la palabra clave o seleccione una
 											opción
 										</option>
 										<option value="Jaime Francisco">Jaime Francisco</option>
@@ -690,10 +677,16 @@
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó.
+											Si el producto que busca no aparece en la lista, por favor escriba una
+											palabra, o el código arancelario a 6 dígitos, que defina su producto.
+											Después del tercer carácter que ingrese, el sistema buscará los primeros 10
+											productos que incluyan los caracteres/la palabra que ingresó.
 										</span>
 									</i>
-									<span>Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó.</span>
+									<span>Si el producto que busca no aparece en la lista, por favor escriba una
+										palabra, o el código arancelario a 6 dígitos, que defina su producto. Después
+										del tercer carácter que ingrese, el sistema buscará los primeros 10 productos
+										que incluyan los caracteres/la palabra que ingresó.</span>
 								</div>
 							</div>
 						</div>
@@ -704,7 +697,7 @@
 						</div>
 						<div class="col-lg-6 continue">
 							<button id="cancel_process_2" class="cancel">CANCELAR</button>
-							<button id="save_2" name="save_2" aria-label="Continuar con el registro"
+							<button id="save_buyer_4" name="save_buyer_4" aria-label="Continuar con el registro"
 								class="continue">CONTINUAR</button>
 							<button style="display:none" class="continue" id="loading_2" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status"
@@ -714,7 +707,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 

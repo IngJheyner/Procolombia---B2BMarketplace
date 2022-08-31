@@ -1,7 +1,7 @@
 #matchmaking_pro.libraries
 global-styling:
   version: VERSION
-  js: 
+  js:
     js/bootstrap.min.js: { weight: -48 }
     js/barrio.js: {}
     js/custom.js: {}

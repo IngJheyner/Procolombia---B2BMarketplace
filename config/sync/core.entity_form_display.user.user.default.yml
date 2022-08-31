@@ -25,6 +25,8 @@ dependencies:
     - field.field.user.user.field_company_info_english
     - field.field.user.user.field_company_logo
     - field.field.user.user.field_company_model
+    - field.field.user.user.field_company_model_2
+    - field.field.user.user.field_company_model_3
     - field.field.user.user.field_company_name
     - field.field.user.user.field_company_video_youtube
     - field.field.user.user.field_company_web_site
@@ -244,6 +246,26 @@ content:
   field_company_model:
     type: entity_reference_autocomplete
     weight: 62
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_company_model_2:
+    type: entity_reference_autocomplete
+    weight: 68
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_company_model_3:
+    type: entity_reference_autocomplete
+    weight: 69
     region: content
     settings:
       match_operator: CONTAINS

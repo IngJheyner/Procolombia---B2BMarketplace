@@ -25,6 +25,8 @@ dependencies:
     - field.field.user.user.field_company_info_english
     - field.field.user.user.field_company_logo
     - field.field.user.user.field_company_model
+    - field.field.user.user.field_company_model_2
+    - field.field.user.user.field_company_model_3
     - field.field.user.user.field_company_name
     - field.field.user.user.field_company_video_youtube
     - field.field.user.user.field_company_web_site
@@ -230,6 +232,22 @@ content:
       link: true
     third_party_settings: {  }
     weight: 79
+    region: content
+  field_company_model_2:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 85
+    region: content
+  field_company_model_3:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 86
     region: content
   field_company_name:
     type: string

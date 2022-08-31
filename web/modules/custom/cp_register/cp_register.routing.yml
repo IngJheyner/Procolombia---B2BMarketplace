@@ -150,6 +150,15 @@ cp_register.pre_registro_comprador:
   requirements:
     _permission: "access content"
 
+### create_step_1_buyer
+cp_register.create_step_1_buyer:
+  path: "pre-register/buyer/create_step_1"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::createStep1'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
 ### index register_buyer
 cp_register.register_buyer:
   path: "register/user/buyer"
@@ -165,5 +174,68 @@ cp_register.registro_comprador:
   defaults:
     _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
   methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### get user
+cp_register.get_user_buyer:
+  path: "get_user/buyer"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::getDataUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### delete user
+cp_register.delete_user_buyer:
+  path: "delete_user/buyer"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::deleteUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### getSubcategories
+cp_register.getSubcategories:
+  path: "get_subcategories"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::getSubcategories'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_2_buyer
+cp_register.create_step_2_buyer:
+  path: "registro/usuario/comprador/create_step_2"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep2'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+  
+### create_step_3_buyer
+cp_register.create_step_3_buyer:
+  path: "registro/usuario/comprador/create_step_3"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep3'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_4_buyer
+cp_register.create_step_4_buyer:
+  path: "registro/usuario/comprador/create_step_4"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep4'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_5_buyer
+cp_register.create_step_5_buyer:
+  path: "registro/usuario/comprador/create_step_5"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep5'
+  methods:  [POST]
   requirements:
     _permission: "access content"

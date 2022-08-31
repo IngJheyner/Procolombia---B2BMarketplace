@@ -1,0 +1,30 @@
+uuid: 85c866d7-b5c4-405f-a751-a2a25f3e1acf
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_model_2
+    - taxonomy.vocabulary.modelos_de_negocio
+  module:
+    - user
+id: user.user.field_company_model_2
+field_name: field_company_model_2
+entity_type: user
+bundle: user
+label: company_model_2
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      modelos_de_negocio: modelos_de_negocio
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
