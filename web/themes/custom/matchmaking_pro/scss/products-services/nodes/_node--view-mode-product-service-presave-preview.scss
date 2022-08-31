@@ -1,0 +1,115 @@
+.node--view-mode-product-service-presave-preview {
+	.node__content {
+		
+	}
+	
+	.swiper-button-prev,
+	.swiper-button-next {
+		top: 182px;
+
+		&::after {
+			font-size: 20px;
+		}
+	}
+	
+	.swiper-button-prev {
+		left: -15px;
+	}
+	
+	.swiper-button-next {
+		right: -15px;
+	}
+
+	.carrusel-thumbs-wrapper {
+		position: relative;
+		margin: 0 30px;
+		width: 400px;
+	}
+	
+	.group-row {
+		display: grid;
+		grid-template-columns: 400px 1fr;
+		gap: 40px;
+	}
+
+	.group-right {
+		width: auto;
+
+		h2 {
+			text-align: left;
+			font: normal normal bold 30px/35px "Maven Pro";
+			letter-spacing: 0px;
+			color: #005CA4;
+		}
+		
+		.field {
+			display: grid;
+			grid-template-columns: 224px 1fr;
+			gap: 12px 8px;
+			margin: 8px 0 0;
+			font-size: 14px;
+			line-height: 17px;
+			letter-spacing: 0px;
+			color: #3B3D42;
+		}
+
+		.field__label {
+			font-weight: bold;
+		}
+		
+		.field__item {
+
+		}
+
+		.field--name-field-body {
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		.group-footer-links {
+			display: flex;
+			align-items: flex-start;
+			gap: 17px;
+			margin-top: 20px;
+
+			* {
+				display: inline-block;
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				padding: 0 17px;
+				height: 38px;
+				background: #FFFFFF 0% 0% no-repeat padding-box;
+				box-shadow: 0px 3px 6px #00000029;
+				border-radius: 4px;
+				color: #3B3D42;
+				text-indent: 0;
+				font-size: 14px;
+				line-height: 17px;
+			}
+
+			button {
+				display: flex;
+				align-items: center;
+				margin-left: auto;
+				padding: 0 17px;
+				height: 38px;
+				background: #005CA4;
+				box-shadow: 0px 3px 6px #00000029;
+				color: #fff;
+				border: 0;
+				border-radius: 4px;
+				font-size: 14px;
+				line-height: 17px;
+			}
+		}
+		
+		.field--name-field-file-certifications {
+			display: flex;
+			flex-direction: column;
+			text-indent: -9999px;
+		}
+	}
+}

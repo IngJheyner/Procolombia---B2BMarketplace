@@ -1,6 +1,23 @@
 /* VARIABLES */
 
-// colors
+
+//Variable colors from Mockup
+$procol-light-green: #31D394;
+$procol-gray-50: #eaeaea;
+$procol-gray-100: #F0F0F0;
+$procol-gray-200:#D8DADD;
+$procol-gray-300: #6A6D71;
+$procol-gray-400: #3B3D42;
+$procol-purple: #504672;
+$procol-red: #BA0C2F;
+$procol-light-blue: #0085CA;
+$procol-dark-blue: #005CA4;
+$procol-yellow: #FDCA00;
+$procol-black: #000000;
+$gray-shadow:#00000029;
+//
+$font-family-Maven-Pro: Maven-Pro;
+//colors
 $primary-shade: rgb(255, 78, 46);
 $primary-light: lighten($primary-shade, 37%);
 $primary-dark: darken($primary-shade, 12%);
@@ -47,5 +64,8 @@ $enable-gradients: false;
 // $breadcrumb-divider: quote(">");
 $colorTop: #005CA4;
 $colorBottom: #008CCE;
+
+//Buttons
+$button-lighter-gray: #f7f8f8;
 
 

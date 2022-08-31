@@ -1,0 +1,70 @@
+.generic-modal.modal {
+    .modal-content{
+        @include modals-basic-style;
+        .modal-header{
+            padding: 20px;
+            padding-left: 25px;
+            position: relative;
+            .modal-header-title{
+                margin: auto;
+                font-size: 22px;
+                font-weight: bold;
+                @include media-breakpoint-down(sm) {
+                    font-size: 14px;
+                 }
+            }
+            .modal-header-close{
+                position: absolute;
+                color: transparent;
+                right: 14px;
+                top: 12px;
+                height: 16px;
+                width: 16px;
+                cursor: pointer;
+                background-image: url(../images/icons/Cerrar-azul.svg);
+                background-size: 16px 16px;
+                background-repeat: no-repeat;
+                background-color: transparent !important;
+                border: none;
+            }
+            &::before{
+                content: '';
+                background-image: url(../images/icons/Modal-Recomendacion.svg);
+                background-size: 17px 27px;
+                width: 17px;
+                height: 27px;
+            }
+        }
+        .modal-body{
+            padding-left: 35px;
+            @include media-breakpoint-down(sm) {
+                padding-left: 25px;
+             }
+            span{
+                font-size: 14px;
+
+                }
+        }
+        .modal-footer{
+            @include media-breakpoint-down(sm) {
+                padding: 16px 12px;
+            }
+            .modal-footer-right {
+                a.button, button{
+                    font-size: 14px;
+                    line-height: 17px;
+                    margin: 0;
+                    @include blue-btn;
+                    @include media-breakpoint-down(sm) {
+                        width: 100%;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                     }
+                }
+            }
+        }
+    }
+}
