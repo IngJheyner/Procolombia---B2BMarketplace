@@ -137,7 +137,7 @@ class CpRegisterBuyerController extends ControllerBase
         $uid = $this->getUid($data['email']);
         if($uid){
             $user = \Drupal\user\Entity\User::load($uid);
-            $user->set("field_step", 3);
+            $user->set("field_step", 4);
             $user->set("field_cat_interest_2", $data['cat_interest_2']);
             $user->set("field_subcat_interest_2", $data['subcat_interest_2']);
             $user->set("field_company_model_2", $data['company_model_2']);
@@ -157,7 +157,7 @@ class CpRegisterBuyerController extends ControllerBase
         $uid = $this->getUid($data['email']);
         if($uid){
             $user = \Drupal\user\Entity\User::load($uid);
-            $user->set("field_step", 3);
+            $user->set("field_step", 5);
             $user->set("field_cat_interest_3", $data['cat_interest_3']);
             $user->set("field_subcat_interest_3", $data['subcat_interest_3']);
             $user->set("field_company_model_3", $data['company_model_3']);
