@@ -39,7 +39,7 @@
 
 
 
-  Drupal.behaviors.matchmaking_pro = {
+  Drupal.behaviors.custom = {
     attach: function (context, settings) {
       //call function login
       $("#btn_login", context).click(function () {

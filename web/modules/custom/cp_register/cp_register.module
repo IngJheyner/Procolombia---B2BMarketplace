@@ -70,6 +70,10 @@ function cp_register_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_register_buyer_template',
+      'variables' => [
+        'tree_categorization' => null,
+        'tree_business_model' => null,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',

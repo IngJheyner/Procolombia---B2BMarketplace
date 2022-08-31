@@ -197,7 +197,7 @@
             });
 
             //call function showQuestionModal
-            $("#save_1", context).click(function () {
+            $("#save_modal", context).click(function () {
                 updateData();
             });
         }

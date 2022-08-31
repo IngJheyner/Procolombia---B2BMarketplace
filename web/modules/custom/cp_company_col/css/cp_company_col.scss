@@ -78,7 +78,7 @@ div#main {
             font-family: $font-regular;
         }
     }
-
+    
     .title_card_dashboard {
         display: flex;
         align-items: center;
@@ -993,6 +993,28 @@ span {
         box-shadow: none !important;
     }
 
+    .order_1 {
+        order: 1;
+    }
+
+    .order_2 {
+        order: 2;
+    }
+
+    .order_3 {
+        order: 3;
+    }
+
+    .order_4 {
+        order: 4;
+    }
+    .order_5{
+        order: 5;
+    }
+    .order_6{
+        order: 6;
+    }
+
 
 }
 
@@ -1111,6 +1133,28 @@ span {
         margin-left: 6%;
         margin-right: 6%;
     }
+
+    .order_1 {
+        order: 1;
+    }
+
+    .order_2 {
+        order: 2;
+    }
+
+    .order_3 {
+        order: 3;
+    }
+
+    .order_4 {
+        order: 4;
+    }
+    .order_5{
+        order: 5;
+    }
+    .order_6{
+        order: 6;
+    }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -1160,6 +1204,27 @@ span {
 
     .step_registre {
         padding: 0rem;
+    }
+    .order_1 {
+        order: 1;
+    }
+
+    .order_2 {
+        order: 2;
+    }
+
+    .order_3 {
+        order: 3;
+    }
+
+    .order_4 {
+        order: 4;
+    }
+    .order_5{
+        order: 5;
+    }
+    .order_6{
+        order: 6;
     }
 
 }

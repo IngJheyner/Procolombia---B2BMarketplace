@@ -27,7 +27,7 @@
     var message = "";
     var isValid = true;
     if (nit == "" || isNaN(nit) || nit.length > 12) {
-      message = "El NIT es requerido y debe tener menos 12 dígitos";
+      message = Drupal.t("The NIT is required and must have less than 12 digits");
       $("#nit").css("border-color", "#ba0c2f");
       $("#error_nit").show();
       $("#error_nit_message").text(message)
@@ -136,7 +136,7 @@
 
   //go_home
   function goHome() {
-    window.location.href = "/";
+    window.location.href = "/verificacion/usuario";
   }
   // **********************
   // *** Call functions ***
@@ -156,10 +156,10 @@
         window.location.href = "/user/login";
       });
       //call function go home
-      $("#go_to_home", context).click(function () {
+      $("#cancel_procces", context).click(function () {
         goHome();
       });
-      
+
     }
   };
 

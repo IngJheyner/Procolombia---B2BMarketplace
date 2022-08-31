@@ -64,6 +64,10 @@ a svg.ext {
   display: none;
 }
 
+.container {
+  max-width: 1400px !important;
+}
+
 .site-footer {
   background-color: #fff !important;
   padding: 0px !important;
@@ -347,7 +351,7 @@ div#main {
 }
 
 .logo {
-  width: 230px;
+  width: 270px;
   height: 49px;
   padding-left: 19px;
 }
@@ -485,7 +489,6 @@ div#main {
   height: 45px;
   color: #ffffff;
   justify-content: center;
-  margin: 0 auto;
 }
 .menu-left .menu-content i {
   font-size: 30px;
@@ -701,7 +704,7 @@ div#page {
   top: 8px !important;
 }
 .icon_secction .icono:hover .img_icon {
-  transform: rotate(-13deg) scale(0.95);
+  transform: rotateZ(-13deg) scale(1.08);
 }
 .icon_secction .icono:hover .img_icon svg {
   background-color: #ffffff;
@@ -812,6 +815,8 @@ div#page {
   color: #ffffff;
   font-family: Gothic-Regular;
   transition: all 0.4s ease-out !important;
+  padding: 4px 22px;
+  margin-top: 6px;
 }
 .dropdown-cont .logo_img_menu .small_editar:hover {
   color: #ffffff;
@@ -973,6 +978,12 @@ div#page {
   .site-footer .bottom_footer_mobile .list_footer li::marker {
     color: #fff;
   }
+  .icon_secction {
+    display: none;
+  }
+  body {
+    background-color: #F7F8F8;
+  }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container,
@@ -1090,6 +1101,12 @@ div#page {
   }
   .site-footer .bottom_footer_mobile .list_footer li::marker {
     color: #fff;
+  }
+  .icon_secction {
+    display: none;
+  }
+  body {
+    background-color: #F7F8F8;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
