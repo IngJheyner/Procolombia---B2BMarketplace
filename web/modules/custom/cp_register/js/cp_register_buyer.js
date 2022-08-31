@@ -320,17 +320,16 @@
           $("#loading_international_2").hide();
           $("#save_international_2").show();
           if (response.status == 200) {
-            $("#profile-tab").addClass("active");
-            $("#profile-tab-pane").addClass("show active");
-            $("#home-tab").removeClass("active");
+            $("#step_3_tab").addClass("active");
+            $("#step_3").addClass("show active");
+            $("#step_2").removeClass("active");
             //Add class complete to tab 1
-            $("#svg_home").hide();
-            $("#home_title").hide();
-            $("#check_home_tab").show();
-            $("#profile_title").show();
-            $("#validate_progresss").css("width", "66.66%");
-            $("#home-tab").addClass("complete");
-            $("#home-tab-pane").removeClass("show active");
+            $("#step_2_svg").hide();
+            $("#step_2_title").hide();
+            $("#check_step_2").show();
+            $("#step_3_title").show();
+            $("#validate_progresss").css("width", "33%");
+            $("#step_2").removeClass("show active");
           } else {
             alert("Error al crear el usuario" + error);
           }
@@ -415,17 +414,16 @@
           $("#loading_international_3").hide();
           $("#save_international_3").show();
           if (response.status == 200) {
-            $("#profile-tab").addClass("active");
-            $("#profile-tab-pane").addClass("show active");
-            $("#home-tab").removeClass("active");
+            $("#step_4_tab").addClass("active");
+            $("#step_4").addClass("show active");
+            $("#step_3").removeClass("active");
             //Add class complete to tab 1
-            $("#svg_home").hide();
-            $("#home_title").hide();
-            $("#check_home_tab").show();
-            $("#profile_title").show();
-            $("#validate_progresss").css("width", "100%");
-            $("#home-tab").addClass("complete");
-            $("#home-tab-pane").removeClass("show active");
+            $("#step_3_svg").hide();
+            $("#step_3_title").hide();
+            $("#check_step_3").show();
+            $("#step_4_title").show();
+            $("#validate_progresss").css("width", "53%");
+            $("#step_3").removeClass("show active");
           } else {
             alert("Error al crear el usuario" + error);
           }
@@ -511,17 +509,8 @@
           $("#loading_international_4").hide();
           $("#save_international_4").show();
           if (response.status == 200) {
-            $("#profile-tab").addClass("active");
-            $("#profile-tab-pane").addClass("show active");
-            $("#home-tab").removeClass("active");
-            //Add class complete to tab 1
-            $("#svg_home").hide();
-            $("#home_title").hide();
-            $("#check_home_tab").show();
-            $("#profile_title").show();
-            $("#validate_progresss").css("width", "100%");
-            $("#home-tab").addClass("complete");
-            $("#home-tab-pane").removeClass("show active");
+            //show success modal
+            $("#succes_register_international").modal("show");
           } else {
             alert("Error al crear el usuario" + error);
           }
@@ -757,53 +746,41 @@
     let step = parseInt(stepData);
     switch (step) {
       case 2:
-        $("#contact-tab").addClass("active");
-        $("#contact-tab-pane").addClass("show active");
-        $("#home-tab").removeClass("active");
+        $("#step_3_tab").addClass("active");
+        $("#step_3").addClass("show active");
+        $("#step_2").removeClass("active");
         //Add class complete to tab 1
-        $("#svg_home").hide();
-        $("#svg_profile").hide();
-        $("#home_title").hide();
-        $("#check_home_tab").show();
-        $("#check_profile_tab").show();
-        $("#contact_title").show();
-        $("#validate_progresss").css("width", "100%");
-        $("#home-tab").addClass("complete");
-        $("#profile-tab").addClass("complete");
-        $("#home-tab-pane").removeClass("show active");
+        $("#step_2_svg").hide();
+        $("#step_2_title").hide();
+        $("#check_step_2").show();
+        $("#step_3_title").show();
+        $("#validate_progresss").css("width", "33%");
+        $("#step_2").removeClass("show active");
         break;
       case 3:
-        $("#contact-tab").addClass("active");
-        $("#contact-tab-pane").addClass("show active");
-        $("#home-tab").removeClass("active");
+        $("#step_4_tab").addClass("active");
+        $("#step_4").addClass("show active");
+        $("#step_3").removeClass("active");
         //Add class complete to tab 1
-        $("#svg_home").hide();
-        $("#svg_profile").hide();
-        $("#home_title").hide();
-        $("#check_home_tab").show();
-        $("#check_profile_tab").show();
-        $("#contact_title").show();
-        $("#validate_progresss").css("width", "100%");
-        $("#home-tab").addClass("complete");
-        $("#profile-tab").addClass("complete");
-        $("#home-tab-pane").removeClass("show active");
+        $("#step_3_svg").hide();
+        $("#step_3_title").hide();
+        $("#check_step_3").show();
+        $("#step_4_title").show();
+        $("#validate_progresss").css("width", "53%");
+        $("#step_3").removeClass("show active");
         break;
 
       case 4:
-        $("#contact-tab").addClass("active");
-        $("#contact-tab-pane").addClass("show active");
-        $("#home-tab").removeClass("active");
+        $("#step_5_tab").addClass("active");
+        $("#step_5").addClass("show active");
+        $("#step_4").removeClass("active");
         //Add class complete to tab 1
-        $("#svg_home").hide();
-        $("#svg_profile").hide();
-        $("#home_title").hide();
-        $("#check_home_tab").show();
-        $("#check_profile_tab").show();
-        $("#contact_title").show();
-        $("#validate_progresss").css("width", "100%");
-        $("#home-tab").addClass("complete");
-        $("#profile-tab").addClass("complete");
-        $("#home-tab-pane").removeClass("show active");
+        $("#step_4_svg").hide();
+        $("#step_4_title").hide();
+        $("#check_step_4").show();
+        $("#step_5_title").show();
+        $("#validate_progresss").css("width", "73%");
+        $("#step_4").removeClass("show active");
         break;
     }
 

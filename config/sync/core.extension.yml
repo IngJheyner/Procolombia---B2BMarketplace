@@ -155,6 +155,7 @@ module:
   php: 0
   plupload: 0
   plupload_widget: 0
+  potx: 0
   prlp: 0
   quickedit: 0
   quicktabs: 0
