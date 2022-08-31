@@ -1,0 +1,33 @@
+{% if autoload %}
+  {% set autoloadclass = 'autoload' %}
+{% else %}
+  {% set autoloadclass = 'no-autoload' %}
+{% endif %}
+<div class="generic-modal modal {{ class }} {{ autoloadclass }}" id="generic-modal-{{ class }}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-header-title">{{ title }}</span>
+        <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-top-title">{{ message }}</span>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-footer-left">
+        {{ question }}
+        </div>
+        <div class="modal-footer-right">
+          {% if question %}
+            <a class="button btn btn-cancel" href="{{ button_no_link }}">{{ button_no_text }}</a>
+          {% endif %}
+          {% if button_link %}
+            <a class="button btn btn-ok" href="{{ button_link }}">{{ button_text }}</a>
+          {% else %}
+            <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span>{{ button_text }}</span></button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

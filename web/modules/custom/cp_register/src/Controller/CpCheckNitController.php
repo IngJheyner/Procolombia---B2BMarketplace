@@ -56,7 +56,7 @@ class CpCheckNitController extends ControllerBase
                 return new JsonResponse(['user' => true]);
             }
         }
-        
+
         $empresas = ConsultaNIT($data['nit']);
         if (!empty($empresas)) {
             $comp_neo = reset($empresas);

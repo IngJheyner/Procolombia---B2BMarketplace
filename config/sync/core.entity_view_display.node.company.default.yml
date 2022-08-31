@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.company.field_cellphone
     - field.field.node.company.field_charge
     - field.field.node.company.field_ciiu_code
+    - field.field.node.company.field_com_published
     - field.field.node.company.field_contact_name
     - field.field.node.company.field_email
     - field.field.node.company.field_ext
@@ -59,6 +60,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_com_published:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_json_ld:
     type: text_trimmed

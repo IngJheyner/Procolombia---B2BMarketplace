@@ -1,0 +1,26 @@
+uuid: d0efdae4-5cc4-4481-b221-43bd5c6b6f33
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_tutorial_ac
+    - node.type.accessconditioncontent
+  module:
+    - video
+id: node.accessconditioncontent.field_video_tutorial_ac
+field_name: field_video_tutorial_ac
+entity_type: node
+bundle: accessconditioncontent
+label: 'Video Tutorial'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'videos/[date:custom:Y]-[date:custom:m]'
+  file_extensions: ''
+  max_filesize: ''
+field_type: video

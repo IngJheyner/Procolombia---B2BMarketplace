@@ -1,6 +1,6 @@
 _core:
   default_config_hash: MkHeCM1mSSJO-NAGk-71UEfY-Pm136zlecHR7qU2w00
 langcode: es
-path_prefix: jsonapi
-include_count: false
+path_prefix: matchmaking/api/v1
+include_count: true
 default_disabled: false

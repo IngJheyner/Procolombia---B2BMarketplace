@@ -45,11 +45,11 @@ function matchmaking_pro_preprocess_page(array &$variables) {
   //ceck if user is not deleted in drupal
 
   if($user->isActive()){
-      
+
     //check if has exporter rol
     // chek if user is not root
     if($user->hasRole('exportador')){
-      //is not empty field_company_name 
+      //is not empty field_company_name
       if(!empty($user->get('field_company_name')->value)){
         $variables['business_name'] = $user->get('field_company_name')->value;
         $variables['company_logo'] = file_create_url($user->get('field_company_logo')->entity->getFileUri());
@@ -59,5 +59,18 @@ function matchmaking_pro_preprocess_page(array &$variables) {
         $variables['business_name'] = '';
       }
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param [type] $variables
+ * @return void
+ */
+function matchmaking_pro_preprocess_views_view_table(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'paises') {
+    $variables['table_class'] = '';
   }
 }

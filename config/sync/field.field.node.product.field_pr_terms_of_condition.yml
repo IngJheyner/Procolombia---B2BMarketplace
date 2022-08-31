@@ -1,0 +1,23 @@
+uuid: f7daf414-f5c5-44cb-8873-7e5b79c3623f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_terms_of_condition
+    - node.type.product
+id: node.product.field_pr_terms_of_condition
+field_name: field_pr_terms_of_condition
+entity_type: node
+bundle: product
+label: 'Términos y Condiciones de uso'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activado
+  off_label: Desactivado
+field_type: boolean

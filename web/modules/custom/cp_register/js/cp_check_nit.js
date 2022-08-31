@@ -159,7 +159,7 @@
       $("#cancel_procces", context).click(function () {
         goHome();
       });
-      
+
     }
   };
 

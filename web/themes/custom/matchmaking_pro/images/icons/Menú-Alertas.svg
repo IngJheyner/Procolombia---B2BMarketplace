@@ -1,0 +1,14 @@
+<svg id="Grupo_1384" data-name="Grupo 1384" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.267" height="26.952" viewBox="0 0 25.267 26.952">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#005ca4"/>
+      <stop offset="1" stop-color="#008cce"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#891b1f"/>
+      <stop offset="1" stop-color="#ae003f"/>
+    </linearGradient>
+  </defs>
+  <path id="Trazado_37" data-name="Trazado 37" d="M152.563,1072.378h20.213a2.527,2.527,0,1,0,0-5.053.843.843,0,0,1-.842-.842v-5.054a9.24,9.24,0,0,0-2.713-6.551h0a.842.842,0,1,0-1.19,1.19,7.551,7.551,0,0,1,2.221,5.359v5.475a2.106,2.106,0,0,0,2.106,2.106h.421a.842.842,0,0,1,0,1.685H152.563a.842.842,0,0,1,0-1.685h.421a2.106,2.106,0,0,0,2.106-2.106v-5.475a7.575,7.575,0,0,1,6.586-7.507s-.008-.01-.005-.01a2.107,2.107,0,0,0,1.842-2.09v-.5a.842.842,0,1,0-1.684,0v.316a.632.632,0,0,1-.526.623.356.356,0,0,1,.129,0,9.256,9.256,0,0,0-8.025,9.168v5.054a.843.843,0,0,1-.842.842,2.527,2.527,0,1,0,0,5.053m11.791,1.685a.842.842,0,0,0-.842.842.842.842,0,0,1-1.684,0,.842.842,0,0,0-1.684,0,2.521,2.521,0,0,0,5.036.17.844.844,0,0,0-.825-1.012" transform="translate(-150.036 -1050.48)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  <path id="Trazado_38" data-name="Trazado 38" d="M170.3,1054.48a1.267,1.267,0,0,0-1.2,1.665,1.227,1.227,0,0,0,.8.8,1.265,1.265,0,1,0,.4-2.464" transform="translate(-154.297 -1052.796)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+</svg>

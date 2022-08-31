@@ -1,4 +1,4 @@
-/* 
+/*
 Theme Name: Bootstrap 4 Sass
 Description: Bootstrap 4 with Sass
 */
@@ -6,21 +6,55 @@ Description: Bootstrap 4 with Sass
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
 // import files
 @import "import";
 
 /* GENERAL STYLES
 -------------------------------------------------*/
-
 body {
     background: $white;
+    //font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 13px/16px var(--unnamed-font-family-century-gothic);
+    //letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-3b3d42);
+    text-align: left;
+    font: normal normal normal 13px/16px 'century_gothicregular';
+    letter-spacing: 0px;
+    color: #3B3D42;
+    opacity: 1;
+}
+
+/* ==============================
+TAMANIO DE LOS TITULOS INTERNOS
+DIFERENTES A LOS PRINCIPALES
+============================== */
+h5,
+h6{
+  font-size: 15px;
 }
 
 
-/* COLORS 
---------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Maven Pro', sans-serif;
+}
 
+.dialog-off-canvas-main-canvas {
+	overflow: hidden;
+}
+
+/* COLORS
+--------------------------------------------------*/
+/*******************/
+
+.bg-degradado{
+    background: linear-gradient($colorTop,$colorBottom);
+}
 a {
     color: $accent-shade;
 }

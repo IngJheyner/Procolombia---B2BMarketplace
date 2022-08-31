@@ -66,8 +66,8 @@ class CpPreRegisterBuyerController extends ControllerBase
         $user->set("field_company_contact_cell_phone", $data['cellphone']);
         $user->save();
         //_user_mail_notify('status_activated', $user);
-        
+
         return new JsonResponse(['status' =>  200]);
     }
- 
+
 }

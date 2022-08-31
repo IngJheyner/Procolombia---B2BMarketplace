@@ -67,7 +67,7 @@
         //toggle style css
         $("#lenguaje").toggleClass("active_dropdown");
       });
-      
+
       //if click outside menu_user, remove css
       $(document).click(function (e) {
         if ($(e.target).closest("#menu_drop").length === 0 && $(e.target).closest("#menu_user").length === 0) {
@@ -75,7 +75,6 @@
           setTimeout(function () {
             $("#menu_drop").removeClass("active");
           }, 200);
-
         }
       });
 

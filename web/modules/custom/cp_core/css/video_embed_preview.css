@@ -1,0 +1,16 @@
+.video-embed-with-preview {
+  position: relative;
+  max-width: 400px;
+}
+
+.video-embed-with-preview iframe {
+  width: 200px;
+  height: 150px;
+}
+
+.video-embed-with-preview .remove-remote-video-value {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+}

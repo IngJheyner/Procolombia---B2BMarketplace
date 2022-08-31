@@ -23,10 +23,11 @@ module:
   breakpoint: 0
   captcha: 0
   change_pwd_page: 0
+  chosen: 0
+  chosen_lib: 0
   civic_accessibility_toolbar: 0
   ckeditor: 0
   ckeditor_media_embed: 0
-  color: 0
   color_field: 0
   comment: 0
   config: 0
@@ -84,11 +85,11 @@ module:
   flag_follower: 0
   focal_point: 0
   force_password_change: 0
+  formatter_suite: 0
   gin_toolbar: 0
   google_analytics: 0
   graphql: 0
   graphql_core: 0
-  hal: 0
   help: 0
   history: 0
   honeypot: 0
@@ -187,6 +188,7 @@ module:
   slick_views: 0
   smart_trim: 0
   stage_file_proxy: 0
+  statistics: 0
   structure_sync: 0
   svg_image: 0
   svg_image_responsive: 0
@@ -247,6 +249,7 @@ module:
   content_translation: 10
   password_policy: 10
   views: 10
+  mfd: 11
   paragraphs: 11
   tvi: 15
   standard: 1000

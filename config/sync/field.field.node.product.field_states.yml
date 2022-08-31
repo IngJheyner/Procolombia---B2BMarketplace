@@ -15,9 +15,7 @@ label: States
 description: ''
 required: false
 translatable: true
-default_value:
-  -
-    value: waiting
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: list_string
