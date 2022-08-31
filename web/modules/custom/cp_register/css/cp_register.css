@@ -258,7 +258,7 @@ div#main-wrapper {
   width: 100%;
   left: 0;
   top: 0;
-  background-image: url("../img/banner_2.webp");
+  background-image: url("http://52.201.168.42/sites/default/files/2022-08/Registro-BannerEmpresa.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -593,10 +593,6 @@ div#main-wrapper {
 .steps .step_content {
   padding: 2rem;
 }
-.steps .step_content .validate_buyer {
-  margin: 1rem 20% !important;
-  height: 5px;
-}
 .steps .step_content .validate {
   margin: 1rem 32% !important;
   height: 5px;
@@ -777,6 +773,210 @@ div#main-wrapper {
   color: #000000;
 }
 
+.steps_buyer {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+}
+.steps_buyer .step_tittle {
+  background: transparent linear-gradient(180deg, #005ca4 0%, #0085ca 100%) 0% 0% no-repeat padding-box;
+  font-size: 17px;
+  font-family: Maven-Bold;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  color: #ffffff;
+  z-index: 1;
+}
+.steps_buyer .step_content {
+  padding: 2rem;
+}
+.steps_buyer .step_content .validate_buyer {
+  margin: 1rem 11% !important;
+  height: 5px;
+}
+.steps_buyer .step_content .validate {
+  margin: 1rem 32% !important;
+  height: 5px;
+}
+.steps_buyer .step_content .validate .progress-bar {
+  background-color: #0085ca;
+}
+.steps_buyer .step_content li a {
+  font-family: Gothic-Bold;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 190px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 3px solid #ffffff;
+  transition: all 0.2s ease-out;
+  padding: 25px;
+  padding-bottom: 9px;
+}
+.steps_buyer .step_content li a svg {
+  width: 50px;
+  margin-bottom: 10px;
+}
+.steps_buyer .step_content li a svg .back {
+  fill: #666869;
+}
+.steps_buyer .step_content li a svg .num {
+  fill: #ffffff;
+}
+.steps_buyer .step_content li a.active svg {
+  width: 50px;
+  margin-bottom: 10px;
+}
+.steps_buyer .step_content li a.active svg .back {
+  fill: #0085ca;
+}
+.steps_buyer .step_content li a.active svg .num {
+  fill: #ffffff;
+}
+.steps_buyer .step_content form {
+  background-color: #ffffff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  margin-top: 20px;
+  border-radius: 4px;
+  padding: 2rem;
+}
+.steps_buyer .step_content form label {
+  font-family: Gothic-Bold;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+.steps_buyer .step_content form label span {
+  color: #ba0c2f;
+}
+.steps_buyer .step_content form .input-group-text,
+.steps_buyer .step_content form .input-group label {
+  background-color: #005ca4;
+  color: #ffffff;
+  border-radius: 4px !important;
+  margin-right: -3px;
+  z-index: 2;
+  cursor: pointer;
+}
+.steps_buyer .step_content form .input-group-text svg,
+.steps_buyer .step_content form .input-group label svg {
+  margin-right: 10px;
+}
+.steps_buyer .step_content form .password .input-group-text {
+  background-color: #fff;
+  color: #ffffff;
+  border-radius: 4px !important;
+  margin-left: -3px !important;
+  z-index: 2;
+  border-left: 0px;
+  cursor: pointer;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+.steps_buyer .step_content form .password .input-group-text svg {
+  margin-right: 10px;
+}
+.steps_buyer .step_content form .password .validation {
+  display: flex;
+  align-items: center;
+}
+.steps_buyer .step_content form .password .validation .progress {
+  height: 7px;
+  width: 100%;
+}
+.steps_buyer .step_content form .password .validation .progress .progress-bar {
+  background-color: #31d394;
+}
+.steps_buyer .step_content form .password .validation .mensaje {
+  margin-bottom: 0;
+  margin-left: 24px;
+  margin-right: 6px;
+}
+.steps_buyer .step_content form .rihgt .input-group-text {
+  margin-left: -3px !important;
+}
+.steps_buyer .step_content form .rihgt .input-group-text.eliminar {
+  background-color: #ba0c2f !important;
+  font-family: Gothic-Regular !important;
+}
+.steps_buyer .step_content form .icon_help {
+  background-color: #fdca00;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  border-radius: 100px;
+}
+.steps_buyer .step_content form #pass-show {
+  display: none;
+}
+.steps_buyer .step_content form .tooltip-inner {
+  text-align: left;
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 20px;
+}
+.steps_buyer .step_content form input {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 7px 20px;
+  color: #000000;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.steps_buyer .step_content form input:focus {
+  outline: none;
+}
+.steps_buyer .step_content form input:active {
+  outline: none;
+}
+.steps_buyer .step_content form select,
+.steps_buyer .step_content form .ts-control {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 96% !important;
+  background-position-y: 50% !important;
+  border: 1px solid #dfdfdf;
+  padding: 10px 0.7rem !important;
+  font-size: 15px;
+  padding-right: 2.4rem !important;
+}
+.steps_buyer .step_content form select:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
+}
+.steps_buyer .step_content form .ts-control:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
+}
+.steps_buyer .step_content form select,
+.steps_buyer .step_content form textarea {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 7px 20px;
+  color: #000000;
+  border: 1px solid #cccccc;
+  width: 100%;
+  border-radius: 4px;
+}
+.steps_buyer .step_content form select:focus,
+.steps_buyer .step_content form textarea:focus {
+  outline: none;
+}
+.steps_buyer .step_content form select:active,
+.steps_buyer .step_content form textarea:active {
+  outline: none;
+}
+.steps_buyer .step_content form .title_label {
+  font-size: 1.2rem;
+  font-family: Gothic-Bold;
+  color: #000000;
+}
+
 #logo_name {
   background-image: url("http://52.201.168.42/sites/default/files/2022-08/Icono_file-image.svg");
   background-repeat: no-repeat;
@@ -842,7 +1042,7 @@ div#main-wrapper {
 
 .pt-6 {
   margin-top: 3rem;
-  border-top: 1px solid rgba(204, 204, 204, 0.3294117647) !important;
+  border-top: 1px solid rgba(204, 204, 204, 0.443) !important;
   width: 100%;
   padding-bottom: 1rem;
 }

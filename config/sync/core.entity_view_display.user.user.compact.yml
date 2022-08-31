@@ -26,6 +26,8 @@ dependencies:
     - field.field.user.user.field_company_info_english
     - field.field.user.user.field_company_logo
     - field.field.user.user.field_company_model
+    - field.field.user.user.field_company_model_2
+    - field.field.user.user.field_company_model_3
     - field.field.user.user.field_company_name
     - field.field.user.user.field_company_video_youtube
     - field.field.user.user.field_company_web_site
@@ -103,6 +105,8 @@ hidden:
   field_company_info_english: true
   field_company_logo: true
   field_company_model: true
+  field_company_model_2: true
+  field_company_model_3: true
   field_company_name: true
   field_company_video_youtube: true
   field_company_web_site: true

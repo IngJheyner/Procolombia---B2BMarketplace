@@ -77,6 +77,8 @@ div#main {
             border-top-right-radius: 4px;
             font-family: $font-regular;
         }
+
+        
     }
 
     .title_card_dashboard {
@@ -277,6 +279,13 @@ div#main {
                 background-color: $color-Pantone-200  !important;
                 font-family: $font-regular  !important;
             }
+        }
+    }
+    .anuncio_dashboard {
+        .img_anuncio {
+
+            width: 45px;
+
         }
     }
 

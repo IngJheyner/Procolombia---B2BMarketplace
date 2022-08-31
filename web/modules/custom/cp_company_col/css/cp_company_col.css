@@ -786,6 +786,24 @@ span {
   .steps .step_content form {
     box-shadow: none !important;
   }
+  .order_1 {
+    order: 1;
+  }
+  .order_2 {
+    order: 2;
+  }
+  .order_3 {
+    order: 3;
+  }
+  .order_4 {
+    order: 4;
+  }
+  .order_5 {
+    order: 5;
+  }
+  .order_6 {
+    order: 6;
+  }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container,
@@ -874,6 +892,24 @@ span {
     margin-left: 6%;
     margin-right: 6%;
   }
+  .order_1 {
+    order: 1;
+  }
+  .order_2 {
+    order: 2;
+  }
+  .order_3 {
+    order: 3;
+  }
+  .order_4 {
+    order: 4;
+  }
+  .order_5 {
+    order: 5;
+  }
+  .order_6 {
+    order: 6;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-lg-9,
@@ -908,5 +944,23 @@ span {
   }
   .step_registre {
     padding: 0rem;
+  }
+  .order_1 {
+    order: 1;
+  }
+  .order_2 {
+    order: 2;
+  }
+  .order_3 {
+    order: 3;
+  }
+  .order_4 {
+    order: 4;
+  }
+  .order_5 {
+    order: 5;
+  }
+  .order_6 {
+    order: 6;
   }
 }/*# sourceMappingURL=cp_company_col.css.map */

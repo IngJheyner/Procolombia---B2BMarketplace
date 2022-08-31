@@ -135,6 +135,7 @@
         "drupal/php": "^1.1",
         "drupal/plupload": "^2.0@beta",
         "drupal/plupload_widget": "^2.0@beta",
+        "drupal/potx": "^1.0@alpha",
         "drupal/prlp": "^1.6",
         "drupal/quicktabs": "^3.0@alpha",
         "drupal/recaptcha": "^3.0",
