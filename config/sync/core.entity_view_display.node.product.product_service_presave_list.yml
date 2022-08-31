@@ -89,15 +89,18 @@ third_party_settings:
             attributes: ''
     regions:
       left:
-        - node_title
         - field_images
-        - field_body
       right:
+        - node_title
+        - field_body
+        - field_categorization_parent
+        - field_categorization
+        - field_partida_arancelaria_tax
         - cp_core_presave_preview
     fields:
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
         settings:
@@ -119,7 +122,7 @@ content:
   cp_core_presave_preview:
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 6
     region: right
   field_body:
     type: advanced_text
@@ -136,7 +139,37 @@ content:
       use_summary: 0
     third_party_settings: {  }
     weight: 2
-    region: left
+    region: right
+  field_categorization:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 4
+    region: right
+  field_categorization_parent:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 3
+    region: right
   field_images:
     type: owlcarousel_field_formatter
     label: hidden
@@ -148,14 +181,12 @@ content:
       itemsDesktopSmall: '[979,3]'
       itemsTablet: '[768,2]'
       itemsMobile: '[479,1]'
-      itemsScaleUp: '1'
       slideSpeed: '200'
       paginationSpeed: '800'
       rewindSpeed: '1000'
-      autoPlay: '1'
       navigation: '1'
-      prevText: '<'
-      nextText: '>'
+      prevText: prev
+      nextText: next
       rewindNav: '1'
       pagination: '1'
       responsive: '1'
@@ -164,6 +195,8 @@ content:
       touchDrag: '1'
       transitionStyle: fade
       singleItem: 0
+      itemsScaleUp: 0
+      autoPlay: 0
       stopOnHover: 0
       scrollPerPage: 0
       paginationNumbers: 0
@@ -177,8 +210,23 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 1
+    weight: 0
     region: left
+  field_partida_arancelaria_tax:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 5
+    region: right
 hidden:
   cp_core_close_modal: true
   cp_core_title_h2_no_link: true
@@ -186,8 +234,6 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_aditional_information: true
-  field_categorization: true
-  field_categorization_parent: true
   field_dependent_state: true
   field_exist_certifications: true
   field_export_markets: true
@@ -197,7 +243,6 @@ hidden:
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
-  field_partida_arancelaria_tax: true
   field_pr_certifications: true
   field_pr_country: true
   field_pr_image_1: true

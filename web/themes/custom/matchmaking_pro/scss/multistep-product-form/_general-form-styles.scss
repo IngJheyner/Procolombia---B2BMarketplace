@@ -14,6 +14,25 @@
     grid-row-gap: 0px;
     grid-template-columns: 210px repeat(2, 1fr);
     grid-template-rows: auto repeat(2, 1fr) auto;
+    background-color: $white;
+    &.step-2,
+    &.step_3,
+    &.step_4,
+    &.step_5{
+        .group-top h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .form-wrapper h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .group-left h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    }
     @include media-breakpoint-down(md){
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto 1fr auto;
@@ -31,11 +50,12 @@
     input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
+        border: 1px solid #A1A5AA;
     }
     .form-textarea{
         height: 100px;
     }
-    select{
+    select, .SumoSelect{
         height: 35px;
         &:focus{
             box-shadow: none;
@@ -47,8 +67,46 @@
     }
     .form-select{
         background-image: url(../images/icons/Fecha.svg);
-        background-size: 32px 32px;
+        background-size: 20px 20px;
         padding-right: 45px;
+        background-repeat: no-repeat;
+    }
+    .SumoSelect{
+        width: 100%;
+        @include fields-hover-and-focus;
+        &:hover{
+            border: none;
+        }
+        .CaptionCont{
+            height: 35px;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            border: 1px solid #A1A5AA;
+            &:hover{
+                border: 2px solid $procol-dark-blue;
+            }
+            i{
+                background-image: url(../images/icons/Fecha.svg);
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: 32px;
+                width: 32px;
+                right: 10px;
+                left: auto;
+            }
+        }
+        .optWrapper{
+            border-radius: 1px;
+            box-shadow: 0 3px 10px $gray-shadow;
+            .options{
+                li.opt:hover{
+                    background-color: $procol-dark-blue;
+                    color: $white;
+                }
+            }
+        }
     }
     small{
         width: 100%;
@@ -82,11 +140,11 @@
         &.js-form-type-checkbox {
             padding: 0 50px;
             display: flex;
-            gap: 20px;
+            gap: 10px;
             align-items: center;
             position: relative;
             input[type=checkbox]:checked{
-                background-color: transparent;
+                box-shadow: none;
                 
             }
             input[type=checkbox]:before {
@@ -141,7 +199,8 @@
                 border-top-right-radius: 0;
                 margin-top: 35px;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
+                overflow: hidden;
                 background-position-x: 10px;
                 padding-left: 35px;
                }
@@ -211,6 +270,10 @@
         padding: 0 50px;
         border-right: 1px solid $procol-gray-200;
         margin-top: 31px;
+        &.step-5{
+            margin-top: 0;
+            
+        }
         @include media-breakpoint-down(lg){
             border-right: none;
         }
@@ -228,10 +291,16 @@
         justify-content: flex-end;
         align-items: flex-end;
         padding: 0 50px;
-        
         #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
             }
+        #edit-field-pr-multilingual-step5-wrapper{
+            display: none;
+        }
+
+        #edit-field-pr-video-description-2-wrapper{
+            margin-bottom: 0 !important;
+        }
     }
     .field--type-entity-reference{
             width: 100%;
@@ -267,10 +336,14 @@
             }
          }
         &.step-1{
+            label#edit-field-aditional-information-0-value{
+                position: static;
+                height: auto;
+            }
             @include media-breakpoint-down(md){
-                span{
-                transform: translateX(-20px);
-                }
+                // span{
+                // transform: translateX(-20px);
+                // }
             }
             .form-type-managed-file{
                 label{
@@ -292,12 +365,7 @@
             }
         }
         &.step-3{
-            
-            @include media-breakpoint-down(md){
-                span{
-                    transform: translateX(-37%);
-                }
-            }
+            margin-top: 0;
             .js-form-type-managed-file{
                 label{
                     left: 0;
@@ -307,10 +375,13 @@
         &.step-4{
             justify-content: flex-start;
             margin-top: 35px;
+            .js-form-wrapper{
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-template-rows: repeat(3, auto);
+                grid-auto-flow: column;
+            }
             @include media-breakpoint-down(md){
-                span{
-                    transform: translateX(-53%);
-                }
                 margin-top: 0;;
             }
             label{
@@ -319,17 +390,11 @@
         }
         &.step-5{
             @include media-breakpoint-down(md){
-                span{
-                    transform: translateX(-70%);
-                }
                 margin-top: 0;;
             }
-            grid-area: initial;
+            align-self: flex-start;
         }
         &.step-6{
-            span{
-                transform: translateX(-87%);
-            }
         }
     }
     .field-group-html-element.group-left{
@@ -367,11 +432,37 @@
     .js-form-wrapper { 
         grid-area: 4 / 2 / 5 / 4;
         width: 100%;
+        &.field--widget-cp-core-image-multi-widget{
+            .js-form-wrapper{
+
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-template-rows: repeat(3, auto);
+                grid-auto-flow: column;
+                column-gap: 50px;
+                padding: 0 50px;
+                column-gap: 50px;
+                padding: 0 50px;
+                @include media-breakpoint-down(lg){
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(5, auto);
+                    padding: 0; 
+                }
+                @include media-breakpoint-down(md){
+                    .image-preview {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        }
+                }
+            }
+        }
         #edit-actions {
             display: flex;
             width: 100%;
-            justify-content: flex-end;
             align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 22px;
             padding:0 50px;
             button{
@@ -387,19 +478,37 @@
                         box-shadow: 0px 3px 6px $gray-shadow;
                     }
                    }
-                &#edit-cancel{
-                    background-color: $procol-gray-100;
-                    color: $procol-dark-blue;
-                    border-color: $procol-gray-100;
+                   &#edit-next:hover{
+                       background-color: $procol-light-blue;
+                       border-color: $procol-light-blue;
+                       box-shadow: 0px 3px 6px $gray-shadow;
+                    }
                 }
-                &#edit-next:hover{
-                    background-color: $procol-light-blue;
-                    border-color: $procol-light-blue;
-                    box-shadow: 0px 3px 6px $gray-shadow;
-                }
+            .cancel-confirm-link{
+                 @include gray-btn;
+                 @include media-breakpoint-down(md){
+                    width: 100%;
+                 }
+            }
+            .save-publish-button{
+                @include blue-btn;
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                 }
+            }
+            .add-other{
+                @include gray-btn;
+                background-color: $white;
+                border-color: #D8DADD;
+                color: $procol-gray-300;
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                 }
             }
             @include media-breakpoint-down(md){
-                padding: 0 20px;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+
                 flex-wrap: wrap;
                 width: 100%;
                 button{

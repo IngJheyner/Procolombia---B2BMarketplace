@@ -21,7 +21,8 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\Entity\Node;
-use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Component\Serialization\Json;
 
 /**
  * Implements hook_mail().
@@ -134,6 +135,7 @@ function cp_core_theme($existing, $type, $theme, $path) {
       'variables' => [],
     ],
     'cp_core_node_multistep_generic_modal' => [
+      'render element' => 'form',
       'variables' => [
         'class' => NULL,
         'autoload' => FALSE,
@@ -144,9 +146,6 @@ function cp_core_theme($existing, $type, $theme, $path) {
         'button_link' => NULL,
         'button_no_text' => NULL,
         'button_no_link' => NULL,
-        'is_form' => FALSE,
-        'button_yes' => NULL,
-        'button_no' => NULL,
       ],
     ],
     'cp_core_file_widget_multiple' => [
@@ -1019,7 +1018,11 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
       '#type' => 'link',
       '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $entity->id()]),
       '#title' => t('Preview'),
-      '#attributes' => ['class' => ['use-ajax'], 'data-dialog-type' => 'modal'],
+      '#attributes' => [
+        'class' => ['use-ajax'],
+        'data-dialog-type' => 'modal',
+        'data-dialog-options' => Json::encode(['width' => '90%']),
+      ],
       '#attached' => ['library' => 'core/drupal.dialog.ajax'],
     ];
   }

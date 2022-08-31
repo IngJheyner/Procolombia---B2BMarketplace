@@ -57,6 +57,7 @@ third_party_settings:
   field_group:
     group_left:
       children:
+        - group_step_2_tittle
         - field_categorization_parent
         - field_categorization
         - group_spanish_information
@@ -103,7 +104,7 @@ third_party_settings:
       label: Top
       region: content
       parent_name: group_row
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: 'group-top col-sm-12'
@@ -142,7 +143,7 @@ third_party_settings:
       label: 'Información en Español'
       region: content
       parent_name: group_left
-      weight: 17
+      weight: 3
       format_type: html_element
       format_settings:
         classes: information-title
@@ -202,17 +203,17 @@ third_party_settings:
     group_step_2_tittle:
       children: {  }
       label: 'Step 2 tittle'
-      region: hidden
-      parent_name: ''
-      weight: 20
+      region: content
+      parent_name: group_left
+      weight: 0
       format_type: cp_core_group_markup
       format_settings:
-        show_empty_fields: 1
-        id: ''
-        classes: form-wrapper
         markup:
           value: '<h2>Campos para ambos idiomas</h2>'
           format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: form-wrapper
 id: node.product.step_2
 targetEntityType: node
 bundle: product
@@ -234,13 +235,13 @@ content:
         show_token_tree: 0
   field_categorization:
     type: options_select
-    weight: 16
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_categorization_parent:
     type: options_select
-    weight: 15
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
