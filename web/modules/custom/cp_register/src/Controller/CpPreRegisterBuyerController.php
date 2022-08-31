@@ -24,5 +24,50 @@ class CpPreRegisterBuyerController extends ControllerBase
             '#theme' => 'cp_pre_register_buyer_template_hook',
         ];
     }
+
+     /**
+     * return uid of user by nit with search by Username
+     */
+    public function getUid($nit)
+    {
+        $query = \Drupal::entityQuery('user')
+            ->condition('name', $nit)
+            ->execute();
+        if(!empty($query)){
+            $user = \Drupal\user\Entity\User::load(reset($query));
+            $uid = $user->id();
+            return $uid;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public function createStep1(Request $request)
+    {
+        $data = $request->request->all();
+        if($this->getUid($data['email'])){
+            $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
+        }else{
+            $user = \Drupal\user\Entity\User::create();
+            $user->setPassword($data['password']);
+            $user->enforceIsNew();
+            $user->setEmail($data['email']);
+            $user->setUsername($data['email']);
+            $user->set('init',$data['email']);
+            $user->addRole('buyer');
+            $user->set('preferred_langcode', $data['langcode']);
+            $user->set("field_step", 1);
+            $user->activate();
+        }
+        $user->set("field_company_contact_name", $data['name']);
+        $user->set("field_company_name", $data['company']);
+        $user->set("field_company_contact_lastname", $data['last_name']);
+        $user->set("field_company_contact_cell_phone", $data['cellphone']);
+        $user->save();
+        //_user_mail_notify('status_activated', $user);
+        
+        return new JsonResponse(['status' =>  200]);
+    }
  
 }

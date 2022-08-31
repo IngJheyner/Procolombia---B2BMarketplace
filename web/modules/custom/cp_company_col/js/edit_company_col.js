@@ -117,6 +117,7 @@
     }
 
     // remove logo file and hide image
+    let isLogoRemove = false;
     function removeLogo() {
         $("#logo_img").hide();
         $("#logo_name").hide();
@@ -125,6 +126,7 @@
         $("#logo").val("");
         $("#prew").hide();
         $("#logo_sub").show();
+        isLogoRemove = true;
     }
 
     //is url
@@ -252,7 +254,18 @@
                     }
                 }
             }
+        } else {
+            if (isLogoRemove) {
+                message = "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                $("#logo_input").css("border-color", "#ba0c2f");
+                $("#logo_name").css("border-color", "#ba0c2f");
+                $("#error_logo_message").text(message)
+                $("#error_logo").show();
+                $("#error_logo");
+                isValid = false;
+            }
         }
+        
         if (business_name == "") {
             message = "El nombre de la empresa es requerido";
             $("#business_name").css("border-color", "#ba0c2f");
@@ -578,9 +591,7 @@
             message = "La linea de telefono es requerida";
             $("#landline").css("border-color", "#ba0c2f");
             $("#error_landline").show();
-            $("#error_landline")
-
-                ;
+            $("#error_landline_message").text(message)
             isValid = false;
         } else {
             if (landline.length > 20) {
@@ -588,18 +599,16 @@
                     "La linea de telefono no debe tener mas de 20 caracteres";
                 $("#landline").css("border-color", "#ba0c2f");
                 $("#error_landline").show();
-                $("#error_landline")
+                $("#error_landline_message").text(message)
 
-                    ;
                 isValid = false;
             } else {
                 if (!landline.match(/^[0-9]+$/)) {
                     message = "La linea de telefono no debe tener letras";
                     $("#landline").css("border-color", "#ba0c2f");
                     $("#error_landline").show();
-                    $("#error_landline")
+                    $("#error_landline_message").text(message)
 
-                        ;
                     isValid = false;
                 } else {
                     $("#error_landline").hide();
@@ -623,27 +632,23 @@
             message = "El celular es requerido";
             $("#mobile").css("border-color", "#ba0c2f");
             $("#error_mobile").show();
-            $("#error_mobile")
-
-                ;
+            $("#error_mobile_message").text(message)
             isValid = false;
         } else {
             if (mobile.length > 20) {
                 message = "El celular no debe tener mas de 20 caracteres";
                 $("#mobile").css("border-color", "#ba0c2f");
                 $("#error_mobile").show();
-                $("#error_mobile")
+                $("#error_mobile_message").text(message)
 
-                    ;
                 isValid = false;
             } else {
                 if (!mobile.match(/^[0-9]+$/)) {
                     message = "El celular no debe tener letras";
                     $("#mobile").css("border-color", "#ba0c2f");
                     $("#error_mobile").show();
-                    $("#error_mobile")
+                    $("#error_mobile_message").text(message)
 
-                        ;
                     isValid = false;
                 } else {
                     $("#error_mobile").hide();
@@ -654,10 +659,8 @@
         if (contact_email == "") {
             message = "El correo electronico es requerido";
             $("#contact_email").css("border-color", "#ba0c2f");
-            $("#error_email").show();
-            $("#error_email")
-
-                ;
+            $("#error_contact_email").show();
+            $("#error_contact_email_message").text(message)
             isValid = false;
         } else {
             if (
@@ -667,13 +670,12 @@
             ) {
                 message = "El correo electronico no es valido";
                 $("#contact_email").css("border-color", "#ba0c2f");
-                $("#error_email").show();
-                $("#error_email")
-
-                    ;
+                $("#error_contact_email").show();
+                $("#error_contact_email_message").text(message)
                 isValid = false;
             } else {
-                $("#error_email").hide();
+
+                $("#error_contact_email").hide();
                 $("#contact_email").css("border-color", "#cccccc");
             }
         }

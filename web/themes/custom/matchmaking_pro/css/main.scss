@@ -94,6 +94,9 @@ a {
 	}
 }
 
+.container {
+	max-width: 1400px !important;
+}
 
 .site-footer {
 	background-color: #fff !important;
@@ -410,7 +413,7 @@ div#main {
 
 
 .logo {
-	width: 230px;
+	width: 270px;
 	height: 49px;
 	padding-left: 19px;
 }
@@ -563,7 +566,6 @@ div#main {
 		height: 45px;
 		color: $color-White;
 		justify-content: center;
-		margin: 0 auto;
 
 		i {
 			font-size: 30px;
@@ -814,7 +816,7 @@ div#page {
 		&:hover {
 
 			.img_icon {
-				transform: rotate(-13deg) scale(0.95);
+				transform: rotateZ(-13deg) scale(1.08);
 
 				svg {
 					background-color: $color-White;
@@ -938,7 +940,8 @@ div#page {
 			color: $color-White;
 			font-family: $font-regular;
 			transition: all 0.4s ease-out !important;
-
+			padding: 4px 22px;
+			margin-top: 6px;
 
 			&:hover {
 				color: $color-White;
@@ -1160,6 +1163,13 @@ div#page {
 		}
 	}
 
+	.icon_secction {
+		display: none;
+	}
+
+	body {
+		background-color: #F7F8F8;
+	}
 
 }
 
@@ -1322,6 +1332,14 @@ div#page {
 
 			}
 		}
+	}
+
+	.icon_secction {
+		display: none;
+	}
+
+	body {
+		background-color: #F7F8F8;
 	}
 }
 
