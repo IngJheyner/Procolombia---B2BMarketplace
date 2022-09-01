@@ -9,7 +9,7 @@ _core:
   default_config_hash: mII4acOv33s-j8PINywrCag4OITbeJGxdPO373dnHHw
 id: education
 label: Educación
-category: Demographic
+category: Demográfico
 likert: false
 options: |
   High School: High School

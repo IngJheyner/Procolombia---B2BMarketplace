@@ -4,73 +4,65 @@
 		<h1>{{ "REGISTER AS A COLOMBIAN COMPANY"|t }}</h1>
 	</div>
 	<div class="body">
-		<h3 class="body_title">REGISTRO</h3>
-		<p class="body_description">Regístrese en el Catálogo de exportaciones de Colombia para ampliar su oferta a
-						los mercados internacionales. Recuerde que debe ser
-						una cuenta de ProColombia para poder
-						registrarse
+		<h3 class="body_title">{{ "REGISTER"|t }}</h3>
+		<p class="body_description">{{ "Register in the Colombian Export Catalog to expand your offer to international markets. Remember that you must be a ProColombia account to register."|t }}
 		</p>
 		<div class="row gy-4">
 			<div class="col-sm-12 col-md-12 col-lg-6">
-				<label for="nit">Nit
+				<label for="nit">{{ "Nit"|t }}
 					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="number" id="nit" name="nit" placeholder="0000000-0" title="Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni caracteres especiales." aria-label="Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni caracteres especiales.">
+					<input class="form-control" type="number" id="nit" name="nit" placeholder="00000000" title={{ "Write the tax identification number corresponding to your company"|t }} aria-label={{ "Write the tax identification number corresponding to your company"|t }}>
 					<i id="error_nit" class='bx bxs-info-circle toltip_i'>
 						<span id="error_nit_message" class="tooltiptext_error">
-							Campo Obligatorio
+							{{ "Required Field"|t }}
 						</span>
 					</i>
 				</div>
 				<div class="toltip_content">
 					<i class='bx bxs-info-circle toltip_i'>
 						<span class="tooltiptext">
-							Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni
-														caracteres especiales. Intente con y sin el dígito de verificación para confirmar que su
-														empresa es o no una cuenta ProColombia en la actualidad
+							{{ "Write the tax identification number corresponding to your company"|t }}
 						</span>
 					</i>
 					<span>
-						Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni
-												caracteres especiales. Intente con y sin el dígito de verificación para confirmar que su empresa
-												es o no una cuenta ProColombia en la actualidad
+						{{ "Write the tax identification number corresponding to your company"|t }}
 					</span>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6">
-				<label for="email">Correo Electrónico
+				<label for="email">{{ "Email"|t }}
 					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="email" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web.">
+					<input type="email" id="email" name="email" placeholder="Example@example.com" title={{ "Write the corporate email where the mailing from this website will be sent"|t }} aria-label={{ "Write the corporate email where the mailing from this website will be sent"|t }} class="form-control">
 					<i id="error_mail" class='bx bxs-info-circle toltip_i'>
 						<span id="error_mail_message" class="tooltiptext_error">
-							Campo Obligatorio
+							{{ "Required Field"|t }}
 						</span>
 					</i>
 				</div>
 				<div class="toltip_content">
 					<i class='bx bxs-info-circle toltip_i'>
 						<span class="tooltiptext">
-							Escriba el correo electrónico institucional donde se enviará la correspondencia de este
-														sitio web.
+							{{ "Write the corporate email where the mailing from this website will be sent"|t }}
 						</span>
 					</i>
-					<span>Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio
-												web.</span>
+					<span>{{ "Write the corporate email where the mailing from this website will be sent"|t }}</span>
 				</div>
+
 			</div>
 			<div class="col-lg-12 check">
-				<label><input checked type="checkbox" id="conditions" value="first_checkbox">
-					He leído y acepto
-					<a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso" target="_blank" rel="noopener noreferrer">condiciones de uso *</a>
+				<label><input checked type="checkbox" id="conditions" aria-label={{ "I have read and accept the Terms of use"|t }} value="first_checkbox">
+					{{ "I have read and accept the"|t }}
+					<a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso" target="_blank" rel="noopener noreferrer">{{ "Terms of use"|t }}
+						*</a>
 				</label>
-				<label><input checked type="checkbox" id="policy" value="first_checkbox">
-					He leído y acepto
-					<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank" rel="noopener noreferrer">política de tratamiento de datos
-												personales
-												*</a>
+				<label><input checked type="checkbox" id="policy" aria-label={{ "I have read and accept the Personal data processing policy"|t }} value="first_checkbox">
+					{{ "I have read and accept the"|t }}
+					<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank" rel="noopener noreferrer">{{ "Personal data processing policy"|t }}
+						*</a>
 				</label>
 				<div style="text-align: center;">
 					<div class="g-recaptcha" data-sitekey="6LeHicwZAAAAAMtiZw22jz7qFL084fFEIHe8lOak" data-callback="onSubmit">
@@ -84,114 +76,115 @@
 				</div>
 			</div>
 			<div class="col-lg-12 continue">
-				<button data-bs-toggle="modal" data-bs-target="#cancel_modal" class="cancel">CANCELAR</button>
-				<button id="check_nit" name="check_nit" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+				<button data-bs-toggle="modal" data-bs-target="#cancel_modal" aria-label={{ "Cancel registration"|t }} class="cancel">{{ "CANCEL"|t }}</button>
+				<button id="check_nit" name="check_nit" aria-label={{ "Continue registration"|t }} class="continue">{{ "CONTINUE"|t }}</button>
 			</div>
 		</div>
-	</div>
-	<div class="modal fade" id="error_neo" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
-						Solicitar Cita
-					</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p>Su empresa no se encuentra registrada como cuenta ProColombia. Para ser atendido por un
-												asesor se
-						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform" target="_blank" rel="noopener noreferrer">
-							debe solicitar cita
-														previa de manera virtual.</a>
-						<br>
-						En este espacio, usted podrá
-												solucionar sus inquietudes de comercio exterior y conocer los diferentes servicios de
-												ProColombia para aprovechar las oportunidades que el mercado internacional ofrece.
-					</p>
-				</div>
-				<div class="modal-footer">
-					<button id="go_form" type="button" class="btn cita_btn">
-						<i class='bx bx-link-external'></i>
-						SOLICITAR
-												CITA</button>
+		<div class="modal fade" id="error_neo" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+							{{ "Request an Appointment"|t }}
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label={{ "Close"|t }}></button>
+					</div>
+					<div class="modal-body">
+						<p>{{ "Your company is not registered as a ProColombia account. To be attended by an advisor you must"|t }}
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform" target="_blank" rel="noopener noreferrer">
+								{{ "To be attended by an advisor you must request an appointment online."|t }}
+							</a>
+							<br>
+							{{ "In this space, you will be able to solve your foreign trade concerns and learn about ProColombia's different services to take advantage of the opportunities that the international market offers."|t }}
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button id="go_form" type="button" aria-label={{ "Request Appointment"|t }} class="btn cita_btn">
+							<i class='bx bx-link-external'></i>
+							{{ "Request Appointment"|t }}
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="modal fade" id="loader" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
-						Verificación del Correo
-					</h5>
-				</div>
-				<div class="modal-body">
-					<p>Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico
-												donde recibirá un e-mail con un link de verificación
-					</p>
-				</a>
-			</p>
-		</div>
-		<div class="modal-footer">
-			<div class="spinner-border my-2 m-auto" role="status" style="color: #0085ca;">
-				<span class="visually-hidden">Loading...</span>
+		<div class="modal fade" id="loader" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+							{{ "Mail Verification"|t }}
+						</h5>
+					</div>
+					<div class="modal-body">
+						<p>{{ "To continue with the registration process, please validate your e-mail account where you will receive an e-mail with a verification link."|t }}</p>
+					</a>
+				</p>
 			</div>
-		</div>
-	</div>
-</div></div><div class="modal fade" id="success" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-	<div class="modal-content">
-		<div class="modal-body">
-			<i class='bx bxs-message-check'></i>
-			<p>Verificación Exitosa</p>
-		</div>
-	</div>
-</div></div><div class="modal fade" id="error_user" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-	<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
-				Cuenta Existente
-			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<p>La empresa consultada ya cuenta con un usuario registrado, por favor
-				<a href="/user/login">
-					Inicie sesión.</a>
-			</p>
-		</div>
-		<div class="modal-footer">
-			<button id="login_btn" type="button" class="btn login_btn">
-				Iniciar sesión</button>
-		</div>
-	</div>
-</div></div><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-	<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
-				Cancelar proceso
-			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-			<p>Está a punto de cancelar el proceso
-				<strong>“Registro Empresa Colombiana”</strong>
-			</p>
-		</div>
-		<div class="modal-footer ">
-			<div class="row">
-				<div class="col-6 fs-6">
-					<strong>¿Desea continuar?</strong>
-				</div>
-				<div class="col-6 btn_options">
-					<button data-bs-dismiss="modal" aria-label="Close" class="yes">SI</button>
-					<button id="cancel_procces" class="no">NO</button>
+			<div class="modal-footer">
+				<div class="spinner-border my-2 m-auto" role="status" style="color: #0085ca;">
+					<span class="visually-hidden">{{ "Loading..."|t }}</span>
 				</div>
 			</div>
 		</div>
 	</div>
-</div></div></main>
+</div>
+<div class="modal fade" id="success" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body">
+				<i class='bx bxs-message-check'></i>
+				<p>{{ "Successful Verification"|t }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="error_user" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+					{{ "Existing Account"|t }}
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label={{ "Close"|t }}></button>
+			</div>
+			<div class="modal-body">
+				<p>{{ "The consulted company already has a registered user,"|t }}
+					<a href="/user/login" aria-label={{ "please login."|t }}>{{ "please login."|t }}</a>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button id="login_btn" type="button" class="btn login_btn">
+					{{ "Login."|t }}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+					{{ "Cancel process."|t }}
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label={{ "Close"|t }}></button>
+			</div>
+			<div class="modal-body">
+				<p>{{ "The 'Colombian Company Registration' process"|t }}
+					<strong>{{ "is about to be cancelled."|t }}</strong>
+				</p>
+			</div>
+			<div class="modal-footer ">
+				<div class="row">
+					<div class="col-6 fs-6">
+						<strong>{{ "Would you like to continue?"|t }}</strong>
+					</div>
+					<div class="col-6 btn_options">
+						<button data-bs-dismiss="modal" aria-label={{ "YES"|t }} class="yes">{{ "YES"|t }}</button>
+						<button id="cancel_procces" aria-label={{ "NO"|t }} class="no">{{ "NO"|t }}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></main>
