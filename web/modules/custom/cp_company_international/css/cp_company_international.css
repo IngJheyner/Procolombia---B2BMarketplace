@@ -24,6 +24,11 @@ div#main {
   background: #F7F8F8;
 }
 
+.ts-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .dashboard {
   background: #ffffff;
   padding: 3rem 0rem;
@@ -38,35 +43,37 @@ div#main {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
   border: none;
 }
-.dashboard .card button {
+.dashboard .card .editar {
   width: 30%;
   background: #ffffff;
   border: none;
   position: absolute;
-  top: -21px;
+  top: -19px;
   right: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   font-family: Gothic-Regular;
+  text-align: center;
+  padding: 0.5rem;
 }
 .dashboard .title_card_dashboard {
   display: flex;
   align-items: center;
-  font-size: 17px;
+  font-size: 20px;
   font-family: Gothic-Regular;
   border-bottom: 1px solid #ccc;
   line-height: normal;
 }
 .dashboard .title_card_dashboard img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin: 8px;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center center;
   object-position: center center;
-  border: 1px solid #ccc;
+  margin-left: -5px;
 }
 .dashboard .title_card_dashboard svg {
   width: 40px;
@@ -207,8 +214,33 @@ div#main {
   background-color: #ba0c2f !important;
   font-family: Gothic-Regular !important;
 }
+.dashboard .anuncio_dashboard {
+  padding: 0.5rem;
+}
 .dashboard .anuncio_dashboard .img_anuncio {
-  width: 45px;
+  width: 21%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .anuncio_dashboard .tittle {
+  margin-bottom: 9px;
+  font-size: 20px;
+  font-family: Gothic-Bold;
+}
+.dashboard .anuncio_dashboard .btn_anuncio {
+  font-size: 15px;
+  color: #005ca4;
+  font-family: Gothic-Bold;
+  display: flex;
+  align-items: center;
+}
+.dashboard .anuncio_dashboard .btn_anuncio:hover i {
+  transform: translateX(4px);
+}
+.dashboard .anuncio_dashboard .btn_anuncio i {
+  transition: all 0.4s ease-out !important;
+  margin-bottom: -2px;
 }
 
 .col-md-12 {
@@ -224,6 +256,8 @@ span {
   font-family: Gothic-Regular;
   text-align: end;
   padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
 }
 .continue .cancel {
   border: none;
@@ -259,6 +293,7 @@ span {
   color: #ffffff;
   font-family: Gothic-Regular;
   transition: all 0.4s ease-out !important;
+  margin-top: 0px;
 }
 .continue .continue:hover {
   color: #ffffff;
@@ -382,13 +417,15 @@ span {
 }
 .steps .description {
   margin-bottom: -57px !important;
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 0rem;
   margin: 0px;
 }
 .steps .description .title {
   font-family: Gothic-Bold;
-  font-size: 20px;
+  font-size: 26px;
   margin: 0px;
+  color: #005ca4;
+  height: 80px;
 }
 .steps .description .desc {
   font-size: 15px;

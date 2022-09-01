@@ -59,6 +59,14 @@ function matchmaking_pro_preprocess_page(array &$variables) {
         $variables['business_name'] = '';
       }
     }
+
+    if($user->hasRole('buyer')){
+      //is not empty field_company_name
+      $variables['name'] = $user->get('field_company_contact_name')->value;
+      $variables['lastname'] = $user->get('field_company_contact_lastname')->value;
+      //get email
+      $variables['email'] = $user->get('mail')->value;
+    }
   }
 }
 

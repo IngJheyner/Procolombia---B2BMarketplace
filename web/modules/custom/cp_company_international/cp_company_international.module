@@ -37,11 +37,8 @@ function cp_company_international_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_edit_company_international_template',
       'variables' => [
-        'deparments' => null,
-        'production_chain' => null,
-        'business_model' => null,
-        'certificacion_de_empresa' => null,
-        'countries' => null,
+        'tree_categorization' => null,
+        'tree_business_model' => null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
