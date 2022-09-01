@@ -1,0 +1,36 @@
+.cp-core-multistep-form.step_1{
+    .js-form-item-field-product-type{
+        label{
+            color:  $procol-gray-400;
+            font-family: $font-family-Century-Gothic;
+        }
+        @include media-breakpoint-down(md){
+            margin-top: 0;
+        }
+        label{
+            position: static;
+            height: auto;
+            &#edit-field-file-0--label,
+            &#edit-field-file-en-0--label {
+            position: relative;
+            left: 0;
+            }
+        }
+    }
+    .js-form-type-textfield{
+        @include media-breakpoint-down(md){
+            margin-top: 0;
+        }
+    }
+
+    .information-step-1 {
+        width: 100%;
+        h2{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: $font-family-Century-Gothic;
+            padding: 15px 0;
+            margin-bottom: 0;
+        }
+    }
+}

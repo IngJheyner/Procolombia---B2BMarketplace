@@ -328,6 +328,10 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+                label{
+                    position: static;
+                    height: auto;
+                }
             }
             #ajax-wrapper{
                 display: flex;
