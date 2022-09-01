@@ -11,7 +11,7 @@ dependencies:
 _core:
   default_config_hash: _7B5YYODi_--G_tOWLcRmuuWsNsOFtDfntkEuwJWQq0
 id: webform_submissions
-label: 'Webform submissions'
+label: 'Envíos de formulario web'
 module: views
 description: 'Default webform submissions views.'
 tag: ''
@@ -24,7 +24,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Webform submissions'
+      title: 'Envíos de formulario web'
       fields:
         sid:
           id: sid
