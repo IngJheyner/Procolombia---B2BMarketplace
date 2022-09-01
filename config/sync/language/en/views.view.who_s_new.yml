@@ -1,0 +1,18 @@
+label: 'Usuarios nuevos'
+description: 'Muestra un listado de las cuentas de usuarios más recientes en el sitio.'
+display:
+  default:
+    display_title: 'Por defecto'
+    display_options:
+      title: 'Usuarios nuevos'
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+  block_1:
+    display_title: 'Usuarios nuevos'
+    display_options:
+      display_description: 'Una lista de los usuarios nuevos'
+      block_description: 'Usuarios nuevos'
+      block_category: Usuario
