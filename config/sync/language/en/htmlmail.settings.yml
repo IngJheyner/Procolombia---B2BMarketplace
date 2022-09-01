@@ -1,0 +1,3 @@
+test:
+  body:
+    value: '<h1>Se realiza prueba de envío de correos </h1>'
