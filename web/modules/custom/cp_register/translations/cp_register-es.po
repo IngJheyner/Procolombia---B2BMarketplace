@@ -12,12 +12,110 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-msgid "Register as"
-msgstr "Registrese como"
+msgid "REGISTER AS A COLOMBIAN COMPANY"
+msgstr "REGISTRARSE COMO EMPRESA COLOMBIANA"
 
-msgid "COLOMBIAN COMPANY"
-msgstr "EMPRESA COLOMBIANA"
+msgid "REGISTER"
+msgstr "REGISTRO"
 
-msgid "Colombian company with an exportable supply of goods or services."
-msgstr "Empresa colombiana con oferta exportable de bienes o servicios."
+msgid "Register in the Colombian Export Catalog to expand your offer to international markets. Remember that you must be a ProColombia account to register."
+msgstr "Regístrese en el Catálogo de exportaciones de Colombia para ampliar su oferta a los mercados internacionales. Recuerde que debe ser una cuenta de ProColombia para poder registrarse."
 
+msgid "Nit"
+msgstr "Nit"
+
+msgid "Write the tax identification number corresponding to your company"
+msgstr "Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni caracteres especiales. Intente con y sin el dígito de verificación para confirmar que su empresa es o no una cuenta ProColombia en la actualidad"
+
+msgid "Required Field"
+msgstr "Campo obligatorio"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Write the corporate email where the mailing from this website will be sent"
+msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web"
+
+msgid "I have read and accept the Terms of use"
+msgstr "He leído y acepto los Términos y Condiciones de uso"
+
+msgid "I have read and accept the Personal data processing policy"
+msgstr "He leído y acepto la Política de Tratamiento de datos personales"
+
+msgid "I have read and accept the"
+msgstr "He leído y acepto la"
+
+msgid "Terms of use"
+msgstr "Términos y Condiciones de uso"
+
+msgid "Personal data processing policy"
+msgstr "Tratamiento de datos personales"
+
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+msgid "CONTINUE"
+msgstr "CONTINUAR"
+
+msgid "Cancel registration"
+msgstr "Cancelar el registro"
+
+msgid "Continue registration"
+msgstr "Continuar el registro"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Request an Appointment"
+msgstr "Solicitar una cita"
+
+msgid "Your company is not registered as a ProColombia account."
+msgstr "Tu empresa no está registrada como cuenta de ProColombia. Para ser atendido por un asesor debes"
+
+msgid "To be attended by an advisor you must request an appointment online."
+msgstr "Para ser atendido por un asesor debe solicitar una cita en línea."
+
+msgid "In this space, you will be able to solve your foreign trade concerns and learn about ProColombia's different services to take advantage of the opportunities that the international market offers."
+msgstr "En este espacio podrá resolver sus inquietudes de comercio exterior y conocer los diferentes servicios de ProColombia para aprovechar las oportunidades que ofrece el mercado internacional."
+
+msgid "Mail Verification"
+msgstr "Verificación del correo electrónico"
+
+msgid "To continue with the registration process, please validate your e-mail account where you will receive an e-mail with a verification link."
+msgstr "Para continuar con el proceso de registro, valide su cuenta de correo electrónico, donde recibirá un mensaje con un enlace de verificación."
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Successful Verification"
+msgstr "Verificación exitosa"
+
+msgid "Existing Account"
+msgstr "Cuenta existente"
+
+msgid "The consulted company already has a registered user,"
+msgstr "La empresa consultada ya tiene un usuario registrado,"
+
+msgid "please login."
+msgstr "por favor, inicie sesión"
+
+msgid "Login."
+msgstr "iniciar sesión"
+
+msgid "Cancel process."
+msgstr "Cancelar el proceso."
+
+msgid "The Colombian Company Registration process"
+msgstr "El proceso de registro de la empresa colombiana"
+
+msgid "is about to be cancelled."
+msgstr "está a punto de ser cancelado."
+
+msgid "Would you like to continue?"
+msgstr "¿Quiere continuar?"
+
+msgid "YES"
+msgstr "SI"
+
+msgid "NO"
+msgstr "NO"
