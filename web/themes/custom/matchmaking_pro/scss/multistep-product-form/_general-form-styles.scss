@@ -475,6 +475,7 @@
             button{
                 border-radius: 4px;
                 background-color: $procol-dark-blue;
+                height: 37px;
                 &#edit-previous {
                     margin: auto;
                     margin-left: 0px;
@@ -492,13 +493,18 @@
                     }
                 }
             .cancel-confirm-link{
-                 @include gray-btn;
+                @include gray-btn;
+                height: 37px;
                  @include media-breakpoint-down(md){
                     width: 100%;
                  }
             }
             .save-publish-button{
                 @include blue-btn;
+                height: 37px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 @include media-breakpoint-down(md){
                     width: 100%;
                  }
@@ -508,6 +514,24 @@
                 background-color: $white;
                 border-color: #D8DADD;
                 color: $procol-gray-300;
+                height: 37px;
+                position: relative;
+                padding-left: 30px;
+                &::before,
+                &::after{
+                    font-family: swiper-icons;
+                    content: "";
+                    background: linear-gradient(180deg, #D88D00 0%, #EDC500 100%);
+                    width: 2px;
+                    height: 16px;
+                    position: absolute;
+                    top: 10px;
+                    left: 16px;
+                    border-radius: 10px;
+                }
+                &::after{
+                    transform: rotate(90deg);
+                }
                 @include media-breakpoint-down(md){
                     width: 100%;
                  }
