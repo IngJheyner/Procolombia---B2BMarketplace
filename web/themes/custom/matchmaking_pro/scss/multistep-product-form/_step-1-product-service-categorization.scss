@@ -1,9 +1,10 @@
 .cp-core-multistep-form.step_1{
     .js-form-item-field-product-type{
-        label{
+        label.js-form-required{
             color:  $procol-gray-400;
             font-family: $font-family-Century-Gothic;
         }
+
         @include media-breakpoint-down(md){
             margin-top: 0;
         }
