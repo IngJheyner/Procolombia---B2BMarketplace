@@ -38,8 +38,13 @@
             font-size: 20px;
             font-weight: bold;
         }
+        .group-left.step-5,
+        .group-right.step-5{
+            margin-top: 20px;
+        }
 
     }
+    
     @include media-breakpoint-down(md){
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto 1fr auto;
@@ -136,6 +141,7 @@
     // Ends Main styles multistep sidebar
    
     // Start content form styles
+   
     .js-form-item{
         position: relative;
         margin-top: 22px;
@@ -144,6 +150,7 @@
         @include media-breakpoint-down(md){
             max-width: 760px;
         }
+        
         &.js-form-type-checkbox {
             padding: 0 50px;
             display: flex;
@@ -185,6 +192,35 @@
             }
         }
     }
+    &.step_4{
+        @include media-breakpoint-down(lg){
+            .form-wrapper.step-title{
+                padding: 0;
+            }
+            .group-row{
+                padding: 20px;
+            }
+        }
+        #edit-field-images{
+            padding-top: 20px;
+        }
+        .js-form-type-managed-file:nth-child(-n+3) {
+            border-right: 1px solid #D8DADD;
+            margin: 0 !important;
+            padding-right: 50px;
+            @include media-breakpoint-down(lg){
+                border-right: none;
+                padding-right: 0;
+            }
+          }
+    }
+    &.step_5{
+        @include media-breakpoint-down(lg){
+            .step-title{
+                padding: 0;
+            }
+        }
+    }
     .field--type-file,.field--type-image{
         width: 100%;
         .form-managed-file {
@@ -193,7 +229,30 @@
             max-width: 442px;
             align-items: flex-end;
             padding-top: 20px;
-            
+            &.step-4{
+            justify-content: flex-start;
+            margin-top: 35px;
+            .group-top{
+                margin-top: 31px;
+            }
+            .js-form-wrapper{
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-template-rows: repeat(3, auto);
+                grid-auto-flow: column;
+                .js-form-item.js-form-type-managed-file:nth-child(-n+3) {
+                    border-right: 1px solid $procol-gray-300;
+                    margin: 0 !important;
+                    padding-right: 50px;
+                    }
+            }
+            @include media-breakpoint-down(md){
+                margin-top: 0;;
+            }
+            label{
+                left: 0;
+            }
+        }
             #edit-field-file-0--label{
                 top: 0;
             }
@@ -276,10 +335,6 @@
         width: 50%;
         padding: 0 50px;
         border-right: 1px solid $procol-gray-200;
-        &.step-5{
-            margin-top: 0;
-            
-        }
         @include media-breakpoint-down(lg){
             border-right: none;
         }
@@ -306,6 +361,9 @@
 
         #edit-field-pr-video-description-2-wrapper{
             margin-bottom: 0 !important;
+        }
+        &.step-5{
+            justify-content: flex-start;
         }
     }
     .field--type-entity-reference{
@@ -345,72 +403,6 @@
                 justify-content: center;
             }
          }
-        &.step-1{
-            label#edit-field-aditional-information-0-value{
-                position: static;
-                height: auto;
-            }
-            @include media-breakpoint-down(md){
-                // span{
-                // transform: translateX(-20px);
-                // }
-            }
-            .form-type-managed-file{
-                label{
-                    left: 0;
-                }
-                .form-managed-file{
-                    padding-top: 0;
-                    .file{
-                        margin-top: 20px;
-                    }
-                }
-            }            
-        }
-        &.step-2{
-            @include media-breakpoint-down(md){
-                span{
-                    transform: translateX(-20%);
-                }
-            }
-        }
-        &.step-3{
-            h2{
-                margin-bottom: 40px;
-            }
-            .js-form-type-managed-file{
-                label{
-                    left: 0;
-                }
-            }
-        }
-        &.step-4{
-            justify-content: flex-start;
-            margin-top: 35px;
-            .group-top{
-                margin-top: 31px;
-            }
-            .js-form-wrapper{
-                display: grid;
-                grid-template-columns: repeat(2, auto);
-                grid-template-rows: repeat(3, auto);
-                grid-auto-flow: column;
-            }
-            @include media-breakpoint-down(md){
-                margin-top: 0;;
-            }
-            label{
-                left: 0;
-            }
-        }
-        &.step-5{
-            @include media-breakpoint-down(md){
-                margin-top: 0;;
-            }
-            align-self: flex-start;
-        }
-        &.step-6{
-        }
     }
     .field-group-html-element.group-left{
         @include media-breakpoint-down(md){
@@ -449,7 +441,6 @@
         width: 100%;
         &.field--widget-cp-core-image-multi-widget{
             .js-form-wrapper{
-
                 display: grid;
                 grid-template-columns: repeat(2, auto);
                 grid-template-rows: repeat(3, auto);
