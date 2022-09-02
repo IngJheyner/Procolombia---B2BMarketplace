@@ -59,6 +59,7 @@ third_party_settings:
     group_left:
       children:
         - field_product_type
+        - group_spanish_information_step_1
         - title
         - field_body
         - field_file
@@ -81,6 +82,7 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
+        - group_english_information_step_1
         - field_pr_multilingual_step1
       label: Right
       region: content
@@ -160,6 +162,34 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
+    group_spanish_information_step_1:
+      children: {  }
+      label: 'Información en Español'
+      region: content
+      parent_name: group_left
+      weight: 1
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: '<h2>Información en Español</h2>'
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: information-step-1
+    group_english_information_step_1:
+      children: {  }
+      label: 'Information in English'
+      region: content
+      parent_name: group_right
+      weight: 20
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: '<h2>Information in English</h2>'
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: information-step-1
 id: node.product.step_1
 targetEntityType: node
 bundle: product
@@ -167,7 +197,7 @@ mode: step_1
 content:
   field_body:
     type: string_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -175,14 +205,14 @@ content:
     third_party_settings: {  }
   field_file:
     type: file_generic
-    weight: 3
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pr_multilingual_step1:
     type: cp_core_multilingual_field_widget
-    weight: 2
+    weight: 21
     region: content
     settings:
       collapsible_state: '-1'
@@ -199,7 +229,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
