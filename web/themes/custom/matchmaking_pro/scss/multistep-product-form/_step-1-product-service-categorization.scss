@@ -1,5 +1,6 @@
 .cp-core-multistep-form.step_1{
     .js-form-item-field-product-type{
+        margin-top: 0;
         label.js-form-required{
             color:  $procol-gray-400;
             font-family: $font-family-Century-Gothic;
@@ -30,15 +31,18 @@
             font-size: 20px;
             font-weight: bold;
             font-family: $font-family-Century-Gothic;
-            padding: 15px 0;
             margin-bottom: 0;
         }
     }
     .js-form-type-managed-file{
+        margin-top: 15px;
         label{
             position: static;
             height: auto;
             padding-bottom: 0;
+        }
+        .js-form-managed-file.form-managed-file{
+            padding-top: 8px;
         }
     }
 }
