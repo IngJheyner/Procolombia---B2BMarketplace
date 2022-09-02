@@ -2,7 +2,7 @@
     border-radius: 10px;
     max-width: 561px;
     &.ui-dialog .ui-dialog-title {
-        display: none !important;
+        display: block !important;
       }
     
 }
@@ -53,8 +53,10 @@
         border-radius: 10px;
         padding-bottom: 2;
         margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 10px;
         #views-exposed-form-paises-entity-browser-1 {
-            padding: 20px;
+            padding: 0;
             display: flex;
             justify-content: space-between;
             height: 80px;
@@ -97,8 +99,11 @@
         
         .view-content.row{
             height: 318px;
-            margin-bottom: 0;
+            margin: 0;
             overflow-y:scroll ;
+            background-color: $white;
+            border-radius: 5px;
+            padding-bottom: 24px;
         }
       }
     
@@ -123,6 +128,7 @@
       .table-responsive{
         tr{
             background-color: $white;
+            border-bottom: #F7F8F8;
         }
         td{
             div{

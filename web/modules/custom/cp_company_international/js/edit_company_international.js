@@ -6,72 +6,60 @@
 (function ($, Drupal) {
     'use strict';
     //Global variables
-    var production_chain_select;
-    var departament_select;
-    var select_cities;
-    var modelo_de_negocio_select;
-    //initial config
+    var select_categories1;
+    var select_categories2;
+    var select_categories3;
+    var select_subcategories1;
+    var select_subcategories2;
+    var select_subcategories3;
+    var select_model1;
+    var select_model2;
+    var select_model3;
+
+    const isEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
+    const isNumber = (number) => {
+        return String(number)
+            .toLowerCase()
+            .match(
+                /^[0-9]+$/
+            );
+    }
+
+    //is url
+    function validateURL(s) {
+        var regexp =
+            /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+        return regexp.test(s);
+    }
+
+    // toggle password to text
+    function passwordToText() {
+        $("#password_buyer").attr("type", "text");
+        $("#confirm_password_buyer").attr("type", "text");
+        $("#pass_show_buyer").hide();
+        $("#pass_show_buyer_confirm").hide();
+        $("#pass_bloq_buyer").show();
+        $("#pass_bloq_buyer_confirm").show();
+    }
+
+    // toggle password to text
+    function textToPassword() {
+        $("#password_buyer").attr("type", "password");
+        $("#confirm_password_buyer").attr("type", "password");
+        $("#pass_show_buyer").show();
+        $("#pass_show_buyer_confirm").show();
+        $("#pass_bloq_buyer").hide();
+        $("#pass_bloq_buyer_confirm").hide();
+    }
+
     function init() {
-        //show modal information
-        $('#information').modal('show');
-        // Initalize select2
-        production_chain_select = new TomSelect("#production_chain", {
-            create: false,
-            sortField: {
-                field: "text",
-                direction: "asc"
-            }
-        });
-
-        departament_select = new TomSelect("#departament", {
-            create: false,
-            sortField: {
-                field: "text",
-                direction: "asc"
-            }
-        });
-
-        select_cities = new TomSelect("#ciudad", {
-            valueField: 'id',
-            labelField: 'title',
-            searchField: 'title',
-            options: [
-                { id: 1, title: 'Seleccione una opción' },
-            ],
-            sortField: {
-                field: "text",
-                direction: "asc"
-            },
-            create: false
-        });
-
-        modelo_de_negocio_select = new TomSelect("#modelo_de_negocio", {
-            plugins: ['remove_button'],
-            create: true,
-            onItemAdd: function () {
-                this.setTextboxValue('');
-                this.refreshOptions();
-            },
-            render: {
-                item: function (data, escape) {
-                    return '<div>' + escape(data.text) + '</div>';
-                }
-            }
-        });
-
-        new TomSelect('#country_code_landline', {
-            create: false,
-            // use method disable()
-            render: {
-                option: function (data, escape) {
-                    return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-                },
-                item: function (item, escape) {
-                    return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-                }
-            }
-        })
-
         new TomSelect('#country_code_mobile', {
             create: false,
             // use method disable()
@@ -85,679 +73,507 @@
             },
         })
 
-        document.getElementById("country_code_landline-ts-control").disabled = true;
         document.getElementById("country_code_mobile-ts-control").disabled = true;
-        $("#country_code_landline-ts-control").attr('style', 'display: none !important');
         $("#country_code_mobile-ts-control").attr('style', 'display: none !important');
 
-        getDataUser();
-    }
-    // open input file with button
-    function openInputFile() {
-        $("#logo").click();
-    }
-
-    // onChangeFile Show Logo and name
-    function onChangeLogo() {
-        // get file
-        var file = $("#logo")[0].files[0];
-        // get file name
-        var fileName = file.name;
-        // get file size in kb
-        var fileSize = file.size / 1024;
-        // get url temp
-        var url = URL.createObjectURL(file);
-        // show image
-        $("#logo_img").attr("src", url);
-        $("#logo_img").show();
-        $("#logo_name").val(fileName + "(" + fileSize.toFixed(2) + "KB)");
-        $("#logo_name").show();
-        $("#prew").show();
-        $("#logo_sub").hide();
-    }
-
-    // remove logo file and hide image
-    function removeLogo() {
-        $("#logo_img").hide();
-        $("#logo_name").hide();
-        $("#logo_img").attr("src", "");
-        $("#logo_name").val("");
-        $("#logo").val("");
-        $("#prew").hide();
-        $("#logo_sub").show();
-    }
-
-    //is url
-    function isUrl(s) {
-        var regexp =
-            /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-        return regexp.test(s);
-    }
-
-
-    //fetch cities when departament changed and put options in select cities
-    function getCities(value = "") {
-        //get departament
-        var departament = $("#departament").val();
-        //put in form data
-        var formData = new FormData();
-        //put message of loading cities
-        select_cities.clear();
-        select_cities.clearOptions();
-        formData.append("departament", departament);
-        //fetch cities
-        fetch("/get_cities", {
-            method: "POST",
-            body: formData,
-        }).then((response) => response.json())
-            .then((data) => {
-                //put options in select cities
-                select_cities.clearOptions();
-                data.ciudades.map((ciudad) => {
-                    //create option inside select cities
-                    select_cities.addOption({
-                        id: ciudad.ID,
-                        title: ciudad.Name,
-                    });
-                });
-                if (value !== "")
-                    select_cities.setValue(value);
-            })
-            .catch((error) => {
-                alert(error);
-            })
-    }
-
-
-    /*
-     *  Validate Form 1
-     *  - logo is a image file and is required and is png and jpg and have size less than 2MB and dimension less than 200x200
-     *  - business_name is required and is a string and have length less than 100
-     *  - website is required and is url
-     *  - productive_chain is required
-     *  - description_business_spanish is required and is a string and have length less than 1000
-     *  - description_business_english is required and is a string and have length less than 1000
-     *  - production_chain is requerid
-     *  - principal_code_ciiu is requerid
-     *  - secondary_code_ciiu is optional
-     *  - third_code_ciiu is optional
-     *  - departament is requerid
-     *  - ciudad is requerid
-     */
-
-    function validateForm1() {
-        var logo = $("#logo").prop("files")[0];
-        var business_name = $("#business_name").val();
-        var website = $("#website").val();
-        var description_business_spanish = $(
-            "#description_business_spanish"
-        ).val();
-        var description_business_english = $(
-            "#description_business_english"
-        ).val();
-        var production_chain = $("#production_chain").val();
-        var principal_code_ciiu = $("#principal_code_ciiu").val();
-        var secondary_code_ciiu = $("#secondary_code_ciiu").val();
-        var departament = $("#departament").val();
-        var ciudad = $("#ciudad").val();
-        var modelo_de_negocio = $("#modelo_de_negocio").val();
-
-        var message = "";
-        var isValid = true;
-        //check if logo is
-        if (logo) {
-            var file = logo.type;
-            var fileSize = logo.size;
-            var fileName = logo.name;
-            var fileExtension = fileName.split(".").pop();
-            if (fileExtension != "png" && fileExtension != "jpg") {
-                message =
-                    "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
-                $("#logo_input").css("border-color", "#ba0c2f");
-                $("#logo_name").css("border-color", "#ba0c2f");
-                $("#error_logo_message").text(message)
-                $("#error_logo").show();
-                $("#error_logo")
-
-                    ;
-                isValid = false;
-            } else {
-                if (fileSize > 2000000) {
-                    message =
-                        "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
-                    $("#logo_input").css("border-color", "#ba0c2f");
-                    $("#logo_name").css("border-color", "#ba0c2f");
-                    $("#error_logo_message").text(message)
-                    $("#error_logo").show();
-                    $("#error_logo")
-
-                        ;
-                    isValid = false;
-                } else {
-                    if (logo.width > 200 || logo.height > 200) {
-                        message =
-                            "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
-                        $("#logo_input").css("border-color", "#ba0c2f");
-                        $("#logo_name").css("border-color", "#ba0c2f");
-                        $("#error_logo_message").text(message)
-                        $("#error_logo").show();
-                        $("#error_logo")
-
-                            ;
-                        isValid = false;
-                    } else {
-                        $("#error_logo").hide();
-                        $("#logo_name").css("border-color", "#cccccc");
-                        $("#logo_input").css("border-color", "#cccccc");
-                    }
+        select_categories1 = new TomSelect("#cat_interest_1", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+        $("#information").modal('show');
+        select_model1 = new TomSelect("#company_model", {
+            plugins: ['remove_button'],
+            create: true,
+            onItemAdd: function () {
+                this.setTextboxValue('');
+                this.refreshOptions();
+            },
+            render: {
+                item: function (data, escape) {
+                    return '<div>' + escape(data.text) + '</div>';
                 }
             }
-        }
-        if (business_name == "") {
-            message = "El nombre de la empresa es requerido";
-            $("#business_name").css("border-color", "#ba0c2f");
-            $("#error_business_name_message").text(message)
-            $("#error_business_name").show();
-            $("#error_business_name")
+        });
+        select_subcategories1 = new TomSelect("#subcat_interest_1", {
+            valueField: 'id',
+            labelField: 'title',
+            searchField: 'title',
+            options: [
+                { id: 1, title: 'Seleccione una opción' },
+            ],
+            sortField: {
+                field: "text",
+                direction: "asc"
+            },
+            create: false
+        });
 
-                ;
-            isValid = false;
-        } else {
-            if (business_name.length > 100) {
-                message =
-                    "El nombre de la empresa no puede tener mas de 100 caracteres";
-                $("#business_name").css("border-color", "#ba0c2f");
-                $("#error_business_name_message").text(message)
-                $("#error_business_name").show();
-                $("#error_business_name")
-
-                    ;
-                isValid = false;
-            } else {
-                $("#error_business_name").hide();
-                $("#business_name").css("border-color", "#cccccc");
+        select_categories2 = new TomSelect("#cat_interest_2", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
             }
-        }
-
-        if (website == "") {
-            message = "El website es requerido";
-            $("#website").css("border-color", "#ba0c2f");
-            $("#error_website_message").text(message)
-            $("#error_website").show();
-            $("#error_website")
-
-                ;
-            isValid = false;
-        } else {
-            if (!isUrl(website)) {
-                message = "El website no es valido";
-                $("#website").css("border-color", "#ba0c2f");
-                $("#error_website_message").text(message)
-                $("#error_website").show();
-                $("#error_website")
-
-                    ;
-                isValid = false;
-            } else {
-                $("#error_website").hide();
-                $("#website").css("border-color", "#cccccc");
-            }
-        }
-
-        if (description_business_spanish == "") {
-            message = "La descripción en español es requerida";
-            $("#description_business_spanish").css("border-color", "#ba0c2f");
-            $("#error_description_business_spanish_message").text(message)
-            $("#error_description_business_spanish").show();
-            isValid = false;
-        } else {
-            if (description_business_spanish.length > 1000) {
-                message =
-                    "La descripción en español debe tener menos de 1000 caracteres";
-                $("#description_business_spanish").css("border-color", "#ba0c2f");
-                $("#error_description_business_spanish_message").text(message)
-                $("#error_description_business_spanish").show();
-                isValid = false;
-            } else {
-                $("#error_description_business_spanish").hide();
-                $("#description_business_spanish").css("border-color", "#cccccc");
-            }
-        }
-
-        if (description_business_english == "") {
-            message = "La descripción en inglés es requerida";
-            $("#description_business_english").css("border-color", "#ba0c2f");
-            $("#error_description_business_english_message").text(message)
-            $("#error_description_business_english").show();
-            isValid = false;
-        } else {
-            if (description_business_english.length > 1000) {
-                message =
-                    "La descripción en inglés debe tener menos de 1000 caracteres";
-                $("#description_business_english").css("border-color", "#ba0c2f");
-                $("#error_description_business_english_message").text(message)
-                $("#error_description_business_english").show();
-                isValid = false;
-            } else {
-                $("#error_description_business_english").hide();
-                $("#description_business_english").css("border-color", "#cccccc");
-            }
-        }
-
-        if (production_chain == "") {
-            message = "La cadena de producción es requerida";
-            $("#production_chain_contain .ts-control").css("border-color", "#ba0c2f");
-            $("#error_production_chain_message").text(message)
-            $("#error_production_chain").show();
-            isValid = false;
-        } else {
-            $("#error_production_chain").hide();
-            $("#production_chain_contain .ts-control").css("border-color", "#cccccc");
-        }
-        if (principal_code_ciiu == "") {
-            message = "El código CIIU principal es requerido";
-            $("#principal_code_ciiu").css("border-color", "#ba0c2f");
-            $("#error_principal_code_ciiu").show();
-            $("#error_principal_code_ciiu_message").text(message)
-
-            isValid = false;
-        } else {
-            $("#error_principal_code_ciiu").hide();
-            $("#principal_code_ciiu").css("border-color", "#cccccc");
-        }
-
-        if (departament == "") {
-            message = "El departamento es requerido";
-            $("#departament_contain .ts-control").css("border-color", "#ba0c2f");
-            $("#error_departament_message").text(message)
-            $("#error_departament").show();
-            isValid = false;
-        } else {
-            $("#error_departament").hide();
-            $("#departament_contain .ts-control").css("border-color", "#cccccc");
-        }
-
-        if (ciudad == "") {
-            message = "La ciudad es requerida";
-            $("#ciudad_contain .ts-control").css("border-color", "#ba0c2f");
-            $("#error_ciudad_message").text(message)
-            $("#error_ciudad").show();
-            isValid = false;
-        } else {
-            $("#error_ciudad").hide();
-            $("#ciudad_contain .ts-control").css("border-color", "#cccccc");
-        }
-
-        if (modelo_de_negocio == "") {
-            message = "El modelo de negocio es requerido";
-            $("#modelo_de_negocio_contain .ts-control").css("border-color", "#ba0c2f");
-            $("#error_modelo_de_negocio_message").text(message)
-            $("#error_modelo_de_negocio").show();
-            isValid = false;
-        } else {
-            $("#error_modelo_de_negocio").hide();
-            $("#modelo_de_negocio_contain .ts-control").css("border-color", "#cccccc");
-        }
-
-        return isValid;
-    }
-
-    /*
-     *  Save user with fetch
-     *  - Send data and update user
-     */
-
-    // variable to take the decision if is 0 not redirect if is 1 redirect
-    var sw = 0
-
-    function editForm1() {
-        //start loading
-        $("#loading_1").show();
-        $("#save_1").hide();
-        var data = {
-            logo: $("#logo").prop("files")[0],
-            business_name: $("#business_name").val(),
-            website: $("#website").val(),
-            description_business_spanish: $(
-                "#description_business_spanish"
-            ).val(),
-            description_business_english: $(
-                "#description_business_english"
-            ).val(),
-            production_chain: $("#production_chain").val(),
-            principal_code_ciiu: $("#principal_code_ciiu").val(),
-            secondary_code_ciiu: $("#secondary_code_ciiu").val(),
-            departament: $("#departament").val(),
-            ciudad: $("#ciudad").val(),
-            modelo_de_negocio: $("#modelo_de_negocio").val(),
-        };
-        var formData = new FormData();
-        for (var key in data) {
-            formData.append(key, data[key]);
-        }
-
-        fetch("/editar/update_form1", {
-            method: "POST",
-            body: formData,
-        })
-            .then(function (response) {
-                $("#loading_1").hide();
-                $("#save_1").show();
-                if (response.status == 200) {
-                    //show question save
-                    successProcess();
-                    setTimeout(() => {
-                        if (sw == 0) {
-                            //reload page
-                            window.location.reload();
-                        } else {
-                            window.location.href = "/dashboard/col/user";
-                        }
-                    }, 2000);
-
-                } else {
-                    $("#question_modal").modal("hide");
-                    alert("Error al crear el usuario" + error);
+        });
+        select_model2 = new TomSelect("#company_model_2", {
+            plugins: ['remove_button'],
+            create: true,
+            onItemAdd: function () {
+                this.setTextboxValue('');
+                this.refreshOptions();
+            },
+            render: {
+                item: function (data, escape) {
+                    return '<div>' + escape(data.text) + '</div>';
                 }
-            })
-            .catch(function (error) {
-                $("#loading_1").hide();
-                $("#save_1").show();
-                alert("Error al crear el usuario" + error);
-            });
+            }
+        });
+        select_subcategories2 = new TomSelect("#subcat_interest_2", {
+            valueField: 'id',
+            labelField: 'title',
+            searchField: 'title',
+            options: [
+                { id: 1, title: 'Seleccione una opción' },
+            ],
+            sortField: {
+                field: "text",
+                direction: "asc"
+            },
+            create: false
+        });
+
+        select_categories3 = new TomSelect("#cat_interest_3", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+        select_model3 = new TomSelect("#company_model_3", {
+            plugins: ['remove_button'],
+            create: true,
+            onItemAdd: function () {
+                this.setTextboxValue('');
+                this.refreshOptions();
+            },
+            render: {
+                item: function (data, escape) {
+                    return '<div>' + escape(data.text) + '</div>';
+                }
+            }
+        });
+        select_subcategories3 = new TomSelect("#subcat_interest_3", {
+            valueField: 'id',
+            labelField: 'title',
+            searchField: 'title',
+            options: [
+                { id: 1, title: 'Seleccione una opción' },
+            ],
+            sortField: {
+                field: "text",
+                direction: "asc"
+            },
+            create: false
+        });
+
+        //get data of user
+        getDataUserInternational();
     }
 
-    //show question modal
-    function showQuestionModal() {
-        sw = 0
-        $("#question_modal").modal("show");
-    }
-
-    //show question modal 1
-    function showQuestionModal1() {
-        sw = 1
-        $("#question_modal").modal("show");
-    }
-
-
-    /*
-     *  Validate Form 3
-     *  - name is required and have max length of 20
-     *  - last_name is required and have max length of 20
-     *  - position_spanish is required and have max length of 50
-     *  - country_code_landline is required
-     *  - landline is required and is number and have max length of 20
-     *  - country_code_mobile is required
-     *  - mobile is required and is number and have max length of 20
-     *  - contact_email is required and is email
-     */
-    function validateForm2() {
-        var isValid = true;
-        var message = "";
+    function validateForm() {
         var name = $("#name").val();
         var last_name = $("#last_name").val();
-        var position_spanish = $("#position_spanish").val();
-        var country_code_landline = $("#country_code_landline").val();
-        var landline = $("#landline").val();
-        var country_code_mobile = $("#country_code_mobile").val();
-        var mobile = $("#mobile").val();
-        var contact_email = $("#contact_email").val();
+        var email = $("#email").val();
+        var cellphone = $("#cellphone").val();
+        var business_name = $("#business_name").val();
+        var password = $("#password_buyer").val();
+        var country = $("#country").val();
+        var city = $("#city").val();
+        var position = $("#position").val();
+        var web_site = $("#web_site").val();
+        var cat_interest_1 = $("#cat_interest_1").val();
+        var subcat_interest_1 = $("#subcat_interest_1").val();
+        var company_model = $("#company_model").val();
+        var cat_interest_2 = $("#cat_interest_2").val();
+        var subcat_interest_2 = $("#subcat_interest_2").val();
+        var company_model_2 = $("#company_model_2").val();
+        var cat_interest_3 = $("#cat_interest_3").val();
+        var subcat_interest_3 = $("#subcat_interest_3").val();
+        var company_model_3 = $("#company_model_3").val();
+        var message = "";
+        var isValid = true;
 
-        if (name == "") {
-            message = "El nombre es requerido";
+        if (name === "") {
+            message += "El nombre es requerido\n";
             $("#name").css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
         } else {
             if (name.length > 20) {
-                message = "El nombre no debe tener mas de 20 caracteres";
+                message += "El nombre no puede tener mas de 20 caracteres\n";
                 $("#name").css("border-color", "#ba0c2f");
-                $("#error_name_message").text(message)
                 $("#error_name").show();
+                $("#error_name_message").text(message)
                 isValid = false;
             } else {
-                $("#error_name").hide();
                 $("#name").css("border-color", "#cccccc");
+                $("#error_name").hide();
             }
         }
-        if (last_name == "") {
-            message = "El apellido es requerido";
+        if (last_name === "") {
+            message += "El apellido es requerido\n";
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = "El apellido no debe tener mas de 20 caracteres";
+                message += "El apellido no puede tener mas de 20 caracteres\n";
                 $("#last_name").css("border-color", "#ba0c2f");
-                $("#error_last_name_message").text(message)
                 $("#error_last_name").show();
-                $("#error_last_name")
-
-                    ;
+                $("#error_last_name_message").text(message)
                 isValid = false;
             } else {
-                $("#error_last_name").hide();
                 $("#last_name").css("border-color", "#cccccc");
+                $("#error_last_name").hide();
             }
         }
-        if (position_spanish == "") {
-            message = "La posición en español es requerida";
-            $("#position_spanish").css("border-color", "#ba0c2f");
-            $("#error_position_spanish_message").text(message)
-            $("#error_position_spanish").show();
+
+        if (email == "" || !isEmail(email)) {
+            message = "El email es requerido y debe ser un email válido";
+            $("#email").css("border-color", "#ba0c2f");
+            $("#error_mail").show();
+            $("#error_mail_message").text(message)
             isValid = false;
         } else {
-            if (position_spanish.length > 50) {
-                message =
-                    "La posición en español no debe tener mas de 50 caracteres";
-                $("#position_spanish").css("border-color", "#ba0c2f");
-                $("#error_position_spanish_message").text(message)
-                $("#error_position_spanish").show();
+            $('#error_mail').tooltip('hide')
+            $("#error_mail").hide();
+            $("#email").css("border-color", "#cccccc");
+        }
 
+        if (cellphone !== "") {
+            if (!isNumber(cellphone)) {
+                message = "El celular debe ser un número";
+                $("#cellphone").css("border-color", "#ba0c2f");
+                $("#error_cellphone").show();
+                $("#error_cellphone_message").text(message)
                 isValid = false;
             } else {
-                $("#error_position_spanish").hide();
-                $("#position_spanish").css("border-color", "#cccccc");
+                $("#cellphone").css("border-color", "#cccccc");
+                $("#error_cellphone").hide();
             }
         }
-        if (country_code_landline == "") {
-            message = "El codigo de pais de la linea de telefono es requerido";
-            $("#country_code_landline").css("border-color", "#ba0c2f");
-            $("#error_country_code_landline").show();
-            $("#error_country_code_landline")
 
-                ;
+        if (business_name === "") {
+            message += "La compañia es requerida\n";
+            $("#business_name").css("border-color", "#ba0c2f");
+            $("#error_business_name").show();
+            $("#error_business_name_message").text(message)
             isValid = false;
         } else {
-            $("#error_country_code_landline").hide();
-            $("#country_code_landline").css("border-color", "#cccccc");
-        }
-        if (landline == "") {
-            message = "La linea de telefono es requerida";
-            $("#landline").css("border-color", "#ba0c2f");
-            $("#error_landline").show();
-            $("#error_landline")
-
-                ;
-            isValid = false;
-        } else {
-            if (landline.length > 20) {
-                message =
-                    "La linea de telefono no debe tener mas de 20 caracteres";
-                $("#landline").css("border-color", "#ba0c2f");
-                $("#error_landline").show();
-                $("#error_landline")
-
-                    ;
+            if (business_name.length > 100) {
+                message += "La compañia no puede tener mas de 100 caracteres\n";
+                $("#business_name").css("border-color", "#ba0c2f");
+                $("#error_business_name").show();
+                $("#error_business_name_message").text(message)
                 isValid = false;
             } else {
-                if (!landline.match(/^[0-9]+$/)) {
-                    message = "La linea de telefono no debe tener letras";
-                    $("#landline").css("border-color", "#ba0c2f");
-                    $("#error_landline").show();
-                    $("#error_landline")
+                $("#business_name").css("border-color", "#cccccc");
+                $("#error_business_name").hide();
+            }
+        }
 
-                        ;
+        if (password == "") {
+            message = "El password es requerido";
+            $("#password_buyer").css("border-color", "#ba0c2f");
+            $("#error_password_buyer_message").text(message)
+            $("#error_password_buyer").show();
+            isValid = false;
+        } else {
+            if (password.length < 8) {
+                message = "El password debe tener entre 8 y 15 caracteres";
+                $("#password_buyer").css("border-color", "#ba0c2f");
+                $("#error_password_buyer_message").text(message)
+                $("#error_password_buyer").show();
+                isValid = false;
+            } else {
+                if (!password.match(/[A-Z]/)) {
+                    message = "El password debe tener al menos una mayúscula";
+                    $("#password_buyer").css("border-color", "#ba0c2f");
+                    $("#error_password_buyer_message").text(message)
+                    $("#error_password_buyer").show();
                     isValid = false;
                 } else {
-                    $("#error_landline").hide();
-                    $("#landline").css("border-color", "#cccccc");
+                    if (!password.match(/[0-9]/)) {
+                        message = "El password debe tener al menos un número";
+                        $("#password_buyer").css("border-color", "#ba0c2f");
+                        $("#error_password_buyer_message").text(message)
+                        $("#error_password_buyer").show();
+                        $("#error_password_buyer")
+
+                            ;
+                        isValid = false;
+                    } else {
+                        if (!password.match(/[^a-zA-Z0-9]/)) {
+                            message =
+                                "El password debe tener al menos un caracter especial";
+                            $("#password_buyer").css("border-color", "#ba0c2f");
+                            $("#error_password_buyer_message").text(message)
+                            $("#error_password_buyer").show();
+                            $("#error_password_buyer")
+
+                                ;
+                            isValid = false;
+                        } else {
+                            $("#error_password_buyer").hide();
+                            $("#password_buyer").css("border-color", "#cccccc");
+                        }
+                    }
                 }
             }
         }
-        if (country_code_mobile == "") {
-            message = "El codigo de pais de la celular es requerido";
-            $("#country_code_mobile").css("border-color", "#ba0c2f");
-            $("#error_country_code_mobile").show();
-            $("#error_country_code_mobile")
 
-                ;
+        if (country == "") {
+            message = "Por favor seleccione un país";
+            $("#country").css("border-color", "#ba0c2f");
+            $("#error_country_message").text(message)
+            $("#error_country").show();
             isValid = false;
         } else {
-            $("#error_country_code_mobile").hide();
-            $("#country_code_mobile").css("border-color", "#cccccc");
+            $("#country").css("border-color", "#ccc");
+            $("#error_country").hide();
         }
-        if (mobile == "") {
-            message = "El celular es requerido";
-            $("#mobile").css("border-color", "#ba0c2f");
-            $("#error_mobile").show();
-            $("#error_mobile")
 
-                ;
+        if (city == "") {
+            message = "Por favor seleccione una ciudad";
+            $("#city").css("border-color", "#ba0c2f");
+            $("#error_city_message").text(message)
+            $("#error_city").show();
             isValid = false;
         } else {
-            if (mobile.length > 20) {
-                message = "El celular no debe tener mas de 20 caracteres";
-                $("#mobile").css("border-color", "#ba0c2f");
-                $("#error_mobile").show();
-                $("#error_mobile")
+            $("#city").css("border-color", "#ccc");
+            $("#error_city").hide();
+        }
 
-                    ;
+        if (position == "") {
+            message = "Por favor seleccione una posición";
+            $("#position").css("border-color", "#ba0c2f");
+            $("#error_position_message").text(message)
+            $("#error_position").show();
+            isValid = false;
+        } else {
+            $("#position").css("border-color", "#ccc");
+            $("#error_position").hide();
+        }
+
+        if (web_site == "") {
+            message = "Por favor ingrese una web";
+            $("#web_site").css("border-color", "#ba0c2f");
+            $("#error_web_site_message").text(message)
+            $("#error_web_site").show();
+            isValid = false;
+        } else {
+            if (!validateURL(web_site)) {
+                message = "Por favor ingrese una web válida";
+                $("#web_site").css("border-color", "#ba0c2f");
+                $("#error_web_site_message").text(message)
+                $("#error_web_site").show();
                 isValid = false;
             } else {
-                if (!mobile.match(/^[0-9]+$/)) {
-                    message = "El celular no debe tener letras";
-                    $("#mobile").css("border-color", "#ba0c2f");
-                    $("#error_mobile").show();
-                    $("#error_mobile")
-
-                        ;
-                    isValid = false;
-                } else {
-                    $("#error_mobile").hide();
-                    $("#mobile").css("border-color", "#cccccc");
-                }
+                $("#web_site .ts-control").css("border-color", "#ccc");
+                $("#error_web_site").hide();
             }
         }
-        if (contact_email == "") {
-            message = "El correo electronico es requerido";
-            $("#contact_email").css("border-color", "#ba0c2f");
-            $("#error_email").show();
-            $("#error_email")
 
-                ;
+        if (cat_interest_1 == "") {
+            message = "Por favor seleccione una categoría";
+            $("#cat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_cat_interest_1_message").text(message)
+            $("#error_cat_interest_1").show();
             isValid = false;
         } else {
-            if (
-                !contact_email.match(
-                    /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-                )
-            ) {
-                message = "El correo electronico no es valido";
-                $("#contact_email").css("border-color", "#ba0c2f");
-                $("#error_email").show();
-                $("#error_email")
+            $("#cat_interest_1_cont .ts-control").css("border-color", "#ccc");
+            $("#error_cat_interest_1").hide();
+        }
 
-                    ;
-                isValid = false;
-            } else {
-                $("#error_email").hide();
-                $("#contact_email").css("border-color", "#cccccc");
-            }
+        if (subcat_interest_1 == "") {
+            message = "Por favor seleccione una subcategoría";
+            $("#subcat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_subcat_interest_1_message").text(message)
+            $("#error_subcat_interest_1").show();
+            isValid = false;
+        } else {
+            $("#subcat_interest_1_cont .ts-control").css("border-color", "#ccc");
+            $("#error_subcat_interest_1").hide();
+        }
+
+        if (company_model == "") {
+            message = "Por favor seleccione un modelo de empresa";
+            $("#company_model_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_company_model_message").text(message)
+            $("#error_company_model").show();
+            isValid = false;
+        } else {
+            $("#company_model_cont .ts-control").css("border-color", "#ccc");
+            $("#error_company_model").hide();
+        }
+
+        if (cat_interest_2 == "") {
+            message = "Por favor seleccione una categoría";
+            $("#cat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_cat_interest_2_message").text(message)
+            $("#error_cat_interest_2").show();
+            isValid = false;
+        } else {
+            $("#cat_interest_2_cont .ts-control").css("border-color", "#ccc");
+            $("#error_cat_interest_2").hide();
+        }
+
+        if (subcat_interest_2 == "") {
+            message = "Por favor seleccione una subcategoría";
+            $("#subcat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_subcat_interest_2_message").text(message)
+            $("#error_subcat_interest_2").show();
+            isValid = false;
+        } else {
+            $("#subcat_interest_2_cont .ts-control").css("border-color", "#ccc");
+            $("#error_subcat_interest_2").hide();
+        }
+
+        if (company_model_2 == "") {
+            message = "Por favor seleccione un modelo de empresa";
+            $("#company_model_2_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_company_model_2_message").text(message)
+            $("#error_company_model_2").show();
+            isValid = false;
+        } else {
+            $("#company_model_2_cont .ts-control").css("border-color", "#ccc");
+            $("#error_company_model_2").hide();
+        }
+
+        if (cat_interest_3 == "") {
+            message = "Por favor seleccione una categoría";
+            $("#cat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_cat_interest_3_message").text(message)
+            $("#error_cat_interest_3").show();
+            isValid = false;
+        } else {
+            $("#cat_interest_3_cont .ts-control").css("border-color", "#ccc");
+            $("#error_cat_interest_3").hide();
+        }
+
+        if (subcat_interest_3 == "") {
+            message = "Por favor seleccione una subcategoría";
+            $("#subcat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_subcat_interest_3_message").text(message)
+            $("#error_subcat_interest_3").show();
+            isValid = false;
+        } else {
+            $("#subcat_interest_3_cont .ts-control").css("border-color", "#ccc");
+            $("#error_subcat_interest_3").hide();
+        }
+
+        if (company_model_3 == "") {
+            message = "Por favor seleccione un modelo de empresa";
+            $("#company_model_3_cont .ts-control").css("border-color", "#ba0c2f");
+            $("#error_company_model_3_message").text(message)
+            $("#error_company_model_3").show();
+            isValid = false;
+        } else {
+            $("#company_model_3_cont .ts-control").css("border-color", "#ccc");
+            $("#error_company_model_3").hide();
         }
 
         return isValid;
     }
 
-    /*
-     * update data form 3 with nit
-     *  - Send data and get nit of local storage
-     */
-    function updateForm2() {
+    function updateUser() {
+        if (validateForm()) {
+            $("#loading_1").show();
+            $("#save").hide();
+            var name = $("#name").val();
+            var last_name = $("#last_name").val();
+            var email = $("#email").val();
+            var cellphone = $("#cellphone").val();
+            var business_name = $("#business_name").val();
+            var password = $("#password_buyer").val();
+            var country = $("#country").val();
+            var city = $("#city").val();
+            var position = $("#position").val();
+            var web_site = $("#web_site").val();
+            var cat_interest_1 = $("#cat_interest_1").val();
+            var subcat_interest_1 = $("#subcat_interest_1").val();
+            var company_model = $("#company_model").val();
+            var cat_interest_2 = $("#cat_interest_2").val();
+            var subcat_interest_2 = $("#subcat_interest_2").val();
+            var company_model_2 = $("#company_model_2").val();
+            var cat_interest_3 = $("#cat_interest_3").val();
+            var subcat_interest_3 = $("#subcat_interest_3").val();
+            var company_model_3 = $("#company_model_3").val();
 
-        $("#loading_3").show();
-        $("#save_3").hide();
-        var data = {
-            name: $("#name").val(),
-            last_name: $("#last_name").val(),
-            position_spanish: $("#position_spanish").val(),
-            country_code_landline: $("#country_code_landline").val(),
-            landline: $("#landline").val(),
-            country_code_mobile: $("#country_code_mobile").val(),
-            mobile: $("#mobile").val(),
-            contact_email: $("#contact_email").val(),
-        };
-        var formData = new FormData();
-        for (var key in data) {
-            formData.append(key, data[key]);
-        }
+            var data = {
+                name: name,
+                last_name: last_name,
+                email: email,
+                cellphone: cellphone,
+                business_name: business_name,
+                password: password,
+                country: country,
+                city: city,
+                position: position,
+                web_site: web_site,
+                cat_interest_1: cat_interest_1,
+                subcat_interest_1: subcat_interest_1,
+                company_model: company_model,
+                cat_interest_2: cat_interest_2,
+                subcat_interest_2: subcat_interest_2,
+                company_model_2: company_model_2,
+                cat_interest_3: cat_interest_3,
+                subcat_interest_3: subcat_interest_3,
+                company_model_3: company_model_3
+            };
 
-        fetch("/editar/update_form2", {
-            method: "POST",
-            body: formData,
-        })
-            .then(function (response) {
-                if (response.status === 200) {
-                    //show alert success
-                    successProcess();
-                    setTimeout(() => {
+            var formData = new FormData();
+            for (var key in data) {
+                formData.append(key, data[key]);
+            }
 
-                        window.location.reload();
-
-                    }, 2000);
-                } else {
-                    alert("Error al actualizar los datos");
-                }
-                $("#question_modal2").modal("hide");
+            fetch("/editar/international/update_form", {
+                method: "POST",
+                body: formData,
             })
-            .catch(function (error) {
-                $("#loading_3").hide();
-                $("#save_3").show();
-                alert("Error al actualizar los datos");
-            });
+                .then(function (response) {
+                    $("#loading_1").hide();
+                    $("#save").show();
+                    if (response.status == 200) {
+                        //save email in local storage
+                        $('#question_modal').modal('hide');
+                        $('#success_modal').modal('show');
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 2500);
+                    } else {
+                        alert("Error al crear el usuario" + error);
+                    }
+                })
+                .catch(function (error) {
+                    $("#loading_1").hide();
+                    $("#save").show();
+                    alert("Error al crear el usuario" + error);
+                });
 
-    }
-
-    //show question modal 2
-    function showQuestionModal2() {
-        $("#question_modal2").modal("show");
-    }
-    /*
-    * open modal to cancel process
-    */
-    function cancelProcess() {
-        $("#cancel_modal").modal('show');
-    }
-    //show succes modal
-    function successProcess() {
-        $("#question_modal").modal("hide");
-
-        $("#success_modal").modal('show');
+        }
     }
 
-    /*
-    * reload the page
-    */
-    function reloadPage() {
-        window.location.reload();
-    }
     /*
     * get data of user if not return 200 status code, use data_neo to fill form in other case fill form with data of user and show tab base in step + 1
     */
-    function getDataUser() {
-        fetch("/editar/get_logged_user", {
+    function getDataUserInternational() {
+        fetch("/editar/internacional/get_logged_user", {
             method: "GET",
         }).then((response) => response.json())
             .then((data) => {
@@ -765,51 +581,139 @@
                     //show alert success
                     //redirect to pre-registro
                     //fill form with data of user
-                    fillFormWithDataUser(data.data);
-                } else {
-                    alert(data);
+                    fillFormWithDataUserInternational(data.data);
+                    //show tab base in step
                 }
             })
             .catch(function (error) {
-                alert("Error al obtener los datos");
-                console.log(error);
+                alert(error);
             });
+    }
+
+    //fecth subcategories 1
+    function getSubcategories1(value = "") {
+        //get departament
+        var cat_interest_1 = $("#cat_interest_1").val();
+        //put in form data
+        var formData = new FormData();
+        //put message of loading cities
+        select_subcategories1.clear();
+        select_subcategories1.clearOptions();
+        formData.append("cat_interest", cat_interest_1);
+        //fetch cities
+        fetch("/get_subcategories", {
+            method: "POST",
+            body: formData,
+        }).then((response) => response.json())
+            .then((data) => {
+                //put options in select cities
+                console.log(data)
+                select_subcategories1.clearOptions();
+                data.subcategories.map((subcategory) => {
+                    //create option inside select cities
+                    select_subcategories1.addOption({
+                        id: subcategory.ID,
+                        title: subcategory.Name,
+                    });
+                });
+                if (value !== "")
+                    select_subcategories1.setValue(value);
+            })
+            .catch((error) => {
+                alert(error);
+            })
+    }
+
+    //fecth subcategories 2
+    function getSubcategories2(value = "") {
+        //get departament
+        var cat_interest_2 = $("#cat_interest_2").val();
+        //put in form data
+        var formData = new FormData();
+        //put message of loading cities
+        select_subcategories2.clear();
+        select_subcategories2.clearOptions();
+        formData.append("cat_interest", cat_interest_2);
+        //fetch cities
+        fetch("/get_subcategories", {
+            method: "POST",
+            body: formData,
+        }).then((response) => response.json())
+            .then((data) => {
+                //put options in select cities
+                console.log(data)
+                select_subcategories2.clearOptions();
+                data.subcategories.map((subcategory) => {
+                    //create option inside select cities
+                    select_subcategories2.addOption({
+                        id: subcategory.ID,
+                        title: subcategory.Name,
+                    });
+                });
+                if (value !== "")
+                    select_subcategories2.setValue(value);
+            })
+            .catch((error) => {
+                alert(error);
+            })
+    }
+
+    //fecth subcategories 3
+    function getSubcategories3(value = "") {
+        //get departament
+        var cat_interest_3 = $("#cat_interest_3").val();
+        //put in form data
+        var formData = new FormData();
+        //put message of loading cities
+        select_subcategories3.clear();
+        select_subcategories3.clearOptions();
+        formData.append("cat_interest", cat_interest_3);
+        //fetch cities
+        fetch("/get_subcategories", {
+            method: "POST",
+            body: formData,
+        }).then((response) => response.json())
+            .then((data) => {
+                //put options in select cities
+                console.log(data)
+                select_subcategories3.clearOptions();
+                data.subcategories.map((subcategory) => {
+                    //create option inside select cities
+                    select_subcategories3.addOption({
+                        id: subcategory.ID,
+                        title: subcategory.Name,
+                    });
+                });
+                if (value !== "")
+                    select_subcategories3.setValue(value);
+            })
+            .catch((error) => {
+                alert(error);
+            })
     }
 
     /*
     * fill form with data of user
     */
-    function fillFormWithDataUser(data) {
+    function fillFormWithDataUserInternational(data) {
+        //fill data of user
+        $("#name").val(data.name);
+        $("#last_name").val(data.lastname);
+        $("#cellphone").val(data.cellphone);
         $("#business_name").val(data.business_name);
-        $("#empresa_popup").text(data.business_name);
-        $("#website").val(data.website);
-        $("#video").val(data.video);
-        $("#description_business_spanish").val(data.description_spanish);
-        $("#description_business_english").val(data.description_english);
-
-        production_chain_select.setValue(data.production_chain);
-        departament_select.setValue(data.departament);
-        getCities(data.ciudad);
-        modelo_de_negocio_select.setValue([data.modelo_de_negocio]);
-        $("#principal_code_ciiu").val(data.principal_code_ciiu);
-        $("#secondary_code_ciiu").val(data.secondary_code_ciiu);
-        $("#third_code_ciiu").val(data.third_code_ciiu);
-        $("#name").val(data.contact_name);
-        $("#last_name").val(data.contact_lastname);
-        $("#position_spanish").val(data.contact_position);
-        $("#landline").val(data.contact_phone);
-        $("#mobile").val(data.contact_cellphone);
-        $("#contact_email").val(data.contact_email);
-
-        //fill logo informatio
-        var fileSize = data.company_logo_size / 1024;
-        // show image
-        $("#logo_img").attr("src", data.company_logo);
-        $("#logo_img").show();
-        $("#logo_name").val(data.company_logo_name + "(" + fileSize.toFixed(2) + "KB)");
-        $("#logo_name").show();
-        $("#prew").show();
-        $("#logo_sub").hide();
+        $("#position").val(data.position);
+        $("#email").val(data.email);
+        $("#position").val(data.position);
+        $("#web_site").val(data.web_site);
+        select_categories1.setValue(data.cat_interest_1);
+        select_categories2.setValue(data.cat_interest_2);
+        select_categories3.setValue(data.cat_interest_3);
+        getSubcategories1(data.subcat_interest_1);
+        getSubcategories2(data.subcat_interest_2);
+        getSubcategories3(data.subcat_interest_3);
+        select_model1.setValue(data.company_model);
+        select_model2.setValue(data.company_model_2);
+        select_model3.setValue(data.company_model_3);
     }
 
 
@@ -820,71 +724,55 @@
         attach: function (context, settings) {
 
             //if document is ready call init
-            if (context === document && $("#production_chain").length > 0) {
+            if (context === document && $("#cat_interest_1").length > 0) {
                 init();
             }
-            //call function openInputFile
-            $("#open_input_file", context).click(function () {
-                openInputFile();
+            //call function passwordToText
+            $("#pass_show_buyer", context).click(function () {
+                passwordToText();
             });
-            //call function onChangeLogo
-            $("#logo", context).change(function () {
-                onChangeLogo();
+            //call function textToPassword
+            $("#pass_bloq_buyer", context).click(function () {
+                textToPassword();
             });
-            //call function removeLogo
-            $("#remove_logo", context).click(function () {
-                removeLogo();
+            //call subcategory of selected category
+            $("#cat_interest_1", context).on("input", function () {
+                getSubcategories1();
             });
-            //call function showQuestionModal
-            $("#save_only", context).click(function () {
-                if (validateForm1()) {
-                    showQuestionModal(0);
-                }
+            $("#cat_interest_2", context).on("input", function () {
+                getSubcategories2();
             });
-            //call function showQuestionModal
-            $("#save_1", context).click(function () {
-                if (validateForm1()) {
-                    showQuestionModal1();
-                }
-            });
-            //call function saveUser
-            $("#confirm_save", context).click(function () {
-                editForm1(1);
+            $("#cat_interest_3", context).on("input", function () {
+                getSubcategories3();
             });
 
-            //call function updateForm2
-            $("#save_2", context).click(function () {
-                if (validateForm2()) {
-                    showQuestionModal2();
+            //Open MOdal update user
+            $("#edit_company_international", context).click(function () {
+                if (validateForm()) {
+                    $('#question_modal').modal('show');
                 }
+
             });
-            $("#confirm_save2", context).click(function () {
-                updateForm2();
-            });
-            //call function cancelProcess 1
-            $("#cancel_process", context).click(function () {
-                cancelProcess();
-            });
+            //Open MOdal cancel buyer
             $("#cancel_process_1", context).click(function () {
-                cancelProcess();
+                $('#cancel_modal').modal('show');
+
             });
-            $("#cancel_process_2", context).click(function () {
-                cancelProcess();
+            $("#cancel_process", context).click(function () {
+                $('#cancel_modal').modal('show');
+
             });
-            //call function hideCancelProcess
+            // Cancel Process
             $("#confirm_cancel", context).click(function () {
-                reloadPage();
+                window.location.reload();
+
             });
-            //call function getCities on input
-            $("#departament", context).on("input", function () {
-                getCities();
+            //update Data user
+            $("#confirm_save_buyer", context).click(function () {
+                updateUser();
             });
 
-            // remove display none toltip_content when description_business_spanish onInput  
 
-            $("#description_business_spanish", context).on("input", function () {
-                $("#notification_english").css("display", "block");
-            });
         }
     };
 

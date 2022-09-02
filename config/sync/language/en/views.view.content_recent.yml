@@ -1,23 +1,18 @@
-label: 'Recent content'
-description: 'Recent content.'
+label: 'Contenido reciente'
+description: 'Contenido reciente.'
 display:
   default:
-    display_title: Default
+    display_title: 'Por defecto'
     display_options:
-      title: 'Recent content'
-      fields:
-        changed:
-          separator: ', '
+      title: 'Contenido reciente'
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
       empty:
         area_text_custom:
-          content: 'No content available.'
-      use_more_text: More
+          content: 'No hay contenido disponible.'
+      use_more_text: Más
   block_1:
-    display_title: Block
+    display_title: Bloque

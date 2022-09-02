@@ -1,20 +1,18 @@
-label: 'Who''s new'
-description: 'Shows a list of the newest user accounts on the site.'
+label: 'Usuarios nuevos'
+description: 'Muestra un listado de las cuentas de usuarios más recientes en el sitio.'
 display:
   default:
-    display_title: Default
+    display_title: 'Por defecto'
     display_options:
-      title: 'Who''s new'
+      title: 'Usuarios nuevos'
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
   block_1:
-    display_title: 'Who''s new'
+    display_title: 'Usuarios nuevos'
     display_options:
-      display_description: 'A list of new users'
-      block_description: 'Who''s new'
-      block_category: User
+      display_description: 'Una lista de los usuarios nuevos'
+      block_description: 'Usuarios nuevos'
+      block_category: Usuario

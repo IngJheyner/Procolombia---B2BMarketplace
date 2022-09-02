@@ -1,5 +1,3 @@
-title: 'Job Application'
-description: 'A job application webform template.'
 elements: |
   information:
     '#title': 'Your Information'
@@ -12,10 +10,10 @@ elements: |
       '#title': 'Last Name'
       '#type': textfield
       '#required': true
-    sex:
-      '#type': webform_radios_other
-      '#title': Sex
-      '#options': sex
+    gender:
+      '#type': radios
+      '#title': Gender
+      '#options': gender
       '#required': true
   contact_information:
     '#title': 'Contact Information'
@@ -69,12 +67,6 @@ elements: |
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': Apply
-settings:
-  confirmation_message: 'Thank you for applying.'
 handlers:
   email_notification:
-    label: 'Email Notification'
-    settings:
-      from_name: '[webform_submission:values:first_name] [webform_submission:values:last_name]'
-      subject: _default
-      body: _default
+    label: 'Notificación por correo electrónico'

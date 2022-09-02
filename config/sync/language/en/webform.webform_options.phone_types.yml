@@ -1,6 +1,1 @@
-label: 'Phone type'
-category: Demographic
-options: |
-  Home: Home
-  Office: Office
-  Cell: Cell
+category: Demográfico
