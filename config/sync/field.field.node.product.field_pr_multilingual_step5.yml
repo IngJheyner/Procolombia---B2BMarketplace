@@ -1,0 +1,22 @@
+uuid: 903bfe7a-8fdd-4c1c-95da-d8f60b537730
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_multilingual_step5
+    - node.type.product
+  module:
+    - mfd
+id: node.product.field_pr_multilingual_step5
+field_name: field_pr_multilingual_step5
+entity_type: node
+bundle: product
+label: 'Multi-idioma paso 5'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: multilingual_form_display

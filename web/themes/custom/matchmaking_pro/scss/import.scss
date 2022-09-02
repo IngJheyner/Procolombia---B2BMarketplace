@@ -2,14 +2,24 @@
 
 //@import url(font-awesome.min.css);
 // variables
-@import "variables";
+@import "./variables/variables.scss";
+@import "./variables/variables_evolutecc.scss";
 // typography
-@import "typography";
+@import "./typography.scss";
 //bootstrap
 @import "bootstrap";
 //material design bootstrap
 //@import "../node_modules/mdbootstrap/scss/mdb-free.scss";
 // mixins
-@import "mixins";
+@import "./mixins.scss";
 // barrio
 @import "barrio";
+//Estilos formulario Producto o servicio
+@import "multistep-product-form/_multistep-product-form";
+// Estilos listado productos/servicios
+@import "products-services/__products-services";
+
+@import 'views/_views';
+
+@import "layout-main-wrapper";
+@import 'components/block-system-breadcrumb-block';

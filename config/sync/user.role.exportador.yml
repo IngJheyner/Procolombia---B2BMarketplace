@@ -7,9 +7,13 @@ dependencies:
     - taxonomy.vocabulary.partida_arancelaria
   module:
     - content_translation
+    - cp_core
+    - entity_browser
     - entityqueue
     - field_permissions
+    - mfd
     - node
+    - statistics
     - taxonomy
     - taxonomy_access_fix
 id: exportador
@@ -17,15 +21,19 @@ label: Exportador
 weight: 4
 is_admin: null
 permissions:
+  - 'access paises entity browser pages'
+  - 'cp core access dashboard'
   - 'create terms in partida_arancelaria'
   - 'delete terms in partida_arancelaria'
   - 'edit any product content'
+  - 'edit multilingual form'
   - 'edit terms in partida_arancelaria'
   - 'reorder terms in partida_arancelaria'
   - 'translate product node'
   - 'update home_featured_products entityqueue'
   - 'view field_iframe'
   - 'view own unpublished content'
+  - 'view post access counter'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'

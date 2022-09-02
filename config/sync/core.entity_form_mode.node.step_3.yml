@@ -1,0 +1,10 @@
+uuid: 541c15ed-ff8a-4244-a1a3-6ee12369a58e
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_3
+label: 'Product and Merchandise certificate'
+targetEntityType: node
+cache: true

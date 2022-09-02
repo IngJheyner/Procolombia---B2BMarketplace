@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: YNrKbYrWWjeubUUM8AsQ19KnX7cU1elACR14CZJHmdg
 id: days
-label: Days
+label: Días
 category: 'Date and time'
 likert: false
 options: |

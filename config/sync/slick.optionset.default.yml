@@ -34,7 +34,7 @@ options:
     pauseOnFocus: true
     autoplaySpeed: 3000
     arrows: true
-    prevArrow: Previous
+    prevArrow: Anterior
     nextArrow: Next
     arrowsPlacement: ''
     downArrow: false

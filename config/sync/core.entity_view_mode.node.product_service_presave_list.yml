@@ -1,0 +1,10 @@
+uuid: 986f4b61-8f0c-4e0f-af4b-7bdc8fe714f5
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.product_service_presave_list
+label: 'Product / Service Presave List'
+targetEntityType: node
+cache: true

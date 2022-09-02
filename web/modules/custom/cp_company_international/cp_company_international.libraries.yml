@@ -1,0 +1,14 @@
+cp_company_international:
+  version: 1.7
+  css:
+    theme:
+      css/cp_company_international.css: {}
+  js:
+    js/cp_company_international.js: {}
+    js/edit_company_international.js: {}
+    js/edit_modal_company_international.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+
+    

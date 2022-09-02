@@ -1,0 +1,207 @@
+{{ attach_library('cp_company_international/cp_company_international') }}
+<main class="dashboard">
+	<div class="row">
+		<div class="col-lg-9 table_dashboard ">
+			<div class="row p-0 gy-3 gx-4">
+				<div class="col-lg-6">
+					<div class="card p-4" style="display: flex;justify-content: center;height: 100%;">
+						<div class="anuncio_dashboard">
+							<div class="row">
+								<div class="col-lg-4 img_anuncio">
+									<img src="http://52.201.168.42/sites/default/files/2022-08/Logo_dashboard.svg"
+										alt="" srcset="">
+								</div>
+								<div class="col-lg-8 content_anuncio">
+									<p class="tittle">EMPRESAS CONECTADAS</p>
+									<p class="description">Aquí puedes encontrar el listado de las empresas que has
+										contactado.</p>
+									<a class="btn_anuncio" href="http://">Ver empresas
+										<i class='bx bx-chevron-right'></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="card p-4">
+						<div class="anuncio_dashboard">
+							<div class="row">
+								<div class="col-lg-4 img_anuncio">
+									<img src="http://52.201.168.42/sites/default/files/2022-08/Logo_dashboard.svg"
+										alt="" srcset="">
+								</div>
+								<div class="col-lg-8 content_anuncio">
+									<p class="tittle">MIS CATEGORÍA DE INTERÉS</p>
+									<p class="description">Aquí puedes ver los productos existentes de acuerdo a tus
+										categorías de interés.</p>
+									<a class="btn_anuncio" href="http://">Ver productos
+										<i class='bx bx-chevron-right'></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="card p-4">
+						Tabla que pertenece a otra Historia de usuario
+						<br>
+						<br>
+						<br>
+						<br>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-3">
+			<div class="card p-3">
+				<a class="editar" href="/edit/international/user">Editar</a>
+				<div class="title_card_dashboard">
+					<img src="http://52.201.168.42/sites/default/files/2022-08/Logo_banner.svg" alt="" srcset="">
+					Perfil del Comprador Interacional
+				</div>
+				<div class="title_card_content">
+					<div class="title">
+						<p>Nombre Completo</p>
+					</div>
+					<div class="contenido">
+						<p>{{data.name}} {{data.lastname}}</p>
+					</div>
+					<div class="title">
+						<p>Correo electrónico</p>
+					</div>
+					<div class="contenido">
+						<p>{{data.email}}</p>
+					</div>
+
+					<div class="title">
+						<p>Empresa</p>
+					</div>
+					<div class="contenido">
+						<p>{{data.business_name}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- Button trigger modal -->
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_1Label"><img
+							src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
+							srcset="">Administrador y
+						Datos de contacto</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row p-0 content px-4">
+						<div class="col-sm-6 col-md-6">
+							<div class="title">
+								<p>Nombre del contacto</p>
+							</div>
+							<div class="contenido">
+								<p>{{data.contact_name}}</p>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-6">
+							<div class="title">
+								<p>Correo electrónico</p>
+							</div>
+							<div class="contenido">
+								<p>{{data.contact_email}}</p>
+							</div>
+						</div>
+					</div>
+					<h6 class="px-4">Editar Información</h6>
+					<div class="row px-4">
+						<div class="col-md-12">
+							<label for="contact_email" class="form-label">Correo Electrónico
+								<span>*</span>
+							</label>
+							<input type="email" class="form-control" id="contact_email" placeholder="">
+						</div>
+						<div class="col-md-12">
+							<div class="form-group password">
+								<label for="nit">Contraseña
+									<span>*</span>
+								</label>
+								<div class="input-group mb-3">
+									<input type="password" id="password" class="form-control"
+										aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<span class="input-group-text">
+										<img id="pass_bloq" style="display:none"
+											src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg"
+											alt="" srcset="">
+										<img id="pass_show"
+											src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg"
+											alt="" srcset="">
+									</span>
+									<div class="input_error">
+										<i id="error_password" class='bx bxs-info-circle toltip_i'>
+											<span id="error_password_message" class="tooltiptext_error">
+												Campo Obligatorio
+											</span>
+										</i>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group password">
+								<label for="nit">Verificar contraseña Contraseña<span>*</span>
+								</label>
+								<div class="input-group mb-3">
+									<input type="password" id="confirm_password" class="form-control"
+										aria-describedby="basic-addon2">
+									<span class="input-group-text">
+										<img id="pass_bloq_confirm" style="display:none"
+											src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg"
+											alt="" srcset="">
+										<img id="pass_show_confirm"
+											src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg"
+											alt="" srcset="">
+									</span>
+									<div class="input_error">
+										<i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
+											<span id="error_confirm_password_message" class="tooltiptext_error">
+												Campo Obligatorio
+											</span>
+										</i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-lg-12 continue">
+							<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal"
+								aria-label="Close">CANCELAR</button>
+							<button id="save_modal" name="save_modal" aria-label="Continuar con el registro"
+								class="continue">CONTINUAR
+							</button>
+							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status"
+									aria-hidden="true"></span>
+								CARGANDO
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

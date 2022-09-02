@@ -1,0 +1,11 @@
+uuid: 1d84cbef-cfb9-4820-aa90-d783a7751efa
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.mercado_objetivo
+id: taxonomy_term.mercado_objetivo
+target_entity_type_id: taxonomy_term
+target_bundle: mercado_objetivo
+default_langcode: site_default
+language_alterable: false

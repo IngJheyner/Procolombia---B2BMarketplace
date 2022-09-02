@@ -1,0 +1,29 @@
+uuid: 7bea8556-7085-4215-a977-815e69d9260c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_target_market
+    - node.type.product
+    - taxonomy.vocabulary.mercado_objetivo
+id: node.product.field_pr_target_market
+field_name: field_pr_target_market
+entity_type: node
+bundle: product
+label: 'Mercado objetivo'
+description: 'De acuerdo con plan de internacionalización puede seleccionar entre 1 y hasta 3 mercados objetivo para cada producto.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mercado_objetivo: mercado_objetivo
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

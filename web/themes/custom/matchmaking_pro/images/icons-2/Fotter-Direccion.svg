@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.748" height="17.006" viewBox="0 0 12.748 17.006">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d88d00"/>
+      <stop offset="1" stop-color="#edc500"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_1833" data-name="Grupo 1833" transform="translate(0 0)">
+    <path id="Trazado_187" data-name="Trazado 187" d="M164.412,907.9a.531.531,0,0,1,0,1.063,2.125,2.125,0,1,1,2.125-2.125.531.531,0,0,1-1.063,0,1.063,1.063,0,1,0-1.063,1.063m5.2,2.617q-1.744,2.758-3.454,5.532-1.739,2.822-3.477,0-1.667-2.706-3.368-5.394a6.375,6.375,0,0,1-1.271-3.8c0-.006,0-.012,0-.019a.531.531,0,1,1,1.063,0h.007a5.332,5.332,0,0,0,.45,2.145c.012.027.025.054.037.082a5.387,5.387,0,0,0,.493.848q1.425,2.261,2.826,4.535c.5.814,1,1.954,1.5,1.954s1-1.14,1.5-1.954q1.4-2.274,2.825-4.534a5.356,5.356,0,0,0,.494-.853c.012-.026.025-.052.035-.076a5.311,5.311,0,0,0-8.613-5.9h0a.532.532,0,1,1-.752-.752l0,0a6.376,6.376,0,0,1,9.712,8.195" transform="translate(-158.036 -900.454)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Trazado_188" data-name="Trazado 188" d="M158.833,913.378a.8.8,0,1,1-.8.8.8.8,0,0,1,.8-.8" transform="translate(-158.036 -909.945)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 {{ attach_library('cp_register/cp_register') }}
 <main class="step_registre">
 	<div class="steps">
-		<div class="step_tittle">Registro de la Empresa Colombiana - Información</div>
+		<div class="step_tittle">{{ "Colombian Company Registration - Information"|t }}</div>
 		<div class="step_content">
 			<ul class="nav justify-content-center" role="tablist">
 				<li class="nav-item">
@@ -35,7 +35,7 @@
 								</g>
 							</g>
 						</svg>
-						Perfil de la compañía
+						{{ "Company Profile"|t }}
 					</a>
 				</li>
 				<li class="nav-item">
@@ -68,7 +68,7 @@
 								</g>
 							</g>
 						</svg>
-						Actividad Económica
+						{{ "Economic Activity"|t }}
 					</a>
 				</li>
 				<li class="nav-item">
@@ -101,29 +101,29 @@
 								</g>
 							</g>
 						</svg>
-						Información del Contacto
+						{{ "Contact Information"|t }}
 					</a>
 				</li>
 			</ul>
 			<div class="progress validate">
-				<div class="progress-bar" id="validate_progresss" style="width:33.33%" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="100"></div>
+				<div class="progress-bar" id="validate_progresss" style="width:33.33%" role="progressbar" aria-label={{ "Basic example"|t }} aria-valuemin="0" aria-valuemax="100"></div>
 			</div>
-			<p class="title_tab" id="home_title" style="display:block">Perfil de la compañía</p>
-			<p class="title_tab" id="profile_title">Actividad Económica</p>
-			<p class="title_tab" id="contact_title">Información del Contacto</p>
+			<p class="title_tab" id="home_title" style="display:block">{{ "Company Profile"|t }}</p>
+			<p class="title_tab" id="profile_title">{{ "Economic Activity"|t }}</p>
+			<p class="title_tab" id="contact_title">{{ "Contact Information"|t }}</p>
 
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="logo" class="form-label">Logo
+							<label for="logo" class="form-label">{{ "Logo"|t }}
 								<span>*</span>
 							</label>
 							<div style="display: flex;">
 								<div id="prew" class=" w-100" style="display: none;">
 									<img id="logo_img" src="" alt="" srcset="" class="mb-3" style="width: 80px; height: 80px;">
 									<div class="input-group mb-3">
-										<input type="text" id="logo_name" class="form-control" placeholder="https://www.youtube.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+										<input type="text" id="logo_name" class="form-control" placeholder="https://www.youtube.com" aria-label={{ "Recipient's username"|t }} aria-describedby="basic-addon2">
 										<span id="remove_logo" style="background: #ba0c2f;" class="input-group-text">
 											<svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26" height="26" viewbox="0 0 26 26">
 												<rect id="Rectángulo_2982" data-name="Rectángulo 2982" width="26" height="26" fill="none"/>
@@ -132,7 +132,7 @@
 													<path id="Trazado_56" data-name="Trazado 56" d="M951.929,26.48a.893.893,0,1,1-.892.893.893.893,0,0,1,.892-.893" transform="translate(-935.863 -18.745)" fill="#fff" fill-rule="evenodd"/>
 												</g>
 											</svg>
-											Eliminar
+											{{ "Remove"|t }}
 										</span>
 									</div>
 								</div>
@@ -151,7 +151,7 @@
 												<path id="Trazado_96" data-name="Trazado 96" d="M608.067,347.48a1.031,1.031,0,1,1-1.031,1.031,1.032,1.032,0,0,1,1.031-1.031" transform="translate(-604.63 -334.077)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
 											</g>
 										</svg>
-										Elegir archivos
+										{{ "Choose files"|t }}
 									</label>
 									<div id="logo_input" class="form-control" style="height:40px; border-radius:4px">
 										<input type="file" id="logo" style="opacity:0">
@@ -161,7 +161,7 @@
 								<div class="input_error">
 									<i id="error_logo" class='bx bxs-info-circle toltip_i'>
 										<span id="error_logo_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ "Required Field"|t }}
 										</span>
 									</i>
 								</div>
@@ -170,69 +170,67 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones
-																				mínimas de 200x200 px
+										{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}
 									</span>
 								</i>
-								<span>Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones
-																		mínimas de 200x200 px</span>
+								<span>{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6" style="margin-bottom: 2rem;display: flex;flex-direction: column;justify-content: flex-end;">
-							<label for="website" class="form-label">Sitio Web de la compañía
+							<label for="website" class="form-label">{{ "Company website"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="website">
 								<i id="error_website" class='bx bxs-info-circle toltip_i'>
 									<span id="error_website_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Por favor incluir la URL completa iniciando con http o https.
+										{{ "Please include the complete URL starting with http or https."|t }}
 									</span>
 								</i>
-								<span>Por favor incluir la URL completa iniciando con http o https.</span>
+								<span>{{ "Please include the complete URL starting with http or https."|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="business_name" class="form-label">Nombre de la empresa
+							<label for="business_name" class="form-label">{{ "Company name"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="business_name" placeholder="">
 								<i id="error_business_name" class='bx bxs-info-circle toltip_i'>
 									<span id="error_business_name_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										“Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no.“
+										{{ "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."|t }}
 									</span>
 								</i>
-								<span>“Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no.“</span>
+								<span>{{ "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="nit">NIT
+							<label for="nit">{{ "Nit"|t }}
 								<span>*</span>
 							</label>
 							<input id="nit" class="form-control" type="num" disabled placeholder="830070123">
 						</div>
 						<div class="col-md-6">
 							<div class="form-group password">
-								<label for="nit">Contraseña
+								<label for="nit">{{ "Password"|t }}
 									<span>*</span>
 								</label>
 								<div class="input-group mb-3">
-									<input type="password" id="password" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input type="password" id="password" class="form-control" aria-label={{ "Recipient's username"|t }} aria-describedby="basic-addon2">
 									<span class="input-group-text">
 										<img id="pass_bloq" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 										<img id="pass_show" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
@@ -240,30 +238,30 @@
 									<div class="input_error">
 										<i id="error_password" class='bx bxs-info-circle toltip_i'>
 											<span id="error_password_message" class="tooltiptext_error">
-												Campo Obligatorio
+												{{ "Required Field"|t }}
 											</span>
 										</i>
 									</div>
 								</div>
 								<div class="validation">
 									<div class="progress">
-										<div class="progress-bar" id="progressbar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="progress-bar" id="progressbar" role="progressbar" aria-label={{ "Basic example"|t }} style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
-									<p id="error_mensaje_pass" class="mensaje">Debil</p>
+									<p id="error_mensaje_pass" class="mensaje">{{ "Weak"|t }}</p>
 								</div>
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número
+											{{ "Minimum 8 characters. Must contain 1 capital letter, symbol or number."|t }}
 										</span>
 									</i>
-									<span>Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número.</span>
+									<span>{{ "Minimum 8 characters. Must contain 1 capital letter, symbol or number."|t }}</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group password">
-								<label for="nit">Verificar contraseña Contraseña<span>*</span>
+								<label for="nit">{{ "Verify Password"|t }}<span>*</span>
 								</label>
 								<div class="input-group mb-3">
 									<input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
@@ -274,7 +272,7 @@
 									<div class="input_error">
 										<i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
 											<span id="error_confirm_password_message" class="tooltiptext_error">
-												Campo Obligatorio
+												{{ "Required Field"|t }}
 											</span>
 										</i>
 									</div>
@@ -283,30 +281,29 @@
 						</div>
 						<div class="col-md-6" style="display: flex;flex-direction: column;justify-content: center;">
 							<div class="form-group rihgt">
-								<label for="nit">Video de la compañía</label>
+								<label for="nit">{{ "Company video"|t }}</label>
 								<div class="icon_help toltip_i">
 									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
 										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
 									</svg>
 									<span class="tooltiptext_yotube">
-										Sugerimos subir videos resumen que dan un paseo transversal la oferta de la
-																				empresa. Es importante para el comprador internacional porque muestra de forma
-																				rápida, breve y directa las habilidades, competencias y experiencia.
+										{{ "We suggest uploading summary videos that give a cross-cutting overview of
+										the company's offer. It is important for the international buyer because it
+										shows in a quick, brief and direct way the skills, competences and
+										experience."|t }}
 										<br>
-										Si no
-																				cuentan con un video en inglés, se sugiere incluir subtítulos al video en
-																				español.
+										{{ "If you do not have a video in English, it is suggested to include subtitles to the video in Spanish."|t }}
 									</span>
 								</div>
 								<div class="input-group mb-3">
-									<input id="video" type="text" class="form-control" placeholder="https://www.youtube.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input id="video" type="text" class="form-control" placeholder="https://www.youtube.com" aria-label={{ "Recipient's username"|t }} aria-describedby="basic-addon2">
 									<span id="create_thumbnail_youtube" class="input-group-text">
-										Agregar
+										{{ "Add"|t }}
 									</span>
 									<div class="input_error">
 										<i id="error_video" class='bx bxs-info-circle toltip_i'>
 											<span id="error_video_message" class="tooltiptext_error">
-												Campo Obligatorio
+												{{ "Required Field"|t }}
 											</span>
 										</i>
 									</div>
@@ -326,8 +323,8 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">Información en Español</p>
-							<label for="asesor" class="form-label">Descripción de la empresa
+							<p class="title_label">{{ "Spanish information"|t }}</p>
+							<label for="asesor" class="form-label">{{ "Company Description"|t }}
 								<span>*</span>
 							</label>
 							<div style="display:flex">
@@ -335,15 +332,15 @@
 								<div class="input_error">
 									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
 										<span id="error_description_business_spanish_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ "Required Field"|t }}
 										</span>
 									</i>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">Information in English</p>
-							<label for="asesor" class="form-label">Company Description
+							<p class="title_label">{{ "English information"|t }}</p>
+							<label for="asesor" class="form-label">{{ "Company Description"|t }}
 								<span>*</span>
 							</label>
 							<div style="display:flex">
@@ -351,7 +348,7 @@
 								<div class="input_error">
 									<i id="error_description_business_english" class='bx bxs-info-circle toltip_i'>
 										<span id="error_description_business_english_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ "Required Field"|t }}
 										</span>
 									</i>
 								</div>
@@ -361,12 +358,14 @@
 					</form>
 					<div class="row">
 						<div class="col-lg-12 continue">
-							<button id="cancel_process_1" class="cancel">CANCELAR</button>
-							<button id="save_1" name="save_1" aria-label="Continuar con el registro" class="continue">CONTINUAR
+							<button id="cancel_process_1" aria-label={{ " Cancel Registration"|t }} class="cancel">
+								{{"CANCEL"|t }}
+							</button>
+							<button id="save_1" name="save_1" aria-label={{ " Continue Registration"|t }} class="continue">{{ "CONTINUE"|t }}
 							</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-								CARGANDO
+								{{ "Loading..."|t }}
 							</button>
 						</div>
 					</div>
@@ -374,13 +373,13 @@
 				<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="asesor" class="form-label ">Cadena productiva principal
+							<label for="asesor" class="form-label ">{{ "Main production chain"|t }}
 								<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="production_chain_contain" class="w-100">
-									<select id="production_chain" class="single_select" placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
-										<option value="">Ingrese la palabra clave o seleccione una opción</option>
+									<select id="production_chain" class="single_select" placeholder={{ " Enter the keyword or select an option"|t }}autocomplete="off">
+										<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 										{% for production_chain_item in production_chain %}
 											<option value="{{production_chain_item.ID}}">{{production_chain_item.Name}}
 											</option>
@@ -390,7 +389,7 @@
 
 								<i id="error_production_chain" class='bx bxs-info-circle toltip_i'>
 									<span id="error_production_chain_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
@@ -398,12 +397,12 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">Departamento<span>*</span>
+							<label for="sitio" class="form-label">{{ "Departments"|t }}<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
-									<select id="departament" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
-										<option value="">Seleccione una opción</option>
+									<select id="departament" class="single_select" placeholder={{ " Select an option"|t }} autocomplete="off">
+										<option value="">{{ "Select an option"|t }}</option>
 										{% for deparment in deparments %}
 											<option value="{{deparment.ID}}">{{deparment.Name}}</option>
 										{% endfor %}
@@ -412,74 +411,74 @@
 
 								<i id="error_departament" class='bx bxs-info-circle toltip_i'>
 									<span id="error_departament_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_code_ciiu" class="form-label">Código CIIU Principal o Actividad
-																Económica
+							<label for="principal_code_ciiu" class="form-label">{{ "CIIU Code Main or Economic Activity"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="principal_code_ciiu" placeholder="">
 								<i id="error_principal_code_ciiu" class='bx bxs-info-circle toltip_i'>
 									<span id="error_principal_code_ciiu_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Indique el código CIIU o la actividad económica a la que pertenece su empresa.
+										{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 									</span>
 								</i>
-								<span>Indique el código CIIU o la actividad económica a la que pertenece su
-																		empresa.</span>
+								<span>
+									{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
+								</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="ciudad" class="form-label">Ciudad o Municipio<span>*</span>
+							<label for="ciudad" class="form-label">{{ "City or Municipality"|t }}<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="ciudad_contain" class="w-100">
-									<select id="ciudad" class="single_select" placeholder="Seleccione una opción..." autocomplete="off"></select>
+									<select id="ciudad" class="single_select" placeholder={{ " Select an option"|t }} autocomplete="off"></select>
 								</div>
 
 								<i id="error_ciudad" class='bx bxs-info-circle toltip_i'>
 									<span id="error_ciudad_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="nombre_del_sitio" class="form-label">Código CIIU Secundario o Actividad
-																Económica
+							<label for="nombre_del_sitio" class="form-label">
+								{{ "CIIU Code Secondary or Economic Activity"|t }}
 							</label>
 							<input type="text" class="form-control" id="secondary_code_ciiu" placeholder="">
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Indique el código CIIU o la actividad económica a la que pertenece su empresa.
+										{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 									</span>
 								</i>
-								<span>Indique el código CIIU o la actividad económica a la que pertenece su
-																		empresa.</span>
+								<span>
+									{{ "Indicate the CIIU code or economic activity to which your company belongs."|t}}
+								</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="modelo_de_negocio" class="form-label">Modelo de negocio<span>*</span>
+							<label for="modelo_de_negocio" class="form-label">{{ "Business Model"|t }}<span>*</span>
 							</label>
-
 							<div class="d-flex align-items-center error_select">
 								<div id="modelo_de_negocio_contain" class="w-100">
-									<select id="modelo_de_negocio" multiple placeholder="Ingrese la palabra clave o seleccione varias opciones">
-										<option value="">Seleccione una opción</option>
+									<select id="modelo_de_negocio" multiple placeholder={{ "Enter the keyword or select several options"|t }}>
+										<option value="">{{ "Select an option"|t }}</option>
 										{% for business_model_item in business_model %}
 											<option value="{{business_model_item.ID}}">{{business_model_item.Name}}</option>
 										{% endfor %}
@@ -487,31 +486,33 @@
 								</div>
 								<i id="error_modelo_de_negocio" class='bx bxs-info-circle toltip_i'>
 									<span id="error_modelo_de_negocio_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="nombre_del_sitio" class="form-label">Código CIIU Terciario o actividad
-																económicas
+							<label for="nombre_del_sitio" class="form-label">
+								{{ "CIIU Code Tertiary or business activity"|t }}
 							</label>
 							<input type="text" class="form-control" id="third_code_ciiu" placeholder="">
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Indique el código CIIU o la actividad económica a la que pertenece su empresa.
+										{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 									</span>
 								</i>
-								<span>Indique el código CIIU o la actividad económica a la que pertenece su
-																		empresa.</span>
+								<span>
+									{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
+								</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Asesor Principal de ProColombia
+							<label for="principal_advisor" class="form-label">
+								{{ "ProColombia Senior Advisor"|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
-								<option disabled hidden selected>Ingrese la palabra clave o seleccione una opción
+								<option disabled hidden selected>{{ "Enter the keyword or select an option"|t }}
 								</option>
 								<option value="Jaime Francisco">Jaime Francisco</option>
 								<option value="Ruth Silvana">Ruth Silvana</option>
@@ -521,19 +522,20 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Seleccione el asesor de ProColombia con quien su empresa tiene su plan de
-																				trabajo definido.
+										{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
 									</span>
 								</i>
-								<span>Seleccione el asesor de ProColombia con quien su empresa tiene su plan de trabajo
-																		definido.</span>
+								<span>
+									{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
+								</span>
 							</div>
 							<div class="input_error">
 								<i id="error_asesor" class='bx bxs-info-circle' data-bs-toggle="tooltip" data-bs-placement="bottom" data-original-title="Campo requerido."></i>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="certificación_de_empresa" class="form-label">Certificación de empresa
+							<label for="certificación_de_empresa" class="form-label">
+								{{ "Company certification"|t }}
 							</label>
 							<div style="display: flex;">
 								<div id="logo_sub" class="input-group">
@@ -551,7 +553,7 @@
 												<path id="Trazado_96" data-name="Trazado 96" d="M608.067,347.48a1.031,1.031,0,1,1-1.031,1.031,1.032,1.032,0,0,1,1.031-1.031" transform="translate(-604.63 -334.077)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
 											</g>
 										</svg>
-										Elegir archivos
+										{{ "Choose files"|t }}
 									</label>
 									<div id="logo_input" class="form-control" style="height:40px; border-radius:4px">
 										<p id="fileNameCertificate" class="text-truncate"></p>
@@ -562,7 +564,7 @@
 								<div class="input_error">
 									<i id="error_certification_business_file" class='bx bxs-info-circle toltip_i'>
 										<span id="error_certification_business_file_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ "Required Field"|t }}
 										</span>
 									</i>
 								</div>
@@ -570,17 +572,20 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Solo se permiten archivos con formato pdf con un peso máximo de 2MB.
+										{{ "Only files in pdf format with a maximum weight of 2MB are allowed."|t }}
 									</span>
 								</i>
-								<span>Solo se permiten archivos con formato pdf con un peso máximo de 2MB.</span>
+								<span>
+									{{ "Only files in pdf format with a maximum weight of 2MB are allowed."|t }}
+								</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">Certificación de empresa
+							<label for="sitio" class="form-label">
+								{{ "Company certification"|t }}
 							</label>
-							<select id="certificacion_de_empresa" multiple placeholder="Ingrese la palabra clave o seleccione varias opciones">
-								<option value="">Seleccione una opción</option>
+							<select id="certificacion_de_empresa" multiple placeholder={{ "Enter the keyword or select several options"|t }}>
+								<option value="">{{ "Select an option"|t }}</option>
 								{% for certificacion_de_empresa_item in certificacion_de_empresa %}
 									<option value="{{certificacion_de_empresa_item.ID}}">
 										{{certificacion_de_empresa_item.Name}}</option>
@@ -590,14 +595,16 @@
 					</form>
 					<div class="row">
 						<div class="col-lg-6 back">
-							<button id="go_back_tab_1" class="back_btn">ANTERIOR</button>
+							<button id="go_back_tab_1" aria-label={{ " PREVIOUS"|t }} class="back_btn">
+								{{ "PREVIOUS"|t}}
+							</button>
 						</div>
 						<div class="col-lg-6 continue">
-							<button id="cancel_process_2" class="cancel">CANCELAR</button>
-							<button id="save_2" name="save_2" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+							<button id="cancel_process_2" aria-label={{"Cancel registration"|t }} class="cancel">{{"CANCEL"|t }}</button>
+							<button id="save_2" name="save_2" aria-label={{"Continue registration"|t }} class="continue">{{"CONTINUE"|t }}</button>
 							<button style="display:none" class="continue" id="loading_2" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-								CARGANDO
+								{{"Loading..."|t }}
 							</button>
 						</div>
 					</div>
@@ -605,74 +612,77 @@
 				<div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="nombre_del_sitio" class="form-label">Nombres
+							<label for="nombre_del_sitio" class="form-label">{{"Names"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="name" placeholder="">
 								<i id="error_name" class='bx bxs-info-circle toltip_i'>
 									<span id="error_name_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="nombre_del_sitio" class="form-label">Apellidos
+							<label for="nombre_del_sitio" class="form-label">{{"Surname"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="last_name" placeholder="">
 								<i id="error_last_name" class='bx bxs-info-circle toltip_i'>
 									<span id="error_last_name_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">Información en Español</p>
-							<label for="nombre_del_sitio" class="form-label">Nombre del cargo
+							<p class="title_label">{{ "Spanish information"|t }}</p>
+							<label for="nombre_del_sitio" class="form-label">{{ "Position name"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="position_spanish" placeholder="">
 								<i id="error_position_spanish" class='bx bxs-info-circle toltip_i'>
 									<span id="error_position_spanish_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">Position name</p>
-							<label for="nombre_del_sitio" class="form-label">Position name
+							<p class="title_label">{{ "Position name"|t }}</p>
+							<label for="nombre_del_sitio" class="form-label">{{ "Position name"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="position_english" placeholder="">
 								<i id="error_position_english" class='bx bxs-info-circle toltip_i'>
 									<span id="error_position_english_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ "Required Field"|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Este campo debe ser diligenciado en Inglés."></i>
-								<span>Este campo debe ser diligenciado en Inglés.</span>
+								<span>{{ "This field must be completed in English."|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">Teléfono fijo de la empresa<span>*</span>
+							<label for="sitio" class="form-label">
+								{{ "Company landline telephone"|t }}
+								<span>*</span>
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_landline">
-
-                                                                       	<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
+											+57</option>
 										{# {% for countries_item in countries %}
-											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
-												+{{countries_item.Indicativo}}</option>
+											<option value="{{countries_item.Indicativo}}"
+											data-src="{{countries_item.Image}}">
+											+{{countries_item.Indicativo}}</option>
 										{% endfor %} #}
 									</select>
 								</div>
@@ -682,17 +692,20 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">Celular<span>*</span>
+							<label for="sitio" class="form-label">
+								{{ "Cell Phone"|t }}
+								<span>*</span>
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_mobile">
-
-										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
+											+57</option>
 										{# {% for countries_item in countries %}
-											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
-												+{{countries_item.Indicativo}}</option>
-										{% endfor %} #}
+																																								<option value="{{countries_item.Indicativo}}"
+																																									data-src="{{countries_item.Image}}">
+																																									+{{countries_item.Indicativo}}</option>
+																																								{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
@@ -701,7 +714,7 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="contact_email" class="form-label">Correo Electrónico
+							<label for="contact_email" class="form-label">{{ "Email"|t }}
 								<span>*</span>
 							</label>
 							<input type="email" class="form-control" id="contact_email" placeholder="">
@@ -709,14 +722,16 @@
 					</form>
 					<div class="row">
 						<div class="col-lg-6 back">
-							<button id="go_back_tab_2" class="back_btn">ANTERIOR</button>
+							<button id="go_back_tab_2" aria-label="{{ " PREVIOUS"|t }}" class="back_btn">
+								{{ "PREVIOUS"|t}}
+							</button>
 						</div>
 						<div class="col-lg-6 continue">
-							<button id="cancel_process_3" class="cancel">CANCELAR</button>
-							<button id="save_3" name="save_3" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+							<button id="cancel_process_3" aria-label={{"Cancel registration"|t }} class="cancel">{{"CANCEL"|t }}</button>
+							<button id="save_3" name="save_3" aria-label={{"Continue registration"|t }} class="continue">{{"CONTINUE"|t }}</button>
 							<button style="display:none" class="continue" id="loading_3" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-								CARGANDO
+								{{ "Loading..."|t}}
 							</button>
 						</div>
 					</div>
@@ -730,21 +745,21 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Información de
-												Contacto</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ "Contact Information"|t}}</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label={{ "Close"|t}}></button>
 				</div>
 				<div class="modal-body">
 					<h6 class="text-danger pb-2">
-						<b>!Tenga presente lo siguiente!</b>
+						<b>{{ "Keep the following in mind!"|t}}</b>
 					</h6>
-					<p>La información diligenciada en estos campos es la que será utilizada para enviar todas las
-												notificaciones que surjan en general de la plataforma y será enviada como contacto comercial
-												a los compradores internacionales interesados en los productos o servicios de la empresa.
+					<p>
+						{{ "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."|t}}
 					</p>
 				</div>
 				<div class="modal-footer">
-					<button id="go_to_step_3" type="button" class="btn cita_btn">ENTENDIDO</button>
+					<button id="go_to_step_3" type="button" aria-label={{ " UNDERSTOOD"|t}} class="btn cita_btn">
+						{{"UNDERSTOOD"|t}}
+					</button>
 				</div>
 			</div>
 		</div>
@@ -756,22 +771,22 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Proceso exitoso
+					<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+						{{"Successful process"|t}}
 					</h5>
 				</div>
 				<div class="modal-body">
-					<p>Su perfil como Empresa exportadora de
+					<p>{{"Your profile as an"|t}}
 						<strong id="empresa_popup" class="strong_empresa">traer Nombre de la empresa</strong>
-						se encuentra en estado pendiente
-												por aprobación por parte de ProColombia. Su asesor se
-												contactará con usted en caso de que exista alguna observación sobre la información
-												registrada.
+						{{"exporting company is in pending status for approval by ProColombia. Your advisor will contact you in case there is any observation about the information registered."|t}}
 					</p>
 				</a>
 			</p>
 		</div>
 		<div class="modal-footer">
-			<button id="go_to_menu" type="button" class="btn cita_btn">ENTENDIDO</button>
+			<button id="go_to_menu" type="button" aria-label={{ "UNDERSTOOD"|t}} class="btn cita_btn">
+				{{"UNDERSTOOD"|t}}
+			</button>
 		</div>
 	</div>
 </div></div><!-- Modal --><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
@@ -779,23 +794,23 @@
 	<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
-				Cancelar proceso
+				{{"Cancel process"|t}}
 			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label={{ "Close"|t}}></button>
 		</div>
 		<div class="modal-body">
-			<p>Está a punto de cancelar el proceso
-				<strong>“Registro Empresa Colombiana”</strong>
+			<p>{{ "The Colombian Company Registration process"|t }}
+				<strong>{{ "is about to be cancelled."|t }}</strong>
 			</p>
 		</div>
 		<div class="modal-footer ">
 			<div class="row">
 				<div class="col-6 fs-6">
-					<strong>¿Desea continuar?</strong>
+					<strong>{{ "Would you like to continue?"|t }}</strong>
 				</div>
 				<div class="col-6 btn_options">
-					<button id="delete_user" class="yes">SI</button>
-					<button id="hide_cancel_process" class="no">NO</button>
+					<button id="delete_user" aria-label={{"YES"|t }} class="yes">{{ "YES"|t }}</button>
+					<button id="hide_cancel_process" aria-label={{ " NO"|t }} class="no">{{ "NO"|t }}</button>
 				</div>
 			</div>
 		</div>

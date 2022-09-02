@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
     - field.field.node.product.field_categorization_parent
@@ -17,7 +18,29 @@ dependencies:
     - field.field.node.product.field_key_words_backup
     - field.field.node.product.field_mostrar_en_home
     - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_country
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
     - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
+    - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
     - field.field.node.product.field_previous_id
     - field.field.node.product.field_product_type
     - field.field.node.product.field_producto_innovador
@@ -30,15 +53,24 @@ dependencies:
     - ds
     - file
     - iframe
+    - mfd
     - options
     - svg_image
     - telephone
     - user
+    - video_embed_field
 id: node.product.default
 targetEntityType: node
 bundle: product
 mode: default
 content:
+  field_aditional_information:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
   field_body:
     type: basic_string
     label: above
@@ -112,6 +144,7 @@ content:
     settings:
       url: ''
       title: ''
+      headerlevel: '3'
       class: ''
       frameborder: '0'
       scrolling: ''
@@ -120,7 +153,6 @@ content:
       tokensupport: '0'
       width: ''
       height: ''
-      expose_class: ''
     third_party_settings: {  }
     weight: 21
     region: content
@@ -174,6 +206,162 @@ content:
     third_party_settings: {  }
     weight: 20
     region: content
+  field_pr_certifications:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_pr_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 47
+    region: content
+  field_pr_image_1:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_pr_image_2:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_pr_image_3:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_pr_image_4:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_pr_image_5:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 39
+    region: content
+  field_pr_multilingual_step1:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_pr_multilingual_step2:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_pr_multilingual_step3:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_pr_multilingual_step4:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_pr_multilingual_step5:
+    type: multilingual_form_display_formatter
+    label: above
+    settings:
+      display_label: true
+      display_description: true
+      collapsible_state: 1
+      display_translate_table: false
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_pr_product_availability:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 48
+    region: content
   field_pr_ref_company:
     type: entity_reference_label
     label: above
@@ -181,6 +369,96 @@ content:
       link: true
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_pr_sales_channel:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_pr_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 47
+    region: content
+  field_pr_target_market:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_pr_terms_of_condition:
+    type: boolean
+    label: above
+    settings:
+      format: unicode-yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 44
+    region: content
+  field_pr_type_certifications:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_pr_video:
+    type: video_embed_field_thumbnail
+    label: above
+    settings:
+      image_style: ''
+      link_image_to: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 40
+    region: content
+  field_pr_video_2:
+    type: video_embed_field_thumbnail
+    label: above
+    settings:
+      image_style: ''
+      link_image_to: ''
+    third_party_settings: {  }
+    weight: 42
+    region: content
+  field_pr_video_description_1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 45
+    region: content
+  field_pr_video_description_2:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 46
     region: content
   field_previous_id:
     type: string
@@ -239,6 +517,9 @@ content:
     weight: 1
     region: content
 hidden:
+  cp_core_close_modal: true
+  cp_core_presave_preview: true
+  cp_core_title_h2_no_link: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true

@@ -1,0 +1,10 @@
+uuid: 139df82a-a4b2-4c74-8ac6-db0918d4e2cd
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.product_service_presave_preview
+label: 'Product / Service Presave Preview'
+targetEntityType: node
+cache: true

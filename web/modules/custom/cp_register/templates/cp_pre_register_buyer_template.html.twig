@@ -1,4 +1,297 @@
 {{ attach_library('cp_register/cp_register') }}
-<main class="step_registre">
-	<div>pre register buyer </div>
-</main>
+{{ attach_library('cp_register/cp_register') }}
+<main class="main_registre">
+	<div class="header_title_buyer">
+		<h1>{{ "REGISTER AS AN INTERNATIONAL BUYER"|t }}</h1>
+	</div>
+	<div class="body">
+		<h3 class="body_title">{{ "REGISTER TO HAVE THE COLOMBIAN OFFER JUST A CLICK AWAY"|t }}</h3>
+		<p class="body_description">{{ "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."|t }}
+		</p>
+		<div class="row gy-4 form_pre_registre">
+			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+				<label for="nombre_del_sitio" class="form-label">{{ "Nombres"|t }}
+					<span>*</span>
+				</label>
+				<div class="input_error">
+					<input type="text" class="form-control" id="name" placeholder="">
+					<i id="error_name" class='bx bxs-info-circle toltip_i'>
+						<span id="error_name_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+				<label for="nombre_del_sitio" class="form-label">{{ "Surname"|t }}
+					<span>*</span>
+				</label>
+				<div class="input_error">
+					<input type="text" class="form-control" id="last_name" placeholder="">
+					<i id="error_last_name" class='bx bxs-info-circle toltip_i'>
+						<span id="error_last_name_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+				<label for="business_name" class="form-label">{{ "Company name"|t }}
+					<span>*</span>
+				</label>
+				<div class="input_error">
+					<input type="text" class="form-control" id="business_name" placeholder="">
+					<i id="error_business_name" class='bx bxs-info-circle toltip_i'>
+						<span id="error_business_name_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content">
+					<i class='bx bxs-info-circle toltip_i'>
+						<span class="tooltiptext">
+							{{ "You must register the trade name of the company, which is the name by which your company is recognized; it may or may not be the same company name."|t }}
+						</span>
+					</i>
+					<span>{{ "You must register the trade name of the company, which is the name by which your company is recognized; it may or may not be the same company name."|t }}</span>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+				<label for="sitio" class="form-label">{{ "Cell Phone"|t }}
+				</label>
+				<div class="row p-0">
+					<div class="col-lg-3" style="padding: 0px;">
+						<select id="country_code_mobile">
+							<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
+								+57</option>
+							{# {% for countries_item in countries %}
+																																			<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
+																																				+{{countries_item.Indicativo}}</option>
+																																			{% endfor %} #}
+						</select>
+					</div>
+					<div class="col-lg-9" style="padding-right: 0px;">
+						<input class="w-100" style="height: 100%;" type="tel" name="" id="cellphone">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+				<label for="email">{{ "Email"|t }}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<input type="email" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." class="form-control">
+					<i id="error_mail" class='bx bxs-info-circle toltip_i'>
+						<span id="error_mail_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content">
+					<i class='bx bxs-info-circle toltip_i'>
+						<span class="tooltiptext">
+							Escriba el correo electrónico institucional donde se enviará la correspondencia de este
+																																			sitio web.
+						</span>
+					</i>
+					<span>Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio
+																														web.</span>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+				<label for="sitio" class="form-label">Idioma de preferencia<span>*</span>
+				</label>
+				<select id="langcode">
+					<option value="es">Español</option>
+					<option value="en">English</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+				<div class="form-group password">
+					<label for="nit">Contraseña
+						<span>*</span>
+					</label>
+					<div class="input-group mb-3">
+						<input type="password" id="password_buyer" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+						<span class="input-group-text">
+							<img id="pass_bloq_buyer" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+							<img id="pass_show_buyer" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+						</span>
+						<div class="input_error">
+							<i id="error_password_buyer" class='bx bxs-info-circle toltip_i'>
+								<span id="error_password_buyer_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+					<div class="validation">
+						<div class="progress">
+							<div class="progress-bar" id="progressbar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						<p id="error_mensaje_pass" class="mensaje">Debil</p>
+					</div>
+					<div class="toltip_content">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número
+							</span>
+						</i>
+						<span>Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+				<div class="form-group password">
+					<label for="nit">Verificar contraseña Contraseña<span>*</span>
+					</label>
+					<div class="input-group mb-3">
+						<input type="password" id="confirm_password_buyer" class="form-control" aria-describedby="basic-addon2">
+						<span class="input-group-text">
+							<img id="pass_bloq_buyer_confirm" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+							<img id="pass_show_buyer_confirm" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+						</span>
+						<div class="input_error">
+							<i id="error_confirm_password_buyer" class='bx bxs-info-circle toltip_i'>
+								<span id="error_confirm_password_buyer_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 check">
+				<label><input type="checkbox" checked id="conditions">
+					He leído y acepto
+					<a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso" target="_blank" rel="noopener noreferrer">condiciones de uso *</a>
+				</label>
+				<label><input type="checkbox" checked id="policy">
+					He leído y acepto
+					<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank" rel="noopener noreferrer">política de tratamiento de datos
+																														personales
+																														*</a>
+				</label>
+				<div style="text-align: center;">
+					<div class="g-recaptcha" data-sitekey="6LeHicwZAAAAAMtiZw22jz7qFL084fFEIHe8lOak" data-callback="onSubmit">
+						<div style="width: 304px; height: 78px;">
+							<div>
+								<iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeHicwZAAAAAMtiZw22jz7qFL084fFEIHe8lOak&amp;co=aHR0cHM6Ly9hemNhcHRjaGEuY29tOjQ0Mw..&amp;hl=es&amp;v=mq0-U1BHZ5YTcoDC-CvsLPNc&amp;size=normal&amp;cb=ke9h20s24mfp" width="304" height="78" role="presentation" name="a-iwinge827y8r" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+							</div>
+							<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 continue">
+				<button data-bs-toggle="modal" data-bs-target="#cancel_modal" class="cancel">CANCELAR</button>
+				<button id="save" name="save" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="error_neo" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+						Solicitar Cita
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Su empresa no se encuentra registrada como cuenta ProColombia. Para ser atendido por un
+																														asesor se
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform" target="_blank" rel="noopener noreferrer">
+							debe solicitar cita
+																																			previa de manera virtual.</a>
+						<br>
+						En este espacio, usted podrá
+																														solucionar sus inquietudes de comercio exterior y conocer los diferentes servicios de
+																														ProColombia para aprovechar las oportunidades que el mercado internacional ofrece.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button id="go_form" type="button" class="btn cita_btn">
+						<i class='bx bx-link-external'></i>
+						SOLICITAR
+																														CITA</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="loader" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+						Verificación del Correo
+					</h5>
+				</div>
+				<div class="modal-body">
+					<p>Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico
+																														donde recibirá un e-mail con un link de verificación
+					</p>
+				</a>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<div class="spinner-border my-2 m-auto" role="status" style="color: #0085ca;">
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+	</div>
+</div></div><div class="modal fade" id="success" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-body">
+			<i class='bx bxs-message-check'></i>
+			<p>Verificación Exitosa</p>
+		</div>
+	</div>
+</div></div><div class="modal fade" id="error_user" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+				Cuenta Existente
+			</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<p>La empresa consultada ya cuenta con un usuario registrado, por favor
+				<a href="/user/login">
+					Inicie sesión.</a>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button id="login_btn" type="button" class="btn login_btn">
+				Iniciar sesión</button>
+		</div>
+	</div>
+</div></div><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+				Cancelar proceso
+			</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<p>Está a punto de cancelar el proceso
+				<strong>“Registro Empresa Colombiana”</strong>
+			</p>
+		</div>
+		<div class="modal-footer ">
+			<div class="row">
+				<div class="col-6 fs-6">
+					<strong>¿Desea continuar?</strong>
+				</div>
+				<div class="col-6 btn_options">
+					<button data-bs-dismiss="modal" aria-label="Close" class="yes">SI</button>
+					<button id="reload_form" class="no">NO</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div></main>

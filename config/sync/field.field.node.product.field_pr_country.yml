@@ -1,0 +1,29 @@
+uuid: df8a45ed-f6de-41cd-9a3d-e5758bf96251
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_country
+    - node.type.product
+    - taxonomy.vocabulary.countries
+id: node.product.field_pr_country
+field_name: field_pr_country
+entity_type: node
+bundle: product
+label: 'Países a los que ha exportado'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      countries: countries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

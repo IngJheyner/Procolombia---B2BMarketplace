@@ -14,7 +14,7 @@ uid: null
 template: true
 archive: false
 id: template_registration
-title: Registration
+title: Registro
 description: 'A registration webform template.'
 category: ''
 elements: |
@@ -160,7 +160,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: 'Thank you for registering.'
+  confirmation_message: 'Gracias por registrarse.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -240,7 +240,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

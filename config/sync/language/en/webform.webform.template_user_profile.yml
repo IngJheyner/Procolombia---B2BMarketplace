@@ -1,5 +1,4 @@
-title: 'User Profile'
-description: 'A user profile webform template.'
+title: 'Perfil de usuario'
 elements: |
   account_information:
     '#title': 'Your Account Information'
@@ -42,10 +41,10 @@ elements: |
       '#multiple': true
       '#select2': true
       '#options': languages
-    sex:
-      '#type': webform_radios_other
-      '#title': Sex
-      '#options': sex
+    gender:
+      '#type': radios
+      '#title': Gender
+      '#options': gender
     biography:
       '#type': text_format
       '#title': Biography
@@ -89,11 +88,11 @@ elements: |
     '#type': webform_section
     email:
       '#type': email
-      '#title': 'Primary E-mail Address'
+      '#title': 'Primary E-mall Address'
       '#description': 'Enter your primary email addresses, which will be used for all email communications.'
     emails:
       '#type': webform_email_multiple
-      '#title': 'Secondary E-mail Addresses'
+      '#title': 'Secondary E-mall Addresses'
       '#description': 'Enter multiple email addresses separated by commas.'
   regional_settings:
     '#title': 'Regional Settings'
@@ -113,8 +112,4 @@ elements: |
     '#submit__label': Register
 handlers:
   email_notification:
-    label: 'Email Notification'
-    settings:
-      from_name: '[webform_submission:values:first_name] [webform_submission:values:last_name]'
-      subject: _default
-      body: _default
+    label: 'Notificación por correo electrónico'

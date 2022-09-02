@@ -28,6 +28,7 @@
 #Base de datos
 /*.sql
 *.sql
+*.gz
 
 #vscode
 /.vscode/

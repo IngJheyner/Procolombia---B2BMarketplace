@@ -875,7 +875,7 @@ class AddEditProduct extends FormBase {
         // Set message node create
         if (!empty($node) && !empty($node_es)) {
           //addMessage(t('Product content has been created correctly.'), 'status');
-          $url = Url::fromRoute('view.dashboard_user.page_1');
+          $url = Url::fromRoute('view.product_dashboard.page_1');
           $form_state->setRedirectUrl($url);
 
           // Mail Notifications

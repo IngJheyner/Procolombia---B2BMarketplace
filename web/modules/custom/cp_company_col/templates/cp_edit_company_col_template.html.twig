@@ -82,12 +82,14 @@
 										<div class="toltip_content">
 											<i class='bx bxs-info-circle toltip_i'>
 												<span class="tooltiptext">
-													Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones
-																																																											mínimas de 200x200 px
+													Solo se permiten formatos png con un peso máximo de 2 MB y unas
+																										dimensiones
+																										mínimas de 200x200 px
 												</span>
 											</i>
-											<span>Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones
-																																																						mínimas de 200x200 px</span>
+											<span>Solo se permiten formatos png con un peso máximo de 2 MB y unas
+																								dimensiones
+																								mínimas de 200x200 px</span>
 										</div>
 									</div>
 									<div class="col-md-12">
@@ -105,10 +107,15 @@
 										<div class="toltip_content">
 											<i class='bx bxs-info-circle toltip_i'>
 												<span class="tooltiptext">
-													“PTE REDACCIÓN NOMBRE COMERCIAL”
+													“Usted debe registrar el nombre comercial de la empresa, el cual es
+																										el
+																										nombre con el cual su compañía es reconocida; puede ser la misma
+																										razón social o no.”
 												</span>
 											</i>
-											<span>“PTE REDACCIÓN NOMBRE COMERCIAL”</span>
+											<span>“Usted debe registrar el nombre comercial de la empresa, el cual es el
+																								nombre con el cual su compañía es reconocida; puede ser la misma razón
+																								social o no.”</span>
 										</div>
 									</div>
 									<div class="col-md-12">
@@ -122,6 +129,14 @@
 													Campo Obligatorio
 												</span>
 											</i>
+										</div>
+										<div class="toltip_content">
+											<i class='bx bxs-info-circle toltip_i'>
+												<span class="tooltiptext">
+													Por favor incluir la URL completa iniciando con http o https.
+												</span>
+											</i>
+											<span>Por favor incluir la URL completa iniciando con http o https.</span>
 										</div>
 									</div>
 									<div class="col-md-12">
@@ -163,8 +178,8 @@
 								<div class="row">
 									<div class="col-md-12">
 										<label for="principal_code_ciiu" class="form-label">Código CIIU Principal o
-																																												Actividad
-																																												Económica
+																						Actividad
+																						Económica
 											<span>*</span>
 										</label>
 										<div class="input_error">
@@ -175,22 +190,38 @@
 												</span>
 											</i>
 										</div>
+										<div class="toltip_content">
+											<i class='bx bxs-info-circle toltip_i'>
+												<span class="tooltiptext">
+													Indique el código CIIU o la actividad económica a la que pertenece su empresa.
+												</span>
+											</i>
+											<span>Indique el código CIIU o la actividad económica a la que pertenece su
+																					empresa.</span>
+										</div>
 									</div>
 									<div class="col-md-12">
 										<label for="nombre_del_sitio" class="form-label">Código CIIU Secundario o
-																																												Actividad
-																																												Económica
+																						Actividad
+																						Económica
 										</label>
-										<input type="text" class="form-control" id="secondary_code_ciiu" placeholder="">
+										<div class="input_error">
+											<input type="text" class="form-control" id="secondary_code_ciiu" placeholder="">
+											<i id="error_secondary_code_ciiu" class='bx bxs-info-circle toltip_i'>
+												<span id="error_secondary_code_ciiu_message" class="tooltiptext_error">
+													Campo Obligatorio
+												</span>
+											</i>
+										</div>
 										<div class="toltip_content">
 											<i class='bx bxs-info-circle toltip_i'>
 												<span class="tooltiptext">
 													Indique el código CIIU o la actividad económica a la que pertenece
-																																																				su empresa.
+																										su empresa.
 												</span>
 											</i>
 											<span>Indique el código CIIU o la actividad económica a la que pertenece su
-																																																empresa.</span>
+																								empresa.</span>
 										</div>
 									</div>
 									<div class="col-md-12">
@@ -232,7 +263,7 @@
 									</div>
 									<div class="col-md-12">
 										<label for="modelo_de_negocio" class="form-label">Modelo de
-																																												negocio<span>*</span>
+																						negocio<span>*</span>
 										</label>
 
 										<div class="d-flex align-items-center error_select">
@@ -287,6 +318,14 @@
 									</i>
 								</div>
 							</div>
+							<div style="display:none" class="tooltip_content" id="notification_english">
+								<i class='bx bxs-info-circle toltip_i'>
+									<span class="tooltiptext">
+										“Recuerda también actualizar la información en inglés.”
+									</span>
+								</i>
+								<span>“Recuerda también actualizar la información en inglés.”</span>
+							</div>
 
 						</div>
 					</form>
@@ -296,7 +335,7 @@
 							<button id="save_only" name="save_only" aria-label="Continuar con el registro" class="save_only">GUARDAR
 							</button>
 							<button id="save_1" name="save_1" aria-label="Continuar con el registro" class="continue">GUARDAR Y
-																																SALIR
+																SALIR
 							</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -318,14 +357,14 @@
 		<div class="description">
 			<p class="title">! TENGA PRESENTE LO SIGUIENTE!</p>
 			<p class="desc">La información diligenciada en estos campos es la que sera utilizada para enviar todas las
-																notificaciones que surjan del formulario de "contactar empresa".</p>
+								notificaciones que surjan del formulario de "contactar empresa".</p>
 		</div>
 		<div class="step_content">
 			<div>
 				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 
-						<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="col-sm-12 col-md-6 col-lg-6 order_1">
 							<label for="asesor" class="form-label">Nombre del contacto
 								<span>*</span>
 							</label>
@@ -349,36 +388,46 @@
 											</g>
 										</svg>
 									</span>
-									<input id="name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									<input id="name" type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input_error">
-									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
-										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+									<i id="error_name" class='bx bxs-info-circle toltip_i'>
+										<span id="error_name_message" class="tooltiptext_error">
 											Campo Obligatorio
 										</span>
 									</i>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="col-sm-12 col-md-6 col-lg-6 order_5">
 							<label for="sitio" class="form-label">Teléfono fijo de la empresa<span>*</span>
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_landline">
-										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
+											+57</option>
 										{# {% for countries_item in countries %}
-											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
-												+{{countries_item.Indicativo}}</option>
-										{% endfor %} #}
+																				<option value="{{countries_item.Indicativo}}"
+																					data-src="{{countries_item.Image}}">
+																					+{{countries_item.Indicativo}}</option>
+																				{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
-									<input id="landline" class="w-100" style="height: 100%;" type="tel" name="" id="landline">
+
+									<div class="input_error">
+										<input id="landline" class="w-100" style="height: 100%;" type="tel" name="" id="landline">
+										<i id="error_landline" class='bx bxs-info-circle toltip_i'>
+											<span id="error_landline_message" class="tooltiptext_error">
+												Campo Obligatorio
+											</span>
+										</i>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="col-sm-12 col-md-6 col-lg-6 order_2">
 							<label for="asesor" class="form-label">Apellido del contacto
 								<span>*</span>
 							</label>
@@ -402,36 +451,45 @@
 											</g>
 										</svg>
 									</span>
-									<input id="last_name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									<input id="last_name" type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input_error">
-									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
-										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+									<i id="error_last_name" class='bx bxs-info-circle toltip_i'>
+										<span id="error_last_name_message" class="tooltiptext_error">
 											Campo Obligatorio
 										</span>
 									</i>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="col-sm-12 col-md-6 col-lg-6 order_6">
 							<label for="sitio" class="form-label">Celular<span>*</span>
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
 									<select id="country_code_mobile">
-										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">+57</option>
+										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
+											+57</option>
 										{# {% for countries_item in countries %}
-											<option value="{{countries_item.Indicativo}}" data-src="{{countries_item.Image}}">
-												+{{countries_item.Indicativo}}</option>
-										{% endfor %} #}
+																				<option value="{{countries_item.Indicativo}}"
+																					data-src="{{countries_item.Image}}">
+																					+{{countries_item.Indicativo}}</option>
+																				{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
-									<input id="mobile" class="w-100" style="height: 100%;" type="tel" name="" id="mobile">
+									<div class="input_error">
+										<input id="mobile" class="w-100" style="height: 100%;" type="tel" name="" id="landline">
+										<i id="error_mobile" class='bx bxs-info-circle toltip_i'>
+											<span id="error_mobile_message" class="tooltiptext_error">
+												Campo Obligatorio
+											</span>
+										</i>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="col-sm-12 col-md-6 col-lg-6 order_3">
 							<label for="asesor" class="form-label">Correo electrónico
 								<span>*</span>
 							</label>
@@ -455,18 +513,18 @@
 											</g>
 										</svg>
 									</span>
-									<input id="contact_email" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									<input id="contact_email" type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input_error">
-									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
-										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+									<i id="error_contact_email" class='bx bxs-info-circle toltip_i'>
+										<span id="error_contact_email_message" class="tooltiptext_error">
 											Campo Obligatorio
 										</span>
 									</i>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-6 col-lg-6">
+						<div class="col-sm-12 col-md-6 col-lg-6 order_4">
 							<label for="asesor" class="form-label">Nombre del Cargo
 								<span>*</span>
 							</label>
@@ -490,11 +548,11 @@
 											</g>
 										</svg>
 									</span>
-									<input id="position_spanish" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									<input id="position_spanish" type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input_error">
-									<i id="error_description_business_spanish" class='bx bxs-info-circle toltip_i'>
-										<span id="error_description_business_spanish_message" class="tooltiptext_error">
+									<i id="error_position_spanish" class='bx bxs-info-circle toltip_i'>
+										<span id="error_position_spanish_message" class="tooltiptext_error">
 											Campo Obligatorio
 										</span>
 									</i>
@@ -523,13 +581,14 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Editar el perfil de la compañía y contacto</h5>
+				<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt="" srcset="">Editar el perfil de la compañía y contacto</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<p>
 					Todo contenido cargado debe cumplir con la
-					<a href="#" target="_blank" style="text-decoration: underline !important;">politica de publicación</a>
+					<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank" style="text-decoration: underline !important;">politica de
+													publicación</a>
 				</p>
 			</div>
 			<div class="modal-footer">
@@ -558,49 +617,24 @@
 		<button id="confirm_save" type="button" class="btn yes">SI</button>
 		<button data-bs-dismiss="modal" type="button" class="btn no">NO</button>
 	</div>
-</div></div></div>
-
-<!-- Modal -->
-<div class="modal fade" id="question_modal2" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
-				</h5>
-			</div>
-			<div class="modal-body">
-				<p>Está a punto de guardar los campos modificados ¿Desea actualizar la información?
-				</p>
-			</a>
-		</p>
-	</div>
-	<div class="modal-footer">
-		<button id="confirm_save2" type="button" class="btn cita_btn">SI</button>
-		<button data-bs-dismiss="modal" type="button" class="btn cita_btn">NO</button>
-	</div>
-</div></div></div>
-
-<!-- Modal --><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered">
+</div></div></div><!-- Modal --><div class="modal fade" id="question_modal2" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
 	<div class="modal-header">
-		<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
-			Cancelar
+		<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
 		</h5>
-		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	</div>
 	<div class="modal-body">
-		<p>Está a punto de eliminar los cambios realizados.</strong>
+		<p>Está a punto de guardar los campos modificados ¿Desea actualizar la información?
 		</p>
-	</div>
-	<div class="modal-footer ">
-		<div class="row">
-			<div class="col-6 fs-6">
-				<strong>¿Desea continuar?</strong>
-			</div>
-			<div class="col-6 btn_options">
-				<button id="confirm_cancel" class="yes">SI</button>
-				<button data-bs-dismiss="modal" class="no">NO</button>
-			</div>
-		</div>
-	</div>
-</div></div></div></main>
+	</a>
+</p></div><div class="modal-footer btn_options">
+<button id="confirm_save2" type="button" class="btn yes">SI</button>
+<button data-bs-dismiss="modal" type="button" class="btn no">NO</button></div></div></div></div><!-- Modal --><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header">
+<h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+	Cancelar
+</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">
+<p>Está a punto de eliminar los cambios realizados.</p></strong></p></div><div class="modal-footer "><div class="row"><div class="col-6 fs-6">
+<strong>¿Desea continuar?</strong></div><div class="col-6 btn_options">
+<button id="confirm_cancel" class="yes">SI</button>
+<button data-bs-dismiss="modal" class="no">NO</button></div></div></div></div></div></div><div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="alert_3Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Proceso exitoso</h5></div><div class="modal-body"><p>Usuario actualizado con exito</p></div></div></div></div></main>

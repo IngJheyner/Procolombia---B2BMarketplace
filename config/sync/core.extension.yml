@@ -23,6 +23,8 @@ module:
   breakpoint: 0
   captcha: 0
   change_pwd_page: 0
+  chosen: 0
+  chosen_lib: 0
   civic_accessibility_toolbar: 0
   ckeditor: 0
   ckeditor_media_embed: 0
@@ -35,6 +37,7 @@ module:
   contextual: 0
   core_views_facets: 0
   cp_company_col: 0
+  cp_company_international: 0
   cp_core: 0
   cp_migrate: 0
   cp_register: 0
@@ -82,6 +85,7 @@ module:
   flag_follower: 0
   focal_point: 0
   force_password_change: 0
+  formatter_suite: 0
   gin_toolbar: 0
   google_analytics: 0
   graphql: 0
@@ -152,6 +156,7 @@ module:
   php: 0
   plupload: 0
   plupload_widget: 0
+  potx: 0
   prlp: 0
   quickedit: 0
   quicktabs: 0
@@ -183,6 +188,7 @@ module:
   slick_views: 0
   smart_trim: 0
   stage_file_proxy: 0
+  statistics: 0
   structure_sync: 0
   svg_image: 0
   svg_image_responsive: 0
@@ -243,6 +249,7 @@ module:
   content_translation: 10
   password_policy: 10
   views: 10
+  mfd: 11
   paragraphs: 11
   tvi: 15
   standard: 1000
