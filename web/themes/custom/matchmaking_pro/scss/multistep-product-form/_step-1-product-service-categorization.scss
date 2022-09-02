@@ -34,8 +34,12 @@
             margin-bottom: 0;
         }
     }
+    .field--type-string-long,
+    .js-form-type-textarea{
+        margin-bottom: 0 !important;
+    }
     .js-form-type-managed-file{
-        margin-top: 15px;
+        margin-top: 0;
         label{
             position: static;
             height: auto;
