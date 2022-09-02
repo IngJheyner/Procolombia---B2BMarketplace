@@ -147,6 +147,9 @@
         margin-top: 22px;
         max-width: 442px;
         width: 100%;
+        @include media-breakpoint-down(lg){
+            max-width: 100%;
+        }
         @include media-breakpoint-down(md){
             max-width: 760px;
         }
@@ -168,11 +171,6 @@
         }
         >label{
            @include label-style;
-           &#edit-field-file-0--label,
-           &#edit-field-file-en-0--label {
-            position: relative;
-            left: 0;
-            }
             &.form-check-label {
                 position: static !important;
             }
@@ -298,6 +296,7 @@
         border-left: 1px solid #D8DADD;
         grid-area: 2 / 2 / 4 / 4;
         padding-top: 31px;
+        padding-right: 0 !important;
         @include media-breakpoint-down(md){
             border-left: none;
             grid-area: 3 / 1 / 4 / 4;
@@ -310,23 +309,13 @@
         width: 100%;
         margin-bottom: 0 !important;
         padding-bottom: 16px !important;
+        padding-right: 0 !important;
         @include media-breakpoint-down(xxl){
-            max-width: 882px;
-        }
-        @include media-breakpoint-down(xl){
-            max-width: 702px;
-        }
-        @include media-breakpoint-down(lg){
-            max-width: 462px;
-            #edit-actions{
-                padding-left: 20px;
-                padding-right: 20px;
-            }
+            max-width: 100%;
         }
         @include media-breakpoint-down(md){
             padding-left: 15px;
             padding-right: 15px;
-            max-width: 100%;
             border-left: none;
             grid-area: 4 / 1 / 5 / 4;
         }
@@ -472,6 +461,12 @@
             gap: 22px;
             padding:0 50px;
             margin-top: 16px;
+            @include media-breakpoint-down(xl){
+                padding: 0 25px;
+            }
+            @include media-breakpoint-down(lg){
+                padding: 0 20px;
+            }
             button{
                 border-radius: 4px;
                 background-color: $procol-dark-blue;
