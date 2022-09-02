@@ -3,7 +3,7 @@
  * Global utilities.
  *
  */
- function myFunction() {
+function myFunction() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "block") {
     x.style.display = "none";
@@ -121,6 +121,20 @@
             x.style.display = "none";
             x.style.opacity = "0";
           }
+        }
+      });
+
+      //change languages base in path url
+      $("#change_language", context).click(function () {
+        var url = window.location.pathname;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          window.location.href = url.replace("es", "en");
+        } else {
+          window.location.href = url.replace("en", "es");
         }
       });
     }

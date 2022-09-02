@@ -132,7 +132,7 @@
 													<path id="Trazado_56" data-name="Trazado 56" d="M951.929,26.48a.893.893,0,1,1-.892.893.893.893,0,0,1,.892-.893" transform="translate(-935.863 -18.745)" fill="#fff" fill-rule="evenodd"/>
 												</g>
 											</svg>
-											{{ "Delete"|t }}
+											{{ "Remove"|t }}
 										</span>
 									</div>
 								</div>
@@ -170,12 +170,10 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of
-										200x200 px are allowed."|t }}
+										{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}
 									</span>
 								</i>
-								<span>{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of
-									200x200 px are allowed."|t }}</span>
+								<span>{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6" style="margin-bottom: 2rem;display: flex;flex-direction: column;justify-content: flex-end;">
@@ -214,12 +212,10 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										{{ "'You must register the company's trade name, which is the name by which your
-										company is recognized; it may or may not be the same company name.'"|t }}
+										{{ "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."|t }}
 									</span>
 								</i>
-								<span>{{ "'You must register the company's trade name, which is the name by which your
-									company is recognized; it may or may not be the same company name.'"|t }}</span>
+								<span>{{ "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -256,12 +252,10 @@
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											{{ "Minimum 8 characters. Must contain 1 capital letter, symbol or
-											number."|t }}
+											{{ "Minimum 8 characters. Must contain 1 capital letter, symbol or number."|t }}
 										</span>
 									</i>
-									<span>{{ "Minimum 8 characters. Must contain 1 capital letter, symbol or number."|t
-										}}</span>
+									<span>{{ "Minimum 8 characters. Must contain 1 capital letter, symbol or number."|t }}</span>
 								</div>
 							</div>
 						</div>
@@ -298,8 +292,7 @@
 										shows in a quick, brief and direct way the skills, competences and
 										experience."|t }}
 										<br>
-										{{ "If you do not have a video in English, it is suggested to include subtitles
-										to the video in Spanish."|t }}
+										{{ "If you do not have a video in English, it is suggested to include subtitles to the video in Spanish."|t }}
 									</span>
 								</div>
 								<div class="input-group mb-3">
@@ -346,7 +339,7 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">{{ "English informatio"|t }}</p>
+							<p class="title_label">{{ "English information"|t }}</p>
 							<label for="asesor" class="form-label">{{ "Company Description"|t }}
 								<span>*</span>
 							</label>
@@ -385,7 +378,7 @@
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="production_chain_contain" class="w-100">
-									<select id="production_chain" class="single_select" placeholder="{{ " Enter the keyword or select an option"|t }}..." autocomplete="off">
+									<select id="production_chain" class="single_select" placeholder={{ " Enter the keyword or select an option"|t }}autocomplete="off">
 										<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 										{% for production_chain_item in production_chain %}
 											<option value="{{production_chain_item.ID}}">{{production_chain_item.Name}}
@@ -408,7 +401,7 @@
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
-									<select id="departament" class="single_select" placeholder="{{ " Select an option"|t }}" autocomplete="off">
+									<select id="departament" class="single_select" placeholder={{ " Select an option"|t }} autocomplete="off">
 										<option value="">{{ "Select an option"|t }}</option>
 										{% for deparment in deparments %}
 											<option value="{{deparment.ID}}">{{deparment.Name}}</option>
@@ -425,8 +418,7 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="principal_code_ciiu" class="form-label">{{ "CIIU Code Main or Economic
-								Activity"|t }}
+							<label for="principal_code_ciiu" class="form-label">{{ "CIIU Code Main or Economic Activity"|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
@@ -440,8 +432,7 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										{{ "Indicate the CIIU code or economic activity to which your company
-										belongs."|t }}
+										{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 									</span>
 								</i>
 								<span>
@@ -454,7 +445,7 @@
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="ciudad_contain" class="w-100">
-									<select id="ciudad" class="single_select" placeholder="{{ " Select an option"|t }}" autocomplete="off"></select>
+									<select id="ciudad" class="single_select" placeholder={{ " Select an option"|t }} autocomplete="off"></select>
 								</div>
 
 								<i id="error_ciudad" class='bx bxs-info-circle toltip_i'>
@@ -473,8 +464,7 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										{{ "Indicate the CIIU code or economic activity to which your company
-										belongs."|t }}
+										{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 									</span>
 								</i>
 								<span>
@@ -487,7 +477,7 @@
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="modelo_de_negocio_contain" class="w-100">
-									<select id="modelo_de_negocio" multiple placeholder="Ingrese la palabra clave o seleccione varias opciones">
+									<select id="modelo_de_negocio" multiple placeholder={{ "Enter the keyword or select several options"|t }}>
 										<option value="">{{ "Select an option"|t }}</option>
 										{% for business_model_item in business_model %}
 											<option value="{{business_model_item.ID}}">{{business_model_item.Name}}</option>
@@ -509,12 +499,11 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										{{ "Indicate the ISIC code or economic activity to which your company
-										belongs."|t }}
+										{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 									</span>
 								</i>
 								<span>
-									{{ "Indicate the ISIC code or economic activity to which your company belongs."|t }}
+									{{ "Indicate the CIIU code or economic activity to which your company belongs."|t }}
 								</span>
 							</div>
 						</div>
@@ -533,13 +522,11 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										{{ "Select the ProColombia advisor with whom your company has a defined work
-										plan."|t }}
+										{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
 									</span>
 								</i>
 								<span>
-									{{ "Select the ProColombia advisor with whom your company has a defined work
-									plan."|t }}
+									{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
 								</span>
 							</div>
 							<div class="input_error">
@@ -597,7 +584,7 @@
 							<label for="sitio" class="form-label">
 								{{ "Company certification"|t }}
 							</label>
-							<select id="certificacion_de_empresa" multiple placeholder="Ingrese la palabra clave o seleccione varias opciones">
+							<select id="certificacion_de_empresa" multiple placeholder={{ "Enter the keyword or select several options"|t }}>
 								<option value="">{{ "Select an option"|t }}</option>
 								{% for certificacion_de_empresa_item in certificacion_de_empresa %}
 									<option value="{{certificacion_de_empresa_item.ID}}">
@@ -651,7 +638,7 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">{{ "Spanish Information"|t }}</p>
+							<p class="title_label">{{ "Spanish information"|t }}</p>
 							<label for="nombre_del_sitio" class="form-label">{{ "Position name"|t }}
 								<span>*</span>
 							</label>
@@ -693,10 +680,10 @@
 										<option value="57" data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
 											+57</option>
 										{# {% for countries_item in countries %}
-																																								<option value="{{countries_item.Indicativo}}"
-																																									data-src="{{countries_item.Image}}">
-																																									+{{countries_item.Indicativo}}</option>
-																																								{% endfor %} #}
+											<option value="{{countries_item.Indicativo}}"
+											data-src="{{countries_item.Image}}">
+											+{{countries_item.Indicativo}}</option>
+										{% endfor %} #}
 									</select>
 								</div>
 								<div class="col-lg-9">
@@ -766,9 +753,7 @@
 						<b>{{ "Keep the following in mind!"|t}}</b>
 					</h6>
 					<p>
-						{{ "The information filled out in these fields will be used to send all notifications arising in
-						general from the platform and will be sent as commercial contact to international buyers
-						interested in the company's products or services."|t}}
+						{{ "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."|t}}
 					</p>
 				</div>
 				<div class="modal-footer">
@@ -791,16 +776,15 @@
 					</h5>
 				</div>
 				<div class="modal-body">
-					<p>{{"Your profile as an "|t}}
+					<p>{{"Your profile as an"|t}}
 						<strong id="empresa_popup" class="strong_empresa">traer Nombre de la empresa</strong>
-						{{"exporting company is in pending status for approval by ProColombia. Your advisor will contact
-						you in case there is any observation about the information registered."|t}}
+						{{"exporting company is in pending status for approval by ProColombia. Your advisor will contact you in case there is any observation about the information registered."|t}}
 					</p>
 				</a>
 			</p>
 		</div>
 		<div class="modal-footer">
-			<button id="go_to_menu" type="button" aria-label={{ " UNDERSTOOD"|t}} class="btn cita_btn">
+			<button id="go_to_menu" type="button" aria-label={{ "UNDERSTOOD"|t}} class="btn cita_btn">
 				{{"UNDERSTOOD"|t}}
 			</button>
 		</div>
@@ -815,7 +799,7 @@
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label={{ "Close"|t}}></button>
 		</div>
 		<div class="modal-body">
-			<p>{{ "The 'Colombian Company Registration' process"|t }}
+			<p>{{ "The Colombian Company Registration process"|t }}
 				<strong>{{ "is about to be cancelled."|t }}</strong>
 			</p>
 		</div>

@@ -898,7 +898,7 @@
     } else {
       if (position_spanish.length > 50) {
         message =
-        Drupal.t("The position in English must be no longer than 50 characters");
+        Drupal.t("The position in Spanish must be no longer than 50 characters");
         $("#position_spanish").css("border-color", "#ba0c2f");
         $("#error_position_spanish_message").text(message)
         $("#error_position_spanish").show();
