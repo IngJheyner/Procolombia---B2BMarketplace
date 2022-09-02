@@ -7521,7 +7521,7 @@
                 "reference": "bc2ca4b16cf97c2c2083a0ed16b00c697b46098b"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.3 || ^10"
             },
             "type": "drupal-module",
             "extra": {
@@ -7529,8 +7529,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1+1-dev",
-                    "datestamp": "1592616928",
+                    "version": "8.x-1.1+2-dev",
+                    "datestamp": "1661585246",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -10318,24 +10318,20 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "ezra-g",
-                    "homepage": "https://www.drupal.org/user/69959"
-                },
-                {
-                    "name": "jaydub",
-                    "homepage": "https://www.drupal.org/user/46257"
-                },
-                {
                     "name": "katbailey",
                     "homepage": "https://www.drupal.org/user/172987"
                 },
                 {
-                    "name": "nedjo",
-                    "homepage": "https://www.drupal.org/user/4481"
-                },
-                {
                     "name": "netw3rker",
                     "homepage": "https://www.drupal.org/user/89684"
+                },
+                {
+                    "name": "Palashvijay4O",
+                    "homepage": "https://www.drupal.org/user/2995945"
+                },
+                {
+                    "name": "Pasqualle",
+                    "homepage": "https://www.drupal.org/user/80733"
                 },
                 {
                     "name": "shelane",
@@ -13167,12 +13163,8 @@
                     "homepage": "https://www.drupal.org/u/graber"
                 },
                 {
-                    "name": "Jon Pugh",
-                    "homepage": "https://www.drupal.org/user/17028"
-                },
-                {
-                    "name": "bojanz",
-                    "homepage": "https://www.drupal.org/user/86106"
+                    "name": "Graber",
+                    "homepage": "https://www.drupal.org/user/1599440"
                 },
                 {
                     "name": "infojunkie",
@@ -13181,6 +13173,10 @@
                 {
                     "name": "joelpittet",
                     "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "Jon Pugh",
+                    "homepage": "https://www.drupal.org/user/17028"
                 }
             ],
             "description": "Adds an ability to perform bulk operations on selected entities from view results. Provides an API to create such operations.",
