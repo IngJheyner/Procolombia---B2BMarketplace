@@ -64,4 +64,11 @@
             overflow: hidden;
         }
     }
+
+    #edit-footer-form #edit-actions {
+        justify-content: flex-end;
+        #edit-previous{
+            display: none;
+        }    
+    }
 }
