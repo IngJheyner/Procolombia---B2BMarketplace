@@ -117,6 +117,10 @@
                     background-color: $procol-dark-blue;
                     color: $white;
                 }
+                label{
+                    font-weight: 300;
+                    padding-bottom: 0;                 
+                }
             }
         }
     }
@@ -130,7 +134,12 @@
         padding-right: 0;
 
     }
-    
+    .js-form-type-managed-file{
+        small{
+            max-height: 41px;
+            overflow: hidden;
+        }
+    }
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
@@ -221,10 +230,10 @@
             justify-content: space-between;
             max-width: 442px;
             align-items: flex-end;
-            padding-top: 20px;
             &.step-4{
             justify-content: flex-start;
             margin-top: 35px;
+            
             .group-top{
                 margin-top: 31px;
             }

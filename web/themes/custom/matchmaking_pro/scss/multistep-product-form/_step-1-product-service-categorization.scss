@@ -4,11 +4,19 @@
     }
     .js-form-item-field-product-type{
         margin-top: 0;
+        .sumo_field_product_type{
+            li:hover{
+                label{
+
+                    background-color: $procol-dark-blue;
+                }
+            }
+        }
         label.js-form-required{
             color:  $procol-gray-400;
             font-family: $font-family-Century-Gothic;
-        }
 
+        }
         @include media-breakpoint-down(md){
             margin-top: 0;
         }
@@ -50,6 +58,10 @@
         }
         .js-form-managed-file.form-managed-file{
             padding-top: 8px;
+        }
+        small{
+            max-height: 38px;
+            overflow: hidden;
         }
     }
 }

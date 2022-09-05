@@ -1,4 +1,7 @@
 .cp-core-multistep-form.step_2{
+    small{
+        padding-bottom: 0;
+    }
     .group-top{
        padding: 0; 
        .step-2-title{
@@ -14,6 +17,17 @@
                width: 50%;
                border-right: 1px solid #D8DADD;
                padding-bottom: 0;
+               @include media-breakpoint-down(xl){
+                padding-left: 25px;
+                padding-right: 25px;
+               }
+               @include media-breakpoint-down(lg){
+                width: 100%;
+                border: none;
+                padding-left: 15px;
+                padding-right: 15px;
+               }
+               
            }
        }
     }
@@ -31,6 +45,14 @@
         }
         .js-form-item{
             margin-bottom: 0 !important;
+        }
+        @include media-breakpoint-down(lg){
+            .information-title{
+                margin-top: 16px;
+            }
+            .field--name-field-aditional-information{
+                margin-bottom: 0 !important;
+            }
         }
     }
     .group-right{

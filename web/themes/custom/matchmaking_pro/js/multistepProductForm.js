@@ -10,6 +10,10 @@
       attach: function(context, settings) {
         // Custom code here
 
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
 
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {    
