@@ -170,15 +170,9 @@
                 left: -2px;
               }
         }
-        >label{
-           @include label-style;
-            &.form-check-label {
-                position: static !important;
-            }
-            @include media-breakpoint-down(md){
-                position: static;
-                height: auto;
-            }
+        label{
+           font-weight: bold;
+           padding-bottom: 8px;
         }
                 
         input[type="text"]{

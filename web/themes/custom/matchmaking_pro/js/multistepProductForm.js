@@ -12,7 +12,7 @@
 
 
         //Cargar modales
-        $(context).find('body').once('.cp-core-multistep-form').each(function () {
+        $(context).find('body').once('.cp-core-multistep-form').each(function () {    
           //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect();
           $('#edit-field-categorization-parent').SumoSelect();

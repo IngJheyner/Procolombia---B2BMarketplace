@@ -1,23 +1,49 @@
 .cp-core-multistep-form.step_2{
+    .group-top{
+       padding: 0; 
+       .step-2-title{
+           color: $procol-black;
+           font-size: 24px;
+           h2{
+               font-family: $font-family-Century-Gothic;
+               padding: 20px 50px;
+               margin-bottom: 0!important;
+               font-size: 20px;
+               color: $procol-black;
+               font-weight: bold;
+               width: 50%;
+               border-right: 1px solid #D8DADD;
+               padding-bottom: 0;
+           }
+       }
+    }
     .group-left {
         display: flex;
         flex-direction: column;
-        .step-2-title{
-            color: $procol-black;
-            font-size: 24px;
-            h2{
-                font-family: $font-family-Century-Gothic;
-                padding: 20px 0;
-                margin-bottom: 0!important;
-                font-size: 20px;
-                color: $procol-black;
-                font-weight: bold;
-            }
+        justify-content: flex-end;
+        .field--name-field-categorization-parent{
+            flex-grow: 1;
+            margin-bottom: 0 !important;
+        }
+        .field--name-field-categorization{
+            flex-grow: 2;
+            margin-bottom: 0 !important;    
+        }
+        .js-form-item{
+            margin-bottom: 0 !important;
         }
     }
     .group-right{
         .js-form-item{
             margin-top: 0;
+            .js-form-item{
+                margin-bottom: 0 !important;
+            }
+            
+        }
+        .field--name-field-partida-arancelaria-tax{
+            padding-top: 20px;
+            margin-bottom: 0 !important;
         }
     }
     .information-title{

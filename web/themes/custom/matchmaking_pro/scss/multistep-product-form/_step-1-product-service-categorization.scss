@@ -1,4 +1,7 @@
 .cp-core-multistep-form.step_1{
+    label{
+        @include label-style;
+    }
     .js-form-item-field-product-type{
         margin-top: 0;
         label.js-form-required{
