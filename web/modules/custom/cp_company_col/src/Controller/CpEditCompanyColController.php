@@ -166,7 +166,7 @@ class CpEditCompanyColController extends ControllerBase
         $user->set('field_company_deparment', $data['departament']);
         $user->set('field_company_city', $data['ciudad']);
         $user->set('field_company_model', $data['modelo_de_negocio']);
-        
+
         $file = $request->files->get('logo');
         if(!empty($file)){
             $file2 = file_get_contents($file);

@@ -1,5 +1,2 @@
-label: Yes/No
-category: General
-options: |
-  Yes: Yes
-  No: No
+label: Si/No
+options: 'Si: Si No: No'

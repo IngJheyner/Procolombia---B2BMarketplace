@@ -1,33 +1,29 @@
-label: Frontpage
-description: 'All content promoted to the front page.'
+label: 'Página principal'
+description: 'Todo el contenido promovido a la página principal.'
 display:
   default:
-    display_title: Default
+    display_title: 'Por defecto'
     display_options:
       pager:
         options:
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
+            next: 'Siguiente >'
+            previous: '‹ Anterior'
+            first: '« Primero'
+            last: 'Último »'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
       empty:
-        area_text_custom:
-          content: 'No front page content has been created yet.<br/>Follow the <a target="_blank" href="https://www.drupal.org/docs/user_guide/en/index.html">User Guide</a> to start building your site.'
         title:
-          title: Welcome!
+          title: 'Bienvenido a [site:name]'
   feed_1:
-    display_title: Feed
+    display_title: Agregador
   page_1:
-    display_title: Page
+    display_title: Página

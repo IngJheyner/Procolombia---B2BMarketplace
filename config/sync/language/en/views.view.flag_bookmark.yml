@@ -1,47 +1,31 @@
-label: 'Flag Bookmark list'
 display:
   default:
-    display_title: Master
+    display_title: Máster
     display_options:
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
       pager:
         options:
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ anterior'
+            next: 'siguiente ›'
+            first: '« primero'
+            last: 'última »'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
       fields:
         flagging_bulk_form:
-          label: 'Bulk update'
-          action_title: Action
+          action_title: Acción
         type:
-          label: Type
+          label: Tipo
         title:
-          label: Title
+          label: Título
         name:
-          label: Author
-        created:
-          label: Bookmarked
-          separator: ', '
-        link_flag:
-          label: Ops
-      title: 'My Bookmarks'
-      empty:
-        area_text_custom:
-          content: 'No bookmarks available.'
+          label: Autor
   page_1:
-    display_title: Page
-    display_options:
-      menu:
-        title: 'My Bookmarks'
+    display_title: Página

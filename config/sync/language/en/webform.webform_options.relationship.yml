@@ -1,8 +1,1 @@
-label: Relationship
-category: Demographic
-options: |
-  Parent: Parent
-  'Significant Other': 'Significant Other'
-  Sibling: Sibling
-  Child: Child
-  Friend: Friend
+category: Demográfico

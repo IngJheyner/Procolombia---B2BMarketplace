@@ -352,10 +352,15 @@
           $("#loading_1").hide();
           $("#save").show();
           if (response.status == 200) {
-            //save email in local storage
-            localStorage.setItem("email_buyer", data.email);
-            //redirect to step 2
-            window.location.href = '/register/user/buyer';
+            $("#loader").modal('show');
+            setTimeout(() => {
+              //save email in local storage
+              localStorage.setItem("company_name", data.company);
+              localStorage.setItem("email_buyer", data.email);
+              //redirect to step 2
+              window.location.href = '/register/user/buyer';
+            }, 4000);
+
           } else {
             alert("Error al crear el usuario" + error);
           }
@@ -402,6 +407,12 @@
       $("#save", context).click(function () {
         saveUser();
       });
+      //Reload form data
+      $("#reload_form", context).click(function () {
+        window.location.reload()
+      });
+
+
     }
   };
 

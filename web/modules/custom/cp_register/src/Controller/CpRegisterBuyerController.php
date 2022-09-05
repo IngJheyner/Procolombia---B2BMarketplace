@@ -71,10 +71,10 @@ class CpRegisterBuyerController extends ControllerBase
      /**
      * return uid of user by nit with search by Username
      */
-    public function getUid($nit)
+    public function getUid($email)
     {
         $query = \Drupal::entityQuery('user')
-            ->condition('name', $nit)
+            ->condition('name', $email)
             ->execute();
         if(!empty($query)){
             $user = \Drupal\user\Entity\User::load(reset($query));
@@ -102,7 +102,7 @@ class CpRegisterBuyerController extends ControllerBase
             //$user->set("field_country", $data['country']);
 
             $user->save();
-            return new JsonResponse(['status' => 'ok']);
+            return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
             return new JsonResponse(['status' => 'error']);
         }
@@ -122,7 +122,7 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_subcat_interest_1", $data['subcat_interest_1']);
             $user->set("field_company_model", $data['company_model']);
             $user->save();
-            return new JsonResponse(['status' => 'ok']);
+            return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
             return new JsonResponse(['status' => 'error']);
         }
@@ -142,7 +142,7 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_subcat_interest_2", $data['subcat_interest_2']);
             $user->set("field_company_model_2", $data['company_model_2']);
             $user->save();
-            return new JsonResponse(['status' => 'ok']);
+            return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
             return new JsonResponse(['status' => 'error']);
         }
@@ -162,7 +162,7 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_subcat_interest_3", $data['subcat_interest_3']);
             $user->set("field_company_model_3", $data['company_model_3']);
             $user->save();
-            return new JsonResponse(['status' => 'ok']);
+            return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
             return new JsonResponse(['status' => 'error']);
         }
@@ -184,18 +184,18 @@ class CpRegisterBuyerController extends ControllerBase
                 'name' => $user->get('name')->value,
                 'email' => $user->get('mail')->value,
                 'position' => $user->get('field_company_contact_position')->value,
-                'web_site' => $user->get('field_company_web_site')->value,
+                'web_site' => $user->get('field_company_web_site')->uri,
                 'city' => $user->get('field_company_city')->value,
                 'country' => $user->get('field_country')->value,
-                'cat_interest_1' => $user->get('field_cat_interest_1')->value,
-                'subcat_interest_1' => $user->get('field_subcat_interest_1')->value,
-                'company_model' => $user->get('field_company_model')->value,
-                'cat_interest_2' => $user->get('field_cat_interest_2')->value,
-                'subcat_interest_2' => $user->get('field_subcat_interest_2')->value,
-                'company_model_2' => $user->get('field_company_model_2')->value,
-                'cat_interest_3' => $user->get('field_cat_interest_3')->value,
-                'subcat_interest_3' => $user->get('field_subcat_interest_3')->value,
-                'company_model_3' => $user->get('field_company_model_3')->value,
+                'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
+                'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
+                'company_model' => $user->get('field_company_model')->target_id,
+                'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
+                'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
+                'company_model_2' => $user->get('field_company_model_2')->target_id,
+                'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
+                'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
+                'company_model_3' => $user->get('field_company_model_3')->target_id,
             ];
     
             return new JsonResponse(['status' => 200, 'data' => $data_user]);

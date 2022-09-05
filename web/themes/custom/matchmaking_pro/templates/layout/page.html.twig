@@ -69,65 +69,6 @@
 #}
 <div id="page-wrapper">
 	<div id="page">
-		{# <header id="header" class="header" role="banner" aria-label="{{ 'Site header'|t}}">
-			{% block head %}
-			{% if page.secondary_menu or page.top_header or page.top_header_form %}
-			<nav{{ navbar_top_attributes }}>
-				{% if container_navbar %}
-				<div class="container">
-					{% endif %}
-					{{ page.secondary_menu }}
-					{{ page.top_header }}
-					{% if page.top_header_form %}
-					<div class="form-inline navbar-form ms-auto">
-						{{ page.top_header_form }}
-					</div>
-					{% endif %}
-					{% if container_navbar %}
-				</div>
-				{% endif %}
-				</nav>
-				{% endif %}
-				<nav{{ navbar_attributes }}>
-					{% if container_navbar %}
-					<div class="container">
-						{% endif %}
-						{{ page.header }}
-						{% if page.primary_menu or page.header_form %}
-						<button class="navbar-toggler collapsed" type="button"
-							data-bs-toggle="{{ navbar_collapse_btn_data }}" data-bs-target="#CollapsingNavbar"
-							aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span
-								class="navbar-toggler-icon"></span></button>
-						<div class="{{ navbar_collapse_class }}" id="CollapsingNavbar">
-							{% if navbar_offcanvas %}
-							<div class="offcanvas-header">
-								<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-									aria-label="Close"></button>
-							</div>
-							<div class="offcanvas-body">
-								{% endif %}
-								{{ page.primary_menu }}
-								{% if page.header_form %}
-								<div class="form-inline navbar-form justify-content-end">
-									{{ page.header_form }}
-								</div>
-								{% endif %}
-								{% if navbar_offcanvas %}
-							</div>
-							{% endif %}
-						</div>
-						{% endif %}
-						{% if sidebar_collapse %}
-						<button class="navbar-toggler navbar-toggler-left collapsed" type="button"
-							data-bs-toggle="collapse" data-bs-target="#CollapsingLeft" aria-controls="CollapsingLeft"
-							aria-expanded="false" aria-label="Toggle navigation"></button>
-						{% endif %}
-						{% if container_navbar %}
-					</div>
-					{% endif %}
-					</nav>
-					{% endblock %}
-		</header> #}
 		<header>
 			{% if logged_in %}
 			{#check id user is exportador#}
@@ -566,14 +507,14 @@
 							<button id="drop_menu" class="btn btn-secondary dropdown-toggle" type="button">
 								<img src="http://52.201.168.42/sites/default/files/2022-08/Icono-Menu-Idioma.svg" alt=""
 									srcset="">
-								<span class="text-truncate">Español</span>
+								<span class="text-truncate">{{language}}</span>
 							</button>
 							<ul class="dropdown-menu" id="lenguaje">
-								<li>
+								<li id="change_language">
 									<a class="dropdown-item" href="#">
 										<img src="http://52.201.168.42/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
 											alt="" srcset="">
-										<span class="text-truncate">English</span>
+										<span class="text-truncate">{{language_2}}</span>
 									</a>
 								</li>
 							</ul>
@@ -609,21 +550,391 @@
 				</div>
 			</div>
 			{% else %}
-			<div class="d-flex justify-content-between px-3 py-2">
-				<div>
-					<a href="/">
-					<img class="logo"
-						src="http://52.201.168.42/sites/default/files/2022-08/logo_pco_negro2%20%281%29.svg" alt=""
-						srcset="">
+			<div class="row px-3 py-2 menu_dashboard" style="z-index:4">
+				<div id="" class="col-lg-5">
+					<a href="/dashboard/international/user">
+						<img class="logo"
+							src="http://52.201.168.42/sites/default/files/2022-08/logo_pco_negro2%20%281%29.svg" alt=""
+							srcset="">
 					</a>
 				</div>
-				<div class="btn_header">
-					<button id="btn_login" type="button" class="btn btn-outline text-uppercase">
-						Iniciar sesión
-					</button>
-					<button id="btn_register" type="button" class="btn btn-outline-d text-uppercase">
-						Registro
-					</button>
+				<div class="icon_secction col-lg-4">
+
+					<div class="icono" id="right_bar">
+						<div class="img_icon py-1">
+							<svg style="transform: rotateY(180deg);" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" id="Grupo_1384" data-name="Grupo 1384"
+								width="25.267" height="26.952" viewbox="0 0 25.267 26.952">
+								<defs>
+									<linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#005ca4" />
+										<stop offset="1" stop-color="#008cce" />
+									</linearGradient>
+									<linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#891b1f" />
+										<stop offset="1" stop-color="#ae003f" />
+									</linearGradient>
+								</defs>
+								<path id="Trazado_37" data-name="Trazado 37"
+									d="M152.563,1072.378h20.213a2.527,2.527,0,1,0,0-5.053.843.843,0,0,1-.842-.842v-5.054a9.24,9.24,0,0,0-2.713-6.551h0a.842.842,0,1,0-1.19,1.19,7.551,7.551,0,0,1,2.221,5.359v5.475a2.106,2.106,0,0,0,2.106,2.106h.421a.842.842,0,0,1,0,1.685H152.563a.842.842,0,0,1,0-1.685h.421a2.106,2.106,0,0,0,2.106-2.106v-5.475a7.575,7.575,0,0,1,6.586-7.507s-.008-.01-.005-.01a2.107,2.107,0,0,0,1.842-2.09v-.5a.842.842,0,1,0-1.684,0v.316a.632.632,0,0,1-.526.623.356.356,0,0,1,.129,0,9.256,9.256,0,0,0-8.025,9.168v5.054a.843.843,0,0,1-.842.842,2.527,2.527,0,1,0,0,5.053m11.791,1.685a.842.842,0,0,0-.842.842.842.842,0,0,1-1.684,0,.842.842,0,0,0-1.684,0,2.521,2.521,0,0,0,5.036.17.844.844,0,0,0-.825-1.012"
+									transform="translate(-150.036 -1050.48)" fill-rule="evenodd"
+									fill="url(#linear-gradient)" />
+								<path id="Trazado_38" data-name="Trazado 38"
+									d="M170.3,1054.48a1.267,1.267,0,0,0-1.2,1.665,1.227,1.227,0,0,0,.8.8,1.265,1.265,0,1,0,.4-2.464"
+									transform="translate(-154.297 -1052.796)" fill-rule="evenodd"
+									fill="url(#gradient-actividades)" />
+							</svg>
+							<span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+								+30
+								<span class="visually-hidden">unread messages</span>
+							</span>
+						</div>
+						<div class="titlle">
+							Alertas
+						</div>
+					</div>
+					<div class="icono">
+						<div class="img_icon py-1">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="24.422" height="20.219" viewbox="0 0 24.422 20.219">
+								<defs>
+									<linearGradient id="circle_gradient-mensaje" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#005ca4" />
+										<stop offset="1" stop-color="#008cce" />
+									</linearGradient>
+									<linearGradient id="gradient-mensaje" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#d88d00" />
+										<stop offset="1" stop-color="#edc500" />
+									</linearGradient>
+								</defs>
+								<g id="Grupo_3704" data-name="Grupo 3704" transform="translate(0 -0.001)">
+									<path id="Trazado_19" data-name="Trazado 19"
+										d="M3.944,24.41a.761.761,0,0,1,0-1.079L6.1,21.174A.762.762,0,1,1,7.18,22.252L5.022,24.41a.761.761,0,0,1-1.079,0m15.522,0-2.158-2.158a.762.762,0,1,1,1.078-1.078l2.159,2.158a.763.763,0,0,1-1.079,1.079m4.109-11.483L14.4,21.337a3.052,3.052,0,0,1-4.316,0L4.7,15.955,2.891,14.141l-.006,0a.762.762,0,0,0-.56-.322.764.764,0,0,0-.763.763V25.266a1.526,1.526,0,0,0,1.526,1.526H21.4a1.526,1.526,0,0,0,1.526-1.526V16.11a.763.763,0,1,1,1.526,0v9.156A3.052,3.052,0,0,1,21.4,28.318H3.088A3.052,3.052,0,0,1,.036,25.266V14.584A2.289,2.289,0,0,1,2.325,12.3a2.22,2.22,0,0,1,1.526.66v-.011l7.315,7.313a1.525,1.525,0,0,0,2.158,0L22.5,11.849a1.507,1.507,0,0,0,.44-1.08h-.009c0-.843-.683-.763-1.526-.763H5.377a.763.763,0,1,1,0-1.526H21.4c1.4,0,2.578.419,2.936,1.526h.023a3.039,3.039,0,0,1-.784,2.921"
+										transform="translate(-0.036 -8.099)" fill-rule="evenodd"
+										fill="url(#circle_gradient-mensaje)" />
+									<path id="Trazado_20" data-name="Trazado 20"
+										d="M1.181,7.48A1.145,1.145,0,1,1,.036,8.625,1.145,1.145,0,0,1,1.181,7.48"
+										transform="translate(-0.036 -7.479)" fill-rule="evenodd"
+										fill="url(#gradient-mensaje)" />
+								</g>
+							</svg>
+							<span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+								5
+								<span class="visually-hidden">unread messages</span>
+							</span>
+						</div>
+						<div class="titlle">
+							Mensajes
+						</div>
+					</div>
+					<div class="icono">
+						<div class="img_icon py-1">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="27.373" height="23.583" viewbox="0 0 27.373 23.583">
+								<defs>
+									<linearGradient id="circle_gradient-noticia" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#005ca4" />
+										<stop offset="1" stop-color="#008cce" />
+									</linearGradient>
+									<linearGradient id="gradient-noticia" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#d88d00" />
+										<stop offset="1" stop-color="#edc500" />
+									</linearGradient>
+								</defs>
+								<g id="Grupo_1315" data-name="Grupo 1315" transform="translate(0 0)">
+									<path id="Trazado_93" data-name="Trazado 93"
+										d="M322.776,312.9h-3.369a.842.842,0,0,1,0-1.684h3.369a.842.842,0,1,1,0,1.684m0,3.369h-3.369a.842.842,0,1,1,0-1.684h3.369a.842.842,0,1,1,0,1.684m-8.422,5.053h8.422a.842.842,0,1,1,0,1.684h-8.422a.842.842,0,1,1,0-1.684m0-3.369h8.422a.842.842,0,1,1,0,1.684h-8.422a.842.842,0,1,1,0-1.684m-7.58-6.317a2.106,2.106,0,0,1,2.106-2.106h5.9a2.106,2.106,0,0,1,2.106,2.106v3.79a.842.842,0,0,1-1.684,0V312.06a.843.843,0,0,0-.842-.842H309.3a.843.843,0,0,0-.842.842v1.684a.843.843,0,0,0,.842.842h3.369a.842.842,0,0,1,0,1.684h-3.79a2.106,2.106,0,0,1-2.106-2.106Zm.842,9.686h3.369a.842.842,0,0,1,0,1.684h-3.369a.842.842,0,0,1,0-1.684m0-3.369h3.369a.842.842,0,0,1,0,1.684h-3.369a.842.842,0,1,1,0-1.684m16,10.107H305.089a5.054,5.054,0,0,1-5.053-5.053v-5.9a.842.842,0,1,1,1.684,0v5.9a3.369,3.369,0,0,0,3.369,3.369H323.2a2.106,2.106,0,0,0,2.106-2.106v-16a2.106,2.106,0,0,0-2.106-2.106h-16a2.106,2.106,0,0,0-2.106,2.106v13.9a.842.842,0,0,1-1.684,0V307.849a3.37,3.37,0,0,1,3.369-3.369h16.845a3.37,3.37,0,0,1,3.369,3.369v16.845a3.369,3.369,0,0,1-3.369,3.369"
+										transform="translate(-299.615 -304.48)" fill-rule="evenodd"
+										fill="url(#circle_gradient-noticia)" />
+									<path id="Trazado_94" data-name="Trazado 94"
+										d="M300.3,323.48a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263"
+										transform="translate(-299.036 -315.478)" fill-rule="evenodd"
+										fill="url(#gradient-noticia)" />
+								</g>
+							</svg>
+						</div>
+						<div class="titlle">
+							Noticias
+						</div>
+					</div>
+					<div class="icono">
+						<div class="img_icon py-1">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="24.812" height="24.359" viewbox="0 0 24.812 24.359">
+								<defs>
+									<linearGradient id="circle-gradient-actividades" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#005ca4" />
+										<stop offset="1" stop-color="#008cce" />
+									</linearGradient>
+									<linearGradient id="gradient-actividades" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#d88d00" />
+										<stop offset="1" stop-color="#edc500" />
+									</linearGradient>
+								</defs>
+								<g id="Grupo_1358" data-name="Grupo 1358" transform="translate(0 0)">
+									<path id="Trazado_3" data-name="Trazado 3"
+										d="M469.029,770.272a.761.761,0,1,1,.76-.761.761.761,0,0,1-.76.761m-.76-7.612h.76a.761.761,0,0,1,0,1.522h-.253a.507.507,0,0,0-.506.507v.254a.76.76,0,1,1-1.519,0v-.761a1.52,1.52,0,0,1,1.519-1.522m-2.279,4.567a.761.761,0,0,1,0,1.522h-.253a.507.507,0,0,0-.506.507v.254a.76.76,0,1,1-1.519,0v-.761a1.52,1.52,0,0,1,1.519-1.522Zm-2.279-4.567h.76a.761.761,0,0,1,0,1.522h-.253a.507.507,0,0,0-.506.507v.254a.76.76,0,1,1-1.519,0v-.761a1.52,1.52,0,0,1,1.519-1.522m-2.279,4.567a.761.761,0,0,1,0,1.522h-.253a.507.507,0,0,0-.506.507v.254a.76.76,0,1,1-1.519,0v-.761a1.52,1.52,0,0,1,1.519-1.522Zm-2.279-4.567h.76a.761.761,0,0,1,0,1.522h-.253a.507.507,0,0,0-.506.507v.254a.76.76,0,1,1-1.519,0v-.761a1.52,1.52,0,0,1,1.519-1.522m-3.8,7.612a.761.761,0,0,1-.76-.761v-.761a1.52,1.52,0,0,1,1.519-1.522h.76a.761.761,0,0,1,0,1.522h-.253a.507.507,0,0,0-.506.507v.254a.761.761,0,0,1-.76.761m15.954,4.567H453.075a3.042,3.042,0,0,1-3.039-3.045V761.137a3.042,3.042,0,0,1,3.039-3.045h18.993a.761.761,0,0,0,.76-.761v-.761a1.52,1.52,0,0,0-1.519-1.522h-1.14a1.9,1.9,0,0,1-1.9-1.9v-.381a.76.76,0,1,0-1.519,0v.381a1.9,1.9,0,0,1-1.9,1.9h-5.318a1.9,1.9,0,0,1-1.9-1.9v-.381a.76.76,0,1,0-1.519,0v.381a1.9,1.9,0,0,1-1.9,1.9h-1.14a1.52,1.52,0,0,0-1.519,1.522.76.76,0,1,1-1.519,0,3.042,3.042,0,0,1,3.039-3.045h.76a.761.761,0,0,0,.76-.761,2.279,2.279,0,1,1,4.558,0,.761.761,0,0,0,.76.761h4.558a.761.761,0,0,0,.76-.761,2.279,2.279,0,1,1,4.558,0,.761.761,0,0,0,.76.761h.76a3.042,3.042,0,0,1,3.039,3.045v1.142a1.9,1.9,0,0,1-1.9,1.9H453.075a1.52,1.52,0,0,0-1.519,1.522v10.657a1.52,1.52,0,0,0,1.519,1.522h18.233a1.52,1.52,0,0,0,1.519-1.522v-6.851a.76.76,0,1,1,1.519,0v6.851a3.042,3.042,0,0,1-3.039,3.045"
+										transform="translate(-450.036 -750.48)" fill-rule="evenodd"
+										fill="url(#circle-gradient-actividades)" />
+									<path id="Trazado_4" data-name="Trazado 4"
+										d="M510.49,777.033a1.267,1.267,0,0,1,1.2,1.665,1.227,1.227,0,0,1-.8.8,1.265,1.265,0,1,1-.4-2.464"
+										transform="translate(-486.942 -767.038)" fill-rule="evenodd"
+										fill="url(#gradient-actividades)" />
+								</g>
+							</svg>
+						</div>
+						<div class="titlle">
+							Actividades de promoción
+						</div>
+					</div>
+					<div class="icono">
+						<div class="img_icon py-1">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="23.217" height="24.951" viewbox="0 0 23.217 24.951">
+								<defs>
+									<linearGradient id="circle-gradient-mensaje" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#005ca4" />
+										<stop offset="1" stop-color="#008cce" />
+									</linearGradient>
+									<linearGradient id="gradient-mensaje" x1="0.5" x2="0.5" y2="1"
+										gradientunits="objectBoundingBox">
+										<stop offset="0" stop-color="#d88d00" />
+										<stop offset="1" stop-color="#edc500" />
+									</linearGradient>
+								</defs>
+								<g id="Grupo_1297" data-name="Grupo 1297" transform="translate(0)">
+									<path id="Trazado_65" data-name="Trazado 65"
+										d="M1811.645,15.948a.773.773,0,1,1-.774.773.774.774,0,0,1,.774-.773m0-9.281a2.321,2.321,0,0,0-2.322,2.32.774.774,0,0,1-1.548,0,3.87,3.87,0,1,1,5.373,3.561s0,0,0,0a1.159,1.159,0,0,0-.725,1.075.627.627,0,0,1-.014.143.773.773,0,0,1-1.533-.143,2.708,2.708,0,0,1,1.659-2.5l0,0a2.319,2.319,0,0,0-.887-4.462m8.513,13.921h-5.417a2.308,2.308,0,0,0-1.389.461l-4.894,3.667c-.008.006-.012.008-.021.015a2.322,2.322,0,0,1-3.757-1.824V21.361a.774.774,0,0,0-.774-.773h-.774a3.1,3.1,0,0,1-3.1-3.094V3.574a3.1,3.1,0,0,1,3.1-3.094h13.156a.773.773,0,1,1,0,1.547h-12.769a1.935,1.935,0,0,0-1.935,1.933V17.108a1.935,1.935,0,0,0,1.935,1.933h.774a1.935,1.935,0,0,1,1.935,1.933v1.933a.775.775,0,0,0,1.215.636h0l4.926-3.692s0,0,0,0a3.853,3.853,0,0,1,2.368-.808h5.03a1.935,1.935,0,0,0,1.935-1.933V4.347a.774.774,0,0,1,1.548,0V17.495a3.094,3.094,0,0,1-3.1,3.094"
+										transform="translate(-1800.036 -0.277)" fill-rule="evenodd"
+										fill="url(#circle-gradient-mensaje)" />
+									<path id="Trazado_66" data-name="Trazado 66"
+										d="M1850.3,0a1.263,1.263,0,1,1-1.263,1.263A1.264,1.264,0,0,1,1850.3,0"
+										transform="translate(-1830.451 0.002)" fill-rule="evenodd"
+										fill="url(#gradient-mensaje)" />
+								</g>
+							</svg>
+						</div>
+						<div class="titlle">
+							Ayuda
+						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-3 dropdown_cont">
+					<div id="menu_user" class="dropdown dropdown-cont">
+						<img src="http://52.201.168.42/sites/default/files/2022-08/Logo_banner-100.jpg" alt=""
+							class="image-cover">
+						<div class="row justify-content-between">
+							<div class="col-10">
+								<p class="text-truncate">Hola,
+									<strong class="business_tittle text-uppercase">{{ name }} {{ lastname }} </strong>
+								</p>
+							</div>
+							<div class="col-2">
+								<i class='bx bx-chevron-down fs-4'></i>
+							</div>
+						</div>
+
+						<ul id="menu_drop" class="drop">
+							<li class="p-0 logo_img_menu">
+								<div class="row p-1 align-items-center">
+									<div class="col-2 py-2 p-0">
+
+										<img style="width: 57px !important;
+											height: 57px !important;
+											margin-left: -3px !important;" src="http://52.201.168.42/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"
+											alt="" class="image-cover">
+
+
+									</div>
+									<div class="col-10">
+										<p class="name">{{ name }} {{ lastname }} </p>
+										<p class="name">{{ email }}</p>
+										<button id="edit_buyer" class="small_editar">Editar perfil</button>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a class="li_icon_url" href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="22.777" height="23.182" viewbox="0 0 22.777 23.182">
+										<defs>
+											<linearGradient id="hover_color" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#3b3d42" />
+												<stop offset="1" stop-color="#a1a5aa" />
+											</linearGradient>
+										</defs>
+										<g id="Grupo_3474" data-name="Grupo 3474" transform="translate(0 0)">
+											<path id="llenar" data-name="Trazado 171"
+												d="M1069.966,773.183h-11.389a2.843,2.843,0,0,1-2.847-2.838v-.709a.712.712,0,0,1,1.424,0v.709a1.421,1.421,0,0,0,1.424,1.419h11.389a1.421,1.421,0,0,0,1.424-1.419V758.994a1.421,1.421,0,0,0-1.424-1.419h-11.389a1.421,1.421,0,0,0-1.424,1.419v6.74a1.777,1.777,0,0,1-1.78,1.774h-2.491a2.842,2.842,0,0,1-2.847-2.838V753.318a2.843,2.843,0,0,1,2.847-2.838h10.677a.71.71,0,1,1,0,1.419h-10.677a1.421,1.421,0,0,0-1.423,1.419v11.352a1.421,1.421,0,0,0,1.423,1.419h2.313a.532.532,0,0,0,.534-.532v-6.563a2.843,2.843,0,0,1,2.847-2.838h11.389a2.843,2.843,0,0,1,2.847,2.838v11.352a2.843,2.843,0,0,1-2.847,2.838"
+												transform="translate(-1050.036 -750)" fill-rule="evenodd"
+												fill="url(#hover_color">
+										</g>
+										<path id="Trazado_172" data-name="Trazado 172"
+											d="M1094.3,749.342a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263"
+											transform="translate(-1078.023 -749.342)" fill-rule="evenodd"
+											fill="url(#back_gradient)" />
+									</svg>
+									Ver perfil general de usuario
+								</a>
+							</li>
+							</li>
+							<li>
+								<a class="li_icon_url" href="#">
+
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="22.951" height="22.955" viewBox="0 0 22.951 22.955">
+										<defs>
+											<linearGradient id="hover_color" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#3b3d42" />
+												<stop offset="1" stop-color="#a1a5aa" />
+											</linearGradient>
+											<linearGradient id="back_gradient" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#d88d00" />
+												<stop offset="1" stop-color="#edc500" />
+											</linearGradient>
+										</defs>
+										<g id="Grupo_3475" data-name="Grupo 3475" transform="translate(0 -0.001)">
+											<path id="llenar" data-name="Trazado 47"
+												d="M922.2,1061.275l-3.84,2.94a1.427,1.427,0,0,0-.518,1.1,1.462,1.462,0,0,0,.049.363l1.534,5.169c-.041-.033-.053-.011-.023.085a1.922,1.922,0,0,1-2.943,2.144l-.666-.468h0a.793.793,0,0,1,.438-1.454.782.782,0,0,1,.495.178l0,0,.2.143a.522.522,0,0,0,.283.085.538.538,0,0,0,.538-.538.532.532,0,0,0-.018-.138.066.066,0,0,1,0-.029l-1.418-4.913a2.863,2.863,0,0,1,1.022-3.049c.006,0,.009-.01.014-.014l3.665-2.825a.538.538,0,0,0-.325-.966c-.037,0-.05,0-.043,0h-4.525a2.867,2.867,0,0,1-2.646-1.921l-1.522-4.345a.455.455,0,0,0-.1-.165.476.476,0,0,0-.673,0,.46.46,0,0,0-.116.19c0,.011,0,.006-.007.007l-1.51,4.313a2.868,2.868,0,0,1-2.646,1.921h-4.524c.007,0-.006,0-.043,0a.538.538,0,0,0-.324.967l3.664,2.824c.006,0,.008.01.014.014a2.862,2.862,0,0,1,1.022,3.049l-1.417,4.913a.062.062,0,0,1-.005.029.539.539,0,0,0,.52.676.521.521,0,0,0,.283-.085l3.744-2.669.006,0a2.859,2.859,0,0,1,1.645-.534l.02,0h.006a.745.745,0,0,1,0,1.489.711.711,0,0,0-.4.126l-4.546,3.2a1.922,1.922,0,0,1-3.03-1.57,1.94,1.94,0,0,1,.087-.574c.03-.1.018-.117-.023-.085l1.533-5.169a1.452,1.452,0,0,0,.049-.363,1.426,1.426,0,0,0-.519-1.1l-3.839-2.94a2.028,2.028,0,0,1,1.243-3.63h.024l4.687-.005a1.432,1.432,0,0,0,1.285-.936l1.909-5.432c-.1.384-.154.606-.058.332a1.7,1.7,0,0,1,3.2-.014c.088.247.056.1-.021-.209l1.872,5.323a1.432,1.432,0,0,0,1.286.936l4.686.005h.024a2.028,2.028,0,0,1,1.243,3.63"
+												transform="translate(-900.036 -1050.468)" fill-rule="evenodd"
+												fill="url(#hover_color)" />
+											<path id="Trazado_48" data-name="Trazado 48"
+												d="M937.814,1102.48a1.267,1.267,0,0,1,1.2,1.665,1.228,1.228,0,0,1-.8.8,1.265,1.265,0,1,1-.4-2.464"
+												transform="translate(-923.692 -1084.577)" fill-rule="evenodd"
+												fill="url(#back_gradient)" />
+										</g>
+									</svg>
+									Recomendaciones o sugerencias
+								</a>
+							</li>
+							<li>
+								<a class="li_icon_url" href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="23.636" height="21.861" viewbox="0 0 23.636 21.861">
+										<defs>
+											<linearGradient id="hover_color" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#3b3d42" />
+												<stop offset="1" stop-color="#a1a5aa" />
+											</linearGradient>
+											<linearGradient id="back_gradient" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#d88d00" />
+												<stop offset="1" stop-color="#edc500" />
+											</linearGradient>
+										</defs>
+										<g id="Grupo_1345" data-name="Grupo 1345" transform="translate(-0.047)">
+											<path id="llenar" data-name="Trazado 141"
+												d="M600.754,617.969a.724.724,0,0,0,.718-.729V605.581a.724.724,0,0,1,.718-.729h1.436a.724.724,0,0,1,.718.729V620.52a1.809,1.809,0,0,0,1.795,1.822h.718a1.809,1.809,0,0,0,1.795-1.822v-7.651a.724.724,0,0,1,.718-.729H610.8a.724.724,0,0,1,.718.729v7.651a1.809,1.809,0,0,0,1.795,1.822h.718a1.809,1.809,0,0,0,1.795-1.822v-4.737a.724.724,0,0,1,.718-.729h1.436a.724.724,0,0,1,.718.729v5.1a1.446,1.446,0,0,0,1.436,1.457,2.893,2.893,0,0,0,2.871-2.915V601.209a.718.718,0,1,0-1.436,0v18.218c0,.805-.553,1.457-1.077,1.457a.361.361,0,0,1-.359-.364v-5.1a1.809,1.809,0,0,0-1.795-1.822h-2.154a1.809,1.809,0,0,0-1.795,1.822v4.737a.718.718,0,1,1-1.436,0V612.5a1.809,1.809,0,0,0-1.795-1.822h-2.154a1.809,1.809,0,0,0-1.795,1.822v7.651a.718.718,0,1,1-1.436,0V605.217a1.809,1.809,0,0,0-1.795-1.822h-2.154a1.809,1.809,0,0,0-1.795,1.822V617.24a.724.724,0,0,0,.718.729"
+												transform="translate(-599.324 -600.48)" fill-rule="evenodd"
+												fill="url(#hover_color)" />
+											<path id="Trazado_142" data-name="Trazado 142"
+												d="M660.327,651.48a1.291,1.291,0,1,0,1.291,1.291,1.292,1.292,0,0,0-1.291-1.291"
+												transform="translate(-658.989 -633.201)" fill-rule="evenodd"
+												fill="url(#back_gradient)" />
+										</g>
+									</svg>
+									Empresas con interacción
+								</a>
+							</li>
+							<li>
+								<a class="li_icon_url" href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="22.961" height="20.394" viewBox="0 0 22.961 20.394">
+										<defs>
+											<linearGradient id="hover_color" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#3b3d42" />
+												<stop offset="1" stop-color="#a1a5aa" />
+											</linearGradient>
+											<linearGradient id="back_gradient" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#d88d00" />
+												<stop offset="1" stop-color="#edc500" />
+											</linearGradient>
+										</defs>
+										<g id="Grupo_3476" data-name="Grupo 3476" transform="translate(0 -0.001)">
+											<path id="llenar" data-name="Trazado 51"
+												d="M155.346,13.909a.71.71,0,0,1-.911.069l-.018.018-.508-.509a3.591,3.591,0,0,1,0-5.08.719.719,0,0,1,1.017,1.016,2.156,2.156,0,0,0,0,3.049l.42.42h0l.088.086-.018.018a.708.708,0,0,1-.07.911m1.859-5.03a.718.718,0,1,1,1.015,0,.718.718,0,0,1-1.015,0m13.978,6.64-4.609,4.609a.719.719,0,0,1-1.016-1.017l4.1-4.1.509-.508a5.2,5.2,0,0,0,0-7.113,5.03,5.03,0,0,0-7.113,0l-.5.5a1.435,1.435,0,0,1-2.042,0h0l-.5-.5a5.029,5.029,0,0,0-7.112,0,5.155,5.155,0,0,0,0,7.113l4.1,4.1,5.049,5.049h0a.718.718,0,1,1-1.016,1.016L156.958,20.6l-5.081-5.081a6.591,6.591,0,0,1,0-9.144,6.466,6.466,0,0,1,9.145,0l.508.508.508-.508a6.467,6.467,0,0,1,9.145,0,6.679,6.679,0,0,1,0,9.144"
+												transform="translate(-150.033 -4.481)" fill-rule="evenodd"
+												fill="url(#hover_color)" />
+											<path id="Trazado_52" data-name="Trazado 52"
+												d="M187.956,48.592a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263"
+												transform="translate(-173.758 -32.528)" fill-rule="evenodd"
+												fill="url(#back_gradient)" />
+										</g>
+									</svg>
+									Tus productos o servicios favoritos
+								</a>
+							</li>
+							<li>
+								<a class="li_icon_url" href="#">
+
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="19.062" height="19.042" viewbox="0 0 19.062 19.042">
+										<g id="Grupo_3477" data-name="Grupo 3477" transform="translate(0 0)">
+											<path id="llenar" data-name="Trazado 85"
+												d="M1817.48,161.07h0a.3.3,0,0,0-.2.281.3.3,0,0,0,.083.2l.681.681a1.563,1.563,0,0,1-.47,2.539l-1.057.446a.445.445,0,0,0-.241.394.463.463,0,0,0,.029.158c.009.022.015.039.019.052l.338.816a2.085,2.085,0,0,1-3.852,1.6l-.317-.765h0a.518.518,0,0,0-.677-.271l-1,.424h0a1.765,1.765,0,0,1-2.432-1.633v-.619a.6.6,0,0,1,1.191,0v.6a.59.59,0,0,0,.8.556l.993-.417c.01,0,.018,0,.029-.009a1.681,1.681,0,0,1,2.2.9v0l.322.777a.894.894,0,1,0,1.651-.684l-.349-.842a1.634,1.634,0,0,1,.833-2.116l1.08-.455h0a.291.291,0,0,0,.1-.477l-1.4-1.4a1.053,1.053,0,0,1,.751-1.793h.137a1.191,1.191,0,0,0,1.191-1.191v-5.957a1.191,1.191,0,0,0-1.191-1.191h-14.3a1.191,1.191,0,0,0-1.191,1.191v5.957a1.191,1.191,0,0,0,1.191,1.191h5.361a.6.6,0,0,0,.6-.6V156.63a1.682,1.682,0,0,1,2.874-1.187c.006,0,.005,0,.009,0l3.177,3.177a.632.632,0,1,1-.894.894l-3.252-3.253s0,0,0,0a.415.415,0,0,0-.3-.128.419.419,0,0,0-.419.419v3.155a1.49,1.49,0,0,1-1.489,1.489h-5.659a2.383,2.383,0,0,1-2.383-2.383v-5.957a2.383,2.383,0,0,1,2.383-2.383h14.3a2.383,2.383,0,0,1,2.383,2.383v5.957a2.378,2.378,0,0,1-1.617,2.251"
+												transform="translate(-1800.036 -150.48)" fill-rule="evenodd"
+												fill="url(#hover_color)" />
+											<path id="Trazado_86" data-name="Trazado 86"
+												d="M1828.3,189.48a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263"
+												transform="translate(-1819.339 -178.363)" fill-rule="evenodd"
+												fill="url(#back_gradient)" />
+										</g>
+									</svg>
+									Condiciones de acceso
+								</a>
+							</li>
+							</li>
+							<li id="logout">
+								<a class="li_icon_url" href="/user/logout">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										width="21.475" height="21.475" viewbox="0 0 21.475 21.475">
+										<defs>
+											<linearGradient id="close" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#891b1f" />
+												<stop offset="1" stop-color="#ae003f" />
+											</linearGradient>
+											<linearGradient id="close-back" x1="0.5" x2="0.5" y2="1"
+												gradientunits="objectBoundingBox">
+												<stop offset="0" stop-color="#d88d00" />
+												<stop offset="1" stop-color="#edc500" />
+											</linearGradient>
+										</defs>
+										<g id="Grupo_1381" data-name="Grupo 1381" transform="translate(0 0.001)">
+											<path id="Trazado_201" data-name="Trazado 201"
+												d="M1810.774,921.955a10.729,10.729,0,0,1-9.4-15.913,2.682,2.682,0,1,1,4.738,2.507l.008,0a5.365,5.365,0,1,0,9.663,4.593l.034-.093c.056-.152.1-.307.147-.466l.037-.144c.035-.149.062-.3.084-.454.008-.053.018-.1.024-.157a5.282,5.282,0,0,0,.038-.614,5.367,5.367,0,0,0-.043-.65.093.093,0,0,1,0-.016h0a5.317,5.317,0,0,0-.7-2.049,1.005,1.005,0,0,0-1.942.366v1.007a2.663,2.663,0,0,1-.365,1.347.176.176,0,0,1-.015.024,2.69,2.69,0,0,1-.465.58l-.036.034a2.924,2.924,0,0,1-.281.225l0,0a2.678,2.678,0,0,1-.311.182l-.065.03a2.423,2.423,0,0,1-.323.13l-.012.006a2.873,2.873,0,0,1-.35.082l-.086.013a2.669,2.669,0,0,1-3.055-2.656v-6.711a2.684,2.684,0,1,1,5.369,0v.671a.671.671,0,1,1-1.342,0v-.671a1.342,1.342,0,1,0-2.684,0v6.711a1.342,1.342,0,1,0,2.684,0v-1.007a2.365,2.365,0,0,1,.043-.42c.008-.044.018-.084.028-.127a2.4,2.4,0,0,1,.087-.278c.016-.043.029-.086.048-.128a2.417,2.417,0,0,1,.173-.319c.036-.057.079-.107.121-.161s.071-.09.11-.133c.054-.059.109-.115.168-.169.027-.023.054-.045.082-.067a2.365,2.365,0,0,1,.483-.312,2.324,2.324,0,0,1,1.007-.235,2.348,2.348,0,0,1,2.152,1.412l0,0a6.71,6.71,0,1,1-12.557,3.288c0-.212.013-.422.034-.63,0-.039.007-.079.011-.119.025-.209.055-.415.1-.617a6.7,6.7,0,0,1,.748-1.964l-.011-.007a1.32,1.32,0,0,0,.19-.679,1.341,1.341,0,0,0-2.585-.5,9.367,9.367,0,0,0-1.09,3.313c0,.03-.005.06-.01.091-.019.167-.038.333-.049.5-.014.2-.02.407-.02.613a9.391,9.391,0,0,0,18.753.746c.022-.246.038-.495.038-.746,0-.232-.01-.46-.027-.687-.006-.077-.016-.152-.022-.228-.015-.15-.031-.3-.053-.445-.014-.089-.029-.179-.045-.267-.023-.132-.049-.262-.077-.392-.021-.093-.042-.186-.065-.277-.031-.124-.067-.248-.1-.371-.027-.09-.052-.179-.081-.268-.046-.136-.1-.271-.148-.405-.036-.094-.071-.188-.111-.281-.07-.167-.144-.332-.223-.495-.039-.078-.081-.154-.122-.23s-.087-.173-.134-.257l.019-.011a.664.664,0,0,1-.151-.418.67.67,0,0,1,1.3-.228l0,0a10.735,10.735,0,0,1-9.357,16"
+												transform="translate(-1800.036 -900.481)" fill-rule="evenodd"
+												fill="url(#close)" />
+											<path id="Trazado_202" data-name="Trazado 202"
+												d="M1848.3,911.48a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263"
+												transform="translate(-1831.681 -907.887)" fill-rule="evenodd"
+												fill="url(#close-back)" />
+										</g>
+									</svg>
+									CERRAR SESIÓN
+								</a>
+							</li>
+							</li>
+						</ul>
+					</div>
+
+
 				</div>
 			</div>
 			<div class="sub-header">
@@ -648,12 +959,12 @@
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 									width="20.837" height="17.588" viewbox="0 0 20.837 17.588">
 									<defs>
-										<linearGradient id="search_icon" x1="0.5" x2="0.5" y2="1"
+										<linearGradient id="circle_search" x1="0.5" x2="0.5" y2="1"
 											gradientunits="objectBoundingBox">
 											<stop offset="0" stop-color="#3b3d42" />
 											<stop offset="1" stop-color="#a1a5aa" />
 										</linearGradient>
-										<linearGradient id="search_circle" x1="0.5" x2="0.5" y2="1"
+										<linearGradient id="circle_search-2" x1="0.5" x2="0.5" y2="1"
 											gradientunits="objectBoundingBox">
 											<stop offset="0" stop-color="#d88d00" />
 											<stop offset="1" stop-color="#edc500" />
@@ -662,11 +973,11 @@
 									<g id="Grupo_3613" data-name="Grupo 3613" transform="translate(-890.917 -7.949)">
 										<path id="Trazado_23" data-name="Trazado 23"
 											d="M15.57,14.062h-.794l-.282-.272a6.546,6.546,0,1,0-.7.7l.272.282v.794l5.028,5.018,1.5-1.5Zm-6.034,0a4.525,4.525,0,1,1,4.525-4.525A4.519,4.519,0,0,1,9.537,14.062Z"
-											transform="translate(891.166 4.949)" fill="url(#search_icon)" />
+											transform="translate(891.166 4.949)" fill="url(#circle_search)" />
 										<path id="Trazado_3506" data-name="Trazado 3506"
 											d="M469.118,357.48a1.231,1.231,0,1,1-1.231,1.231,1.232,1.232,0,0,1,1.231-1.231"
 											transform="translate(423.03 -348.521)" fill-rule="evenodd"
-											fill="url(#search_circle)" />
+											fill="url(#circle_search-2)" />
 									</g>
 								</svg>
 							</button>
@@ -677,14 +988,14 @@
 							<button id="drop_menu" class="btn btn-secondary dropdown-toggle" type="button">
 								<img src="http://52.201.168.42/sites/default/files/2022-08/Icono-Menu-Idioma.svg" alt=""
 									srcset="">
-								<span class="text-truncate">Español</span>
+								<span class="text-truncate">{{language}}</span>
 							</button>
 							<ul class="dropdown-menu" id="lenguaje">
-								<li>
+								<li id="change_language">
 									<a class="dropdown-item" href="#">
 										<img src="http://52.201.168.42/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
 											alt="" srcset="">
-										<span class="text-truncate">English</span>
+										<span class="text-truncate">{{language_2}}</span>
 									</a>
 								</li>
 							</ul>
@@ -692,9 +1003,36 @@
 					</div>
 				</div>
 			</div>
+			<div class="right_bar" id="right_menu" style="display:none ;opacity: 0;">
+				<div class="bar_content">
+					<div class="title">
+						Alarmas
+					</div>
+					<div class="filtre">
+						<div class="search_input">
+
+						</div>
+					</div>
+					<div class="noticie">
+						<div class="notici_img">
+							<img src="{{ company_logo }}" alt="" srcset="">
+						</div>
+						<div class="noticie_content">
+							<p class="title">Actualización del Perfil</p>
+							<p class="description"><strong class="resalte">Actualización de los datos: </strong>Dado que
+								la actualización de tus datos fue el día <strong class="resalte">[6 de Diciembre
+									2021]</strong> Debe actualizar su información del Perfil.</p>
+						</div>
+						<div class="time_content">
+							<p class="time">5 Min</p>
+							<p class="more">...</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			{% endif %}
 			{% else %}
-			<div class="d-flex justify-content-between px-3 py-2">
+			<div class="d-flex justify-content-between px-3 py-2 menu_pc">
 				<div>
 					<a href="/">
 						<img class="logo"
@@ -703,10 +1041,10 @@
 					</a>
 				</div>
 				<div class="btn_header">
-					<button id="btn_login" type="button" class="btn btn-outline text-uppercase">
+					<button id="btn_login_2" type="button" class="btn btn-outline text-uppercase">
 						Iniciar sesión
 					</button>
-					<button id="btn_register" type="button" class="btn btn-outline-d text-uppercase">
+					<button id="btn_register_2" type="button" class="btn btn-outline-d text-uppercase">
 						Registro
 					</button>
 				</div>
@@ -762,20 +1100,42 @@
 							<button id="drop_menu" class="btn btn-secondary dropdown-toggle" type="button">
 								<img src="http://52.201.168.42/sites/default/files/2022-08/Icono-Menu-Idioma.svg" alt=""
 									srcset="">
-								<span class="text-truncate">Español</span>
+								<span class="text-truncate">{{language}}</span>
 							</button>
 							<ul class="dropdown-menu" id="lenguaje">
-								<li>
+								<li id="change_language">
 									<a class="dropdown-item" href="#">
 										<img src="http://52.201.168.42/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
 											alt="" srcset="">
-										<span class="text-truncate">English</span>
+										<span class="text-truncate">{{language_2}}</span>
 									</a>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="topnav">
+				<a href="/">
+					<img class="logo"
+						src="http://52.201.168.42/sites/default/files/2022-08/logo_pco_negro2%20%281%29.svg" alt=""
+						srcset="">
+				</a>
+				<div id="myLinks">
+					<div class="btn_header_movile">
+						
+						<button id="btn_login" type="button" class="btn btn-outline text-uppercase">
+							Iniciar sesión
+						</button>
+						<button id="btn_register" type="button" class="btn btn-outline-d text-uppercase">
+							Registro
+						</button>
+					</div>
+				</div>
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					<i class="fa fa-bars"></i>
+				</a>
 			</div>
 			{% endif %}
 		</header>
@@ -797,7 +1157,7 @@
 		{% endif %}
 		<div id="main-wrapper" class="layout-main-wrapper clearfix">
 			{% block content %}
-			<div id="main" class="{{ container }}">
+			<div id="main" class="container">
 				{{ page.breadcrumb }}
 				<div class="row-offcanvas row-offcanvas-left clearfix">
 					<main{{content_attributes}}>
