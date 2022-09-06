@@ -9,7 +9,10 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
-         $('.lightbulb-tooltip').click(()=>{
+          $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+          $('#edit-field-pr-country summary').addClass('js-form-required form-required');
+          $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
+          $('.lightbulb-tooltip').click(()=>{
           $( '.lightbulb-tooltip span').toggle();
          })
         //Cargar modales

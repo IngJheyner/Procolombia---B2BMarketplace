@@ -57,7 +57,12 @@
     .form-control.is-invalid,.form-select.is-invalid{
         border: 2px solid $procol-red !important;
         background: none !important;
+        position: relative;        
     }
+    .is-invalid{
+        @include invalid-tooltip;
+    }
+    
     input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
@@ -174,6 +179,7 @@
         }
         @include media-breakpoint-down(md){
             max-width: 760px;
+            margin-top: 0;
         }
         
         &.js-form-type-checkbox {
@@ -194,8 +200,9 @@
         label{
            font-weight: bold;
            padding-bottom: 8px;
+           
         }
-                
+             
         input[type="text"]{
             height: 40px;
         }
@@ -229,6 +236,12 @@
           }
     }
     &.step_5{
+        label{
+            &.form-check-label{
+                padding-bottom: 0;
+
+               } 
+        }
         @include media-breakpoint-down(lg){
             .step-title{
                 padding: 0;
@@ -318,6 +331,7 @@
         @include media-breakpoint-down(md){
             border-left: none;
             grid-area: 3 / 1 / 4 / 4;
+            padding-top: 0;
         }
         
     }

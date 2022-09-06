@@ -103,7 +103,7 @@
 
 @mixin lightbulb-tooltip{
     position: absolute;
-    top: 0;
+    top: 15px;
     right: 50px;
     background-image: url(../images/icons/Icono-Ayuda-Bombillo.svg);
     background-size: 16px 16px;
@@ -149,5 +149,48 @@
     }
     @include media-breakpoint-down(lg){
         right: 15px;
+    }
+}
+
+@mixin invalid-tooltip {
+    position: relative;
+        &::after{
+            position: absolute;
+            content:"";
+            height: 20px;
+            width: 20px;
+            background-image: url(../images/icons/info-red.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            bottom: -30px;
+            left: -2px;
+            z-index: 2;
+            background-color: $white;        
+        }
+    p{
+        display: none;
+    }
+}
+
+@mixin hover-invalid-tooltip {
+    display: block;
+    position: absolute;
+    font-size: $font-size-xs;
+    top: 90%;
+    right: -6%;
+    background-color: $procol-gray-400;
+    padding: 5px;
+    color: $white;
+    border-radius: 4px;
+    &::before{
+           position: absolute;
+        content: '';
+        border:solid 8px transparent;
+        border-bottom-color: $procol-gray-400 ;
+        top: 100%;
+        right: 8px;
+        top: -14px;
+        right: 5px;
+        z-index: 3;
     }
 }
