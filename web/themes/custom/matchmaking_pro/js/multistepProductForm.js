@@ -9,12 +9,9 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
-        // $(function () {
-        //   $('[data-toggle="tooltip"]').tooltip()
-        //   })
-        $(function() {
-          $('.tooltip-form-mstep').tooltip({placement: 'right'});
-        });
+         $('.lightbulb-tooltip').click(()=>{
+          $( '.lightbulb-tooltip span').toggle();
+         })
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {    
           //Uso de Sumo select para personlizar campos tipo select
