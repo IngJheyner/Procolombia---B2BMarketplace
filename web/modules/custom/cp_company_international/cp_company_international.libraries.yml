@@ -7,6 +7,7 @@ cp_company_international:
     js/cp_company_international.js: {}
     js/edit_company_international.js: {}
     js/edit_modal_company_international.js: {}
+    js/cp_tels.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

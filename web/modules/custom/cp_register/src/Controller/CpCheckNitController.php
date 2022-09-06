@@ -41,6 +41,21 @@ class CpCheckNitController extends ControllerBase
         }
     }
 
+    public function getUidByEmail($email)
+    {
+        $query = \Drupal::entityQuery('user')
+            ->condition('mail', $email)
+            ->execute();
+        if(!empty($query)){
+            $user = \Drupal\user\Entity\User::load(reset($query));
+            $uid = $user->id();
+            return $uid;
+        }
+        else{
+            return null;
+        }
+    }
+
     //Check if nit is already registered
     public function checkNit(Request $request)
     {
@@ -48,6 +63,8 @@ class CpCheckNitController extends ControllerBase
         $bool_cp_in_neo = FALSE;
         $data = $request->request->all();
         $user = $this->getUid($data['nit']);
+        //Check if user is already registered
+        $user_email = $this->getUidByEmail($data['email']);
         if(isset($user)){
             //if step is equal 3 return true
             $userData = \Drupal\user\Entity\User::load($this->getUid($data['nit']));
@@ -55,6 +72,10 @@ class CpCheckNitController extends ControllerBase
             if($step == 3){
                 return new JsonResponse(['user' => true]);
             }
+        }
+        //Check if user is already registered by email
+        if(isset($user_email)){
+            return new JsonResponse(['user' => true]);
         }
 
         $empresas = ConsultaNIT($data['nit']);

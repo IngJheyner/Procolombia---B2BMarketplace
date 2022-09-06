@@ -19,7 +19,7 @@ function myFunction() {
 
   // function to go to step 3
   function goToLogin() {
-    window.location.href = "/user/login"
+    $("#login_modal").modal('show');
   }
 
   function goToRegister() {
@@ -54,6 +54,122 @@ function myFunction() {
       }
     }
   }
+
+  /*
+  * Validate login form
+  * username is required
+  * password is required
+  */
+  function validateLoginForm() {
+    var username = $("#username").val();
+    var password = $("#password").val();
+    let isValid = true;
+    let message = "";
+
+    if (username == "") {
+      message = Drupal.t("Username is required.");
+      $("#username").css("border-color", "#ba0c2f");
+      $("#error_username").show();
+      $("#error_username_message").text(message)
+      isValid = false;
+    } else {
+      $('#error_username').tooltip('hide')
+      $("#error_username").hide();
+      $("#username").css("border-color", "#cccccc");
+    }
+
+    if (password == "") {
+      message = Drupal.t("Password is required.");
+      $("#password").css("border-color", "#ba0c2f");
+      $("#error_password").show();
+      $("#error_password_message").text(message)
+      isValid = false;
+    } else {
+      $('#error_password').tooltip('hide')
+      $("#error_password").hide();
+      $("#password").css("border-color", "#cccccc");
+    }
+
+    return isValid;
+  }
+
+  /*
+  * login to drupal
+  */
+  function login_drupal() {
+    if (validateLoginForm()) {
+      var username = $("#username").val();
+      var password = $("#password").val();
+
+      var data = {
+        "username": username,
+        "password": password,
+      };
+
+      var formData = new FormData();
+      for (var key in data) {
+        formData.append(key, data[key]);
+      }
+      // show loading
+      $("#loading").show();
+      //hide login button
+      $("#login_button").hide();
+
+      //fecth post auth/login/form
+      fetch("/auth/login/form", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.status == 200) {
+            //hide loading
+            //get role
+            fetch("/auth/get/role", {
+              method: "GET",
+            })
+              .then((response) => {
+                if (response.status == 200) {
+                  response.json().then((data) => {
+                    if (data.role == "buyer") {
+                      window.location.href = "/dashboard/international/user";
+                    } else if (data.role == "exportador") {
+                      window.location.href = "/dashboard/col/user";
+                    } else {
+                      window.location.href = "/dashboard/col/user";
+                    }
+                  });
+                } else {
+                  $("#loading").hide();
+                  $("#login_button").show();
+                  $("#error_message").show();
+                  $("#error_message").text(Drupal.t("Invalid username or password"));
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          } else {
+            //hide loading
+            $("#loading").hide();
+            //show login button
+            $("#login_button").show();
+            //show error message
+            $("#error_message").show();
+          }
+        }).catch((error) => {
+          //hide loading
+          $("#loading").hide();
+          //show login button
+          $("#login_button").show();
+          //show error message
+          $("#error_message").show();
+          $("#error_message").text(error);
+        }
+        );
+    }
+  }
+
+
 
 
 
@@ -136,6 +252,11 @@ function myFunction() {
         } else {
           window.location.href = url.replace("en", "es");
         }
+      });
+
+      //login form
+      $("#login_button", context).click(function () {
+        login_drupal();
       });
     }
   };

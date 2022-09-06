@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-09-01 20:44+0000\n"
+"PO-Revision-Date: 2022-09-01 15:58-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+msgid CONNECTED COMPANIES"
+msgstr "EMPRESAS CONECTADAS"
+
+msgid "Required Field"
+msgstr "Campo obligatorio"
+
+msgid "Here you can find the list of the companies you have contacted."
+msgstr "Aquí puedes encontrar el listado de las empresas que has contactado."
+
+msgid "See companies"
+msgstr "Ver empresas"
+
+msgid "MY INTEREST CATEGORIES"
+msgstr "MIS CATEGORÍA DE INTERÉS"
+
+msgid "Here you can see the existing products according to your categories of interest."
+msgstr "Aquí puedes ver los productos existentes de acuerdo a tus categorías de interés."
+
+msgid "See products"
+msgstr "Ver productos"
+
+msgid "International Buyer Profile"
+msgstr "Perfil del Comprador Interacional"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Full Name"
+msgstr "Nombre Completo"
+
+msgid "E-mail address"
+msgstr "Correo electrónico"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Administrator and Contact Information"
+msgstr "Administrador y Datos de contacto"
+
+msgid "Contact name"
+msgstr "Nombre del contacto"
+
+msgid "Edit Information"
+msgstr "Editar Información"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Password verification"
+msgstr "Verificar contraseña"
+
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "CONTINUE"
+msgstr "CONTINUAR"
+
+msgid "UNDERSTOOD"
+msgstr "ENTENDIDO"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "EDIT - Company profile & contact"
+msgstr "EDITAR - Perfil de la compañía y contacto"
+
+msgid "Names"
+msgstr "Nombres"
+
+msgid "Surname"
+msgstr "Apellidos"
+
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
+msgstr "Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no."
+
+msgid "Cell Phone"
+msgstr "Celular"
+
+msgid "Enter the institutional e-mail address where correspondence from this web site will be sent."
+msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web."
+
+msgid "Minimum 8 characters. Must contain 1 capital letter, symbol or number."
+msgstr "Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número."
+
+msgid "Preferred language"
+msgstr "Idioma de preferencia"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Select an option"
+msgstr "Seleccione una opción"
+
+msgid "United States"
+msgstr "Estados Unidos"
+
+msgid "Position name"
+msgstr "Nombre del cargo"
+
+msgid "Please include the name of your position within the company."
+msgstr "Por favor incluya el nombre del cargo que desempeña dentro de la empresa."
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Company website"
+msgstr "Sitio Web de la compañía"
+
+msgid "Please include the complete URL starting with http or https."
+msgstr "Por favor incluir la URL completa iniciando con http o https."
+
+msgid "ProColombia Senior Advisor"
+msgstr "Asesor Principal de ProColombia"
+
+msgid "Enter the keyword or select an option"
+msgstr "Introduzca la palabra clave o seleccione una opción"
+
+msgid "Select the ProColombia advisor with whom your company has a defined work plan."
+msgstr "Seleccione el asesor de ProColombia con quien su empresa tiene su plan de trabajo definido."
+
+msgid "EDIT MY PRODUCTS OF INTEREST"
+msgstr "EDITAR MIS PRODUCTOS DE INTERÉS"
+
+msgid "I am interested in..."
+msgstr "Estoy interesado en…"
+
+msgid "Particularly in..."
+msgstr "Particularmente en…"
+
+msgid "Business Model"
+msgstr "Modelo de negocio"
+
+msgid "Tariff Item"
+msgstr "Partida Arancelaria"
+
+msgid "Tariff Item No.2"
+msgstr "Partida Arancelaria No.2"
+
+msgid "Tariff Item No.3"
+msgstr "Partida Arancelaria No.3"
+
+msgid "NOTE:"
+msgstr "NOTA:"
+
+msgid "SAVE CHANGES"
+msgstr "GUARDAR CAMBIOS"
+
+msgid "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."
+msgstr "A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes."
+
+msgid "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."
+msgstr "Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó."
+
+msgid "Edit company profile and contact"
+msgstr "Editar el perfil de la compañía y contacto"
+
+msgid "All uploaded content must comply with the"
+msgstr "Todo contenido cargado debe cumplir con la"
+
+msgid "publication policy."
+msgstr "politica de publicación"
+
+msgid "You are about to save the modified fields Do you want to update the information?"
+msgstr "Está a punto de guardar los campos modificados ¿Desea actualizar la información?"
+
+msgid "YES"
+msgstr "SI"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "Save Edit"
+msgstr "Guardar Edición"
+
+msgid "You are about to save the modified fields Do you want to update the information?"
+msgstr "Está a punto de guardar los campos modificados ¿Desea actualizar la información?"
+
+msgid "You are about to delete the changes made."
+msgstr "Está a punto de eliminar los cambios realizados."
+
+msgid "Do you want to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "Successful process"
+msgstr "Proceso exitoso"
+
+msgid "User successfully updated"
+msgstr "Usuario actualizado con exito"

@@ -9,6 +9,7 @@ cp_register:
     js/cp_register.js: {}
     js/cp_pre_register_buyer.js: {}
     js/cp_register_buyer.js: {}
+    js/cp_tels.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

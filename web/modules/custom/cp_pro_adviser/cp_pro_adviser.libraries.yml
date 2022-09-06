@@ -1,0 +1,14 @@
+cp_pro_adviser:
+  version: 1.7
+  css:
+    theme:
+      css/cp_pro_adviser.css: {}
+  js:
+    js/dataTables.js: {}
+    js/cp_pro_adviser.js: {}
+    js/review_pro_adviser.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+
+    

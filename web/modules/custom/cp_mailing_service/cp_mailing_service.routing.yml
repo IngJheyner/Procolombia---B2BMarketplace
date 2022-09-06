@@ -1,0 +1,12 @@
+cp_mailing_service.render:
+  requirements:
+    _permission: "access content"
+
+###verification_email route
+cp_mailing_service.verification_email_col:
+  path: "mailing/verification/email/col"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::verification_email_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"

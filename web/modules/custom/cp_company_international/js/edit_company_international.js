@@ -60,21 +60,24 @@
     }
 
     function init() {
-        new TomSelect('#country_code_mobile', {
+        const phoneInputField2 = document.querySelector("#country_code_mobile");
+        const phoneInput2 = window.intlTelInput(phoneInputField2, {
+            initialCountry: "af",
+            separateDialCode: true,
+        });
+
+        new TomSelect('#langcode', {
             create: false,
             // use method disable()
             render: {
                 option: function (data, escape) {
-                    return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
+                    return `<div><img class="me-2 img-l" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/matchmaking/images/internal/Icono-Menu-Idioma-color.svg">${data.text}</div>`;
                 },
                 item: function (item, escape) {
-                    return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
+                    return `<div><img class="me-2 img-l" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/matchmaking/images/internal/Icono-Menu-Idioma-color.svg">${item.text}</div>`;
                 }
             },
         })
-
-        document.getElementById("country_code_mobile-ts-control").disabled = true;
-        $("#country_code_mobile-ts-control").attr('style', 'display: none !important');
 
         select_categories1 = new TomSelect("#cat_interest_1", {
             create: false,
@@ -207,14 +210,14 @@
         var isValid = true;
 
         if (name === "") {
-            message += "El nombre es requerido\n";
+            message = "El nombre es requerido\n";
             $("#name").css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
         } else {
             if (name.length > 20) {
-                message += "El nombre no puede tener mas de 20 caracteres\n";
+                message = "El nombre no puede tener mas de 20 caracteres\n";
                 $("#name").css("border-color", "#ba0c2f");
                 $("#error_name").show();
                 $("#error_name_message").text(message)
@@ -225,14 +228,14 @@
             }
         }
         if (last_name === "") {
-            message += "El apellido es requerido\n";
+            message = "El apellido es requerido\n";
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message += "El apellido no puede tener mas de 20 caracteres\n";
+                message = "El apellido no puede tener mas de 20 caracteres\n";
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name").show();
                 $("#error_last_name_message").text(message)
@@ -263,20 +266,28 @@
                 $("#error_cellphone_message").text(message)
                 isValid = false;
             } else {
-                $("#cellphone").css("border-color", "#cccccc");
-                $("#error_cellphone").hide();
+                if (cellphone.length > 10) {
+                    message = "El celular no debe tener mas 10 digitos";
+                    $("#cellphone").css("border-color", "#ba0c2f");
+                    $("#error_cellphone").show();
+                    $("#error_cellphone_message").text(message)
+                    isValid = false;
+                } else {
+                    $("#cellphone").css("border-color", "#cccccc");
+                    $("#error_cellphone").hide();
+                }
             }
         }
 
         if (business_name === "") {
-            message += "La compañia es requerida\n";
+            message = "La compañia es requerida\n";
             $("#business_name").css("border-color", "#ba0c2f");
             $("#error_business_name").show();
             $("#error_business_name_message").text(message)
             isValid = false;
         } else {
             if (business_name.length > 100) {
-                message += "La compañia no puede tener mas de 100 caracteres\n";
+                message = "La compañia no puede tener mas de 100 caracteres\n";
                 $("#business_name").css("border-color", "#ba0c2f");
                 $("#error_business_name").show();
                 $("#error_business_name_message").text(message)
@@ -294,7 +305,7 @@
             $("#error_password_buyer").show();
             isValid = false;
         } else {
-            if (password.length < 8) {
+            if (password.length < 8 && password.length > 15) {
                 message = "El password debe tener entre 8 y 15 caracteres";
                 $("#password_buyer").css("border-color", "#ba0c2f");
                 $("#error_password_buyer_message").text(message)

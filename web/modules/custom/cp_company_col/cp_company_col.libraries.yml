@@ -7,6 +7,7 @@ cp_company_col:
     js/cp_company_col.js: {}
     js/edit_company_col.js: {}
     js/edit_modal_company_col.js: {}
+    js/cp_tels.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

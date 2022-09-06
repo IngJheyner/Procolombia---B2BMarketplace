@@ -3,23 +3,18 @@
 	<div class="steps">
 		<div class="row p-0 step_tittle">
 			<div class="col-md-9">
-				<div class="">EDITAR - Perfil de la compañía y contacto</div>
+				<div class="">{{ 'EDIT - Company profile & contact'|t }}</div>
 			</div>
 			<div class="col-md-3" style="text-align: end;">
 				<button id="cancel_process" class="bt_eliminar">
-					<svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26"
-						height="26" viewbox="0 0 26 26">
-						<rect id="Rectángulo_2982" data-name="Rectángulo 2982" width="26" height="26" fill="none" />
+					<svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26" height="26" viewbox="0 0 26 26">
+						<rect id="Rectángulo_2982" data-name="Rectángulo 2982" width="26" height="26" fill="none"/>
 						<g id="Grupo_1291" data-name="Grupo 1291" transform="translate(3.651 3.651)">
-							<path id="Trazado_55" data-name="Trazado 55"
-								d="M907.176,15.355V9.405a.595.595,0,1,1,1.19,0v5.95a.595.595,0,1,1-1.19,0m4.165-1.785a.6.6,0,0,1-.6-.6V9.405a.6.6,0,1,1,1.19,0v3.57a.6.6,0,0,1-.595.6m0,2.38a.6.6,0,1,1,.595-.6.6.6,0,0,1-.595.6M916.7,6.43h-11.6a1.488,1.488,0,0,0-1.488,1.488v8.925a1.488,1.488,0,0,0,1.488,1.488h8.925a1.488,1.488,0,0,0,1.488-1.488V11.785a.6.6,0,1,1,1.19,0v5.355a2.379,2.379,0,0,1-2.38,2.38H904.8a2.38,2.38,0,0,1-2.38-2.38V7.62a2.381,2.381,0,0,1,2.38-2.38h11.9a1.19,1.19,0,0,0,0-2.38h-4.463c-.658,0-.83-1.19-1.488-1.19h-2.38c-.657,0-.83,1.19-1.487,1.19h-4.463a1.19,1.19,0,0,0-1.19,1.19.6.6,0,1,1-1.19,0,2.381,2.381,0,0,1,2.38-2.38h3.273c.657,0,.83-1.19,1.488-1.19h4.76c.658,0,.83,1.19,1.488,1.19H916.7a2.38,2.38,0,0,1,0,4.76"
-								transform="translate(-900.036 -0.48)" fill="#fff" fill-rule="evenodd" />
-							<path id="Trazado_56" data-name="Trazado 56"
-								d="M951.929,26.48a.893.893,0,1,1-.892.893.893.893,0,0,1,.892-.893"
-								transform="translate(-935.863 -18.745)" fill="#fff" fill-rule="evenodd" />
+							<path id="Trazado_55" data-name="Trazado 55" d="M907.176,15.355V9.405a.595.595,0,1,1,1.19,0v5.95a.595.595,0,1,1-1.19,0m4.165-1.785a.6.6,0,0,1-.6-.6V9.405a.6.6,0,1,1,1.19,0v3.57a.6.6,0,0,1-.595.6m0,2.38a.6.6,0,1,1,.595-.6.6.6,0,0,1-.595.6M916.7,6.43h-11.6a1.488,1.488,0,0,0-1.488,1.488v8.925a1.488,1.488,0,0,0,1.488,1.488h8.925a1.488,1.488,0,0,0,1.488-1.488V11.785a.6.6,0,1,1,1.19,0v5.355a2.379,2.379,0,0,1-2.38,2.38H904.8a2.38,2.38,0,0,1-2.38-2.38V7.62a2.381,2.381,0,0,1,2.38-2.38h11.9a1.19,1.19,0,0,0,0-2.38h-4.463c-.658,0-.83-1.19-1.488-1.19h-2.38c-.657,0-.83,1.19-1.487,1.19h-4.463a1.19,1.19,0,0,0-1.19,1.19.6.6,0,1,1-1.19,0,2.381,2.381,0,0,1,2.38-2.38h3.273c.657,0,.83-1.19,1.488-1.19h4.76c.658,0,.83,1.19,1.488,1.19H916.7a2.38,2.38,0,0,1,0,4.76" transform="translate(-900.036 -0.48)" fill="#fff" fill-rule="evenodd"/>
+							<path id="Trazado_56" data-name="Trazado 56" d="M951.929,26.48a.893.893,0,1,1-.892.893.893.893,0,0,1,.892-.893" transform="translate(-935.863 -18.745)" fill="#fff" fill-rule="evenodd"/>
 						</g>
 					</svg>
-					Cancelar
+					{{ 'Cancel'|t }}
 				</button>
 			</div>
 		</div>
@@ -29,69 +24,58 @@
 				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
-							<label for="nombre_del_sitio" class="form-label">Nombres
+							<label for="nombre_del_sitio" class="form-label">{{ 'Names'|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="name" placeholder="">
 								<i id="error_name" class='bx bxs-info-circle toltip_i'>
 									<span id="error_name_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
-							<label for="nombre_del_sitio" class="form-label">Apellidos
+							<label for="nombre_del_sitio" class="form-label">{{ 'Surname'|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="last_name" placeholder="">
 								<i id="error_last_name" class='bx bxs-info-circle toltip_i'>
 									<span id="error_last_name_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
-							<label for="business_name" class="form-label">Nombre de la empresa
+							<label for="business_name" class="form-label">{{ 'Company Name'|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="business_name" placeholder="">
 								<i id="error_business_name" class='bx bxs-info-circle toltip_i'>
 									<span id="error_business_name_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										“Usted debe registrar el nombre comercial de la empresa, el cual es el nombre
-										con el cual su compañía es reconocida; puede ser la misma razón social o no.“
+										{{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}
 									</span>
 								</i>
-								<span>“Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con
-									el cual su compañía es reconocida; puede ser la misma razón social o no.“</span>
+								<span>{{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}</span>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
-							<label for="sitio" class="form-label">Celular
+							<label for="sitio" class="form-label">{{ 'Cell Phone'|t }}
 							</label>
 							<div class="row">
 								<div class="col-lg-3" style="padding: 0px;">
-									<select id="country_code_mobile">
-										<option value="57"
-											data-src="http://52.201.168.42/sites/default/files/2022-08/Flag_of_Colombia.svg_.png">
-											+57</option>
-										{# {% for countries_item in countries %}
-										<option value="{{countries_item.Indicativo}}"
-											data-src="{{countries_item.Image}}">
-											+{{countries_item.Indicativo}}</option>
-										{% endfor %} #}
-									</select>
+									<input id="country_code_mobile" type="tel" name="phone"/>
 								</div>
 								<div class="col-lg-9">
 									<input class="w-100" style="height: 100%;" type="tel" name="" id="cellphone">
@@ -99,53 +83,41 @@
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
-							<label for="email">Correo Electrónico
+							<label for="email">{{ 'E-mail address'|t }}
 								<sup>*</sup>
 							</label>
 							<div class="input_error">
-								<input type="email" class="form-control" id="email" name="email"
-									placeholder="Example@example.com"
-									title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web."
-									aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web.">
+								<input type="email" class="form-control" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web.">
 								<i id="error_mail" class='bx bxs-info-circle toltip_i'>
 									<span id="error_mail_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Escriba el correo electrónico institucional donde se enviará la correspondencia
-										de este
-										sitio web.
+										{{ 'Enter the institutional e-mail address where correspondence from this web site will be sent.'|t }}
 									</span>
 								</i>
-								<span>Escriba el correo electrónico institucional donde se enviará la correspondencia de
-									este sitio
-									web.</span>
+								<span>{{ 'Enter the institutional e-mail address where correspondence from this web site will be sent.'|t }}</span>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
 							<div class="form-group password">
-								<label for="nit">Contraseña
+								<label for="nit">{{ 'Password'|t }}
 									<span>*</span>
 								</label>
 								<div class="input-group mb-3">
-									<input type="password" id="password_buyer" class="form-control"
-										aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input type="password" id="password_buyer" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<span class="input-group-text">
-										<img id="pass_bloq_buyer" style="display:none"
-											src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg"
-											alt="" srcset="">
-										<img id="pass_show_buyer"
-											src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg"
-											alt="" srcset="">
+										<img id="pass_bloq_buyer" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show_buyer" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 									</span>
 									<div class="input_error">
 										<i id="error_password_buyer" class='bx bxs-info-circle toltip_i'>
 											<span id="error_password_buyer_message" class="tooltiptext_error">
-												Campo Obligatorio
+												{{ 'Required Field'|t }}
 											</span>
 										</i>
 									</div>
@@ -154,109 +126,106 @@
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número
+											{{ 'Minimum 8 characters. Must contain 1 capital letter, symbol or number.'|t }}
 										</span>
 									</i>
-									<span>Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número.</span>
+									<span>{{ 'Minimum 8 characters. Must contain 1 capital letter, symbol or number.'|t }}</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
-							<label for="sitio" class="form-label">Idioma de preferencia<span>*</span>
+							<label for="sitio" class="form-label">{{ 'Preferred language'|t }}<span>*</span>
 							</label>
 							<select id="langcode">
-								<option value="es">Español</option>
-								<option value="en">English</option>
+								<option value="es">{{ 'Spanish'|t }}</option>
+								<option value="en">{{ 'English'|t }}</option>
 							</select>
 						</div>
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">País<span>*</span>
+							<label for="sitio" class="form-label">{{ 'Country'|t }}<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
-									<select id="country" class="single_select" placeholder="Seleccione una opción..."
-										autocomplete="off">
-										<option value="">Seleccione una opción</option>
-										<option value="usa">Estados Unidos</option>
+									<select id="country" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+										<option value="">{{ 'Select an option'|t }}</option>
+										<option value="usa">{{ 'United States'|t }}</option>
 									</select>
 								</div>
 
 								<i id="error_country" class='bx bxs-info-circle toltip_i'>
 									<span id="error_country_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="position" class="form-label">Nombre del cargo
+							<label for="position" class="form-label">{{ 'Position name'|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="position" placeholder="">
 								<i id="error_position" class='bx bxs-info-circle toltip_i'>
 									<span id="error_position_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Por favor incluya el nombre del cargo que desempeña dentro de la empresa.
+										{{ 'Please include the name of your position within the company.'|t }}
 									</span>
 								</i>
-								<span>Por favor incluya el nombre del cargo que desempeña dentro de la empresa.</span>
+								<span>{{ 'Please include the name of your position within the company.'|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="city" class="form-label">Ciudad<span>*</span>
+							<label for="city" class="form-label">{{ 'City'|t }}<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="" class="w-100">
-									<select id="city" class="single_select" placeholder="Seleccione una opción..."
-										autocomplete="off">
-										<option value="">Seleccione una opción</option>
-										<option value="usa">Estados Unidos</option>
+									<select id="city" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+										<option value="">{{ 'Select an option'|t }}</option>
+										<option value="usa">{{ 'United States'|t }}</option>
 									</select>
 								</div>
 
 								<i id="error_city" class='bx bxs-info-circle toltip_i'>
 									<span id="error_city_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="web_site" class="form-label">Sitio Web de la compañía
+							<label for="web_site" class="form-label">{{ 'Company website'|t }}
 								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="web_site">
 								<i id="error_web_site" class='bx bxs-info-circle toltip_i'>
 									<span id="error_web_site_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Por favor incluir la URL completa iniciando con http o https.
+										{{ 'Please include the complete URL starting with http or https.'|t }}
 									</span>
 								</i>
-								<span>Por favor incluir la URL completa iniciando con http o https.</span>
+								<span>{{ 'Please include the complete URL starting with http or https.'|t }}</span>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="principal_advisor" class="form-label">Asesor Principal de ProColombia
+							<label for="principal_advisor" class="form-label">{{ 'ProColombia Senior Advisor'|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
-								<option disabled hidden>Ingrese la palabra clave o seleccione una opción
-								</option>
+								<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}</option>
 								<option value="Jaime Francisco">Jaime Francisco</option>
 								<option value="Ruth Silvana">Ruth Silvana</option>
 								<option value="Luis Felipe">Luis Felipe</option>
@@ -265,83 +234,75 @@
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
 									<span class="tooltiptext">
-										Seleccione el asesor de ProColombia con quien su empresa tiene su plan de
-										trabajo definido.
+										{{ 'Select the ProColombia advisor with whom your company has a defined work plan.'|t }}
 									</span>
 								</i>
-								<span>Seleccione el asesor de ProColombia con quien su empresa tiene su plan de trabajo
-									definido.</span>
+								<span>S{{ 'Select the ProColombia advisor with whom your company has a defined work plan.'|t }}</span>
 							</div>
 							<div class="input_error">
-								<i id="error_asesor" class='bx bxs-info-circle' data-bs-toggle="tooltip"
-									data-bs-placement="bottom" data-original-title="Campo requerido."></i>
+								<i id="error_asesor" class='bx bxs-info-circle' data-bs-toggle="tooltip" data-bs-placement="bottom" data-original-title="Campo requerido."></i>
 							</div>
 						</div>
 						<div class="col-lg-12">
 							<div class="description">
-								<p class="title">EDITAR MIS PRODUCTOS DE INTERÉS</p>
+								<p class="title">{{ 'EDIT MY PRODUCTS OF INTEREST'|t }}</p>
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="cat_interest_1" class="form-label">Estoy interesado en… (Categoría de
-								interés)
+							<label for="cat_interest_1" class="form-label">{{ 'I am interested in...'|t }}
+								(Categoría de interés)
 								<span>*</span>
 							</label>
 
 							<div id="cat_interest_1_cont" class="input_error">
-								<select name="cat_interest_1" id="cat_interest_1"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
-									</option>
+								<select name="cat_interest_1" id="cat_interest_1" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}</option>
 									{% for categorization_item in tree_categorization %}
-									<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+										<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
 									{% endfor %}
 								</select>
 								<i id="error_cat_interest_1" class='bx bxs-info-circle toltip_i'>
 									<span id="error_cat_interest_1_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="company_model" class="form-label">Modelo de negocio
+							<label for="company_model" class="form-label">{{ 'Business Model'|t }}
 								<span>*</span>
 							</label>
 
 							<div id="company_model_cont" class="input_error">
-								<select name="company_model" id="company_model"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
-									</option>
+								<select name="company_model" id="company_model" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}</option>
 									{% for company_model_item in tree_business_model %}
-									<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
 									{% endfor %}
 								</select>
 								<i id="error_company_model" class='bx bxs-info-circle toltip_i'>
 									<span id="error_company_model_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="subcat_interest_1" class="form-label">Particularmente en… (Subcategoría de
-								Interés)
+							<label for="subcat_interest_1" class="form-label">{{ 'Particularly in...'|t }}
+								(Subcategoría de Interés)
 								<span>*</span>
 							</label>
 
 							<div id="subcat_interest_1_cont" class="input_error">
 								<select name="subcat_interest_1" id="subcat_interest_1">
-									<option disabled hidden>Ingrese la palabra clave o seleccione una opción
-									</option>
+									<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}</option>
 								</select>
 								<i id="error_subcat_interest_1" class='bx bxs-info-circle toltip_i'>
 									<span id="error_subcat_interest_1_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
@@ -349,24 +310,19 @@
 						</div>
 						<div class="col-md-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
-								<label for="nit">Partida Arancelaria</label>
+								<label for="nit">{{ 'Tariff Item'|t }}</label>
 								<div class="icon_help toltip_i">
-									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939"
-										viewbox="0 0 10.631 15.939">
-										<path id="Trazado_11" data-name="Trazado 11"
-											d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1"
-											transform="translate(-162.036 -600.48)" fill-rule="evenodd" />
+									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
+										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
 									</svg>
 									<span class="tooltiptext_yotube">
-										<p class="note">NOTA:</p>
-										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10
-										primeros productos coincidentes.
+										<p class="note">{{ 'NOTE:'|t }}</p>
+										{{ 'In order to ensure the smooth operation of the system, it will only present the first 10 matching products.'|t }}
 									</span>
 								</div>
 								<div class="input_error">
 									<select name="principal_advisor" id="principal_advisor">
-										<option disabled hidden>Ingrese la palabra clave o seleccione una
-											opción
+										<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}
 										</option>
 										<option value="Jaime Francisco">Jaime Francisco</option>
 										<option value="Ruth Silvana">Ruth Silvana</option>
@@ -375,86 +331,78 @@
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ 'Required Field'|t }}
 										</span>
 									</i>
 								</div>
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
 										<span class="tooltiptext">
-											Si el producto que busca no aparece en la lista, por favor escriba una
-											palabra, o el código arancelario a 6 dígitos, que defina su producto.
-											Después del tercer carácter que ingrese, el sistema buscará los primeros 10
-											productos que incluyan los caracteres/la palabra que ingresó.
+											{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}
 										</span>
 									</i>
-									<span>Si el producto que busca no aparece en la lista, por favor escriba una
-										palabra, o el código arancelario a 6 dígitos, que defina su producto. Después
-										del tercer carácter que ingrese, el sistema buscará los primeros 10 productos
-										que incluyan los caracteres/la palabra que ingresó.</span>
+									<span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="cat_interest_2" class="form-label">Estoy interesado en… (Categoría de
-								interés) No.2
+							<label for="cat_interest_2" class="form-label">{{ 'I am interested in...'|t }}
+								(Categoría de interés) #2
 								<span>*</span>
 							</label>
 
 							<div id="cat_interest_2_cont" class="input_error">
-								<select name="cat_interest_2" id="cat_interest_2"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
+								<select name="cat_interest_2" id="cat_interest_2" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}
 										{% for categorization_item in tree_categorization %}
-									<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
-									{% endfor %}
+											<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+										{% endfor %}
 									</option>
 								</select>
 								<i id="error_cat_interest_2" class='bx bxs-info-circle toltip_i'>
 									<span id="error_cat_interest_2_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="company_model_2" class="form-label">Modelo de negocio No.2
+							<label for="company_model_2" class="form-label">{{ 'Business Model'|t }}
+								#2
 								<span>*</span>
 							</label>
 
 							<div id="company_model_2_cont" class="input_error">
-								<select name="company_model_2" id="company_model_2"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
+								<select name="company_model_2" id="company_model_2" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 									{% for company_model_item in tree_business_model %}
-									<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
 									{% endfor %}
 								</select>
 								<i id="error_company_model_2" class='bx bxs-info-circle toltip_i'>
 									<span id="error_company_model_2_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="subcat_interest_2" class="form-label">Particularmente en… (Subcategoría de
-								Interés) No.2
+							<label for="subcat_interest_2" class="form-label">{{ 'Particularly in...'|t }}
+								(Subcategoría de Interés) #2
 								<span>*</span>
 							</label>
 
 							<div id="subcat_interest_2_cont" class="input_error">
-								<select name="subcat_interest_2" id="subcat_interest_2"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
+								<select name="subcat_interest_2" id="subcat_interest_2" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 								</select>
 								<i id="error_subcat_interest_2" class='bx bxs-info-circle toltip_i'>
 									<span id="error_subcat_interest_2_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
@@ -462,25 +410,19 @@
 						</div>
 						<div class="col-md-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
-								<label for="nit">Partida Arancelaria No.2</label>
+								<label for="nit">{{ 'Tariff Item No.2'|t }}</label>
 								<div class="icon_help toltip_i">
-									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939"
-										viewbox="0 0 10.631 15.939">
-										<path id="Trazado_11" data-name="Trazado 11"
-											d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1"
-											transform="translate(-162.036 -600.48)" fill-rule="evenodd" />
+									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
+										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
 									</svg>
 									<span class="tooltiptext_yotube">
-										<p class="note">NOTA:</p>
-										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10
-										primeros productos coincidentes.
+										<p class="note">{{ 'NOTE:'|t }}</p>
+										{{ 'In order to ensure the smooth operation of the system, it will only present the first 10 matching products.'|t }}
 									</span>
 								</div>
 								<div class="input_error">
 									<select name="principal_advisor" id="principal_advisor">
-										<option disabled hidden>Ingrese la palabra clave o seleccione una
-											opción
-										</option>
+										<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}</option>
 										<option value="Jaime Francisco">Jaime Francisco</option>
 										<option value="Ruth Silvana">Ruth Silvana</option>
 										<option value="Luis Felipe">Luis Felipe</option>
@@ -488,86 +430,76 @@
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ 'Required Field'|t }}
 										</span>
 									</i>
 								</div>
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
-										<span class="tooltiptext">
-											Si el producto que busca no aparece en la lista, por favor escriba una
-											palabra, o el código arancelario a 6 dígitos, que defina su producto.
-											Después del tercer carácter que ingrese, el sistema buscará los primeros 10
-											productos que incluyan los caracteres/la palabra que ingresó.
-										</span>
+										<span class="tooltiptext">{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
 									</i>
-									<span>Si el producto que busca no aparece en la lista, por favor escriba una
-										palabra, o el código arancelario a 6 dígitos, que defina su producto. Después
-										del tercer carácter que ingrese, el sistema buscará los primeros 10 productos
-										que incluyan los caracteres/la palabra que ingresó.</span>
+									<span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="cat_interest_3" class="form-label">Estoy interesado en… (Categoría de
-								interés) No.3
+							<label for="cat_interest_3" class="form-label">{{ 'I am interested in...'|t }}
+								(Categoría de interés) #3
 								<span>*</span>
 							</label>
 
 							<div id="cat_interest_3_cont" class="input_error">
-								<select name="cat_interest_3" id="cat_interest_3"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
+								<select name="cat_interest_3" id="cat_interest_3" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 									{% for categorization_item in tree_categorization %}
-									<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+										<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
 									{% endfor %}
 								</select>
 								<i id="error_cat_interest_3" class='bx bxs-info-circle toltip_i'>
 									<span id="error_cat_interest_3_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="company_model_3" class="form-label">Modelo de negocio No.3
+							<label for="company_model_3" class="form-label">{{ 'Business Model'|t }}
+								#3
 								<span>*</span>
 							</label>
 
 							<div id="company_model_3_cont" class="input_error">
-								<select name="company_model_3" id="company_model_3"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
+								<select name="company_model_3" id="company_model_3" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 									{% for company_model_item in tree_business_model %}
-									<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
 									{% endfor %}
 								</select>
 								<i id="error_company_model_3" class='bx bxs-info-circle toltip_i'>
 									<span id="error_company_model_3_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
 
 						</div>
 						<div class="col-md-6">
-							<label for="subcat_interest_3" class="form-label">Particularmente en… (Subcategoría de
-								Interés) No.3
+							<label for="subcat_interest_3" class="form-label">{{ 'Particularly in...'|t }}
+								(Subcategoría de Interés) #3
 								<span>*</span>
 							</label>
 
 							<div id="subcat_interest_3_cont" class="input_error">
-								<select name="subcat_interest_3" id="subcat_interest_3"
-									placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
-									<option value="">Ingrese la palabra clave o seleccione una opción
+								<select name="subcat_interest_3" id="subcat_interest_3" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 								</select>
 								<i id="error_subcat_interest_3" class='bx bxs-info-circle toltip_i'>
 									<span id="error_subcat_interest_3_message" class="tooltiptext_error">
-										Campo Obligatorio
+										{{ 'Required Field'|t }}
 									</span>
 								</i>
 							</div>
@@ -575,24 +507,19 @@
 						</div>
 						<div class="col-md-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
-								<label for="nit">Partida Arancelaria No.3</label>
+								<label for="nit">{{ 'Tariff Item No.3'|t }}</label>
 								<div class="icon_help toltip_i">
-									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939"
-										viewbox="0 0 10.631 15.939">
-										<path id="Trazado_11" data-name="Trazado 11"
-											d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1"
-											transform="translate(-162.036 -600.48)" fill-rule="evenodd" />
+									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
+										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
 									</svg>
 									<span class="tooltiptext_yotube">
-										<p class="note">NOTA:</p>
-										A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10
-										primeros productos coincidentes.
+										<p class="note">{{ 'NOTE:'|t }}</p>
+										{{ 'In order to ensure the smooth operation of the system, it will only present the first 10 matching products.'|t }}
 									</span>
 								</div>
 								<div class="input_error">
 									<select name="principal_advisor" id="principal_advisor">
-										<option disabled hidden>Ingrese la palabra clave o seleccione una
-											opción
+										<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}
 										</option>
 										<option value="Jaime Francisco">Jaime Francisco</option>
 										<option value="Ruth Silvana">Ruth Silvana</option>
@@ -601,38 +528,28 @@
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
-											Campo Obligatorio
+											{{ 'Required Field'|t }}
 										</span>
 									</i>
 								</div>
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
-										<span class="tooltiptext">
-											Si el producto que busca no aparece en la lista, por favor escriba una
-											palabra, o el código arancelario a 6 dígitos, que defina su producto.
-											Después del tercer carácter que ingrese, el sistema buscará los primeros 10
-											productos que incluyan los caracteres/la palabra que ingresó.
-										</span>
+										<span class="tooltiptext">{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
 									</i>
-									<span>Si el producto que busca no aparece en la lista, por favor escriba una
-										palabra, o el código arancelario a 6 dígitos, que defina su producto. Después
-										del tercer carácter que ingrese, el sistema buscará los primeros 10 productos
-										que incluyan los caracteres/la palabra que ingresó.</span>
+									<span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
 								</div>
 							</div>
 						</div>
 					</form>
 					<div class="row">
 						<div class="col-lg-12 continue">
-							<button id="cancel_process_1" class="cancel">CANCELAR</button>
-						
-							<button id="edit_company_international" name="edit_company_international" aria-label="Continuar con el registro"
-								class="continue">GUARDAR CAMBIOS
+							<button id="cancel_process_1" class="cancel">{{ 'CANCEL'|t }}</button>
+
+							<button id="edit_company_international" name="edit_company_international" aria-label="Continuar con el registro" class="continue">{{ 'SAVE CHANGES'|t }}
 							</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
-								<span class="spinner-border spinner-border-sm me-2" role="status"
-									aria-hidden="true"></span>
-								CARGANDO
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								{{ 'Loading...'|t }}
 							</button>
 						</div>
 					</div>
@@ -641,120 +558,62 @@
 		</div>
 	</div>
 
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="information" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_1Label"><img
-							src="http://52.201.168.42/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt=""
-							srcset="">Editar el perfil de la compañía y contacto</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p>
-						Todo contenido cargado debe cumplir con la
-						<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad"
-							target="_blank" style="text-decoration: underline !important;">politica de
-							publicación</a>
-					</p>
-				</div>
-				<div class="modal-footer">
-					<button id="go_to_step_3" type="button" class="btn btn_save"
-						data-bs-dismiss="modal">ENTENDIDO</button>
-				</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="information" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt="" srcset="">{{ 'Edit company profile and contact'|t }}</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>{{ 'All uploaded content must comply with the'|t }}
+					<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank" style="text-decoration: underline !important;">{{ 'publication policy.'|t }}</a>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button id="go_to_step_3" type="button" class="btn btn_save" data-bs-dismiss="modal">{{ 'UNDERSTOOD'|t }}</button>
 			</div>
 		</div>
 	</div>
-	<!-- Button trigger modal -->
+</div>
+<!-- Button trigger modal -->
 
-	<!-- Modal -->
-	<div class="modal fade" id="question_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-							srcset="">Guardar Edición
-					</h5>
-				</div>
-				<div class="modal-body">
-					<p>Está a punto de guardar los campos modificados ¿Desea actualizar la información?
-					</p>
-					</a>
-					</p>
-				</div>
-				<div class="modal-footer btn_options">
-					<button id="confirm_save_buyer" type="button" class="btn yes">SI</button>
-					<button data-bs-dismiss="modal" type="button" class="btn no">NO</button>
-				</div>
+<!-- Modal -->
+<div class="modal fade" id="question_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
+				</h5>
 			</div>
-		</div>
-	</div><!-- Modal -->
-	<div class="modal fade" id="question_modal2" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-							srcset="">Guardar Edición
-					</h5>
-				</div>
-				<div class="modal-body">
-					<p>Está a punto de guardar los campos modificados ¿Desea actualizar la información?
-					</p>
-					</a>
-					</p>
-				</div>
-				<div class="modal-footer btn_options">
-					<button id="confirm_save2" type="button" class="btn yes">SI</button>
-					<button data-bs-dismiss="modal" type="button" class="btn no">NO</button>
-				</div>
-			</div>
-		</div>
-	</div><!-- Modal -->
-	<div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt=""
-							srcset="">
-						Cancelar
-					</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p>Está a punto de eliminar los cambios realizados.</p></strong></p>
-				</div>
-				<div class="modal-footer ">
-					<div class="row">
-						<div class="col-6 fs-6">
-							<strong>¿Desea continuar?</strong>
-						</div>
-						<div class="col-6 btn_options">
-							<button  class="yes">SI</button>
-							<button data-bs-dismiss="modal" id="confirm_cancel" class="no">NO</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			<div class="modal-body">
+				<p>{{ 'You are about to save the modified fields Do you want to update the information?'|t }}</p>
+			</a>
+		</p>
 	</div>
-	<div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-							srcset="">Proceso exitoso</h5>
-				</div>
-				<div class="modal-body">
-					<p>Usuario actualizado con exito</p>
-				</div>
-			</div>
-		</div>
+	<div class="modal-footer btn_options">
+		<button id="confirm_save_buyer" type="button" class="btn yes">{{ 'YES'|t }}</button>
+		<button data-bs-dismiss="modal" type="button" class="btn no">{{ 'NO'|t }}</button>
 	</div>
-</main>
+</div></div></div><!-- Modal --><div class="modal fade" id="question_modal2" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Save Edit'|t }}
+		</h5>
+	</div>
+	<div class="modal-body">
+		<p>{{ 'You are about to save the modified fields Do you want to update the information?'|t }}</p>
+	</a>
+</p></div><div class="modal-footer btn_options">
+<button id="confirm_save2" type="button" class="btn yes">{{ 'YES'|t }}</button>
+<button data-bs-dismiss="modal" type="button" class="btn no">{{ 'NO'|t }}</button></div></div></div></div><!-- Modal --><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header">
+<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+	{{ 'Cancel'|t }}
+</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">
+<p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p></div><div class="modal-footer "><div class="row"><div class="col-6 fs-6">
+<strong>{{ 'Do you want to continue?'|t }}</strong></div><div class="col-6 btn_options">
+<button class="yes">{{ 'YES'|t }}</button>
+<button data-bs-dismiss="modal" id="confirm_cancel" class="no">{{ 'NO'|t }}</button></div></div></div></div></div></div><div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Successful process'|t }}</h5></div><div class="modal-body"><p>{{ 'User successfully updated'|t }}</p></div></div></div></div></main>

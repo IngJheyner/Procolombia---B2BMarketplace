@@ -46,7 +46,7 @@
             $("#error_password").show();
             isValid = false;
         } else {
-            if (password.length < 8) {
+            if (password.length < 8 && password.length > 15) {
                 message = "El password debe tener entre 8 y 15 caracteres";
                 $("#password").css("border-color", "#ba0c2f");
                 $("#error_password_message").text(message)

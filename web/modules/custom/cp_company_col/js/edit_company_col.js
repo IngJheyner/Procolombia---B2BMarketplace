@@ -59,36 +59,17 @@
             }
         });
 
-        new TomSelect('#country_code_landline', {
-            create: false,
-            // use method disable()
-            render: {
-                option: function (data, escape) {
-                    return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-                },
-                item: function (item, escape) {
-                    return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-                }
-            }
-        })
+        const phoneInputField = document.querySelector("#country_code_landline");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "af",
+            separateDialCode: true,
+        });
 
-        new TomSelect('#country_code_mobile', {
-            create: false,
-            // use method disable()
-            render: {
-                option: function (data, escape) {
-                    return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-                },
-                item: function (item, escape) {
-                    return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-                }
-            },
-        })
-
-        document.getElementById("country_code_landline-ts-control").disabled = true;
-        document.getElementById("country_code_mobile-ts-control").disabled = true;
-        $("#country_code_landline-ts-control").attr('style', 'display: none !important');
-        $("#country_code_mobile-ts-control").attr('style', 'display: none !important');
+        const phoneInputField2 = document.querySelector("#country_code_mobile");
+        const phoneInput2 = window.intlTelInput(phoneInputField2, {
+            initialCountry: "af",
+            separateDialCode: true,
+        });
 
         getDataUser();
     }
@@ -265,7 +246,7 @@
                 isValid = false;
             }
         }
-        
+
         if (business_name == "") {
             message = "El nombre de la empresa es requerido";
             $("#business_name").css("border-color", "#ba0c2f");
@@ -635,8 +616,8 @@
             $("#error_mobile_message").text(message)
             isValid = false;
         } else {
-            if (mobile.length > 20) {
-                message = "El celular no debe tener mas de 20 caracteres";
+            if (mobile.length > 10) {
+                message = "El celular no debe tener mas de 10 caracteres";
                 $("#mobile").css("border-color", "#ba0c2f");
                 $("#error_mobile").show();
                 $("#error_mobile_message").text(message)
