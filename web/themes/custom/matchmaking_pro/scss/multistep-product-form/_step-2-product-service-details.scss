@@ -85,5 +85,11 @@
         .counter{
             display: none;
         }
+        small{
+            padding-bottom: 20px;
+            &:hover{
+                background-image: url(../images/icons/info-red.svg);
+            }
+        }
     }
 }
