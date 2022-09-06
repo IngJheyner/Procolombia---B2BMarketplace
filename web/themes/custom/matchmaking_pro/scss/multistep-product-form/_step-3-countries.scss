@@ -166,6 +166,18 @@
         }
         
     }
+    
+
+    #edit-field-pr-sales-channel-wrapper,
+    .js-form-item-field-pr-product-availability,
+    #edit-field-pr-certifications-wrapper,
+    .field--widget-entity-browser-entity-reference,
+    #edit-field-pr-target-market-wrapper,
+    .js-form-item-field-pr-target-market {
+        margin-bottom: 0 !important;
+        }
+}
+.path-dashboard{
     .select2-selection--single{
         height: 35px;
     }
@@ -177,13 +189,4 @@
         background-color: $procol-dark-blue !important;
         color: $white;
     }
-
-    #edit-field-pr-sales-channel-wrapper,
-    .js-form-item-field-pr-product-availability,
-    #edit-field-pr-certifications-wrapper,
-    .field--widget-entity-browser-entity-reference,
-    #edit-field-pr-target-market-wrapper,
-    .js-form-item-field-pr-target-market {
-        margin-bottom: 0 !important;
-        }
 }

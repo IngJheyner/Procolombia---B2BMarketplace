@@ -42,7 +42,6 @@
         .group-right.step-5{
             margin-top: 20px;
         }
-
     }
     
     @include media-breakpoint-down(md){
@@ -142,8 +141,14 @@
     }
     .lightbulb-tooltip{
         @include lightbulb-tooltip;
+        z-index: 3;
     }
-
+    &.step_5{
+        .lightbulb-tooltip span{
+            max-width: 400px;
+            top: -100px;
+        }
+    }
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
@@ -161,6 +166,9 @@
         margin-top: 22px;
         max-width: 442px;
         width: 100%;
+        &.js-form-type-managed-file{
+            margin-top: 0;
+        }
         @include media-breakpoint-down(lg){
             max-width: 100%;
         }
@@ -330,7 +338,8 @@
             grid-area: 4 / 1 / 5 / 4;
         }
     }
-    .field-group-html-element.group-left { 
+    .field-group-html-element.group-left {
+        position: relative; 
         width: 50%;
         padding: 0 50px;
         border-right: 1px solid $procol-gray-200;
@@ -343,6 +352,7 @@
         
     }
     .field-group-html-element.group-right{
+        position: relative;
         width: 50%;
         grid-area: 2 / 3 / 4 / 4; 
         padding-right: 50px;
