@@ -1,34 +1,22 @@
-label: Archive
-description: 'All content, by month.'
+label: Archivo
+description: 'Todo el contenido, por mes.'
 display:
   default:
-    display_title: Default
+    display_title: 'Por defecto'
     display_options:
-      title: 'Monthly archive'
+      title: 'Archivo mensual'
       pager:
         options:
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      arguments:
-        created_year_month:
-          title: '{{ arguments.created_year_month }}'
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
   block_1:
-    display_title: Block
-    display_options:
-      arguments:
-        created_year_month:
-          title: '{{ arguments.created_year_month }}'
+    display_title: Bloque
   page_1:
-    display_title: Page
+    display_title: Página

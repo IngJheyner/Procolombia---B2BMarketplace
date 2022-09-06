@@ -1,180 +1,126 @@
-label: 'Webform submissions'
-description: 'Default webform submissions views.'
+label: 'Envíos de formulario web'
 display:
   default:
-    display_title: Master
+    display_title: Máster
     display_options:
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
+            first: '« Primero'
+            last: 'Último »'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
       fields:
         sid:
-          label: '#'
-          separator: ', '
+          label: Nº
         in_draft:
-          label: Draft
-          separator: ', '
+          label: Borrador
         created:
-          label: Created
-          separator: ', '
+          label: Creado
         remote_addr:
-          label: 'IP address'
-          separator: ', '
+          label: 'Direccion(es) IP'
         view_webform_submission:
-          label: Operations
-          text: view
+          label: Operaciones
+          text: vista
       header:
         result:
-          content: 'Displaying @start - @end of @total'
-      empty:
-        area_text_custom:
-          content: 'No submissions available.'
+          content: 'Mostrando @start - @end de @total'
       arguments:
         in_draft:
           exception:
-            title: All
-      title: 'Webform submissions'
-  embed_default:
-    display_title: 'Embed: Default'
-    display_options:
-      display_description: 'Display submissions.'
+            title: Todo(s)
+      title: 'Envíos de formulario web'
   embed_administer:
-    display_title: 'Embed: Administer'
     display_options:
-      display_description: 'Administer submissions.'
       fields:
         webform_submission_bulk_form:
-          label: 'Webform submission operations bulk form'
-          action_title: Action
+          action_title: Acción
         sid:
-          label: '#'
-          separator: ', '
+          label: Nº
         in_draft:
-          label: Draft
-          separator: ', '
+          label: Borrador
         sticky:
-          label: Sticky
-          separator: ', '
+          label: 'Fijo en cabeza de las listas'
         locked:
-          label: Locked
-          separator: ', '
+          label: Bloqueado
         created:
-          label: Created
-          separator: ', '
+          label: Creado
         completed:
-          label: Completed
-          separator: ', '
+          label: Completado
         remote_addr:
-          label: 'IP address'
-          separator: ', '
+          label: 'Direccion(es) IP'
         operations:
-          label: Operations
+          label: Operaciones
       filters:
-        in_draft:
-          expose:
-            label: 'Is draft'
         sticky:
           expose:
-            label: Sticky
+            label: 'Fijo en cabeza de las listas'
         locked:
           expose:
-            label: Locked
+            label: Bloqueado
   embed_manage:
-    display_title: 'Embed: Manage'
     display_options:
-      display_description: 'Manage submissions.'
       fields:
         webform_submission_bulk_form:
-          label: 'Webform submission operations bulk form'
-          action_title: Action
+          action_title: Acción
         sid:
-          label: '#'
-          separator: ', '
+          label: Nº
         in_draft:
-          label: Draft
-          separator: ', '
+          label: Borrador
         sticky:
-          label: Sticky
-          separator: ', '
+          label: 'Fijo en cabeza de las listas'
         locked:
-          label: Locked
-          separator: ', '
+          label: Bloqueado
         created:
-          label: Created
-          separator: ', '
+          label: Creado
         completed:
-          label: Completed
-          separator: ', '
+          label: Completado
         remote_addr:
-          label: 'IP address'
-          separator: ', '
+          label: 'Direccion(es) IP'
         view_webform_submission:
-          label: Operations
-          text: view
+          label: Operaciones
+          text: vista
         edit_webform_submission:
-          label: Operations
-          text: edit
+          label: Operaciones
+          text: editar
       filters:
-        in_draft:
-          expose:
-            label: 'Is draft'
         sticky:
           expose:
-            label: Sticky
+            label: 'Fijo en cabeza de las listas'
         locked:
           expose:
-            label: Locked
+            label: Bloqueado
   embed_review:
-    display_title: 'Embed: Review'
     display_options:
-      display_description: 'Review submissions.'
       fields:
         sid:
-          label: '#'
-          separator: ', '
+          label: Nº
         in_draft:
-          label: Draft
-          separator: ', '
+          label: Borrador
         sticky:
-          label: Sticky
-          separator: ', '
+          label: 'Fijo en cabeza de las listas'
         locked:
-          label: Locked
-          separator: ', '
+          label: Bloqueado
         created:
-          label: Created
-          separator: ', '
+          label: Creado
         completed:
-          label: Completed
-          separator: ', '
+          label: Completado
         remote_addr:
-          label: 'IP address'
-          separator: ', '
+          label: 'Direccion(es) IP'
         view_webform_submission:
-          label: Operations
-          text: view
+          label: Operaciones
+          text: vista
       filters:
-        in_draft:
-          expose:
-            label: 'Is draft'
         sticky:
           expose:
-            label: Sticky
+            label: 'Fijo en cabeza de las listas'
         locked:
           expose:
-            label: Locked
+            label: Bloqueado

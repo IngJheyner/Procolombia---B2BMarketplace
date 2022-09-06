@@ -1,120 +1,71 @@
-label: 'Media library'
-description: 'Find and manage media.'
 display:
   default:
-    display_title: Default
+    display_title: 'Por defecto'
     display_options:
-      title: Media
+      title: Multimedia
       fields:
         media_bulk_form:
-          action_title: Action
+          action_title: Acción
       pager:
         options:
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
       exposed_form:
         options:
-          submit_button: 'Apply filters'
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
       empty:
         area_text_custom:
-          content: 'No media available.'
-      sorts:
-        created:
-          expose:
-            label: 'Newest first'
-        name:
-          expose:
-            label: 'Name (A-Z)'
-        name_1:
-          expose:
-            label: 'Name (Z-A)'
+          content: 'No hay medios disponibles'
       filters:
         status:
-          expose:
-            label: 'Publishing status'
           group_info:
-            label: Published
+            label: Publicado
             group_items:
               1:
-                title: Published
+                title: Publicado
               2:
-                title: Unpublished
+                title: 'Sin publicar'
         name:
           expose:
-            label: Name
-        bundle:
-          expose:
-            label: 'Media type'
-          group_info:
-            label: 'Media type'
+            label: Nombre
         langcode:
           expose:
-            label: Language
+            label: Idioma
   page:
-    display_title: Page
+    display_title: Página
     display_options:
       fields:
         media_bulk_form:
-          action_title: Action
-        name:
-          separator: ', '
-        edit_media:
-          alter:
-            text: 'Edit {{ name }}'
-            alt: 'Edit {{ name }}'
-          text: Edit
-        delete_media:
-          alter:
-            text: 'Delete {{ name }}'
-            alt: 'Delete {{ name }}'
-          text: Delete
+          action_title: Acción
   widget:
-    display_title: Widget
     display_options:
       arguments:
         bundle:
           exception:
-            title: All
+            title: Todo(s)
       filters:
         name:
           expose:
-            label: Name
-      header:
-        display_link_grid:
-          label: Grid
-        display_link_table:
-          label: Table
+            label: Nombre
   widget_table:
-    display_title: 'Widget (table)'
     display_options:
       fields:
         thumbnail__target_id:
-          label: Thumbnail
+          label: Miniatura
         name:
-          label: Name
+          label: Nombre
         uid:
-          label: Author
+          label: Autor
         changed:
-          label: Updated
+          label: Actualizado
       arguments:
         bundle:
           exception:
-            title: All
+            title: Todo(s)
       filters:
         name:
           expose:
-            label: Name
-      header:
-        display_link_grid:
-          label: Grid
-        display_link_table:
-          label: Table
+            label: Nombre

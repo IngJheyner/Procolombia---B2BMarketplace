@@ -14,7 +14,7 @@ uid: null
 template: true
 archive: false
 id: template_feedback
-title: Feedback
+title: Reacción
 description: 'A basic feedback template.'
 category: ''
 elements: |
@@ -148,7 +148,7 @@ settings:
   confirmation_type: page
   confirmation_url: '<front>'
   confirmation_title: ''
-  confirmation_message: 'Thank you for your feedback.'
+  confirmation_message: 'Gracias por su retroalimentación'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -228,7 +228,7 @@ handlers:
   email_confirmation:
     id: email
     handler_id: email_confirmation
-    label: 'Email confirmation'
+    label: 'Confirmación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }
@@ -265,7 +265,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email notification'
+    label: 'Aviso por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

@@ -6,19 +6,27 @@
 (function ($, Drupal) {
   'use strict';
 
+  var select_categories1;
+  var select_categories2;
+  var select_categories3;
   var select_subcategories1;
   var select_subcategories2;
   var select_subcategories3;
+  var select_model1;
+  var select_model2;
+  var select_model3;
 
   function init() {
-    new TomSelect("#cat_interest_1", {
+    $('#info_modal').modal("show");
+
+    select_categories1 = new TomSelect("#cat_interest_1", {
       create: false,
       sortField: {
         field: "text",
         direction: "asc"
       }
     });
-    new TomSelect("#company_model", {
+    select_model1 = new TomSelect("#company_model", {
       plugins: ['remove_button'],
       create: true,
       onItemAdd: function () {
@@ -45,14 +53,14 @@
       create: false
     });
 
-    new TomSelect("#cat_interest_2", {
+    select_categories2 = new TomSelect("#cat_interest_2", {
       create: false,
       sortField: {
         field: "text",
         direction: "asc"
       }
     });
-    new TomSelect("#company_model_2", {
+    select_model2 = new TomSelect("#company_model_2", {
       plugins: ['remove_button'],
       create: true,
       onItemAdd: function () {
@@ -79,14 +87,14 @@
       create: false
     });
 
-    new TomSelect("#cat_interest_3", {
+    select_categories3 = new TomSelect("#cat_interest_3", {
       create: false,
       sortField: {
         field: "text",
         direction: "asc"
       }
     });
-    new TomSelect("#company_model_3", {
+    select_model3 = new TomSelect("#company_model_3", {
       plugins: ['remove_button'],
       create: true,
       onItemAdd: function () {
@@ -241,7 +249,7 @@
     let isValid = true;
     let message = ""
     if (country == "") {
-      message = "Por favor seleccione un país";
+      message = Drupal.t("Por favor seleccione un país");
       $("#country").css("border-color", "#ba0c2f");
       $("#error_country_message").text(message)
       $("#error_country").show();
@@ -252,7 +260,7 @@
     }
 
     if (city == "") {
-      message = "Por favor seleccione una ciudad";
+      message = Drupal.t("Por favor seleccione una ciudad");
       $("#city").css("border-color", "#ba0c2f");
       $("#error_city_message").text(message)
       $("#error_city").show();
@@ -263,7 +271,7 @@
     }
 
     if (position == "") {
-      message = "Por favor seleccione una posición";
+      message = Drupal.t("Por favor seleccione una posición");
       $("#position").css("border-color", "#ba0c2f");
       $("#error_position_message").text(message)
       $("#error_position").show();
@@ -274,14 +282,14 @@
     }
 
     if (web_site == "") {
-      message = "Por favor ingrese una web";
+      message = Drupal.t("Por favor ingrese una web");
       $("#web_site").css("border-color", "#ba0c2f");
       $("#error_web_site_message").text(message)
       $("#error_web_site").show();
       isValid = false;
     } else {
       if (!validateURL(web_site)) {
-        message = "Por favor ingrese una web válida";
+        message = Drupal.t("Por favor ingrese una web válida");
         $("#web_site").css("border-color", "#ba0c2f");
         $("#error_web_site_message").text(message)
         $("#error_web_site").show();
@@ -301,7 +309,7 @@
   function saveDataStep2() {
     if (validateFormStep2()) {
       $("#loading_international_2").show();
-      $("#save_international_2").hide();
+      $("#save_buyer_1").hide();
       var country = $("#country").val();
       var city = $("#city").val();
       var position = $("#position").val();
@@ -318,7 +326,7 @@
       })
         .then((response) => {
           $("#loading_international_2").hide();
-          $("#save_international_2").show();
+          $("#save_buyer_1").show();
           if (response.status == 200) {
             $("#step_3_tab").addClass("active");
             $("#step_3").addClass("show active");
@@ -336,7 +344,7 @@
         })
         .catch(function (error) {
           $("#loading_international_2").hide();
-          $("#save_international_2").show();
+          $("#save_buyer_1").show();
           alert("Error al crear el usuario" + error);
         });
     }
@@ -356,7 +364,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_1 == "") {
-      message = "Por favor seleccione una categoría";
+      message = Drupal.t("Por favor seleccione una categoría");
       $("#cat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_1_message").text(message)
       $("#error_cat_interest_1").show();
@@ -367,7 +375,7 @@
     }
 
     if (subcat_interest_1 == "") {
-      message = "Por favor seleccione una subcategoría";
+      message = Drupal.t("Por favor seleccione una subcategoría");
       $("#subcat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_1_message").text(message)
       $("#error_subcat_interest_1").show();
@@ -378,7 +386,7 @@
     }
 
     if (company_model == "") {
-      message = "Por favor seleccione un modelo de empresa";
+      message = Drupal.t("Por favor seleccione un modelo de empresa");
       $("#company_model_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_message").text(message)
       $("#error_company_model").show();
@@ -397,7 +405,7 @@
   function saveDataStep3() {
     if (validateFormStep3()) {
       $("#loading_international_3").show();
-      $("#save_international_3").hide();
+      $("#save_buyer_2").hide();
       var cat_interest_1 = $("#cat_interest_1").val();
       var subcat_interest_1 = $("#subcat_interest_1").val();
       var company_model = $("#company_model").val();
@@ -412,7 +420,7 @@
       })
         .then((response) => {
           $("#loading_international_3").hide();
-          $("#save_international_3").show();
+          $("#save_buyer_2").show();
           if (response.status == 200) {
             $("#step_4_tab").addClass("active");
             $("#step_4").addClass("show active");
@@ -430,7 +438,7 @@
         })
         .catch(function (error) {
           $("#loading_international_3").hide();
-          $("#save_international_3").show();
+          $("#save_buyer_2").show();
           alert("Error al crear el usuario" + error);
         });
     }
@@ -451,7 +459,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_2 == "") {
-      message = "Por favor seleccione una categoría";
+      message = Drupal.t("Por favor seleccione una categoría");
       $("#cat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_2_message").text(message)
       $("#error_cat_interest_2").show();
@@ -462,7 +470,7 @@
     }
 
     if (subcat_interest_2 == "") {
-      message = "Por favor seleccione una subcategoría";
+      message = Drupal.t("Por favor seleccione una subcategoría");
       $("#subcat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_2_message").text(message)
       $("#error_subcat_interest_2").show();
@@ -473,7 +481,7 @@
     }
 
     if (company_model_2 == "") {
-      message = "Por favor seleccione un modelo de empresa";
+      message = Drupal.t("Por favor seleccione un modelo de empresa");
       $("#company_model_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_2_message").text(message)
       $("#error_company_model_2").show();
@@ -492,7 +500,7 @@
   function saveDataStep4() {
     if (validateFormStep4()) {
       $("#loading_international_4").show();
-      $("#save_international_4").hide();
+      $("#save_buyer_3").hide();
       var cat_interest_2 = $("#cat_interest_2").val();
       var subcat_interest_2 = $("#subcat_interest_2").val();
       var company_model_2 = $("#company_model_2").val();
@@ -507,26 +515,25 @@
       })
         .then((response) => {
           $("#loading_international_4").hide();
-          $("#save_international_4").show();
+          $("#save_buyer_3").show();
           if (response.status == 200) {
-            $("#profile-tab").addClass("active");
-            $("#profile-tab-pane").addClass("show active");
-            $("#home-tab").removeClass("active");
+            $("#step_5_tab").addClass("active");
+            $("#step_5").addClass("show active");
+            $("#step_4").removeClass("active");
             //Add class complete to tab 1
-            $("#svg_home").hide();
-            $("#home_title").hide();
-            $("#check_home_tab").show();
-            $("#profile_title").show();
-            $("#validate_progresss").css("width", "100%");
-            $("#home-tab").addClass("complete");
-            $("#home-tab-pane").removeClass("show active");
+            $("#step_4_svg").hide();
+            $("#step_4_title").hide();
+            $("#check_step_4").show();
+            $("#step_5_title").show();
+            $("#validate_progresss").css("width", "73%");
+            $("#step_4").removeClass("show active");
           } else {
             alert("Error al crear el usuario" + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_4").hide();
-          $("#save_international_4").show();
+          $("#save_buyer_3").show();
           alert("Error al crear el usuario" + error);
         });
     }
@@ -547,7 +554,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_3 == "") {
-      message = "Por favor seleccione una categoría";
+      message = Drupal.t("Por favor seleccione una categoría");
       $("#cat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_3_message").text(message)
       $("#error_cat_interest_3").show();
@@ -558,7 +565,7 @@
     }
 
     if (subcat_interest_3 == "") {
-      message = "Por favor seleccione una subcategoría";
+      message = Drupal.t("Por favor seleccione una subcategoría");
       $("#subcat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_3_message").text(message)
       $("#error_subcat_interest_3").show();
@@ -569,7 +576,7 @@
     }
 
     if (company_model_3 == "") {
-      message = "Por favor seleccione un modelo de empresa";
+      message = Drupal.t("Por favor seleccione un modelo de empresa");
       $("#company_model_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_3_message").text(message)
       $("#error_company_model_3").show();
@@ -588,7 +595,7 @@
   function saveDataStep5() {
     if (validateFormStep5()) {
       $("#loading_international_5").show();
-      $("#save_international_5").hide();
+      $("#save_buyer_4").hide();
       var cat_interest_3 = $("#cat_interest_3").val();
       var subcat_interest_3 = $("#subcat_interest_3").val();
       var company_model_3 = $("#company_model_3").val();
@@ -603,17 +610,20 @@
       })
         .then((response) => {
           $("#loading_international_5").hide();
-          $("#save_international_5").show();
+          $("#save_buyer_4").show();
           if (response.status == 200) {
             //show success modal
-            $("#success_modal_international").show("modal");
+            $("#success_modal_international").modal("show");
+            //set name of company empresa_popup
+            $("#empresa_popup").text(localStorage.getItem("company_name"));
+            localStorage.clear();
           } else {
             alert("Error al crear el usuario" + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_5").hide();
-          $("#save_international_5").show();
+          $("#save_buyer_4").show();
           alert("Error al crear el usuario" + error);
         });
     }
@@ -652,29 +662,11 @@
   }
 
   // function to go to step 3
-  function goToMenu() {
+  function goToMenuBuyer() {
     window.location.href = "/user/login";
   }
 
   //Addtional functional methods
-
-
-  // function to go to step 3
-  function goToStep3International() {
-    $("#contact-tab").addClass("active");
-    $("#contact-tab-pane").addClass("show active");
-    $("#profile-tab").removeClass("active");
-    $("#profile-tab").addClass("complete");
-    $("#profile-tab-pane").removeClass("show active");
-    $("#check_information").modal('hide');
-    //Add class complete to tab 3
-    $("#svg_profile").hide();
-    $("#profile_title").hide();
-    $("#check_profile_tab").show();
-    $("#contact_title").show();
-    $("#validate_progresss").css("width", "100%");
-  }
-
 
   /*
   * open modal to cancel process
@@ -694,14 +686,14 @@
     $("#loading_3").show();
     $("#save_3").hide();
     var data = {
-      nit: localStorage.getItem("nit"),
+      email: localStorage.getItem("email_buyer"),
     };
     var formData = new FormData();
     for (var key in data) {
       formData.append(key, data[key]);
     }
 
-    fetch("/delete_user", {
+    fetch("/delete_user/buyer", {
       method: "POST",
       body: formData,
     })
@@ -709,6 +701,7 @@
         if (response.status === 200) {
           //show alert success
           //redirect to pre-registro
+          localStorage.clear();
           window.location.href = "/pre-registro";
         } else {
           alert("Error al eliminar el usuario");
@@ -726,17 +719,18 @@
   */
   function fillFormWithDataUserInternational(data) {
     //fill data of user
-    $("position").val(data.position);
+    
+    $("#position").val(data.position);
     $("#web_site").val(data.web_site);
-    $("#cat_interest_1").val(data.cat_interest_1);
-    $("#cat_interest_2").val(data.cat_interest_2);
-    $("#cat_interest_3").val(data.cat_interest_3);
-    $("#subcat_interest_1").val(data.subcat_interest_1);
-    $("#subcat_interest_2").val(data.subcat_interest_2);
-    $("#subcat_interest_3").val(data.subcat_interest_3);
-    $("#company_model").val(data.company_model);
-    $("#company_model_2").val(data.company_model_2);
-    $("#company_model_3").val(data.company_model_3);
+    select_categories1.setValue(data.cat_interest_1);
+    select_categories2.setValue(data.cat_interest_2);
+    select_categories3.setValue(data.cat_interest_3);
+    getSubcategories1(data.subcat_interest_1);
+    getSubcategories2(data.subcat_interest_2);
+    getSubcategories3(data.subcat_interest_3);
+    select_model1.setValue(data.company_model);
+    select_model2.setValue(data.company_model_2);
+    select_model3.setValue(data.company_model_3);
   }
 
   /*
@@ -749,7 +743,6 @@
         $("#step_3_tab").addClass("active");
         $("#step_3").addClass("show active");
         $("#step_2").removeClass("active");
-        $("#step_3").removeClass("active");
         $("#step_4").removeClass("active");
         //Add class complete to tab 1
         $("#step_2_svg").hide();
@@ -758,7 +751,6 @@
         $("#step_3_title").show();
         $("#validate_progresss").css("width", "33%");
         $("#step_2").removeClass("show active");
-        $("#step_4").removeClass("show active");
 
         break;
       case 3:
@@ -775,7 +767,6 @@
         $("#validate_progresss").css("width", "53%");
         $("#step_3").removeClass("show active");
         $("#step_2").removeClass("show active");
-
         break;
 
       case 4:
@@ -793,10 +784,59 @@
         $("#step_5_title").show();
         $("#validate_progresss").css("width", "73%");
         $("#step_4").removeClass("show active");
+        $("#step_2").removeClass("show active");
+        break;
+      case 5:
+        window.location.href = "/user/login";
+    }
+  }
+
+  /*
+  * goback
+  */
+  function goBackInternational(step) {
+    switch (step) {
+      case 2:
+        $("#step_2_tab").addClass("active");
+        $("#step_2").addClass("show active");
+        $("#step_3_tab").removeClass("active");
+        //Add class complete to tab 1
+        $("#step_2_svg").show();
+        $("#step_2_title").show();
+        $("#check_step_2").hide();
+        $("#step_2_title").hide();
+        $("#validate_progresss").css("width", "13%");
+        $("#step_3").removeClass("show active");
+
+        break;
+      case 3:
+        $("#step_3_tab").addClass("active");
+        $("#step_3").addClass("show active");
+        $("#step_4_tab").removeClass("active");
+        //Add class complete to tab 1
+        $("#step_3_svg").show();
+        $("#step_3_title").show();
+        $("#check_step_3").hide();
+        $("#step_3_title").hide();
+        $("#validate_progresss").css("width", "33%");
+        $("#step_4").removeClass("show active");
+        break;
+
+      case 4:
+        $("#step_4_tab").addClass("active");
+        $("#step_4").addClass("show active");
+        $("#step_5_tab").removeClass("active");
+        //Add class complete to tab 1
+        $("#step_4_svg").show();
+        $("#step_4_title").show();
+        $("#check_step_4").hide();
+        $("#step_4_title").hide();
+        $("#validate_progresss").css("width", "53%");
+        $("#step_5").removeClass("show active");
         break;
     }
-
   }
+
 
   // **********************
   // *** Call functions ***
@@ -805,6 +845,7 @@
     attach: function (context, settings) {
       //if document is ready call init and check if production_chain is in dom
       if (context === document && $("#cat_interest_1").length > 0) {
+        
         init();
       }
       //call subcategory of selected category
@@ -832,6 +873,48 @@
       //call save step 5
       $("#save_buyer_4", context).click(function () {
         saveDataStep5();
+      });
+
+      //call goback step 3
+      $("#goback_buyer_3", context).click(function () {
+        goBackInternational(2);
+      });
+      //call goback step 4
+      $("#goback_buyer_4", context).click(function () {
+        goBackInternational(3);
+      });
+      //call goback step 5
+      $("#goback_buyer_5", context).click(function () {
+        goBackInternational(4);
+      });
+
+      //call cancel proccess 2
+      $("#cancel_buyer_2", context).click(function () {
+        cancelProcessInternational();
+      });
+      //call cancel proccess 3
+      $("#cancel_buyer_3", context).click(function () {
+        cancelProcessInternational();
+      });
+      //call cancel proccess 4
+      $("#cancel_buyer_4", context).click(function () {
+        cancelProcessInternational();
+      });
+      //call cancel proccess 5
+      $("#cancel_buyer_5", context).click(function () {
+        cancelProcessInternational();
+      });
+      //hide cancel
+      $("#hide_cancel_process_buyer", context).click(function () {
+        hideCancelProcessInternational();
+      });
+      // delete user
+      $("#delete_user_buyer", context).click(function () {
+        deleteUserInternational();
+      });
+      //go to login
+      $("#go_to_menu_buyer", context).click(function () {
+        goToMenuBuyer();
       });
     }
   };

@@ -19,81 +19,34 @@ class CpEditCompanyInternationalController extends ControllerBase
     public function index()
     {
         //List of terms to set a select field deparments.
-        $vid = 'locations';
+        $vid = 'categorization';
         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_deparment=[];
+        $tree_categorization=[];
         foreach ($terms as $term) {
-            array_push($tree_deparment, [
+            array_push($tree_categorization, [
                     "ID" => $term->tid,
                     "Name" => $term->name
                 ]
             );
         }
-        //List of terms to set a select field production_chain.
-        $vid = 'categories_flow_semaphore';
-        //load taxonomy_term storage.
-        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_production_chain=[];
-        foreach ($terms as $term) {
-            array_push($tree_production_chain, [
-                    "ID" => $term->tid,
-                    "Name" => $term->name
-                ]
-            );
-        }
-        //List of terms to set a select field modelos_de_negocio.
-        $vid = 'modelos_de_negocio';
-        //load taxonomy_term storage.
-        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_business_model=[];
-        foreach ($terms as $term) {
-            array_push($tree_business_model, [
-                    "ID" => $term->tid,
-                    "Name" => $term->name
-                ]
-            );
-        }
-        //List of terms to set a select field certificacion_de_empresa.
-        $vid = 'certificacion_de_empresa';
-        //load taxonomy_term storage.
-        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_certificacion_de_empresa=[];
-        foreach ($terms as $term) {
-            array_push($tree_certificacion_de_empresa, [
-                    "ID" => $term->tid,
-                    "Name" => $term->name
-                ]
-            );
-        }
-        //List of terms to set a select field countries.
-        $vid = 'countries';
-        //load taxonomy_term storage.
-        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_countries=[];
-       /*  foreach ($terms as $term) {
-            //get file_create_url of field_bandera.
-            $image = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_bandera')->getValue();
-            $file = File::load($image[0]['target_id']);
-            $file_url = file_create_url($file->getFileUri());
-            //get image of field_indicativo.
-            $indicativo = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_indicativo')->getValue();
-            array_push($tree_countries, [
-                    "ID" => $term->tid,
-                    "Name" => $term->name,
-                    "Image" => $file_url,
-                    "Indicativo" => $indicativo[0]['value']
-                ]
-            );
-        } */
+         //List of terms to set a select field modelos_de_negocio.
+         $vid = 'modelos_de_negocio';
+         //load taxonomy_term storage.
+         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+         $tree_business_model=[];
+         foreach ($terms as $term) {
+             array_push($tree_business_model, [
+                     "ID" => $term->tid,
+                     "Name" => $term->name
+                 ]
+             );
+         }
 
         return [
             // Your theme hook name.
             '#theme' => 'cp_edit_company_international_template_hook',
-            '#deparments' => $tree_deparment,
-            '#production_chain' => $tree_production_chain,
-            '#business_model' => $tree_business_model,
-            '#certificacion_de_empresa' => $tree_certificacion_de_empresa,
-            '#countries' => $tree_countries,
+            '#tree_categorization' => $tree_categorization,
+            '#tree_business_model' => $tree_business_model,
         ];
     }
 
@@ -107,34 +60,26 @@ class CpEditCompanyInternationalController extends ControllerBase
         if($user->isActive()){
             $data_user = [
                 'step' => $user->get('field_step')->value,
-                //get path and name of field_company_logo
-                'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
-                //get name of file
-                'company_logo_name' => $user->get('field_company_logo')->entity->getFilename(),
-                //get size of file
-                'company_logo_size' => $user->get('field_company_logo')->entity->getSize(),
+                'name' => $user->get('field_company_contact_name')->value,
+                'lastname' => $user->get('field_company_contact_lastname')->value,
                 'business_name' => $user->get('field_company_name')->value,
-                //get url field website and video youtube
-                'website' => $user->get('field_company_web_site')->uri,
-                'video' => $user->get('field_company_video_youtube')->uri,
-                'description_spanish' => $user->get('field_company_info')->value,
-                'description_english' => $user->get('field_company_info_english')->value,
-                'production_chain' => $user->get('field_productive_chain')->target_id,
-                'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
-                'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
-                'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
-                'departament' => $user->get('field_company_deparment')->target_id,
-                'ciudad' => $user->get('field_company_city')->target_id,
-                'modelo_de_negocio' => $user->get('field_company_model')->target_id,
-                'certification_business' => $user->get('field_company_certification')->target_id,
-                'contact_name' => $user->get('field_company_contact_name')->value,
-                'contact_lastname' => $user->get('field_company_contact_lastname')->value,
-                'contact_email' => $user->get('field_company_contact_email')->value,
-                'contact_position' => $user->get('field_company_contact_position')->value,
-                'contact_phone' => $user->get('field_company_contact_phone')->value,
-                'contact_cellphone' => $user->get('field_company_contact_cell_phone')->value,
+                'cellphone' => $user->get('field_company_contact_cell_phone')->value,
+                'email' => $user->get('mail')->value,
+                'position' => $user->get('field_company_contact_position')->value,
+                'web_site' => $user->get('field_company_web_site')->uri,
+                'city' => $user->get('field_company_city')->value,
+                'country' => $user->get('field_country')->value,
+                'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
+                'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
+                'company_model' => $user->get('field_company_model')->target_id,
+                'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
+                'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
+                'company_model_2' => $user->get('field_company_model_2')->target_id,
+                'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
+                'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
+                'company_model_3' => $user->get('field_company_model_3')->target_id,
             ];
-
+    
             return new JsonResponse(['status' => 200, 'data' => $data_user]);
         }else{
             return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
@@ -160,23 +105,22 @@ class CpEditCompanyInternationalController extends ControllerBase
         $data = $request->request->all();
         $uid = \Drupal::currentUser();
         $user = \Drupal\user\Entity\User::load($uid->id());
-        $user->set('field_productive_chain', $data['production_chain']);
-        $user->set('field_ciiu_principal', $data['principal_code_ciiu']);
-        $user->set('field_ciiu_secundario', $data['secondary_code_ciiu']);
-        $user->set('field_company_deparment', $data['departament']);
-        $user->set('field_company_city', $data['ciudad']);
-        $user->set('field_company_model', $data['modelo_de_negocio']);
-        
-        $file = $request->files->get('logo');
-        if(!empty($file)){
-            $file2 = file_get_contents($file);
-            //check if file2 is not empty
-            $user->set("field_company_logo", $this->saveFile($file2, $user->get('name')->value . '-logo.' . $file->getClientOriginalName(), 'public://logos/'));
-        }
+        $user->setPassword($data['password']);
+        $user->set("field_company_contact_name", $data['name']);
         $user->set("field_company_name", $data['business_name']);
-        $user->set("field_company_web_site", $data['website']);
-        $user->set("field_company_info", $data['description_business_spanish']);
-        $user->set("field_company_info_english", $data['description_business_english']);
+        $user->set("field_company_contact_lastname", $data['last_name']);
+        $user->set("field_company_contact_cell_phone", $data['cellphone']);
+        $user->set("field_company_contact_position", $data['position']);
+        $user->set("field_company_web_site", $data['web_site']);
+        $user->set("field_cat_interest_1", $data['cat_interest_1']);
+        $user->set("field_subcat_interest_1", $data['subcat_interest_1']);
+        $user->set("field_company_model", $data['company_model']);
+        $user->set("field_cat_interest_2", $data['cat_interest_2']);
+        $user->set("field_subcat_interest_2", $data['subcat_interest_2']);
+        $user->set("field_company_model_2", $data['company_model_2']);
+        $user->set("field_cat_interest_3", $data['cat_interest_3']);
+        $user->set("field_subcat_interest_3", $data['subcat_interest_3']);
+        $user->set("field_company_model_3", $data['company_model_3']);
         $user->save();
         return new JsonResponse(['status' =>  200]);
     }
