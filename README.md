@@ -1,5 +1,5 @@
 # MatchMaking Procolombia
-### v1.0.x
+### v1.1.x
 
 ## Arquitectura
 
@@ -33,7 +33,7 @@ Las siguiente pautas estaran dentro el criterio de aceptacion y ya vendran confi
 4.  Operadores
 5.  Concatenacion de cadenas.
 6.  Uso de comillas.
-7.  Uso de punto y coma(;) en codigo PHP.
+7.  Uso de punto y coma ;) en codigo PHP.
 8.  Estructuras de control.
 9.  Funciones.
 10. Clases.

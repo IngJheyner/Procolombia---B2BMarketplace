@@ -47,6 +47,9 @@ $font-black: Maven-Black;
 $font-regular-maven: Maven-Regular;
 $font-bold-maven: Maven-Bold;
 
+.layout-main-wrapper {
+  background-color: $color-White  !important;
+}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -130,10 +133,16 @@ input[type=checkbox]:checked:before {
 .ts-wrapper.single .ts-control input {
   cursor: pointer;
   font-size: 15px;
-  padding: 2px 0px !important;
-  border-color: #cccccc;
-  color: #000 !important;
-  width: 100% !important;
+  width: 100%;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 7px 20px !important;
+  color: #000000;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  box-shadow: rgb(0 0 0 / 2%) 0px 4px 12px;
+  font-family: Gothic-Regular;
 }
 
 .ts-wrapper.plugin-remove_button .item .remove {
@@ -319,6 +328,40 @@ div#main-wrapper {
 }
 
 .main_registre {
+  .header_title_buyer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-image: url("http://52.201.168.42/sites/default/files/2022-08/Registro-Banner-Comprador.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &::before {
+      background-color: #0000005e;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      transition: all 0.5s ease-out;
+      top: 0;
+
+    }
+
+    h1 {
+      font-family: $font-bold-maven;
+      font-size: 2.4rem;
+      color: $color-White;
+      text-align: center;
+      padding: 7rem 2rem;
+      position: relative;
+      text-transform: uppercase;
+      margin: 0px;
+      letter-spacing: 2px;
+    }
+
+  }
 
   .header_title {
     position: absolute;
@@ -533,10 +576,12 @@ div#main-wrapper {
 }
 
 .modal-header {
-  font-size: 22px;
-  color: $color-Gris-Oscuro;
-  font-family: $font-bold;
-  border-color: #00000033;
+  h5 {
+    font-size: 22px;
+    color: $color-Gris-Oscuro;
+    font-family: $font-bold;
+    border-color: #00000033;
+  }
 }
 
 .modal-title {
@@ -547,7 +592,8 @@ div#main-wrapper {
 
 #error_neo,
 #check_information,
-#success_modal {
+#success_modal,
+#success_modal_international {
   p {
     font-family: $font-regular;
     font-size: 16px;
@@ -661,8 +707,14 @@ div#main-wrapper {
   font-family: $font-bold;
 }
 
+strong {
+  font-family: $font-bold;
+}
+
 .btn_options {
-  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
 
   .yes {
     background-color: $color-Pantone-116-C;
@@ -670,7 +722,9 @@ div#main-wrapper {
     font-family: $font-bold;
     border: none;
     border-radius: 4px;
-    padding: 0.4rem 1rem;
+    padding: 0.6rem 1rem;
+    line-height: normal;
+    height: 100%;
 
     &:hover {
       color: $color-White;
@@ -681,7 +735,9 @@ div#main-wrapper {
 
   .no {
     border-radius: 4px;
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0.6rem;
+    line-height: normal;
+    height: 100%;
     margin-left: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;
@@ -714,7 +770,7 @@ div#main-wrapper {
 
   .step_content {
     padding: 2rem;
-   
+
     .validate {
       margin: 1rem 32% !important;
       height: 5px;
@@ -969,10 +1025,12 @@ div#main-wrapper {
 
   .step_content {
     padding: 2rem;
+
     .validate_buyer {
       margin: 1rem 11% !important;
       height: 5px;
     }
+
     .validate {
       margin: 1rem 32% !important;
       height: 5px;
@@ -1210,6 +1268,7 @@ div#main-wrapper {
 
   }
 }
+
 #logo_name {
   background-image: url("http://52.201.168.42/sites/default/files/2022-08/Icono_file-image.svg");
   background-repeat: no-repeat;
@@ -1482,12 +1541,19 @@ div#main-wrapper {
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
-
+  .header_title_buyer h1 {
+    padding: 5rem 2rem !important;
+  }
+  .header_title h1 {
+    padding: 5rem 2rem !important;
+  }
   .container,
   .container-sm {
     max-width: 100% !important;
   }
-
+  .header_title_buyer h1 {
+    padding: 5rem 2rem;
+  }
   .title_tab {
     font-family: $font-bold;
     font-size: 19px !important;
@@ -1531,7 +1597,7 @@ div#main-wrapper {
       margin-top: 17rem;
     }
 
-    .header_title h1 {
+    .header_title_buyer h1 {
       padding: 5rem 2rem;
     }
 
@@ -1629,7 +1695,12 @@ div#main-wrapper {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767.98px) {
-
+  .header_title_buyer h1 {
+    padding: 5rem 2rem !important;
+  }
+  .header_title h1 {
+    padding: 5rem 2rem !important;
+  }
   .container,
   .container-sm {
     max-width: 90% !important;
@@ -1727,7 +1798,12 @@ div#main-wrapper {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991.98px) {
-
+  .header_title_buyer h1 {
+    padding: 5rem 2rem !important;
+  }
+  .header_title h1 {
+    padding: 5rem 2rem !important;
+  }
   .sub-header,
   .pt-6,
   .btn_header {

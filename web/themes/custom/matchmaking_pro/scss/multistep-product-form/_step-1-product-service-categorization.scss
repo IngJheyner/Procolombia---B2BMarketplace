@@ -1,0 +1,74 @@
+.cp-core-multistep-form.step_1{
+    label{
+        @include label-style;
+    }
+    .js-form-item-field-product-type{
+        margin-top: 0;
+        .sumo_field_product_type{
+            li:hover{
+                label{
+
+                    background-color: $procol-dark-blue;
+                }
+            }
+        }
+        label.js-form-required{
+            color:  $procol-gray-400;
+            font-family: $font-family-Century-Gothic;
+
+        }
+        @include media-breakpoint-down(md){
+            margin-top: 0;
+        }
+        label{
+            position: static;
+            height: auto;
+            &#edit-field-file-0--label,
+            &#edit-field-file-en-0--label {
+            position: relative;
+            left: 0;
+            }
+        }
+    }
+    .js-form-type-textfield{
+        @include media-breakpoint-down(md){
+            margin-top: 0;
+        }
+    }
+
+    .information-step-1 {
+        width: 100%;
+        h2{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: $font-family-Century-Gothic;
+            margin-bottom: 0;
+        }
+    }
+    .field--type-string-long,
+    .js-form-type-textarea{
+        margin-bottom: 0 !important;
+    }
+    .js-form-type-managed-file{
+        margin-top: 0;
+        label{
+            position: static;
+            height: auto;
+            padding-bottom: 0;
+        }
+        .js-form-managed-file.form-managed-file{
+            padding-top: 8px;
+        }
+        small{
+            max-height: 38px;
+            overflow: hidden;
+        }
+    }
+
+    #edit-footer-form #edit-actions {
+        justify-content: flex-end;
+        #edit-previous{
+            display: none;
+        }    
+    }
+}

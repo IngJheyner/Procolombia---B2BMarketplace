@@ -9,10 +9,14 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
-
-
+        // $(function () {
+        //   $('[data-toggle="tooltip"]').tooltip()
+        //   })
+        $(function() {
+          $('.tooltip-form-mstep').tooltip({placement: 'right'});
+        });
         //Cargar modales
-        $(context).find('body').once('.cp-core-multistep-form').each(function () {
+        $(context).find('body').once('.cp-core-multistep-form').each(function () {    
           //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect();
           $('#edit-field-categorization-parent').SumoSelect();
@@ -28,6 +32,7 @@
 
           //Creación Variables del legal modal
           let modalFirstStep = document.getElementById('generic-modal-legal-modal');
+            modalFirstStep.classList.remove('autoload');
           if (modalFirstStep) {
             let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
             const btnCloseFirstSt = document.querySelector('.close');
@@ -40,7 +45,6 @@
             }
             //Cargar modal primer paso cuando el formulario se abre la primera vez
             document.addEventListener('load', function(e) {
-              showFirstStepModal.show();
                 //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
                 if(window.location.hash !== "#cp-core-multistep-form" ) {
                     showFirstStepModal.show();

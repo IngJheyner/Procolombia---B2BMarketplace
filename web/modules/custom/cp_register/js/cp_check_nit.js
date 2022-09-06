@@ -40,7 +40,7 @@
     }
 
     if (email == "" || !isEmail(email)) {
-      message = "El email es requerido y debe ser un email válido";
+      message = Drupal.t("Email is required and must be a valid email address.");
       $("#email").css("border-color", "#ba0c2f");
       $("#error_mail").show();
       $("#error_mail_message").text(message)

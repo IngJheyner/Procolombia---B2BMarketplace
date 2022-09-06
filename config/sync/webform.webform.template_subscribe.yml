@@ -14,7 +14,7 @@ uid: null
 template: true
 archive: false
 id: template_subscribe
-title: Subscribe
+title: Suscribirse
 description: 'A subscribe to mailing list webform template.'
 category: ''
 elements: |
@@ -219,7 +219,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

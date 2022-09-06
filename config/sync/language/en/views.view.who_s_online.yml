@@ -1,30 +1,28 @@
-label: 'Who''s online block'
-description: 'Shows the user names of the most recently active users, and the total number of active users.'
+label: 'Bloque de usuarios conectados'
+description: 'Muestra los nombres de los usuarios de los usuarios activos más recientemente, y el número total de usuarios activos.'
 display:
   default:
-    display_title: Default
+    display_title: 'Por defecto'
     display_options:
-      title: 'Who''s online'
+      title: 'Quién está conectado'
       exposed_form:
         options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
       empty:
         area_text_custom:
-          content: 'There are currently 0 users online.'
+          content: 'Actualmente hay 0 usuarios en línea.'
       filters:
         access:
           expose:
-            label: 'Last access'
-            description: 'A user is considered online for this long after they have last viewed a page.'
+            label: 'Último acceso'
+            description: 'Un usuario se considera conectado si ha transcurrido este tiempo o menos desde su última visita a una página.'
       header:
         result:
-          content: 'There are currently @total users online.'
+          content: 'Actualmente hay @total usuarios en línea.'
   who_s_online_block:
-    display_title: 'Who''s online'
+    display_title: 'Quién está conectado'
     display_options:
-      display_description: 'A list of users that are currently logged in.'
-      block_description: 'Who''s online'
+      display_description: 'Una lista de los usuarios que actualmente están logueados.'
+      block_description: 'Quién está conectado'
