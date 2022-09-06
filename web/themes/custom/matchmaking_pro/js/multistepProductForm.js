@@ -31,12 +31,12 @@
           $(textCurrent).clone().appendTo(".cp-core-node-multistep-sidebar");
 
           //Creación Variables del legal modal
-          let modalFirstStep = document.getElementById('generic-modal-legal-modal');
-            modalFirstStep.classList.remove('autoload');
+          let modalFirstStep = document.querySelector('.step_1 .legal-modal');
+          
           if (modalFirstStep) {
             let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
             const btnCloseFirstSt = document.querySelector('.close');
-
+            modalFirstStep.classList.remove('autoload');
             hideModal(btnCloseFirstSt,showFirstStepModal)
             function hideModal(btn, modal){
               btn.addEventListener('click',()=>{

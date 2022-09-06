@@ -103,11 +103,13 @@
     //Estilos modal footer
     &.save-publish-question-modal,
     &.cancel-confirm-question-modal,
-    &.add-other-question-modal{
+    &.add-other-question-modal,
+    &.save-publish-correct-modal{
         background-color: rgba(0,0,0,0.5);
         .modal-footer{
             justify-content: space-between;
             padding-left: 25px;
+            background-color: $white;
             .modal-footer-left{
                 font-weight: bold;
                 font-size: 14px;
@@ -124,7 +126,9 @@
             }
         }
     }
-
-    
-
+    &.save-publish-correct-modal{
+        .modal-footer .modal-footer-right .button.btn-ok{
+            @include blue-btn;
+        }
+    }
 }
