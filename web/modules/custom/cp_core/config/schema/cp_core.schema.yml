@@ -1,0 +1,86 @@
+cp_core.notifications:
+  type: config_object
+  label: 'CP Core: notifications'
+  mapping:
+
+    product_seller_publish_mail_active:
+      type: mail
+      label: 'Post products or services'
+    product_seller_publish_mail:
+      type: mail
+      label: 'Post products or services'
+
+    product_seller_edit_mail_active:
+      type: boolean
+      label: 'Active'
+    product_seller_edit_mail:
+      type: mail
+      label: 'Edition of products or services'
+
+    product_seller_approbation_mail_active:
+      type: boolean
+      label: 'Active'
+    product_seller_approbation_mail:
+      type: mail
+      label: 'Approval of company products or services'
+
+    product_seller_reject_mail_active:
+      type: boolean
+      label: 'Active'
+    product_seller_reject_mail:
+      type: mail
+      label: 'Rejection of company products or services'
+
+    company_seller_approbation_mail_active:
+      type: boolean
+      label: 'Active'
+    company_seller_approbation_mail:
+      type: mail
+      label: 'Approval of the company profile (Seller)'
+
+    company_seller_reject_mail_active:
+      type: boolean
+      label: 'Active'
+    company_seller_reject_mail:
+      type: mail
+      label: 'Rejection of the company profile (Seller)'
+
+    verification_seller_token_mail_active:
+      type: boolean
+      label: 'Active'
+    verification_seller_token_mail:
+      type: mail
+      label: 'Token Verification (Seller)'
+
+    company_buyer_approbation_mail_active:
+      type: boolean
+      label: 'Active'
+    company_buyer_approbation_mail:
+      type: mail
+      label: 'Approval of the company profile (Buyer)'
+
+    company_buyer_reject_mail_active:
+      type: boolean
+      label: 'Active'
+    company_buyer_reject_mail:
+      type: mail
+      label: 'Rejection of the company profile (Buyer)'
+
+   verification_buyer_token_mail_active:
+      type: boolean
+      label: 'Active'
+    verification_buyer_token_mail:
+      type: mail
+      label: 'Token Verification (Buyer)'
+
+    daily_activity_mail_active:
+      type: boolean
+      label: 'Active'
+    daily_activity_mail_hour:
+      type: boolean
+      label: 'Hour'
+    daily_activity_mail:
+      type: mail
+      label: 'Daily activity (Moderator)'
+
+

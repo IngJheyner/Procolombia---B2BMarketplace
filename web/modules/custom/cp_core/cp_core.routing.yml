@@ -199,3 +199,11 @@ cp_core.company_toggle_published:
     parameters:
       node:
         type: entity:node
+
+cp_core.notifications:
+  path: 'admin/config/people/notifications-settings'
+  defaults:
+    _form: '\Drupal\cp_core\Form\CpCoreNotificationsSettings'
+    _title: 'Buyer Register'
+  requirements:
+    _permission: 'access content'

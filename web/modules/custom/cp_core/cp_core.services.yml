@@ -4,3 +4,6 @@ services:
     arguments: []
     tags:
       - {name: event_subscriber}
+  cp_core_send_mail_helper:
+    class: Drupal\cp_core\CpCoreSendMailHelper
+    arguments: ['@config.factory', '@module_hanlder''@plugin.manager.mail', '@language_manager', '@logger.factory']
