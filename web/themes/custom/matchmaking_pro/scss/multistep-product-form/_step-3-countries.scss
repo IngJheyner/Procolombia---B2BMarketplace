@@ -6,6 +6,7 @@
                 padding: 0 50px;
                 border-right: 1px solid #D8DADD;
                 margin-bottom: 0 !important;
+                padding-bottom: 18px; 
                 @include media-breakpoint-down(xl){
                     padding: 0 25px;
                 }
@@ -20,6 +21,9 @@
     .group-left.step-3{
         display: flex;
         flex-direction: column;
+        .field--name-field-pr-type-certifications{
+            margin-bottom: 20px !important;
+        }
     }
     .group-right.step-3{
         justify-content: space-between;
@@ -75,14 +79,17 @@
                 }
             }
         }
+        
         .field--name-field-pr-country{
+            flex-grow: 1;            
             details{
+                margin-top: 0;
                 border: none;
                 summary{
                     list-style: none;
                     font-size: 14px;
                     font-weight: bold;
-                    padding-bottom: 10px;
+                    padding: 0 7px 10px 0;
                 }
             }
             .details{
@@ -151,6 +158,13 @@
         .field--type-multilingual-form-display{
             display: none;
         }
+        
+        .field--name-field-pr-sales-channel{
+            .js-form-item{
+               margin-top: 0;
+            }
+        }
+        
     }
     .select2-selection--single{
         height: 35px;
@@ -163,4 +177,13 @@
         background-color: $procol-dark-blue !important;
         color: $white;
     }
+
+    #edit-field-pr-sales-channel-wrapper,
+    .js-form-item-field-pr-product-availability,
+    #edit-field-pr-certifications-wrapper,
+    .field--widget-entity-browser-entity-reference,
+    #edit-field-pr-target-market-wrapper,
+    .js-form-item-field-pr-target-market {
+        margin-bottom: 0 !important;
+        }
 }

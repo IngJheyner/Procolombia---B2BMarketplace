@@ -140,6 +140,10 @@
             overflow: hidden;
         }
     }
+    .lightbulb-tooltip{
+        @include lightbulb-tooltip;
+    }
+
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
@@ -271,6 +275,8 @@
                 overflow: hidden;
                 background-position-x: 10px;
                 padding-left: 35px;
+                margin-top: 0;
+                align-items: center
                }
                 button{
                     @include remove-files;
@@ -345,6 +351,7 @@
         justify-content: flex-end;
         align-items: flex-end;
         padding: 0 50px;
+        position: relative;
         #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
             }

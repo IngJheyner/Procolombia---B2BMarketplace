@@ -9,12 +9,12 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
-
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-
+        // $(function () {
+        //   $('[data-toggle="tooltip"]').tooltip()
+        //   })
+        $(function() {
+          $('.tooltip-form-mstep').tooltip({placement: 'right'});
+        });
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {    
           //Uso de Sumo select para personlizar campos tipo select
