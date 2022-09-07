@@ -1,0 +1,48 @@
+cp_auth_service.render:
+  requirements:
+    _permission: "access content"
+
+###login_form route
+cp_auth_service.login_form:
+  path: "auth/login/form"
+  defaults:
+    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::login_form'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###userLoginFinalize route
+cp_auth_service.userLoginFinalize:
+  path: "auth/userLoginFinalize"
+  defaults:
+    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::userLoginFinalize'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+    
+###recover_password_form route
+cp_auth_service.recover_password_form:
+  path: "auth/recover/password"
+  defaults:
+    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::recover_password_form'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###change_password_form route
+cp_auth_service.change_password_form:
+  path: "auth/change/password"
+  defaults:
+    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::change_password_form'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###get_email route
+cp_auth_service.get_email:
+  path: "auth/get/email"
+  defaults:
+    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::get_email'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"

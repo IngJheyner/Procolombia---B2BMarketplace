@@ -1,4 +1,5 @@
-label: 'Por defecto'
+label: Default
 options:
   settings:
-    prevArrow: Anterior
+    prevArrow: Previous
+    nextArrow: Next

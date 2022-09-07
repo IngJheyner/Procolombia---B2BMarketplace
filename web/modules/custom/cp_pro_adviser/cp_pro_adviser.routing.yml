@@ -1,0 +1,41 @@
+cp_pro_adviser.render:
+  requirements:
+    _permission: "access content"
+
+# pre_register routes
+
+###Index route
+cp_pro_adviser.dashboard:
+  path: "dashboard/adviser/user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.tablero:
+  path: "tablero/adviser/usuario"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.review:
+  path: "review/adviser/user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.revisar:
+  path: "revisar/adviser/usuario"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"

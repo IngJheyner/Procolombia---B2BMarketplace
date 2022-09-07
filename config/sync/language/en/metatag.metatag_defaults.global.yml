@@ -1,3 +1,6 @@
 tags:
   abstract: 'Colombia has exactly what its customer needs. Discover unique goods and services of Colombian origin in the Colombian B2B Marketplace. Enter here!'
   description: 'Colombia has exactly what its customer needs. Discover unique goods and services of Colombian origin in the Colombian B2B Marketplace. Enter here!'
+  canonical_url: '[current-page:url]'
+  title: '[current-page:title] | [site:name]'
+label: Global

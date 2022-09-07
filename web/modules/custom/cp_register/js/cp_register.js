@@ -75,37 +75,18 @@
       }
     });
 
-    new TomSelect('#country_code_landline', {
-      create: false,
-      // use method disable()
-      render: {
-        option: function (data, escape) {
-          return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-        },
-        item: function (item, escape) {
-          return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-        }
-      }
-    })
 
-    new TomSelect('#country_code_mobile', {
-      create: false,
-      // use method disable()
-      render: {
-        option: function (data, escape) {
-          return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
-        },
-        item: function (item, escape) {
-          return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
-        }
-      },
-    })
+    const phoneInputField = document.querySelector("#country_code_landline");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      initialCountry: "co",
+      separateDialCode: true,
+    });
 
-    document.getElementById("country_code_landline-ts-control").disabled = true;
-    document.getElementById("country_code_mobile-ts-control").disabled = true;
-    $("#country_code_landline-ts-control").attr('style', 'display: none !important');
-    $("#country_code_mobile-ts-control").attr('style', 'display: none !important');
-
+    const phoneInputField2 = document.querySelector("#country_code_mobile");
+    const phoneInput2 = window.intlTelInput(phoneInputField2, {
+      initialCountry: "co",
+      separateDialCode: true,
+    });
 
     $("#nit").val(NIT);
     //get data neo
@@ -339,7 +320,7 @@
     var isValid = true;
     if (logo == undefined) {
       message =
-      Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
       $("#logo_input").css("border-color", "#ba0c2f");
       $("#logo_name").css("border-color", "#ba0c2f");
       $("#error_logo_message").text(message)
@@ -353,7 +334,7 @@
       var fileExtension = fileName.split(".").pop();
       if (fileExtension != "png" && fileExtension != "jpg") {
         message =
-        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
         $("#logo_input").css("border-color", "#ba0c2f");
         $("#logo_name").css("border-color", "#ba0c2f");
         $("#error_logo_message").text(message)
@@ -365,7 +346,7 @@
       } else {
         if (fileSize > 2000000) {
           message =
-          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
           $("#logo_input").css("border-color", "#ba0c2f");
           $("#logo_name").css("border-color", "#ba0c2f");
           $("#error_logo_message").text(message)
@@ -377,7 +358,7 @@
         } else {
           if (logo.width > 200 || logo.height > 200) {
             message =
-            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+              Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
             $("#logo_input").css("border-color", "#ba0c2f");
             $("#logo_name").css("border-color", "#ba0c2f");
             $("#error_logo_message").text(message)
@@ -407,7 +388,7 @@
     } else {
       if (business_name.length > 100) {
         message =
-        Drupal.t("The company name cannot be longer than 100 characters.");
+          Drupal.t("The company name cannot be longer than 100 characters.");
         $("#business_name").css("border-color", "#ba0c2f");
         $("#error_business_name_message").text(message)
         $("#error_business_name").show();
@@ -469,7 +450,7 @@
       $("#error_password").show();
       isValid = false;
     } else {
-      if (password.length < 8) {
+      if (password.length < 8 && password.length > 15) {
         message = Drupal.t("The password must be between 8 and 15 characters long");
         $("#password").css("border-color", "#ba0c2f");
         $("#error_password_message").text(message)
@@ -495,7 +476,7 @@
           } else {
             if (!password.match(/[^a-zA-Z0-9]/)) {
               message =
-              Drupal.t("The password must have at least one special character");
+                Drupal.t("The password must have at least one special character");
               $("#password").css("border-color", "#ba0c2f");
               $("#error_password_message").text(message)
               $("#error_password").show();
@@ -540,7 +521,7 @@
     } else {
       if (description_business_spanish.length > 1000) {
         message =
-        Drupal.t("The Spanish description must be less than 1000 characters");
+          Drupal.t("The Spanish description must be less than 1000 characters");
         $("#description_business_spanish").css("border-color", "#ba0c2f");
         $("#error_description_business_spanish_message").text(message)
         $("#error_description_business_spanish").show();
@@ -560,7 +541,7 @@
     } else {
       if (description_business_english.length > 1000) {
         message =
-        Drupal.t("The English description must be less than 1000 characters");
+          Drupal.t("The English description must be less than 1000 characters");
         $("#description_business_english").css("border-color", "#ba0c2f");
         $("#error_description_business_english_message").text(message)
         $("#error_description_business_english").show();
@@ -898,7 +879,7 @@
     } else {
       if (position_spanish.length > 50) {
         message =
-        Drupal.t("The position in Spanish must be no longer than 50 characters");
+          Drupal.t("The position in Spanish must be no longer than 50 characters");
         $("#position_spanish").css("border-color", "#ba0c2f");
         $("#error_position_spanish_message").text(message)
         $("#error_position_spanish").show();
@@ -921,7 +902,7 @@
     } else {
       if (position_english.length > 50) {
         message =
-        Drupal.t("The English position must be no longer than 50 characters");
+          Drupal.t("The English position must be no longer than 50 characters");
         $("#position_english").css("border-color", "#ba0c2f");
         $("#error_position_english_message").text(message)
         $("#error_position_english").show();
@@ -955,7 +936,7 @@
     } else {
       if (landline.length > 20) {
         message =
-        Drupal.t("The phone line must not be longer than 20 characters");
+          Drupal.t("The phone line must not be longer than 20 characters");
         $("#landline").css("border-color", "#ba0c2f");
         $("#error_landline").show();
         $("#error_landline")
@@ -998,8 +979,8 @@
         ;
       isValid = false;
     } else {
-      if (mobile.length > 20) {
-        message = Drupal.t("The cell phone must not be longer than 20 characters");
+      if (mobile.length > 10) {
+        message = Drupal.t("The cell phone must not be longer than 10 characters");
         $("#mobile").css("border-color", "#ba0c2f");
         $("#error_mobile").show();
         $("#error_mobile")
@@ -1307,7 +1288,7 @@
     attach: function (context, settings) {
 
       //if document is ready call init and check if production_chain is in dom
-      if (context === document &&  $("#production_chain").length > 0) {
+      if (context === document && $("#production_chain").length > 0) {
         init();
       }
       //call function openInputFile

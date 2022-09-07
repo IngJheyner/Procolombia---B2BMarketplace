@@ -46,10 +46,10 @@ msgid "I have read and accept the"
 msgstr "He leído y acepto la"
 
 msgid "Terms of use"
-msgstr "Términos y Condiciones de uso"
+msgstr "Política de términos y Condiciones de uso"
 
 msgid "Personal data processing policy"
-msgstr "Tratamiento de datos personales"
+msgstr "Política tratamiento de datos personales"
 
 msgid "CANCEL"
 msgstr "CANCELAR"
@@ -96,10 +96,10 @@ msgstr "Cuenta existente"
 msgid "The consulted company already has a registered user,"
 msgstr "La empresa consultada ya tiene un usuario registrado,"
 
-msgid "please login."
+msgid "please login"
 msgstr "por favor, inicie sesión"
 
-msgid "Login."
+msgid "Login"
 msgstr "iniciar sesión"
 
 msgid "Cancel process."
@@ -118,7 +118,7 @@ msgid "is about to be cancelled."
 msgstr "está a punto de ser cancelado."
 
 msgid "Would you like to continue?"
-msgstr "¿Quiere continuar?"
+msgstr "¿Desea continuar?"
 
 msgid "YES"
 msgstr "SI"
@@ -262,7 +262,7 @@ msgid "Cell Phone"
 msgstr "Celular"
 
 msgid "Keep the following in mind!"
-msgstr "Tenga en cuenta lo siguiente!"
+msgstr "!Tenga en cuenta lo siguiente!"
 
 msgid "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."
 msgstr "La información rellenada en estos campos se utilizará para enviar todas las notificaciones que surjan en general de la plataforma y se enviará como contacto comercial a los compradores internacionales interesados en los productos o servicios de la empresa."
@@ -431,3 +431,202 @@ msgstr "El correo electrónico es obligatorio"
 
 msgid "Email is required"
 msgstr "La dirección de correo electrónico no es válida"
+
+msgid "You must register the trade name of the company, which is the name by which your company is recognized; it may or may not be the same company name."
+msgstr "Debe registrar el nombre comercial de la empresa, que es el nombre por el que se reconoce a su empresa; puede ser o no el mismo nombre de la empresa."
+
+msgid "Enter the institutional e-mail address where correspondence from this web site will be sent."
+msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web."
+
+msgid "Preferred language"
+msgstr "Idioma de preferencia"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Your company is not registered as a ProColombia account. To be attended by an advisor you must"
+msgstr "Su empresa no se encuentra registrada como cuenta ProColombia. Para ser atendido por un asesor se"
+
+msgid "you must request an appointment online."
+msgstr "debe solicitar cita previa de manera virtual."
+
+msgid "In this space, you will be able to solve your foreign trade concerns and learn about ProColombia's different services to take advantage of the opportunities that the international market offers."
+msgstr "En este espacio, usted podrá solucionar sus inquietudes de comercio exterior y conocer los diferentes servicios de ProColombia para aprovechar las oportunidades que el mercado internacional ofrece."
+
+msgid "Request an Appointment"
+msgstr "Solicitar Cita"
+
+msgid "REQUEST APPOINTMENT"
+msgstr "SOLICITAR CITA"
+
+msgid "To continue with the registration process, please validate your e-mail account where you will receive an e-mail with a verification link."
+msgstr "Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico donde recibirá un e-mail con un link de verificación"
+
+msgid "The consulted company already has a registered user, please"
+msgstr "La empresa consultada ya cuenta con un usuario registrado, por favor"
+
+msgid "Please login"
+msgstr "Inicie sesión"
+
+msgid "The process is about to be cancelled"
+msgstr "Está a punto de cancelar el proceso"
+
+msgid "Colombian Company Registration"
+msgstr "Registro Empresa Colombiana"
+
+msgid "International Company Registration"
+msgstr "Registro Empresa Internacional"
+
+msgid "Do you want to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "Configure your buyer profile for free"
+msgstr "Configure su perfil de comprador gratuitamente"
+
+msgid "Personal Data Registration"
+msgstr "Registro de Datos Personales"
+
+msgid "Profile Settings"
+msgstr "Configuración del Perfil"
+
+msgid "Products of interest #1"
+msgstr "Productos de interés #1"
+
+msgid "Products of interest #2"
+msgstr "Productos de interés #2"
+
+msgid "Products of interest #3"
+msgstr "Productos de interés #3"
+
+msgid "Country"
+msgstr "País"
+
+msgid "United States"
+msgstr "Estados Unidos"
+
+msgid "Please include the name of your position within the company."
+msgstr "Por favor incluya el nombre del cargo que desempeña dentro de la empresa."
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Company website"
+msgstr "Sitio Web de la compañía"
+
+msgid "Please include the complete URL starting with http or https."
+msgstr "Por favor incluir la URL completa iniciando con http o https."
+
+msgid "Select the ProColombia advisor with whom your company has a defined work plan."
+msgstr "Seleccione el asesor de ProColombia con quien su empresa tiene su plan de trabajo definido."
+
+msgid "I am interested in..."
+msgstr "Estoy interesado en…"
+
+msgid "Particularly in..."
+msgstr "Particularmente en…"
+
+msgid "Tariff Item"
+msgstr "Partida Arancelaria"
+
+msgid "Tariff Item No.2"
+msgstr "Partida Arancelaria No.2"
+
+msgid "Tariff Item No.3"
+msgstr "Partida Arancelaria No.3"
+
+msgid "NOTE:"
+msgstr "NOTA:"
+
+msgid "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."
+msgstr "A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes."
+
+msgid "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."
+msgstr "Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó."
+
+msgid "Contact Information"
+msgstr "Información de Contacto"
+
+msgid "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."
+msgstr "La información diligenciada en estos campos es la que será utilizada para enviar todas las notificaciones que surjan en general de la plataforma y será enviada como contacto comercial a los compradores internacionales interesados en los productos o servicios de la empresa."
+
+msgid "Your profile as an exporting company of"
+msgstr "Su perfil como Empresa exportadora de"
+
+msgid "is in pending status for approval by ProColombia. Your advisor will contact you in case there is any observation about the information registered."
+msgstr "se encuentra en estado pendiente por aprobación por parte de ProColombia. Su asesor se contactará con usted en caso de que exista alguna observación sobre la información registrada."
+
+msgid "Configure your international buyer profile for free."
+msgstr "Configure su perfil de comprador internacional gratuitamente."
+
+msgid "REGISTER AS AN INTERNATIONAL BUYER"
+msgstr "REGISTRARSE COMO COMPRADOR INTERNACIONAL"
+
+msgid "REGISTER TO HAVE THE COLOMBIAN OFFER JUST A CLICK AWAY"
+msgstr "REGÍSTRESE PARA TENER LA OFERTA COLOMBIANA AL ALCANCE DE UN CLIC"
+
+msgid "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."
+msgstr "Regístrese en el Catálogo de Exportación de Colombia para ampliar su oferta a Encuentre todos los productos y servicios de origen colombiano para satisfacer sus necesidades de abastecimiento. Filtrar y descubrir productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guardar fácilmente los filtros de búsqueda y recibir notificaciones de los nuevos productos añadidos al Mercado B2B de ProColombia."
+
+
+msgid "Name is required"
+msgstr "El nombre es requerido"
+
+msgid "The name cannot be longer than 20 characters"
+msgstr "El nombre no puede tener mas de 20 caracteres"
+
+msgid "Last name is required"
+msgstr "El apellido es requerido"
+
+msgid "The last name cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "Email is required and must be a valid email address"
+msgstr "El email es requerido y debe ser un email válido"
+
+msgid "The email is invalid"
+msgstr "El email no es válido"
+
+msgid "The cell phone must be a number"
+msgstr "El celular debe ser un número"
+
+msgid "The cell phone must not have more than 10 digits"
+msgstr "El celular no debe tener mas 10 digitos"
+
+msgid "Company is required"
+msgstr "La compañia es requerida"
+
+msgid "The company cannot be longer than 100 characters"
+msgstr "La compañia no puede tener mas de 100 caracteres"
+
+msgid "Password is required"
+msgstr "La contraseña es requerida"
+
+msgid "The password must be between 8 and 15 characters long"
+msgstr "El password debe tener entre 8 y 15 caracteres"
+
+msgid "The password must have at least one capital letter"
+msgstr "El password debe tener al menos una mayúscula"
+
+msgid "The password must have at least one number"
+msgstr "La contraseña debe tener al menos un número"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Verify password field is required"
+msgstr "El campo verificar contraseña es requerido"
+
+msgid "The field verify password and Password must be the same"
+msgstr "El campo verificar contraseña y Contraseña deben ser iguales"
+
+msgid "The language field is required"
+msgstr "El campo lenguaje es requerido"
+
+msgid "You must accept the privacy policy"
+msgstr "Debe aceptar las políticas de privacidad"
+
+msgid "You must accept the terms of use"
+msgstr "Debe aceptar las condiciones de uso"
