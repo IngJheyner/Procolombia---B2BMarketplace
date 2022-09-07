@@ -295,7 +295,7 @@
         $("#error_web_site").show();
         isValid = false;
       } else {
-        $("#web_site .ts-control").css("border-color", "#ccc");
+        $("#web_site").css("border-color", "#ccc");
         $("#error_web_site").hide();
       }
     }

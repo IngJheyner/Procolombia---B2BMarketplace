@@ -87,7 +87,7 @@ div#main {
   font-size: 16px;
   font-family: "Gothic-Bold";
   margin: 0px;
-  line-height: normal;
+  line-height: 2em;
 }
 .dashboard .title_card_content .contenido {
   display: flex;
@@ -159,7 +159,7 @@ div#main {
   font-size: 16px;
   font-family: "Gothic-Bold";
   margin: 0px;
-  line-height: normal;
+  line-height: 2em;
 }
 .dashboard .modal-body .content .contenido {
   display: flex;

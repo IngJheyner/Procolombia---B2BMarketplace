@@ -78,13 +78,13 @@
 
     const phoneInputField = document.querySelector("#country_code_landline");
     const phoneInput = window.intlTelInput(phoneInputField, {
-      initialCountry: "af",
+      initialCountry: "co",
       separateDialCode: true,
     });
 
     const phoneInputField2 = document.querySelector("#country_code_mobile");
     const phoneInput2 = window.intlTelInput(phoneInputField2, {
-      initialCountry: "af",
+      initialCountry: "co",
       separateDialCode: true,
     });
 

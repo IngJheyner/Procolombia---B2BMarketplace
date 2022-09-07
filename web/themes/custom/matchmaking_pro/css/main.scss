@@ -1245,8 +1245,21 @@ div#page {
 	display: none;
 }
 
+.input_error {
+	margin-bottom: 21px;
+}
+
+#error_password,
+#error_username,
+#error_nit {
+	display: none;
+	color: $color-Pantone-200;
+}
+
 .form {
 	position: relative;
+	display: flex;
+	align-items: center;
 
 	.input-group {
 		border: 1px solid #ccc;
@@ -1296,6 +1309,9 @@ div#page {
 		font-family: $font-bold;
 	}
 
+	
+
+
 	span.input-group-text {
 		background: #fff;
 		border: none;
@@ -1312,6 +1328,21 @@ div#page {
 
 	}
 
+
+}
+.single {
+
+	left: 13px !important;
+
+}
+.button_modal {
+	margin: 0px;
+	border: none;
+	background: transparent;
+	color: $color-Pantone-process-Blue;
+	width: 100%;
+	text-align: end;
+	padding: 7px 0px;
 
 }
 
@@ -1331,13 +1362,27 @@ div#page {
 
 #login_modal .modal-dialog {
 	width: 520px !important;
-    min-width: 520px !important;
+	min-width: 520px !important;
 }
 
 sup {
 	color: $color-Pantone-200;
 	font-family: $font-bold;
 }
+
+.cita_btn {
+	border-radius: 4px;
+	background-color: $color-Pantone-116-C;
+	color: $color-White;
+	font-family: $font-bold;
+	font-size: 14px;
+
+	i {
+		margin-right: 7px;
+	}
+}
+
+
 
 .login_body {
 	padding: 0px 30px 38px 30px !important;
@@ -1355,6 +1400,10 @@ sup {
 		color: $color-Gris-Oscuro;
 		margin-bottom: 30px;
 		line-height: normal;
+
+		.blue-text {
+			color: $color-Pantone-116-C;
+		}
 	}
 
 	.login_footer {
@@ -1362,11 +1411,20 @@ sup {
 
 		button {
 			font-size: 15px;
-			background-color:$color-Pantone-process-Blue;
+			background-color: $color-Pantone-process-Blue;
 			border-radius: 4px;
 			color: $color-White;
 			padding: 12px 79px;
 			font-family: $font-bold;
+		}
+
+		P {
+			color: $color-Gris-Claro-2;
+
+			a {
+				cursor: pointer;
+				color: $color-Gris-Claro-2;
+			}
 		}
 	}
 }
@@ -1400,7 +1458,7 @@ sup {
 	.row {
 		width: 100% !important;
 		margin-left: 0px !important;
-		padding-right: 1.5rem !important;
+		padding-right: 0px !important;
 	}
 
 	.container,
@@ -1498,6 +1556,9 @@ sup {
 		background-color: #F7F8F8;
 	}
 
+	.right_bar {
+		width: 100%;
+	}
 }
 
 .resalte {
@@ -1506,12 +1567,12 @@ sup {
 }
 
 .hidden-input {
-	z-index: -1;
+	z-index: -6 !important;
 	opacity: 0;
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-	width: 150px !important;
+	width: 150px;
 	height: 100%;
 	background: #fff !important;
 	border: 1px solid #ccc;
@@ -1522,6 +1583,7 @@ sup {
 	position: relative;
 	display: inline-block;
 	height: 100%;
+	width: 100%;
 }
 
 .iti__arrow {
@@ -1556,7 +1618,7 @@ sup {
 	.row {
 		width: 100% !important;
 		margin-left: 0px !important;
-		padding-right: 1.5rem !important;
+		padding-right: 0px !important;
 	}
 
 	.container,
@@ -1722,6 +1784,10 @@ sup {
 	body {
 		background-color: #F7F8F8;
 	}
+
+	.right_bar {
+		width: 100%;
+	}
 }
 
 // Medium devices (tablets, 768px and up)
@@ -1743,7 +1809,7 @@ sup {
 	.row {
 		width: 100% !important;
 		margin-left: 0px !important;
-		padding-right: 1.5rem !important;
+		padding-right: 0px !important;
 	}
 
 	.sub-header,

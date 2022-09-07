@@ -41,7 +41,55 @@ class CpAuthService extends ControllerBase
                 $roles = $user->getRoles();
                 //check if user is active
                 if ($user->isActive()) {
-                    //sign in the user and avoid redirect
+                    //sign in the user
+                    //get if user is administrator, exportador, buyer or advisor
+                    //check if roles is exportador
+                    if(in_array('administrator', $roles)){
+                        //return the role
+                        return new JsonResponse(array('role' => 'administrator'));
+                    }else if(in_array('exportador', $roles)){
+                        //return exportador
+                        return new JsonResponse(array('role' => 'exportador', ));
+                    } elseif (in_array('buyer', $roles)) {
+                        //return buyer
+                        return new JsonResponse(array('role' => 'buyer'));
+                    } elseif (in_array('asesor_comercial', $roles)) {
+                        //return advisor
+                        return new JsonResponse(array('role' => 'asesor_comercial'));
+                    } else {
+                        //return error
+                        return new JsonResponse(array('error' => 'user without role'));
+                    }
+                    
+                } else {
+                    //return error message
+                    return new JsonResponse(['error' => 'User is not active']);
+                }
+                
+            } else {
+                //return error
+                return new JsonResponse(['error' => 'Invalid credentials']);
+            }
+        } else {
+            //return error message
+            return new JsonResponse(['error' => 'Invalid credentials']);
+        }
+    }
+
+    //userLoginFinalize
+    public function userLoginFinalize(Request $request)
+    {
+        $username = $request->request->get('username');
+        $password = $request->request->get('password');
+        //load the user by the username
+        $user = user_load_by_name($username);
+        //return user
+        if ($user) {
+            //check if the password is correct
+            $uid = \Drupal::service('user.auth')->authenticate($username, $password);
+            if ($uid) {
+                //check if user is active
+                if ($user->isActive()) {
                     user_login_finalize($user);
                 } else {
                     //return error message
@@ -58,31 +106,6 @@ class CpAuthService extends ControllerBase
         }
     }
 
-    //get role of logged user
-    public function get_role(Request $request)
-    {
-        //get the user
-        $user = \Drupal::currentUser();
-        //get the user roles
-        $roles = $user->getRoles();
-        //check if user is active
-        //get if user is exportador, buyer or advisor
-        //check if roles is exportador
-        if (in_array('exportador', $roles)) {
-            //return exportador
-            return new JsonResponse(['role' => 'exportador']);
-        } elseif (in_array('buyer', $roles)) {
-            //return buyer
-            return new JsonResponse(['role' => 'buyer']);
-        } elseif (in_array('advisor', $roles)) {
-            //return advisor
-            return new JsonResponse(['role' => 'advisor']);
-        } else {
-            //return error
-            return new JsonResponse(['error' => 'user without role']);
-        }
-        
-    }
 
     /**
      * recover_password_form function.
@@ -121,12 +144,12 @@ class CpAuthService extends ControllerBase
             // Send mail and collect the result.
             $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
             if ($result['result'] != true) {
-                return new JsonResponse('error', 500);
+                return new JsonResponse(['error'=> 'There was a problem sending your message and it was not sent.']);
             } else {
-                return new JsonResponse('success', 200);
+                return new JsonResponse(['success' => true]);
             }
         } else {
-            return new JsonResponse('error', 500);
+            return new JsonResponse(['error' => 'User not found']);	
         }
     }
 
@@ -152,12 +175,12 @@ class CpAuthService extends ControllerBase
                 // Set the new password.
                 $user->setPassword($request->request->get('password'));
                 $user->save();
-                return new JsonResponse('success', 200);
+                return new JsonResponse(['success' => true], 200);
             } else {
-                return new JsonResponse('error', 500);
+                return new JsonResponse(['error' => 'Invalid credentials'], 500);
             }
         } else {
-            return new JsonResponse('error', 500);
+            return new JsonResponse(['error'=>'user not found'], 500);
         }
     }
 

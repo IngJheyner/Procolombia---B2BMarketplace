@@ -210,3 +210,118 @@ msgstr "Perfil de la compañía e información de contacto"
 msgid "has been successfully modified."
 msgstr "Modificado con exito"
 
+
+
+msgid "Name is required"
+msgstr "El nombre es requerido"
+
+msgid "The name cannot be longer than 20 characters"
+msgstr "El nombre no puede tener mas de 20 caracteres"
+
+msgid "Last name is required"
+msgstr "El apellido es requerido"
+
+msgid "The last name cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "Email is required and must be a valid email address"
+msgstr "El email es requerido y debe ser un email válido"
+
+msgid "The email is invalid"
+msgstr "El email no es válido"
+
+msgid "The cell phone must be a number"
+msgstr "El celular debe ser un número"
+
+msgid "The cell phone should not have letters"
+msgstr "El celular no debe tener letras"
+
+msgid "The cell phone must not have more than 10 digits"
+msgstr "El celular no debe tener mas 10 digitos"
+
+msgid "Company is required"
+msgstr "La compañia es requerida"
+
+msgid "The company cannot be longer than 100 characters"
+msgstr "La compañia no puede tener mas de 100 caracteres"
+
+msgid "Password is required"
+msgstr "La contraseña es requerida"
+
+msgid "The password must be between 8 and 15 characters long"
+msgstr "El password debe tener entre 8 y 15 caracteres"
+
+msgid "The password must have at least one capital letter"
+msgstr "El password debe tener al menos una mayúscula"
+
+msgid "The password must have at least one number"
+msgstr "La contraseña debe tener al menos un número"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Verify password field is required"
+msgstr "El campo verificar contraseña es requerido"
+
+msgid "The field verify password and Password must be the same"
+msgstr "El campo verificar contraseña y Contraseña deben ser iguales"
+
+msgid "The language field is required"
+msgstr "El campo lenguaje es requerido"
+
+msgid "You must accept the privacy policy"
+msgstr "Debe aceptar las políticas de privacidad"
+
+msgid "You must accept the terms of use"
+msgstr "Debe aceptar las condiciones de uso"
+
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension"
+msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200"
+
+msgid "Company name is required"
+msgstr "El nombre de la empresa es requerido"
+
+msgid "Website is required"
+msgstr "El website es requerido"
+
+msgid "The website is not valid"
+msgstr "El website no es valido"
+
+msgid "Description in Spanish is required"
+msgstr "La descripción en español es requerida"
+
+msgid "Description in English is required"
+msgstr "La descripción en inglés es requerida"
+
+msgid "The production line is required"
+msgstr "La cadena de producción es requerida"
+
+msgid "The main CIIU code is required"
+msgstr "El código CIIU principal es requerido"
+
+msgid "The department is required"
+msgstr "El departamento es requerido"
+
+msgid "The city is required"
+msgstr "La ciudad es requerida"
+
+msgid "The business model is required"
+msgstr "El modelo de negocio es requerido"
+
+msgid "Spanish position is required"
+msgstr "La posición en español es requerida"
+
+msgid "The country code of the phone line is required"
+msgstr "El codigo de pais de la linea de telefono es requerido"
+
+msgid "Phone line is required"
+msgstr "La linea de telefono es requerida"
+
+msgid "The phone line should not have letters"
+msgstr "La linea de telefono no debe tener letras"
+
+msgid "The country code of the cell phone is required"
+msgstr "El codigo de pais del celular es requerido"
+
+msgid "Cell phone is required"
+msgstr "El celular es requerido"

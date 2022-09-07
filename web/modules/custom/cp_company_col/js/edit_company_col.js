@@ -61,13 +61,13 @@
 
         const phoneInputField = document.querySelector("#country_code_landline");
         const phoneInput = window.intlTelInput(phoneInputField, {
-            initialCountry: "af",
+            initialCountry: "co",
             separateDialCode: true,
         });
 
         const phoneInputField2 = document.querySelector("#country_code_mobile");
         const phoneInput2 = window.intlTelInput(phoneInputField2, {
-            initialCountry: "af",
+            initialCountry: "co",
             separateDialCode: true,
         });
 
@@ -185,7 +185,7 @@
         var ciudad = $("#ciudad").val();
         var modelo_de_negocio = $("#modelo_de_negocio").val();
 
-        var message = "";
+        varmessage = "";
         var isValid = true;
         //check if logo is
         if (logo) {
@@ -237,7 +237,7 @@
             }
         } else {
             if (isLogoRemove) {
-                message = "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+               message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
                 $("#logo_input").css("border-color", "#ba0c2f");
                 $("#logo_name").css("border-color", "#ba0c2f");
                 $("#error_logo_message").text(message)
@@ -248,7 +248,7 @@
         }
 
         if (business_name == "") {
-            message = "El nombre de la empresa es requerido";
+           message = Drupal.t("Company name is required");
             $("#business_name").css("border-color", "#ba0c2f");
             $("#error_business_name_message").text(message)
             $("#error_business_name").show();
@@ -274,7 +274,7 @@
         }
 
         if (website == "") {
-            message = "El website es requerido";
+           message = Drupal.t("Website is required");
             $("#website").css("border-color", "#ba0c2f");
             $("#error_website_message").text(message)
             $("#error_website").show();
@@ -284,7 +284,7 @@
             isValid = false;
         } else {
             if (!isUrl(website)) {
-                message = "El website no es valido";
+               message = Drupal.t("The website is not valid");
                 $("#website").css("border-color", "#ba0c2f");
                 $("#error_website_message").text(message)
                 $("#error_website").show();
@@ -299,7 +299,7 @@
         }
 
         if (description_business_spanish == "") {
-            message = "La descripción en español es requerida";
+           message = Drupal.t("Description in Spanish is required");
             $("#description_business_spanish").css("border-color", "#ba0c2f");
             $("#error_description_business_spanish_message").text(message)
             $("#error_description_business_spanish").show();
@@ -319,7 +319,7 @@
         }
 
         if (description_business_english == "") {
-            message = "La descripción en inglés es requerida";
+           message = Drupal.t("Description in English is required");
             $("#description_business_english").css("border-color", "#ba0c2f");
             $("#error_description_business_english_message").text(message)
             $("#error_description_business_english").show();
@@ -339,7 +339,7 @@
         }
 
         if (production_chain == "") {
-            message = "La cadena de producción es requerida";
+           message = Drupal.t("The production line is required");
             $("#production_chain_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_production_chain_message").text(message)
             $("#error_production_chain").show();
@@ -349,7 +349,7 @@
             $("#production_chain_contain .ts-control").css("border-color", "#cccccc");
         }
         if (principal_code_ciiu == "") {
-            message = "El código CIIU principal es requerido";
+           message = Drupal.t("The main CIIU code is required");
             $("#principal_code_ciiu").css("border-color", "#ba0c2f");
             $("#error_principal_code_ciiu").show();
             $("#error_principal_code_ciiu_message").text(message)
@@ -361,7 +361,7 @@
         }
 
         if (departament == "") {
-            message = "El departamento es requerido";
+           message = Drupal.t("The department is required");
             $("#departament_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_departament_message").text(message)
             $("#error_departament").show();
@@ -372,7 +372,7 @@
         }
 
         if (ciudad == "") {
-            message = "La ciudad es requerida";
+           message = Drupal.t("The city is required");
             $("#ciudad_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_ciudad_message").text(message)
             $("#error_ciudad").show();
@@ -383,7 +383,7 @@
         }
 
         if (modelo_de_negocio == "") {
-            message = "El modelo de negocio es requerido";
+           message = Drupal.t("The business model is required");
             $("#modelo_de_negocio_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_modelo_de_negocio_message").text(message)
             $("#error_modelo_de_negocio").show();
@@ -487,7 +487,7 @@
      */
     function validateForm2() {
         var isValid = true;
-        var message = "";
+        varmessage = "";
         var name = $("#name").val();
         var last_name = $("#last_name").val();
         var position_spanish = $("#position_spanish").val();
@@ -498,14 +498,14 @@
         var contact_email = $("#contact_email").val();
 
         if (name == "") {
-            message = "El nombre es requerido";
+           message = Drupal.t("Name is required");
             $("#name").css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
         } else {
             if (name.length > 20) {
-                message = "El nombre no debe tener mas de 20 caracteres";
+               message = Drupal.t("The name cannot be longer than 20 characters");
                 $("#name").css("border-color", "#ba0c2f");
                 $("#error_name_message").text(message)
                 $("#error_name").show();
@@ -516,14 +516,14 @@
             }
         }
         if (last_name == "") {
-            message = "El apellido es requerido";
+           message = Drupal.t("Last name is required");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = "El apellido no debe tener mas de 20 caracteres";
+               message = Drupal.t("The last name cannot be longer than 20 characters");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name_message").text(message)
                 $("#error_last_name").show();
@@ -537,7 +537,7 @@
             }
         }
         if (position_spanish == "") {
-            message = "La posición en español es requerida";
+           message = Drupal.t("Spanish position is required");
             $("#position_spanish").css("border-color", "#ba0c2f");
             $("#error_position_spanish_message").text(message)
             $("#error_position_spanish").show();
@@ -557,7 +557,7 @@
             }
         }
         if (country_code_landline == "") {
-            message = "El codigo de pais de la linea de telefono es requerido";
+           message = Drupal.t("The country code of the phone line is required");
             $("#country_code_landline").css("border-color", "#ba0c2f");
             $("#error_country_code_landline").show();
             $("#error_country_code_landline")
@@ -569,7 +569,7 @@
             $("#country_code_landline").css("border-color", "#cccccc");
         }
         if (landline == "") {
-            message = "La linea de telefono es requerida";
+           message = Drupal.t("Phone line is required");
             $("#landline").css("border-color", "#ba0c2f");
             $("#error_landline").show();
             $("#error_landline_message").text(message)
@@ -585,7 +585,7 @@
                 isValid = false;
             } else {
                 if (!landline.match(/^[0-9]+$/)) {
-                    message = "La linea de telefono no debe tener letras";
+                   message = Drupal.t("The phone line should not have letters");
                     $("#landline").css("border-color", "#ba0c2f");
                     $("#error_landline").show();
                     $("#error_landline_message").text(message)
@@ -598,7 +598,7 @@
             }
         }
         if (country_code_mobile == "") {
-            message = "El codigo de pais de la celular es requerido";
+           message = Drupal.t("The country code of the cell phone is required");
             $("#country_code_mobile").css("border-color", "#ba0c2f");
             $("#error_country_code_mobile").show();
             $("#error_country_code_mobile")
@@ -610,14 +610,14 @@
             $("#country_code_mobile").css("border-color", "#cccccc");
         }
         if (mobile == "") {
-            message = "El celular es requerido";
+           message = Drupal.t("Cell phone is required");
             $("#mobile").css("border-color", "#ba0c2f");
             $("#error_mobile").show();
             $("#error_mobile_message").text(message)
             isValid = false;
         } else {
             if (mobile.length > 10) {
-                message = "El celular no debe tener mas de 10 caracteres";
+               message = Drupal.t("The cell phone must not have more than 10 digits");
                 $("#mobile").css("border-color", "#ba0c2f");
                 $("#error_mobile").show();
                 $("#error_mobile_message").text(message)
@@ -625,7 +625,7 @@
                 isValid = false;
             } else {
                 if (!mobile.match(/^[0-9]+$/)) {
-                    message = "El celular no debe tener letras";
+                   message = Drupal.t("The cell phone should not have letters");
                     $("#mobile").css("border-color", "#ba0c2f");
                     $("#error_mobile").show();
                     $("#error_mobile_message").text(message)
@@ -638,7 +638,7 @@
             }
         }
         if (contact_email == "") {
-            message = "El correo electronico es requerido";
+           message = Drupal.t("Email is required and must be a valid email address");
             $("#contact_email").css("border-color", "#ba0c2f");
             $("#error_contact_email").show();
             $("#error_contact_email_message").text(message)
@@ -649,7 +649,7 @@
                     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
                 )
             ) {
-                message = "El correo electronico no es valido";
+               message = Drupal.t("The email is invalid");
                 $("#contact_email").css("border-color", "#ba0c2f");
                 $("#error_contact_email").show();
                 $("#error_contact_email_message").text(message)

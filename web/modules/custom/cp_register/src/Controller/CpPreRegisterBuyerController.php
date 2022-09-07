@@ -39,7 +39,7 @@ class CpPreRegisterBuyerController extends ControllerBase
             return $uid;
         }
         else{
-            return 0;
+            return null;
         }
     }
 
@@ -50,7 +50,7 @@ class CpPreRegisterBuyerController extends ControllerBase
         $data = $request->request->all();
         $email = $data['email'];
         $uid = $this->getUid($email);
-        if(!isset($email)){
+        if(!isset($uid)){
             if($this->getUid($data['email'])){
                 $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
             }else{

@@ -520,6 +520,10 @@ div#main-wrapper {
   margin-right: 7px;
 }
 
+.iti--separate-dial-code .iti__selected-flag {
+  width: 120px !important;
+}
+
 .cita_btn {
   border-radius: 4px;
   background-color: #005ca4;
@@ -1362,9 +1366,6 @@ strong {
   }
   .tooltiptext_yotube {
     width: 290px !important;
-  }
-  .steps .step_content form {
-    box-shadow: none !important;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {

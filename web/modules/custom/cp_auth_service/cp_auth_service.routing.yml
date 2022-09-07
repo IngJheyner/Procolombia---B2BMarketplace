@@ -11,15 +11,15 @@ cp_auth_service.login_form:
   requirements:
     _permission: "access content"
 
-###get_role route
-cp_auth_service.get_role:
-  path: "auth/get/role"
+###userLoginFinalize route
+cp_auth_service.userLoginFinalize:
+  path: "auth/userLoginFinalize"
   defaults:
-    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::get_role'
-  methods:  [GET]
+    _controller: '\Drupal\cp_auth_service\Controller\CpAuthService::userLoginFinalize'
+  methods:  [POST]
   requirements:
     _permission: "access content"
-
+    
 ###recover_password_form route
 cp_auth_service.recover_password_form:
   path: "auth/recover/password"

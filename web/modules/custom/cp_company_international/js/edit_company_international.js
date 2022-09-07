@@ -210,14 +210,14 @@
         var isValid = true;
 
         if (name === "") {
-            message = "El nombre es requerido\n";
+            message = Drupal.t("Name is required\n");
             $("#name").css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
         } else {
             if (name.length > 20) {
-                message = "El nombre no puede tener mas de 20 caracteres\n";
+                message = Drupal.t("The name cannot be longer than 20 characters\n");
                 $("#name").css("border-color", "#ba0c2f");
                 $("#error_name").show();
                 $("#error_name_message").text(message)
@@ -228,14 +228,14 @@
             }
         }
         if (last_name === "") {
-            message = "El apellido es requerido\n";
+            message = Drupal.t("Last name is required\n");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = "El apellido no puede tener mas de 20 caracteres\n";
+                message = Drupal.t("The last name cannot be longer than 20 characters\n");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name").show();
                 $("#error_last_name_message").text(message)
@@ -247,27 +247,47 @@
         }
 
         if (email == "" || !isEmail(email)) {
-            message = "El email es requerido y debe ser un email válido";
+            message = Drupal.t("Email is required and must be a valid email address");
             $("#email").css("border-color", "#ba0c2f");
             $("#error_mail").show();
             $("#error_mail_message").text(message)
             isValid = false;
         } else {
-            $('#error_mail').tooltip('hide')
-            $("#error_mail").hide();
-            $("#email").css("border-color", "#cccccc");
+            //check if mail server is valid
+            if (email.indexOf("@gmail.com") > -1
+                || email.indexOf("@yahoo.com") > -1
+                || email.indexOf("@hotmail.com") > -1
+                || email.indexOf("@outlook.com") > -1
+                || email.indexOf("@live.com") > -1
+                || email.indexOf("@msn.com") > -1) {
+                message = Drupal.t("The email is invalid");
+                $("#email").css("border-color", "#ba0c2f");
+                $("#error_mail").show();
+                $("#error_mail_message").text(message)
+                isValid = false;
+            } else {
+                $('#error_mail').tooltip('hide')
+                $("#error_mail").hide();
+                $("#email").css("border-color", "#cccccc");
+            }
         }
 
-        if (cellphone !== "") {
+        if (cellphone === "") {
+            message = Drupal.t("Cellphone is required\n");
+            $("#cellphone").css("border-color", "#ba0c2f");
+            $("#error_cellphone").show();
+            $("#error_cellphone_message").text(message)
+            isValid = false;
+        } else {
             if (!isNumber(cellphone)) {
-                message = "El celular debe ser un número";
+                message = Drupal.t("The cell phone must be a number");
                 $("#cellphone").css("border-color", "#ba0c2f");
                 $("#error_cellphone").show();
                 $("#error_cellphone_message").text(message)
                 isValid = false;
             } else {
                 if (cellphone.length > 10) {
-                    message = "El celular no debe tener mas 10 digitos";
+                    message = Drupal.t("The cell phone must not have more than 10 digits");
                     $("#cellphone").css("border-color", "#ba0c2f");
                     $("#error_cellphone").show();
                     $("#error_cellphone_message").text(message)
@@ -280,14 +300,14 @@
         }
 
         if (business_name === "") {
-            message = "La compañia es requerida\n";
+            message = Drupal.t("Company is required\n");
             $("#business_name").css("border-color", "#ba0c2f");
             $("#error_business_name").show();
             $("#error_business_name_message").text(message)
             isValid = false;
         } else {
             if (business_name.length > 100) {
-                message = "La compañia no puede tener mas de 100 caracteres\n";
+                message = Drupal.t("The company cannot be longer than 100 characters\n");
                 $("#business_name").css("border-color", "#ba0c2f");
                 $("#error_business_name").show();
                 $("#error_business_name_message").text(message)
@@ -299,28 +319,28 @@
         }
 
         if (password == "") {
-            message = "El password es requerido";
+            message = Drupal.t("Password is required");
             $("#password_buyer").css("border-color", "#ba0c2f");
             $("#error_password_buyer_message").text(message)
             $("#error_password_buyer").show();
             isValid = false;
         } else {
             if (password.length < 8 && password.length > 15) {
-                message = "El password debe tener entre 8 y 15 caracteres";
+                message = Drupal.t("The password must be between 8 and 15 characters long");
                 $("#password_buyer").css("border-color", "#ba0c2f");
                 $("#error_password_buyer_message").text(message)
                 $("#error_password_buyer").show();
                 isValid = false;
             } else {
                 if (!password.match(/[A-Z]/)) {
-                    message = "El password debe tener al menos una mayúscula";
+                    message = Drupal.t("The password must have at least one capital letter");
                     $("#password_buyer").css("border-color", "#ba0c2f");
                     $("#error_password_buyer_message").text(message)
                     $("#error_password_buyer").show();
                     isValid = false;
                 } else {
                     if (!password.match(/[0-9]/)) {
-                        message = "El password debe tener al menos un número";
+                        message = Drupal.t("The password must have at least one number");
                         $("#password_buyer").css("border-color", "#ba0c2f");
                         $("#error_password_buyer_message").text(message)
                         $("#error_password_buyer").show();
@@ -349,7 +369,7 @@
         }
 
         if (country == "") {
-            message = "Por favor seleccione un país";
+            message = Drupal.t("Please select a country");
             $("#country").css("border-color", "#ba0c2f");
             $("#error_country_message").text(message)
             $("#error_country").show();
@@ -360,7 +380,7 @@
         }
 
         if (city == "") {
-            message = "Por favor seleccione una ciudad";
+            message = Drupal.t("Please select a city");
             $("#city").css("border-color", "#ba0c2f");
             $("#error_city_message").text(message)
             $("#error_city").show();
@@ -371,7 +391,7 @@
         }
 
         if (position == "") {
-            message = "Por favor seleccione una posición";
+            message = Drupal.t("Please select a position");
             $("#position").css("border-color", "#ba0c2f");
             $("#error_position_message").text(message)
             $("#error_position").show();
@@ -382,14 +402,14 @@
         }
 
         if (web_site == "") {
-            message = "Por favor ingrese una web";
+            message = Drupal.t("Please enter a website");
             $("#web_site").css("border-color", "#ba0c2f");
             $("#error_web_site_message").text(message)
             $("#error_web_site").show();
             isValid = false;
         } else {
             if (!validateURL(web_site)) {
-                message = "Por favor ingrese una web válida";
+                message = Drupal.t("Please enter a valid website");
                 $("#web_site").css("border-color", "#ba0c2f");
                 $("#error_web_site_message").text(message)
                 $("#error_web_site").show();
@@ -401,7 +421,7 @@
         }
 
         if (cat_interest_1 == "") {
-            message = "Por favor seleccione una categoría";
+            message = Drupal.t("Please select a category");
             $("#cat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_cat_interest_1_message").text(message)
             $("#error_cat_interest_1").show();
@@ -412,7 +432,7 @@
         }
 
         if (subcat_interest_1 == "") {
-            message = "Por favor seleccione una subcategoría";
+            message = Drupal.t("Please select a subcategory");
             $("#subcat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_subcat_interest_1_message").text(message)
             $("#error_subcat_interest_1").show();
@@ -423,7 +443,7 @@
         }
 
         if (company_model == "") {
-            message = "Por favor seleccione un modelo de empresa";
+            message = Drupal.t("Please select a company model");
             $("#company_model_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_company_model_message").text(message)
             $("#error_company_model").show();
@@ -434,7 +454,7 @@
         }
 
         if (cat_interest_2 == "") {
-            message = "Por favor seleccione una categoría";
+            message = Drupal.t("Please select a category");
             $("#cat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_cat_interest_2_message").text(message)
             $("#error_cat_interest_2").show();
@@ -445,7 +465,7 @@
         }
 
         if (subcat_interest_2 == "") {
-            message = "Por favor seleccione una subcategoría";
+            message = Drupal.t("Please select a subcategory");
             $("#subcat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_subcat_interest_2_message").text(message)
             $("#error_subcat_interest_2").show();
@@ -456,7 +476,7 @@
         }
 
         if (company_model_2 == "") {
-            message = "Por favor seleccione un modelo de empresa";
+            message = Drupal.t("Please select a company model");
             $("#company_model_2_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_company_model_2_message").text(message)
             $("#error_company_model_2").show();
@@ -467,7 +487,7 @@
         }
 
         if (cat_interest_3 == "") {
-            message = "Por favor seleccione una categoría";
+            message = Drupal.t("Please select a category");
             $("#cat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_cat_interest_3_message").text(message)
             $("#error_cat_interest_3").show();
@@ -478,7 +498,7 @@
         }
 
         if (subcat_interest_3 == "") {
-            message = "Por favor seleccione una subcategoría";
+            message = Drupal.t("Please select a subcategory");
             $("#subcat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_subcat_interest_3_message").text(message)
             $("#error_subcat_interest_3").show();
@@ -489,7 +509,7 @@
         }
 
         if (company_model_3 == "") {
-            message = "Por favor seleccione un modelo de empresa";
+            message = Drupal.t("Please select a company model");
             $("#company_model_3_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_company_model_3_message").text(message)
             $("#error_company_model_3").show();

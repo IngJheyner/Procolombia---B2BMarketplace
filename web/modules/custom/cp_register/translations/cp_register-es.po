@@ -569,3 +569,64 @@ msgstr "REGÍSTRESE PARA TENER LA OFERTA COLOMBIANA AL ALCANCE DE UN CLIC"
 
 msgid "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."
 msgstr "Regístrese en el Catálogo de Exportación de Colombia para ampliar su oferta a Encuentre todos los productos y servicios de origen colombiano para satisfacer sus necesidades de abastecimiento. Filtrar y descubrir productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guardar fácilmente los filtros de búsqueda y recibir notificaciones de los nuevos productos añadidos al Mercado B2B de ProColombia."
+
+
+msgid "Name is required"
+msgstr "El nombre es requerido"
+
+msgid "The name cannot be longer than 20 characters"
+msgstr "El nombre no puede tener mas de 20 caracteres"
+
+msgid "Last name is required"
+msgstr "El apellido es requerido"
+
+msgid "The last name cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "Email is required and must be a valid email address"
+msgstr "El email es requerido y debe ser un email válido"
+
+msgid "The email is invalid"
+msgstr "El email no es válido"
+
+msgid "The cell phone must be a number"
+msgstr "El celular debe ser un número"
+
+msgid "The cell phone must not have more than 10 digits"
+msgstr "El celular no debe tener mas 10 digitos"
+
+msgid "Company is required"
+msgstr "La compañia es requerida"
+
+msgid "The company cannot be longer than 100 characters"
+msgstr "La compañia no puede tener mas de 100 caracteres"
+
+msgid "Password is required"
+msgstr "La contraseña es requerida"
+
+msgid "The password must be between 8 and 15 characters long"
+msgstr "El password debe tener entre 8 y 15 caracteres"
+
+msgid "The password must have at least one capital letter"
+msgstr "El password debe tener al menos una mayúscula"
+
+msgid "The password must have at least one number"
+msgstr "La contraseña debe tener al menos un número"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Verify password field is required"
+msgstr "El campo verificar contraseña es requerido"
+
+msgid "The field verify password and Password must be the same"
+msgstr "El campo verificar contraseña y Contraseña deben ser iguales"
+
+msgid "The language field is required"
+msgstr "El campo lenguaje es requerido"
+
+msgid "You must accept the privacy policy"
+msgstr "Debe aceptar las políticas de privacidad"
+
+msgid "You must accept the terms of use"
+msgstr "Debe aceptar las condiciones de uso"

@@ -1047,8 +1047,21 @@ div#page {
   display: none;
 }
 
+.input_error {
+  margin-bottom: 21px;
+}
+
+#error_password,
+#error_username,
+#error_nit {
+  display: none;
+  color: #ba0c2f;
+}
+
 .form {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .form .input-group {
   border: 1px solid #ccc;
@@ -1105,6 +1118,20 @@ div#page {
   padding: 7px 0px;
 }
 
+.single {
+  left: 13px !important;
+}
+
+.button_modal {
+  margin: 0px;
+  border: none;
+  background: transparent;
+  color: #0085ca;
+  width: 100%;
+  text-align: end;
+  padding: 7px 0px;
+}
+
 /* 
   1. When the input is in the focus state
   reduce the size of the label and move upwards 
@@ -1138,6 +1165,17 @@ sup {
   font-family: Gothic-Bold;
 }
 
+.cita_btn {
+  border-radius: 4px;
+  background-color: #005ca4;
+  color: #ffffff;
+  font-family: Gothic-Bold;
+  font-size: 14px;
+}
+.cita_btn i {
+  margin-right: 7px;
+}
+
 .login_body {
   padding: 0px 30px 38px 30px !important;
 }
@@ -1154,6 +1192,9 @@ sup {
   margin-bottom: 30px;
   line-height: normal;
 }
+.login_body .desc .blue-text {
+  color: #005ca4;
+}
 .login_body .login_footer {
   text-align: center;
 }
@@ -1164,6 +1205,13 @@ sup {
   color: #ffffff;
   padding: 12px 79px;
   font-family: Gothic-Bold;
+}
+.login_body .login_footer P {
+  color: #6a6d71;
+}
+.login_body .login_footer P a {
+  cursor: pointer;
+  color: #6a6d71;
 }
 
 @media (max-width: 575.98px) {
@@ -1181,7 +1229,7 @@ sup {
   .row {
     width: 100% !important;
     margin-left: 0px !important;
-    padding-right: 1.5rem !important;
+    padding-right: 0px !important;
   }
   .container,
 .container-sm {
@@ -1254,6 +1302,9 @@ sup {
   body {
     background-color: #F7F8F8;
   }
+  .right_bar {
+    width: 100%;
+  }
 }
 .resalte {
   font-family: Gothic-Bold;
@@ -1261,12 +1312,12 @@ sup {
 }
 
 .hidden-input {
-  z-index: -1;
+  z-index: -6 !important;
   opacity: 0;
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-  width: 150px !important;
+  width: 150px;
   height: 100%;
   background: #fff !important;
   border: 1px solid #ccc;
@@ -1277,6 +1328,7 @@ sup {
   position: relative;
   display: inline-block;
   height: 100%;
+  width: 100%;
 }
 
 .iti__arrow {
@@ -1307,7 +1359,7 @@ sup {
   .row {
     width: 100% !important;
     margin-left: 0px !important;
-    padding-right: 1.5rem !important;
+    padding-right: 0px !important;
   }
   .container,
 .container-sm {
@@ -1431,6 +1483,9 @@ sup {
   body {
     background-color: #F7F8F8;
   }
+  .right_bar {
+    width: 100%;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .logo {
@@ -1447,7 +1502,7 @@ sup {
   .row {
     width: 100% !important;
     margin-left: 0px !important;
-    padding-right: 1.5rem !important;
+    padding-right: 0px !important;
   }
   .sub-header,
 .pt-6,

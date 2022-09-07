@@ -623,6 +623,9 @@ div#main-wrapper {
     }
   }
 }
+.iti--separate-dial-code .iti__selected-flag {
+  width: 120px !important;
+}
 
 .cita_btn {
   border-radius: 4px;
@@ -1684,9 +1687,7 @@ strong {
     width: 290px !important;
   }
 
-  .steps .step_content form {
-    box-shadow: none !important;
-  }
+
 
 
 }
@@ -1711,7 +1712,7 @@ strong {
   .btn_header {
     display: none;
   }
-
+ 
   .body_login {
     padding: 0rem;
     height: auto !important;

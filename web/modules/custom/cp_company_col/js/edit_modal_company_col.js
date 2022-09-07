@@ -40,28 +40,28 @@
         var isValid = true;
 
         if (password == "") {
-            message = "El password es requerido";
+            message = Drupal.t("Password is required");
             $("#password").css("border-color", "#ba0c2f");
             $("#error_password_message").text(message)
             $("#error_password").show();
             isValid = false;
         } else {
             if (password.length < 8 && password.length > 15) {
-                message = "El password debe tener entre 8 y 15 caracteres";
+                message = Drupal.t("The password must be between 8 and 15 characters long");
                 $("#password").css("border-color", "#ba0c2f");
                 $("#error_password_message").text(message)
                 $("#error_password").show();
                 isValid = false;
             } else {
                 if (!password.match(/[A-Z]/)) {
-                    message = "El password debe tener al menos una mayúscula";
+                    message = Drupal.t("The password must have at least one capital letter");
                     $("#password").css("border-color", "#ba0c2f");
                     $("#error_password_message").text(message)
                     $("#error_password").show();
                     isValid = false;
                 } else {
                     if (!password.match(/[0-9]/)) {
-                        message = "El password debe tener al menos un número";
+                        message = Drupal.t("The password must have at least one number");
                         $("#password").css("border-color", "#ba0c2f");
                         $("#error_password_message").text(message)
                         $("#error_password").show();
@@ -90,14 +90,14 @@
         }
 
         if (confirm_password == "") {
-            message = "El campo verificar contraseña es requerido";
+            message = Drupal.t("Verify password field is required");
             $("#confirm_password").css("border-color", "#ba0c2f");
             $("#error_confirm_password_message").text(message)
             $("#error_confirm_password").show();
             isValid = false;
         } else {
             if (password != confirm_password) {
-                message = "El campo verificar contraseña y Contraseña deben ser iguales";
+                message = Drupal.t("The field verify password and Password must be the same");
                 $("#confirm_password").css("border-color", "#ba0c2f");
                 $("#error_confirm_password_message").text(message)
                 $("#error_confirm_password").show();
@@ -109,7 +109,7 @@
         }
 
         if (contact_email == "") {
-            message = "El correo electronico es requerido";
+            message = Drupal.t("Email is required and must be a valid email addres");
             $("#contact_email").css("border-color", "#ba0c2f");
             $("#error_email").show();
             $("#error_email")
@@ -122,7 +122,7 @@
                     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
                 )
             ) {
-                message = "El correo electronico no es valido";
+                message = Drupal.t("The email is invalid");
                 $("#contact_email").css("border-color", "#ba0c2f");
                 $("#error_email").show();
                 $("#error_email")

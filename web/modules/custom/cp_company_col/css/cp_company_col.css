@@ -787,6 +787,7 @@ span {
   }
   .steps .step_content form {
     box-shadow: none !important;
+    padding-right: 0px !important;
   }
   .order_1 {
     order: 1;
@@ -805,6 +806,9 @@ span {
   }
   .order_6 {
     order: 6;
+  }
+  button#cancel_process {
+    display: none;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -912,6 +916,9 @@ span {
   .order_6 {
     order: 6;
   }
+  button#cancel_process {
+    display: none;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-lg-9,
@@ -964,6 +971,9 @@ span {
   }
   .order_6 {
     order: 6;
+  }
+  button#cancel_process {
+    display: none;
   }
 }
 /*Input cell css*/
@@ -1082,11 +1092,14 @@ span {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.iti__flag-box, .iti__country-name, .iti__dial-code {
+.iti__flag-box,
+.iti__country-name,
+.iti__dial-code {
   vertical-align: middle;
 }
 
-.iti__flag-box, .iti__country-name {
+.iti__flag-box,
+.iti__country-name {
   margin-right: 6px;
 }
 
@@ -1112,7 +1125,8 @@ span {
   margin-left: 0;
 }
 
-.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
+.iti--allow-dropdown .iti__flag-container,
+.iti--separate-dial-code .iti__flag-container {
   right: auto;
   left: 0;
 }
