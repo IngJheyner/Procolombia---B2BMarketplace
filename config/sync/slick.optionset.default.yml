@@ -35,7 +35,7 @@ options:
     autoplaySpeed: 3000
     arrows: true
     prevArrow: Anterior
-    nextArrow: Next
+    nextArrow: Continuar
     arrowsPlacement: ''
     downArrow: false
     downArrowTarget: ''

@@ -100,3 +100,98 @@
     background-position: 10px 3px;
     padding-left: 40px;
 }
+
+@mixin lightbulb-tooltip{
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    background-image: url(../images/icons/Icono-Ayuda-Bombillo.svg);
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    height: 23px;
+    width: 23px;
+    background-color: $procol-yellow;
+    border-radius: 50px;
+    padding: 5px;
+    background-position: 5px 4px;
+    span{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: $button-lighter-gray;
+        background-color: $procol-gray-300;
+        position: absolute;
+        right: -6px;
+        top: -40px;
+        padding: 5px;
+        border-radius: 4px;    
+        max-width: 650px;
+        width: calc(100vw - 100px);
+        font-size: $font-size-xs;
+        @include media-breakpoint-down(sm){
+            width: calc(100vw - 30px);
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            border:solid 8px transparent;
+            border-top-color: $procol-gray-300 ;
+            top: 100%;
+            right: 8px;
+        }
+    }
+    &:hover span{
+        display: block;
+    }
+    @include media-breakpoint-down(xl){
+        right: 25px;
+    }
+    @include media-breakpoint-down(lg){
+        right: 15px;
+    }
+}
+
+@mixin invalid-tooltip {
+    position: relative;
+        &::after{
+            position: absolute;
+            content:"";
+            height: 20px;
+            width: 20px;
+            background-image: url(../images/icons/info-red.svg);
+            background-size: 12px 12px;
+            background-repeat: no-repeat;
+            background-position: center;
+            bottom: -30px;
+            left: -2px;
+            z-index: 2;
+            background-color: $white;        
+        }
+    p{
+        display: none;
+    }
+}
+
+@mixin hover-invalid-tooltip {
+    display: block;
+    position: absolute;
+    font-size: $font-size-xs;
+    top: 90%;
+    right: -6%;
+    background-color: $procol-gray-400;
+    padding: 5px;
+    color: $white;
+    border-radius: 4px;
+    &::before{
+           position: absolute;
+        content: '';
+        border:solid 8px transparent;
+        border-bottom-color: $procol-gray-400 ;
+        top: 100%;
+        right: 8px;
+        top: -14px;
+        right: 5px;
+        z-index: 3;
+    }
+}
