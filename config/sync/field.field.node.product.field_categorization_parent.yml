@@ -10,9 +10,9 @@ id: node.product.field_categorization_parent
 field_name: field_categorization_parent
 entity_type: node
 bundle: product
-label: 'Categorization Parent'
+label: Subcategoria
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
