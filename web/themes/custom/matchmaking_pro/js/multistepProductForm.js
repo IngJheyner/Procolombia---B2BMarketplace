@@ -27,7 +27,7 @@
           $('#edit-field-categorization').SumoSelect();
           $('#edit-field-partida-arancelaria-tax').SumoSelect();
           $('#edit-field-pr-product-availability').SumoSelect();
-          $('.step_4 .js-form-type-managed-file small.description').wrap('<div class="tooltip-img"></div>');
+          $('.step_4 .js-form-type-managed-file.form-type-managed-file small.description').wrap('<div class="tooltip-img"></div>');
           // Agregar clase a los pasos anteriores
           const currentStep = $("li.current");
           currentStep.prevAll().addClass("completed");
