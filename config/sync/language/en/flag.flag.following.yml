@@ -1,0 +1,7 @@
+label: Following
+flag_short: 'Follow this user'
+flag_long: 'Click the link to follow this user'
+flag_message: 'You are following the user'
+unflag_short: 'Unfollow this user'
+unflag_long: 'Click the link to unfollow this user'
+unflag_message: 'You have unfollowed the user'

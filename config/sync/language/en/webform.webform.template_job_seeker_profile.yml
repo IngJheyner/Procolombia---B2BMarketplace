@@ -1,3 +1,5 @@
+title: 'Job Seeker Profile'
+description: 'A job seeker profile webform template.'
 elements: |
   introduction:
     '#markup': |
@@ -7,6 +9,7 @@ elements: |
       <li>Providing more information gives a better picture to employers</li>
       <li>Salary requirements, location preferences and skill level are all important factors in the hiring decision</li>
       </ul>
+      
   information:
     '#title': 'Job Seeker Information'
     '#type': webform_section
@@ -66,6 +69,12 @@ elements: |
       '#type': url
       '#title': Website
       '#description': 'Enter your existing profile/resume/portfolio link.'
+settings:
+  confirmation_message: 'Thank you for applying.'
 handlers:
   email_notification:
-    label: 'Notificación por correo electrónico'
+    label: 'Email Notification'
+    settings:
+      from_name: '[webform_submission:values:first_name] [webform_submission:values:last_name]'
+      subject: _default
+      body: _default
