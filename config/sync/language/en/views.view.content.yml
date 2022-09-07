@@ -1,66 +1,69 @@
-label: Contenido
-description: 'Encontrar y administrar contenido.'
+label: Content
+description: 'Find and manage content.'
 display:
   default:
-    display_title: 'Por defecto'
+    display_title: Default
     display_options:
-      title: Contenido
+      title: Content
       fields:
         title:
-          label: Título
+          label: Title
         type:
-          label: 'Tipo de contenido'
+          label: 'Content type'
+          separator: ', '
         name:
-          label: Autor
+          label: Author
         status:
-          label: Estado
+          label: Status
           settings:
-            format_custom_false: 'Sin publicar'
-            format_custom_true: Publicado
+            format_custom_false: Unpublished
+            format_custom_true: Published
         changed:
-          label: Actualizado
+          label: Updated
         operations:
-          label: Operaciones
+          label: Operations
       pager:
         options:
           tags:
-            next: 'Siguiente >'
-            previous: '‹ Anterior'
-            first: '« Primero'
-            last: 'Último »'
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
       exposed_form:
         options:
-          submit_button: Filtrar
-          reset_button_label: Reiniciar
-          exposed_sorts_label: 'Ordenar por'
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'No hay contenido disponible.'
+          content: 'No content available.'
       filters:
         title:
           expose:
-            label: Título
+            label: Title
         type:
           expose:
-            label: 'Tipo de contenido'
+            label: 'Content type'
         status:
           expose:
-            label: Estado
+            label: Status
           group_info:
-            label: 'Estado de publicación'
+            label: 'Published status'
             group_items:
               1:
-                title: Publicado
+                title: Published
               2:
-                title: 'Sin publicar'
+                title: Unpublished
         langcode:
           expose:
-            label: Idioma
+            label: Language
   page_1:
-    display_title: Página
+    display_title: Page
     display_options:
       menu:
-        title: Contenido
+        title: Content
       tab_options:
-        title: Contenido
-        description: 'Encontrar y administrar contenido'
+        title: Content
+        description: 'Find and manage content'

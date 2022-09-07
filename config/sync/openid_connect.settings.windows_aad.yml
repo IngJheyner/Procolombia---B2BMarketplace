@@ -1,0 +1,21 @@
+_core:
+  default_config_hash: zKCZci5IzwHTf3xysPemd4YQsOPQ4rce90VKNpk7PeI
+enabled: true
+settings:
+  redirect_url: ''
+  client_id: 7985d0a1-210a-4239-8a50-59ec1f4accaf
+  client_secret: ktG8Q~T5BP6-ZFPE19Sy.~IHeVPpgX_Lm1V8LcOp
+  enable_single_sign_out: 1
+  authorization_endpoint_wa: 'https://login.microsoftonline.com/30fb5838-3bbb-4124-81ae-28a5308b7496/oauth2/v2.0/authorize'
+  token_endpoint_wa: 'https://login.microsoftonline.com/30fb5838-3bbb-4124-81ae-28a5308b7496/oauth2/v2.0/token'
+  map_ad_groups_to_roles: 1
+  group_mapping:
+    method: '1'
+    mappings: asesor_comercial|EvolutecC
+    strict: 0
+  userinfo_graph_api_wa: '2'
+  userinfo_endpoint_wa: 'https://login.microsoftonline.com/common/openid/userinfo'
+  userinfo_graph_api_use_other_mails: 0
+  userinfo_update_email: 1
+  hide_email_address_warning: 0
+langcode: es

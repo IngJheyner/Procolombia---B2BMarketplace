@@ -1,3 +1,5 @@
-label: Contenido
+label: Content
 tags:
-  description: '[field_body]'
+  title: '[node:title] | [site:name]'
+  description: '[node:summary]'
+  canonical_url: '[node:url]'
