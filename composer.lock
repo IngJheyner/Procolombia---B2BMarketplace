@@ -12159,7 +12159,11 @@
                 "reference": "f803ad5cbe8d8276f369b6c6b2e742e49e8a4f52"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal/core": "^8 || ^9 || ^10",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "drush/drush": "^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
@@ -12167,8 +12171,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "2.x-dev",
-                    "datestamp": "1658180159",
+                    "version": "2.0.2+7-dev",
+                    "datestamp": "1662285807",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -22842,5 +22846,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
