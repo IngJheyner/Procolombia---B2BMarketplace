@@ -25,7 +25,7 @@ Para ello se utilizara la aceptacion del modulo [Coder](https://www.drupal.org/p
 
 Se aconseja analizar la codificacion utilizada en los archivos incluidos en la distribucion de Drupal y en cualquier otro modulo compartido por la comunidad, ten siempre en cuenta que los modulos compartidos por la comunidad no pasan por un control estricto de calidad previo a su publicacion, por lo que podrian contener errores de codificacion.
 
-Las siguiente pautas estaran dentro el criterio de aceptacion y ya vendran configuradas dentro la instalacion de Coder y phpcbf para Drupal:
+Las siguiente pautas estaran dentro el criterio de aceptacion y ya vendran configuradas dentro la instalacion de Coder y phpcbf para Drupal, leer [criterios de aceptacion buenas practicas con Drupal](https://asesoftware.sharepoint.com/:b:/r/sites/proyectos/FIDUCOLDEX_S.A/CO_1020_PROCOLOMBIA_2022/Sistema/3.Construccion/Estandares%20de%20codificacion-v.1.0.pdf?csf=1&web=1):
 
 1.  Codificacion de archivos (UTF-8 sin BOM).
 2.  Identacion y lineas en blanco.
@@ -52,6 +52,8 @@ Las siguiente pautas estaran dentro el criterio de aceptacion y ya vendran confi
 20. Fragmentos de codigo y comentarios de documentacion.
 
 Para llevar un control, manejo de buenas practicas y las pautas ya enumeradas de la 1 - 16 en codificacion con drupal  [Usar la guía de estilo de Drupal con PhpCS y Visual Code](https://oscarnovas.com/blog/usar-la-guia-de-estilo-de-drupal-con-phpcs-y-visual-code).
+
+
 
 ## Identacion (En desarrollo)
 
