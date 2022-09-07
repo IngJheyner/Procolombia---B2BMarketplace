@@ -16,7 +16,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
-use Drupal\cp_core\Controller\CpCoreController;
 use Drupal\Core\Session\AccountProxyInterface;
 
 /**
@@ -219,13 +218,6 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $request = NULL, $mode_form_pattern = 'step', $nid = NULL) {
 
-    $CpCoreController = new CpCoreController();
-    $company_nid = $CpCoreController->_cp_core_get_company_nid_by_user($this->account->id());
-    if (empty($company_nid)) {
-      $this->messenger()->addMessage($this->t('You need to create a company to create your products.'));
-      $this->redirect('view.product_dashboard.page_1');
-    }
-
     $bundle = 'product';
     if (empty($form_state->get('entity'))) {
       $form_state->set('language_values_en', []);
@@ -233,13 +225,11 @@ class CpCoreMultiStepForm extends FormBase {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
           'type' => $bundle,
           'status' => 0,
-          'field_pr_ref_company' => ['target_id' => $company_nid],
+          'uid' => $this->account->id(),
         ]);
       }
       else {
-
         $entity = $this->entityTypeManager->getStorage('node')->load($nid);
-        $entity->field_pr_ref_company->target_id = $company_nid;
         $entity->setUnpublished();
       }
       $this->init($form_state, $entity, $mode_form_pattern);
@@ -253,7 +243,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form_state->set('saved_entities', $saved_entities);
       }
       if (!$this->maxStep) {
-        $this->mesesenger->addMessage(t('No existe ningún paso configurado para este tipo de contenido'), 'error');
+        $this->mesesenger->addMessage($this->t('No existe ningún paso configurado para este tipo de contenido'), 'error');
 
         return [];
       }
@@ -704,6 +694,7 @@ class CpCoreMultiStepForm extends FormBase {
       $product_list = array_filter($product_list);
       $product_list = array_keys($product_list);
     }
+    $available_langcodes = array_keys($this->languageManager->getLanguages());
     foreach ($product_list as $nid) {
       if ($nid) {
         // Set wait status.
@@ -713,6 +704,13 @@ class CpCoreMultiStepForm extends FormBase {
         $node->save();
         if ($entity->id() == $nid) {
           $form_state->set('entity', $node);
+        }
+        foreach ($available_langcodes as $langcode) {
+          if ($node->hasTranslation($langcode)) {
+            $translation = $node->getTranslation($langcode);
+            $translation->setPublished();
+            $translation->save();
+          }
         }
       }
     }

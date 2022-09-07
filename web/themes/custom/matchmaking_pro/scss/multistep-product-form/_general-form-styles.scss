@@ -42,7 +42,6 @@
         .group-right.step-5{
             margin-top: 20px;
         }
-
     }
     
     @include media-breakpoint-down(md){
@@ -58,7 +57,12 @@
     .form-control.is-invalid,.form-select.is-invalid{
         border: 2px solid $procol-red !important;
         background: none !important;
+        position: relative;        
     }
+    .is-invalid{
+        @include invalid-tooltip;
+    }
+    
     input, textarea, select{
         @include fields-hover-and-focus;
         resize: none;
@@ -84,6 +88,9 @@
         background-repeat: no-repeat;
     }
     .SumoSelect{
+        select{
+            display: none;
+        }
         width: 100%;
         @include fields-hover-and-focus;
         &:hover{
@@ -117,6 +124,10 @@
                     background-color: $procol-dark-blue;
                     color: $white;
                 }
+                label{
+                    font-weight: 300;
+                    padding-bottom: 0;                 
+                }
             }
         }
     }
@@ -127,9 +138,26 @@
         background-image: url(../images/icons/tool-tip.svg);
         background-repeat: no-repeat;
         background-position-y: 11px;
+        background-size: 12px 12px;
+        padding-right: 0;
 
     }
-    
+    .js-form-type-managed-file{
+        small{
+            max-height: 41px;
+            overflow: hidden;
+        }
+    }
+    .lightbulb-tooltip{
+        @include lightbulb-tooltip;
+        z-index: 3;
+    }
+    &.step_5{
+        .lightbulb-tooltip span{
+            max-width: 400px;
+            top: -100px;
+        }
+    }
     // Start Main styles multistep sidebar
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
@@ -147,8 +175,15 @@
         margin-top: 22px;
         max-width: 442px;
         width: 100%;
+        &.js-form-type-managed-file{
+            margin-top: 0;
+        }
+        @include media-breakpoint-down(lg){
+            max-width: 100%;
+        }
         @include media-breakpoint-down(md){
             max-width: 760px;
+            margin-top: 0;
         }
         
         &.js-form-type-checkbox {
@@ -166,22 +201,12 @@
                 left: -2px;
               }
         }
-        >label{
-           @include label-style;
-           &#edit-field-file-0--label,
-           &#edit-field-file-en-0--label {
-            position: relative;
-            left: 0;
-            }
-            &.form-check-label {
-                position: static !important;
-            }
-            @include media-breakpoint-down(md){
-                position: static;
-                height: auto;
-            }
+        label{
+           font-weight: bold;
+           padding-bottom: 8px;
+           
         }
-                
+             
         input[type="text"]{
             height: 40px;
         }
@@ -192,29 +217,13 @@
             }
         }
     }
-    &.step_4{
-        @include media-breakpoint-down(lg){
-            .form-wrapper.step-title{
-                padding: 0;
-            }
-            .group-row{
-                padding: 20px;
-            }
-        }
-        #edit-field-images{
-            padding-top: 20px;
-        }
-        .js-form-type-managed-file:nth-child(-n+3) {
-            border-right: 1px solid #D8DADD;
-            margin: 0 !important;
-            padding-right: 50px;
-            @include media-breakpoint-down(lg){
-                border-right: none;
-                padding-right: 0;
-            }
-          }
-    }
     &.step_5{
+        label{
+            &.form-check-label{
+                padding-bottom: 0;
+
+               } 
+        }
         @include media-breakpoint-down(lg){
             .step-title{
                 padding: 0;
@@ -228,10 +237,10 @@
             justify-content: space-between;
             max-width: 442px;
             align-items: flex-end;
-            padding-top: 20px;
             &.step-4{
             justify-content: flex-start;
             margin-top: 35px;
+            
             .group-top{
                 margin-top: 31px;
             }
@@ -269,6 +278,8 @@
                 overflow: hidden;
                 background-position-x: 10px;
                 padding-left: 35px;
+                margin-top: 0;
+                align-items: center
                }
                 button{
                     @include remove-files;
@@ -298,9 +309,11 @@
         border-left: 1px solid #D8DADD;
         grid-area: 2 / 2 / 4 / 4;
         padding-top: 31px;
+        padding-right: 0 !important;
         @include media-breakpoint-down(md){
             border-left: none;
             grid-area: 3 / 1 / 4 / 4;
+            padding-top: 0;
         }
         
     }
@@ -310,28 +323,17 @@
         width: 100%;
         margin-bottom: 0 !important;
         padding-bottom: 16px !important;
+        padding-right: 0 !important;
         @include media-breakpoint-down(xxl){
-            max-width: 882px;
-        }
-        @include media-breakpoint-down(xl){
-            max-width: 702px;
-        }
-        @include media-breakpoint-down(lg){
-            max-width: 462px;
-            #edit-actions{
-                padding-left: 20px;
-                padding-right: 20px;
-            }
+            max-width: 100%;
         }
         @include media-breakpoint-down(md){
-            padding-left: 15px;
-            padding-right: 15px;
-            max-width: 100%;
             border-left: none;
             grid-area: 4 / 1 / 5 / 4;
         }
     }
-    .field-group-html-element.group-left { 
+    .field-group-html-element.group-left {
+        position: relative; 
         width: 50%;
         padding: 0 50px;
         border-right: 1px solid $procol-gray-200;
@@ -344,6 +346,7 @@
         
     }
     .field-group-html-element.group-right{
+        position: relative;
         width: 50%;
         grid-area: 2 / 3 / 4 / 4; 
         padding-right: 50px;
@@ -352,6 +355,7 @@
         justify-content: flex-end;
         align-items: flex-end;
         padding: 0 50px;
+        position: relative;
         #edit-field-pr-multilingual-step1-wrapper {
             margin-bottom: 0px !important;
             }
@@ -387,6 +391,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 26px;
             
             .field--name-field-product-type{
                 width: 100%;
@@ -442,7 +447,7 @@
         &.field--widget-cp-core-image-multi-widget{
             .js-form-wrapper{
                 display: grid;
-                grid-template-columns: repeat(2, auto);
+                grid-template-columns: minmax(100px,442px);
                 grid-template-rows: repeat(3, auto);
                 grid-auto-flow: column;
                 column-gap: 50px;
@@ -452,7 +457,9 @@
                 @include media-breakpoint-down(lg){
                     grid-template-columns: 1fr;
                     grid-template-rows: repeat(5, auto);
-                    padding: 0; 
+                    padding: 0;
+                    padding-right: 20px; 
+                    padding-top: 0;
                 }
                 @include media-breakpoint-down(md){
                     .image-preview {
@@ -472,6 +479,12 @@
             gap: 22px;
             padding:0 50px;
             margin-top: 16px;
+            @include media-breakpoint-down(xl){
+                padding: 0 25px;
+            }
+            @include media-breakpoint-down(lg){
+                padding: 0 20px;
+            }
             button{
                 border-radius: 4px;
                 background-color: $procol-dark-blue;
@@ -537,9 +550,6 @@
                  }
             }
             @include media-breakpoint-down(md){
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-
                 flex-wrap: wrap;
                 width: 100%;
                 button{
