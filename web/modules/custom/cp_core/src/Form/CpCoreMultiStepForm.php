@@ -694,6 +694,7 @@ class CpCoreMultiStepForm extends FormBase {
       $product_list = array_filter($product_list);
       $product_list = array_keys($product_list);
     }
+    $available_langcodes = array_keys($this->languageManager->getLanguages());
     foreach ($product_list as $nid) {
       if ($nid) {
         // Set wait status.
@@ -703,6 +704,13 @@ class CpCoreMultiStepForm extends FormBase {
         $node->save();
         if ($entity->id() == $nid) {
           $form_state->set('entity', $node);
+        }
+        foreach ($available_langcodes as $langcode) {
+          if ($node->hasTranslation($langcode)) {
+            $translation = $node->getTranslation($langcode);
+            $translation->setPublished();
+            $translation->save();
+          }
         }
       }
     }
