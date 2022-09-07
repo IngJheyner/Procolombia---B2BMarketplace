@@ -1,12 +1,11 @@
 .cp-core-multistep-form.step_1{
     label{
         @include label-style;
-        @include media-breakpoint-down(lg){
-            position: static;
-            height: auto;
-        }
     }
     .js-form-item-field-product-type{
+        @include media-breakpoint-down(md){
+            margin-bottom: 0 !important;
+        }
         margin-top: 0;
         .sumo_field_product_type{
             li:hover{
@@ -95,6 +94,17 @@
     .field--name-title{
         margin-bottom: 0 !important;
     }
+    #edit-field-file-wrapper--2{
+        margin-bottom: 0 !important;
+    }
+    #edit-field-pr-multilingual-step1-0-value-en {
+        @include media-breakpoint-down(md){
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+        
+        }
     #edit-footer-form #edit-actions {
         justify-content: flex-end;
         #edit-previous{

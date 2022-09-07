@@ -50,12 +50,15 @@
                 padding: 16px 12px;
             }
             .modal-footer-right {
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                }
                 a.button, button{
                     font-size: 14px;
                     line-height: 17px;
                     margin: 0;
                     @include blue-btn;
-                    @include media-breakpoint-down(sm) {
+                    @include media-breakpoint-down(md) {
                         width: 100%;
                         padding-top: 20px;
                         padding-bottom: 20px;
@@ -79,8 +82,11 @@
                 height: 35px;
                 width: 40px;
             }
-
-            .modal-header-close{
+            
+            .modal-header-close{ 
+                &.close{
+                    width: auto !important;
+                }               
                 background-image: url(../images/icons/Cerrar-negro.svg);
             }
         }
@@ -117,10 +123,12 @@
             .modal-footer-right{
                 display: flex;
                 gap: 20px;
+                @include media-breakpoint-down(md){
+                    flex-direction: column;
+                }
                 .button.btn-ok{
-                    background: #F7F8F8;
-                    border: 1px solid $procol-gray-300;
-                    color: $procol-gray-300;
+                    background: $button-lighter-gray;
+                    color: $procol-gray-400;
                     font-weight: 400;
                 }
             }

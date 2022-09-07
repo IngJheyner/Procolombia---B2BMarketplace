@@ -1,0 +1,116 @@
+.cp-core-multistep-form.step_4{
+    @include media-breakpoint-down(lg){
+        .form-wrapper.step-title{
+            padding: 0;
+        }
+        .group-row{
+            padding: 20px;
+            padding-bottom: 0;
+        }
+    }
+    #edit-field-images{
+        padding-top: 20px;
+        @include media-breakpoint-down(lg){
+            padding-top: 0;
+        }
+    }
+    
+    .js-form-type-managed-file:nth-child(-n+3) {
+        border-right: 1px solid #D8DADD;
+        margin: 0 !important;
+        padding-right: 50px;
+        @include media-breakpoint-down(lg){
+            border-right: none;
+            padding-right: 0;
+        }
+    }
+    .js-form-type-managed-file:nth-child(n+2){
+        .tooltip-img{
+            height: 15px;
+            width: 15px;
+            background-image: url(../images/icons/tool-tip.svg);
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            position: relative;
+            top: -60%;
+            left: 100%;
+            background-position: center;
+            @include media-breakpoint-down(lg){
+                top: -100%;
+                left: 98%;
+            }
+        }
+        small {
+            background-image: none;
+            display: none;
+            position: absolute;
+            right: -50%;
+            top: -50px;
+            padding: 6px 15px;
+            width: calc(100vw - 100px);
+            max-width: 445px;
+            color: $button-lighter-gray !important;
+            background-color: $procol-gray-300;
+            border-radius: 4px;
+            
+          }
+        &:hover{
+            small{
+                display: block;
+            }
+            &::after{
+                position: absolute;
+                content: '';
+                border:solid 8px transparent;
+                border-top-color: $procol-gray-300 ;
+                top: 9%;
+                right: 8%;
+                @include media-breakpoint-down(lg){
+                    top: -11%;
+                    right:0;
+                }
+            }
+        }
+    }
+    .js-form-type-managed-file {
+        padding-top: 15px;
+        @include media-breakpoint-down(lg){
+            margin-bottom: 0 !important;
+        }
+        &:nth-child(3),
+        &:nth-child(5){
+            &:hover{
+                &::after{
+                    top: 22%;
+                    @include media-breakpoint-down(lg){
+                        top: -11%;
+                    }
+                }
+            }
+        }
+        &:nth-child(4){
+            &:hover{
+                &::after{
+                    top: 14%;
+                    @include media-breakpoint-down(lg){
+                        top: -11%;
+                    }
+                }
+            }
+        }
+        &:nth-child(4),
+        &:nth-child(5){
+            &:hover{
+                &::after{
+                    right: -4%;
+                    @include media-breakpoint-down(lg){
+                        right:0;
+                    }
+                }
+            }
+        }
+    }
+    .field--type-multilingual-form-display{
+        display: none;
+    }
+}
