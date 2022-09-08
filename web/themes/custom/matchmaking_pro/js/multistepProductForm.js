@@ -20,13 +20,29 @@
           $( '.lightbulb-tooltip span').toggle();
          })
         //Cargar modales
-        $(context).find('body').once('.cp-core-multistep-form').each(function () {   
+        $(context).find('body').once('.cp-core-multistep-form').each(function () {
           //Uso de Sumo select para personlizar campos tipo select
-          $('#edit-field-product-type').SumoSelect();
-          $('#edit-field-categorization-parent').SumoSelect();
-          $('#edit-field-categorization').SumoSelect();
-          $('#edit-field-partida-arancelaria-tax').SumoSelect();
-          $('#edit-field-pr-product-availability').SumoSelect();
+          $('#edit-field-product-type').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('#edit-field-categorization-parent').SumoSelect(
+            {
+              forceCustomRendering: true,
+            }
+          );
+          $('#edit-field-categorization').SumoSelect(
+            {
+              forceCustomRendering: true,
+            }
+          );
+          $('#edit-field-partida-arancelaria-tax').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('#edit-field-pr-product-availability').SumoSelect(
+            {
+              forceCustomRendering: true,
+            }
+          );
           $('.step_4 .js-form-type-managed-file.form-type-managed-file small.description').wrap('<div class="tooltip-img"></div>');
           // Agregar clase a los pasos anteriores
           const currentStep = $("li.current");
@@ -36,7 +52,7 @@
 
           //Creación Variables del legal modal
           let modalFirstStep = document.querySelector('.step_1 .legal-modal');
-          
+
           if (modalFirstStep) {
             let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
             const btnCloseFirstSt = document.querySelector('.close');
@@ -112,6 +128,11 @@
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
+        else if($('.cancel-confirm-question-modal').length) {
+          $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            $(this).closest('form').find('button.cancel-confirm-submit').click();
+          });
+        }
 
 
         if ($('.save-publish-question-modal').length) {
@@ -171,7 +192,32 @@
           });
         }
 
+        if ($('a.insert-video.btn').length) {
+          if ($('input[name="field_pr_video_2[0][value]"]').val() != '') {
+            $('a.insert-video.btn').hide();
+            $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
+          }
+          $('a.insert-video.btn').once().click(function (e) {
+            e.preventDefault();
+            $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
+            $(this).hide();
+          });
+        }
 
+        if ($('input#edit-field-pr-video-0-value').length) {
+          $('input#edit-field-pr-video-0-value').once().change(function(e) {
+            if ($(this).val() != "") {
+              $(this).trigger('state:empty');
+            }
+          });
+        }
+        if ($('input#edit-field-pr-video-2-0-value').length) {
+          $('input#edit-field-pr-video-2-0-value').once().change(function(e) {
+            if ($(this).val() != "") {
+              $(this).trigger('state:empty');
+            }
+          });
+        }
 
       }
     };

@@ -914,6 +914,16 @@ function cp_core_views_query_alter(ViewExecutable $view, QueryPluginBase $query)
       unset($query->where[1]['conditions'][3]);
     }
   }
+  if ($view->id() === 'product_dashboard') {
+    foreach ($query->where[1]['conditions'] as &$condition) {
+      if (strpos($condition['field'], 'node_field_data.changed') === 0) {
+        $exp = explode(' >= ', $condition['field']);
+        $expend = $exp[1] + 86400;
+        $condition['field'] .= " AND node_field_data.changed <=" . $expend;
+      }
+    }
+    $hola = 1;
+  }
 }
 
 /**
