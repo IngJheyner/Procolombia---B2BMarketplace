@@ -182,11 +182,26 @@
             $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
           }
           $('a.insert-video.btn').once().click(function (e) {
+            e.preventDefault();
             $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
             $(this).hide();
           });
         }
 
+        if ($('input#edit-field-pr-video-0-value').length) {
+          $('input#edit-field-pr-video-0-value').once().change(function(e) {
+            if ($(this).val() != "") {
+              $(this).trigger('state:empty');
+            }
+          });
+        }
+        if ($('input#edit-field-pr-video-2-0-value').length) {
+          $('input#edit-field-pr-video-2-0-value').once().change(function(e) {
+            if ($(this).val() != "") {
+              $(this).trigger('state:empty');
+            }
+          });
+        }
 
       }
     };

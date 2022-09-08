@@ -17,6 +17,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\mfd\MfdFieldManager;
 
 /**
  * Implements an example form.
@@ -227,6 +228,7 @@ class CpCoreMultiStepForm extends FormBase {
           'type' => $bundle,
           'status' => 0,
           'uid' => $this->account->id(),
+          'langcode' => 'es',
         ]);
       }
       else {
@@ -381,7 +383,7 @@ class CpCoreMultiStepForm extends FormBase {
         foreach ($categorization_terms as $categorization_term) {
           $newsubcategorization_options[$categorization_term->id()] = $categorization_term->label();
         }
-        $form['field_categorization_parent']['widget']['#options'] = $newsubcategorization_options;
+        $form['field_categorization_parent']['widget']['#options'] = !empty($newsubcategorization_options) ? $newsubcategorization_options : [0 => ''];
       }
 
       if ($this->entity->field_categorization->target_id && isset($form['field_pr_type_certifications'])) {
@@ -530,7 +532,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#value' => t('Next'),
         ];
         $form['#submit'][] = '::saveForm';
-        $form['#submit'][] = 'mfd_form_submit';
+        $form['#submit'][] = '::mfdSaveForm';
       }
       else {
         // Show view with product presaving.
@@ -766,6 +768,77 @@ class CpCoreMultiStepForm extends FormBase {
     $options = ['query' => ['saved-entities', implode('+', $saved_entities)]];
     $url = Url::fromRoute('<current>', [], $options);
     $form_state->setRedirectUrl($url);
+  }
+
+  /**
+   * Submit form.
+   */
+  public function mfdSaveForm(&$form, FormStateInterface $form_state) {
+    $form_values = $form_state->getValues();
+    $form_object = $form_state->getFormObject();
+
+    // If entity is not translatable, there is nothing for us to do.
+    $entity = $form_object->getEntity();
+    if (!$entity->isTranslatable()) {
+      return;
+    }
+    $entity->save();
+
+    // Does this entity have a mfd field?
+    $mfd_field_manager = new MfdFieldManager();
+
+    if ($mfd_field_manager->hasMfdField($entity)) {
+
+      $language_manager = \Drupal::languageManager();
+      $current_language = $language_manager->getCurrentLanguage()->getId();
+
+      $available_langcodes = array_flip(array_keys($language_manager->getLanguages()));
+      ksort($available_langcodes);
+
+      // Store the field translations.
+      foreach ($available_langcodes as $langcode => $value) {
+        if ($langcode !== $current_language) {
+          $translated_fields = [];
+
+          foreach ($entity->getFieldDefinitions() as $field_name => $definition) {
+            if ($definition->isTranslatable()) {
+              $field_name_unique = $field_name . '_' . $langcode;
+              if (isset($form_values[$field_name_unique])) {
+                if (!empty($form_values[$field_name_unique][0]['fids'])) {
+                  $newTargetIds = [];
+                  foreach ($form_values[$field_name_unique][0]['fids'] as $fid) {
+                    $newTargetIds[] = ['target_id' => $fid];
+                  }
+                  $translated_fields[$field_name] = $newTargetIds;
+                }
+                else {
+                  $translated_fields[$field_name] = $form_values[$field_name_unique];
+                }
+              }
+            }
+          }
+
+          if (!$entity->hasTranslation($langcode)) {
+            continue;
+          }
+
+          $translation = $entity->getTranslation($langcode);
+          foreach ($translated_fields as $field => $field_value) {
+
+            if (!is_numeric(array_key_first($field_value))) {
+              $first_field_value = reset($field_value);
+              if (is_array($first_field_value) && is_numeric(array_key_first($first_field_value))) {
+                $translation->set($field, $first_field_value);
+              }
+            }
+            else {
+              $translation->set($field, $field_value);
+            }
+          }
+          $translation->save();
+        }
+      }
+    }
   }
 
   /**
