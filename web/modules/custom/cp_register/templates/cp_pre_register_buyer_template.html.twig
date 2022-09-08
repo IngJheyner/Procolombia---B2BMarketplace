@@ -61,10 +61,10 @@
 				</label>
 				<div class="row p-0">
 					<div class="col-lg-3" style="padding: 0px;">
-						<input id="country_code_mobile" type="tel" name="phone"/>
+						<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
 					</div>
 					<div class="col-lg-9" style="padding-right: 0px;">
-						<input class="w-100" style="height: 100%;" type="tel" name="" id="cellphone">
+						<input class="w-100 form-control" type="tel" name="" id="cellphone">
 					</div>
 				</div>
 			</div>
@@ -73,7 +73,7 @@
 					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="email" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." class="form-control">
+					<input autocomplete="off" type="email" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." class="form-control">
 					<i id="error_mail" class='bx bxs-info-circle toltip_i'>
 						<span id="error_mail_message" class="tooltiptext_error">
 							{{ "Required Field"|t }}
@@ -120,7 +120,7 @@
 						<div class="progress">
 							<div class="progress-bar" id="progressbar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
-						<p id="error_mensaje_pass" class="mensaje">{{ "Weak"|t }}</p>
+						<p id="error_mensaje_pass" style="word-break: initial;" class="mensaje">{{ "Weak"|t }}</p>
 					</div>
 					<div class="toltip_content">
 						<i class='bx bxs-info-circle toltip_i'>

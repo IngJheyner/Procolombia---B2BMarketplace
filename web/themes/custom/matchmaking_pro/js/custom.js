@@ -552,12 +552,26 @@ function myFunction() {
     }
   }
 
+  //show dashboard exportador
+  function showDashboardExportador() {
+    if (window.location.pathname !== "/es/dashboard/adviser/user" && window.location.pathname !== "/en/dashboard/adviser/user") {
+      window.location.href = "/dashboard/adviser/user";
+    } else {
+      $("#bussines_national").show();
+      $("#bussines_international").hide();
+      $("#button_dashboard_exportador").hide();
+      $("#button_dashboard_buyer").show();
+    }
+  }
 
-
-
-
-
-
+  //show dashboard buyer
+  function showDashboardBuyer() {
+    //check if the path url is not /dashboard/adviser/user
+    $("#bussines_national").hide();
+    $("#bussines_international").show();
+    $("#button_dashboard_buyer").hide();
+    $("#button_dashboard_exportador").show();
+  }
 
   Drupal.behaviors.custom = {
     attach: function (context, settings) {
@@ -708,6 +722,16 @@ function myFunction() {
         changePassword();
       });
 
+      //toggle dashboard
+      $("#button_dashboard_exportador", context).click(function () {
+        showDashboardExportador();
+      });
+
+      //toggle dashboard
+      $("#button_dashboard_buyer", context).click(function () {
+        showDashboardBuyer();
+      });
+
       if (context === document) {
         //check if query params has email, time and token
         var urlParams = new URLSearchParams(window.location.search);
@@ -717,6 +741,13 @@ function myFunction() {
         if (email && time && token) {
           //show modal recover password
           $("#modal_recover_password").modal("show");
+        }
+
+        if (window.location.pathname !== "/es/dashboard/adviser/user" && window.location.pathname !== "/en/dashboard/adviser/user") {
+          $("#bussines_national").hide();
+          $("#bussines_international").show();
+          $("#button_dashboard_buyer").hide();
+          $("#button_dashboard_exportador").show();
         }
       }
     }
