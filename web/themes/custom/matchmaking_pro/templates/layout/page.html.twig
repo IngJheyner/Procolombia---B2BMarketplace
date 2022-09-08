@@ -69,9 +69,10 @@
 #}
 <div id="page-wrapper">
 
-	<div id="page">
+  <div id="page">
 
 		<header>
+
 			{% if logged_in %}
 			{#check id user is exportador#}
 			{% if 'exportador' in user.getroles %}
@@ -700,7 +701,7 @@
 					</div>
 					<div class="icono">
 						<div class="img_icon py-1">
-							
+
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.484" height="19.893" viewBox="0 0 24.484 19.893">
 <defs>
 									<linearGradient id="circle-gradient-mensaje" x1="0.5" x2="0.5" y2="1"
@@ -1596,12 +1597,18 @@
 
 		{% endif %}
 
+    {# ============================================
+    REGION CONTENT
+    =============================================== #}
 		<div id="main-wrapper" class="layout-main-wrapper clearfix">
 
 			{% block content %}
 
 			<div id="main" class="container-fluid">
 
+        {# ============================================
+        REGION BREADCRUMB
+        =============================================== #}
 				{{ page.breadcrumb }}
 
 				<div class="row-offcanvas row-offcanvas-left clearfix">
@@ -1610,49 +1617,54 @@
 
 						<section class="section">
 
-							<a id="main-content" tabindex="-1"></a>
-
 							{{ page.content }}
 
 						</section>
 
 					</main>
 
+          {# ============================================
+          REGION SIDEBAR-FIRST
+          =============================================== #}
           {% if page.sidebar_first %}
 
-          <div{{sidebar_first_attributes}}>
+            <div{{sidebar_first_attributes}}>
+
+              <aside class="section" role="complementary">
+
+                {{ page.sidebar_first }}
+
+              </aside>
+
+            </div>
+
+				  {% endif %}
+
+          {# ============================================
+          REGION SIDEBAR-SECOND
+          =============================================== #}
+          {% if page.sidebar_second %}
+
+          <div{{sidebar_second_attributes}}>
 
             <aside class="section" role="complementary">
 
-              {{ page.sidebar_first }}
+              {{ page.sidebar_second }}
 
             </aside>
 
-				</div>
+          </div>
 
-				{% endif %}
+          {% endif %}
 
-				{% if page.sidebar_second %}
+		    </div>
 
-				<div{{sidebar_second_attributes}}>
+	    </div>
 
-					<aside class="section" role="complementary">
+	    {% endblock %}
 
-						{{ page.sidebar_second }}
+    </div>
 
-					</aside>
-
-			</div>
-
-			{% endif %}
-
-		</div>
-
-	</div>
-
-	{% endblock %}
-
-</div>
 {% if page.featured_bottom_first or page.featured_bottom_second or page.featured_bottom_third %}
 <div class="featured-bottom">
 	<aside class="{{ container }} clearfix" role="complementary">
