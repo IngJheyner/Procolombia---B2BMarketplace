@@ -1,0 +1,30 @@
+.cp-core-multistep-form.step_4{
+    @include media-breakpoint-down(lg){
+        .form-wrapper.step-title{
+            padding: 0;
+        }
+        .group-row{
+            padding: 20px;
+            padding-bottom: 0;
+        }
+    }
+    #edit-field-images{
+        padding-top: 20px;
+        @include media-breakpoint-down(lg){
+            padding-top: 0;
+        }
+    }
+    
+    .js-form-type-managed-file:nth-child(-n+3) {
+        border-right: 1px solid #D8DADD;
+        margin: 0 !important;
+        padding-right: 50px;
+        @include media-breakpoint-down(lg){
+            border-right: none;
+            padding-right: 0;
+        }
+    }
+    .field--type-multilingual-form-display{
+        display: none;
+    }
+}

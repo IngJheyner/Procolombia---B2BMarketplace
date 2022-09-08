@@ -1,4 +1,9 @@
 .cp-core-multistep-form.step_2{
+    label{
+        @include media-breakpoint-down(md){
+            padding-bottom: 15px;
+        }
+    }
     small{
         padding-bottom: 0;
     }
@@ -26,6 +31,11 @@
                 border: none;
                 padding-left: 15px;
                 padding-right: 15px;
+               }
+               @include media-breakpoint-down(md){
+                padding-top: 0;
+                padding-bottom: 20px;
+                font-size:$font-size-lg;
                }
                
            }
@@ -81,6 +91,15 @@
         label{
             position: static;
             height: auto;
+        }
+        .counter{
+            display: none;
+        }
+        small{
+            padding-bottom: 20px;
+            &:hover{
+                background-image: url(../images/icons/info-red.svg);
+            }
         }
     }
 }

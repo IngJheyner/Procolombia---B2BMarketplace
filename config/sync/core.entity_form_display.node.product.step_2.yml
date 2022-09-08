@@ -57,8 +57,8 @@ third_party_settings:
   field_group:
     group_left:
       children:
-        - field_categorization_parent
         - field_categorization
+        - field_categorization_parent
         - group_spanish_information
       label: Left
       region: content
@@ -79,6 +79,7 @@ third_party_settings:
         required_fields: true
     group_right:
       children:
+        - group_tooltip_ancelaria
         - field_partida_arancelaria_tax
         - group_english_information
       label: Right
@@ -143,7 +144,7 @@ third_party_settings:
       label: 'Información en Español'
       region: content
       parent_name: group_left
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         classes: information-title
@@ -214,6 +215,20 @@ third_party_settings:
         show_empty_fields: '1'
         id: ''
         classes: 'form-wrapper step-2-title'
+    group_tooltip_ancelaria:
+      children: {  }
+      label: 'tooltip ancelaria'
+      region: content
+      parent_name: group_right
+      weight: 20
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: '<span>A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.</span>'
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper lightbulb-tooltip'
 id: node.product.step_2
 targetEntityType: node
 bundle: product
@@ -241,7 +256,7 @@ content:
     third_party_settings: {  }
   field_categorization_parent:
     type: options_select
-    weight: 1
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
