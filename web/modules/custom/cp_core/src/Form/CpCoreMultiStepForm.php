@@ -220,6 +220,7 @@ class CpCoreMultiStepForm extends FormBase {
 
     $bundle = 'product';
     if (empty($form_state->get('entity'))) {
+      $this->step = 1;
       $form_state->set('language_values_en', []);
       if (empty($nid)) {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
@@ -243,7 +244,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form_state->set('saved_entities', $saved_entities);
       }
       if (!$this->maxStep) {
-        $this->mesesenger->addMessage($this->t('No existe ningún paso configurado para este tipo de contenido'), 'error');
+        $this->messenger()->addMessage($this->t('No existe ningún paso configurado para este tipo de contenido'), 'error');
 
         return [];
       }
@@ -352,6 +353,48 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_video_2']['#attributes'] = ['style' => 'display: none'];
       }
 
+      if (isset($form['field_categorization'])) {
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => 0,
+          'vid' => 'categorization',
+        ]);
+        $newcategorization_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newcategorization_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_categorization']['widget']['#options'] = $newcategorization_options;
+        $form['field_categorization']['widget']['#ajax'] = [
+          'callback' => '::reloadSubCategorization',
+          'wrapper' => 'dependency-fieldcategorization',
+        ];
+        $form['field_categorization_parent']['#prefix'] = '<div id="dependency-fieldcategorization">';
+        $form['field_categorization_parent']['#suffix'] = '</div>';
+      }
+
+      if (($this->entity->field_categorization->target_id || !empty($form_state->getValue('field_categorization'))) && isset($form['field_categorization_parent'])) {
+        $categorization_terms_id = !empty($form_state->getValue('field_categorization')) ? $form_state->getValue('field_categorization')[0]['target_id'] : $this->entity->field_categorization->target_id;
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => $categorization_terms_id,
+          'vid' => 'categorization',
+        ]);
+        $newsubcategorization_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newsubcategorization_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_categorization_parent']['widget']['#options'] = $newsubcategorization_options;
+      }
+
+      if ($this->entity->field_categorization->target_id && isset($form['field_pr_type_certifications'])) {
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => $this->entity->field_categorization->target_id,
+          'vid' => 'categorization',
+        ]);
+        $newcertification_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newcertification_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_pr_type_certifications']['widget']['#options'] = $newcertification_options;
+      }
 
       if ($this->step == 1) {
         // $form['legal_terms'] = [
@@ -767,6 +810,13 @@ class CpCoreMultiStepForm extends FormBase {
       $form_state->setRebuild();
       $form_state->set('sent_publish_entities', $product_list);
     }
+  }
+
+  /**
+   * Categorization ajax callback.
+   */
+  public function reloadSubCategorization(&$form, FormStateInterface $form_state) {
+    return $form['field_categorization_parent'];
   }
 
   /**
