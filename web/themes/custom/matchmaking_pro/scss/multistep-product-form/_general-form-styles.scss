@@ -88,9 +88,6 @@
         background-repeat: no-repeat;
     }
     .SumoSelect{
-        select{
-            display: none;
-        }
         width: 100%;
         @include fields-hover-and-focus;
         &:hover{
