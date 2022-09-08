@@ -174,12 +174,12 @@ third_party_settings:
       weight: 20
       format_type: cp_core_group_markup
       format_settings:
-        show_empty_fields: 1
-        id: ''
-        classes: form-wrapper
         markup:
           value: '<h2>Campos para ambos idiomas</h2>'
           format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper step-3-title'
 id: node.product.step_3
 targetEntityType: node
 bundle: product
@@ -187,7 +187,7 @@ mode: step_3
 content:
   field_pr_certifications:
     type: file_generic
-    weight: 4
+    weight: 22
     region: content
     settings:
       progress_indicator: throbber
@@ -219,7 +219,7 @@ content:
     third_party_settings: {  }
   field_pr_product_availability:
     type: cp_core_boolean_select
-    weight: 5
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -245,7 +245,7 @@ content:
     third_party_settings: {  }
   field_pr_type_certifications:
     type: select2_entity_reference
-    weight: 3
+    weight: 21
     region: content
     settings:
       width: 100%

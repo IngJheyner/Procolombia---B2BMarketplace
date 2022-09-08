@@ -50,12 +50,15 @@
                 padding: 16px 12px;
             }
             .modal-footer-right {
+                @include media-breakpoint-down(md){
+                    width: 100%;
+                }
                 a.button, button{
                     font-size: 14px;
                     line-height: 17px;
                     margin: 0;
                     @include blue-btn;
-                    @include media-breakpoint-down(sm) {
+                    @include media-breakpoint-down(md) {
                         width: 100%;
                         padding-top: 20px;
                         padding-bottom: 20px;
@@ -65,6 +68,75 @@
                      }
                 }
             }
+        }
+    }
+    //Estilos modal Header mensaje rojo
+    &.cancel-confirm-question-modal,
+    &.add-other-question-modal{
+        background-color: rgba(0,0,0,0.5);
+        .modal-header{
+            padding: 19px;
+            &::before{
+                background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
+                background-size: 100%;
+                height: 35px;
+                width: 40px;
+            }
+            
+            .modal-header-close{ 
+                &.close{
+                    width: auto !important;
+                }               
+                background-image: url(../images/icons/Cerrar-negro.svg);
+            }
+        }
+        
+    }
+    //Estilos modal Header mensaje azul
+    &.save-publish-question-modal{
+        background-color: rgba(0,0,0,0.5);
+        .modal-header{
+            padding: 19px;
+            &::before{
+                background-image: url(../images/icons/Modal-Mensaje-Azul.svg);
+                background-size: 100%;
+                height: 35px;
+                width: 40px;
+            }
+        }
+    }
+
+    //Estilos modal footer
+    &.save-publish-question-modal,
+    &.cancel-confirm-question-modal,
+    &.add-other-question-modal,
+    &.save-publish-correct-modal{
+        background-color: rgba(0,0,0,0.5);
+        .modal-footer{
+            justify-content: space-between;
+            padding-left: 25px;
+            background-color: $white;
+            .modal-footer-left{
+                font-weight: bold;
+                font-size: 14px;
+            }
+            .modal-footer-right{
+                display: flex;
+                gap: 20px;
+                @include media-breakpoint-down(md){
+                    flex-direction: column;
+                }
+                .button.btn-ok{
+                    background: $button-lighter-gray;
+                    color: $procol-gray-400;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    &.save-publish-correct-modal{
+        .modal-footer .modal-footer-right .button.btn-ok{
+            @include blue-btn;
         }
     }
 }

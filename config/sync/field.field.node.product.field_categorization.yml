@@ -12,7 +12,7 @@ entity_type: node
 bundle: product
 label: Categorization
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

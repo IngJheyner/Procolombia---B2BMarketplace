@@ -57,6 +57,7 @@ third_party_settings:
   field_group:
     group_left:
       children:
+        - group_video_tooltip
         - field_pr_video
       label: Left
       region: content
@@ -167,11 +168,25 @@ third_party_settings:
       weight: 0
       format_type: cp_core_group_markup
       format_settings:
-        show_empty_fields: 1
-        id: ''
-        classes: form-wrapper
         markup:
           value: "<h2>Agregar Vídeos del producto</h2>\r\n<p>Se recomienda cargar vídeos reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>\r\n"
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper step-title'
+    group_video_tooltip:
+      children: {  }
+      label: 'Video tooltip'
+      region: content
+      parent_name: group_left
+      weight: 20
+      format_type: cp_core_group_markup
+      format_settings:
+        show_empty_fields: 1
+        id: ''
+        classes: 'form-wrapper lightbulb-tooltip'
+        markup:
+          value: '<span>Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia. Si no cuentan con un video en inglés, se sugiere incluir subtítulos al video en español.</span>'
           format: html
 id: node.product.step_5
 targetEntityType: node
@@ -180,7 +195,7 @@ mode: step_5
 content:
   field_pr_multilingual_step5:
     type: cp_core_multilingual_field_widget
-    weight: 4
+    weight: 22
     region: content
     settings:
       collapsible_state: '-1'
@@ -198,14 +213,14 @@ content:
     third_party_settings: {  }
   field_pr_video:
     type: cp_core_video_embed_with_preview
-    weight: 0
+    weight: 21
     region: content
     settings:
       show_preview: '1'
     third_party_settings: {  }
   field_pr_video_2:
     type: cp_core_video_embed_with_preview
-    weight: 2
+    weight: 21
     region: content
     settings:
       show_preview: '1'

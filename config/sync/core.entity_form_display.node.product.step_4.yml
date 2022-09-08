@@ -166,12 +166,12 @@ third_party_settings:
       weight: 20
       format_type: cp_core_group_markup
       format_settings:
-        show_empty_fields: 1
-        id: ''
-        classes: form-wrapper
         markup:
-          value: '<h2>Agregar imágenes del producto</h2>'
+          value: "<h2>Agregar imágenes del producto</h2>\r\n<p>Se recomienda cargar fotografías reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>"
           format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper step-title'
 id: node.product.step_4
 targetEntityType: node
 bundle: product

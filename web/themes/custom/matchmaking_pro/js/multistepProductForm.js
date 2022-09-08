@@ -10,16 +10,24 @@
       attach: function(context, settings) {
         // Custom code here
 
+          //Agregar clase a campos obligatorios
+          $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
+          $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
 
+          //Tooltips interacciones
+          $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+          $('.lightbulb-tooltip').click(()=>{
+          $( '.lightbulb-tooltip span').toggle();
+         })
         //Cargar modales
-        $(context).find('body').once('.cp-core-multistep-form').each(function () {
+        $(context).find('body').once('.cp-core-multistep-form').each(function () {   
           //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect();
           $('#edit-field-categorization-parent').SumoSelect();
           $('#edit-field-categorization').SumoSelect();
           $('#edit-field-partida-arancelaria-tax').SumoSelect();
           $('#edit-field-pr-product-availability').SumoSelect();
-
+          $('.step_4 .js-form-type-managed-file.form-type-managed-file small.description').wrap('<div class="tooltip-img"></div>');
           // Agregar clase a los pasos anteriores
           const currentStep = $("li.current");
           currentStep.prevAll().addClass("completed");
@@ -27,11 +35,12 @@
           $(textCurrent).clone().appendTo(".cp-core-node-multistep-sidebar");
 
           //Creación Variables del legal modal
-          let modalFirstStep = document.getElementById('generic-modal-legal-modal');
+          let modalFirstStep = document.querySelector('.step_1 .legal-modal');
+          
           if (modalFirstStep) {
             let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
             const btnCloseFirstSt = document.querySelector('.close');
-
+            modalFirstStep.classList.remove('autoload');
             hideModal(btnCloseFirstSt,showFirstStepModal)
             function hideModal(btn, modal){
               btn.addEventListener('click',()=>{
@@ -40,7 +49,6 @@
             }
             //Cargar modal primer paso cuando el formulario se abre la primera vez
             document.addEventListener('load', function(e) {
-              showFirstStepModal.show();
                 //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
                 if(window.location.hash !== "#cp-core-multistep-form" ) {
                     showFirstStepModal.show();
