@@ -252,7 +252,8 @@
       $("#error_password_buyer").show();
       isValid = false;
     } else {
-      if (password.length < 8 && password.length > 15) {
+      console.log(password.length);
+      if (password.length < 8 || password.length > 15) {
         message = Drupal.t("The password must be between 8 and 15 characters long");
         $("#password_buyer").css("border-color", "#ba0c2f");
         $("#error_password_buyer_message").text(message)

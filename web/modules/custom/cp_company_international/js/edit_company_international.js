@@ -401,13 +401,7 @@
             $("#error_position").hide();
         }
 
-        if (web_site == "") {
-            message = Drupal.t("Please enter a website");
-            $("#web_site").css("border-color", "#ba0c2f");
-            $("#error_web_site_message").text(message)
-            $("#error_web_site").show();
-            isValid = false;
-        } else {
+        if (web_site != "") {
             if (!validateURL(web_site)) {
                 message = Drupal.t("Please enter a valid website");
                 $("#web_site").css("border-color", "#ba0c2f");

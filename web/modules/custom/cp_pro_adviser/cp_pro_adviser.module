@@ -25,6 +25,10 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
       'template' => 'cp_dashboard_pro_adviser_template',
       'variables' => [
         'data' => null,
+        'tree_production_chain'=> null,
+        'tree_business_model'=> null,
+        'tree_categorization'=> null,
+        'tree_deparment'=> null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
