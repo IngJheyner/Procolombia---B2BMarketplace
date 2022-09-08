@@ -311,10 +311,24 @@ class CpCoreMultiStepForm extends FormBase {
         '#weight' => -10,
       ];
 
-      $build['status_messages'] = [
-        '#type' => 'status_messages',
-        '#weight' => -9,
-      ];
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'] = 'Product/service';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'] = 'Description';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'] = 'Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#title'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#title'] = 'Technical specifications';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#description'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#description'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
+      }
+      if (isset($form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'])) {
+        $form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'] = 'Additional or complementary product information';
+      }
 
       if ($this->step == 1) {
         // $form['legal_terms'] = [
