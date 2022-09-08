@@ -112,6 +112,11 @@
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
+        else if($('.cancel-confirm-question-modal').length) {
+          $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            $(this).closest('form').find('button.cancel-confirm-submit').click();
+          });
+        }
 
 
         if ($('.save-publish-question-modal').length) {

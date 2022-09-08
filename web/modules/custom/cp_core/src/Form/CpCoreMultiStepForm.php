@@ -635,10 +635,12 @@ class CpCoreMultiStepForm extends FormBase {
   public function cancelForm(array &$form, FormStateInterface $form_state) {
     // We must delete all created at the moment.
     $nids = $form_state->get('saved_entities');
-    $nids = array_unique($nids);
-    $nodeStorage = $this->entityTypeManager->getStorage('node');
-    $nodes = $nodeStorage->loadMultiple($nids);
-    $nodeStorage->delete($nodes);
+    if ($nids) {
+      $nids = array_unique($nids);
+      $nodeStorage = $this->entityTypeManager->getStorage('node');
+      $nodes = $nodeStorage->loadMultiple($nids);
+      $nodeStorage->delete($nodes);
+    }
 
     $url = Url::fromUri('internal:/dashboard');
     $form_state->setRedirectUrl($url);
