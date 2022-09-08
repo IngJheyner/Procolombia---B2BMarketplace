@@ -1,0 +1,9 @@
+name: 'CP ProColombia Adviser'
+type: module
+description: 'Procolombia adviser module'
+core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_pro_adviser
+interface translation server pattern: modules/custom/cp_pro_adviser/translations/cp_pro_adviser-es.po
+package: 'Custom'
+dependencies:
+- block

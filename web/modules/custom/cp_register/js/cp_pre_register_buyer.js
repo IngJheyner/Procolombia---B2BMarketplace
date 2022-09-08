@@ -11,23 +11,25 @@
     if (localStorage.getItem('email_buyer')) {
       window.location.href = '/register/user/buyer';
     }
-    // Initalize select2
 
-    new TomSelect('#country_code_mobile', {
+    const phoneInputField2 = document.querySelector("#country_code_mobile");
+    const phoneInput2 = window.intlTelInput(phoneInputField2, {
+      initialCountry: "af",
+      separateDialCode: true,
+    });
+
+    new TomSelect('#langcode', {
       create: false,
       // use method disable()
       render: {
         option: function (data, escape) {
-          return `<div><img class="me-2" src="${data.src}">${data.text}</div>`;
+          return `<div><img class="me-2 img-l" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/matchmaking/images/internal/Icono-Menu-Idioma-color.svg">${data.text}</div>`;
         },
         item: function (item, escape) {
-          return `<div><img class="me-2" src="${item.src}">${item.text}</div>`;
+          return `<div><img class="me-2 img-l" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/matchmaking/images/internal/Icono-Menu-Idioma-color.svg">${item.text}</div>`;
         }
       },
     })
-
-    document.getElementById("country_code_mobile-ts-control").disabled = true;
-    $("#country_code_mobile-ts-control").attr('style', 'display: none !important');
   }
 
   const isEmail = (email) => {
@@ -135,14 +137,14 @@
     var isValid = true;
 
     if (name === "") {
-      message += "El nombre es requerido\n";
+      message = Drupal.t("Name is required\n");
       $("#name").css("border-color", "#ba0c2f");
       $("#error_name").show();
       $("#error_name_message").text(message)
       isValid = false;
     } else {
       if (name.length > 20) {
-        message += "El nombre no puede tener mas de 20 caracteres\n";
+        message = Drupal.t("The name cannot be longer than 20 characters\n");
         $("#name").css("border-color", "#ba0c2f");
         $("#error_name").show();
         $("#error_name_message").text(message)
@@ -153,14 +155,14 @@
       }
     }
     if (last_name === "") {
-      message += "El apellido es requerido\n";
+      message = Drupal.t("El apellido es requerido\n");
       $("#last_name").css("border-color", "#ba0c2f");
       $("#error_last_name").show();
       $("#error_last_name_message").text(message)
       isValid = false;
     } else {
       if (last_name.length > 20) {
-        message += "El apellido no puede tener mas de 20 caracteres\n";
+        message = Drupal.t("The last name cannot be longer than 20 characters\n");
         $("#last_name").css("border-color", "#ba0c2f");
         $("#error_last_name").show();
         $("#error_last_name_message").text(message)
@@ -172,39 +174,67 @@
     }
 
     if (email == "" || !isEmail(email)) {
-      message = "El email es requerido y debe ser un email válido";
+      message = Drupal.t("Email is required and must be a valid email address.");
       $("#email").css("border-color", "#ba0c2f");
       $("#error_mail").show();
       $("#error_mail_message").text(message)
       isValid = false;
     } else {
-      $('#error_mail').tooltip('hide')
-      $("#error_mail").hide();
-      $("#email").css("border-color", "#cccccc");
+      //check if mail server is valid
+      if (email.indexOf("@gmail.com") > -1
+        || email.indexOf("@yahoo.com") > -1
+        || email.indexOf("@hotmail.com") > -1
+        || email.indexOf("@outlook.com") > -1
+        || email.indexOf("@live.com") > -1
+        || email.indexOf("@msn.com") > -1) {
+        message = Drupal.t("The email is invalid");
+        $("#email").css("border-color", "#ba0c2f");
+        $("#error_mail").show();
+        $("#error_mail_message").text(message)
+        isValid = false;
+      } else {
+        $('#error_mail').tooltip('hide')
+        $("#error_mail").hide();
+        $("#email").css("border-color", "#cccccc");
+      }
     }
 
-    if (cellphone !== "") {
+    if (cellphone === "") {
+      message = Drupal.t("Cellphone is required\n");
+      $("#cellphone").css("border-color", "#ba0c2f");
+      $("#error_cellphone").show();
+      $("#error_cellphone_message").text(message)
+      isValid = false;
+    } else {
       if (!isNumber(cellphone)) {
-        message = "El celular debe ser un número";
+        message = Drupal.t("The cell phone must be a number");
         $("#cellphone").css("border-color", "#ba0c2f");
         $("#error_cellphone").show();
         $("#error_cellphone_message").text(message)
         isValid = false;
       } else {
-        $("#cellphone").css("border-color", "#cccccc");
-        $("#error_cellphone").hide();
+        if (cellphone.length > 10) {
+          message = Drupal.t("The cell phone must not have more than 10 digits");
+          $("#cellphone").css("border-color", "#ba0c2f");
+          $("#error_cellphone").show();
+          $("#error_cellphone_message").text(message)
+          isValid = false;
+        } else {
+          $("#cellphone").css("border-color", "#cccccc");
+          $("#error_cellphone").hide();
+        }
       }
     }
 
     if (business_name === "") {
-      message += "La compañia es requerida\n";
+      message = Drupal.t("Company is required\n");
       $("#business_name").css("border-color", "#ba0c2f");
       $("#error_business_name").show();
       $("#error_business_name_message").text(message)
       isValid = false;
     } else {
       if (business_name.length > 100) {
-        message += "La compañia no puede tener mas de 100 caracteres\n";
+        message = Drupal.t("The company cannot be longer than 100 characters\n");
         $("#business_name").css("border-color", "#ba0c2f");
         $("#error_business_name").show();
         $("#error_business_name_message").text(message)
@@ -216,28 +246,28 @@
     }
 
     if (password == "") {
-      message = "El password es requerido";
+      message = Drupal.t("Password is required");
       $("#password_buyer").css("border-color", "#ba0c2f");
       $("#error_password_buyer_message").text(message)
       $("#error_password_buyer").show();
       isValid = false;
     } else {
-      if (password.length < 8) {
-        message = "El password debe tener entre 8 y 15 caracteres";
+      if (password.length < 8 && password.length > 15) {
+        message = Drupal.t("The password must be between 8 and 15 characters long");
         $("#password_buyer").css("border-color", "#ba0c2f");
         $("#error_password_buyer_message").text(message)
         $("#error_password_buyer").show();
         isValid = false;
       } else {
         if (!password.match(/[A-Z]/)) {
-          message = "El password debe tener al menos una mayúscula";
+          message = Drupal.t("The password must have at least one capital letter");
           $("#password_buyer").css("border-color", "#ba0c2f");
           $("#error_password_buyer_message").text(message)
           $("#error_password_buyer").show();
           isValid = false;
         } else {
           if (!password.match(/[0-9]/)) {
-            message = "El password debe tener al menos un número";
+            message = Drupal.t("The password must have at least one number");
             $("#password_buyer").css("border-color", "#ba0c2f");
             $("#error_password_buyer_message").text(message)
             $("#error_password_buyer").show();
@@ -247,8 +277,8 @@
             isValid = false;
           } else {
             if (!password.match(/[^a-zA-Z0-9]/)) {
-              message =
-                "El password debe tener al menos un caracter especial";
+              message = Drupal.t(
+                "The password must have at least one special character");
               $("#password_buyer").css("border-color", "#ba0c2f");
               $("#error_password_buyer_message").text(message)
               $("#error_password_buyer").show();
@@ -266,14 +296,14 @@
     }
 
     if (confirm_password_buyer == "") {
-      message = "El campo verificar contraseña es requerido";
+      message = Drupal.t("Verify password field is required");
       $("#confirm_password_buyer").css("border-color", "#ba0c2f");
       $("#error_confirm_password_buyer_message").text(message)
       $("#error_confirm_password_buyer").show();
       isValid = false;
     } else {
       if (password != confirm_password_buyer) {
-        message = "El campo verificar contraseña y Contraseña deben ser iguales";
+        message = Drupal.t("The field verify password and Password must be the same");
         $("#confirm_password_buyer").css("border-color", "#ba0c2f");
         $("#error_confirm_password_buyer_message").text(message)
         $("#error_confirm_password_buyer").show();
@@ -285,7 +315,7 @@
     }
 
     if (langcode == "") {
-      message = "El campo lenguaje es requerido";
+      message = Drupal.t("The language field is required");
       $("#langcode").css("border-color", "#ba0c2f");
       $("#error_langcode_message").text(message)
       $("#error_langcode").show();
@@ -296,7 +326,7 @@
     }
 
     if (!policy) {
-      message = "Debe aceptar las políticas de privacidad";
+      message = Drupal.t("You must accept the privacy policy");
       $("#error_policy").show();
       $("#error_policy_message").text(message)
       isValid = false;
@@ -305,7 +335,7 @@
     }
 
     if (!conditions) {
-      message = "Debe aceptar las condiciones de uso";
+      message = Drupal.t("You must accept the terms of use");
       $("#error_conditions").show();
       $("#error_conditions_message").text(message)
       isValid = false;
@@ -349,9 +379,12 @@
         body: formData,
       })
         .then(function (response) {
+          return response.json();
+        })
+        .then(function (res) {
           $("#loading_1").hide();
           $("#save").show();
-          if (response.status == 200) {
+          if (res.status == 200) {
             $("#loader").modal('show');
             setTimeout(() => {
               //save email in local storage
@@ -362,7 +395,7 @@
             }, 4000);
 
           } else {
-            alert("Error al crear el usuario" + error);
+            alert("Error: Email ya registrado");
           }
         })
         .catch(function (error) {
@@ -380,7 +413,7 @@
     attach: function (context, settings) {
 
       //if document is ready call init and check if production_chain is in dom
-      if (context === document && $("#country_code_mobile").length > 0) {
+      if (context === document && $("#langcode").length > 0) {
         init();
       }
       //call function passwordToText

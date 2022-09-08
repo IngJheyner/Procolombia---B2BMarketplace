@@ -1,2 +1,8 @@
-label: Títulos
-category: Demográfico
+label: Titles
+category: Demographic
+options: |
+  Miss: Miss
+  Ms: Ms
+  Mr: Mr
+  Mrs: Mrs
+  Dr: Dr

@@ -2,6 +2,8 @@ name: 'CP Company Col'
 type: module
 description: 'Procolombia company col module'
 core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_company_col
+interface translation server pattern: modules/custom/cp_company_col/translations/cp_company_col-es.po
 package: 'Custom'
 dependencies:
 - block
