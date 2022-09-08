@@ -330,6 +330,29 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'] = 'Additional or complementary product information';
       }
 
+      if (isset($form['field_pr_video_description_1']['widget'][0]['value'])) {
+        $form['field_pr_video_description_1']['widget'][0]['value']['#states'] = [
+          'visible' => [
+            'input#edit-field-pr-video-0-value' => ['empty' => FALSE],
+          ],
+          'required' => [
+            'input#edit-field-pr-video-0-value' => ['empty' => FALSE],
+          ],
+        ];
+      }
+      if (isset($form['field_pr_video_description_2']['widget'][0]['value'])) {
+        $form['field_pr_video_description_2']['widget'][0]['value']['#states'] = [
+          'visible' => [
+            'input[name="field_pr_video_2[0][value]"]' => ['empty' => FALSE],
+          ],
+          'required' => [
+            'input[name="field_pr_video_2[0][value]"]' => ['empty' => FALSE],
+          ],
+        ];
+        $form['field_pr_video_2']['#attributes'] = ['style' => 'display: none'];
+      }
+
+
       if ($this->step == 1) {
         // $form['legal_terms'] = [
         //   '#theme' => 'cp_core_node_multistep_legal_modal',
@@ -414,6 +437,12 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
+        $form['footer_form']['actions']['insert_video'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Insert video'),
+          '#attributes' => ['class' => ['insert-video', 'btn', 'button'], 'href' => '#'],
+        ];
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),

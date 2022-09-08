@@ -20,7 +20,7 @@
           $( '.lightbulb-tooltip span').toggle();
          })
         //Cargar modales
-        $(context).find('body').once('.cp-core-multistep-form').each(function () {   
+        $(context).find('body').once('.cp-core-multistep-form').each(function () {
           //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect();
           $('#edit-field-categorization-parent').SumoSelect();
@@ -36,7 +36,7 @@
 
           //Creación Variables del legal modal
           let modalFirstStep = document.querySelector('.step_1 .legal-modal');
-          
+
           if (modalFirstStep) {
             let showFirstStepModal = new bootstrap.Modal(modalFirstStep, {});
             const btnCloseFirstSt = document.querySelector('.close');
@@ -171,6 +171,16 @@
           });
         }
 
+        if ($('a.insert-video.btn').length) {
+          if ($('input[name="field_pr_video_2[0][value]"]').val() != '') {
+            $('a.insert-video.btn').hide();
+            $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
+          }
+          $('a.insert-video.btn').once().click(function (e) {
+            $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
+            $(this).hide();
+          });
+        }
 
 
       }
