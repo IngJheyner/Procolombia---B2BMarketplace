@@ -396,6 +396,18 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_type_certifications']['widget']['#options'] = $newcertification_options;
       }
 
+      if ($this->entity->field_categorization->target_id && isset($form['field_pr_sales_channel'])) {
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => $this->entity->field_categorization->target_id,
+          'vid' => 'categorization',
+        ]);
+        $newcertification_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newcertification_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_pr_sales_channel']['widget']['#options'] = $newcertification_options;
+      }
+
       if ($this->step == 1) {
         // $form['legal_terms'] = [
         //   '#theme' => 'cp_core_node_multistep_legal_modal',
