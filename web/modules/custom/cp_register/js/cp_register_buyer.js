@@ -281,13 +281,7 @@
       $("#error_position").hide();
     }
 
-    if (web_site == "") {
-      message = Drupal.t("Por favor ingrese una web");
-      $("#web_site").css("border-color", "#ba0c2f");
-      $("#error_web_site_message").text(message)
-      $("#error_web_site").show();
-      isValid = false;
-    } else {
+    if (web_site != "") {
       if (!validateURL(web_site)) {
         message = Drupal.t("Por favor ingrese una web válida");
         $("#web_site").css("border-color", "#ba0c2f");
@@ -719,7 +713,7 @@
   */
   function fillFormWithDataUserInternational(data) {
     //fill data of user
-    
+
     $("#position").val(data.position);
     $("#web_site").val(data.web_site);
     select_categories1.setValue(data.cat_interest_1);
@@ -845,7 +839,7 @@
     attach: function (context, settings) {
       //if document is ready call init and check if production_chain is in dom
       if (context === document && $("#cat_interest_1").length > 0) {
-        
+
         init();
       }
       //call subcategory of selected category
