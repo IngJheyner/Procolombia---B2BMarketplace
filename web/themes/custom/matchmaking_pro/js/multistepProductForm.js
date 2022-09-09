@@ -10,6 +10,30 @@
       attach: function(context, settings) {
         // Custom code here
 
+        //Uso de Sumo select para personlizar campos tipo select
+          $('#edit-field-product-type').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('.js-form-item-field-categorization-parent .form-select').SumoSelect(
+            {
+              forceCustomRendering: true,
+            }
+          );
+          $('#edit-field-categorization').SumoSelect(
+            {
+              forceCustomRendering: true,
+            }
+          );          
+          $('#edit-field-partida-arancelaria-tax').SumoSelect({
+            forceCustomRendering: true,
+            search:true,
+            searchText: 'Buscar'
+          });
+          $('#edit-field-pr-product-availability').SumoSelect(
+            {
+              forceCustomRendering: true,
+            }
+          );
           //Agregar clase a campos obligatorios
           $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
           $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
@@ -21,28 +45,7 @@
          })
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
-          //Uso de Sumo select para personlizar campos tipo select
-          $('#edit-field-product-type').SumoSelect({
-            forceCustomRendering: true,
-          });
-          $('#edit-field-categorization-parent').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
-          $('#edit-field-categorization').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
-          $('#edit-field-partida-arancelaria-tax').SumoSelect({
-            forceCustomRendering: true,
-          });
-          $('#edit-field-pr-product-availability').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
+          
           $('.step_4 .js-form-type-managed-file.form-type-managed-file small.description').wrap('<div class="tooltip-img"></div>');
           // Agregar clase a los pasos anteriores
           const currentStep = $("li.current");
