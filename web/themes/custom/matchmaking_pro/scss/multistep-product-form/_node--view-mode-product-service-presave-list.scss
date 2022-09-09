@@ -91,12 +91,19 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: flex-start;
-                    padding: 20px;
-                    @include media-breakpoint-down(xxl){
-                        width: 60%;
+                    padding: 0 20px;
+                    max-height: 280px;
+                    .field--name-field-body{
+                        margin-bottom: 0;
+                    }
+                    .field{
+                        width: auto;
+                    }
+                    .field__item{
+                        max-width: 300px;
                     }
                     @include media-breakpoint-down(xl){
-                        width: 50%;
+                        width: 58%;
                     }
                     @include media-breakpoint-down(lg){
                         width: 100%;
@@ -116,16 +123,14 @@
                             }
                         }
                     }
-                    .field--name-field-body  {
-                        margin-bottom: 2rem;
-                    }
                     .field--name-node-title h2{
                         color: $procol-dark-blue;
                         width: 100%;
                         padding-top: 20px;
                     }
                     a.use-ajax{
-                        position: static;
+                        position: relative;
+                        bottom: 20px;
                         z-index: 1;
                         @include blue-btn;
                         background-color: $white;
