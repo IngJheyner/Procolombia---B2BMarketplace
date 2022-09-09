@@ -10,8 +10,8 @@ id: node.product.field_partida_arancelaria_tax
 field_name: field_partida_arancelaria_tax
 entity_type: node
 bundle: product
-label: 'Partida arancelariia'
-description: 'Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó. Si usted no conoce el código arancelario y por palabra no encontró ninguna coincidencia de su producto por favor comuníquese con su Asesor de ProColombia.'
+label: 'tariff heading'
+description: 'If the product you are looking for does not appear in the list, please write a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered. If you do not know the tariff code and by word you did not find any match for your product, please contact your ProColombia Advisor.'
 required: true
 translatable: false
 default_value: {  }
