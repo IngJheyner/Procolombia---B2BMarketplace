@@ -5,6 +5,6 @@ dependencies:
   module:
     - node
 id: node.step_6
-label: 'Finish the process'
+label: 'Terminar el proceso'
 targetEntityType: node
 cache: true
