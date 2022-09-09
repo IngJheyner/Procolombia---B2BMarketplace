@@ -35,7 +35,7 @@
     height: 550px !important;
     }
     #entity_browser_iframe_paises {
-        height: 550px;
+        height: 511px;
         border-radius: 10px;
         }
     .ui-dialog-content{
@@ -48,6 +48,11 @@
     }
     .ui-widget-overlay{
         background-color: rgba($color: #000000, $alpha: 0.5) !important;
+    }
+    #block-matchmaking-pro-content{
+        .content {
+            background-color: white;
+          }
     }   
 }
 

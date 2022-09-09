@@ -150,9 +150,33 @@
         z-index: 3;
     }
     &.step_5{
+        .field-group-html-element.group-left{
+            border-right: none;
+        }
         .lightbulb-tooltip span{
             max-width: 400px;
             top: -100px;
+        }
+        .insert-video{
+            border: 1px solid $procol-light-blue;
+            color: $procol-light-blue;
+            position: relative;
+            padding-left: 35px;
+            &::before,
+            &::after{
+                content: "";
+                background: linear-gradient(180deg, $procol-dark-blue 0%, $procol-light-blue 100%);
+                width: 2px;
+                height: 16px;
+                position: absolute;
+                top: 10px;
+                left: 16px;
+                border-radius: 10px;
+            }
+            &::after{
+                transform: rotate(90deg);
+            }
+
         }
     }
     // Start Main styles multistep sidebar
