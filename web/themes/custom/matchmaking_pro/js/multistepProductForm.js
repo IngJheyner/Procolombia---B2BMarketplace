@@ -26,6 +26,8 @@
           );          
           $('#edit-field-partida-arancelaria-tax').SumoSelect({
             forceCustomRendering: true,
+            search:true,
+            searchText: 'Buscar'
           });
           $('#edit-field-pr-product-availability').SumoSelect(
             {
