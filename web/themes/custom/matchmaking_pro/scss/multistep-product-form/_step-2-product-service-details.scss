@@ -61,6 +61,8 @@
             select.form-select{
                 padding: 0 !important;
                 padding-right: 35px !important;
+                font-size: 12px;
+                padding-left: 5px !important;
             }
         }
         @include media-breakpoint-down(lg){
