@@ -1,50 +1,54 @@
 .path-dashboard .entity-browser-modal{
-    background-color: $white;
-    border-radius: 10px;
-    max-width: 561px;
+    background-color: $white !important;
+    border-radius: 10px !important;
+    max-width: 561px !important;
     &.ui-dialog .ui-dialog-title {
         display: block !important;
       }
-      .ui-dialog-titlebar{
-        background-color: $white !important;
+    .ui-dialog-titlebar{
+    background-color: $white !important;
+    border: none;
+    font-size: 22px;
+    border: none;
+    font-weight: bold;
+    padding: 26px !important;
+    padding-left: 75px !important;
+    background-image: url(../images/icons/Icono-Menu-Idioma.svg);
+     background-repeat: no-repeat;
+    background-position: 32px center;
+    background-size: 31px 31px;
+    color: $procol-gray-400;
+    border-radius: 10px;
+    .ui-dialog-titlebar-close {
+        background-color: transparent;
         border: none;
-        font-size: 22px;
-        border: none;
-        font-weight: bold;
-        padding: 26px !important;
-        padding-left: 75px !important;
-        background-image: url(../images/icons/Icono-Menu-Idioma.svg);
+        background-image:  url(../images/icons/Cerrar-negro.svg);
+        background-position: center;
         background-repeat: no-repeat;
-        background-position: 32px center;
-        background-size: 31px 31px;
-        color: $procol-gray-400;
-        .ui-dialog-titlebar-close {
-          background-color: transparent;
-          border: none;
-          background-image:  url(../images/icons/Cerrar-negro.svg);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: 16px 16px;
-          position: absolute;
-          top: 26px;
-          right: 26px;
+        background-size: 16px 16px;
+        position: absolute;
+        top: 26px;
+        right: 26px;
+    }
+    }
+    .ui-dialog .ui-dialog-content {
+    height: 550px !important;
+    }
+    #entity_browser_iframe_paises {
+        height: 550px;
+        border-radius: 10px;
         }
-      }
-      .ui-dialog .ui-dialog-content {
-        height: 550px !important;
+    .ui-dialog-content{
+         height: auto !important;
+        background-color: white !important;
+        border-radius: 10px !important;
+        .ajax-progress-throbber{
+            display: none;
         }
-        #entity_browser_iframe_paises {
-            height: 550px;
-            border-radius: 10px;
-          }
-      .ui-dialog-content{
-          height: auto !important;
-          background-color: white !important;
-          border-radius: 10px !important;
-          .ajax-progress-throbber{
-              display: none;
-          }
-      }   
+    }
+    .ui-widget-overlay{
+        background-color: rgba($color: #000000, $alpha: 0.5) !important;
+    }   
 }
 
 .entity-browser-paises-form{

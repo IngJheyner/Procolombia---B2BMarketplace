@@ -25,7 +25,7 @@
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
           });
-          $('#edit-field-categorization-parent').SumoSelect(
+          $('.js-form-item-field-categorization-parent .form-select').SumoSelect(
             {
               forceCustomRendering: true,
             }
@@ -34,7 +34,7 @@
             {
               forceCustomRendering: true,
             }
-          );
+          );          
           $('#edit-field-partida-arancelaria-tax').SumoSelect({
             forceCustomRendering: true,
           });
