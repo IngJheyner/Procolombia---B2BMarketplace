@@ -101,6 +101,9 @@
                     }
                     .field__item{
                         max-width: 300px;
+                        &.field--name-field-body{
+                            max-width: 100%;
+                        }
                     }
                     @include media-breakpoint-down(xl){
                         width: 58%;
