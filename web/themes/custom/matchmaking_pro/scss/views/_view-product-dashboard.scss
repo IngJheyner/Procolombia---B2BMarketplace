@@ -40,6 +40,21 @@
 		.col-sm-3 {
 			display: flex;
 			justify-content: flex-end;
+			@include media-breakpoint-down(md){
+				order: 1;
+				width: 100% !important;
+				position: absolute;
+				margin: 10px;
+				padding: 20px;
+				top: -80px;
+				a.button {
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					font-size: $font-size-sm;
+					height: 56px;
+					}
+			}
 		}
 
 		label {
@@ -55,6 +70,9 @@
 
 		.view-header {
 			border-bottom: 1px solid #D8DADD;
+			@include media-breakpoint-down(lg){
+				padding-bottom: 16px;
+			}
 
 			[class*="col"] {
 				display: flex;
@@ -76,6 +94,9 @@
 			// margin-bottom: 57px;
 			position: relative;
 			padding-top: 0;
+			@include media-breakpoint-down(lg){
+				margin-top: 70px;
+			}
 
 			.bef-exposed-form .row {
 				.js-form-item-items-per-page {
