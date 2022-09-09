@@ -19,7 +19,7 @@ cp_auth_service.userLoginFinalize:
   methods:  [POST]
   requirements:
     _permission: "access content"
-    
+
 ###recover_password_form route
 cp_auth_service.recover_password_form:
   path: "auth/recover/password"

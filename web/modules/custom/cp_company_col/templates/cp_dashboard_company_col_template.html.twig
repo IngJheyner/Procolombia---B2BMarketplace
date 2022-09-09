@@ -1,12 +1,11 @@
 
 {{ attach_library('cp_company_col/cp_company_col') }}
 
-<section class="dashboard container">
+<section class="dashboard">
 	<div class="row">
 		<div class="col-lg-9 table_dashboard ">
-			<div class="card p-4">
-				{{ 'Table belonging to another User Story'|t }}
-			</div>
+      {# 'Table belonging to another User Story'|t #}
+      {{ drupal_view('product_dashboard', 'page_1') }}
 		</div>
 		<div class="col-lg-3">
 			<div class="card p-3">
