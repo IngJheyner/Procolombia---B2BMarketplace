@@ -373,6 +373,7 @@
     .field-group-html-element.group-right,
     .field-group-html-element.group-left{
         .information-title{
+            padding-top: 16px;
             width: 100%;
         }
         @include media-breakpoint-down(xl) {

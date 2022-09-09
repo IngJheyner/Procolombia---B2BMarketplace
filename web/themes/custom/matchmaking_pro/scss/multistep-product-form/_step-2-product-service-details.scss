@@ -56,6 +56,13 @@
         .js-form-item{
             margin-bottom: 0 !important;
         }
+        #dependency-fieldcategorization{
+            width: 100%;
+            select.form-select{
+                padding: 0 !important;
+                padding-right: 35px !important;
+            }
+        }
         @include media-breakpoint-down(lg){
             .information-title{
                 margin-top: 16px;
