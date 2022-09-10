@@ -5,5 +5,5 @@ namespace Drupal\cp_core;
 /**
  * The cp core send mail helper.
  */
-interface CpCoreSendMailHelper {
+interface CpCoreMailHelperInterface {
 }

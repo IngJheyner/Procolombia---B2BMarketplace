@@ -66,9 +66,9 @@ cp_core.notifications:
       type: mail
       label: 'Rejection of the company profile (Buyer)'
 
-   verification_buyer_token_mail_active:
-      type: boolean
-      label: 'Active'
+    verification_buyer_token_mail_active:
+        type: boolean
+        label: 'Active'
     verification_buyer_token_mail:
       type: mail
       label: 'Token Verification (Buyer)'

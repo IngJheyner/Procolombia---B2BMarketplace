@@ -14,7 +14,7 @@ use Drupal\Core\Logger\LoggerChannelInterface;
 /**
  * Defines a form that configures forms module settings.
  */
-class CpCoreSendMailHelper implements CpCoreSendMailHelperInterface {
+class CpCoreMailHelper implements CpCoreMailHelperInterface {
 
   /**
    * The config factory.
