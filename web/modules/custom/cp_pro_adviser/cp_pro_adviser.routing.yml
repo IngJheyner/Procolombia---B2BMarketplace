@@ -1,0 +1,59 @@
+cp_pro_adviser.render:
+  requirements:
+    _permission: "access content"
+
+# pre_register routes
+
+###Index route
+cp_pro_adviser.dashboard:
+  path: "dashboard/adviser/user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.tablero:
+  path: "tablero/adviser/usuario"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###get_all_exportador_by_page route
+cp_pro_adviser.get_all_exportador_by_page:
+  path: "adviser/get_all_exportador_by_page"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::get_all_exportador_by_page'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###get_all_buyer_by_page route
+cp_pro_adviser.get_all_buyer_by_page:
+  path: "adviser/get_all_buyer_by_page"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::get_all_buyer_by_page'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.review:
+  path: "adviser/audit-log"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.revisar:
+  path: "revisar/adviser/usuario"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"

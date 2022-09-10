@@ -1,0 +1,7 @@
+name: 'CP Auth Module'
+type: module
+description: 'Procolombia auth module'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+- block

@@ -5,6 +5,7 @@ dependencies:
   config:
     - taxonomy.vocabulary.countries
   module:
+    - better_exposed_filters
     - entity_browser
     - taxonomy
     - user
@@ -145,7 +146,7 @@ display:
         options:
           offset: 0
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Filtrar
           reset_button: false
@@ -154,6 +155,26 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Seleccione cualquier filtro y pulse Aplicar para ver los resultados'
+          text_input_required_format: html
+          bef:
+            general:
+              autosubmit: true
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 1000
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Opciones avanzadas'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              name:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  is_secondary: false
       access:
         type: perm
         options:

@@ -5,6 +5,6 @@ dependencies:
   module:
     - node
 id: node.step_5
-label: 'Add video of the Product / Service'
+label: ' Agregar video del Producto/Servicio'
 targetEntityType: node
 cache: true

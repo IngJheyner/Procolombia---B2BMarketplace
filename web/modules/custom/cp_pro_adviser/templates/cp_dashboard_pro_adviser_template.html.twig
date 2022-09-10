@@ -1,0 +1,141 @@
+{{ attach_library('cp_pro_adviser/cp_pro_adviser') }}
+<main class="dashboard">
+	<div id="bussines_national" class="">
+		<div id="not_row" class="form_table row mb-5 gy-4">
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="nit_search">NIT Empresa</label>
+				<input class="form-control" type="text" name="nit_search" id="nit_search">
+			</div>
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="company_name">Nombre de la empresa</label>
+				<input class="form-control" type="text" name="company_name" id="company_name">
+			</div>
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="status">Estado</label>
+				<select name="status" id="status">
+					<option value="1">Activo</option>
+					<option value="0">Inactivo</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="published">Publicado</label>
+				<select name="published" id="published">
+					<option value="si">si</option>
+					<option value="no">no</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="productive_chain">Cadena Productiva</label>
+				<select name="productive_chain" id="productive_chain">
+					{% for production in tree_production_chain %}
+					<option value="{{production.ID}}">{{production.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="deparment">Departamento</label>
+				<select name="deparment" id="deparment">
+					{% for deparment in tree_deparment %}
+					<option value="{{deparment.ID}}">{{deparment.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+				<label for="advisor">Asesor asociado a la empresa</label>
+				<select name="advisor" id="advisor">
+					<option value="si">Juan Carlos</option>
+					<option value="no">Luis Carlos</option>
+				</select>
+			</div>
+			<div class="col-3 d-flex flex-row justify-content-between align-items-end">
+				<button id="filter-exportador" class="filtter_btn btn">
+					<i class='bx bx-slider-alt'></i>
+					Aplicar filtro</button>
+				<button id="clean-exportador" class="clear_btn btn">Limpiar filtro</button>
+			</div>
+		</div>
+		<div class="form_table">
+			<table id="exportadores-list" class="display"></table>
+		</div>
+	</div>
+	<div id="bussines_international" style="display: none ;" class="">
+		<!-- Esperando cambios 
+					
+
+					<div id="not_row" class="form_table row mb-5 gy-4">
+					<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+						<label for="mail">Correo del asesor</label>
+						<input class="form-control" type="text" name="mail" id="mail">
+					</div>
+					<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+						<label for="nit_search">Nombre de la empresa</label>
+						<input class="form-control" type="text" name="nit_search" id="nit_search">
+					</div>
+					<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+						<label for="state">Fecha de Actualización</label>
+						<select name="state" id="state">
+							<option value="1">Activo</option>
+							<option value="0">Inactivo</option>
+						</select>
+					</div>
+					<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+						<label for="public">Estado</label>
+						<select name="public" id="state">
+							<option value="si">si</option>
+							<option value="no">no</option>
+						</select>
+					</div>
+					<div class="col-9">
+					</div>
+					<div class="col-3 d-flex flex-row justify-content-between align-items-end">
+						<button id="filter-exportador" class="filtter_btn btn">
+							<i class='bx bx-slider-alt'></i>
+							Aplicar filtro</button>
+						<button id="clean-exportador" class="clear_btn btn">Limpiar filtro</button>
+					</div>
+				</div> -->
+
+		<div id="not_row" class="form_table row mb-5 gy-4">
+			<div class="col-4 d-flex flex-column">
+				<label for="company_name_buyer">Nombre de la empresa</label>
+				<input class="form-control" type="text" name="company_name_buyer" id="company_name_buyer">
+			</div>
+			<div class="col-4 d-flex flex-column">
+				<label for="category">Categoría</label>
+				<select name="category" id="category">
+					{% for category in tree_categorization %}
+					<option value="{{category.ID}}">{{category.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-4 d-flex flex-column">
+				<label for="subcat_interest_1">Subcategoría</label>
+				<select name="subcat_interest_1" id="subcat_interest_1"></select>
+			</div>
+			<div class="col-4 d-flex flex-column">
+				<label for="status_buyer">Estado</label>
+				<select name="status_buyer" id="status_buyer">
+					<option value="1">Activo</option>
+					<option value="0">Inactivo</option>
+				</select>
+			</div>
+			<div class="col-4">
+				<label for="update_date">Fecha de Actualización</label>
+				<select name="update_date" id="update_date">
+					<option value="si">si</option>
+					<option value="no">no</option>
+				</select>
+			</div>
+			<div class="col-4 d-flex flex-row justify-content-between align-items-end">
+				<button id="filter-buyer" class="filtter_btn btn">
+					<i class='bx bx-slider-alt'></i>
+					Aplicar filtro</button>
+				<button id="clean-buyer" class="clear_btn btn">Limpiar filtro</button>
+			</div>
+		</div>
+		<div class="form_table mt-4">
+			<table id="buyers-list" class="display"></table>
+		</div>
+	</div>
+
+</main>

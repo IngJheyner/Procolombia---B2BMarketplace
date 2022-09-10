@@ -1,4 +1,6 @@
-elements: |-
+title: Contact
+description: 'Basic email contact webform.'
+elements: |
   name:
     '#title': 'Your Name'
     '#type': textfield
@@ -23,8 +25,19 @@ elements: |-
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': 'Send message'
+settings:
+  confirmation_message: 'Your message has been sent.'
+  confirmation_url: '<front>'
 handlers:
   email_confirmation:
-    label: 'Confirmación por correo electrónico'
+    label: 'Email confirmation'
+    settings:
+      from_name: _default
+      subject: '[webform_submission:values:subject:raw]'
+      body: '[webform_submission:values:message:value]'
   email_notification:
-    label: 'Aviso por correo electrónico'
+    label: 'Email notification'
+    settings:
+      from_name: '[webform_submission:values:name:raw]'
+      subject: '[webform_submission:values:subject:raw]'
+      body: '[webform_submission:values:message:value]'
