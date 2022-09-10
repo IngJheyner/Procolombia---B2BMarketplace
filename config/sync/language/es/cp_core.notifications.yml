@@ -1,0 +1,6 @@
+product_seller_publish_mail:
+  subject: 'Mercado | Estado de publicación de sus productos o servicios'
+  body: 'Su solicitud de publicación de {{ product_list }} se encuentra en estado pendiente de aprobación por parte de ProColombia. Su asesor se comunicará con usted si hay alguna observación sobre la información registrada.'
+product_seller_edit_mail:
+  subject: 'Mercado B2B | Actualiza el estado de tus productos o servicios'
+  body: "Has modificado el producto {{ product_list }}, la actualización de la información subida se encuentra en estado pendiente de aprobación por parte de ProColombia. Su asesor se comunicará con usted si hay alguna observación sobre la información registrada.\r\n\r\nSaludos."
