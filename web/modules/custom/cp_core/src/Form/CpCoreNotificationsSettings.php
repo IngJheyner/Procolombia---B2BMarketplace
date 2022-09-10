@@ -63,6 +63,13 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('cp_core.notifications');
 
+    $form['notifications_email'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Notifications email'),
+      '#default_value' => $config->get('notifications_email'),
+      '#required' => TRUE,
+    ];
+
     $form['email'] = [
       '#type' => 'vertical_tabs',
       '#title' => $this->t('Emails'),
@@ -536,6 +543,7 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('cp_core.notifications')
+      ->set('notifications_email', $form_state->getValue('notifications_email'))
 
       ->set('product_seller_publish_mail_active', $form_state->getValue('product_seller_publish_mail_active'))
       ->set('product_seller_publish_mail.subject', $form_state->getValue('product_seller_publish_mail_subject'))

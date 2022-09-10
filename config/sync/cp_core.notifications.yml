@@ -1,44 +1,46 @@
+notifications_email: notificaciones@procolombia.co
+product_seller_publish_mail_active: 0
 product_seller_publish_mail:
   subject: ''
   body: ''
+product_seller_edit_mail_active: false
 product_seller_edit_mail:
   subject: ''
   body: ''
+product_seller_approbation_mail_active: false
 product_seller_approbation_mail:
   subject: ''
   body: ''
+product_seller_reject_mail_active: false
 product_seller_reject_mail:
   subject: ''
   body: ''
+company_seller_approbation_mail_active: false
 company_seller_approbation_mail:
   subject: ''
   body: ''
+company_seller_reject_mail_active: false
 company_seller_reject_mail:
   subject: ''
   body: ''
+verification_seller_token_mail_active: false
 verification_seller_token_mail:
   subject: ''
   body: ''
+company_buyer_approbation_mail_active: false
 company_buyer_approbation_mail:
   subject: ''
   body: ''
+company_buyer_reject_mail_active: false
 company_buyer_reject_mail:
   subject: ''
   body: ''
+verification_buyer_token_mail_active: false
 verification_buyer_token_mail:
   subject: ''
   body: ''
+daily_activity_mail_active: false
+daily_activity_mail_hour: false
 daily_activity_mail:
   subject: ''
   body: ''
-product_seller_publish_mail_active: 0
-product_seller_edit_mail_active: 0
-product_seller_approbation_mail_active: 0
-product_seller_reject_mail_active: 0
-company_seller_approbation_mail_active: 0
-company_seller_reject_mail_active: 0
-verification_seller_token_mail_active: 0
-company_buyer_approbation_mail_active: 0
-company_buyer_reject_mail_active: 0
-verification_buyer_token_mail_active: 0
-daily_activity_mail_active: 0

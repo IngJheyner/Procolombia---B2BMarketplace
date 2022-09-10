@@ -2,6 +2,9 @@ cp_core.notifications:
   type: config_object
   label: 'CP Core: notifications'
   mapping:
+    notifications_email:
+      type: string
+      label: 'Notifications email'
 
     product_seller_publish_mail_active:
       type: mail

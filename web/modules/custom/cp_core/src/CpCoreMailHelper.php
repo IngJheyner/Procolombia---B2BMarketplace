@@ -1,15 +1,14 @@
 <?php
 
-namespace Drupal\cp_core\Form;
+namespace Drupal\cp_core;
 
-use Drupal\Core\Form\ConfigFormBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
-use Drupal\Core\Logger\LoggerChannelInterface;
+use Psr\Log\LoggerInterface;
+use Drupal\Core\Utility\Token;
+use Drupal\Component\Render\PlainTextOutput;
 
 /**
  * Defines a form that configures forms module settings.
@@ -52,9 +51,16 @@ class CpCoreMailHelper implements CpCoreMailHelperInterface {
   /**
    * Logger service.
    *
-   * @var \Drupal\Core\Logger\LoggerChannelInterface
+   * @var \Psr\Log\LoggerInterface
    */
   protected $logger;
+
+  /**
+   * The token replacement instance.
+   *
+   * @var \Drupal\Core\Utility\Token
+   */
+  protected $token;
 
   /**
    * Constructs a \Drupal\system\ConfigFormBase object.
@@ -68,38 +74,63 @@ class CpCoreMailHelper implements CpCoreMailHelperInterface {
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   Language manager service.
    * @param \Psr\Log\LoggerInterface $logger
-   *   A logger instance.
+   *   The logger instance.
    */
   public function __construct(
     ConfigFactoryInterface $config_factory,
     ModuleHandlerInterface $module_handler,
     MailManagerInterface $mail_manager,
     LanguageManagerInterface $language_manager,
-    LoggerInterface $logger
+    LoggerInterface $logger,
+    Token $token
   ) {
     $this->configFactory = $config_factory;
     $this->moduleHandler = $module_handler;
     $this->mailManager = $mail_manager;
     $this->languageManager = $language_manager;
     $this->logger = $logger;
+    $this->token = $token;
   }
 
+  /**
+   * Send mail.
+   */
   public function send($key, $to, $from = NULL, $langcode = NULL, $params = []) {
+
+    // Token options.
+    $variables = [
+      'user' => $params['account'],
+      'node' => $params['node'],
+    ];
+    $token_options = ['langcode' => $langcode, 'callback' => NULL, 'clear' => TRUE];
+
+    // We must override the current language in the configuration to send the
+    // mail in the correct language.
+    $language = $this->languageManager->getLanguage($langcode);
+    $original_language = $this->languageManager->getConfigOverrideLanguage();
+    $this->languageManager->setConfigOverrideLanguage($language);
+
     $config = $this->configFactory->get('cp_core.notifications');
     if ($config->get($key . '_active')) {
-      $params['subject'] = $config->get($key . '.subject');
-      $params['body'] = $config->get($key . '.body');
+      $subject = $config->get($key . '.subject');
+      $body = $config->get($key . '.body');
+      // Token replacement.
+      $params['subject'] = PlainTextOutput::renderFromHtml($this->token->replace($subject, $variables, $token_options));
+      $params['body'] = $this->token->replace($body, $variables, $token_options);
       if (!empty($from)) {
         $params['from'] = $from;
       }
       $langcode = ($langcode) ?: $this->languageManager->getCurrentLanguage();
-      $result = $this->mailManager->mail($key, $to, $langcode, $params, NULL; TRUE);
+      $result = $this->mailManager->mail($key, $to, $langcode, $params, NULL, TRUE);
       if (!$result) {
         $this->logger->error('Error sending mail with key %key', [
           '%key' => $key,
         ]);
       }
     }
+
+    // Set the current language after the mail has been sent.
+    $this->languageManager->setConfigOverrideLanguage($original_language);
   }
 
 }

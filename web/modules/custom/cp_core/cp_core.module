@@ -38,44 +38,29 @@ function cp_core_mail($key, &$message, $params) {
   $message['subject'] = $params['title'];
   $message['body'][] = $params['message'];
 
-  switch($key) {
-    case 'product_seller_publish_mail':
-      break;
+}
 
-    case 'product_seller_edit_mail':
-      break;
-
-    case 'product_seller_approbation_mail':
-      break;
-
-    case 'product_seller_reject_mail':
-      break;
-
-    case 'company_seller_approbation_mail':
-      break;
-
-    case 'company_seller_reject_mail':
-      break;
-
-    case 'verification_seller_token_mail':
-      break;
-
-    case 'company_buyer_approbation_mail':
-      break;
-
-    case 'company_buyer_reject_mail':
-      break;
-
-    case 'verification_buyer_token_mail':
-      break;
-
-    case 'daily_activity_mail':
-      break;
-
-    default:
-
+/**
+ * Implements hook_mail_alter().
+ */
+function cp_core_mail_alter(&$message) {
+  $override_keys = [
+    'register_no_approval_required',
+    'status_activated',
+  ];
+  if (in_array($message['key'], $override_keys)) {
+    $config = \Drupal::config('cp_core.notifications');
+    $email = $config->get('notifications_email');
+    if ($email) {
+      $message['from'] = $email;
+      $message['reply-to'] = $email;
+      $message['Return-Path'] = $email;
+      $message['headers']['Return-Path'] = $email;
+      $message['headers']['Sender'] = $email;
+      $message['headers']['Reply-to'] = $email;
+      $message['headers']['From'] = $email;
+    }
   }
-
 }
 
 /**
