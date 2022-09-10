@@ -4,7 +4,7 @@ status: false
 dependencies:
   config:
     - field.storage.node.field_categorization
-    - field.storage.node.field_pr_image_1
+    - field.storage.node.field_images
     - field.storage.node.field_states
     - image.style.thumbnail
     - node.type.product
@@ -221,10 +221,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_pr_image_1:
-          id: field_pr_image_1
-          table: node__field_pr_image_1
-          field: field_pr_image_1
+        field_images:
+          id: field_images
+          table: node__field_images
+          field: field_images
           relationship: none
           group_type: group
           admin_label: ''
@@ -284,7 +284,7 @@ display:
           group_column: ''
           group_columns: {  }
           group_rows: true
-          delta_limit: 0
+          delta_limit: 1
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
@@ -683,7 +683,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_categorization'
-        - 'config:field.storage.node.field_pr_image_1'
+        - 'config:field.storage.node.field_images'
         - 'config:field.storage.node.field_states'
   page_1:
     id: page_1
@@ -706,5 +706,5 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_categorization'
-        - 'config:field.storage.node.field_pr_image_1'
+        - 'config:field.storage.node.field_images'
         - 'config:field.storage.node.field_states'

@@ -46,8 +46,8 @@ function matchmaking_pro_preprocess_page(array &$variables) {
   
 
   //force language in all paths
-  $variables['language'] = $language == 'en' ? 'English' : 'Espanish';
-  $variables['language_2'] = $language != 'en' ? 'English' : 'Espanish';
+  $variables['language'] = $language == 'en' ? 'Eng' : 'Esp';
+  $variables['language_2'] = $language != 'en' ? 'Eng' : 'Esp';
   //ceck if user is not deleted in drupal
 
   if($user->isActive()){
@@ -67,6 +67,14 @@ function matchmaking_pro_preprocess_page(array &$variables) {
     }
 
     if($user->hasRole('buyer')){
+      //is not empty field_company_name
+      $variables['name'] = $user->get('field_company_contact_name')->value;
+      $variables['lastname'] = $user->get('field_company_contact_lastname')->value;
+      //get email
+      $variables['email'] = $user->get('mail')->value;
+    }
+
+    if($user->hasRole('asesor_comercial')){
       //is not empty field_company_name
       $variables['name'] = $user->get('field_company_contact_name')->value;
       $variables['lastname'] = $user->get('field_company_contact_lastname')->value;

@@ -17,6 +17,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\mfd\MfdFieldManager;
 
 /**
  * Implements an example form.
@@ -220,12 +221,14 @@ class CpCoreMultiStepForm extends FormBase {
 
     $bundle = 'product';
     if (empty($form_state->get('entity'))) {
+      $this->step = 1;
       $form_state->set('language_values_en', []);
       if (empty($nid)) {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
           'type' => $bundle,
           'status' => 0,
           'uid' => $this->account->id(),
+          'langcode' => 'es',
         ]);
       }
       else {
@@ -243,7 +246,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form_state->set('saved_entities', $saved_entities);
       }
       if (!$this->maxStep) {
-        $this->mesesenger->addMessage($this->t('No existe ningún paso configurado para este tipo de contenido'), 'error');
+        $this->messenger()->addMessage($this->t('No existe ningún paso configurado para este tipo de contenido'), 'error');
 
         return [];
       }
@@ -311,10 +314,101 @@ class CpCoreMultiStepForm extends FormBase {
         '#weight' => -10,
       ];
 
-      $build['status_messages'] = [
-        '#type' => 'status_messages',
-        '#weight' => -9,
-      ];
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'] = 'Product/service';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'] = 'Description';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'] = 'Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#title'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#title'] = 'Technical specifications';
+      }
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#description'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#description'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
+      }
+      if (isset($form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'])) {
+        $form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'] = 'Additional or complementary product information';
+      }
+
+      if (isset($form['field_pr_video_description_1']['widget'][0]['value'])) {
+        $form['field_pr_video_description_1']['widget'][0]['value']['#states'] = [
+          'visible' => [
+            'input#edit-field-pr-video-0-value' => ['empty' => FALSE],
+          ],
+          'required' => [
+            'input#edit-field-pr-video-0-value' => ['empty' => FALSE],
+          ],
+        ];
+      }
+      if (isset($form['field_pr_video_description_2']['widget'][0]['value'])) {
+        $form['field_pr_video_description_2']['widget'][0]['value']['#states'] = [
+          'visible' => [
+            'input[name="field_pr_video_2[0][value]"]' => ['empty' => FALSE],
+          ],
+          'required' => [
+            'input[name="field_pr_video_2[0][value]"]' => ['empty' => FALSE],
+          ],
+        ];
+        $form['field_pr_video_2']['#attributes'] = ['style' => 'display: none'];
+      }
+
+      if (isset($form['field_categorization'])) {
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => 0,
+          'vid' => 'categorization',
+        ]);
+        $newcategorization_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newcategorization_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_categorization']['widget']['#options'] = $newcategorization_options;
+        $form['field_categorization']['widget']['#ajax'] = [
+          'callback' => '::reloadSubCategorization',
+          'wrapper' => 'dependency-fieldcategorization',
+        ];
+        $form['field_categorization_parent']['#prefix'] = '<div id="dependency-fieldcategorization">';
+        $form['field_categorization_parent']['#suffix'] = '</div>';
+      }
+
+      if (($this->entity->field_categorization->target_id || !empty($form_state->getValue('field_categorization'))) && isset($form['field_categorization_parent'])) {
+        $categorization_terms_id = !empty($form_state->getValue('field_categorization')) ? $form_state->getValue('field_categorization')[0]['target_id'] : $this->entity->field_categorization->target_id;
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => $categorization_terms_id,
+          'vid' => 'categorization',
+        ]);
+        $newsubcategorization_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newsubcategorization_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_categorization_parent']['widget']['#options'] = !empty($newsubcategorization_options) ? $newsubcategorization_options : [0 => ''];
+      }
+
+      if ($this->entity->field_categorization->target_id && isset($form['field_pr_type_certifications'])) {
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => $this->entity->field_categorization->target_id,
+          'vid' => 'categorization',
+        ]);
+        $newcertification_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newcertification_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_pr_type_certifications']['widget']['#options'] = $newcertification_options;
+      }
+
+      if ($this->entity->field_categorization->target_id && isset($form['field_pr_sales_channel'])) {
+        $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+          'parent' => $this->entity->field_categorization->target_id,
+          'vid' => 'categorization',
+        ]);
+        $newcertification_options = [];
+        foreach ($categorization_terms as $categorization_term) {
+          $newcertification_options[$categorization_term->id()] = $categorization_term->label();
+        }
+        $form['field_pr_sales_channel']['widget']['#options'] = $newcertification_options;
+      }
 
       if ($this->step == 1) {
         // $form['legal_terms'] = [
@@ -400,6 +494,12 @@ class CpCoreMultiStepForm extends FormBase {
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
+        $form['footer_form']['actions']['insert_video'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => t('Insert video'),
+          '#attributes' => ['class' => ['insert-video', 'btn', 'button'], 'href' => '#'],
+        ];
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
           '#value' => t('Cancel'),
@@ -432,7 +532,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#value' => t('Next'),
         ];
         $form['#submit'][] = '::saveForm';
-        $form['#submit'][] = 'mfd_form_submit';
+        $form['#submit'][] = '::mfdSaveForm';
       }
       else {
         // Show view with product presaving.
@@ -592,10 +692,12 @@ class CpCoreMultiStepForm extends FormBase {
   public function cancelForm(array &$form, FormStateInterface $form_state) {
     // We must delete all created at the moment.
     $nids = $form_state->get('saved_entities');
-    $nids = array_unique($nids);
-    $nodeStorage = $this->entityTypeManager->getStorage('node');
-    $nodes = $nodeStorage->loadMultiple($nids);
-    $nodeStorage->delete($nodes);
+    if ($nids) {
+      $nids = array_unique($nids);
+      $nodeStorage = $this->entityTypeManager->getStorage('node');
+      $nodes = $nodeStorage->loadMultiple($nids);
+      $nodeStorage->delete($nodes);
+    }
 
     $url = Url::fromUri('internal:/dashboard');
     $form_state->setRedirectUrl($url);
@@ -669,6 +771,77 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
+   * Submit form.
+   */
+  public function mfdSaveForm(&$form, FormStateInterface $form_state) {
+    $form_values = $form_state->getValues();
+    $form_object = $form_state->getFormObject();
+
+    // If entity is not translatable, there is nothing for us to do.
+    $entity = $form_object->getEntity();
+    if (!$entity->isTranslatable()) {
+      return;
+    }
+    $entity->save();
+
+    // Does this entity have a mfd field?
+    $mfd_field_manager = new MfdFieldManager();
+
+    if ($mfd_field_manager->hasMfdField($entity)) {
+
+      $language_manager = \Drupal::languageManager();
+      $current_language = $language_manager->getCurrentLanguage()->getId();
+
+      $available_langcodes = array_flip(array_keys($language_manager->getLanguages()));
+      ksort($available_langcodes);
+
+      // Store the field translations.
+      foreach ($available_langcodes as $langcode => $value) {
+        if ($langcode !== $current_language) {
+          $translated_fields = [];
+
+          foreach ($entity->getFieldDefinitions() as $field_name => $definition) {
+            if ($definition->isTranslatable()) {
+              $field_name_unique = $field_name . '_' . $langcode;
+              if (isset($form_values[$field_name_unique])) {
+                if (!empty($form_values[$field_name_unique][0]['fids'])) {
+                  $newTargetIds = [];
+                  foreach ($form_values[$field_name_unique][0]['fids'] as $fid) {
+                    $newTargetIds[] = ['target_id' => $fid];
+                  }
+                  $translated_fields[$field_name] = $newTargetIds;
+                }
+                else {
+                  $translated_fields[$field_name] = $form_values[$field_name_unique];
+                }
+              }
+            }
+          }
+
+          if (!$entity->hasTranslation($langcode)) {
+            continue;
+          }
+
+          $translation = $entity->getTranslation($langcode);
+          foreach ($translated_fields as $field => $field_value) {
+
+            if (!is_numeric(array_key_first($field_value))) {
+              $first_field_value = reset($field_value);
+              if (is_array($first_field_value) && is_numeric(array_key_first($first_field_value))) {
+                $translation->set($field, $first_field_value);
+              }
+            }
+            else {
+              $translation->set($field, $field_value);
+            }
+          }
+          $translation->save();
+        }
+      }
+    }
+  }
+
+  /**
    * Return to first step with saved entities array.
    */
   public function addOtherSubmit(array &$form, FormStateInterface $form_state) {
@@ -722,6 +895,13 @@ class CpCoreMultiStepForm extends FormBase {
       $form_state->setRebuild();
       $form_state->set('sent_publish_entities', $product_list);
     }
+  }
+
+  /**
+   * Categorization ajax callback.
+   */
+  public function reloadSubCategorization(&$form, FormStateInterface $form_state) {
+    return $form['field_categorization_parent'];
   }
 
   /**

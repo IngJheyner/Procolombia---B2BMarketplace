@@ -35,8 +35,80 @@
   width: 7px;
 }
 
+p {
+  word-break: break-word;
+}
+
 img.me-2 {
   width: 20px !important;
+}
+
+img.me-2.img-l {
+  width: 35px !important;
+}
+
+.modal-body {
+  padding: 37px 18px;
+}
+.modal-body p {
+  font-size: 14px;
+  font-family: "Gothic-Regular";
+  margin: 0px;
+  line-height: 1.7em;
+}
+.modal-body h6 {
+  font-size: 1.5rem;
+  font-family: "Gothic-Bold";
+  padding: 0px 34px !important;
+  margin-bottom: 20px;
+}
+.modal-body .password .input-group-text {
+  background-color: #fff;
+  color: #ffffff;
+  border-radius: 4px !important;
+  margin-left: -3px !important;
+  z-index: 2;
+  border-left: 0px;
+  cursor: pointer;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+.modal-body .password .input-group-text svg {
+  margin-right: 10px;
+}
+.modal-body .password .validation {
+  display: flex;
+  align-items: center;
+}
+.modal-body .password .validation .progress {
+  height: 7px;
+  width: 100%;
+}
+.modal-body .password .validation .progress .progress-bar {
+  background-color: #31d394;
+}
+.modal-body .password .validation .mensaje {
+  margin-bottom: 0;
+  margin-left: 24px;
+  margin-right: 6px;
+}
+.modal-body .rihgt .input-group-text {
+  margin-left: -3px !important;
+}
+.modal-body .rihgt .input-group-text.eliminar {
+  background-color: #ba0c2f !important;
+  font-family: Gothic-Regular !important;
+}
+
+.modal-header h5 {
+  font-size: 22px;
+  color: #3b3d42;
+  font-family: Gothic-Bold;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-title img {
+  margin-right: 10px;
 }
 
 .form-control:focus {
@@ -336,6 +408,10 @@ div#main {
   visibility: visible;
 }
 
+strong {
+  font-family: Gothic-Bold;
+}
+
 .status_icon {
   width: 16px;
   height: 16px;
@@ -481,14 +557,14 @@ div#main {
 }
 .menu-left .menu-content {
   padding: 6px 67px 6px 18px;
-  width: 305px;
+  width: 100%;
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
   height: 45px;
   color: #ffffff;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .menu-left .menu-content i {
   font-size: 30px;
@@ -617,7 +693,9 @@ div#main {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   padding: 0.6rem;
-  border-left: 4px solid #005ca4;
+  border-left: 4px solid #0085ca;
+  margin-top: 13px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
 }
 .right_bar .bar_content .noticie .notici_img {
   width: 14%;
@@ -658,7 +736,8 @@ div#main {
 }
 .right_bar .bar_content .noticie .time_content .more {
   font-family: "Gothic-Bold";
-  text-align: center;
+  text-align: end;
+  padding-right: 2px;
   color: #ccc;
   font-size: 21px;
   margin: 0px;
@@ -798,6 +877,7 @@ div#page {
   color: #000;
   font-size: 16px;
   font-family: "Gothic-Regular";
+  margin-bottom: 8px;
 }
 .dropdown-cont .logo_img_menu .status {
   color: #000;
@@ -805,6 +885,7 @@ div#page {
   font-family: "Gothic-Bold";
   display: flex;
   align-items: center;
+  margin: 0px 0px 3px 0px;
 }
 .dropdown-cont .logo_img_menu .small_editar {
   border: none;
@@ -966,6 +1047,169 @@ div#page {
   display: none;
 }
 
+.input_error {
+  margin-bottom: 21px;
+}
+
+#error_password,
+#error_username,
+#error_nit {
+  display: none;
+  color: #ba0c2f;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.form .input-group {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.form__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #000000;
+  font-family: Gothic-Regular;
+  outline: none;
+  padding: 1.25rem;
+  background: none;
+  border-left: transparent;
+  border-right: transparent;
+  /* Change border when input focus*/
+}
+.form__input:hover {
+  border-color: transparent;
+}
+.form__input:focus {
+  border-color: transparent;
+}
+.form__label {
+  position: absolute;
+  left: 45px;
+  top: 35%;
+  padding: 0 0.5rem;
+  color: #000;
+  cursor: text;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  z-index: 5;
+  font-size: 14px;
+  background-color: #fff;
+  font-family: Gothic-Bold;
+}
+.form span.input-group-text {
+  background: #fff;
+  border: none;
+}
+.form button {
+  margin: 0px;
+  border: none;
+  background: transparent;
+  color: #0085ca;
+  width: 100%;
+  text-align: end;
+  padding: 7px 0px;
+}
+
+.button_modal {
+  margin: 0px;
+  border: none;
+  background: transparent;
+  color: #0085ca;
+  width: 100%;
+  text-align: end;
+  padding: 7px 0px;
+}
+
+/* 
+  1. When the input is in the focus state
+  reduce the size of the label and move upwards 
+
+  2. Keep label state when content is in input field 
+  */
+.form__input:not(:-moz-placeholder-shown).form__input:not(:focus) ~ .form__label {
+  top: -0.5rem;
+  left: 0.8rem;
+  font-size: 14px;
+}
+.form__input:not(:-ms-input-placeholder).form__input:not(:focus) ~ .form__label {
+  top: -0.5rem;
+  left: 0.8rem;
+  font-size: 14px;
+}
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+  top: -0.5rem;
+  left: 0.8rem;
+  font-size: 14px;
+}
+
+#login_modal .modal-dialog {
+  width: 520px !important;
+  min-width: 520px !important;
+}
+
+sup {
+  color: #ba0c2f;
+  font-family: Gothic-Bold;
+}
+
+.cita_btn {
+  border-radius: 4px;
+  background-color: #005ca4;
+  color: #ffffff;
+  font-family: Gothic-Bold;
+  font-size: 14px;
+}
+.cita_btn i {
+  margin-right: 7px;
+}
+
+.login_body {
+  padding: 0px 30px 38px 30px !important;
+}
+.login_body .title {
+  color: #005ca4;
+  font-size: 1.9rem;
+  font-family: Maven-Bold;
+  font-weight: bolder;
+}
+.login_body .desc {
+  font-family: Gothic-Regular;
+  font-size: 16px;
+  color: #3b3d42;
+  margin-bottom: 30px;
+  line-height: normal;
+}
+.login_body .desc .blue-text {
+  color: #005ca4;
+}
+.login_body .login_footer {
+  text-align: center;
+}
+.login_body .login_footer button {
+  font-size: 15px;
+  background-color: #0085ca;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 12px 79px;
+  font-family: Gothic-Bold;
+}
+.login_body .login_footer P {
+  color: #6a6d71;
+}
+.login_body .login_footer P a {
+  cursor: pointer;
+  color: #6a6d71;
+}
+
 @media (max-width: 575.98px) {
   .logo {
     width: 200px;
@@ -981,7 +1225,7 @@ div#page {
   .row {
     width: 100% !important;
     margin-left: 0px !important;
-    padding-right: 1.5rem !important;
+    padding-right: 0px !important;
   }
   .container,
 .container-sm {
@@ -1054,7 +1298,48 @@ div#page {
   body {
     background-color: #F7F8F8;
   }
+  .right_bar {
+    width: 100%;
+  }
 }
+.resalte {
+  font-family: Gothic-Bold;
+  font-size: 13px;
+}
+
+.hidden-input {
+  z-index: -6 !important;
+  opacity: 0;
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+  width: 150px;
+  height: 100%;
+  background: #fff !important;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.iti {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.iti__arrow {
+  position: absolute;
+  top: 45%;
+  right: 6%;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #555;
+}
+
+.iti__country-list {
+  z-index: 6;
+}
+
 @media (min-width: 576px) and (max-width: 767.98px) {
   .logo {
     width: 200px;
@@ -1070,7 +1355,7 @@ div#page {
   .row {
     width: 100% !important;
     margin-left: 0px !important;
-    padding-right: 1.5rem !important;
+    padding-right: 0px !important;
   }
   .container,
 .container-sm {
@@ -1194,7 +1479,57 @@ div#page {
   body {
     background-color: #F7F8F8;
   }
+  .right_bar {
+    width: 100%;
+  }
 }
+select,
+.ts-control {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='Grupo_1428' data-name='Grupo 1428' width='19.198' height='11.912' viewBox='0 0 19.198 11.912'><g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'><path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)'/></g><path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' class='__web-inspector-hide-shortcut__'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 96% !important;
+  background-position-y: 50% !important;
+  border: 1px solid #dfdfdf;
+  padding: 10px 0.7rem !important;
+  font-size: 15px;
+  padding-right: 2.4rem !important;
+}
+
+select:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
+}
+
+.ts-control:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
+}
+
+select,
+textarea {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 7px 20px;
+  color: #000000;
+  border: 1px solid #cccccc;
+  width: 100%;
+  border-radius: 4px;
+}
+select:focus,
+textarea:focus {
+  outline: none;
+}
+select:active,
+textarea:active {
+  outline: none;
+}
+
+.btn {
+  transition: all 0.3s ease-out;
+}
+.btn:hover {
+  transform: scale(0.98);
+}
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   .logo {
     width: 200px;
@@ -1210,7 +1545,7 @@ div#page {
   .row {
     width: 100% !important;
     margin-left: 0px !important;
-    padding-right: 1.5rem !important;
+    padding-right: 0px !important;
   }
   .sub-header,
 .pt-6,

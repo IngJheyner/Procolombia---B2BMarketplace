@@ -11,7 +11,7 @@ id: node.product.field_product_type
 field_name: field_product_type
 entity_type: node
 bundle: product
-label: 'Seleccione si es un producto o servicio'
+label: ' Select if it is a product or service'
 description: ''
 required: true
 translatable: false

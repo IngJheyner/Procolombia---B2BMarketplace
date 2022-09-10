@@ -53,7 +53,6 @@ dependencies:
   module:
     - cp_core
     - field_group
-    - file
 third_party_settings:
   field_group:
     group_left:
@@ -210,7 +209,7 @@ content:
       advanced_text_formatter:
         show_token_tree: 0
   field_file:
-    type: file_generic
+    type: cp_core_file_generic
     weight: 4
     region: content
     settings:

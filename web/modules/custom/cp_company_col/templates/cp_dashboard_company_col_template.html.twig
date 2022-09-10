@@ -1,39 +1,41 @@
+
 {{ attach_library('cp_company_col/cp_company_col') }}
-<main class="dashboard">
+
+<section class="dashboard container">
 	<div class="row">
 		<div class="col-lg-9 table_dashboard ">
 			<div class="card p-4">
-				Tabla que pertenece a otra Historia de usuario
+				{{ 'Table belonging to another User Story'|t }}
 			</div>
 		</div>
 		<div class="col-lg-3">
 			<div class="card p-3">
 				<div class="title_card_dashboard">
 					<img src="{{data.company_logo}}" alt="logo">
-					Perfil de la empresa
+					{{ 'Company profile'|t }}
 				</div>
 				<div class="title_card_content">
 					<div class="title">
-						<p>NIT</p>
+						<p>{{ 'NIT'|t }}</p>
 					</div>
 					<div class="contenido">
 						<p>{{data.username}}</p>
 					</div>
 					<div class="title">
-						<p>Nombre de la Empresa</p>
+						<p>{{ 'Company Name'|t }}</p>
 					</div>
 					<div class="contenido">
 						<p>{{data.business_name}}</p>
 					</div>
 					<div class="title">
-						<p>Estado de aprobación</p>
+						<p>{{ 'Approval status'|t }}</p>
 					</div>
 					<div class="contenido">
 						<div class="me-2" style="width: 10px; height: 10px;background-color: #00D320; border-radius: 100px;"></div>
-						<p>Estado de aprobación</p>
+						<p>{{ 'Approval status'|t }}</p>
 					</div>
 					<div class="title">
-						<p>Visualizaciones</p>
+						<p>{{ 'Visualizations'|t }}</p>
 					</div>
 					<div class="contenido">
 						<p>3.462.345</p>
@@ -41,20 +43,22 @@
 					<div class="row p-0">
 						<div class="col-6 p-0">
 							<div class="title">
-								<p>Publicado</p>
+								<p>{{ 'Published'|t }}</p>
 							</div>
 							<div class="contenido">
-								<p>Si</p>
+								<p>{{ 'Yes'|t }}</p>
 								<input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
 								<label for="someSwitchOptionDefault" class="label-default"></label>
 							</div>
 						</div>
 						<div class="col-6 p-0">
 							<div class="title">
-								<p>Notificaciones</p>
+								<p>{{ 'Notifications'|t }}</p>
 							</div>
 							<div class="contenido">
-								<p class="bg-danger rounded-pill text-white px-2 py-1"><strong>120</strong> Mensajes</p>
+								<p class="bg-danger rounded-pill text-white px-2 py-1">
+									<strong>120</strong>
+									{{ 'Messages'|t }}</p>
 							</div>
 						</div>
 					</div>
@@ -62,7 +66,7 @@
 				</div>
 			</div>
 			<div class="card p-3 mt-5">
-				<button data-bs-toggle="modal" data-bs-target="#edit">Editar</button>
+				<button data-bs-toggle="modal" data-bs-target="#edit">{{ 'Edit'|t }}</button>
 				<div class="title_card_dashboard">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 25 25">
 						<defs>
@@ -80,17 +84,17 @@
 							<path id="Trazado_34" data-name="Trazado 34" d="M313.3,936.48a1.267,1.267,0,0,1,1.2,1.665,1.227,1.227,0,0,1-.8.8,1.265,1.265,0,1,1-.4-2.464" transform="translate(-307.386 -922.532)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
 						</g>
 					</svg>
-					Administrador y Datos de contacto
+					{{ 'Administrator and Contact Information'|t }}
 				</div>
 				<div class="title_card_content">
 					<div class="title">
-						<p>Nombre del contacto</p>
+						<p>{{ 'Contact name'|t }}</p>
 					</div>
 					<div class="contenido">
 						<p>{{data.contact_name}}</p>
 					</div>
 					<div class="title">
-						<p>Correo electrónico</p>
+						<p>{{ 'E-mail address'|t }}</p>
 					</div>
 					<div class="contenido">
 						<p>{{data.contact_email}}</p>
@@ -112,15 +116,14 @@
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="alert_1Label"><img src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Administrador y
-						                        Datos de contacto</h5>
+					<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Administrator and Contact Information'|t }}</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div class="row p-0 content px-4">
 						<div class="col-sm-6 col-md-6">
 							<div class="title">
-								<p>Nombre del contacto</p>
+								<p>{{ 'Contact name'|t }}</p>
 							</div>
 							<div class="contenido">
 								<p>{{data.contact_name}}</p>
@@ -128,36 +131,36 @@
 						</div>
 						<div class="col-sm-6 col-md-6">
 							<div class="title">
-								<p>Correo electrónico</p>
+								<p>{{ 'E-mail address'|t }}</p>
 							</div>
 							<div class="contenido">
 								<p>{{data.contact_email}}</p>
 							</div>
 						</div>
 					</div>
-					<h6 class="px-4">Editar Información</h6>
+					<h6 class="px-4">{{ 'Edit Information'|t }}</h6>
 					<div class="row px-4">
 						<div class="col-md-12">
-							<label for="contact_email" class="form-label">Correo Electrónico
+							<label for="contact_email" class="form-label">{{ 'E-mail address'|t }}
 								<span>*</span>
 							</label>
 							<input type="email" class="form-control" id="contact_email" placeholder="">
 						</div>
 						<div class="col-md-12">
 							<div class="form-group password">
-								<label for="nit">Contraseña
+								<label for="nit">{{ 'Password'|t }}
 									<span>*</span>
 								</label>
 								<div class="input-group mb-3">
 									<input type="password" id="password" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<span class="input-group-text">
-										<img id="pass_bloq" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
-										<img id="pass_show" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+										<img id="pass_bloq" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 									</span>
 									<div class="input_error">
 										<i id="error_password" class='bx bxs-info-circle toltip_i'>
 											<span id="error_password_message" class="tooltiptext_error">
-												Campo Obligatorio
+												{{ 'Required Field'|t }}
 											</span>
 										</i>
 									</div>
@@ -167,18 +170,19 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group password">
-								<label for="nit">Verificar contraseña Contraseña<span>*</span>
+								<label for="nit">{{ 'Password verification'|t }}
+									<span>*</span>
 								</label>
 								<div class="input-group mb-3">
 									<input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
 									<span class="input-group-text">
-										<img id="pass_bloq_confirm" style="display:none" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
-										<img id="pass_show_confirm" src="http://52.201.168.42/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+										<img id="pass_bloq_confirm" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show_confirm" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 									</span>
 									<div class="input_error">
 										<i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
 											<span id="error_confirm_password_message" class="tooltiptext_error">
-												Campo Obligatorio
+												{{ 'Required Field'|t }}
 											</span>
 										</i>
 									</div>
@@ -190,12 +194,11 @@
 				<div class="modal-footer">
 					<div class="row">
 						<div class="col-lg-12 continue">
-							<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="Close">CANCELAR</button>
-							<button id="save_modal" name="save_modal" aria-label="Continuar con el registro" class="continue">CONTINUAR
-							</button>
+							<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="Close">{{ 'CANCEL'|t }}</button>
+							<button id="save_modal" name="save_modal" aria-label="Continuar con el registro" class="continue">{{ 'CONTINUE'|t }}</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-								CARGANDO
+								{{ 'Loading...'|t }}
 							</button>
 						</div>
 					</div>
@@ -203,4 +206,4 @@
 			</div>
 		</div>
 	</div>
-</main>
+</section>

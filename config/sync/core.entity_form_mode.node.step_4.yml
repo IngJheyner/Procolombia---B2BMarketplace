@@ -5,6 +5,6 @@ dependencies:
   module:
     - node
 id: node.step_4
-label: 'Add images to the Product / Service'
+label: ' Añadir imágenes al Producto/Servicio'
 targetEntityType: node
 cache: true
