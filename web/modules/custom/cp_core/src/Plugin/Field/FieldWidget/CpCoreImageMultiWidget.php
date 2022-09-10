@@ -113,8 +113,8 @@ class CpCoreImageMultiWidget extends ImageWidget {
    */
   protected function formMultipleElements(FieldItemListInterface $items, array &$form, FormStateInterface $form_state) {
     $delta = $this->getSetting('delta_limit');
-    if (count($items) == 0) {
-      for ($i = 0; $i < $delta; $i++) {
+    if (count($items) < $delta) {
+      for ($i = count($items); $i < $delta; $i++) {
         $items->appendItem();
       }
     }

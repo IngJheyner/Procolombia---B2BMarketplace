@@ -12,7 +12,7 @@ field_name: field_images
 entity_type: node
 bundle: product
 label: Images
-description: 'Recuerde subir imágenes en formato JPGE y con dimensiones mínimas de 560x540 px'
+description: 'Remember to upload images in JPGE format and with minimum dimensions of 560x540 px'
 required: true
 translatable: false
 default_value: {  }

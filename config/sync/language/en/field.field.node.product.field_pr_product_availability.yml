@@ -1,0 +1,4 @@
+label: 'Product/service availability'
+settings:
+  on_label: ' Available'
+  off_label: ' Not available'

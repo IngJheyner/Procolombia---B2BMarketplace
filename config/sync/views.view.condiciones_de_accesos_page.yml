@@ -610,6 +610,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      css_class: container
       header: {  }
       footer: {  }
       display_extenders: {  }
