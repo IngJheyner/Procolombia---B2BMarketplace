@@ -26,9 +26,10 @@ class CpMailingService extends ControllerBase
     {
         $data = $request->request->all();
         $email = $data['email'];
-        $token = $data['token'];
+        $unique_id = uniqid(rand(), true);
+        $token = md5($unique_id);
         $server_name = \Drupal::request()->getSchemeAndHttpHost();
-        $link = $server_name.'/verification/user?token='.$token.'&email='.$email;
+        $link = $server_name.'/verification/user?token='.$unique_id.'&email='.$email;
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'cp_mailing_service';
         $key = 'verification_email';
@@ -41,8 +42,23 @@ class CpMailingService extends ControllerBase
         if ($result['result'] != true) {
             return new JsonResponse('error', 500);
         } else {
-            return new JsonResponse('success', 200);
+            return new JsonResponse(['status' => 'ok', 'token' => $token], 200);
         }
-        
+    }
+
+    // compare both token
+    public function verification_user(Request $request)
+    {
+        $data = $request->query->all();
+        $token = $data['token'];
+        $token_encoded = $data['token_encoded'];
+        //check if the token is the same
+        $token_new_encode = md5($token);
+        echo $token_encoded;
+        if ($token_new_encode == $token_encoded) {
+            return new JsonResponse(['status' => 'ok'], 200);
+        } else {
+            return new JsonResponse('error', 500);
+        }
     }
 }

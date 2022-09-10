@@ -10,3 +10,12 @@ cp_mailing_service.verification_email_col:
   methods:  [POST]
   requirements:
     _permission: "access content"
+
+###verification_user route
+cp_mailing_service.verification_user:
+  path: "mailing/verification/user"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::verification_user'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"

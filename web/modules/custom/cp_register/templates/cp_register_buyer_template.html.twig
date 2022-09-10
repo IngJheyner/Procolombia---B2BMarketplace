@@ -324,7 +324,7 @@
 							</label>
 
 							<div id="company_model_cont" class="input_error">
-								<select name="company_model" id="company_model" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select multiple name="company_model" id="company_model" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 									{% for company_model_item in tree_business_model %}
 										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
@@ -438,7 +438,7 @@
 							</label>
 
 							<div id="company_model_2_cont" class="input_error">
-								<select name="company_model_2" id="company_model_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="company_model_2" multiple id="company_model_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 									{% for company_model_item in tree_business_model %}
 										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
@@ -552,7 +552,7 @@
 							</label>
 
 							<div id="company_model_3_cont" class="input_error">
-								<select name="company_model_3" id="company_model_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="company_model_3" multiple id="company_model_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}
 									</option>
 									{% for company_model_item in tree_business_model %}

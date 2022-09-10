@@ -5,6 +5,38 @@
 (function ($, Drupal) {
   'use strict';
 
+  function init() {
+    //check if in the query params exist token
+    var urlParams = new URLSearchParams(window.location.search);
+    var token = urlParams.get('token');
+    //get v_r_k from local storage
+    var v_r_k = localStorage.getItem('v_r_k');
+    let formData = new FormData();
+    formData.append('token', token);
+    formData.append('token_encoded', v_r_k);
+    if (token) {
+      fetch('/mailing/verification/user',
+        {
+          method: 'POST',
+          body: formData
+        }
+      ).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        if (data.status == 'ok') {
+          $("#success").modal('show');
+          setTimeout(function () {
+            window.location.href = "/registro/usuario";
+          }, 5000);
+        } else {
+          alert("Token invalid");
+        }
+      }).catch(function (error) {
+        console.log('Request failed', error);
+      });
+    }
+
+  }
 
   const isEmail = (email) => {
     return String(email)
@@ -99,17 +131,36 @@
         })
         .then(function (data) {
           if (data.includes("success")) {
-            setTimeout(() => {
-              $("#loader").modal('hide');
-              $("#success").modal('show');
-            }, 4000);
-            setTimeout(() => {
-              localStorage.setItem("nit", nit);
-              localStorage.setItem("email", email);
-              let json = data.split(":[")[1].split("]")[0];
-              localStorage.setItem("data_neo", json);
-              window.location.href = "/registro/usuario";
-            }, 6000);
+            //send mailing/verification/email/col and send only email
+            var email_form_data = new FormData();
+            email_form_data.append("email", email);
+            fetch("/mailing/verification/email/col", {
+              method: "POST",
+              body: email_form_data,
+            })
+              .then(function (response) {
+                return response.json();
+              }).then(function (data_2) {
+                
+                if (data_2.status == "ok") {
+                  //save v_r_k in local storage
+                  localStorage.setItem("v_r_k", data_2.token);
+                  localStorage.setItem("nit", nit);
+                  localStorage.setItem("email", email);
+                  let json = data.split(":[")[1].split("]")[0];
+                  localStorage.setItem("data_neo", json);
+                  setTimeout(() => {
+                    $("#loader").modal('hide');
+                  }, 15000);
+                } else {
+                  $("#loader").modal('hide');
+                  alert("Request failed email");
+                }
+              })
+              .catch(function (error) {
+                $("#loader").modal('hide');
+                alert("Request failed email", error);
+              });
           } else {
             setTimeout(() => {
               $("#loader").modal('hide');
@@ -143,6 +194,10 @@
   // **********************
   Drupal.behaviors.cp_check_nit = {
     attach: function (context, settings) {
+      //init 
+      if (context == document) {
+        init();
+      }
       //call function to check nit
       $("#check_nit", context).click(function () {
         checkNit();
