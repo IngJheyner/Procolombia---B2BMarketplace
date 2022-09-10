@@ -75,6 +75,8 @@ class CpCoreMailHelper implements CpCoreMailHelperInterface {
    *   Language manager service.
    * @param \Psr\Log\LoggerInterface $logger
    *   The logger instance.
+   * @param \Drupal\Core\Utility\Token $token
+   *   The token service.
    */
   public function __construct(
     ConfigFactoryInterface $config_factory,
@@ -95,14 +97,18 @@ class CpCoreMailHelper implements CpCoreMailHelperInterface {
   /**
    * Send mail.
    */
-  public function send($key, $to, $from = NULL, $langcode = NULL, $params = []) {
+  public function send($key, $to, $from = NULL, $langcode = NULL, $params = [], $custom_replacements = []) {
 
     // Token options.
     $variables = [
       'user' => $params['account'],
       'node' => $params['node'],
     ];
-    $token_options = ['langcode' => $langcode, 'callback' => NULL, 'clear' => TRUE];
+    $token_options = [
+      'langcode' => $langcode,
+      'callback' => NULL,
+      'clear' => TRUE,
+    ];
 
     // We must override the current language in the configuration to send the
     // mail in the correct language.
@@ -115,13 +121,19 @@ class CpCoreMailHelper implements CpCoreMailHelperInterface {
       $subject = $config->get($key . '.subject');
       $body = $config->get($key . '.body');
       // Token replacement.
-      $params['subject'] = PlainTextOutput::renderFromHtml($this->token->replace($subject, $variables, $token_options));
-      $params['body'] = $this->token->replace($body, $variables, $token_options);
+      $params['title'] = PlainTextOutput::renderFromHtml($this->token->replace($subject, $variables, $token_options));
+      $params['message'] = $this->token->replace($body, $variables, $token_options);
+      if (!empty($custom_replacements)) {
+        $params['message'] = str_replace(array_keys($custom_replacements), array_values($custom_replacements), $params['message']);
+      }
       if (!empty($from)) {
         $params['from'] = $from;
       }
+      else {
+        $params['from'] = $config->get('notifications_email');
+      }
       $langcode = ($langcode) ?: $this->languageManager->getCurrentLanguage();
-      $result = $this->mailManager->mail($key, $to, $langcode, $params, NULL, TRUE);
+      $result = $this->mailManager->mail('cp_core', $key, $to, $langcode, $params, NULL, TRUE);
       if (!$result) {
         $this->logger->error('Error sending mail with key %key', [
           '%key' => $key,

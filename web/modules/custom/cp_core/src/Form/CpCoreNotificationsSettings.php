@@ -25,6 +25,7 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The factory for configuration objects.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   The module handler.
    */
   public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler) {
     $this->setConfigFactory($config_factory);
@@ -64,7 +65,7 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
     $config = $this->config('cp_core.notifications');
 
     $form['notifications_email'] = [
-      '#type' => 'textfield',
+      '#type' => 'email',
       '#title' => $this->t('Notifications email'),
       '#default_value' => $config->get('notifications_email'),
       '#required' => TRUE,
@@ -75,7 +76,7 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#title' => $this->t('Emails'),
     ];
 
-    $email_token_help = $this->t('Available variables are: [site:name], [site:url], [user:display-name], [user:account-name], [user:mail], [site:login-url], [site:url-brief], [user:edit-url], [user:one-time-login-url], [user:cancel-url].');
+    $email_token_help = $this->t('You can use tokens in the subject and the body of each email. The custom replacements are only available on the body and them will be specified on each mail body.');
 
     // SELLER.
     $form['seller'] = [
@@ -111,6 +112,10 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('product_seller_publish_mail.body'),
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ product_list }}']
+      ),
       '#rows' => 3,
       '#states' => [
         'visible' => [
@@ -148,6 +153,10 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('product_seller_edit_mail.body'),
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ product_list }}']
+      ),
       '#rows' => 3,
       '#states' => [
         'visible' => [

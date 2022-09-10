@@ -18,6 +18,7 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\field_group\FormatterHelper;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\mfd\MfdFieldManager;
+use Drupal\cp_core\CpCoreMailHelperInterface;
 
 /**
  * Implements an example form.
@@ -82,6 +83,13 @@ class CpCoreMultiStepForm extends FormBase {
   protected $account;
 
   /**
+   * The notification system.
+   *
+   * @var \Drupal\cp_core\CpCoreMailHelperInterface
+   */
+  protected $notification;
+
+  /**
    * Control vars.
    *
    * @var int
@@ -134,7 +142,8 @@ class CpCoreMultiStepForm extends FormBase {
     EntityFormBuilderInterface $entityFormBuilder,
     EntityTypeManagerInterface $entityTypeManager,
     MessengerInterface $messenger,
-    AccountProxyInterface $account
+    AccountProxyInterface $account,
+    CpCoreMailHelperInterface $notification
   ) {
     $this->tempStoreFactory = $temp_store_factory;
     $this->mailManager = $mail_manager;
@@ -143,6 +152,7 @@ class CpCoreMultiStepForm extends FormBase {
     $this->entityTypeManager = $entityTypeManager;
     $this->messenger = $messenger;
     $this->account = $account;
+    $this->notification = $notification;
   }
 
   /**
@@ -156,7 +166,8 @@ class CpCoreMultiStepForm extends FormBase {
       $container->get('entity.form_builder'),
       $container->get('entity_type.manager'),
       $container->get('messenger'),
-      $container->get('current_user')
+      $container->get('current_user'),
+      $container->get('cp_core.mail_helper')
     );
   }
 
@@ -203,8 +214,7 @@ class CpCoreMultiStepForm extends FormBase {
   }
 
   /**
-   * This function builds the form based the base entity and the current
-   * display.
+   * Function builds the form based the base entity and the current display.
    */
   protected function buildFormDisplay(FormStateInterface $form_state) {
     // Fetch the display used by the form. It is the display for the 'default'
@@ -223,7 +233,7 @@ class CpCoreMultiStepForm extends FormBase {
     if (empty($form_state->get('entity'))) {
       $this->step = 1;
       $form_state->set('language_values_en', []);
-      if (empty($nid)) {
+      if (empty($nid) || !empty($this->getRequest()->query->get('store-entities'))) {
         $entity = $this->entityTypeManager->getStorage('node')->create($request->query->all() + [
           'type' => $bundle,
           'status' => 0,
@@ -360,7 +370,7 @@ class CpCoreMultiStepForm extends FormBase {
           'parent' => 0,
           'vid' => 'categorization',
         ]);
-        $newcategorization_options = [];
+        $newcategorization_options = [key($form['field_categorization']['widget']['#options']) => reset($form['field_categorization']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {
           $newcategorization_options[$categorization_term->id()] = $categorization_term->label();
         }
@@ -379,11 +389,14 @@ class CpCoreMultiStepForm extends FormBase {
           'parent' => $categorization_terms_id,
           'vid' => 'categorization',
         ]);
-        $newsubcategorization_options = [];
+        $newsubcategorization_options = [key($form['field_categorization_parent']['widget']['#options']) => reset($form['field_categorization_parent']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {
           $newsubcategorization_options[$categorization_term->id()] = $categorization_term->label();
         }
         $form['field_categorization_parent']['widget']['#options'] = !empty($newsubcategorization_options) ? $newsubcategorization_options : [0 => ''];
+      }
+      elseif (isset($form['field_categorization_parent'])) {
+        $form['field_categorization_parent']['widget']['#options'] = [key($form['field_categorization_parent']['widget']['#options']) => reset($form['field_categorization_parent']['widget']['#options'])];
       }
 
       if ($this->entity->field_categorization->target_id && isset($form['field_pr_type_certifications'])) {
@@ -391,7 +404,7 @@ class CpCoreMultiStepForm extends FormBase {
           'parent' => $this->entity->field_categorization->target_id,
           'vid' => 'categorization',
         ]);
-        $newcertification_options = [];
+        $newcertification_options = [key($form['field_pr_type_certifications']['widget']['#options']) => reset($form['field_pr_type_certifications']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
@@ -403,7 +416,7 @@ class CpCoreMultiStepForm extends FormBase {
           'parent' => $this->entity->field_categorization->target_id,
           'vid' => 'categorization',
         ]);
-        $newcertification_options = [];
+        $newcertification_options = [key($form['field_pr_sales_channel']['widget']['#options']) => reset($form['field_pr_sales_channel']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
@@ -411,10 +424,6 @@ class CpCoreMultiStepForm extends FormBase {
       }
 
       if ($this->step == 1) {
-        // $form['legal_terms'] = [
-        //   '#theme' => 'cp_core_node_multistep_legal_modal',
-        //   '#weight' => -11,
-        // ];
         $form['legal_terms'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
           '#class' => 'legal-modal',
@@ -452,7 +461,7 @@ class CpCoreMultiStepForm extends FormBase {
       if ($this->step <= $this->maxStep) {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
-          '#value' => t('Previous'),
+          '#value' => $this->t('Previous'),
           '#submit' => [
             '::previousPage',
           ],
@@ -463,7 +472,7 @@ class CpCoreMultiStepForm extends FormBase {
       if ($this->step < ($this->maxStep - 1)) {
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
-          '#value' => t('Cancel'),
+          '#value' => $this->t('Cancel'),
           '#submit' => [
             '::cancelForm',
           ],
@@ -473,8 +482,11 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['cancel_link'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Cancel'),
-          '#attributes' => ['class' => ['cancel-confirm-link', 'button', 'btn'], 'href' => '#'],
+          '#value' => $this->t('Cancel'),
+          '#attributes' => [
+            'class' => ['cancel-confirm-link', 'button', 'btn'],
+            'href' => '#',
+          ],
         ];
         $form['footer_form']['actions']['modal_cancel'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
@@ -490,30 +502,38 @@ class CpCoreMultiStepForm extends FormBase {
         ];
         $form['footer_form']['actions']['next'] = [
           '#type' => 'submit',
-          '#value' => t('Next'),
+          '#value' => $this->t('Next'),
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
         $form['footer_form']['actions']['insert_video'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Insert video'),
-          '#attributes' => ['class' => ['insert-video', 'btn', 'button'], 'href' => '#'],
+          '#value' => $this->t('Insert video'),
+          '#attributes' => [
+            'class' => ['insert-video', 'btn', 'button'],
+            'href' => '#',
+          ],
         ];
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
-          '#value' => t('Cancel'),
+          '#value' => $this->t('Cancel'),
           '#submit' => [
             '::cancelForm',
           ],
           '#limit_validation_errors' => [],
-          '#attributes' => ['class' => ['visually-hidden', 'cancel-confirm-submit']],
+          '#attributes' => [
+            'class' => ['visually-hidden', 'cancel-confirm-submit'],
+          ],
         ];
         $form['footer_form']['actions']['cancel_link'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Cancel'),
-          '#attributes' => ['class' => ['cancel-confirm-link', 'btn', 'button'], 'href' => '#'],
+          '#value' => $this->t('Cancel'),
+          '#attributes' => [
+            'class' => ['cancel-confirm-link', 'btn', 'button'],
+            'href' => '#',
+          ],
         ];
         $form['footer_form']['actions']['modal_cancel'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
@@ -529,7 +549,7 @@ class CpCoreMultiStepForm extends FormBase {
         ];
         $form['footer_form']['actions']['submit'] = [
           '#type' => 'submit',
-          '#value' => t('Next'),
+          '#value' => $this->t('Next'),
         ];
         $form['#submit'][] = '::saveForm';
         $form['#submit'][] = '::mfdSaveForm';
@@ -561,14 +581,20 @@ class CpCoreMultiStepForm extends FormBase {
         $form['product_list']['product_list_links']['select_all'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Select All'),
-          '#attributes' => ['class' => ['button', 'btn', 'select-all'], 'href' => '#'],
+          '#value' => $this->t('Select All'),
+          '#attributes' => [
+            'class' => ['button', 'btn', 'select-all'],
+            'href' => '#',
+          ],
         ];
         $form['product_list']['product_list_links']['unselect_all'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Unselect All'),
-          '#attributes' => ['class' => ['button', 'btn', 'unselect-all'], 'href' => '#'],
+          '#value' => $this->t('Unselect All'),
+          '#attributes' => [
+            'class' => ['button', 'btn', 'unselect-all'],
+            'href' => '#',
+          ],
         ];
 
         $form['product_list']['product_list_items'] = [
@@ -581,8 +607,11 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['add_other'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Load another product'),
-          '#attributes' => ['class' => ['button', 'btn', 'add-other'], 'href' => '#'],
+          '#value' => $this->t('Load another product'),
+          '#attributes' => [
+            'class' => ['button', 'btn', 'add-other'],
+            'href' => '#',
+          ],
         ];
         $form['footer_form']['actions']['add_other_modal'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
@@ -600,7 +629,7 @@ class CpCoreMultiStepForm extends FormBase {
 
         $form['footer_form']['actions']['cancel'] = [
           '#type' => 'submit',
-          '#value' => t('Cancel'),
+          '#value' => $this->t('Cancel'),
           '#submit' => [
             '::cancelForm',
           ],
@@ -610,8 +639,11 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['cancel_link'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Cancel'),
-          '#attributes' => ['class' => ['cancel-confirm-link', 'btn', 'button'], 'href' => '#'],
+          '#value' => $this->t('Cancel'),
+          '#attributes' => [
+            'class' => ['cancel-confirm-link', 'btn', 'button'],
+            'href' => '#',
+          ],
         ];
         $form['footer_form']['actions']['modal_cancel'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
@@ -641,7 +673,7 @@ class CpCoreMultiStepForm extends FormBase {
 
         $form['footer_form']['actions']['save_publish'] = [
           '#type' => 'submit',
-          '#value' => t('Save and publish'),
+          '#value' => $this->t('Save and publish'),
           '#submit' => ['::saveAndPublishSubmit'],
           '#attributes' => ['class' => ['visually-hidden', 'save-and-publish']],
         ];
@@ -649,8 +681,11 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['save_publish_link'] = [
           '#type' => 'html_tag',
           '#tag' => 'a',
-          '#value' => t('Save and publish'),
-          '#attributes' => ['class' => ['button', 'btn', 'save-publish-button'], 'href' => '#'],
+          '#value' => $this->t('Save and publish'),
+          '#attributes' => [
+            'class' => ['button', 'btn', 'save-publish-button'],
+            'href' => '#',
+          ],
         ];
 
         if ($form_state->get('sent_publish_entities')) {
@@ -789,10 +824,9 @@ class CpCoreMultiStepForm extends FormBase {
 
     if ($mfd_field_manager->hasMfdField($entity)) {
 
-      $language_manager = \Drupal::languageManager();
-      $current_language = $language_manager->getCurrentLanguage()->getId();
+      $current_language = $this->languageManager->getCurrentLanguage()->getId();
 
-      $available_langcodes = array_flip(array_keys($language_manager->getLanguages()));
+      $available_langcodes = array_flip(array_keys($this->languageManager->getLanguages()));
       ksort($available_langcodes);
 
       // Store the field translations.
@@ -868,6 +902,9 @@ class CpCoreMultiStepForm extends FormBase {
       $product_list = array_keys($product_list);
     }
     $available_langcodes = array_keys($this->languageManager->getLanguages());
+    $product_list_names = [];
+    $edit_list_names = [];
+    $edit_nid = isset($form_state->getBuildInfo()['args'][2]) ? $form_state->getBuildInfo()['args'][2] : FALSE;
     foreach ($product_list as $nid) {
       if ($nid) {
         // Set wait status.
@@ -875,6 +912,12 @@ class CpCoreMultiStepForm extends FormBase {
         $node->field_states = 'waiting';
         $node->setPublished();
         $node->save();
+        if ($nid == $edit_nid) {
+          $edit_list_names[] = $node->label();
+        }
+        else {
+          $product_list_names[] = $node->label();
+        }
         if ($entity->id() == $nid) {
           $form_state->set('entity', $node);
         }
@@ -886,6 +929,24 @@ class CpCoreMultiStepForm extends FormBase {
           }
         }
       }
+    }
+    if (!empty($product_list_names)) {
+      $custom_replacements = ['{{ product_list }}' => implode(", ", $product_list_names)];
+      $key = 'product_seller_publish_mail';
+      $to = $this->account->getEmail();
+      $from = NULL;
+      $langcode = $this->languageManager->getCurrentLanguage()->getId();
+      $params = [];
+      $this->notification->send($key, $to, $from, $langcode, $params, $custom_replacements);
+    }
+    if (!empty($edit_list_names)) {
+      $custom_replacements = ['{{ product_list }}' => implode(", ", $edit_list_names)];
+      $key = 'product_seller_edit_mail';
+      $to = $this->account->getEmail();
+      $from = NULL;
+      $langcode = $this->languageManager->getCurrentLanguage()->getId();
+      $params = [];
+      $this->notification->send($key, $to, $from, $langcode, $params, $custom_replacements);
     }
     if (empty($product_list)) {
       $form_state->setRebuild();

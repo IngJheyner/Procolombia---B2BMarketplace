@@ -2,7 +2,6 @@
 
 namespace Drupal\cp_core;
 
-use Drupal;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\Core\Render\Element;
@@ -23,42 +22,42 @@ class CpCoreMultiStepHelper implements TrustedCallbackInterface {
    *   The complete form structure.
    *
    * @return array
+   *   The element processed.
    */
   public static function formProcess(array &$element, FormStateInterface $form_state = NULL, array &$form = []) {
     self::addClassRecursive($element);
     return $element;
   }
 
-/**
- * Recursive function to add clases.
- */
-public static function addClassRecursive(&$form, &$element = [], $parent = [], $key = NULL) {
-  if (empty($element)) {
-    // La primera vez incializamos los valores.
-    $element = &$form;
-    $parent = &$form;
-  }
-  elseif ($key != NULL && strrpos($key, 'group_', -strlen($key)) !== FALSE) {
-    // Si es un grupo de campos nos quedamos con el como padre porque el modulo
-    // group no lleva la jerarquia en #array_parents.
-    $parent = &$element;
-  }
-  foreach (Element::children($element) as $key) {
-    $children = &$element[$key];
-
-    if (isset($children['#custom_class'])) {
-      $apply_element = &$children;
-      if (isset($children['#array_parents'][0]) && isset($parent[$children['#array_parents'][0]])) {
-        $apply_element = &$parent[$children['#array_parents'][0]];
-      }
-      $apply_element['#attributes']['class'][] = $children['#custom_class'];
+  /**
+   * Recursive function to add clases.
+   */
+  public static function addClassRecursive(&$form, &$element = [], $parent = [], $key = NULL) {
+    if (empty($element)) {
+      // La primera vez incializamos los valores.
+      $element = &$form;
+      $parent = &$form;
     }
+    elseif ($key != NULL && strrpos($key, 'group_', -strlen($key)) !== FALSE) {
+      // Si es un grupo de campos nos quedamos con el como padre porque el
+      // modulo group no lleva la jerarquia en #array_parents.
+      $parent = &$element;
+    }
+    foreach (Element::children($element) as $key) {
+      $children = &$element[$key];
 
-    // We will execute it to over the childs.
-    self::addClassRecursive($form, $children, $parent, $key);
+      if (isset($children['#custom_class'])) {
+        $apply_element = &$children;
+        if (isset($children['#array_parents'][0]) && isset($parent[$children['#array_parents'][0]])) {
+          $apply_element = &$parent[$children['#array_parents'][0]];
+        }
+        $apply_element['#attributes']['class'][] = $children['#custom_class'];
+      }
+
+      // We will execute it to over the childs.
+      self::addClassRecursive($form, $children, $parent, $key);
+    }
   }
-}
-
 
   /**
    * {@inheritdoc}
@@ -66,6 +65,5 @@ public static function addClassRecursive(&$form, &$element = [], $parent = [], $
   public static function trustedCallbacks() {
     return ['formProcess'];
   }
-
 
 }

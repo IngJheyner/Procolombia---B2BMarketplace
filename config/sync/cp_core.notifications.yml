@@ -1,12 +1,12 @@
 notifications_email: notificaciones@procolombia.co
-product_seller_publish_mail_active: 0
+product_seller_publish_mail_active: 1
 product_seller_publish_mail:
-  subject: ''
-  body: ''
-product_seller_edit_mail_active: false
+  subject: 'Marketplace | Estado de publicación de sus productos o servicios'
+  body: 'Su solicitud de publicación de {{ product_list }} se encuentra en estado pendiente por aprobación por parte de ProColombia. Su asesor se contactará con usted en caso de que exista alguna observación sobre la información registrada.'
+product_seller_edit_mail_active: true
 product_seller_edit_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Estado de actualización de sus productos o servicios'
+  body: "Usted ha modificado el producto {{ product_list }}, la actualización de la información cargada se encuentra en estado pendiente por aprobación por parte de ProColombia. Su asesor se contactará con usted en caso de que exista alguna observación sobre la información registrada.\r\n\r\nSaludos. "
 product_seller_approbation_mail_active: false
 product_seller_approbation_mail:
   subject: ''

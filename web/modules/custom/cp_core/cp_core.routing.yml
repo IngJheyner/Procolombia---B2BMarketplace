@@ -204,6 +204,6 @@ cp_core.notifications:
   path: 'admin/config/people/notifications-settings'
   defaults:
     _form: '\Drupal\cp_core\Form\CpCoreNotificationsSettings'
-    _title: 'Buyer Register'
+    _title: 'Notifications'
   requirements:
     _permission: 'access content'

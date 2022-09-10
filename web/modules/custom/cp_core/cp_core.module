@@ -38,6 +38,17 @@ function cp_core_mail($key, &$message, $params) {
   $message['subject'] = $params['title'];
   $message['body'][] = $params['message'];
 
+  if (!empty($params['override_from'])) {
+    $email = $message['from'];
+    $message['reply-to'] = $email;
+    $message['Return-Path'] = $email;
+    $message['headers']['Return-Path'] = $email;
+    $message['headers']['Sender'] = $email;
+    $message['headers']['Reply-to'] = $email;
+    $message['headers']['From'] = $email;
+
+  }
+
 }
 
 /**
