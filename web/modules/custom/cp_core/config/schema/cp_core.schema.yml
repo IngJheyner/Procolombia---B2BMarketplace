@@ -80,7 +80,7 @@ cp_core.notifications:
       type: boolean
       label: 'Active'
     daily_activity_mail_hour:
-      type: boolean
+      type: integer
       label: 'Hour'
     daily_activity_mail:
       type: mail

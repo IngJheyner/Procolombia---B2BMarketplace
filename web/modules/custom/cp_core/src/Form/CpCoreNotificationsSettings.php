@@ -195,6 +195,10 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('product_seller_approbation_mail.body'),
       '#rows' => 3,
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ product_name }}']
+      ),
       '#states' => [
         'visible' => [
           'input[name="product_seller_approbation_mail_active"]' => ['checked' => TRUE],
@@ -232,6 +236,10 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('product_seller_reject_mail.body'),
       '#rows' => 3,
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ product_name }}']
+      ),
       '#states' => [
         'visible' => [
           'input[name="product_seller_reject_mail_active"]' => ['checked' => TRUE],
@@ -343,6 +351,10 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('verification_seller_token_mail.body'),
       '#rows' => 3,
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ company_name }}, {{ pin }}, {{ confirm_link }}']
+      ),
       '#states' => [
         'visible' => [
           'input[name="verification_seller_token_mail_active"]' => ['checked' => TRUE],
@@ -437,12 +449,12 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
     // ->set('verification_buyer_token_mail_active', $form_state->getValue('verification_buyer_token_mail_active'))
     // ->set('verification_buyer_token_mail.subject', $form_state->getValue('verification_buyer_token_mail_subject'))
     // ->set('verification_buyer_token_mail.body', $form_state->getValue('verification_buyer_token_mail_body'))
-    $form['seller']['verification_buyer_token_mail_active'] = [
+    $form['buyer']['verification_buyer_token_mail_active'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Active verification buyer token mail'),
       '#default_value' => $config->get('verification_buyer_token_mail_active'),
     ];
-    $form['seller']['verification_buyer_token_mail_subject'] = [
+    $form['buyer']['verification_buyer_token_mail_subject'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Subject'),
       '#default_value' => $config->get('verification_buyer_token_mail.subject'),
@@ -456,11 +468,15 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
         ],
       ],
     ];
-    $form['seller']['verification_buyer_token_mail_body'] = [
+    $form['buyer']['verification_buyer_token_mail_body'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('verification_buyer_token_mail.body'),
       '#rows' => 3,
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ buyer_name }}, {{ pin }}, {{ confirm_link }}']
+      ),
       '#states' => [
         'visible' => [
           'input[name="verification_buyer_token_mail_active"]' => ['checked' => TRUE],
@@ -492,6 +508,7 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#min' => 0,
       '#max' => 23,
       '#step' => 1,
+      '#description' => $this->t('Use a 24 hours format, the min value is 0 and the max value is 23 hours.'),
       '#states' => [
         'visible' => [
           'input[name="daily_activity_mail_active"]' => ['checked' => TRUE],
@@ -520,6 +537,10 @@ class CpCoreNotificationsSettings extends ConfigFormBase {
       '#title' => $this->t('Body'),
       '#default_value' => $config->get('daily_activity_mail.body'),
       '#rows' => 3,
+      '#description' => $this->t(
+        'You can use the next special replacements in the mail body: @replacements',
+        ['@replacements' => '{{ company_list_approval }}, {{ company_list_opportunity }}, {{ company_list_achievement }}']
+      ),
       '#states' => [
         'visible' => [
           'input[name="daily_activity_mail_active"]' => ['checked' => TRUE],
