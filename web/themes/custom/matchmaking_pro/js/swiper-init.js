@@ -19,7 +19,7 @@
 
 			var swiper = new Swiper(".swiper-thumbs", {
 				loop: false,
-				spaceBetween: 15,
+				spaceBetween: 5,
 				slidesPerView: 5,
 				freeMode: true,
 				watchSlidesProgress: true,
@@ -36,15 +36,7 @@
 					swiper: swiper,
 				},
 			});
-			if (swiper2.originalParams.loop && swiper2.loopedSlides < swiper2.originalParams.slidesPerView) {
-				swiper2.params.slidesPerView = swiper2.loopedSlides;
-				swiper2.destroy(false, false);
-				swiper2.init();
-				const arrowLeft = document.querySelector('.swiper-button-prev');
-				const arrowRight = document.querySelector('.swiper-button-next');
-				arrowLeft.style.display = "none";
-				arrowRight.style.display = "none";
-				}
+			
 			/*
 				Toggle button play || pause
 			*/

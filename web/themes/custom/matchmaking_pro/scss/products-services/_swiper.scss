@@ -5,25 +5,26 @@
 		height: auto;
 		border-radius: 5px;
 	}
+	
 }
 .swiper-thumbs {
-	margin-left: -8px !important;
-
-	.swiper-slide,
+	padding-left: 10px !important;
+	.swiper-slide
 	img {
 		width: 58px !important;
+		@include media-breakpoint-down(sm){
+			width: 45px !important;
+		}
 	}
 	
 	.swiper-slide {
-		border: 1px solid #D8DADD;
-		border-radius: 5px;
 		overflow: hidden;
-		margin-left: 7px;
 	}
 
 	img {
 		margin: 0;
 		width: 58px;
 		height: auto;
+		border-radius: 5px;
 	}
 }
