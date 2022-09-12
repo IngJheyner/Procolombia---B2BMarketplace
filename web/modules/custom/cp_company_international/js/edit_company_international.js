@@ -15,6 +15,9 @@
     var select_model1;
     var select_model2;
     var select_model3;
+    var code_mobile_select;
+    var country_select;
+    var advisor;
 
     const isEmail = (email) => {
         return String(email)
@@ -60,12 +63,6 @@
     }
 
     function init() {
-        const phoneInputField2 = document.querySelector("#country_code_mobile");
-        const phoneInput2 = window.intlTelInput(phoneInputField2, {
-            initialCountry: "af",
-            separateDialCode: true,
-        });
-
         new TomSelect('#langcode', {
             create: false,
             // use method disable()
@@ -80,6 +77,14 @@
         })
 
         select_categories1 = new TomSelect("#cat_interest_1", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+
+        country_select = new TomSelect("#country", {
             create: false,
             sortField: {
                 field: "text",
@@ -182,6 +187,15 @@
             create: false
         });
 
+        advisor = new TomSelect("#principal_advisor", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+
+
         //get data of user
         getDataUserInternational();
     }
@@ -194,7 +208,6 @@
         var business_name = $("#business_name").val();
         var password = $("#password_buyer").val();
         var country = $("#country").val();
-        var city = $("#city").val();
         var position = $("#position").val();
         var web_site = $("#web_site").val();
         var cat_interest_1 = $("#cat_interest_1").val();
@@ -379,17 +392,6 @@
             $("#error_country").hide();
         }
 
-        if (city == "") {
-            message = Drupal.t("Please select a city");
-            $("#city").css("border-color", "#ba0c2f");
-            $("#error_city_message").text(message)
-            $("#error_city").show();
-            isValid = false;
-        } else {
-            $("#city").css("border-color", "#ccc");
-            $("#error_city").hide();
-        }
-
         if (position == "") {
             message = Drupal.t("Please select a position");
             $("#position").css("border-color", "#ba0c2f");
@@ -527,7 +529,6 @@
             var business_name = $("#business_name").val();
             var password = $("#password_buyer").val();
             var country = $("#country").val();
-            var city = $("#city").val();
             var position = $("#position").val();
             var web_site = $("#web_site").val();
             var cat_interest_1 = $("#cat_interest_1").val();
@@ -539,6 +540,8 @@
             var cat_interest_3 = $("#cat_interest_3").val();
             var subcat_interest_3 = $("#subcat_interest_3").val();
             var company_model_3 = $("#company_model_3").val();
+            var advisor = $("#principal_advisor").val();
+
 
             var data = {
                 name: name,
@@ -548,7 +551,6 @@
                 business_name: business_name,
                 password: password,
                 country: country,
-                city: city,
                 position: position,
                 web_site: web_site,
                 cat_interest_1: cat_interest_1,
@@ -559,7 +561,9 @@
                 company_model_2: company_model_2,
                 cat_interest_3: cat_interest_3,
                 subcat_interest_3: subcat_interest_3,
-                company_model_3: company_model_3
+                company_model_3: company_model_3,
+                advisor: advisor,
+                country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode,
             };
 
             var formData = new FormData();
@@ -576,6 +580,13 @@
                     $("#save").show();
                     if (response.status == 200) {
                         //save email in local storage
+                        fetch("/mailing/send/change/data/international",
+                            {
+                                method: "POST",
+                            }
+                        ).catch(function (error) {
+                            alert(error);
+                        });
                         $('#question_modal').modal('hide');
                         $('#success_modal').modal('show');
                         setTimeout(() => {
@@ -739,6 +750,19 @@
         select_model1.setValue(data.company_model);
         select_model2.setValue(data.company_model_2);
         select_model3.setValue(data.company_model_3);
+        country_select.setValue(data.country);
+        advisor.setValue(data.advisor);
+
+
+        var countryData = window.intlTelInputGlobals.getCountryData();
+
+        let country_code_mobile = countryData.filter(item => item.dialCode === data.country_code_mobile)[0]
+        console.log(country_code_mobile.iso2)
+        const phoneInputField2 = document.querySelector("#country_code_mobile");
+        code_mobile_select = window.intlTelInput(phoneInputField2, {
+            initialCountry: country_code_mobile.iso2,
+            separateDialCode: true,
+        });
     }
 
 

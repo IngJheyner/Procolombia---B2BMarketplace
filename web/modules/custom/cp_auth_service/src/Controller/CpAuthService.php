@@ -102,7 +102,7 @@ class CpAuthService extends ControllerBase
             }
         } else {
             //return error message
-            return new JsonResponse(['error' => 'Invalid credentials']);
+            return new JsonResponse(['error' => 'Invalid credentials 2']);
         }
     }
 

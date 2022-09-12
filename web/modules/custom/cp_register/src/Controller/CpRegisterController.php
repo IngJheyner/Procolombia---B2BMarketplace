@@ -66,26 +66,20 @@ class CpRegisterController extends ControllerBase
                 ]
             );
         }
-        //List of terms to set a select field countries.
-        $vid = 'countries';
-        //load taxonomy_term storage.
-        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_countries=[];
-        /*foreach ($terms as $term) {
-            //get file_create_url of field_bandera.
-            $image = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_bandera')->getValue();
-            $file = File::load($image[0]['target_id']);
-            $file_url = file_create_url($file->getFileUri());
-            //get image of field_indicativo.
-            $indicativo = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid)->get('field_indicativo')->getValue();
-            array_push($tree_countries, [
-                    "ID" => $term->tid,
-                    "Name" => $term->name,
-                    "Image" => $file_url,
-                    "Indicativo" => $indicativo[0]['value']
+
+        //get advisor user with role asesor_comercial.
+        $query = \Drupal::entityQuery('user');
+        $query->condition('roles', 'asesor_comercial');
+        $uids = $query->execute();
+        $users = \Drupal\user\Entity\User::loadMultiple($uids);
+        $tree_advisor=[];
+        foreach ($users as $user) {
+            array_push($tree_advisor, [
+                    "ID" => $user->id(),
+                    "Name" => $user->get('field_company_contact_name')->value . ' ' . $user->get('field_company_contact_lastname')->value
                 ]
             );
-        }*/
+        }
 
         return [
             // Your theme hook name.
@@ -94,7 +88,7 @@ class CpRegisterController extends ControllerBase
             '#production_chain' => $tree_production_chain,
             '#business_model' => $tree_business_model,
             '#certificacion_de_empresa' => $tree_certificacion_de_empresa,
-            '#countries' => $tree_countries,
+            '#advisor' => $tree_advisor,
         ];
     }
     /**
@@ -164,11 +158,10 @@ class CpRegisterController extends ControllerBase
             $user->addRole('exportador');
             $user->set('preferred_langcode', $lang);
             $user->set("field_step", 1);
-            $user->activate();
         }
         $file = $request->files->get('logo');
         $file2 = file_get_contents($file);
-        $user->set("field_company_logo", $this->saveFile($file2, $data['nit'] . '-logo.' . $file->getClientOriginalName(), 'public://logos/'));
+        $user->set("field_company_logo", $this->saveFile($file2, $data['nit'] . '-logo.' . $file->getClientOriginalName(), 'public://matchmaking/images/users_logos/'));
         $user->set("field_company_name", $data['business_name']);
         $user->set("field_company_web_site", $data['website']);
         $user->set("field_company_video_youtube", $data['video']);
@@ -194,15 +187,19 @@ class CpRegisterController extends ControllerBase
         $user->set('field_ciiu_terciario', $data['third_code_ciiu']);
         $user->set('field_company_deparment', $data['departament']);
         $user->set('field_company_city', $data['ciudad']);
-        $user->set('field_company_model', $data['modelo_de_negocio']);
+        //add multiple reference to field_company_model
+        $model_arr = explode(',', $data['modelo_de_negocio']);
+        $user->set('field_company_model', $model_arr);
         //save certification_business only if is not empty and save file certification_business_file
         if(!empty($data['certification_business'])){
-            $user->set('field_company_certification', $data['certification_business']);
+            $certification_arr = explode(',', $data['certification_business']);
+            $user->set('field_company_certification', $certification_arr);
             $file = $request->files->get('certification_business_file');
             $file2 = file_get_contents($file);
-            $user->set("field_company_certification_file", $this->saveFile($file2, $data['nit'] . '-certificado.' . $file->getClientOriginalName(), 'public://certificados/'));
+            $user->set("field_company_certification_file", $this->saveFile($file2, $data['nit'] . '-certificado.' . $file->getClientOriginalName(), 'private://users_certificates/'));
         }
-        //$user->set('field_productive_chain', $data['principal_advisor']);
+        //principal_advisor
+        $user->set('field_company_adviser', $data['principal_advisor']);
         $user->set('field_step', 2);
         $user->save();
         return new JsonResponse(['status' =>  200]);
@@ -222,6 +219,9 @@ class CpRegisterController extends ControllerBase
         $user->set('field_company_contact_phone', $data['country_code_landline'].$data['landline']);
         $user->set('field_company_contact_cell_phone', $data['country_code_mobile'].$data['mobile']);
         $user->set('field_company_contact_email', $data['contact_email']);
+        //country_code_landline
+        $user->set('field_country_code_landline', $data['country_code_landline']);
+        $user->set('field_country_code_mobile', $data['country_code_mobile']);
         $user->set('field_step', 3);
         $user->save();
         return new JsonResponse(['status' =>  200]);

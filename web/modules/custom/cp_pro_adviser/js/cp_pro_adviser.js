@@ -38,7 +38,7 @@
                 {
                     "data": "id",
                     "render": function (data, type, row, meta) {
-                        return '<input type="checkbox" class="buyer-checkbox" value="' + row.id + '">';
+                        return '<input id="buyer-checkbox-'+ row.id +'" type="checkbox" class="buyer-checkbox" value="' + row.id + '">';
                     },
                     "title": '<input type="checkbox" id="check-all-buyer">'
                 },
@@ -121,8 +121,8 @@
                     "sortable": false,
                 }
             ],
-            "pageLength": 10,
-            "lengthMenu": [10, 25, 50, 75, 100],
+            "pageLength": 20,
+            "lengthMenu": [20, 50, 75, 100],
             "language": {
                 "lengthMenu": "_MENU_ result",
                 "zeroRecords": "Nothing found - sorry",
@@ -185,9 +185,9 @@
                 {
                     "data": "id",
                     "render": function (data, type, row, meta) {
-                        return '<input type="checkbox" class="buyer-checkbox" value="' + row.id + '">';
+                        return '<input id="exportador-checkbox-'+ row.id +'" type="checkbox" class="exportadores-checkbox" value="' + row.id + '">';
                     },
-                    "title": '<input type="checkbox" id="check-all-buyer">',
+                    "title": '<input type="checkbox" id="check-all-exportadores">',
                 },
                 //NIT Empresa
                 {
@@ -307,8 +307,8 @@
                     }
                 },
             ],
-            "pageLength": 10,
-            "lengthMenu": [10, 25, 50, 75, 100],
+            "pageLength": 20,
+            "lengthMenu": [20, 50, 75, 100],
             "language": {
                 "lengthMenu": "_MENU_ result",
                 "zeroRecords": "Nothing found - sorry",
@@ -352,9 +352,12 @@
         //get all buyers in the page
         var buyers = tableBuyer.rows().data();
         //create csv
-        var csv = 'Company Name,Email,Language,Country,Subcategory,Update Date,Status'
+        var csv = 'Company Name,Email,Language,Country,Subcategory,Update Date,Status'+ '\r\n';
         for (var i = 0; i < buyers.length; i++) {
-            csv += buyers[i].company_name + ',' + buyers[i].email + ',' + buyers[i].lang + ',' + buyers[i].country + ',' + buyers[i].subcategory + ',' + buyers[i].update_date + ',' + buyers[i].status + '\n';
+            //only concat if column 0 is checked
+            if ($('#buyer-checkbox-' + buyers[i].id).is(':checked')) {
+                csv += buyers[i].company_name + ',' + buyers[i].email + ',' + buyers[i].lang + ',' + buyers[i].country + ',' + buyers[i].subcategory + ',' + buyers[i].update_date + ',' + buyers[i].status + '\n';
+            }
         }
         //download csv
         console.log(csv);
@@ -372,9 +375,12 @@
         //get all buyers in the page
         var exportadores = tableExportadores.rows().data();
         //create csv
-        var csv = 'Nit,Company Name,Language,Deparment,City,Productive Chain,Update Date,Status'
+        var csv = 'Nit,Company Name,Language,Deparment,City,Productive Chain,Update Date,Status'+ '\r\n';
         for (var i = 0; i < exportadores.length; i++) {
-            csv += exportadores[i].nit + ',' + exportadores[i].company_name + ',' + exportadores[i].lang + ',' + exportadores[i].company_deparment + ',' + exportadores[i].company_city + ',' + exportadores[i].productive_chain + ',' + exportadores[i].update_date + ',' + exportadores[i].status + '\n';
+            //only concat if column 0 is checked
+           if ($('#exportador-checkbox-' + exportadores[i].id).is(':checked')) {
+                csv += exportadores[i].nit + ',' + exportadores[i].company_name + ',' + exportadores[i].lang + ',' + exportadores[i].company_deparment + ',' + exportadores[i].company_city + ',' + exportadores[i].productive_chain + ',' + exportadores[i].update_date + ',' + exportadores[i].status + '\n';
+            }
         }
         //download csv
         console.log(csv);
@@ -510,6 +516,13 @@
                     $('.buyer-checkbox').prop('checked', true);
                 } else {
                     $('.buyer-checkbox').prop('checked', false);
+                }
+            });
+            $('#check-all-exportadores', context).on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('.exportadores-checkbox').prop('checked', true);
+                } else {
+                    $('.exportadores-checkbox').prop('checked', false);
                 }
             });
             //wait to button btn_download_report_buyer render in the page
