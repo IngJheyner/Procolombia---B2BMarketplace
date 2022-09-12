@@ -423,6 +423,13 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_sales_channel']['widget']['#options'] = $newcertification_options;
       }
 
+      if ($this->entity->field_product_type->value == 'service' && isset($form['field_partida_arancelaria_tax'])) {
+        $form['field_partida_arancelaria_tax']['widget']['#required'] = FALSE;
+        $form['field_partida_arancelaria_tax']['widget']['#access'] = FALSE;
+        $form['#fieldgroups']['group_tooltip_ancelaria']->format_settings['markup']['value'] = '';
+        $form['#fieldgroups']['group_tooltip_ancelaria']->format_settings['classes'] = 'form-wrapper';
+      }
+
       if ($this->step == 1) {
         $form['legal_terms'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
