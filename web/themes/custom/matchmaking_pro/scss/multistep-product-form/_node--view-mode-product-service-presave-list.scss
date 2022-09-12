@@ -41,7 +41,7 @@
     grid-area: 3/ 2 / 4 / 4;
     border-left: 1px solid #D8DADD;
     margin-bottom: 0 !important;
-    @include media-breakpoint-down(lg){
+    @include media-breakpoint-down(xl){
         padding: 20px 20px;
     }
     @include media-breakpoint-down(md){
@@ -71,9 +71,16 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
+            flex-wrap: nowrap;
+            padding-right: 0;
+            @include media-breakpoint-down(lg){
+                flex-wrap: wrap;
+            }
             .bs-region{
                 &.bs-region--left{
                     padding: 0;
+                    max-width: 280px;
+                    width: 100%;
                     .field--type-image{
                         width: auto;
                     }
@@ -102,11 +109,11 @@
                     .field__item{
                         max-width: 300px;
                         &.field--name-field-body{
-                            max-width: 100%;
+                            max-width: 568px;
+                            p{
+                                padding: 10px 20px 0 0;
+                            }
                         }
-                    }
-                    @include media-breakpoint-down(xl){
-                        width: 58%;
                     }
                     @include media-breakpoint-down(lg){
                         width: 100%;
@@ -126,10 +133,17 @@
                             }
                         }
                     }
-                    .field--name-node-title h2{
+                    .field--name-node-title{
+                        max-width: 568px;
+                        width: 100%;
+                        h2{
                         color: $procol-dark-blue;
                         width: 100%;
                         padding-top: 20px;
+                        font-size: 24px;
+                        font-weight:bold;
+                        padding-right: 60px;
+                        }
                     }
                     a.use-ajax{
                         position: relative;

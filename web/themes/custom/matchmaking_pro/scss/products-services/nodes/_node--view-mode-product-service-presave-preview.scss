@@ -34,6 +34,9 @@
 
 	.group-right {
 		width: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
 
 		h2 {
 			text-align: left;
@@ -112,4 +115,18 @@
 			text-indent: -9999px;
 		}
 	}
+}
+.path-dashboard{
+	.ui-dialog .ui-dialog-titlebar {
+		padding:0;
+		border: none;
+		.ui-dialog-titlebar-close{
+			font-family: swiper-icons;
+			content: 'previous';
+			top: 20px;
+			right: 100%;
+			left: 20px;
+			content: 'volver';
+			}
+		}
 }
