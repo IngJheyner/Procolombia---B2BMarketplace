@@ -17,17 +17,17 @@
 
 			$('<div class="swiper-button-prev"></div><div class="swiper-button-next"></div>').insertAfter('.swiper-main');
 
-
 			var swiper = new Swiper(".swiper-thumbs", {
-				loop: true,
-				spaceBetween: 10,
-				slidesPerView: 4,
+				loop: false,
+				spaceBetween: 15,
+				slidesPerView: 5,
 				freeMode: true,
 				watchSlidesProgress: true,
 			});
 			var swiper2 = new Swiper(".swiper-main", {
 				loop: true,
 				spaceBetween: 10,
+				slidesPerView: 1,
 				navigation: {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
@@ -36,7 +36,15 @@
 					swiper: swiper,
 				},
 			});
-
+			if (swiper2.originalParams.loop && swiper2.loopedSlides < swiper2.originalParams.slidesPerView) {
+				swiper2.params.slidesPerView = swiper2.loopedSlides;
+				swiper2.destroy(false, false);
+				swiper2.init();
+				const arrowLeft = document.querySelector('.swiper-button-prev');
+				const arrowRight = document.querySelector('.swiper-button-next');
+				arrowLeft.style.display = "none";
+				arrowRight.style.display = "none";
+				}
 			/*
 				Toggle button play || pause
 			*/

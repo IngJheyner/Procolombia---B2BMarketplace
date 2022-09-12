@@ -9,11 +9,8 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
-        // $('.entities-list .item-container').slice(0,3).css('background-color','red');
-
-        //Boton ver mas paso 3
+        //Botón ver mas paso 3
         const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
-        itemCertificationType.css('background-color','red')
         const showMorecType = $('.show-more-cType');
         const showMorecTypeText = $('.show-more-cType span');
 
@@ -35,16 +32,6 @@
             $(btn).hide()
           }
         }
-        // if ($(itemCountrie).length > 3) {
-        //   $(itemCountrie).slice(3).hide();
-        //   $('.show-more').show();
-        //   $('.show-more').click(()=>{
-        //     $(itemCountrie).slice(3).toggle()
-        //     $('.show-more span').text() === 'Ver más' ? $('.show-more span').text('Ver menos') : $('.show-more span').text('Ver más');
-        //   })
-        // } else{
-        //   $('.show-more').hide()
-        // }
         //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
