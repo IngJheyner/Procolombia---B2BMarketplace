@@ -11,6 +11,9 @@
   var select_cities;
   var modelo_de_negocio_select;
   var certificacion_de_empresa_select;
+  var advisor;
+  var code_landline_select;
+  var code_mobile_select;
   //set NIT
   var NIT = localStorage.getItem("nit");
   //initial config
@@ -60,6 +63,15 @@
       }
     });
 
+    advisor = new TomSelect("#principal_advisor", {
+      create: false,
+      sortField: {
+        field: "text",
+        direction: "asc"
+      }
+    });
+
+
     certificacion_de_empresa_select = new TomSelect("#certificacion_de_empresa", {
       plugins: ['remove_button'],
       create: true,
@@ -77,13 +89,13 @@
 
 
     const phoneInputField = document.querySelector("#country_code_landline");
-    const phoneInput = window.intlTelInput(phoneInputField, {
+    code_landline_select = window.intlTelInput(phoneInputField, {
       initialCountry: "co",
       separateDialCode: true,
     });
 
     const phoneInputField2 = document.querySelector("#country_code_mobile");
-    const phoneInput2 = window.intlTelInput(phoneInputField2, {
+    code_mobile_select = window.intlTelInput(phoneInputField2, {
       initialCountry: "co",
       separateDialCode: true,
     });
@@ -825,9 +837,9 @@
     var last_name = $("#last_name").val();
     var position_spanish = $("#position_spanish").val();
     var position_english = $("#position_english").val();
-    var country_code_landline = $("#country_code_landline").val();
+    var country_code_landline = code_landline_select.getSelectedCountryData().dialCode;
     var landline = $("#landline").val();
-    var country_code_mobile = $("#country_code_mobile").val();
+    var country_code_mobile = code_mobile_select.getSelectedCountryData().dialCode;
     var mobile = $("#mobile").val();
     var contact_email = $("#contact_email").val();
 
@@ -917,9 +929,7 @@
       message = Drupal.t("The country code of the phone line is required");
       $("#country_code_landline").css("border-color", "#ba0c2f");
       $("#error_country_code_landline").show();
-      $("#error_country_code_landline")
-
-        ;
+      $("#error_country_code_landline");
       isValid = false;
     } else {
       $("#error_country_code_landline").hide();
@@ -1043,13 +1053,15 @@
         last_name: $("#last_name").val(),
         position_spanish: $("#position_spanish").val(),
         position_english: $("#position_english").val(),
-        country_code_landline: $("#country_code_landline").val(),
+        country_code_landline: code_landline_select.getSelectedCountryData().dialCode,
         landline: $("#landline").val(),
-        country_code_mobile: $("#country_code_mobile").val(),
+        country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode,
         mobile: $("#mobile").val(),
         contact_email: $("#contact_email").val(),
         nit: localStorage.getItem("nit"),
+        email: localStorage.getItem("email"),
       };
+      console.log(data)
       var formData = new FormData();
       for (var key in data) {
         formData.append(key, data[key]);
@@ -1062,6 +1074,14 @@
         .then(function (response) {
           if (response.status === 200) {
             //show alert success
+            fetch("/mailing/send/success/registration/col",
+              {
+                method: "POST",
+                body: formData,
+              }
+            ).catch(function (error) {
+              alert(error);
+            });
             $("#success_modal").modal('show');
             //clean local storage
             localStorage.clear();
@@ -1079,7 +1099,7 @@
 
   // function to go to step 3
   function goToMenu() {
-    window.location.href = "/user/login";
+    window.location.href = "/";
   }
 
   //Addtional functional methods

@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_ciiu_secundario
     - field.field.user.user.field_ciiu_terciario
     - field.field.user.user.field_company
+    - field.field.user.user.field_company_adviser
     - field.field.user.user.field_company_certification
     - field.field.user.user.field_company_certification_file
     - field.field.user.user.field_company_city
@@ -33,6 +34,8 @@ dependencies:
     - field.field.user.user.field_company_web_site
     - field.field.user.user.field_complete_name
     - field.field.user.user.field_country
+    - field.field.user.user.field_country_code_landline
+    - field.field.user.user.field_country_code_mobile
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
@@ -90,6 +93,7 @@ hidden:
   field_ciiu_secundario: true
   field_ciiu_terciario: true
   field_company: true
+  field_company_adviser: true
   field_company_certification: true
   field_company_certification_file: true
   field_company_city: true
@@ -112,6 +116,8 @@ hidden:
   field_company_web_site: true
   field_complete_name: true
   field_country: true
+  field_country_code_landline: true
+  field_country_code_mobile: true
   field_last_password_reset: true
   field_password_expiration: true
   field_pending_expire_sent: true

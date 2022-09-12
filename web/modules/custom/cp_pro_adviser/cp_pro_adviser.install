@@ -1,0 +1,22 @@
+<?php
+//use Drupal\Core\Database\Database;
+
+/**
+* Implemensizets hook_schema().
+ * 
+*/
+/*function cp_pro_adviser_schema() {
+  $schema['advisor_logs'] = array(
+  'description' => 'Tabla de logs de comprador internacional',
+    'fields' => array(
+      'id' => array(
+        'description' => '', 
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),  
+    ),  
+    'primary key' => array('id'),
+  );  
+  return $schema;
+}*/

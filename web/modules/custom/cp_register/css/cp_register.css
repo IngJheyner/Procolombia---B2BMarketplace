@@ -230,10 +230,10 @@ div#main-wrapper {
   border: none;
   box-shadow: none;
   color: #005ca4;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 200;
   font-family: Gothic-Bold;
-  padding: 6px 9px;
+  padding: 10px 14px;
   border: 1px solid #ffffff;
   border-radius: 6px;
   transition: all 0.2s ease-out;

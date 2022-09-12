@@ -63,12 +63,12 @@ class CpPreRegisterBuyerController extends ControllerBase
                 $user->addRole('buyer');
                 $user->set('preferred_langcode', $data['langcode']);
                 $user->set("field_step", 1);
-                $user->activate();
             }
             $user->set("field_company_contact_name", $data['name']);
             $user->set("field_company_name", $data['company']);
             $user->set("field_company_contact_lastname", $data['last_name']);
             $user->set("field_company_contact_cell_phone", $data['cellphone']);
+            $user->set('field_country_code_mobile', $data['country_code_mobile']);
             $user->save();
             //_user_mail_notify('status_activated', $user);
             return new JsonResponse(['status' =>  200]);
