@@ -1,0 +1,5 @@
+cp_core.notifications:
+  title: 'Notifications'
+  base_route_name: cp_core.notifications
+  names:
+    - 'cp_core.notifications'

@@ -11,8 +11,8 @@ register_admin_created:
   subject: 'An administrator created an account for you at [site:name]'
   body: "[user:display-name],\r\n\r\nA site administrator at [site:name] has created an account for you. You may now log in by clicking this link or copying and pasting it into your browser:\r\n\r\n[user:one-time-login-url]\r\n\r\nThis link can only be used once to log in and will lead you to a page where you can set your password.\r\n\r\nAfter setting your password, you will be able to log in at [site:login-url] in the future using:\r\n\r\nusername: [user:name]\r\npassword: Your password\r\n\r\n--  [site:name] team"
 register_no_approval_required:
-  subject: 'Account details for [user:display-name] at [site:name]'
-  body: "[user:display-name],\r\n\r\nThank you for registering at [site:name]. You may now log in by clicking this link or copying and pasting it into your browser:\r\n\r\n[user:one-time-login-url]\r\n\r\nThis link can only be used once to log in and will lead you to a page where you can set your password.\r\n\r\nAfter setting your password, you will be able to log in at [site:login-url] in the future using:\r\n\r\nusername: [user:name]\r\npassword: Your password\r\n\r\n--  [site:name] team"
+  subject: 'B2B Marketplace | Mail account validation'
+  body: "[user:display-name],\r\n\r\nDear user, your pre-registration has been successfully created on the B2B Marketplace platform. To activate your account, please click on the link below:\r\n\r\n[user:one-time-login-url]\r\n\r\nGreetings."
 register_pending_approval:
   subject: 'Account details for [user:display-name] at [site:name] (pending admin approval)'
   body: "[user:display-name],\r\n\r\nThank you for registering at [site:name]. Your application for an account is currently pending approval. Once it has been approved, you will receive another email containing information about how to log in, set your password, and other details.\r\n\r\n--  [site:name] team"
@@ -20,8 +20,8 @@ register_pending_approval_admin:
   subject: 'Account details for [user:display-name] at [site:name] (pending admin approval)'
   body: "[user:display-name] has applied for an account.\r\n\r\n[user:edit-url]"
 status_activated:
-  subject: 'Detalles de es cuenta para [user:display-name] en [site:name] (aprobado)'
-  body: "es [user:display-name],\r\n\r\nSu cuenta en [site:name] ha sido activada.\r\n\r\nUsted puede ahora iniciar sesión haciendo click en este enlace o copiándolo y pegándolo en su navegador:\r\n\r\n[user:one-time-login-url]\r\n\r\n\r\n--  Equipo [site:name]"
+  subject: 'B2B Marketplace | Mail account validation'
+  body: "[user:display-name],\r\n\r\nDear user, your pre-registration has been successfully created on the B2B Marketplace platform. To activate your account, please click on the link below:\r\n\r\n[user:one-time-login-url]\r\n\r\nGreetings."
 status_blocked:
   subject: 'Account details for [user:display-name] at [site:name] (blocked)'
   body: "[user:display-name],\r\n\r\nYour account on [site:name] has been blocked.\r\n\r\n--  [site:name] team"

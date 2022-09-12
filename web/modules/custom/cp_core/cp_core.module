@@ -34,9 +34,44 @@ function cp_core_mail($key, &$message, $params) {
   ];
   $message['headers']['MIME-Version'] = '1.0';
   $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
-  $message['from'] = \Drupal::config('system.site')->get('mail');
+  $message['from'] = isset($params['from']) ? $params['from'] : \Drupal::config('system.site')->get('mail');
   $message['subject'] = $params['title'];
   $message['body'][] = $params['message'];
+
+  if (!empty($params['override_from'])) {
+    $email = $message['from'];
+    $message['reply-to'] = $email;
+    $message['Return-Path'] = $email;
+    $message['headers']['Return-Path'] = $email;
+    $message['headers']['Sender'] = $email;
+    $message['headers']['Reply-to'] = $email;
+    $message['headers']['From'] = $email;
+
+  }
+
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function cp_core_mail_alter(&$message) {
+  $override_keys = [
+    'register_no_approval_required',
+    'status_activated',
+  ];
+  if (in_array($message['key'], $override_keys)) {
+    $config = \Drupal::config('cp_core.notifications');
+    $email = $config->get('notifications_email');
+    if ($email) {
+      $message['from'] = $email;
+      $message['reply-to'] = $email;
+      $message['Return-Path'] = $email;
+      $message['headers']['Return-Path'] = $email;
+      $message['headers']['Sender'] = $email;
+      $message['headers']['Reply-to'] = $email;
+      $message['headers']['From'] = $email;
+    }
+  }
 }
 
 /**
