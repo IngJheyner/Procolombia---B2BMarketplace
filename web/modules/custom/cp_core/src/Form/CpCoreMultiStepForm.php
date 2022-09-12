@@ -309,6 +309,10 @@ class CpCoreMultiStepForm extends FormBase {
           'fragment' => Html::getId($this->getFormId()),
           '_no_path' => TRUE,
         ])->toString();
+        $form['#action'] = str_replace('&ajax_form=1', '', $form['#action']);
+        $form['#action'] = str_replace('ajax_form=1', '', $form['#action']);
+        $form['#action'] = str_replace('&_wrapper_format=drupal_ajax', '', $form['#action']);
+        $form['#action'] = str_replace('_wrapper_format=drupal_ajax', '', $form['#action']);
       }
       $form['#attributes']['novalidate'] = 'novalidate';
 
@@ -421,6 +425,13 @@ class CpCoreMultiStepForm extends FormBase {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
         $form['field_pr_sales_channel']['widget']['#options'] = $newcertification_options;
+      }
+
+      if ($this->entity->field_product_type->value == 'service' && isset($form['field_partida_arancelaria_tax'])) {
+        $form['field_partida_arancelaria_tax']['widget']['#required'] = FALSE;
+        $form['field_partida_arancelaria_tax']['widget']['#access'] = FALSE;
+        $form['#fieldgroups']['group_tooltip_ancelaria']->format_settings['markup']['value'] = '';
+        $form['#fieldgroups']['group_tooltip_ancelaria']->format_settings['classes'] = 'form-wrapper';
       }
 
       if ($this->step == 1) {
