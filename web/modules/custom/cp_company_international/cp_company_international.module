@@ -39,6 +39,8 @@ function cp_company_international_theme($existing, $type, $theme, $path)
       'variables' => [
         'tree_categorization' => null,
         'tree_business_model' => null,
+        'tree_countries' => null,
+        'tree_advisor' => null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

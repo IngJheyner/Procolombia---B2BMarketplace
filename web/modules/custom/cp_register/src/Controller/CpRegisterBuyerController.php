@@ -42,11 +42,41 @@ class CpRegisterBuyerController extends ControllerBase
                  ]
              );
          }
+
+         //List of terms to set a select field modelos_de_negocio.
+         $vid = 'countries';
+         //load taxonomy_term storage.
+         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+         $tree_countries=[];
+         foreach ($terms as $term) {
+             array_push($tree_countries, [
+                     "ID" => $term->tid,
+                     "Name" => $term->name
+                 ]
+             );
+         }
+
+         //get advisor user with role asesor_comercial.
+        $query = \Drupal::entityQuery('user');
+        $query->condition('roles', 'asesor_comercial');
+        $uids = $query->execute();
+        $users = \Drupal\user\Entity\User::loadMultiple($uids);
+        $tree_advisor=[];
+        foreach ($users as $user) {
+            array_push($tree_advisor, [
+                    "ID" => $user->id(),
+                    "Name" => $user->get('field_company_contact_name')->value . ' ' . $user->get('field_company_contact_lastname')->value
+                ]
+            );
+        }
+
         return [
             // Your theme hook name.
             '#theme' => 'cp_register_buyer_template_hook',
             '#tree_categorization' => $tree_categorization,
             '#tree_business_model' => $tree_business_model,
+            '#tree_countries' => $tree_countries,
+            '#tree_advisor' => $tree_advisor,
         ];
     }
 
@@ -99,8 +129,8 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_company_contact_position", $data['position']);
             $user->set("field_company_web_site", $data['web_site']);
             //$user->set("field_company_city", $data['city']);
-            //$user->set("field_country", $data['country']);
-
+            $user->set("field_country", $data['country']);
+            $user->set('field_company_adviser', $data['principal_advisor']);
             $user->save();
             return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
@@ -120,7 +150,8 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_step", 3);
             $user->set("field_cat_interest_1", $data['cat_interest_1']);
             $user->set("field_subcat_interest_1", $data['subcat_interest_1']);
-            $user->set("field_company_model", $data['company_model']);
+            $model_arr = explode(',', $data['company_model']);
+            $user->set('field_company_model', $model_arr);
             $user->save();
             return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
@@ -140,7 +171,8 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_step", 4);
             $user->set("field_cat_interest_2", $data['cat_interest_2']);
             $user->set("field_subcat_interest_2", $data['subcat_interest_2']);
-            $user->set("field_company_model_2", $data['company_model_2']);
+            $model_arr = explode(',', $data['company_model_2']);
+            $user->set('field_company_model_2', $model_arr);
             $user->save();
             return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{
@@ -160,7 +192,8 @@ class CpRegisterBuyerController extends ControllerBase
             $user->set("field_step", 5);
             $user->set("field_cat_interest_3", $data['cat_interest_3']);
             $user->set("field_subcat_interest_3", $data['subcat_interest_3']);
-            $user->set("field_company_model_3", $data['company_model_3']);
+            $model_arr = explode(',', $data['company_model_3']);
+            $user->set('field_company_model_3', $model_arr);
             $user->save();
             return new JsonResponse(['status' => 'ok', 'message' => json_encode($data)]);
         }else{

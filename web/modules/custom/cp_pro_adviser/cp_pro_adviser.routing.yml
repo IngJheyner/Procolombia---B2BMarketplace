@@ -57,3 +57,39 @@ cp_pro_adviser.revisar:
   methods:  [GET]
   requirements:
     _permission: "access content"
+
+###Index edit col company
+cp_pro_adviser.edit_col_company:
+  path: "adviser/edit/col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index edit col company
+cp_pro_adviser.editar_col_company:
+  path: "asesor/editar/col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index edit international company
+cp_pro_adviser.edit_international_company:
+  path: "adviser/edit/international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index edit international company
+cp_pro_adviser.editar_international_company:
+  path: "asesor/editar/internacional"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"

@@ -1,5 +1,5 @@
 {{ attach_library('cp_company_international/cp_company_international') }}
-<main class="step_registre">
+<section class="step_registre container">
 	<div class="steps">
 		<div class="row p-0 step_tittle">
 			<div class="col-md-9">
@@ -147,8 +147,11 @@
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
 									<select id="country" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
-										<option value="">{{ 'Select an option'|t }}</option>
-										<option value="usa">{{ 'United States'|t }}</option>
+										<option value="">{{ "Enter the keyword or select an option"|t }}
+										</option>
+										{% for country in tree_countries %}
+											<option value="{{country.ID}}">{{country.Name}}</option>
+										{% endfor %}
 									</select>
 								</div>
 
@@ -181,7 +184,7 @@
 								<span>{{ 'Please include the name of your position within the company.'|t }}</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						{# <div class="col-md-6">
 							<label for="city" class="form-label">{{ 'City'|t }}<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
@@ -199,7 +202,7 @@
 								</i>
 							</div>
 
-						</div>
+						</div> #}
 						<div class="col-md-6">
 							<label for="web_site" class="form-label">{{ 'Company website'|t }}
 								<span>*</span>
@@ -225,11 +228,11 @@
 							<label for="principal_advisor" class="form-label">{{ 'ProColombia Senior Advisor'|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
-								<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}</option>
-								<option value="Jaime Francisco">Jaime Francisco</option>
-								<option value="Ruth Silvana">Ruth Silvana</option>
-								<option value="Luis Felipe">Luis Felipe</option>
-								<option value="Montserrat Carolina">Montserrat Carolina</option>
+								<option value="">{{ "Enter the keyword or select an option"|t }}
+								</option>
+								{% for advisor_user in tree_advisor %}
+									<option value="{{advisor_user.ID}}">{{advisor_user.Name}}</option>
+								{% endfor %}
 							</select>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
@@ -616,4 +619,4 @@
 <p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p></div><div class="modal-footer "><div class="row"><div class="col-6 fs-6">
 <strong>{{ 'Do you want to continue?'|t }}</strong></div><div class="col-6 btn_options">
 <button class="yes">{{ 'YES'|t }}</button>
-<button data-bs-dismiss="modal" id="confirm_cancel" class="no">{{ 'NO'|t }}</button></div></div></div></div></div></div><div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Successful process'|t }}</h5></div><div class="modal-body"><p>{{ 'User successfully updated'|t }}</p></div></div></div></div></main>
+<button data-bs-dismiss="modal" id="confirm_cancel" class="no">{{ 'NO'|t }}</button></div></div></div></div></div></div><div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Successful process'|t }}</h5></div><div class="modal-body"><p>{{ 'User successfully updated'|t }}</p></div></div></div></div></section>

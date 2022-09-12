@@ -6,15 +6,46 @@
 (function ($, Drupal) {
   'use strict';
   //initial config
+  var code_mobile_select;
   function init() {
+
     //check if email is in local storage go to step 2 register/user/buyer
     if (localStorage.getItem('email_buyer')) {
-      window.location.href = '/register/user/buyer';
+      var urlParams = new URLSearchParams(window.location.search);
+      var token = urlParams.get('token');
+      //get v_r_k from local storage
+      var v_r_k = localStorage.getItem('v_r_k');
+      let formData = new FormData();
+      formData.append('token', token);
+      formData.append('token_encoded', v_r_k);
+      if (token) {
+        fetch('/mailing/verification/user',
+          {
+            method: 'POST',
+            body: formData
+          }
+        ).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          if (data.status == 'ok') {
+            $("#success").modal('show');
+            setTimeout(function () {
+              window.location.href = '/register/user/buyer';
+            }, 3000);
+          } else {
+            alert("Token invalid");
+          }
+        }).catch(function (error) {
+          console.log('Request failed', error);
+        });
+      } else {
+        window.location.href = '/register/user/buyer';
+      }
     }
 
     const phoneInputField2 = document.querySelector("#country_code_mobile");
-    const phoneInput2 = window.intlTelInput(phoneInputField2, {
-      initialCountry: "af",
+    code_mobile_select = window.intlTelInput(phoneInputField2, {
+      initialCountry: "co",
       separateDialCode: true,
     });
 
@@ -367,9 +398,10 @@
         cellphone: $("#cellphone").val(),
         company: $("#business_name").val(),
         password: $("#password_buyer").val(),
-        langcode: $("#langcode").val()
+        langcode: $("#langcode").val(),
+        country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode
       };
-
+      console.log(data);
       var formData = new FormData();
       for (var key in data) {
         formData.append(key, data[key]);
@@ -387,14 +419,33 @@
           $("#save").show();
           if (res.status == 200) {
             $("#loader").modal('show');
-            setTimeout(() => {
-              //save email in local storage
-              localStorage.setItem("company_name", data.company);
-              localStorage.setItem("email_buyer", data.email);
-              //redirect to step 2
-              window.location.href = '/register/user/buyer';
-            }, 4000);
+            var email_form_data = new FormData();
+            email_form_data.append("email", data.email);
+            fetch("/mailing/verification/email/international", {
+              method: "POST",
+              body: email_form_data,
+            })
+              .then(function (response) {
+                return response.json();
+              }).then(function (data_2) {
 
+                if (data_2.status == "ok") {
+                  //save v_r_k in local storage
+                  localStorage.setItem("v_r_k", data_2.token);
+                  localStorage.setItem("company_name", data.company);
+                  localStorage.setItem("email_buyer", data.email);
+                  setTimeout(() => {
+                    $("#loader").modal('hide');
+                  }, 15000);
+                } else {
+                  $("#loader").modal('hide');
+                  alert("Request failed email");
+                }
+              })
+              .catch(function (error) {
+                $("#loader").modal('hide');
+                alert("Request failed email", error);
+              });
           } else {
             alert("Error: Email ya registrado");
           }

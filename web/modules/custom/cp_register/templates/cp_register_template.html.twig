@@ -1,5 +1,5 @@
 {{ attach_library('cp_register/cp_register') }}
-<main class="step_registre">
+<section class="step_registre container">
 	<div class="steps">
 		<div class="step_tittle">{{ "Colombian Company Registration - Information"|t }}</div>
 		<div class="step_content">
@@ -512,12 +512,11 @@
 								{{ "ProColombia Senior Advisor"|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
-								<option disabled hidden selected>{{ "Enter the keyword or select an option"|t }}
+								<option value="">{{ "Enter the keyword or select an option"|t }}
 								</option>
-								<option value="Jaime Francisco">Jaime Francisco</option>
-								<option value="Ruth Silvana">Ruth Silvana</option>
-								<option value="Luis Felipe">Luis Felipe</option>
-								<option value="Montserrat Carolina">Montserrat Carolina</option>
+								{% for advisor_user in advisor %}
+									<option value="{{advisor_user.ID}}">{{advisor_user.Name}}</option>
+								{% endfor %}
 							</select>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
@@ -652,7 +651,7 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<p class="title_label">{{ "Position name"|t }}</p>
+							<p class="title_label">Position name</p>
 							<label for="nombre_del_sitio" class="form-label">{{ "Position name"|t }}
 								<span>*</span>
 							</label>
@@ -799,4 +798,4 @@
 			</div>
 		</div>
 	</div>
-</div></div></main>
+</div></div></section>

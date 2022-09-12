@@ -15,7 +15,8 @@
   var select_model1;
   var select_model2;
   var select_model3;
-
+  var advisor;
+  var country;
   function init() {
     $('#info_modal').modal("show");
 
@@ -119,6 +120,22 @@
         direction: "asc"
       },
       create: false
+    });
+
+    advisor = new TomSelect("#principal_advisor", {
+      create: false,
+      sortField: {
+        field: "text",
+        direction: "asc"
+      }
+    });
+
+    country = new TomSelect("#country", {
+      create: false,
+      sortField: {
+        field: "text",
+        direction: "asc"
+      }
     });
 
     //get data of user
@@ -243,7 +260,6 @@
    */
   function validateFormStep2() {
     var country = $("#country").val();
-    var city = $("#city").val();
     var position = $("#position").val();
     var web_site = $("#web_site").val();
     let isValid = true;
@@ -257,17 +273,6 @@
     } else {
       $("#country").css("border-color", "#ccc");
       $("#error_country").hide();
-    }
-
-    if (city == "") {
-      message = Drupal.t("Por favor seleccione una ciudad");
-      $("#city").css("border-color", "#ba0c2f");
-      $("#error_city_message").text(message)
-      $("#error_city").show();
-      isValid = false;
-    } else {
-      $("#city").css("border-color", "#ccc");
-      $("#error_city").hide();
     }
 
     if (position == "") {
@@ -305,14 +310,13 @@
       $("#loading_international_2").show();
       $("#save_buyer_1").hide();
       var country = $("#country").val();
-      var city = $("#city").val();
       var position = $("#position").val();
       var web_site = $("#web_site").val();
       var formData = new FormData();
       formData.append("country", country);
-      formData.append("city", city);
       formData.append("position", position);
       formData.append("web_site", web_site);
+      formData.append("principal_advisor", $("#principal_advisor").val());
       formData.append("email", localStorage.getItem("email_buyer"));
       fetch("/registro/usuario/comprador/create_step_2", {
         method: "POST",
@@ -607,6 +611,16 @@
           $("#save_buyer_4").show();
           if (response.status == 200) {
             //show success modal
+            let email_data_form = new FormData();
+            email_data_form.append("email", localStorage.getItem("email_buyer"));
+            fetch("/mailing/send/success/registration/international",
+              {
+                method: "POST",
+                body: formData,
+              }
+            ).catch(function (error) {
+              alert(error);
+            });
             $("#success_modal_international").modal("show");
             //set name of company empresa_popup
             $("#empresa_popup").text(localStorage.getItem("company_name"));
@@ -657,7 +671,7 @@
 
   // function to go to step 3
   function goToMenuBuyer() {
-    window.location.href = "/user/login";
+    window.location.href = "/";
   }
 
   //Addtional functional methods
@@ -781,7 +795,7 @@
         $("#step_2").removeClass("show active");
         break;
       case 5:
-        window.location.href = "/user/login";
+        window.location.href = "/";
     }
   }
 

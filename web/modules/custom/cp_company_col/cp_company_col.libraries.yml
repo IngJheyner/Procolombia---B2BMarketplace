@@ -1,5 +1,5 @@
 cp_company_col:
-  version: 1.7
+  version: 1.9
   css:
     theme:
       css/cp_company_col.css: {}

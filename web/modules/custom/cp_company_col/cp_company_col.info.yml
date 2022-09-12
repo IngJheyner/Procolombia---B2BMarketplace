@@ -6,4 +6,4 @@ interface translation project: cp_company_col
 interface translation server pattern: modules/custom/cp_company_col/translations/cp_company_col-es.po
 package: 'Custom'
 dependencies:
-- block
+- drupal:block

@@ -27,7 +27,7 @@
           $("#success").modal('show');
           setTimeout(function () {
             window.location.href = "/registro/usuario";
-          }, 5000);
+          }, 3000);
         } else {
           alert("Token invalid");
         }
@@ -208,7 +208,7 @@
       });
       //call function to redirect to google form
       $("#login_btn", context).click(function () {
-        window.location.href = "/user/login";
+        window.location.href = "/";
       });
       //call function go home
       $("#cancel_procces", context).click(function () {
