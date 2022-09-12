@@ -309,6 +309,10 @@ class CpCoreMultiStepForm extends FormBase {
           'fragment' => Html::getId($this->getFormId()),
           '_no_path' => TRUE,
         ])->toString();
+        $form['#action'] = str_replace('&ajax_form=1', '', $form['#action']);
+        $form['#action'] = str_replace('ajax_form=1', '', $form['#action']);
+        $form['#action'] = str_replace('&_wrapper_format=drupal_ajax', '', $form['#action']);
+        $form['#action'] = str_replace('_wrapper_format=drupal_ajax', '', $form['#action']);
       }
       $form['#attributes']['novalidate'] = 'novalidate';
 
