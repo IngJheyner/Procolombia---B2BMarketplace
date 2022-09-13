@@ -45,22 +45,3 @@
 		padding: 0;
 	}
 }
-.path-dashboard{
-
-	.ui-widget-content{
-		padding-top: 30px;
-		max-width: 1286px;
-		border-radius: 4px;
-	}
-	.ui-dialog .ui-dialog-titlebar {
-		background: transparent;
-		border: none;
-		.ui-dialog-titlebar-close{
-			font-family: swiper-icons;
-			content: 'previous';
-			right: 100%;
-			left: 20px;
-			content: 'volver';
-			}
-		}
-}
