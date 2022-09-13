@@ -2,7 +2,38 @@
 	&.view-display-id-page_1 {
 		@include media-breakpoint-down(lg){
 			background-color: $white;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 		}
+		.pager-with-count {
+			flex-wrap: wrap;			
+			gap: 31px;
+			padding-bottom: 31px;
+			.view-footer{
+				display: flex;
+				padding-top: 13px;
+				align-items: center;
+				font-size: 18px;
+				span{
+					margin-left: 15px;
+					padding: 5px;
+					box-shadow: inset 0px 3px 6px #0000001A;
+					background-color: white;
+					border-radius: 5px;
+					font-weight: bold;
+				}
+			}
+			@include media-breakpoint-down(lg){
+				flex-direction: column;
+				width: 100%;
+				.view-footer{					
+				border-top: 1px solid $procol-gray-200;
+				width: 100%;
+				}
+			}
+		}
+
 		h1 {
 			display: flex;
 			align-items: center;
@@ -99,6 +130,7 @@
 			padding-top: 0;
 			@include media-breakpoint-down(lg){
 				margin-top: 70px;
+				width: 90%;
 			}
 
 			.bef-exposed-form .row {
@@ -305,13 +337,6 @@
 			}
 		}
 		
-		.pagination-heading--2 {
-			
-		}
-		
-		.view-footer {
-			
-		}
 		.attachment-after{
 			.view-content{
 				box-shadow: none;
@@ -325,14 +350,19 @@
 				.views-field {
 					display: flex;
 					justify-content: space-between;
-					padding: 10px 33px;
+					padding: 10px 20px;
 					font-size: 14px;
-					gap: 68px;
+					gap: 20px;
 					.views-label {
 						font-weight: bold;
 					}
 					&.views-field-nothing{
 						order: -1;
+						padding: 0;
+						padding-bottom: 20px;
+						width: calc(100% - 40px);						
+						align-self: center;
+					
 						.views-label{
 							width: 100%;
 							height: 56px;
@@ -352,7 +382,7 @@
 						gap: 12px;
 						padding: 10px 0;
 						.views-label{
-							padding: 0 33px;
+							padding: 0 20px;
 						}
 						.field-content{
 							display: flex;
@@ -361,8 +391,17 @@
 							background-color: $button-lighter-gray;
 						}
 					}
-				  }
+					&.views-field-field-states{
+						padding-bottom: 30px;
+					}
+				}
+				  &:nth-child(n+2){
+					.views-field-nothing{
+						border-top: 1px solid $procol-gray-200;
+					}
+				}
 			}
+			
 		}
 	}
 }
