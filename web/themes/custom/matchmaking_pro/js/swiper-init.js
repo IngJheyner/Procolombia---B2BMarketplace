@@ -17,17 +17,17 @@
 
 			$('<div class="swiper-button-prev"></div><div class="swiper-button-next"></div>').insertAfter('.swiper-main');
 
-
 			var swiper = new Swiper(".swiper-thumbs", {
-				loop: true,
-				spaceBetween: 10,
-				slidesPerView: 4,
+				loop: false,
+				spaceBetween: 5,
+				slidesPerView: 5,
 				freeMode: true,
 				watchSlidesProgress: true,
 			});
 			var swiper2 = new Swiper(".swiper-main", {
 				loop: true,
 				spaceBetween: 10,
+				slidesPerView: 1,
 				navigation: {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
@@ -36,7 +36,7 @@
 					swiper: swiper,
 				},
 			});
-
+			
 			/*
 				Toggle button play || pause
 			*/

@@ -1,0 +1,30 @@
+product_seller_publish_mail:
+  subject: 'Marketplace | Estado de publicación de sus productos o servicios'
+  body: 'Su solicitud de publicación de {{ product_list }} se encuentra en estado pendiente por aprobación por parte de ProColombia. Su asesor se contactará con usted en caso de que exista alguna observación sobre la información registrada.'
+product_seller_edit_mail:
+  subject: 'B2B Marketplace | Estado de actualización de sus productos o servicios'
+  body: 'Usted ha modificado el producto {{ product_list }}, la actualización de la información cargada se encuentra en estado pendiente por aprobación por parte de ProColombia. Su asesor se contactará con usted en caso de que exista alguna observación sobre la información registrada.'
+product_seller_approbation_mail:
+  subject: 'B2B Marketplace | Estado de publicación de sus productos o servicios de empresa'
+  body: 'El {{ product_name }} ha sido aprobado a satisfacción por parte del asesor de ProColombia. Puede ingresar al sistema para visualizar su catálogo de productos.'
+product_seller_reject_mail:
+  subject: 'B2B Marketplace | Estado de publicación de sus productos o servicios de empresa'
+  body: 'El {{ product_name }} ha sido rechazado ya que no cumple con los criterios definidos por ProColombia. Para cualquier inquietud puede comunicarse con su asesor de cuenta.'
+company_seller_approbation_mail:
+  subject: 'B2B Marketplace | Estado de publicación de su perfil de empresa'
+  body: 'Su perfil de empresa ha sido aprobado a satisfacción por parte del asesor de ProColombia. Puede ingresar al sistema para visualizar su perfil.'
+company_seller_reject_mail:
+  subject: 'B2B Marketplace | Estado de publicación de su perfil de empresa'
+  body: 'Su perfil de empresa ha sido rechazado ya que no cumple con los criterios definidos por ProColombia. Para cualquier inquietud puede comunicarse con su asesor de cuenta.'
+verification_seller_token_mail:
+  subject: 'B2B Marketplace | Verificación de Logro'
+  body: "Estimado {{ company_name }},\r\nEl Token temporal para la validación de autenticidad para el registro del logro es  {{ pin }}. Por favor dar clic en el siguiente enlace {{ confirm_link }} para confirmar su acción."
+company_buyer_reject_mail:
+  subject: 'B2B Marketplace | Estado de su perfil de comprador'
+  body: 'Su perfil de comprador ha sido rechazado ya que no cumple con los criterios definidos por ProColombia. Para cualquier inquietud puede comunicarse con su asesor de cuenta.'
+verification_buyer_token_mail:
+  subject: 'B2B Marketplace | Verificación de Logro'
+  body: "Estimado {{ buyer_name }},\r\nEl Token temporal para la validación de autenticidad para el registro del logro es  {{ pin }}. Por favor dar clic en el siguiente enlace {{ confirm_link }} para confirmar su acción."
+daily_activity_mail:
+  subject: 'B2B Marketplace | Estado de actividades que tuvieron sus cuentas'
+  body: "A continuación, se relaciona el listado de empresas que realizaron modificaciones en su perfil de usuario y/o productos cuenta en el B2B Marketplace, para su revisión y aprobación:\r\n\r\n{{ company_list_approbation }}\r\n\r\nA continuación, se relaciona el listado de empresas a las que se les creo una Oportunidad en Etapa 0, 1, 2 o 3, para su revisión y seguimiento:\r\n\r\n{{ company_list_opportunity }}\r\n\r\nA continuación, se relaciona el listado de empresas que han registrado un logro, para su revisión y seguimiento:\r\n\r\n{{ company_list_achievement }}\r\n\r\nPor favor entrar a la plataforma y revisar cada una de las actividades para su aprobación:\r\nhttps://b2bmarketplace.procolombia.co/es"

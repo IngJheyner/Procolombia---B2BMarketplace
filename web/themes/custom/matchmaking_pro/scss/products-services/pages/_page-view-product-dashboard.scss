@@ -1,11 +1,27 @@
 .page-view-product-dashboard {
 	.ui-dialog {
 		min-height: 544px;
+		max-width: 1286px;
+		width: 100%;
 
 		.ui-dialog-content {
 			max-height: none !important;
 		}
 	}
+	.ui-widget-content{
+		padding-top: 30px;
+	}
+	.ui-dialog .ui-dialog-titlebar {
+		border: none;
+		background: transparent;
+		.ui-dialog-titlebar-close{
+			font-family: swiper-icons;
+			content: 'previous';
+			right: 100%;
+			left: 20px;
+			content: 'volver';
+			}
+		}
 
 	#main {
 		> .row {

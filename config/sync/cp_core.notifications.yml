@@ -1,44 +1,46 @@
+notifications_email: notificaciones@procolombia.co
+product_seller_publish_mail_active: 1
 product_seller_publish_mail:
-  subject: ''
-  body: ''
+  subject: 'Marketplace | Publication status of your products or services'
+  body: 'Your request for publication of {{ product_list }} is in pending status for approval by ProColombia. Your advisor will contact you if there is any observation about the registered information.'
+product_seller_edit_mail_active: true
 product_seller_edit_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Update status of your products or services'
+  body: 'You have modified the product {{ product_list }}, the uploaded information update is in pending status for approval by ProColombia. Your advisor will contact you if there is any observation about the registered information.'
+product_seller_approbation_mail_active: true
 product_seller_approbation_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Listing status of your business products or services'
+  body: 'The {{ product_name }} has been approved to the satisfaction of the ProColombia advisor. You can enter the system to view your product catalog.'
+product_seller_reject_mail_active: true
 product_seller_reject_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Listing status of your business products or services'
+  body: 'The {{ product_name }} has been rejected as it does not meet the criteria defined by ProColombia. For any concerns you can contact your account advisor.'
+company_seller_approbation_mail_active: true
 company_seller_approbation_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Publishing status of your company profile'
+  body: 'Your company profile has been approved to your satisfaction by the ProColombia advisor. You can login to the system to view your profile.'
+company_seller_reject_mail_active: true
 company_seller_reject_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Publishing status of your company profile'
+  body: 'Your company profile has been rejected as it does not meet the criteria defined by ProColombia. For any concerns you can contact your account advisor.'
+verification_seller_token_mail_active: true
 verification_seller_token_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Achievement Check'
+  body: "Dear {{ company_name }}, \r\nThe temporary Token for authenticity validation for the achievement record is {{ pin }}. Please click on the following link {{ confirm_link }} to confirm your action."
+company_buyer_approbation_mail_active: true
 company_buyer_approbation_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Status of your buyer profile'
+  body: 'Your buyer profile has been approved to your satisfaction by the ProColombia advisor. You can login to the system to view your profile.'
+company_buyer_reject_mail_active: true
 company_buyer_reject_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Status of your buyer profile'
+  body: 'Your buyer profile has been rejected as it does not meet the criteria defined by ProColombia. For any concerns you can contact your account advisor.'
+verification_buyer_token_mail_active: true
 verification_buyer_token_mail:
-  subject: ''
-  body: ''
+  subject: 'B2B Marketplace | Achievement Check'
+  body: "Dear {{ buyer_name }}, \r\nThe temporary Token for authenticity validation for the achievement record is {{ pin }}. Please click on the following link {{ confirm_link }} to confirm your action."
+daily_activity_mail_active: true
+daily_activity_mail_hour: 23
 daily_activity_mail:
-  subject: ''
-  body: ''
-product_seller_publish_mail_active: 0
-product_seller_edit_mail_active: 0
-product_seller_approbation_mail_active: 0
-product_seller_reject_mail_active: 0
-company_seller_approbation_mail_active: 0
-company_seller_reject_mail_active: 0
-verification_seller_token_mail_active: 0
-company_buyer_approbation_mail_active: 0
-company_buyer_reject_mail_active: 0
-verification_buyer_token_mail_active: 0
-daily_activity_mail_active: 0
+  subject: 'B2B Marketplace | Status of activities that your accounts had'
+  body: "Below is the list of companies that made changes to their user profile and/or account products in the B2B Marketplace, for review and approval: \r\n\r\n{{ company_list_approval }} \r\n\r\nBelow is the list of companies for which an Opportunity was created in Stage 0, 1, 2 or 3, for review and follow-up: \r\n\r\n{{ company_list_opportunity }} \r\n\r\nBelow is the list of companies that have registered an achievement, for review and follow-up: \r\n\r\n{{ company_list_achievement }} \r\n\r\nPlease enter the platform and review each of the activities for approval:\r\nhttps://b2bmarketplace.procolombia.co/en"
