@@ -9,7 +9,29 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
+        //Botón ver mas paso 3
+        const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
+        const showMorecType = $('.show-more-cType');
+        const showMorecTypeText = $('.show-more-cType span');
 
+        const itemCountrie = $('.entities-list .item-container');
+        const showMoreCountrie = $('.show-more-countries');
+        const showMoreCountrieText = $('.show-more-countries span');
+        
+        verMas(itemCountrie, showMoreCountrie, showMoreCountrieText);
+        verMas(itemCertificationType, showMorecType, showMorecTypeText);
+        function verMas(item, btn, btnText){
+          if ($(item).length > 3) {
+            $(item).slice(3).hide();
+            $(btn).show();
+            $(btn).click(()=>{
+              $(item).slice(3).toggle()
+              $(btnText).text() === 'Ver más' ? $(btnText).text('Ver menos') : $(btnText).text('Ver más');
+            })
+          } else{
+            $(btn).hide()
+          }
+        }
         //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,

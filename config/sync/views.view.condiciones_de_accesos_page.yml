@@ -9,6 +9,7 @@ dependencies:
     - field.storage.node.field_accesscontentdescriptionto
     - field.storage.node.field_pagina_web_
     - field.storage.node.field_video_tutorial_ac
+    - image.style.200x300
     - node.type.accessconditioncontent
   module:
     - link
@@ -43,7 +44,7 @@ display:
           entity_field: title
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -106,7 +107,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -169,7 +170,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -210,9 +211,16 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: width
-          type: image_url
+          type: image
           settings:
-            image_style: ''
+            image_link: ''
+            image_style: 200x300
+            svg_attributes:
+              width: null
+              height: null
+            svg_render_as_image: false
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -232,7 +240,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -292,10 +300,10 @@ display:
           field: field_accessconditioncontent_lin
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Ir a la herramienta'
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -429,9 +437,9 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_video_tutorial_ac__data }}'
             make_link: false
             path: ''
@@ -469,9 +477,13 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: video_url
-          settings: {  }
+          click_sort_column: data
+          type: video_embed_player
+          settings:
+            autoplay: false
+            width: '502'
+            height: '410'
+            related_videos: false
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -593,12 +605,83 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: default
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            field_accesconditionnametool: field_accesconditionnametool
+            field_accesscontent_logo: field_accesscontent_logo
+            field_accesscontentdescriptionto: field_accesscontentdescriptionto
+            field_accessconditioncontent_lin: field_accessconditioncontent_lin
+            field_pagina_web_: field_pagina_web_
+            field_video_tutorial_ac: field_video_tutorial_ac
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_accesconditionnametool:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_accesscontent_logo:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_accesscontentdescriptionto:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_accessconditioncontent_lin:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pagina_web_:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_video_tutorial_ac:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
         options:
-          default_field_elements: false
-          inline: {  }
+          default_field_elements: true
+          inline:
+            title: title
+            field_accesconditionnametool: field_accesconditionnametool
+            field_accesscontent_logo: field_accesscontent_logo
+            field_accesscontentdescriptionto: field_accesscontentdescriptionto
+            field_accessconditioncontent_lin: field_accessconditioncontent_lin
+            field_video_tutorial_ac: field_video_tutorial_ac
           separator: ''
           hide_empty: false
       query:

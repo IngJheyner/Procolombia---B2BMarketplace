@@ -10,7 +10,7 @@
                 font-size: 22px;
                 font-weight: bold;
                 @include media-breakpoint-down(sm) {
-                    font-size: 14px;
+                    font-size: 18px;
                  }
             }
             .modal-header-close{
@@ -18,11 +18,11 @@
                 color: transparent;
                 right: 14px;
                 top: 12px;
-                height: 16px;
-                width: 16px;
+                height: 25px;
+                width: 25px;
                 cursor: pointer;
                 background-image: url(../images/icons/Cerrar-azul.svg);
-                background-size: 16px 16px;
+                background-size: 25px;
                 background-repeat: no-repeat;
                 background-color: transparent !important;
                 border: none;
@@ -50,7 +50,7 @@
                 padding: 16px 12px;
             }
             .modal-footer-right {
-                @include media-breakpoint-down(md){
+                @include media-breakpoint-down(lg){
                     width: 100%;
                 }
                 a.button, button{
@@ -58,13 +58,14 @@
                     line-height: 17px;
                     margin: 0;
                     @include blue-btn;
-                    @include media-breakpoint-down(md) {
+                    @include media-breakpoint-down(lg) {
                         width: 100%;
                         padding-top: 20px;
                         padding-bottom: 20px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        height: 56px;
                      }
                 }
             }
@@ -105,7 +106,42 @@
             }
         }
     }
+    &.legal-modal{
+        @include media-breakpoint-down(lg){
+            .modal-header{
 
+                .modal-header-close{
+                    height: 25px;
+                    width: 25px;
+                    background-size: 25px;
+                    background-image: url(../images/icons/Cerrar-negro.svg);
+                }
+                &::before {
+                    background-size: 17px 27px;
+                    width: 17px;
+                    height: 27px;
+                    background-size: 25px 40px;
+                    width: 35px;
+                    height: 40px;
+                    margin-right: 15px;
+                    background-repeat: no-repeat;
+                    }
+            }
+            .modal-body {
+                    padding: 37px 18px;
+                    padding: 8px 12px;
+                      padding-left: 12px;
+                    padding-left: 14px;
+            }
+            .modal-footer{
+             padding: 12px;
+             .modal-footer-left,
+             .modal-footer-right{
+                margin: 0;
+             }
+            }
+        }
+    }
     //Estilos modal footer
     &.save-publish-question-modal,
     &.cancel-confirm-question-modal,
@@ -123,13 +159,26 @@
             .modal-footer-right{
                 display: flex;
                 gap: 20px;
-                @include media-breakpoint-down(md){
+                @include media-breakpoint-down(lg){
                     flex-direction: column;
                 }
-                .button.btn-ok{
+                .button.btn-cancel{
+                    order: 2;
                     background: $button-lighter-gray;
                     color: $procol-gray-400;
-                    font-weight: 400;
+                    border: 1px solid $procol-gray-300;
+                    font-weight: 100;
+                    @include media-breakpoint-down(lg){
+                        border: none
+                    }
+                }
+                .button.btn-ok{
+                    @include blue-btn;
+                    order: 1;
+                    padding: 10px 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
         }
