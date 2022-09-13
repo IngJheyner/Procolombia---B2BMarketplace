@@ -199,12 +199,20 @@
 			top: -7%;
 			right: 0;
 			background-color: $procol-red;
-			border-radius: 4px;
+			border-radius: 4px 4px 0 0;
 			height: 37px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			width: 244px;
+			background-image: url(../images/icons/Favorito-EstadoInactivo.svg);
+			background-repeat: no-repeat;
+			background-position: 27px 24px;
+			background-position: 15px center;
+			@include media-breakpoint-down(lg){
+				top: -4%;
+			}
+
 			a{
 				color: $white;
 				font-weight: bold;
@@ -213,6 +221,9 @@
 		@include media-breakpoint-down(lg){
 			padding: 20px;
 			padding-right: 20px !important;
+		}
+		.group-right h2{
+			font-size: 30px;
 		}
 	}
 }
