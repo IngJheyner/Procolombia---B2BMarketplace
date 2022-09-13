@@ -349,6 +349,7 @@ div#main {
   padding: 10px;
   position: absolute;
   z-index: 8;
+  font-family: Gothic-Regular;
 }
 .toltip_i .tooltiptext_error {
   visibility: hidden;
@@ -363,6 +364,7 @@ div#main {
   font-family: "Gothic-Regular";
   font-size: 14px;
   right: 1rem;
+  font-family: Gothic-Regular;
 }
 .toltip_i .tooltiptext_yotube {
   visibility: hidden;
@@ -374,9 +376,9 @@ div#main {
   padding: 10px;
   position: absolute;
   z-index: 8;
-  font-family: "Gothic-Regular";
   font-size: 14px;
   right: 1.5rem;
+  font-family: Gothic-Regular;
 }
 .toltip_i .tooltiptext_yotube .note {
   margin-bottom: 0px;

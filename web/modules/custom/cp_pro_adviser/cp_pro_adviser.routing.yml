@@ -76,6 +76,51 @@ cp_pro_adviser.editar_col_company:
   requirements:
     _permission: "access content"
 
+###get_col_user route
+cp_pro_adviser.get_col_user:
+  path: "adviser/get_col_user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::get_col_user'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###update_form col company route
+cp_pro_adviser.update_form_col_company:
+  path: "adviser/update_form_col_company"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::update_form_col_company'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###approve_user_international
+cp_pro_adviser.approve_user_international:
+  path: "adviser/approve_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::approve_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###approve_user_col route
+cp_pro_adviser.approve_user_col:
+  path: "adviser/approve_user_col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::approve_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###reject_user_col route
+cp_pro_adviser.reject_user_col:
+  path: "adviser/reject_user_col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::reject_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
 ###Index edit international company
 cp_pro_adviser.edit_international_company:
   path: "adviser/edit/international"
@@ -91,5 +136,41 @@ cp_pro_adviser.editar_international_company:
   defaults:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
   methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###get_international_user route
+cp_pro_adviser.get_international_user:
+  path: "adviser/get_international_user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::get_international_user'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###update_form international company route
+cp_pro_adviser.update_form_international_company:
+  path: "adviser/update/international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::update_form_international_company'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+  
+###approve_user_international route
+cp_pro_adviser.approve_user_international:
+  path: "adviser/approve_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::approve_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###reject_user_international route
+cp_pro_adviser.reject_user_international:
+  path: "adviser/reject_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::reject_user_international'
+  methods:  [POST]
   requirements:
     _permission: "access content"

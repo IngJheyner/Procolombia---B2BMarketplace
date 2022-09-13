@@ -54,6 +54,13 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_edit_col_company_template',
+      'variables' => [
+        'deparments' => null,
+        'production_chain' => null,
+        'business_model' => null,
+        'certificacion_de_empresa' => null,
+        'countries' => null,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',
@@ -64,6 +71,12 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_edit_international_company_template',
+      'variables' => [
+        'tree_categorization' => null,
+        'tree_business_model' => null,
+        'tree_countries' => null,
+        'tree_advisor' => null,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',

@@ -1,0 +1,8 @@
+uuid: cff3e6b1-b8af-4bae-bcf6-e42db2df2c01
+langcode: es
+status: true
+dependencies: {  }
+name: 'Estados de la cuenta'
+vid: account_status
+description: 'Estados de la cuenta procolombia'
+weight: 0

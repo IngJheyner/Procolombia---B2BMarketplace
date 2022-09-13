@@ -248,4 +248,92 @@ class CpMailingService extends ControllerBase
             return new JsonResponse(['status' => 'ok'], 200);
         }
     }
+
+    //send information account approved to user col
+    public function send_account_approved_user_col(Request $request)
+    {
+        $uid = \Drupal::currentUser();
+        $user = \Drupal\user\Entity\User::load($uid->id());
+        $nombre = $user->get('field_company_name')->value;
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $key = 'information_email_user';
+        $module = 'cp_mailing_service';
+        $to = $user->get('mail')->value;
+        $params['message'] = "<h1>Se ha aprobado la cuenta de ".$nombre." como empresa colombiana en ProColombia.</h1>";
+        $params['title'] = "Se ha aprobado la cuenta de una empresa colombiana registrada";
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $send = true;
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        if($result['result'] != true){
+            return new JsonResponse('error', 500);
+        }else{
+            return new JsonResponse(['status' => 'ok'], 200);
+        }
+    }
+
+    //send information account approved to user international
+    public function send_account_approved_user_international(Request $request)
+    {
+        $uid = \Drupal::currentUser();
+        $user = \Drupal\user\Entity\User::load($uid->id());
+        $nombre = $user->get('field_company_name')->value;
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $key = 'information_email_user';
+        $module = 'cp_mailing_service';
+        $to = $user->get('mail')->value;
+        $params['message'] = "<h1>Se ha aprobado la cuenta de ".$nombre." como comprador internacional en ProColombia.</h1>";
+        $params['title'] = "Se ha aprobado la cuenta de un comprador internacional registrada";
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $send = true;
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        if($result['result'] != true){
+            return new JsonResponse('error', 500);
+        }else{
+            return new JsonResponse(['status' => 'ok'], 200);
+        }
+    }
+
+    //send information account rejected to user col
+    public function send_account_rejected_user_col(Request $request)
+    {
+        $uid = \Drupal::currentUser();
+        $user = \Drupal\user\Entity\User::load($uid->id());
+        $nombre = $user->get('field_company_name')->value;
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $key = 'information_email_user';
+        $module = 'cp_mailing_service';
+        $to = $user->get('mail')->value;
+        $params['message'] = "<h1>Se ha rechazado la cuenta de ".$nombre." como empresa colombiana en ProColombia.</h1>";
+        $params['title'] = "Se ha rechazado la cuenta de una empresa colombiana registrada";
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $send = true;
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        if($result['result'] != true){
+            return new JsonResponse('error', 500);
+        }else{
+            return new JsonResponse(['status' => 'ok'], 200);
+        }
+    }
+
+    //send information account rejected to user international
+    public function send_account_rejected_user_international(Request $request)
+    {
+        $uid = \Drupal::currentUser();
+        $user = \Drupal\user\Entity\User::load($uid->id());
+        $nombre = $user->get('field_company_name')->value;
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $key = 'information_email_user';
+        $module = 'cp_mailing_service';
+        $to = $user->get('mail')->value;
+        $params['message'] = "<h1>Se ha rechazado la cuenta de ".$nombre." como comprador internacional en ProColombia.</h1>";
+        $params['title'] = "Se ha rechazado la cuenta de un comprador internacional registrada";
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $send = true;
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        if($result['result'] != true){
+            return new JsonResponse('error', 500);
+        }else{
+            return new JsonResponse(['status' => 'ok'], 200);
+        }
+    }
 }

@@ -5,7 +5,7 @@
 * Implemensizets hook_schema().
  * 
 */
-/*function cp_pro_adviser_schema() {
+function cp_pro_adviser_schema() {
   $schema['advisor_logs'] = array(
   'description' => 'Tabla de logs de comprador internacional',
     'fields' => array(
@@ -15,8 +15,42 @@
         'unsigned' => TRUE,
         'not null' => TRUE,
       ),  
+      'email' => array(
+        'description' => 'Email asesor',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '', 
+      ), 
+      'company_name' => array(
+        'description' => 'Nombre de la compañia',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '', 
+      ), 
+      'created_at' => array(
+        'description' => 'Fecha de modificación',
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+      ), 
+      'action' => array(
+        'description' => 'Acción realizada',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '', 
+      ), 
+      'status' => array(
+        'description' => 'Estado de la empresa',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '', 
+      ), 
     ),  
     'primary key' => array('id'),
   );  
   return $schema;
-}*/
+}

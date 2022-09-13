@@ -196,9 +196,9 @@ function myFunction() {
             $("#loading").hide();
             //show login button
             $("#login_button").show();
-            //show error message
-            $("#error_message").show();
-            $("#error_message").text(data.error);
+            $("#error_username").show();
+            //aca
+            $("#error_username_message").text(data.error);
           }
         }).catch((error) => {
           //hide loading
@@ -206,8 +206,8 @@ function myFunction() {
           //show login button
           $("#login_button").show();
           //show error message
-          $("#error_message").show();
-          $("#error_message").text(error);
+          $("#error_username").show();
+          $("#error_username_message").text(error);
         }
         );
     }

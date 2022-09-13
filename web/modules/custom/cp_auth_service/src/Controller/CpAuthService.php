@@ -93,16 +93,16 @@ class CpAuthService extends ControllerBase
                     user_login_finalize($user);
                 } else {
                     //return error message
-                    return new JsonResponse(['error' => 'User is not active']);
+                    return new JsonResponse(['error' => 'User is not active'],404);
                 }
                 
             } else {
                 //return error
-                return new JsonResponse(['error' => 'Invalid credentials']);
+                return new JsonResponse(['error' => 'Invalid credentials'],404);
             }
         } else {
             //return error message
-            return new JsonResponse(['error' => 'Invalid credentials 2']);
+            return new JsonResponse(['error' => 'Invalid credentials 2'],404);
         }
     }
 

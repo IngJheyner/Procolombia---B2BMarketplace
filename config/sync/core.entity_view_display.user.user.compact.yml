@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_account_status
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
@@ -86,6 +87,7 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  field_account_status: true
   field_cat_interest_1: true
   field_cat_interest_2: true
   field_cat_interest_3: true
