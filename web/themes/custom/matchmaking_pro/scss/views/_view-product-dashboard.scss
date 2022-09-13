@@ -1,5 +1,8 @@
 .view-product-dashboard {
 	&.view-display-id-page_1 {
+		@include media-breakpoint-down(lg){
+			background-color: $white;
+		}
 		h1 {
 			display: flex;
 			align-items: center;
@@ -308,6 +311,58 @@
 		
 		.view-footer {
 			
+		}
+		.attachment-after{
+			.view-content{
+				box-shadow: none;
+			}
+			.pager-with-count{
+				display: none;
+			}
+			.views-row{
+				display: flex;
+				flex-direction: column;
+				.views-field {
+					display: flex;
+					justify-content: space-between;
+					padding: 10px 33px;
+					font-size: 14px;
+					gap: 68px;
+					.views-label {
+						font-weight: bold;
+					}
+					&.views-field-nothing{
+						order: -1;
+						.views-label{
+							width: 100%;
+							height: 56px;
+							color: $procol-light-blue;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border-radius: 4px 4px 0 0;
+							background-color: $button-lighter-gray;
+						}
+						.field-content{
+							display: none;
+						}
+					}
+					&.views-field-field-images{
+						flex-direction: column;
+						gap: 12px;
+						padding: 10px 0;
+						.views-label{
+							padding: 0 33px;
+						}
+						.field-content{
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							background-color: $button-lighter-gray;
+						}
+					}
+				  }
+			}
 		}
 	}
 }
