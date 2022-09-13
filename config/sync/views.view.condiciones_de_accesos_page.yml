@@ -605,72 +605,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: table
+        type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          columns:
-            title: title
-            field_accesconditionnametool: field_accesconditionnametool
-            field_accesscontent_logo: field_accesscontent_logo
-            field_accesscontentdescriptionto: field_accesscontentdescriptionto
-            field_accessconditioncontent_lin: field_accessconditioncontent_lin
-            field_pagina_web_: field_pagina_web_
-            field_video_tutorial_ac: field_video_tutorial_ac
-          default: '-1'
-          info:
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_accesconditionnametool:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_accesscontent_logo:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_accesscontentdescriptionto:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_accessconditioncontent_lin:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_pagina_web_:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_video_tutorial_ac:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
       row:
         type: fields
         options:
