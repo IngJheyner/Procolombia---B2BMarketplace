@@ -439,7 +439,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_video_tutorial_ac__data }}'
             make_link: false
             path: ''
@@ -477,11 +477,13 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: video_embed_thumbnail
+          click_sort_column: data
+          type: video_embed_player
           settings:
-            image_style: 200x300
-            link_image_to: ''
+            autoplay: false
+            width: '502'
+            height: '410'
+            related_videos: false
           group_column: ''
           group_columns: {  }
           group_rows: true
