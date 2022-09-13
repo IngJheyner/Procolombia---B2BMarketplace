@@ -164,7 +164,7 @@ function myFunction() {
               url = "/dashboard";
             } else {
               if (data.role == "exportador") {
-                url = "/dashboard/col/user";
+                url = "/dashboard";
               } else if (data.role == "buyer") {
                 url = "/dashboard/international/user";
               } else {
