@@ -48,6 +48,9 @@
         .field--name-field-categorization-parent{
             flex-grow: 1;
             margin-bottom: 0 !important;
+            @include media-breakpoint-down(md){
+                padding-top: 16px;
+            }
         }
         .field--name-field-categorization{
             flex-grow: 2;
@@ -67,7 +70,6 @@
         }
         @include media-breakpoint-down(lg){
             .information-title{
-                margin-top: 16px;
             }
             .field--name-field-aditional-information{
                 margin-bottom: 0 !important;
@@ -93,6 +95,9 @@
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 16px;
+            @include media-breakpoint-down(lg){                
+            padding: 0 11px;
+            }
         }
     }
     .form-type-textarea{

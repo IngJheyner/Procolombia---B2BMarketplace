@@ -9,6 +9,7 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
+
         //Botón ver mas paso 3
         const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
         const showMorecType = $('.show-more-cType');

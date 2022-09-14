@@ -124,7 +124,8 @@
                 }
                 label{
                     font-weight: 300;
-                    padding-bottom: 0;                 
+                    padding-bottom: 0;
+                    font-family: $font-family-Century-Gothic;             
                 }
             }
         }
@@ -200,10 +201,8 @@
     .cp-core-node-multistep-sidebar {
         padding-top: 42px; 
         max-width: 210px;
-        padding-right: 20px;
         @include media-breakpoint-down(md) {
             max-width: 100%;
-            padding-right: 0;
         }
     }
     // Ends Main styles multistep sidebar
@@ -427,28 +426,26 @@
             width: 100%;
             padding: 0 15PX;
          }
-         @include media-breakpoint-down(md){
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 26px;
-            
-            .field--name-field-product-type{
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                label{
-                    position: static;
-                    height: auto;
-                }
-            }
-            #ajax-wrapper{
-                display: flex;
-                width: 100%;
-                justify-content: center;
-            }
-         }
+        //  @include media-breakpoint-down(md){
+        //      display: flex;
+        //      flex-direction: column;
+        //      align-items: center;
+        //      .field--name-field-product-type{
+        //          width: 100%;
+        //          display: flex;
+        //          justify-content: center;
+        //          label{
+        //              position: static;
+        //              height: auto;
+        //          }
+        //      }
+        //     justify-content: center;
+        //     #ajax-wrapper{
+        //         display: flex;
+        //         width: 100%;
+        //         justify-content: center;
+        //     }
+        //  }
     }
     .field-group-html-element.group-left{
         @include media-breakpoint-down(md){
@@ -537,6 +534,9 @@
                     border: 1px solid $procol-light-blue;
                     color: $procol-gray-400;
                     text-transform: uppercase;
+                    @include media-breakpoint-down(lg){
+                        order: 3;
+                    }
                     &:hover{
                         box-shadow: 0px 3px 6px $gray-shadow;
                     }
