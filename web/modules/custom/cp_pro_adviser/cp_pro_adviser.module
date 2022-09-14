@@ -34,6 +34,23 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',
     ],
+    'cp_dashboard_pro_adviser_international_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_dashboard_pro_adviser_international_template',
+      'variables' => [
+        'data' => null,
+        'tree_production_chain'=> null,
+        'tree_business_model'=> null,
+        'tree_categorization'=> null,
+        'tree_deparment'=> null,
+      ],
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
     'cp_review_pro_adviser_template_hook' => [
       'render element' => 'children',
       // If no template name is defined here,

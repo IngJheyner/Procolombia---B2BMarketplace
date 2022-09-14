@@ -86,6 +86,21 @@ class CpMailingService extends ControllerBase
         }
     }
 
+    public function getUidMail($nit)
+    {
+        $query = \Drupal::entityQuery('user')
+            ->condition('mail', $nit)
+            ->execute();
+        if(!empty($query)){
+            $user = \Drupal\user\Entity\User::load(reset($query));
+            $uid = $user->id();
+            return $uid;
+        }
+        else{
+            return 0;
+        }
+    }
+
     // compare both token
     public function verification_user(Request $request)
     {
@@ -252,30 +267,38 @@ class CpMailingService extends ControllerBase
     //send information account approved to user col
     public function send_account_approved_user_col(Request $request)
     {
-        $uid = \Drupal::currentUser();
-        $user = \Drupal\user\Entity\User::load($uid->id());
-        $nombre = $user->get('field_company_name')->value;
-        $mailManager = \Drupal::service('plugin.manager.mail');
-        $key = 'information_email_user';
-        $module = 'cp_mailing_service';
-        $to = $user->get('mail')->value;
-        $params['message'] = "<h1>Se ha aprobado la cuenta de ".$nombre." como empresa colombiana en ProColombia.</h1>";
-        $params['title'] = "Se ha aprobado la cuenta de una empresa colombiana registrada";
-        $langcode = \Drupal::currentUser()->getPreferredLangcode();
-        $send = true;
-        $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-        if($result['result'] != true){
+        try{
+            //get data request
+            $data = $request->request->all();
+            //get user with email
+            $user = \Drupal\user\Entity\User::load($this->getUidMail($data['email']));
+            $nombre = $user->get('field_company_name')->value;
+            $mailManager = \Drupal::service('plugin.manager.mail');
+            $key = 'information_email_user';
+            $module = 'cp_mailing_service';
+            $to = $user->get('mail')->value;
+            $params['message'] = "<h1>Se ha aprobado la cuenta de ".$nombre." como empresa colombiana en ProColombia.</h1>";
+            $params['title'] = "Se ha aprobado la cuenta de una empresa colombiana registrada";
+            $langcode = \Drupal::currentUser()->getPreferredLangcode();
+            $send = true;
+            $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+            if($result['result'] != true){
+                return new JsonResponse('error', 500);
+            }else{
+                return new JsonResponse(['status' => 'ok'], 200);
+            }
+        }catch(\Exception $e){
             return new JsonResponse('error', 500);
-        }else{
-            return new JsonResponse(['status' => 'ok'], 200);
         }
     }
 
     //send information account approved to user international
     public function send_account_approved_user_international(Request $request)
     {
-        $uid = \Drupal::currentUser();
-        $user = \Drupal\user\Entity\User::load($uid->id());
+        //get data request
+        $data = $request->request->all();
+        //get user with email
+        $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
         $nombre = $user->get('field_company_name')->value;
         $mailManager = \Drupal::service('plugin.manager.mail');
         $key = 'information_email_user';
@@ -296,8 +319,10 @@ class CpMailingService extends ControllerBase
     //send information account rejected to user col
     public function send_account_rejected_user_col(Request $request)
     {
-        $uid = \Drupal::currentUser();
-        $user = \Drupal\user\Entity\User::load($uid->id());
+        //get data request
+        $data = $request->request->all();
+        //get user with email
+        $user = \Drupal\user\Entity\User::load($this->getUidMail($data['email']));
         $nombre = $user->get('field_company_name')->value;
         $mailManager = \Drupal::service('plugin.manager.mail');
         $key = 'information_email_user';
@@ -318,8 +343,10 @@ class CpMailingService extends ControllerBase
     //send information account rejected to user international
     public function send_account_rejected_user_international(Request $request)
     {
-        $uid = \Drupal::currentUser();
-        $user = \Drupal\user\Entity\User::load($uid->id());
+        //get data request
+        $data = $request->request->all();
+        //get user with email
+        $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
         $nombre = $user->get('field_company_name')->value;
         $mailManager = \Drupal::service('plugin.manager.mail');
         $key = 'information_email_user';

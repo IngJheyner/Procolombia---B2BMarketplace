@@ -56,6 +56,9 @@ class CpAuthService extends ControllerBase
                     } elseif (in_array('asesor_comercial', $roles)) {
                         //return advisor
                         return new JsonResponse(array('role' => 'asesor_comercial'));
+                    } elseif (in_array('asesor_internacional', $roles)) {
+                        //return advisor
+                        return new JsonResponse(array('role' => 'asesor_internacional'));
                     } else {
                         //return error
                         return new JsonResponse(array('error' => 'user without role'));

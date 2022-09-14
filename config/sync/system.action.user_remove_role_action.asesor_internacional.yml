@@ -1,0 +1,14 @@
+uuid: 7a846b00-922e-4d6d-87ef-aad88556013a
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_internacional
+  module:
+    - user
+id: user_remove_role_action.asesor_internacional
+label: 'Elimina el rol Asesor Internacional al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: asesor_internacional

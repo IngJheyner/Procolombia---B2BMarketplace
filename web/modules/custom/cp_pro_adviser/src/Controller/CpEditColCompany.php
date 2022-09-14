@@ -111,7 +111,7 @@ class CpEditColCompany extends ControllerBase
     }
 
     //get_col_user in drupal and return user object data.
-    public function get_col_user()
+    public function get_col_user(Request $request)
     {
         $data = $request->request->all();
         //get user with email
@@ -130,43 +130,40 @@ class CpEditColCompany extends ControllerBase
             $certification_business_target_id[$key] = $value['target_id'];
         }
 
-        if($user->isActive()){
-            $data_user = [
-                'step' => $user->get('field_step')->value,
-                //get path and name of field_company_logo
-                'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
-                //get name of file
-                'company_logo_name' => $user->get('field_company_logo')->entity->getFilename(),
-                //get size of file
-                'company_logo_size' => $user->get('field_company_logo')->entity->getSize(),
-                'business_name' => $user->get('field_company_name')->value,
-                //get url field website and video youtube
-                'website' => $user->get('field_company_web_site')->uri,
-                'video' => $user->get('field_company_video_youtube')->uri,
-                'description_spanish' => $user->get('field_company_info')->value,
-                'description_english' => $user->get('field_company_info_english')->value,
-                'production_chain' => $user->get('field_productive_chain')->target_id,
-                'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
-                'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
-                'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
-                'departament' => $user->get('field_company_deparment')->target_id,
-                'ciudad' => $user->get('field_company_city')->target_id,
-                'modelo_de_negocio' => $field_company_model_target_id,
-                'certification_business' => $certification_business_target_id,
-                'contact_name' => $user->get('field_company_contact_name')->value,
-                'contact_lastname' => $user->get('field_company_contact_lastname')->value,
-                'contact_email' => $user->get('field_company_contact_email')->value,
-                'contact_position' => $user->get('field_company_contact_position')->value,
-                'contact_phone' => $user->get('field_company_contact_phone')->value,
-                'contact_cellphone' => $user->get('field_company_contact_cell_phone')->value,
-                'country_code_landline' => $user->get('field_country_code_landline')->value,
-                'country_code_mobile' => $user->get('field_country_code_mobile')->value,
-            ];
+        $data_user = [
+            'step' => $user->get('field_step')->value,
+            //get path and name of field_company_logo
+            'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
+            //get name of file
+            'company_logo_name' => $user->get('field_company_logo')->entity->getFilename(),
+            //get size of file
+            'company_logo_size' => $user->get('field_company_logo')->entity->getSize(),
+            'business_name' => $user->get('field_company_name')->value,
+            //get url field website and video youtube
+            'website' => $user->get('field_company_web_site')->uri,
+            'video' => $user->get('field_company_video_youtube')->uri,
+            'description_spanish' => $user->get('field_company_info')->value,
+            'description_english' => $user->get('field_company_info_english')->value,
+            'production_chain' => $user->get('field_productive_chain')->target_id,
+            'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
+            'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
+            'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
+            'departament' => $user->get('field_company_deparment')->target_id,
+            'ciudad' => $user->get('field_company_city')->target_id,
+            'modelo_de_negocio' => $field_company_model_target_id,
+            'certification_business' => $certification_business_target_id,
+            'contact_name' => $user->get('field_company_contact_name')->value,
+            'contact_lastname' => $user->get('field_company_contact_lastname')->value,
+            'contact_email' => $user->get('field_company_contact_email')->value,
+            'contact_position' => $user->get('field_company_contact_position')->value,
+            'contact_phone' => $user->get('field_company_contact_phone')->value,
+            'contact_cellphone' => $user->get('field_company_contact_cell_phone')->value,
+            'country_code_landline' => $user->get('field_country_code_landline')->value,
+            'country_code_mobile' => $user->get('field_country_code_mobile')->value,
+        ];
 
-            return new JsonResponse(['status' => 200, 'data' => $data_user]);
-        }else{
-            return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
-        }
+        return new JsonResponse(['status' => 200, 'data' => $data_user]);
+        
     }
 
     /**

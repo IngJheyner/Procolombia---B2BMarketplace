@@ -112,60 +112,56 @@ class CpEditInternationalCompany extends ControllerBase
     }
 
     //get_international_user in drupal and return user object data.
-    public function get_international_user()
+    public function get_international_user(Request $request)
     {
         $data = $request->request->all();
         //get user with email
         $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
-        //ceck if user is not deleted in drupal
 
-        if($user->isActive()){
-            //get all 'field_company_model' target_id.
-            $field_company_model = $user->get('field_company_model')->getValue();
-            foreach ($field_company_model as $key => $value) {
-                //push targer_id to array.
-                $field_company_model_target_id[$key] = $value['target_id'];
-            }
-            //get all 'field_company_model' target_id.
-            $field_company_model_2 = $user->get('field_company_model_2')->getValue();
-            foreach ($field_company_model_2 as $key => $value) {
-                //push targer_id to array.
-                $field_company_model_target_id_2[$key] = $value['target_id'];
-            }
-            //get all 'field_company_model' target_id.
-            $field_company_model_3 = $user->get('field_company_model_3')->getValue();
-            foreach ($field_company_model_3 as $key => $value) {
-                //push targer_id to array.
-                $field_company_model_target_id_3[$key] = $value['target_id'];
-            }
-            $data_user = [
-                'step' => $user->get('field_step')->value,
-                'name' => $user->get('field_company_contact_name')->value,
-                'lastname' => $user->get('field_company_contact_lastname')->value,
-                'business_name' => $user->get('field_company_name')->value,
-                'cellphone' => $user->get('field_company_contact_cell_phone')->value,
-                'email' => $user->get('mail')->value,
-                'position' => $user->get('field_company_contact_position')->value,
-                'web_site' => $user->get('field_company_web_site')->uri,
-                'city' => $user->get('field_company_city')->value,
-                'country' => $user->get('field_country')->target_id,
-                'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
-                'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
-                'company_model' => $field_company_model_target_id,
-                'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
-                'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
-                'company_model_2' => $field_company_model_target_id_2,
-                'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
-                'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
-                'company_model_3' => $field_company_model_target_id_3,
-                'country_code_mobile' => $user->get('field_country_code_mobile')->value,
-                'advisor' => $user->get('field_company_adviser')->target_id,
-            ];
-    
-            return new JsonResponse(['status' => 200, 'data' => $data_user]);
-        }else{
-            return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
+        //get all 'field_company_model' target_id.
+        $field_company_model = $user->get('field_company_model')->getValue();
+        foreach ($field_company_model as $key => $value) {
+            //push targer_id to array.
+            $field_company_model_target_id[$key] = $value['target_id'];
         }
+        //get all 'field_company_model' target_id.
+        $field_company_model_2 = $user->get('field_company_model_2')->getValue();
+        foreach ($field_company_model_2 as $key => $value) {
+            //push targer_id to array.
+            $field_company_model_target_id_2[$key] = $value['target_id'];
+        }
+        //get all 'field_company_model' target_id.
+        $field_company_model_3 = $user->get('field_company_model_3')->getValue();
+        foreach ($field_company_model_3 as $key => $value) {
+            //push targer_id to array.
+            $field_company_model_target_id_3[$key] = $value['target_id'];
+        }
+        $data_user = [
+            'step' => $user->get('field_step')->value,
+            'name' => $user->get('field_company_contact_name')->value,
+            'lastname' => $user->get('field_company_contact_lastname')->value,
+            'business_name' => $user->get('field_company_name')->value,
+            'cellphone' => $user->get('field_company_contact_cell_phone')->value,
+            'email' => $user->get('mail')->value,
+            'position' => $user->get('field_company_contact_position')->value,
+            'web_site' => $user->get('field_company_web_site')->uri,
+            'city' => $user->get('field_company_city')->value,
+            'country' => $user->get('field_country')->target_id,
+            'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
+            'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
+            'company_model' => $field_company_model_target_id,
+            'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
+            'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
+            'company_model_2' => $field_company_model_target_id_2,
+            'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
+            'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
+            'company_model_3' => $field_company_model_target_id_3,
+            'country_code_mobile' => $user->get('field_country_code_mobile')->value,
+            'advisor' => $user->get('field_company_adviser')->target_id,
+        ];
+
+        return new JsonResponse(['status' => 200, 'data' => $data_user]);
+        
     }
 
     /**
@@ -210,6 +206,12 @@ class CpEditInternationalCompany extends ControllerBase
         $model_arr2 = explode(',', $data['company_model_3']);
         $user->set('field_company_model_3', $model_arr2);
         $user->save();
+        //create log
+        //current user email
+        $current_user = \Drupal::currentUser();
+        $current_user = \Drupal\user\Entity\User::load($current_user->id());
+        $current_user_email = $current_user->get('mail')->value;
+        $this->createLog($current_user_email , $data['business_name'], 'Editado', 'En espera de Aprobación');
         return new JsonResponse(['status' =>  200]);
     }
 
@@ -234,10 +236,13 @@ class CpEditInternationalCompany extends ControllerBase
             $user->save();
             //create log
             //current user email
+
+            //user get company name
+            $company_name = $user->get('field_company_name')->value;
             $current_user = \Drupal::currentUser();
             $current_user = \Drupal\user\Entity\User::load($current_user->id());
             $current_user_email = $current_user->get('mail')->value;
-            $this->createLog($current_user_email , $data['company_name'], 'Aprobación', 'Aprobado');
+            $this->createLog($current_user_email ,  $company_name, 'Aprobación', 'Aprobado');
             return new JsonResponse(['status' =>  200]);
         }catch(Exception $e){
             return new JsonResponse(['status' =>  500]);
@@ -265,10 +270,12 @@ class CpEditInternationalCompany extends ControllerBase
             $user->save();
             //create log
             //current user email
+            //user get company name
+            $company_name = $user->get('field_company_name')->value;
             $current_user = \Drupal::currentUser();
             $current_user = \Drupal\user\Entity\User::load($current_user->id());
             $current_user_email = $current_user->get('mail')->value;
-            $this->createLog($current_user_email , $data['company_name'], 'Rechazo', 'Rechazado');
+            $this->createLog($current_user_email , $company_name, 'Rechazo', 'Rechazado');
             return new JsonResponse(['status' =>  200]);
         }catch(Exception $e){
             return new JsonResponse(['status' =>  500]);

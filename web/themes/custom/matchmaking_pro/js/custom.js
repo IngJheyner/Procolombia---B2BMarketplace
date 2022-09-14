@@ -33,6 +33,9 @@ function myFunction() {
   function goToDashboardCompanyCol() {
     window.location.href = "/dashboard/col/user"
   }
+  function   goToDashboardAsesorCol() {
+    window.location.href = "/dashboard/adviser/user/col"
+  }
 
   function goToEditBuyer() {
     window.location.href = "/edit/international/user"
@@ -161,7 +164,7 @@ function myFunction() {
             console.log(data);
             let url = "";
             if (data.role == "adminstrator") {
-              url = "/dashboard";
+              url = "/";
             } else {
               if (data.role == "exportador") {
                 url = "/dashboard";
@@ -169,9 +172,13 @@ function myFunction() {
                 url = "/dashboard/international/user";
               } else {
                 if (data.role == "asesor_comercial") {
-                  url = "/dashboard/adviser/user";
+                  url = "/dashboard/adviser/user/col";
                 } else {
-                  url = "/dashboard";
+                  if (data.role == "asesor_internacional") {
+                    url = "/dashboard/adviser/user/international";
+                  } else {
+                    url = "/dashboard";
+                  }
                 }
               }
             }
@@ -552,27 +559,6 @@ function myFunction() {
     }
   }
 
-  //show dashboard exportador
-  function showDashboardExportador() {
-    if (window.location.pathname !== "/es/dashboard/adviser/user" && window.location.pathname !== "/en/dashboard/adviser/user") {
-      window.location.href = "/dashboard/adviser/user";
-    } else {
-      $("#bussines_national").show();
-      $("#bussines_international").hide();
-      $("#button_dashboard_exportador").hide();
-      $("#button_dashboard_buyer").show();
-    }
-  }
-
-  //show dashboard buyer
-  function showDashboardBuyer() {
-    //check if the path url is not /dashboard/adviser/user
-    $("#bussines_national").hide();
-    $("#bussines_international").show();
-    $("#button_dashboard_buyer").hide();
-    $("#button_dashboard_exportador").show();
-  }
-
   Drupal.behaviors.custom = {
     attach: function (context, settings) {
       //call function login
@@ -599,6 +585,11 @@ function myFunction() {
       $("#img_click", context).click(function () {
         goToDashboardCompanyCol();
       });
+      //call function edit profile asesor
+      $("#img_click_asesor", context).click(function () {
+        goToDashboardAsesorCol();
+      });
+    
       //call function edit buyer
       $("#edit_buyer", context).click(function () {
         goToEditBuyer();
@@ -741,13 +732,6 @@ function myFunction() {
         if (email && time && token) {
           //show modal recover password
           $("#modal_recover_password").modal("show");
-        }
-
-        if (window.location.pathname !== "/es/dashboard/adviser/user" && window.location.pathname !== "/en/dashboard/adviser/user") {
-          $("#bussines_national").hide();
-          $("#bussines_international").show();
-          $("#button_dashboard_buyer").hide();
-          $("#button_dashboard_exportador").show();
         }
       }
     }
