@@ -1,0 +1,9 @@
+uuid: 73a5c52d-98a8-4dc9-b9f1-06b0d1e4fc47
+langcode: es
+status: true
+dependencies: {  }
+id: asesor_internacional
+label: 'Asesor Internacional'
+weight: 10
+is_admin: null
+permissions: {  }

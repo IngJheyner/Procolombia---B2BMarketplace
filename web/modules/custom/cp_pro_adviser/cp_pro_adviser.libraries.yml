@@ -7,6 +7,10 @@ cp_pro_adviser:
     js/dataTables.js: {}
     js/cp_pro_adviser.js: {}
     js/review_pro_adviser.js: {}
+    js/cp_edit_col_company.js: {}
+    js/cp_edit_international_company.js: {}
+    js/cp_tels.js: {}
+
   dependencies:
     - core/jquery
     - core/jquery.once

@@ -218,7 +218,7 @@ div#main {
   padding: 0.5rem;
 }
 .dashboard .anuncio_dashboard .img_anuncio {
-  width: 21%;
+  width: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,6 +227,7 @@ div#main {
   margin-bottom: 9px;
   font-size: 20px;
   font-family: Gothic-Bold;
+  line-height: normal;
 }
 .dashboard .anuncio_dashboard .btn_anuncio {
   font-size: 15px;
@@ -793,7 +794,6 @@ span {
   }
   .step_registre .step_content {
     padding: 0px;
-    padding-top: 2rem;
   }
   .step_registre .step_content .validate {
     margin: 1rem 7% !important;
@@ -825,6 +825,21 @@ span {
   }
   .steps .step_content form {
     box-shadow: none !important;
+  }
+  .dashboard .anuncio_dashboard .img_anuncio {
+    width: 110px;
+  }
+  .space-0 {
+    padding: 0px !important;
+  }
+  .container {
+    padding-left: 0px !important;
+  }
+  .card.p-4 {
+    padding: 2.5rem 0.5rem !important;
+  }
+  button#cancel_process {
+    display: none;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -914,6 +929,21 @@ span {
     margin-left: 6%;
     margin-right: 6%;
   }
+  .dashboard .anuncio_dashboard .img_anuncio {
+    width: 110px;
+  }
+  .space-0 {
+    padding: 0px !important;
+  }
+  .container {
+    padding-left: 0px !important;
+  }
+  .card.p-4 {
+    padding: 2.5rem 0.5rem !important;
+  }
+  button#cancel_process {
+    display: none;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-lg-9,
@@ -948,6 +978,18 @@ span {
   }
   .step_registre {
     padding: 0rem;
+  }
+  .dashboard .anuncio_dashboard .img_anuncio {
+    width: 110px;
+  }
+  .space-0 {
+    padding: 0px !important;
+  }
+  .container {
+    padding-left: 0px !important;
+  }
+  .card.p-4 {
+    padding: 2.5rem 0.5rem !important;
   }
 }
 /*Input cell css*/
@@ -1066,11 +1108,14 @@ span {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.iti__flag-box, .iti__country-name, .iti__dial-code {
+.iti__flag-box,
+.iti__country-name,
+.iti__dial-code {
   vertical-align: middle;
 }
 
-.iti__flag-box, .iti__country-name {
+.iti__flag-box,
+.iti__country-name {
   margin-right: 6px;
 }
 
@@ -1096,7 +1141,8 @@ span {
   margin-left: 0;
 }
 
-.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
+.iti--allow-dropdown .iti__flag-container,
+.iti--separate-dial-code .iti__flag-container {
   right: auto;
   left: 0;
 }
