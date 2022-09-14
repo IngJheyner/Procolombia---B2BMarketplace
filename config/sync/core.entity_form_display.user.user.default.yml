@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_account_status
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
@@ -47,13 +48,147 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
-    - datetime
+    - field_group
     - file
     - link
     - path
     - svg_image
     - telephone
     - user
+third_party_settings:
+  field_group:
+    group_information_users:
+      children:
+        - field_step
+        - field_company_contact_position
+        - field_company_contact_cell_phone
+        - field_company_contact_lastname
+        - field_company_contact_name
+        - field_company_model
+        - field_company_name
+        - field_company_web_site
+        - field_company_adviser
+        - field_country_code_mobile
+        - group_company
+      label: 'Informacion [ Matchmaking ]'
+      region: content
+      parent_name: group_information_users_default
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+        direction: horizontal
+        width_breakpoint: '640'
+    group_company:
+      children:
+        - group_exportador_info
+        - group_buyer
+      label: Informacion
+      region: content
+      parent_name: group_information_users
+      weight: 25
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+        direction: vertical
+        width_breakpoint: 640
+    group_information_users_default:
+      children:
+        - group_informacion_por_defecto_b2
+        - group_information_users
+      label: 'Informacion de usuarios'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_informacion_por_defecto_b2:
+      children:
+        - account
+        - language
+        - translation
+        - path
+        - timezone
+      label: 'Informacion [ Default ]'
+      region: content
+      parent_name: group_information_users_default
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_exportador_info:
+      children:
+        - field_company_video_youtube
+        - field_company_info
+        - field_productive_chain
+        - field_company_logo
+        - field_company_deparment
+        - field_company_city
+        - field_company_info_english
+        - field_ciiu_principal
+        - field_ciiu_secundario
+        - field_ciiu_terciario
+        - field_company_contact_phone
+        - field_company_certification
+        - field_company_certification_file
+        - field_company_contact_position_e
+        - field_company_contact_email
+        - field_country_code_landline
+      label: Exportador
+      region: content
+      parent_name: group_company
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_buyer:
+      children:
+        - field_country
+        - field_cat_interest_1
+        - field_cat_interest_2
+        - field_cat_interest_3
+        - field_subcat_interest_1
+        - field_subcat_interest_2
+        - field_subcat_interest_3
+        - field_company_model_2
+        - field_company_model_3
+      label: Comprador
+      region: content
+      parent_name: group_company
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
 id: user.user.default
@@ -62,16 +197,26 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   contact:
     weight: 5
     region: content
+  field_account_status:
+    type: entity_reference_autocomplete
+    weight: 74
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_cat_interest_1:
     type: entity_reference_autocomplete
-    weight: 37
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -81,7 +226,7 @@ content:
     third_party_settings: {  }
   field_cat_interest_2:
     type: entity_reference_autocomplete
-    weight: 38
+    weight: 15
     region: content
     settings:
       match_operator: CONTAINS
@@ -91,7 +236,7 @@ content:
     third_party_settings: {  }
   field_cat_interest_3:
     type: entity_reference_autocomplete
-    weight: 39
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS
@@ -101,7 +246,7 @@ content:
     third_party_settings: {  }
   field_ciiu_principal:
     type: string_textfield
-    weight: 55
+    weight: 24
     region: content
     settings:
       size: 60
@@ -109,7 +254,7 @@ content:
     third_party_settings: {  }
   field_ciiu_secundario:
     type: string_textfield
-    weight: 56
+    weight: 25
     region: content
     settings:
       size: 60
@@ -117,15 +262,7 @@ content:
     third_party_settings: {  }
   field_ciiu_terciario:
     type: string_textfield
-    weight: 57
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_company:
-    type: string_textfield
-    weight: 36
+    weight: 26
     region: content
     settings:
       size: 60
@@ -133,7 +270,7 @@ content:
     third_party_settings: {  }
   field_company_adviser:
     type: entity_reference_autocomplete
-    weight: 72
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -143,7 +280,7 @@ content:
     third_party_settings: {  }
   field_company_certification:
     type: entity_reference_autocomplete
-    weight: 63
+    weight: 28
     region: content
     settings:
       match_operator: CONTAINS
@@ -153,14 +290,14 @@ content:
     third_party_settings: {  }
   field_company_certification_file:
     type: file_generic
-    weight: 64
+    weight: 29
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_company_city:
     type: entity_reference_autocomplete
-    weight: 53
+    weight: 22
     region: content
     settings:
       match_operator: CONTAINS
@@ -170,14 +307,14 @@ content:
     third_party_settings: {  }
   field_company_contact_cell_phone:
     type: telephone_default
-    weight: 66
+    weight: 17
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_company_contact_email:
     type: email_default
-    weight: 67
+    weight: 31
     region: content
     settings:
       placeholder: ''
@@ -185,7 +322,7 @@ content:
     third_party_settings: {  }
   field_company_contact_lastname:
     type: string_textfield
-    weight: 59
+    weight: 18
     region: content
     settings:
       size: 60
@@ -193,7 +330,7 @@ content:
     third_party_settings: {  }
   field_company_contact_name:
     type: string_textfield
-    weight: 58
+    weight: 19
     region: content
     settings:
       size: 60
@@ -201,14 +338,14 @@ content:
     third_party_settings: {  }
   field_company_contact_phone:
     type: telephone_default
-    weight: 61
+    weight: 27
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_company_contact_position:
     type: string_textfield
-    weight: 60
+    weight: 16
     region: content
     settings:
       size: 60
@@ -216,7 +353,7 @@ content:
     third_party_settings: {  }
   field_company_contact_position_e:
     type: string_textfield
-    weight: 65
+    weight: 30
     region: content
     settings:
       size: 60
@@ -224,7 +361,7 @@ content:
     third_party_settings: {  }
   field_company_deparment:
     type: entity_reference_autocomplete
-    weight: 52
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -234,7 +371,7 @@ content:
     third_party_settings: {  }
   field_company_info:
     type: string_textarea
-    weight: 49
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -242,7 +379,7 @@ content:
     third_party_settings: {  }
   field_company_info_english:
     type: string_textarea
-    weight: 54
+    weight: 23
     region: content
     settings:
       rows: 5
@@ -250,7 +387,7 @@ content:
     third_party_settings: {  }
   field_company_logo:
     type: image_image
-    weight: 51
+    weight: 20
     region: content
     settings:
       progress_indicator: throbber
@@ -258,7 +395,7 @@ content:
     third_party_settings: {  }
   field_company_model:
     type: entity_reference_autocomplete
-    weight: 62
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -268,7 +405,7 @@ content:
     third_party_settings: {  }
   field_company_model_2:
     type: entity_reference_autocomplete
-    weight: 68
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -278,7 +415,7 @@ content:
     third_party_settings: {  }
   field_company_model_3:
     type: entity_reference_autocomplete
-    weight: 69
+    weight: 22
     region: content
     settings:
       match_operator: CONTAINS
@@ -288,7 +425,7 @@ content:
     third_party_settings: {  }
   field_company_name:
     type: string_textfield
-    weight: 31
+    weight: 21
     region: content
     settings:
       size: 60
@@ -296,7 +433,7 @@ content:
     third_party_settings: {  }
   field_company_video_youtube:
     type: link_default
-    weight: 48
+    weight: 16
     region: content
     settings:
       placeholder_url: ''
@@ -304,23 +441,15 @@ content:
     third_party_settings: {  }
   field_company_web_site:
     type: link_default
-    weight: 47
+    weight: 22
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_complete_name:
-    type: string_textfield
-    weight: 34
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_country:
     type: entity_reference_autocomplete
-    weight: 35
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -330,55 +459,34 @@ content:
     third_party_settings: {  }
   field_country_code_landline:
     type: number
-    weight: 70
+    weight: 32
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_country_code_mobile:
     type: number
-    weight: 73
+    weight: 24
     region: content
     settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_last_password_reset:
-    type: datetime_default
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_password_expiration:
-    type: boolean_checkbox
-    weight: 3
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_previous_id:
-    type: string_textfield
-    weight: 33
-    region: content
-    settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_productive_chain:
     type: options_select
-    weight: 50
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_step:
     type: number
-    weight: 43
+    weight: 15
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_subcat_interest_1:
     type: entity_reference_autocomplete
-    weight: 40
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -388,7 +496,7 @@ content:
     third_party_settings: {  }
   field_subcat_interest_2:
     type: entity_reference_autocomplete
-    weight: 41
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
@@ -398,7 +506,7 @@ content:
     third_party_settings: {  }
   field_subcat_interest_3:
     type: entity_reference_autocomplete
-    weight: 42
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -406,40 +514,34 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  google_analytics:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   language:
-    weight: 0
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   timezone:
-    weight: 6
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
-  user_picture:
-    type: image_image
-    weight: -1
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
 hidden:
+  field_company: true
+  field_complete_name: true
+  field_last_password_reset: true
+  field_password_expiration: true
   field_pending_expire_sent: true
+  field_previous_id: true
+  google_analytics: true
   langcode: true
+  user_picture: true

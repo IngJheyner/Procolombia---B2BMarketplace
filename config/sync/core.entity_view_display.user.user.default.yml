@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_account_status
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
@@ -58,6 +59,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_account_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 91
+    region: content
   field_cat_interest_1:
     type: entity_reference_label
     label: above

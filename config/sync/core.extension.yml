@@ -22,7 +22,6 @@ module:
   bootstrap_layouts: 0
   breakpoint: 0
   captcha: 0
-  change_pwd_page: 0
   chosen: 0
   chosen_lib: 0
   civic_accessibility_toolbar: 0

@@ -56,6 +56,9 @@ class CpAuthService extends ControllerBase
                     } elseif (in_array('asesor_comercial', $roles)) {
                         //return advisor
                         return new JsonResponse(array('role' => 'asesor_comercial'));
+                    } elseif (in_array('asesor_internacional', $roles)) {
+                        //return advisor
+                        return new JsonResponse(array('role' => 'asesor_internacional'));
                     } else {
                         //return error
                         return new JsonResponse(array('error' => 'user without role'));
@@ -93,16 +96,16 @@ class CpAuthService extends ControllerBase
                     user_login_finalize($user);
                 } else {
                     //return error message
-                    return new JsonResponse(['error' => 'User is not active']);
+                    return new JsonResponse(['error' => 'User is not active'],404);
                 }
                 
             } else {
                 //return error
-                return new JsonResponse(['error' => 'Invalid credentials']);
+                return new JsonResponse(['error' => 'Invalid credentials'],404);
             }
         } else {
             //return error message
-            return new JsonResponse(['error' => 'Invalid credentials 2']);
+            return new JsonResponse(['error' => 'Invalid credentials 2'],404);
         }
     }
 

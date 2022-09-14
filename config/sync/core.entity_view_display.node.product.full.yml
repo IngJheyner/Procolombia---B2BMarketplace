@@ -49,212 +49,195 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
-    - image.style.slider_image_product
     - node.type.product
   module:
     - ds
     - field_group
-    - file
-    - iframe
-    - slick
+    - formatter_suite
+    - layout_builder
+    - owlcarousel
     - user
 third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
   field_group:
-    group_left:
+    group_row:
       children:
+        - flag_favorites
+        - group_left
         - field_images
-      label: Left
-      parent_name: group_wrapper
-      region: ds_content
-      weight: 2
+        - group_right
+      label: Row
+      parent_name: ''
+      region: content
+      weight: 0
       format_type: html_element
       format_settings:
-        classes: 'wrapper-left col-md-6'
+        classes: 'group-row row'
+        show_empty_fields: false
         id: ''
         element: div
         show_label: false
         label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_left:
+      children: {  }
+      label: Left
+      parent_name: group_row
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: 'group-left col-sm-4'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
         attributes: ''
         effect: none
         speed: fast
     group_right:
       children:
-        - node_title
+        - cp_core_title_h2_no_link
         - field_body
-        - field_file
-        - field_tariff_heading
-        - field_file_certifications
-        - 'dynamic_block_field:node-categorization_product'
-        - flag_favorites
+        - field_categorization
+        - field_categorization_parent
+        - field_partida_arancelaria_tax
+        - field_pr_country
+        - group_footer_links
       label: Right
-      parent_name: group_wrapper
-      region: ds_content
-      weight: 3
+      parent_name: group_row
+      region: content
+      weight: 5
       format_type: html_element
       format_settings:
-        classes: 'wrapper-right col-md-6'
+        classes: 'group-right col-sm-8'
+        show_empty_fields: false
         id: ''
         element: div
         show_label: false
         label_element: h3
+        label_element_classes: ''
         attributes: ''
         effect: none
         speed: fast
-    group_wrapper:
+    group_footer_links:
       children:
-        - group_left
-        - group_right
-      label: Wrapper
-      parent_name: ''
-      region: ds_content
-      weight: 0
+        - field_file
+        - field_file_certifications
+        - cp_core_close_modal
+      label: 'Footer links'
+      parent_name: group_right
+      region: content
+      weight: 8
       format_type: html_element
       format_settings:
-        classes: 'wrapper-product row'
+        classes: group-footer-links
+        show_empty_fields: false
         id: ''
         element: div
         show_label: false
         label_element: h3
+        label_element_classes: ''
         attributes: ''
         effect: none
         speed: fast
-  ds:
-    layout:
-      id: ds_1col
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        classes:
-          layout_class: {  }
-          ds_content: {  }
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        label: ''
-    regions:
-      ds_content:
-        - group_wrapper
-        - field_iframe
-        - group_left
-        - group_right
-        - field_images
-        - node_title
-        - field_body
-        - field_file
-        - field_tariff_heading
-        - field_file_certifications
-        - 'dynamic_block_field:node-categorization_product'
-        - flag_favorites
-    fields:
-      'dynamic_block_field:node-categorization_product':
-        plugin_id: 'dynamic_block_field:node-categorization_product'
-        weight: 13
-        label: hidden
-        formatter: default
-      node_title:
-        plugin_id: node_title
-        weight: 8
-        label: hidden
-        formatter: default
 id: node.product.full
 targetEntityType: node
 bundle: product
 mode: full
 content:
+  cp_core_close_modal:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  cp_core_title_h2_no_link:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_body:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 9
-    region: ds_content
+    weight: 3
+    region: content
+  field_categorization:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 4
+    region: content
+  field_categorization_parent:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 5
+    region: content
   field_file:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 10
-    region: ds_content
-  field_file_certifications:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 12
-    region: ds_content
-  field_iframe:
-    type: iframe_default
+    type: formatter_suite_general_file_link
     label: hidden
     settings:
-      url: ''
-      title: ''
-      class: ''
-      frameborder: '0'
-      scrolling: ''
-      transparency: '0'
-      allowfullscreen: '0'
-      tokensupport: '0'
-      width: ''
-      height: ''
-      expose_class: ''
-    third_party_settings: {  }
-    weight: 1
-    region: ds_content
-  field_images:
-    type: slick_image
-    label: above
+      titleStyle: text_custom
+      titleCustomText: 'Ver Ficha técnica'
+      classes: ''
+      showLink: '1'
+      openLinkIn: _blank
+      linkTopic: any
+      showSize: 0
+      showIcon: 0
+      listStyle: span
+      listSeparator: ', '
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 2
+    region: content
+  field_file_certifications:
+    type: formatter_suite_general_file_link
+    label: hidden
     settings:
-      caption:
-        title: '0'
-        alt: '0'
-      optionset: images_product
-      layout: ''
-      view_mode: ''
-      cache: 0
-      skin: fullwidth
-      lazy: ''
-      style: ''
-      background: false
-      box_caption: ''
-      box_caption_custom: ''
-      box_media_style: ''
-      loading: lazy
-      preload: false
-      responsive_image_style: ''
-      box_style: ''
-      image_style: slider_image_product
-      media_switch: ''
-      ratio: ''
-      thumbnail_style: ''
-      grid: '1'
-      grid_medium: '1'
-      grid_small: '1'
-      overridables:
-        arrows: '0'
-        autoplay: '0'
-        dots: '0'
-        draggable: '0'
-        infinite: '0'
-        mouseWheel: '0'
-        randomize: '0'
-        variableWidth: '0'
-      optionset_thumbnail: ''
-      skin_thumbnail: ''
-      thumbnail_caption: ''
-      thumbnail_effect: ''
-      thumbnail_position: ''
-      override: false
-      skin_arrows: ''
-      skin_dots: ''
-      use_theme_field: false
-      preserve_keys: false
-      visible_items: null
+      titleStyle: text_custom
+      titleCustomText: 'Ver Certificación del producto'
+      classes: ''
+      showLink: '1'
+      openLinkIn: _self
+      linkTopic: any
+      listStyle: span
+      listSeparator: ', '
+      showSize: 0
+      showIcon: 0
     third_party_settings:
       ds:
         ds_limit: ''
@@ -264,40 +247,92 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 6
-    region: ds_content
-  field_tariff_heading:
-    type: string
-    label: above
+    weight: 3
+    region: content
+  field_images:
+    type: owlcarousel_field_formatter
+    label: hidden
     settings:
-      link_to_entity: false
+      image_style: 280x270
+      image_link: ''
+      items: '3'
+      itemsDesktop: '[1199,4]'
+      itemsDesktopSmall: '[979,3]'
+      itemsTablet: '[768,2]'
+      itemsMobile: '[479,1]'
+      slideSpeed: '200'
+      paginationSpeed: '800'
+      rewindSpeed: '1000'
+      navigation: '1'
+      prevText: Prev
+      nextText: Next
+      rewindNav: '1'
+      pagination: '1'
+      responsive: '1'
+      responsiveRefreshRate: '200'
+      mouseDrag: '1'
+      touchDrag: '1'
+      transitionStyle: fade
+      singleItem: 0
+      itemsScaleUp: 0
+      autoPlay: 0
+      stopOnHover: 0
+      scrollPerPage: 0
+      paginationNumbers: 0
+      navigationText: '["prev","next"]'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 4
+    region: content
+  field_partida_arancelaria_tax:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 6
+    region: content
+  field_pr_country:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 11
-    region: ds_content
+    weight: 7
+    region: content
   flag_favorites:
     settings: {  }
     third_party_settings: {  }
-    weight: 14
-    region: ds_content
+    weight: 2
+    region: content
 hidden:
-  cp_core_close_modal: true
   cp_core_presave_preview: true
-  cp_core_title_h2_no_link: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_aditional_information: true
-  field_categorization: true
-  field_categorization_parent: true
   field_dependent_state: true
   field_exist_certifications: true
   field_export_markets: true
+  field_iframe: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
-  field_partida_arancelaria_tax: true
   field_pr_certifications: true
-  field_pr_country: true
   field_pr_image_1: true
   field_pr_image_2: true
   field_pr_image_3: true
@@ -324,6 +359,7 @@ hidden:
   field_producto_innovador: true
   field_states: true
   field_tag_producto: true
+  field_tariff_heading: true
   field_trading_channel: true
   langcode: true
   links: true

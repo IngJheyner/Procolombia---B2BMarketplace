@@ -13,7 +13,7 @@ use Drupal\Core\Block\BlockBase;
  *   category = @Translation("Cp dashboard col"),
  * )
  */
-class HelloBlock extends BlockBase {
+class CpDashboardBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
