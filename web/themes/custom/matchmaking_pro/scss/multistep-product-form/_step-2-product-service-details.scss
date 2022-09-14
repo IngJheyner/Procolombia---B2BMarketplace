@@ -70,6 +70,7 @@
         }
         @include media-breakpoint-down(lg){
             .information-title{
+                order: 4;
             }
             .field--name-field-aditional-information{
                 margin-bottom: 0 !important;
@@ -118,5 +119,13 @@
     }
     .SumoSelect .chosen-container{
         position: absolute;
+    }
+    #edit-field-partida-arancelaria-tax-wrapper{
+        @include media-breakpoint-down(lg){
+            position: relative;
+            .js-form-item-field-partida-arancelaria-tax{
+                margin-top: 20px;
+            }
+        }
     }
 }

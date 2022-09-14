@@ -9,7 +9,23 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
-
+        //Paso 2 mover cambiar posicion contenedor
+        let partidaAranTax = $('#edit-field-partida-arancelaria-tax-wrapper');
+        let tooltipAranTax = $('.lightbulb-tooltip');
+        function moveAranTax(){
+          if ($(window).width() < 993) {
+            $(partidaAranTax).appendTo('.step_2 .group-left');
+            $(tooltipAranTax).appendTo(partidaAranTax);
+         }
+        }
+        moveAranTax();
+        $(window).resize(function() {
+          if ($(window).width() < 993) {
+           moveAranTax();
+         }else{
+          $(partidaAranTax).prependTo('.step_2 .group-right');
+         }
+      });
         //Botón ver mas paso 3
         const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
         const showMorecType = $('.show-more-cType');
