@@ -12,8 +12,6 @@
     top: -15px;
     left: 10px;
     font-size: 14px;
-    font-weight: 600;
-    font-weight: bold;
     background-color: $white;
     height: 20px;
     padding: 5px 5px 10px;
@@ -129,7 +127,7 @@
         width: calc(100vw - 100px);
         font-size: $font-size-xs;
         @include media-breakpoint-down(sm){
-            width: calc(100vw - 30px);
+            width: calc(100vw - 60px);
         }
         &::before{
             position: absolute;

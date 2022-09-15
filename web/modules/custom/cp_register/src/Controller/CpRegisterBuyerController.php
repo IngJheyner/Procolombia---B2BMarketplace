@@ -56,9 +56,9 @@ class CpRegisterBuyerController extends ControllerBase
              );
          }
 
-         //get advisor user with role asesor_comercial.
+         //get advisor user with role asesor_internacional.
         $query = \Drupal::entityQuery('user');
-        $query->condition('roles', 'asesor_comercial');
+        $query->condition('roles', 'asesor_internacional');
         $uids = $query->execute();
         $users = \Drupal\user\Entity\User::loadMultiple($uids);
         $tree_advisor=[];

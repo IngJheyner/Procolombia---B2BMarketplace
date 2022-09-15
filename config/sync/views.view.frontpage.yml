@@ -378,7 +378,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<img src="https://b2bmarketplace.procolombia.co/sites/default/files/styles/main_banner/public/2022-04/06_exportaciones_b2b_marketplace_desktop_ingles_2.jpg?h=acd3be01" class="img-fluid">'
+            text: "<figure class=\"text-center\"><img src=\"themes/custom/matchmaking_pro/images/icons/MicrosoftTeams-image.png\" class=\"img-fluid\">\r\n</figure>"
             make_link: false
             path: ''
             absolute: false
