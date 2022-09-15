@@ -49,7 +49,8 @@
           }
         }
         // paso 3 Modal Paises agregar clase
-        $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');   
+        $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
+        $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries'); 
 
         //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect({
