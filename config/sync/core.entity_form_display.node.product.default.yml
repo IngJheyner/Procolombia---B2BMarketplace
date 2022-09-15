@@ -51,8 +51,10 @@ dependencies:
     - image.style.thumbnail
     - node.type.product
   module:
+    - advanced_text_formatter
     - file
     - iframe
+    - maxlength
     - path
     - shs
     - svg_image
@@ -466,7 +468,12 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: 100
+        maxlength_js_label: ' '
+      advanced_text_formatter:
+        show_token_tree: 0
   translation:
     weight: 12
     region: content
