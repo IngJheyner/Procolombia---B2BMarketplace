@@ -276,6 +276,15 @@
             justify-content: space-between;
             max-width: 442px;
             align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .messages--error{
+                padding-left: 10px;
+            }
+            @include media-breakpoint-down(lg){
+                max-width: 100%;
+            }
             &.step-4{
             justify-content: flex-start;
             margin-top: 35px;
