@@ -1,4 +1,4 @@
-.path-dashboard .entity-browser-modal{
+.entity-browser-modal.countries-modal{
     background-color: $white !important;
     border-radius: 10px !important;
     max-width: 561px !important;
@@ -92,11 +92,28 @@
                     height: 34px;
                     input{
                         height: 34px;
+                        border: none;
+                        @include media-breakpoint-down(md){
+                            border: none;
+                            border-radius: 4px 0 0 4px;
+                        }
+                    }
+                    @include media-breakpoint-down(lg){
+                        max-width: 100%;
+                        width: auto;
+                        flex-grow: 1;
+                        margin-right: 13px;
+                    }
+
+                    @include media-breakpoint-down(md){
+                        max-width: calc(100% - 34px);
+                        margin-right: 0;
                     }
                 }
                 .form-actions{
                     width: auto;
                     padding: 0;
+                    margin-top: 0;
                     button{
                         @include blue-btn;
                         width: 34px;

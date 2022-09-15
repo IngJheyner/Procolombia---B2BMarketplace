@@ -30,7 +30,6 @@
         const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
         const showMorecType = $('.show-more-cType');
         const showMorecTypeText = $('.show-more-cType span');
-
         const itemCountrie = $('.entities-list .item-container');
         const showMoreCountrie = $('.show-more-countries');
         const showMoreCountrieText = $('.show-more-countries span');
@@ -49,6 +48,9 @@
             $(btn).hide()
           }
         }
+        // paso 3 Modal Paises agregar clase
+        $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');   
+
         //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
