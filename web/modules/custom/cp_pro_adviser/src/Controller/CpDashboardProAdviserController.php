@@ -207,6 +207,8 @@ class CpDashboardProAdviserController extends ControllerBase
             if (!empty($advisor)) {
                 //$query->condition('field_advisor', $advisor, 'CONTAINS');
             }
+            //step equal 3
+            $query->condition('field_step', 3, '=');
 
             //sort
             //check if 
@@ -422,6 +424,8 @@ class CpDashboardProAdviserController extends ControllerBase
             if (!empty($status)) {
                 $query->condition('status', $status, 'CONTAINS');
             }
+            //step equal 5
+            $query->condition('field_step', 5, '=');
             //sort
             //check if 
             switch ($column) {
