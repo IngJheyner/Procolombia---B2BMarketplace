@@ -470,7 +470,7 @@ msgstr "Todo el contenido cargado debe cumplir con la <a href=\"/cp-core-legal\"
 
 #: modules/custom/cp_core/src/Form/CpCoreMultiStepForm.php:424
 msgid "I agree"
-msgstr "Estoy de acuerdo"
+msgstr "Entendido"
 
 #: modules/custom/cp_core/src/Form/CpCoreMultiStepForm.php:455
 msgid "Previous"
