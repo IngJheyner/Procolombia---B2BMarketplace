@@ -12,7 +12,7 @@ display: modal
 display_configuration:
   width: '650'
   height: '500'
-  link_text: 'Seleccionar Países'
+  link_text: Países
   auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
@@ -25,7 +25,7 @@ widgets:
     label: Países
     weight: 1
     settings:
-      submit_text: 'Seleccionar países'
+      submit_text: Países
       auto_select: false
       view: paises
       view_display: entity_browser_1
