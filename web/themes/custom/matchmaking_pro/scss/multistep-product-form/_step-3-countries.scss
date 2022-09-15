@@ -183,7 +183,8 @@
         }
     .show-more-countries,
     .show-more-cType{
-     color: $procol-light-blue;   
+     color: $procol-light-blue;  
+     cursor: pointer; 
     }
 }
 .path-dashboard{

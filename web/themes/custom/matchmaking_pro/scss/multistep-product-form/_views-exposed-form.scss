@@ -45,6 +45,7 @@
 #entity_browser_iframe_paises {
     height: 511px;
     border-radius: 10px;
+    padding-bottom: 21px !important;
     }
     .ui-dialog-content{
         height: auto !important;
@@ -173,6 +174,7 @@
             align-items: center;
             max-width: 213px;
             width: 100%;
+            text-transform: uppercase;
         }
       }
       .table-responsive{
@@ -192,6 +194,7 @@
       a.entity-browser-paises-close {
         align-self: flex-start;
         display: flex;
+        text-transform: uppercase;
         @include gray-btn;
         height: 37px;
         justify-content: center;
