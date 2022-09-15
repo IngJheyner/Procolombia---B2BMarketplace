@@ -53,8 +53,12 @@
         .content {
             background-color: white;
           }
-    }   
+    } 
 }
+.ui-widget-overlay.ui-front.overlay-countries{
+    background-color: $procol-gray-400 !important;
+    opacity: 0.5;
+} 
 
 .entity-browser-paises-form{
     padding: 20px;
