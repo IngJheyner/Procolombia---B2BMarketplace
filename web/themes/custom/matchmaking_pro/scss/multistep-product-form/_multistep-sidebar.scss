@@ -16,6 +16,8 @@
         padding: 0;
         display: flex;
         justify-content: center;
+        margin-right: 0;
+        padding-right: 20px;
         @include media-breakpoint-down(md){
             display: flex;
             justify-content: space-around;
@@ -54,7 +56,7 @@
         &::before{
             position: absolute;
             top: 0;
-            left: 20%;
+            left: 18.5%;
             content: '';
             background-color: $procol-gray-200;
             width: 1px;
@@ -69,9 +71,11 @@
         }
         >li{ 
             position: relative;
-            font-size: $font-size-xs;
+            font-size: $font-size-sm;
             max-width: 126px;
             padding-left: 40px;
+            font-family: 'century_gothicregular';
+            font-size: 12px;
             @include media-breakpoint-down(sm){
                 padding-left: 1px;
             }
@@ -83,7 +87,7 @@
             &::before{
                 position: absolute;
                 counter-increment: headings;
-                content: counter(headings, decimal);
+                content: counter(headings, decimal) ".";
                 color: $white;
                 background-color: $procol-dark-blue;
                 top: -8%;
@@ -103,6 +107,7 @@
                 span{
                     width: 100%;
                     position: static;
+                    font-family: $font-bold-Century-Gothic;
                     @include media-breakpoint-down(md){
                         background-color: transparent;
                     }
@@ -131,6 +136,11 @@
                 }
             
         }
+        span{
+            max-width: 126px;
+            width: 100%;
+            display: flex;
+        }
     }
     >li.current{
         display: none;
@@ -138,7 +148,7 @@
             display: flex;
             position: static;
             z-index: -1;
-            padding: 15px;
+            padding: 10px 20px;
             background-color: $white;
             font-size: 16px;
             font-weight: bold;

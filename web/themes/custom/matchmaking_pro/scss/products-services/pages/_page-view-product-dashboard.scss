@@ -44,4 +44,21 @@
 		width: 100%;
 		padding: 0;
 	}
+	.view-content{
+		@include media-breakpoint-down(lg){
+			padding: 0 !important;
+			.table-responsive {
+				display: none;
+				}
+		}
+	}
+	.attachment.attachment-after{
+		display: none;
+		@include media-breakpoint-down(lg){
+			display: block;
+			.col-sm-12{
+				padding: 0;
+			}
+		}
+	}
 }
