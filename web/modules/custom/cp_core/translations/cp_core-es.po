@@ -910,11 +910,11 @@ msgstr "<strong>Información</strong> del producto o servicio"
 
 #: modules/custom/cp_core/templates/cp-core-node-multistep-legal-modal.html.twig:3
 msgid "Add Product or Service"
-msgstr ""
+msgstr "Agregar producto o servicio"
 
 #: modules/custom/cp_core/templates/cp-core-node-multistep-legal-modal.html.twig:10
 msgid "I Agree"
-msgstr ""
+msgstr "Entendido"
 
 #: modules/custom/cp_core/templates/dsb_company_info.html.twig:7
 msgid "You currently do not have a company or registered products. Please create a company and then its products."
