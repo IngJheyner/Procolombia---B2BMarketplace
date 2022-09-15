@@ -1,0 +1,14 @@
+uuid: 4b893b2e-9830-46ae-8986-f4ede6f82411
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.asesor_internacional
+  module:
+    - user
+id: user_add_role_action.asesor_internacional
+label: 'Añade el rol Asesor Internacional al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: asesor_internacional

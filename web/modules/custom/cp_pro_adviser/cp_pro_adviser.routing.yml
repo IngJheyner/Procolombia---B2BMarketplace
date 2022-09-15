@@ -6,7 +6,7 @@ cp_pro_adviser.render:
 
 ###Index route
 cp_pro_adviser.dashboard:
-  path: "dashboard/adviser/user"
+  path: "dashboard/adviser/user/col"
   defaults:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
   methods:  [GET]
@@ -15,7 +15,7 @@ cp_pro_adviser.dashboard:
 
 ###Index route
 cp_pro_adviser.tablero:
-  path: "tablero/adviser/usuario"
+  path: "tablero/adviser/usuario/col"
   defaults:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
   methods:  [GET]
@@ -76,6 +76,42 @@ cp_pro_adviser.editar_col_company:
   requirements:
     _permission: "access content"
 
+###get_col_user route
+cp_pro_adviser.get_col_user:
+  path: "adviser/get_col_user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::get_col_user'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###update_form col company route
+cp_pro_adviser.update_form_col_company:
+  path: "adviser/update_form_col_company"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::update_form_col_company'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###approve_user_col route
+cp_pro_adviser.approve_user_col:
+  path: "adviser/approve_user_col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::approve_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###reject_user_col route
+cp_pro_adviser.reject_user_col:
+  path: "adviser/reject_user_col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::reject_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
 ###Index edit international company
 cp_pro_adviser.edit_international_company:
   path: "adviser/edit/international"
@@ -90,6 +126,69 @@ cp_pro_adviser.editar_international_company:
   path: "asesor/editar/internacional"
   defaults:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###get_international_user route
+cp_pro_adviser.get_international_user:
+  path: "adviser/get_international_user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::get_international_user'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###update_form international company route
+cp_pro_adviser.update_form_international_company:
+  path: "adviser/update/international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::update_form_international_company'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+  
+###approve_user_international route
+cp_pro_adviser.approve_user_international:
+  path: "adviser/approve_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::approve_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###reject_user_international route
+cp_pro_adviser.reject_user_international:
+  path: "adviser/reject_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::reject_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###getAdvisorLogs route
+cp_pro_adviser.getAdvisorLogs:
+  path: "adviser/getAdvisorLogs"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::getAdvisorLogs'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.dashboard_international:
+  path: "dashboard/adviser/user/international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_pro_adviser.tablero_international:
+  path: "tablero/adviser/usuario/international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
   methods:  [GET]
   requirements:
     _permission: "access content"

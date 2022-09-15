@@ -9,11 +9,27 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
+        //Paso 2 mover cambiar posicion contenedor
+        let partidaAranTax = $('#edit-field-partida-arancelaria-tax-wrapper');
+        let tooltipAranTax = $('.lightbulb-tooltip');
+        function moveAranTax(){
+          if ($(window).width() < 993) {
+            $(partidaAranTax).appendTo('.step_2 .group-left');
+            $(tooltipAranTax).appendTo(partidaAranTax);
+         }
+        }
+        moveAranTax();
+        $(window).resize(function() {
+          if ($(window).width() < 993) {
+           moveAranTax();
+         }else{
+          $(partidaAranTax).prependTo('.step_2 .group-right');
+         }
+      });
         //Botón ver mas paso 3
         const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
         const showMorecType = $('.show-more-cType');
         const showMorecTypeText = $('.show-more-cType span');
-
         const itemCountrie = $('.entities-list .item-container');
         const showMoreCountrie = $('.show-more-countries');
         const showMoreCountrieText = $('.show-more-countries span');
@@ -32,6 +48,9 @@
             $(btn).hide()
           }
         }
+        // paso 3 Modal Paises agregar clase
+        $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');   
+
         //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,

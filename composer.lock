@@ -2730,6 +2730,7 @@
                 "shasum": "849e94b2687ffc1f7984604fda929d7201933757"
             },
             "require": {
+                "drupal/ckeditor": "*",
                 "drupal/core": "*",
                 "drupal/fakeobjects": "^1.0"
             },
@@ -2952,12 +2953,16 @@
                     "homepage": "https://www.drupal.org/u/neslee-canil-pinto"
                 },
                 {
-                    "name": "jkopel",
-                    "homepage": "https://www.drupal.org/user/66207"
-                },
-                {
                     "name": "mikeker",
                     "homepage": "https://www.drupal.org/user/192273"
+                },
+                {
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/user/3580850"
+                },
+                {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
                 },
                 {
                     "name": "rlhawk",
@@ -3722,6 +3727,98 @@
             }
         },
         {
+            "name": "drupal/ckeditor",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ckeditor.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ckeditor-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "d3dd8bfb2301b749599ba48cf76208becdf0eeb3"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.1",
+                    "datestamp": "1662977541",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "dczepierga",
+                    "homepage": "https://www.drupal.org/user/911466"
+                },
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
+                },
+                {
+                    "name": "jcisio",
+                    "homepage": "https://www.drupal.org/user/210762"
+                },
+                {
+                    "name": "Jorrit",
+                    "homepage": "https://www.drupal.org/user/161217"
+                },
+                {
+                    "name": "lauriii",
+                    "homepage": "https://www.drupal.org/user/1078742"
+                },
+                {
+                    "name": "Magnus",
+                    "homepage": "https://www.drupal.org/user/73919"
+                },
+                {
+                    "name": "mkesicki",
+                    "homepage": "https://www.drupal.org/user/922884"
+                },
+                {
+                    "name": "nod_",
+                    "homepage": "https://www.drupal.org/user/598310"
+                },
+                {
+                    "name": "p.wiaderny",
+                    "homepage": "https://www.drupal.org/user/2956619"
+                },
+                {
+                    "name": "vokiel",
+                    "homepage": "https://www.drupal.org/user/2793801"
+                },
+                {
+                    "name": "Wim Leers",
+                    "homepage": "https://www.drupal.org/user/99777"
+                },
+                {
+                    "name": "wwalc",
+                    "homepage": "https://www.drupal.org/user/184556"
+                },
+                {
+                    "name": "xjm",
+                    "homepage": "https://www.drupal.org/user/65776"
+                }
+            ],
+            "description": "WYSIWYG editing for rich text fields using CKEditor.",
+            "homepage": "https://www.drupal.org/project/ckeditor",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ckeditor"
+            }
+        },
+        {
             "name": "drupal/ckeditor_media_embed",
             "version": "1.11.0",
             "source": {
@@ -3736,13 +3833,14 @@
                 "shasum": "30466c48dca41e1c9b1175c02be897e820afb50b"
             },
             "require": {
+                "drupal/ckeditor": "*",
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
                     "version": "8.x-1.11",
-                    "datestamp": "1643570796",
+                    "datestamp": "1643570895",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3760,12 +3858,12 @@
             ],
             "authors": [
                 {
-                    "name": "Jody Lynn",
-                    "homepage": "https://www.drupal.org/user/112500"
-                },
-                {
                     "name": "grndlvl",
                     "homepage": "https://www.drupal.org/user/103553"
+                },
+                {
+                    "name": "Jody Lynn",
+                    "homepage": "https://www.drupal.org/user/112500"
                 }
             ],
             "description": "Adds the Media Embed CKEditor plugins to Drupal.",
@@ -5839,20 +5937,20 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "RenatoG",
-                    "homepage": "https://www.drupal.org/user/3326031"
-                },
-                {
-                    "name": "diamondsea",
-                    "homepage": "https://www.drupal.org/user/430714"
-                },
-                {
                     "name": "hmartens",
                     "homepage": "https://www.drupal.org/user/622826"
                 },
                 {
                     "name": "loopduplicate",
                     "homepage": "https://www.drupal.org/user/717290"
+                },
+                {
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/user/3580850"
+                },
+                {
+                    "name": "RenatoG",
+                    "homepage": "https://www.drupal.org/user/3326031"
                 },
                 {
                     "name": "sonemonu",
@@ -6179,6 +6277,10 @@
             ],
             "authors": [
                 {
+                    "name": "cs_shadow",
+                    "homepage": "https://www.drupal.org/user/2828287"
+                },
+                {
                     "name": "Dave Reid",
                     "homepage": "https://www.drupal.org/user/53892"
                 },
@@ -6191,14 +6293,6 @@
                     "homepage": "https://www.drupal.org/user/3260690"
                 },
                 {
-                    "name": "Wim Leers",
-                    "homepage": "https://www.drupal.org/user/99777"
-                },
-                {
-                    "name": "cs_shadow",
-                    "homepage": "https://www.drupal.org/user/2828287"
-                },
-                {
                     "name": "oknate",
                     "homepage": "https://www.drupal.org/user/471638"
                 },
@@ -6209,6 +6303,10 @@
                 {
                     "name": "slashrsm",
                     "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "Wim Leers",
+                    "homepage": "https://www.drupal.org/user/99777"
                 }
             ],
             "description": "Allows any entity to be embedded within a text area using a WYSIWYG editor.",
@@ -6260,6 +6358,10 @@
                 {
                     "name": "Ben Dougherty",
                     "homepage": "https://www.drupal.org/u/benjy"
+                },
+                {
+                    "name": "benjy",
+                    "homepage": "https://www.drupal.org/user/1852732"
                 },
                 {
                     "name": "larowlan",
@@ -6720,6 +6822,7 @@
                 "shasum": "0a7a3ead609d1efd62f4f4803a41317970d8292d"
             },
             "require": {
+                "drupal/ckeditor": "*",
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
@@ -6858,16 +6961,16 @@
                     "homepage": "https://www.drupal.org/user/647364"
                 },
                 {
-                    "name": "Stalski",
-                    "homepage": "https://www.drupal.org/user/322618"
-                },
-                {
                     "name": "jyve",
                     "homepage": "https://www.drupal.org/user/591438"
                 },
                 {
                     "name": "nils.destoop",
                     "homepage": "https://www.drupal.org/user/361625"
+                },
+                {
+                    "name": "Stalski",
+                    "homepage": "https://www.drupal.org/user/322618"
                 },
                 {
                     "name": "swentel",
@@ -8320,6 +8423,10 @@
                     "name": "Naveen Valecha",
                     "homepage": "https://drupal.org/u/naveenvalecha",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "naveenvalecha",
+                    "homepage": "https://www.drupal.org/user/2665733"
                 }
             ],
             "description": "Provides jQuery UI Touch Punch library.",
@@ -10059,12 +10166,12 @@
                     "homepage": "https://www.drupal.org/node/74958/committers"
                 },
                 {
-                    "name": "japerry",
-                    "homepage": "https://www.drupal.org/user/45640"
-                },
-                {
                     "name": "joelpittet",
                     "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "Letharion",
+                    "homepage": "https://www.drupal.org/user/373603"
                 },
                 {
                     "name": "merlinofchaos",
@@ -10081,10 +10188,6 @@
                 {
                     "name": "samuel.mortenson",
                     "homepage": "https://www.drupal.org/user/2582268"
-                },
-                {
-                    "name": "tim.plunkett",
-                    "homepage": "https://www.drupal.org/user/241634"
                 }
             ],
             "description": "Core Panels display functions; provides no external UI, at least one other Panels module should be enabled.",
@@ -11301,16 +11404,16 @@
             ],
             "authors": [
                 {
-                    "name": "TR",
-                    "homepage": "https://www.drupal.org/user/202830"
-                },
-                {
                     "name": "fago",
                     "homepage": "https://www.drupal.org/user/16747"
                 },
                 {
                     "name": "klausi",
                     "homepage": "https://www.drupal.org/user/262198"
+                },
+                {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
                 }
             ],
             "description": "React on events and conditionally evaluate actions.",
@@ -13327,6 +13430,7 @@
                 "drupal/core": "^8.8 || ^9"
             },
             "require-dev": {
+                "drupal/ckeditor": "*",
                 "drupal/colorbox": "^1.0",
                 "drupal/video_embed_media": "*"
             },
@@ -13347,16 +13451,16 @@
             ],
             "authors": [
                 {
-                    "name": "Sam152",
-                    "homepage": "https://www.drupal.org/user/1485048"
-                },
-                {
                     "name": "jec006",
                     "homepage": "https://www.drupal.org/user/855980"
                 },
                 {
                     "name": "plopesc",
                     "homepage": "https://www.drupal.org/user/282415"
+                },
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
                 }
             ],
             "description": "A pluggable field type for storing videos from external video hosts such as Vimeo and YouTube.",
@@ -22876,5 +22980,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

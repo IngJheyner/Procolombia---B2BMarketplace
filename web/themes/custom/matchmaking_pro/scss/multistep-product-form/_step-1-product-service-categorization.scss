@@ -2,8 +2,12 @@
     label{
         @include label-style;
     }
+    .field-group-html-element.group-right,
+    .field-group-html-element.group-left{
+        gap: 0;
+    }
     .js-form-item-field-product-type{
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(lg){
             margin-bottom: 0 !important;
         }
         margin-top: 0;
@@ -16,10 +20,9 @@
         }
         label.js-form-required{
             color:  $procol-gray-400;
-            font-family: $font-family-Century-Gothic;
 
         }
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(lg){
             margin-top: 0;
         }
         label{
@@ -33,8 +36,9 @@
         }
     }
     .js-form-type-textfield{
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(lg){
             margin-top: 0;
+            margin-bottom: 27px !important;
         }
     }
     .js-form-type-textfield{
@@ -70,6 +74,9 @@
             font-weight: bold;
             font-family: $font-family-Century-Gothic;
             margin-bottom: 0;
+            @include media-breakpoint-down(lg){
+                padding-bottom: 20px;
+            }
         }
     }
     .field--type-string-long,
@@ -98,10 +105,12 @@
         margin-bottom: 0 !important;
     }
     #edit-field-pr-multilingual-step1-0-value-en {
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(lg){
             display: flex;
             flex-direction: column;
-            gap: 26px;
+            .js-form-type-managed-file{
+                margin-bottom: 0 !important;
+            }
         }
         
         }

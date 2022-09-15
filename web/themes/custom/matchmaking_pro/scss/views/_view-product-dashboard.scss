@@ -97,7 +97,8 @@
 			-webkit-box-orient: vertical;
 			text-overflow: ellipsis;
 			overflow: hidden;
-			font-family: 'century_gothicbold';
+			font-family: $font-bold-Century-Gothic;
+			font-weight: normal !important;
 			padding-bottom: 5px;
 			line-height: 20px;
 		}
@@ -223,7 +224,7 @@
 			justify-content: center;
 			min-width: 40px;
 			height: 36px;
-			font-family: 'century_gothicbold';
+			font-family: $font-family-Century-Gothic;
 			font-size: 12px;
 			line-height: 15px;
 			color: #0085CA;
@@ -257,7 +258,7 @@
 
 			th,
 			th a {
-				font-family: 'century_gothicbold';
+				font-family: $font-family-Century-Gothic;
 				font-size: 14px;
 				line-height: 17px;
 				color: #3B3D42;
@@ -347,6 +348,8 @@
 			.views-row{
 				display: flex;
 				flex-direction: column;
+				font-size: 14px ;
+				font-family: $font-family-Century-Gothic;
 				.views-field {
 					display: flex;
 					justify-content: space-between;
@@ -354,7 +357,11 @@
 					font-size: 14px;
 					gap: 20px;
 					.views-label {
-						font-weight: bold;
+						// font-weight: bold;
+						font-family: $font-bold-Century-Gothic;
+					}
+					.field-content{
+						font-size: 13px;
 					}
 					&.views-field-nothing{
 						order: -1;
@@ -372,6 +379,7 @@
 							align-items: center;
 							border-radius: 4px 4px 0 0;
 							background-color: $button-lighter-gray;
+							font-family: $font-family-Century-Gothic;
 						}
 						.field-content{
 							display: none;

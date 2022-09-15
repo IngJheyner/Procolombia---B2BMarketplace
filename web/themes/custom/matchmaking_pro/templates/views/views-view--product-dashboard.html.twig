@@ -40,76 +40,78 @@
   ]
 %}
 
-<div class="two-columns-container row">
-  <div class="col-sm-12">
-    <div{{ attributes.addClass(classes) }}>
-      {{ title_prefix }}
-      {% if title %}
-        {{ title }}
-      {% endif %}
-      {{ title_suffix }}
+<div class="container-fluid">
+  <div class="two-columns-container row">
+    <div class="col-sm-9">
+      <div{{ attributes.addClass(classes) }}>
+        {{ title_prefix }}
+        {% if title %}
+          {{ title }}
+        {% endif %}
+        {{ title_suffix }}
 
-      {% if exposed %}
-        <div class="view-filters">
-          {% if header %}
-            <div class="view-header">
-              {{ header }}
-            </div>
-          {% endif %}
-          {{ exposed }}
-        </div>
-      {% endif %}
-      <div class="after-filters-container">
-      {% if pager %}
-        {{ pager }}
-      {% endif %}
-      </div>
-      {% if attachment_before %}
-        <div class="attachment attachment-before">
-          {{ attachment_before }}
-        </div>
-      {% endif %}
-
-      {% if rows %}
-        <div class="view-content row">
-          {{ rows }}
-        </div>
-      {% elseif empty %}
-        <div class="view-empty">
-          {{ empty }}
-        </div>
-      {% endif %}
-
-      {% if attachment_after %}
-        <div class="attachment attachment-after">
-          {{ attachment_after }}
-        </div>
-      {% endif %}
-      {% if more %}
-        {{ more }}
-      {% endif %}
-
-      <div class="pager-with-count">
-        {% if footer %}
-          <div class="view-footer">
-            {{ footer }}
+        {% if exposed %}
+          <div class="view-filters">
+            {% if header %}
+              <div class="view-header">
+                {{ header }}
+              </div>
+            {% endif %}
+            {{ exposed }}
           </div>
         {% endif %}
-        <div class="pager-right">
-          {% if pager %}
-            {{ pager }}
+        <div class="after-filters-container">
+        {% if pager %}
+          {{ pager }}
+        {% endif %}
+        </div>
+        {% if attachment_before %}
+          <div class="attachment attachment-before">
+            {{ attachment_before }}
+          </div>
+        {% endif %}
+
+        {% if rows %}
+          <div class="view-content row">
+            {{ rows }}
+          </div>
+        {% elseif empty %}
+          <div class="view-empty">
+            {{ empty }}
+          </div>
+        {% endif %}
+
+        {% if attachment_after %}
+          <div class="attachment attachment-after">
+            {{ attachment_after }}
+          </div>
+        {% endif %}
+        {% if more %}
+          {{ more }}
+        {% endif %}
+
+        <div class="pager-with-count">
+          {% if footer %}
+            <div class="view-footer">
+              {{ footer }}
+            </div>
           {% endif %}
+          <div class="pager-right">
+            {% if pager %}
+              {{ pager }}
+            {% endif %}
+          </div>
         </div>
+        {% if feed_icons %}
+          <div class="feed-icons">
+            {{ feed_icons }}
+          </div>
+        {% endif %}
       </div>
-      {% if feed_icons %}
-        <div class="feed-icons">
-          {{ feed_icons }}
-        </div>
-      {% endif %}
     </div>
-  </div>
-  <div class="col-sm-3">
-    {# This zone is to print the company info and contact blocks. #}
+    <div class="col-sm-3">
+      {{ drupal_block('column_dashboad_col') }}
+    </div>
   </div>
 </div>
 
