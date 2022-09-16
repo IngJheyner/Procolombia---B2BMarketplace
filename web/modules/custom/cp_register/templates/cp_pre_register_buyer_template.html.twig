@@ -9,7 +9,7 @@
 		<p class="body_description">{{ "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."|t }}
 		</p>
 		<div class="row gy-4 form_pre_registre">
-			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="nombre_del_sitio" class="form-label">{{ "Names"|t }}
 					<span>*</span>
 				</label>
@@ -22,7 +22,7 @@
 					</i>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="nombre_del_sitio" class="form-label">{{ "Surname"|t }}
 					<span>*</span>
 				</label>
@@ -35,7 +35,7 @@
 					</i>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="business_name" class="form-label">{{ "Company name"|t }}
 					<span>*</span>
 				</label>
@@ -56,19 +56,19 @@
 					<span>{{ "You must register the trade name of the company, which is the name by which your company is recognized; it may or may not be the same company name."|t }}</span>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="sitio" class="form-label">{{ "Cell Phone"|t }}
 				</label>
-				<div class="row p-0">
-					<div class="col-lg-3" style="padding: 0px;">
+				<div class="row p-0" style="justify-content: space-between;">
+					<div class="col-lg-3 code-input" style="padding: 0px;">
 						<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
 					</div>
-					<div class="col-lg-9" style="padding-right: 0px;">
+					<div class="col-lg-9 cel-input" style="padding-right: 0px;padding-left: 0px;">
 						<input class="w-100 form-control" type="tel" name="" id="cellphone">
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="email">{{ "Email"|t }}
 					<sup>*</sup>
 				</label>
@@ -89,7 +89,7 @@
 					<span>{{ "Enter the institutional e-mail address where correspondence from this web site will be sent."|t }}</span>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="sitio" class="form-label">{{ "Preferred language"|t }}<span>*</span>
 				</label>
 				<select id="langcode">
@@ -97,7 +97,7 @@
 					<option value="en">{{ "English"|t }}</option>
 				</select>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<div class="form-group password">
 					<label for="nit">{{ "Password"|t }}
 						<span>*</span>
@@ -132,7 +132,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<div class="form-group password">
 					<label for="nit">{{ "Verify Password"|t }}<span>*</span>
 					</label>
@@ -223,10 +223,8 @@
 				</a>
 			</p>
 		</div>
-		<div class="modal-footer">
-			<div class="spinner-border my-2 m-auto" role="status" style="color: #0085ca;">
-				<span class="visually-hidden">{{ "Loading..."|t }}</span>
-			</div>
+		<div class="modal-footer text-center">
+			<button type="button" data-bs-dismiss="modal" class="btn cita_btn">{{ "UNDERSTOOD"|t }}</button>
 		</div>
 	</div>
 </div></div><div class="modal fade" id="success" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
@@ -280,7 +278,7 @@
 				</div>
 				<div class="col-6 btn_options">
 					<button id="reload_form" class="yes">{{ "YES"|t }}</button>
-					<button data-bs-dismiss="modal" aria-label="Close"  class="no">{{ "NO"|t }}</button>
+					<button data-bs-dismiss="modal" aria-label="Close" class="no">{{ "NO"|t }}</button>
 				</div>
 			</div>
 		</div>

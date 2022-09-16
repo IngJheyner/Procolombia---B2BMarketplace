@@ -1,0 +1,17 @@
+uuid: b3667b3c-dbe9-4455-ab30-30991e2df404
+langcode: es
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 218_x_218
+label: '218 X 218'
+effects:
+  bed47db0-9659-4a72-886c-0302642fa507:
+    uuid: bed47db0-9659-4a72-886c-0302642fa507
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 218
+      height: 218
+      crop_type: focal_point

@@ -338,6 +338,7 @@ div#main {
 
 .toltip_i {
   position: relative;
+  cursor: pointer;
 }
 .toltip_i .tooltiptext {
   visibility: hidden;
@@ -349,6 +350,26 @@ div#main {
   padding: 10px;
   position: absolute;
   z-index: 8;
+  font-family: Gothic-Regular;
+}
+.toltip_i .tooltip-table {
+  visibility: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 15px;
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  right: 0;
+  bottom: -31%;
+  margin: 0 auto;
+  font-family: Gothic-Regular;
+  font-size: 10px;
 }
 .toltip_i .tooltiptext_error {
   visibility: hidden;
@@ -363,6 +384,7 @@ div#main {
   font-family: "Gothic-Regular";
   font-size: 14px;
   right: 1rem;
+  font-family: Gothic-Regular;
 }
 .toltip_i .tooltiptext_yotube {
   visibility: hidden;
@@ -374,9 +396,9 @@ div#main {
   padding: 10px;
   position: absolute;
   z-index: 8;
-  font-family: "Gothic-Regular";
   font-size: 14px;
   right: 1.5rem;
+  font-family: Gothic-Regular;
 }
 .toltip_i .tooltiptext_yotube .note {
   margin-bottom: 0px;
@@ -404,7 +426,7 @@ div#main {
   font-family: Gothic-Bold;
   margin-left: 3px;
 }
-.toltip_i:hover .tooltiptext, .toltip_i:hover .tooltiptext_error, .toltip_i:hover .tooltiptext_yotube, .toltip_i:hover .tooltiptext_menu {
+.toltip_i:hover .tooltiptext, .toltip_i:hover .tooltiptext_error, .toltip_i:hover .tooltiptext_yotube, .toltip_i:hover .tooltiptext_menu, .toltip_i:hover .tooltip-table {
   visibility: visible;
 }
 
@@ -627,6 +649,33 @@ strong {
   color: #ffffff;
 }
 .search_box .search_btn:hover #Trazado_23 {
+  fill: #ffffff;
+}
+
+.search_btn_mobile {
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  border: none;
+  outline: none;
+  padding: 9px 10px;
+  font-size: 20px;
+  border-radius: 4px;
+  height: 100%;
+}
+.search_btn_mobile:focus {
+  border: none;
+  outline: none;
+}
+.search_btn_mobile:active {
+  border: none;
+  outline: none;
+}
+.search_btn_mobile:hover {
+  background-color: #0085ca;
+  color: #ffffff;
+}
+.search_btn_mobile:hover #Trazado_23 {
   fill: #ffffff;
 }
 
@@ -1012,9 +1061,9 @@ div#page {
 .topnav .btn_header_movile {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  margin: 14px;
-  border-radius: 4px;
+  padding: 2.5rem;
+  margin: 0;
+  border-top: 10px solid #E3F3FF;
 }
 .topnav .btn_header_movile #btn_login {
   padding: 17px 14px;
@@ -1030,17 +1079,18 @@ div#page {
   text-decoration: none;
   font-size: 17px;
   display: block;
+  height: 100%;
 }
 .topnav a.icon {
-  background: black;
+  background: white;
   display: block;
-  position: absolute;
   right: 17px;
   top: 17px;
+  color: #3B3D42;
 }
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #E3F3FF;
+  color: #3B3D42;
 }
 
 .topnav {
@@ -1214,9 +1264,15 @@ sup {
   color: #6a6d71;
 }
 
+.toast {
+  display: none !important;
+  z-index: -7 !important;
+  opacity: 0 !important;
+}
+
 @media (max-width: 575.98px) {
   .logo {
-    width: 200px;
+    width: 250px;
     height: 49px;
     padding-left: 0px;
   }
@@ -1225,6 +1281,10 @@ sup {
   }
   .topnav {
     display: block;
+  }
+  .topnav a {
+    display: flex;
+    justify-content: center;
   }
   .row {
     width: 100% !important;
@@ -1346,7 +1406,7 @@ sup {
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .logo {
-    width: 200px;
+    width: 250px;
     height: 49px;
     padding-left: 0px;
   }
@@ -1355,6 +1415,10 @@ sup {
   }
   .topnav {
     display: block;
+  }
+  .topnav a {
+    display: flex;
+    justify-content: center;
   }
   .row {
     width: 100% !important;
@@ -1536,7 +1600,7 @@ textarea:active {
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .logo {
-    width: 200px;
+    width: 250px;
     height: 49px;
     padding-left: 0px;
   }
@@ -1545,6 +1609,10 @@ textarea:active {
   }
   .topnav {
     display: block;
+  }
+  .topnav a {
+    display: flex;
+    justify-content: center;
   }
   .row {
     width: 100% !important;

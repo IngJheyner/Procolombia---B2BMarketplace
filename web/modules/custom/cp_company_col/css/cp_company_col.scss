@@ -54,7 +54,6 @@ div#main {
 
 .dashboard {
   background: $color-White;
-  padding: 3rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,6 +64,7 @@ div#main {
   .card {
     box-shadow: 0px 3px 6px #00000029;
     border: none;
+    width: 98%;
 
     button {
       width: 30%;

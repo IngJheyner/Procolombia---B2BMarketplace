@@ -41,7 +41,7 @@
 %}
 
 <div class="two-columns-container row">
-  <div class="col-sm-12">
+  <div class="col-sm-10">
     <div{{ attributes.addClass(classes) }}>
       {{ title_prefix }}
       {% if title %}
@@ -80,11 +80,16 @@
         </div>
       {% endif %}
 
-      {% if attachment_after %}
+      {# ============================================
+      Esta variables esta dando conflicto en el modal de boostrap
+      =============================================== #}
+      {# if attachment_after %}
         <div class="attachment attachment-after">
           {{ attachment_after }}
         </div>
-      {% endif %}
+      {% endif #}
+      {#{ drupal_dump(attachment_after) }#}
+
       {% if more %}
         {{ more }}
       {% endif %}
@@ -108,8 +113,7 @@
       {% endif %}
     </div>
   </div>
-  <div class="col-sm-3">
-    {# This zone is to print the company info and contact blocks. #}
+  <div class="col-sm-2">
+    {{ drupal_block('column_dashboad_col') }}
   </div>
 </div>
-

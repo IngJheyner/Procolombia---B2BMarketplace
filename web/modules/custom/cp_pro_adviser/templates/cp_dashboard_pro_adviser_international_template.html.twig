@@ -1,0 +1,46 @@
+{{ attach_library('cp_pro_adviser/cp_pro_adviser') }}
+<main class="dashboard">
+	<div id="bussines_international" class="">
+		<div id="not_row" class="form_table row mb-5 gy-4">
+			<div class="col-sm-12 col-lg-4 d-flex flex-column">
+				<label for="company_name_buyer">Nombre de la empresa</label>
+				<input class="form-control" type="text" name="company_name_buyer" id="company_name_buyer">
+			</div>
+			<div class="col-sm-12 col-lg-4 d-flex flex-column">
+				<label for="category">Categoría</label>
+				<select name="category" id="category">
+					{% for category in tree_categorization %}
+					<option value="{{category.ID}}">{{category.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-lg-4 d-flex flex-column">
+				<label for="subcat_interest_1">Subcategoría</label>
+				<select name="subcat_interest_1" id="subcat_interest_1"></select>
+			</div>
+			<div class="col-sm-12 col-lg-4 d-flex flex-column">
+				<label for="status_buyer">Estado</label>
+				<select name="status_buyer" id="status_buyer">
+					<option value="1">Activo</option>
+					<option value="0">Inactivo</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-lg-4">
+				<label for="update_date">Fecha de Actualización</label>
+				<select name="update_date" id="update_date">
+					<option value="si">si</option>
+					<option value="no">no</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-lg-4 d-flex flex-row justify-content-between align-items-end">
+				<button id="filter-buyer" class="filtter_btn btn">
+					<i class='bx bx-slider-alt'></i>
+					Aplicar filtro</button>
+				<button id="clean-buyer" class="clear_btn btn">Limpiar filtro</button>
+			</div>
+		</div>
+		<div class="form_table mt-4">
+			<table id="buyers-list" class="display"></table>
+		</div>
+	</div>
+</main>

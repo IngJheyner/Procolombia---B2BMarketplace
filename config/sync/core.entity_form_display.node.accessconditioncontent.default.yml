@@ -43,9 +43,14 @@ content:
     weight: 1
     region: content
     settings:
-      size: 60
+      size: 250
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Contenido limitado en @limit caracteres, quedan: <strong>@remaining</strong>'
+      advanced_text_formatter:
+        show_token_tree: 0
   field_accessconditioncontent_lin:
     type: link_default
     weight: 5

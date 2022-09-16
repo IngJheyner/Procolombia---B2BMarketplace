@@ -71,6 +71,64 @@ class CpDashboardProAdviserController extends ControllerBase
             '#tree_deparment' => $tree_deparment,
         ];
     }
+
+    public function indexInternational()
+    {
+        $vid = 'categories_flow_semaphore';
+        //load taxonomy_term storage.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_production_chain=[];
+        foreach ($terms as $term) {
+            array_push($tree_production_chain, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+        //List of terms to set a select field modelos_de_negocio.
+        $vid = 'modelos_de_negocio';
+        //load taxonomy_term storage.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_business_model=[];
+        foreach ($terms as $term) {
+            array_push($tree_business_model, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+        //List of terms to set a select field deparments.
+        $vid = 'categorization';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_categorization=[];
+        foreach ($terms as $term) {
+            array_push($tree_categorization, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
+        $vid = 'locations';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_deparment=[];
+        foreach ($terms as $term) {
+            array_push($tree_deparment, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
+        return [
+            // Your theme hook name.
+            '#theme' => 'cp_dashboard_pro_adviser_international_template_hook',
+            '#tree_production_chain' => $tree_production_chain,
+            '#tree_business_model' => $tree_business_model,
+            '#tree_categorization' => $tree_categorization,
+            '#tree_deparment' => $tree_deparment,
+        ];
+    }
     
     /**
      * get subcategories.
@@ -111,7 +169,6 @@ class CpDashboardProAdviserController extends ControllerBase
             $dir = $order[0]['dir'];
 
             $query = \Drupal::entityQuery('user');
-            $query->condition('status', 1);
             $query->condition('roles', 'exportador', 'IN');
             //detect filters if value is not empty
             //filter company_name
@@ -150,6 +207,8 @@ class CpDashboardProAdviserController extends ControllerBase
             if (!empty($advisor)) {
                 //$query->condition('field_advisor', $advisor, 'CONTAINS');
             }
+            //step equal 3
+            $query->condition('field_step', 3, '=');
 
             //sort
             //check if 
@@ -204,7 +263,6 @@ class CpDashboardProAdviserController extends ControllerBase
                 $update_date = date('d/m/Y - H:i', $update_date);
                 //get status name
                 $status = $user->get('status')->value;
-                $status_name = $status == 1 ? 'Activo' : 'Inactivo';
                 //cehck if user has company name
                 $company_name = $user->get('field_company_name')->value;
                 //check if step 3 is completed
@@ -215,6 +273,8 @@ class CpDashboardProAdviserController extends ControllerBase
                         'id' => $user->id(),
                         //get username
                         'nit' => $user->get('name')->value,
+                        //get email
+                        'email' => $user->get('mail')->value,
                         //company name
                         'company_name' => $user->get('field_company_name')->value,
                         //lang
@@ -230,7 +290,7 @@ class CpDashboardProAdviserController extends ControllerBase
                         //get update date or created date of user
                         'update_date' => $update_date,
                         //get status name
-                        'status' => $status_name,
+                        'status' => $user->get('field_account_status')->entity->getName(),
                     );
                 }
                 
@@ -238,7 +298,6 @@ class CpDashboardProAdviserController extends ControllerBase
 
             //get count of all exportador users with count query
             $query = \Drupal::entityQuery('user');
-            $query->condition('status', 1);
             $query->condition('roles', 'exportador', 'IN');
             //detect filters if value is not empty
             //filter company_name
@@ -348,7 +407,6 @@ class CpDashboardProAdviserController extends ControllerBase
             $dir = $order[0]['dir'];
 
             $query = \Drupal::entityQuery('user');
-            $query->condition('status', 1);
             $query->condition('roles', 'buyer', 'IN');
             //detect filters if value is not empty
             //company_name
@@ -366,6 +424,8 @@ class CpDashboardProAdviserController extends ControllerBase
             if (!empty($status)) {
                 $query->condition('status', $status, 'CONTAINS');
             }
+            //step equal 5
+            $query->condition('field_step', 5, '=');
             //sort
             //check if 
             switch ($column) {
@@ -436,14 +496,13 @@ class CpDashboardProAdviserController extends ControllerBase
                         //get update date or created date of user
                         'update_date' => $update_date,
                         //get status name
-                        'status' => $status_name,
+                        'status' => $user->get('field_account_status')->entity->getName(),
                     );
                 }
             }
 
             //get count of all buyer users with count query
             $query = \Drupal::entityQuery('user');
-            $query->condition('status', 1);
             $query->condition('roles', 'buyer', 'IN');
             //detect filters if value is not empty
             //company_name

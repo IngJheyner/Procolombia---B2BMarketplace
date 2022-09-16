@@ -159,11 +159,11 @@ msgstr "Modelo de negocio"
 msgid "Tariff Item"
 msgstr "Partida Arancelaria"
 
-msgid "Tariff Item No.2"
-msgstr "Partida Arancelaria No.2"
+msgid "Tariff Item #2"
+msgstr "Partida Arancelaria #2"
 
-msgid "Tariff Item No.3"
-msgstr "Partida Arancelaria No.3"
+msgid "Tariff Item #3"
+msgstr "Partida Arancelaria #3"
 
 msgid "NOTE:"
 msgstr "NOTA:"

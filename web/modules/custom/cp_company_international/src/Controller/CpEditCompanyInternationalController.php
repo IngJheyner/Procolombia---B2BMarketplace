@@ -57,7 +57,7 @@ class CpEditCompanyInternationalController extends ControllerBase
 
           //get advisor user with role asesor_comercial.
         $query = \Drupal::entityQuery('user');
-        $query->condition('roles', 'asesor_comercial');
+        $query->condition('roles', 'asesor_internacional');
         $uids = $query->execute();
         $users = \Drupal\user\Entity\User::loadMultiple($uids);
         $tree_advisor=[];

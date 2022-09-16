@@ -399,6 +399,7 @@ div#main {
 
 .toltip_i {
 	position: relative;
+	cursor: pointer;
 
 	.tooltiptext {
 		visibility: hidden;
@@ -410,6 +411,26 @@ div#main {
 		padding: 10px;
 		position: absolute;
 		z-index: 8;
+		font-family: $font-regular;
+
+	}
+
+	.tooltip-table {
+		visibility: hidden;
+		width: fit-content;
+		background-color: $color-Black;
+		color: $color-White;
+		text-align: center;
+		border-radius: 6px;
+		padding: 10px 15px;
+		position: absolute;
+		z-index: 8;
+		left: 0;
+		right: 0;
+		bottom: -31%;
+		margin: 0 auto;
+		font-family: $font-regular;
+		font-size: 10px;
 
 	}
 
@@ -426,6 +447,7 @@ div#main {
 		font-family: 'Gothic-Regular';
 		font-size: 14px;
 		right: 1rem;
+		font-family: $font-regular;
 	}
 
 	.tooltiptext_yotube {
@@ -438,9 +460,9 @@ div#main {
 		padding: 10px;
 		position: absolute;
 		z-index: 8;
-		font-family: 'Gothic-Regular';
 		font-size: 14px;
 		right: 1.5rem;
+		font-family: $font-regular;
 
 		.note {
 			margin-bottom: 0px;
@@ -483,7 +505,8 @@ div#main {
 	&:hover .tooltiptext,
 	&:hover .tooltiptext_error,
 	&:hover .tooltiptext_yotube,
-	&:hover .tooltiptext_menu {
+	&:hover .tooltiptext_menu,
+	&:hover .tooltip-table {
 		visibility: visible;
 	}
 
@@ -743,6 +766,36 @@ strong {
 	}
 }
 
+.search_btn_mobile {
+	background-color: $color-White;
+	border: none;
+	outline: none;
+	border: none;
+	outline: none;
+	padding: 9px 10px;
+	font-size: 20px;
+	border-radius: 4px;
+	height: 100%;
+
+	&:focus {
+		border: none;
+		outline: none;
+	}
+
+	&:active {
+		border: none;
+		outline: none;
+	}
+
+	&:hover {
+		background-color: $color-Pantone-process-Blue;
+		color: $color-White;
+
+		#Trazado_23 {
+			fill: $color-White;
+		}
+	}
+}
 .btn-check:checked+.btn:focus,
 .btn-check:active+.btn:focus,
 .btn:active:focus,
@@ -1203,9 +1256,9 @@ div#page {
 	.btn_header_movile {
 		display: flex;
 		flex-direction: column;
-		padding: 1.5rem;
-		margin: 14px;
-		border-radius: 4px;
+		padding: 2.5rem;
+		margin: 0;
+		border-top: 10px solid #E3F3FF;
 
 		#btn_login {
 			padding: 17px 14px;
@@ -1225,18 +1278,19 @@ div#page {
 		text-decoration: none;
 		font-size: 17px;
 		display: block;
-
+		height: 100%;
 		&.icon {
-			background: black;
+			background: white;
 			display: block;
-			position: absolute;
 			right: 17px;
 			top: 17px;
+			color: #3B3D42;
+
 		}
 
 		&:hover {
-			background-color: #ddd;
-			color: black;
+			background-color: #E3F3FF;
+			color: #3B3D42;
 		}
 	}
 }
@@ -1430,7 +1484,11 @@ sup {
 	}
 }
 
-
+.toast {
+	display: none !important;
+	z-index: -7 !important;
+	opacity: 0 !important;
+}
 
 
 
@@ -1443,7 +1501,7 @@ sup {
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
 	.logo {
-		width: 200px;
+		width: 250px;
 		height: 49px;
 		padding-left: 0px;
 	}
@@ -1454,6 +1512,11 @@ sup {
 
 	.topnav {
 		display: block;
+
+		a {
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	.row {
@@ -1603,7 +1666,7 @@ sup {
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767.98px) {
 	.logo {
-		width: 200px;
+		width: 250px;
 		height: 49px;
 		padding-left: 0px;
 	}
@@ -1614,6 +1677,10 @@ sup {
 
 	.topnav {
 		display: block;
+		a {
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	.row {
@@ -1853,7 +1920,7 @@ textarea {
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991.98px) {
 	.logo {
-		width: 200px;
+		width: 250px;
 		height: 49px;
 		padding-left: 0px;
 	}
@@ -1864,6 +1931,10 @@ textarea {
 
 	.topnav {
 		display: block;
+		a {
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	.row {
