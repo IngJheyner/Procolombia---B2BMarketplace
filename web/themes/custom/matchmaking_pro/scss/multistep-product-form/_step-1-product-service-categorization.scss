@@ -109,6 +109,65 @@
     .field--name-title{
         margin-bottom: 0 !important;
     }
+    .field--type-file{
+        summary{
+            display: none;
+        }
+        details{
+            border: none;
+            .details-wrapper{
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                small{
+                    order: +1;
+                }
+                .table-responsive{
+                    .tabledrag-toggle-weight-wrapper{
+                        display: none;
+
+                    }
+                    thead{
+                        display: none;
+                    }
+                    tbody{
+                        .tabledrag-handle{
+                            display: none;
+                        }
+                        td {
+                            padding: 0 !important;
+                            span{
+                                background-color: white;
+                            }
+                            button{
+                                @include remove-files;
+                            }
+                        }
+                    }                    
+                }
+            }
+            
+        }
+        .form-type-select{
+            display: none;
+        }
+
+    }
+    #edit-field-file-en{
+        .details-wrapper{
+            display: flex;
+            flex-direction: column;
+        }
+        small{
+            order: +1;
+        }
+        #edit-field-file-en-0--description{
+            display: none;
+        }
+        .js-form-item{
+            margin-bottom: 0 !important;
+        }
+    }
     #edit-field-file-wrapper--2{
         margin-bottom: 0 !important;
     }

@@ -172,7 +172,14 @@
     
     .js-form-type-managed-file {
         padding-top: 25px;
+        .js-form-managed-file{
+            flex-wrap: wrap;
+            .messages--error{
+                padding-bottom: 10px;
+            }
+
         }
+    }
     #edit-field-pr-sales-channel-wrapper,
     .js-form-item-field-pr-product-availability,
     #edit-field-pr-certifications-wrapper,
