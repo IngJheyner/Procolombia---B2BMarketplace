@@ -35,7 +35,7 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
     $form_object = $form_state->getFormObject();
     $entity = $form_object->getEntity();
 
-    $current_language = $this->languageManager->getCurrentLanguage()->getId();
+    $current_language = $entity->language()->getId();
 
     // If ($entity instanceof FieldConfigInterface) {
     //
