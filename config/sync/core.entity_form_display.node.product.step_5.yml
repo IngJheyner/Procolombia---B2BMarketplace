@@ -184,12 +184,12 @@ third_party_settings:
       weight: 20
       format_type: cp_core_group_markup
       format_settings:
-        show_empty_fields: 1
+        markup:
+          value: '<span>Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia.<br>Si no cuentan con un video en inglés, se sugiere incluir subtítulos al video en español.</span>'
+          format: html
+        show_empty_fields: '1'
         id: ''
         classes: 'form-wrapper lightbulb-tooltip'
-        markup:
-          value: '<span>Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia. Si no cuentan con un video en inglés, se sugiere incluir subtítulos al video en español.</span>'
-          format: html
 id: node.product.step_5
 targetEntityType: node
 bundle: product

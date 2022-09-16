@@ -157,10 +157,6 @@
         .field-group-html-element.group-left{
             border-right: none;
         }
-        .lightbulb-tooltip span{
-            max-width: 400px;
-            top: -100px;
-        }
         .insert-video{
             border: 1px solid $procol-light-blue;
             color: $procol-light-blue;
@@ -231,6 +227,10 @@
             gap: 10px;
             align-items: center;
             position: relative;
+            .form-check-input{
+                width: 18px;
+                height: 18px;
+            }
             input[type=checkbox]:checked{
                 box-shadow: none;
                 

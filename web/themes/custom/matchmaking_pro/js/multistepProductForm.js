@@ -26,6 +26,7 @@
           $(partidaAranTax).prependTo('.step_2 .group-right');
          }
       });
+
         //Botón ver mas paso 3
         const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
         const showMorecType = $('.show-more-cType');
@@ -47,11 +48,18 @@
           }
         }
         // Agregar clases modales Drupal
-        $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
-        $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries'); 
-        $('.view-product-service-presave-preview').closest('.ui-dialog.ui-widget.ui-widget-content').addClass('preview-pr-modal'); 
+          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
+          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries'); 
+          $('.view-product-service-presave-preview').closest('.ui-dialog.ui-widget.ui-widget-content').addClass('preview-pr-modal'); 
+        
+        //Paso 5                
+          if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
+            $('#edit-field-pr-video-wrapper button').show();
+          } else {
+          $('#edit-field-pr-video-wrapper button').hide();
+          }
 
-        //Uso de Sumo select para personlizar campos tipo select
+        //Sumo select
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
           });
@@ -75,15 +83,15 @@
               forceCustomRendering: true,
             }
           );
-          //Agregar clase a campos obligatorios
-          $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
-          $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
+        //Agregar clase a campos obligatorios
+        $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
+        $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
 
-          //Tooltips interacciones
-          $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
-          $('.lightbulb-tooltip').click(()=>{
-          $( '.lightbulb-tooltip span').toggle();
-         })
+        //Tooltips interacciones
+        $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+        $('.lightbulb-tooltip').click(()=>{
+        $( '.lightbulb-tooltip span').toggle();
+        })
 
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
