@@ -26,10 +26,30 @@
           $(partidaAranTax).prependTo('.step_2 .group-right');
          }
       });
+        //Botón ver mas paso 3
+        const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
+        const showMorecType = $('.show-more-cType');
+        const showMorecTypeText = $('.show-more-cType span');
+        const itemCountrie = $('.entities-list .item-container');
+        const showMoreCountrie = $('.show-more-countries');
+        const showMoreCountrieText = $('.show-more-countries span');
         
+        function verMas(item, btn, btnText){
+          if ($(item).length > 3) {
+            $(item).slice(3).hide();
+            $(btn).show();
+            $(btn).click(()=>{
+              $(item).slice(3).toggle()
+              $(btnText).text() === 'Ver más' ? $(btnText).text('Ver menos') : $(btnText).text('Ver más');
+            })
+          } else{
+            $(btn).hide()
+          }
+        }
         // Agregar clases modales Drupal
         $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
         $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries'); 
+        $('.view-product-service-presave-preview').closest('.ui-dialog.ui-widget.ui-widget-content').addClass('preview-pr-modal'); 
 
         //Uso de Sumo select para personlizar campos tipo select
           $('#edit-field-product-type').SumoSelect({
@@ -55,7 +75,6 @@
               forceCustomRendering: true,
             }
           );
-          
           //Agregar clase a campos obligatorios
           $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
           $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
@@ -65,30 +84,11 @@
           $('.lightbulb-tooltip').click(()=>{
           $( '.lightbulb-tooltip span').toggle();
          })
+
         //Cargar modales
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
-          //Botón ver mas paso 3
-        const itemCertificationType = $('.js-form-item-field-pr-type-certifications .select2-container--default li.select2-selection__choice');
-        const showMorecType = $('.show-more-cType');
-        const showMorecTypeText = $('.show-more-cType span');
-        const itemCountrie = $('.entities-list .item-container');
-        const showMoreCountrie = $('.show-more-countries');
-        const showMoreCountrieText = $('.show-more-countries span');
-        
         verMas(itemCountrie, showMoreCountrie, showMoreCountrieText);
         verMas(itemCertificationType, showMorecType, showMorecTypeText);
-        function verMas(item, btn, btnText){
-          if ($(item).length > 3) {
-            $(item).slice(3).hide();
-            $(btn).show();
-            $(btn).click(()=>{
-              $(item).slice(3).toggle()
-              $(btnText).text() === 'Ver más' ? $(btnText).text('Ver menos') : $(btnText).text('Ver más');
-            })
-          } else{
-            $(btn).hide()
-          }
-        }
           $('.step_4 .js-form-type-managed-file.form-type-managed-file small.description').wrap('<div class="tooltip-img"></div>');
           // Agregar clase a los pasos anteriores
           const currentStep = $("li.current");
