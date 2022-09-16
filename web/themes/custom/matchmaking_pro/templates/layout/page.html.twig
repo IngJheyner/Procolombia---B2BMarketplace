@@ -329,7 +329,7 @@
                 </div>
               </li>
               <li>
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/dashboard">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.777"
                     height="23.182" viewbox="0 0 22.777 23.182">
                     <defs>
@@ -660,7 +660,7 @@
                 </div>
               </li>
               <li id="button_dashboard_buyer">
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/dashboard/adviser/user/col">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.777"
                     height="23.182" viewbox="0 0 22.777 23.182">
                     <defs>
@@ -1076,7 +1076,7 @@
                 </div>
               </li>
               <li id="button_dashboard_buyer">
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/dashboard/adviser/user/international">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.777"
                     height="23.182" viewbox="0 0 22.777 23.182">
                     <defs>
@@ -1554,7 +1554,7 @@
                 </div>
               </li>
               <li>
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/dashboard/international/user">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.777"
                     height="23.182" viewbox="0 0 22.777 23.182">
                     <defs>
@@ -1889,6 +1889,56 @@
             src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/logo_pco_negro2%20%281%29.svg"
             alt="" srcset="">
         </a>
+        <div class="d-flex justify-content-end" style="background-color: #fff;">
+          <div>
+            <button aria-label="Buscar" class="search_btn_mobile">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.837"
+                height="17.588" viewbox="0 0 20.837 17.588">
+                <defs>
+                  <linearGradient id="search_icon_mobil" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+                    <stop offset="0" stop-color="#3b3d42" />
+                    <stop offset="1" stop-color="#a1a5aa" />
+                  </linearGradient>
+                  <linearGradient id="search_circle_mobile" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+                    <stop offset="0" stop-color="#d88d00" />
+                    <stop offset="1" stop-color="#edc500" />
+                  </linearGradient>
+                </defs>
+                <g id="Grupo_3613" data-name="Grupo 3613" transform="translate(-890.917 -7.949)">
+                  <path id="Trazado_23" data-name="Trazado 23"
+                    d="M15.57,14.062h-.794l-.282-.272a6.546,6.546,0,1,0-.7.7l.272.282v.794l5.028,5.018,1.5-1.5Zm-6.034,0a4.525,4.525,0,1,1,4.525-4.525A4.519,4.519,0,0,1,9.537,14.062Z"
+                    transform="translate(891.166 4.949)" fill="url(#search_icon_mobil)" />
+                  <path id="Trazado_3506" data-name="Trazado 3506"
+                    d="M469.118,357.48a1.231,1.231,0,1,1-1.231,1.231,1.232,1.232,0,0,1,1.231-1.231"
+                    transform="translate(423.03 -348.521)" fill-rule="evenodd" fill="url(#search_circle_mobile)" />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="dropdown ms-1">
+            <button id="drop_menu_movile" class="btn dropdown-toggle" type="button">
+              <img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
+                alt="" srcset="">
+              <span class="text-truncate">{{language}}</span>
+            </button>
+            <ul class="dropdown-menu" id="lenguaje">
+              <li id="change_language">
+                <a class="dropdown-item" href="#">
+                  <img
+                    src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
+                    alt="" srcset="">
+                  <span class="text-truncate">{{language_2}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="ms-3">
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+
         <div id="myLinks">
           <div class="btn_header_movile">
 
@@ -1900,9 +1950,7 @@
             </button>
           </div>
         </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
+
       </div>
       {% endif %}
     </header>
