@@ -177,7 +177,7 @@ function myFunction() {
                   if (data.role == "asesor_internacional") {
                     url = "/dashboard/adviser/user/international";
                   } else {
-                    url = "/dashboard";
+                    url = "/";
                   }
                 }
               }
@@ -602,6 +602,10 @@ function myFunction() {
       });
       //add css when click drop_menu
       $("#drop_menu", context).click(function () {
+        //toggle style css
+        $("#lenguaje").toggleClass("active_dropdown");
+      });
+      $("#drop_menu_movile", context).click(function () {
         //toggle style css
         $("#lenguaje").toggleClass("active_dropdown");
       });
