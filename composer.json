@@ -277,9 +277,6 @@
                 "If Redis connection is not configured, the report page shows warnings":"https://www.drupal.org/files/issues/2021-04-07/redis-report_warnings-3207574-2.patch",
                 "Default lifetime for permanent TTL": "https://www.drupal.org/files/issues/2020-09-23/redis-default_permanent_ttl-2944938.patch"
             },
-            "drupal/google_analytics":{
-                "Passing null to parameter #2": "https://www.drupal.org/files/issues/2022-06-03/google_analytics-jsonserialize-code-standard-fixes-3258588-20.patch"
-            },
             "drupal/color_field":{
                  "Warning Implicit color_field ColorRGB ": "https://www.drupal.org/files/issues/2022-02-23/3265958-implicit-conversion-float-int.patch"
             },
