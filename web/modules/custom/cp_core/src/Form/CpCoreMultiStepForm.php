@@ -354,10 +354,10 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_file']['widget']['#description'] = NULL;
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file'])) {
-        $form['field_pr_multilingual_step1']['widget']['value'][0]['en']['field_file']['widget']['#title'] = 'Technical specifications';
-        $form['field_pr_multilingual_step1']['widget']['value'][0]['en']['field_file']['widget']['#file_upload_title'] = 'Technical specifications';
-        $form['field_pr_multilingual_step1']['widget']['value'][0]['en']['field_file']['widget']['#file_upload_description']['#description'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
-        $form['field_pr_multilingual_step1']['widget']['value'][0]['en']['field_file']['widget']['#description'] = NULL;
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#title'] = 'Technical specifications';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#file_upload_title'] = 'Technical specifications';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#file_upload_description']['#description'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#description'] = NULL;
 
       }
       if (isset($form['field_aditional_information']['widget'][0]['value']['#title'])) {
