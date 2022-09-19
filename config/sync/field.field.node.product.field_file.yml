@@ -12,7 +12,7 @@ field_name: field_file
 entity_type: node
 bundle: product
 label: 'Technique sheet'
-description: 'Solo se permiten archivos con formato pdf con un peso máximo de 500K.'
+description: 'Only files in pdf format with a maximum weight of 500K are allowed.'
 required: false
 translatable: true
 default_value: {  }
