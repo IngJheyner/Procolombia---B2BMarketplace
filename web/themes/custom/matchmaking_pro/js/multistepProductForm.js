@@ -79,27 +79,29 @@
             searchText: Drupal.t('Search'),
             noMatch: Drupal.t('No matches for "{0}"')
           });
-          if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').val().length > 0) {
-            $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');
-          }
-          else {
-            $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').removeClass('filtered');
-          }
-          $('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').once().keyup(function() {
-            if ($(this).val().length > 0) {
+          if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').length) {
+            if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').val().length > 0) {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');
             }
             else {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').removeClass('filtered');
             }
-            setTimeout(function() {
-              $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options.filtered li:not(.hidden)').each(function (index) {
-                if (index > 10) {
-                  $(this).addClass('hidden');
-                }
-              });
-            }, 200);
-          });
+            $('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').once().keyup(function() {
+              if ($(this).val().length > 0) {
+                $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');
+              }
+              else {
+                $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').removeClass('filtered');
+              }
+              setTimeout(function() {
+                $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options.filtered li:not(.hidden)').each(function (index) {
+                  if (index > 10) {
+                    $(this).addClass('hidden');
+                  }
+                });
+              }, 200);
+            });
+          }
 
           $('#edit-field-pr-product-availability').SumoSelect(
             {

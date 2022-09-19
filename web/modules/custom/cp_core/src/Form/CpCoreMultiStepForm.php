@@ -330,9 +330,11 @@ class CpCoreMultiStepForm extends FormBase {
 
       if (isset($form['title']['widget'][0]['value']['#title'])) {
         $form['title']['widget'][0]['value']['#title'] = 'Nombre del producto / servicio';
+        $form['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'] = 'Product/service';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
       }
       if (isset($form['field_body']['widget'][0]['value']['#title'])) {
         $form['field_body']['widget'][0]['value']['#placeholder'] = t('Descripción del producto / Servicio');
