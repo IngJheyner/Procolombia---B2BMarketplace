@@ -49,8 +49,7 @@
         }
         // Agregar clases modales Drupal
           $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
-          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries'); 
-          $('.view-product-service-presave-preview').closest('.ui-dialog.ui-widget.ui-widget-content').addClass('preview-pr-modal'); 
+          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')  
         
         //Paso 5                
           if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
@@ -119,14 +118,14 @@
             }
             //Cargar modal primer paso cuando el formulario se abre la primera vez
             document.addEventListener('load', function(e) {
-                //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
-                if(window.location.hash !== "#cp-core-multistep-form" ) {
-                    showFirstStepModal.show();
-                    hideModal(btnCloseFirstSt,showFirstStepModal);
-                    document.body.classList.add('multistep-form')
-                }else{
-                  showFirstStepModal.hide();
-                }
+              //Mostrar modal cuando la pagina se abre por primera vez y ocultar modal cual se da clic en aceptar
+              if(window.location.hash !== "#cp-core-multistep-form" ) {
+                showFirstStepModal.show();
+                hideModal(btnCloseFirstSt,showFirstStepModal);
+                document.body.classList.add('multistep-form')
+              }else{
+                showFirstStepModal.hide();
+              }
 
             }, true);
           }
@@ -194,8 +193,6 @@
             $(this).closest('form').find('button.save-and-publish').click();
           });
         }
-
-
 
         // Close drupal default modal.
         if ($('.node--view-mode-product-service-presave-preview .close').length) {
