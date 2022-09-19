@@ -92,6 +92,13 @@
             else {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').removeClass('filtered');
             }
+            setTimeout(function() {
+              $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options.filtered li:not(.hidden)').each(function (index) {
+                if (index > 10) {
+                  $(this).addClass('hidden');
+                }
+              });
+            }, 200);
           });
 
           $('#edit-field-pr-product-availability').SumoSelect(
