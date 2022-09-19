@@ -8,7 +8,7 @@
         padding-bottom: 0;
     }
     .group-top{
-       padding: 0; 
+       padding: 0;
        .step-2-title{
            color: $procol-black;
            font-size: 24px;
@@ -37,7 +37,7 @@
                 padding-bottom: 20px;
                 font-size:$font-size-lg;
                }
-               
+
            }
        }
     }
@@ -54,7 +54,7 @@
         }
         .field--name-field-categorization{
             flex-grow: 2;
-            margin-bottom: 0 !important;    
+            margin-bottom: 0 !important;
         }
         .js-form-item{
             margin-bottom: 0 !important;
@@ -83,11 +83,31 @@
             .js-form-item{
                 margin-bottom: 0 !important;
             }
-            
+
         }
         .field--name-field-partida-arancelaria-tax{
             padding-top: 20px;
             margin-bottom: 0 !important;
+            .optWrapper {
+                ul.options:not(.filtered) {
+                    li.opt {
+                        display: none;
+                        &:nth-child(1),
+                        &:nth-child(2),
+                        &:nth-child(3),
+                        &:nth-child(4),
+                        &:nth-child(5),
+                        &:nth-child(6),
+                        &:nth-child(7),
+                        &:nth-child(8),
+                        &:nth-child(9),
+                        &:nth-child(10)
+                        {
+                            display: block;
+                        }
+                    }
+                }
+            }
         }
     }
     .information-title{
@@ -96,7 +116,7 @@
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 16px;
-            @include media-breakpoint-down(lg){                
+            @include media-breakpoint-down(lg){
             padding: 0 11px;
             }
         }

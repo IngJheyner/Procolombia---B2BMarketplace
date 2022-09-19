@@ -128,8 +128,11 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
               $field_name_with_ident = $this->getUniqueName($field_name, $langcode);
               foreach ($form_state->get('language_values_' . $langcode) as $fn => $fv) {
                 if ($fn == $field_name_with_ident) {
-                  foreach ($fv as $delta => $dv) {
-                    $translated_items->appendItem($dv);
+                  foreach ($fv as $dv) {
+                    // Check if the delta is not empty.
+                    if (!empty($dv['value']) || !empty($dv['fids'])) {
+                      $translated_items->appendItem($dv);
+                    }
                   }
                 }
               }
