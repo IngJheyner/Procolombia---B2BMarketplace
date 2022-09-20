@@ -344,10 +344,10 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'] = 'Description';
       }
       if (isset($form['field_body']['widget'][0]['value']['#description'])) {
-        $form['field_body']['widget']['#prefix'] = '<div class="lightbulb-tooltip"><span>Por favor incluya una descripción resumen del producto/servicio con sus principales características y/o atributos.</span></div>';
+        $form['field_body']['widget'][0]['value']['#description'] = 'Por favor incluya una descripción resumen del producto/servicio con sus principales características y/o atributos.';
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'])) {
-        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget']['#prefix'] = '<div class="lightbulb-tooltip"><span>Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.</span></div>';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'] = 'Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.';
       }
       if (isset($form['field_file']['widget'])) {
         $form['field_file']['widget']['#title'] = 'Ficha técnica';
@@ -360,6 +360,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#file_upload_title'] = 'Technical specifications';
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#file_upload_description']['#description'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#description'] = NULL;
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['#weight'] = 99;
 
       }
       if (isset($form['field_aditional_information']['widget'][0]['value']['#title'])) {
