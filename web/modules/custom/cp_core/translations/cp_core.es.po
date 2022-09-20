@@ -1677,6 +1677,18 @@ msgstr "Peso para la fila @number"
 msgid "Add a new file"
 msgstr "Añadir archivo nuevo"
 
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:171
+msgid "Include file in display"
+msgstr "Incluir archivo en presentación"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:193
+msgid "Description"
+msgstr "Descripción"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:196
+msgid "The description may be used as the label of the link to the file."
+msgstr "La descipción se puede usar como etiqueta del enlace al archivo."
+
 #: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:19
 msgid "CP Core: File"
 msgstr ""
@@ -1770,13 +1782,27 @@ msgstr ""
 
 #: templates/cp-core-node-multistep-legal-modal.html.twig:10
 msgid "I Agree"
-msgstr "De acuerdo"
+msgstr "Entendido"
 
 #: templates/cp_core_translations.html.twig:1
 msgid "<span>In order to ensure the smooth operation of the system, it will only display the first 10 matching products.</span>"
+msgstr "<span>A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.</span>"
+
+#: templates/cp_core_translations.html.twig:2
+msgid "<h2>Add Product Videos</h2><p>It is recommended to upload real videos of the product in good quality to improve the positioning of your product within the Catalog.</p>"
 msgstr ""
-"<span>A fin de asegurar el buen funcionamiento del sistema, sólo "
-"presentará los 10 primeros productos coincidentes.</span>"
+"<h2>Agregar Vídeos del producto</h2><p>Se recomienda cargar vídeos "
+"reales del producto en buena calidad para mejorar el posicionamiento "
+"de su producto dentro del Catálogo.</p>"
+
+#: templates/cp_core_translations.html.twig:3
+msgid "<span>We suggest uploading summary videos that give a cross-sectional tour of the company's offer. It is important for the international buyer because it quickly, briefly and directly shows the skills, competencies and experience.<br>If they do not have an English video, it is suggested to include subtitles to the video in Spanish.</span>"
+msgstr "<span>Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia.<br>Si no cuentan con un video en inglés, se sugiere incluir subtítulos al video en español.</span>"
+
+#: templates/cp_core_translations.html.twig:4
+msgid "<h2>Add product images</h2><p>It is recommended to upload real photographs of the product in good quality to improve the positioning of your product within the Catalog.</p>"
+msgstr "<h2>Agregar imágenes del producto</h2><p>Se recomienda cargar fotografías reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>"
+
 
 #: templates/dsb_company_info.html.twig:7
 msgid "You currently do not have a company or registered products. Please create a company and then its products."
