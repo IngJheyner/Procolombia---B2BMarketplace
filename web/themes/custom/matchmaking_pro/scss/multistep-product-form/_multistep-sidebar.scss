@@ -17,7 +17,6 @@
         display: flex;
         justify-content: center;
         margin-right: 0;
-        padding-right: 20px;
         @include media-breakpoint-down(md){
             display: flex;
             justify-content: space-around;
@@ -50,13 +49,10 @@
                 }
             }
         }
-        @include media-breakpoint-down(sm){
-            transform: translateX(-5%);
-        }
         &::before{
             position: absolute;
             top: 0;
-            left: 18.5%;
+            left: 15px;
             content: '';
             background-color: $procol-gray-200;
             width: 1px;
@@ -72,10 +68,15 @@
         >li{ 
             position: relative;
             font-size: $font-size-sm;
-            max-width: 126px;
-            padding-left: 40px;
+            max-width: 182px;
+            padding-left: 38px;
             font-family: 'century_gothicregular';
             font-size: 12px;
+            width: 100%;
+            padding-right: 10px;
+            @include media-breakpoint-down(md){
+                max-width: 26px;
+            }
             @include media-breakpoint-down(sm){
                 padding-left: 1px;
             }
