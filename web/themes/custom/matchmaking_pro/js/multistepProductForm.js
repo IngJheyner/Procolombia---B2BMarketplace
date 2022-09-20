@@ -53,11 +53,11 @@
           $('.view-product-service-presave-preview').closest('.ui-dialog.ui-widget.ui-widget-content').addClass('preview-pr-modal');
 
         //Paso 5
-          if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
-            $('#edit-field-pr-video-wrapper button').show();
-          } else {
-          $('#edit-field-pr-video-wrapper button').hide();
-          }
+          // if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
+          //   $('#edit-field-pr-video-wrapper button').show();
+          // } else {
+          // $('#edit-field-pr-video-wrapper button').hide();
+          // }
 
         //Sumo select
           $('#edit-field-product-type').SumoSelect({
@@ -294,7 +294,7 @@
           $('input#edit-field-pr-video-2-0-value').once().change(function(e) {
             if ($(this).val() != "") {
               $(this).trigger('state:empty');
-            }
+            }4
           });
         }
 

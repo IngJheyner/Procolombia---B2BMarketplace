@@ -56,8 +56,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-09-20 17:05+0200\n"
-"PO-Revision-Date: 2022-09-20 17:05+0200\n"
+"POT-Creation-Date: 2022-09-20 19:13+0200\n"
+"PO-Revision-Date: 2022-09-20 19:13+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -139,7 +139,7 @@ msgstr "@num elementos"
 msgid "Email or NIT"
 msgstr "Correo or NIT"
 
-#: cp_core.module:720 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:508;518;553;565;665;675 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
+#: cp_core.module:720 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:509;519;554;566;666;676 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -389,11 +389,11 @@ msgstr ""
 msgid "terms of use"
 msgstr ""
 
-#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:531;578;656;688;701 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:532;579;657;689;702 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
 msgid "Yes"
 msgstr "Si"
 
-#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:533;580;658;690;703 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:534;581;659;691;704 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
 msgid "No"
 msgstr "No"
 
@@ -553,82 +553,82 @@ msgstr ""
 msgid "Descripción del producto / Servicio"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:464;653
+#: src/Form/CpCoreMultiStepForm.php:465;654
 msgid "Add product / service"
 msgstr "Añadir producto / servicio"
 
-#: src/Form/CpCoreMultiStepForm.php:465
+#: src/Form/CpCoreMultiStepForm.php:466
 msgid "All uploaded content must comply with the <a href=\"/en/information/terms-use\" target=\"_BLANK\">publishing policy.</a>"
 msgstr ""
 "Todo el contenido subido debe cumplir con las  <a "
 "href=\"/informacion/condiciones-de-uso\" target=\"_BLANK\">políticas "
 "de publicación.</a>"
 
-#: src/Form/CpCoreMultiStepForm.php:466
+#: src/Form/CpCoreMultiStepForm.php:467
 msgid "I agree"
 msgstr "De acuerdo"
 
-#: src/Form/CpCoreMultiStepForm.php:497
+#: src/Form/CpCoreMultiStepForm.php:498
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/Form/CpCoreMultiStepForm.php:528;575;685
+#: src/Form/CpCoreMultiStepForm.php:529;576;686
 msgid "Cancel process"
 msgstr "Cancelar el proceso"
 
-#: src/Form/CpCoreMultiStepForm.php:529;576;686
+#: src/Form/CpCoreMultiStepForm.php:530;577;687
 msgid "You are about to cancel the \"Upload product or service\" process."
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:530;577;655;687;700
+#: src/Form/CpCoreMultiStepForm.php:531;578;656;688;701
 msgid "Do you wish to continue?"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:538;585
+#: src/Form/CpCoreMultiStepForm.php:539;586
 msgid "Next"
 msgstr "Continuar"
 
-#: src/Form/CpCoreMultiStepForm.php:545
+#: src/Form/CpCoreMultiStepForm.php:546
 msgid "Insert video"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:617
+#: src/Form/CpCoreMultiStepForm.php:618
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: src/Form/CpCoreMultiStepForm.php:626
+#: src/Form/CpCoreMultiStepForm.php:627
 msgid "Unselect All"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:643
+#: src/Form/CpCoreMultiStepForm.php:644
 msgid "Load another product"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:654
+#: src/Form/CpCoreMultiStepForm.php:655
 msgid "You are about to upload another product/service, you must start the <strong>\"Product or service information\"</strong> process to add a new product."
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:698
+#: src/Form/CpCoreMultiStepForm.php:699
 msgid "Send to aprobation"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:699
+#: src/Form/CpCoreMultiStepForm.php:700
 msgid "Do you want send to aprobation the loaded product/services?<br /><strong>@products</strong>"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:709;717
+#: src/Form/CpCoreMultiStepForm.php:710;718
 msgid "Save and publish"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:735
+#: src/Form/CpCoreMultiStepForm.php:736
 msgid "Successful process"
 msgstr "Proceso exitoso"
 
-#: src/Form/CpCoreMultiStepForm.php:736
+#: src/Form/CpCoreMultiStepForm.php:737
 msgid "Your products <strong>\"@elements\"</strong> are in pending status for approval by ProColombia.<br /><br />Products without selection have been successfully saved in the system. If you want to publish them, you must go to the user dashboard and select the Edit option."
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:737
+#: src/Form/CpCoreMultiStepForm.php:738
 msgid "I got it"
 msgstr ""
 
@@ -1012,6 +1012,18 @@ msgstr "Peso para la fila @number"
 msgid "Add a new file"
 msgstr "Añadir archivo nuevo"
 
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:171
+msgid "Include file in display"
+msgstr "Incluir archivo en presentación"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:193
+msgid "Description"
+msgstr "Descripción"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:196
+msgid "The description may be used as the label of the link to the file."
+msgstr "La descipción se puede usar como etiqueta del enlace al archivo."
+
 #: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:19
 msgid "CP Core: File"
 msgstr ""
@@ -1066,7 +1078,7 @@ msgstr ""
 
 #: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:118
 msgid "Add"
-msgstr "Añadir"
+msgstr "Agregar"
 
 #: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:18
 msgid "CP Core: Video with preview"
@@ -1109,7 +1121,32 @@ msgstr "De acuerdo"
 
 #: templates/cp_core_translations.html.twig:1
 msgid "<span>In order to ensure the smooth operation of the system, it will only display the first 10 matching products.</span>"
-msgstr "<span>A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.</span>"
+msgstr ""
+"<span>A fin de asegurar el buen funcionamiento del sistema, sólo "
+"presentará los 10 primeros productos coincidentes.</span>"
+
+#: templates/cp_core_translations.html.twig:2
+msgid "<h2>Add Product Videos</h2><p>It is recommended to upload real videos of the product in good quality to improve the positioning of your product within the Catalog.</p>"
+msgstr ""
+"<h2>Agregar Vídeos del producto</h2><p>Se recomienda cargar vídeos "
+"reales del producto en buena calidad para mejorar el posicionamiento "
+"de su producto dentro del Catálogo.</p>"
+
+#: templates/cp_core_translations.html.twig:3
+msgid "<span>We suggest uploading summary videos that give a cross-sectional tour of the company's offer. It is important for the international buyer because it quickly, briefly and directly shows the skills, competencies and experience.<br>If they do not have an English video, it is suggested to include subtitles to the video in Spanish.</span>"
+msgstr ""
+"<span>Sugerimos subir videos resumen que dan un paseo transversal la "
+"oferta de la empresa. Es importante para el comprador internacional "
+"porque muestra de forma rápida, breve y directa las habilidades, "
+"competencias y experiencia.<br>Si no cuentan con un video en inglés, "
+"se sugiere incluir subtítulos al video en español.</span>"
+
+#: templates/cp_core_translations.html.twig:4
+msgid "<h2>Add product images</h2><p>It is recommended to upload real photographs of the product in good quality to improve the positioning of your product within the Catalog.</p>"
+msgstr ""
+"<h2>Agregar imágenes del producto</h2><p>Se recomienda cargar "
+"fotografías reales del producto en buena calidad para mejorar el "
+"posicionamiento de su producto dentro del Catálogo.</p>"
 
 #: templates/dsb_company_info.html.twig:7
 msgid "You currently do not have a company or registered products. Please create a company and then its products."
