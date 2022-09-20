@@ -21,6 +21,15 @@
 #  templates/dsb_add_product.html.twig: n/a
 #  config/schema/cp_core.schema.yml: n/a
 #  src/Form/CpCoreNotificationsSettings.php: n/a
+#  class.nusoap_base.php,v 1.56 2010/04/26 20:15:08 snichol
+#  nusoap.php,v 1.123 2010/04/26 20:15:08 snichol
+#  class.soap_parser.php,v 1.42 2010/04/26 20:15:08 snichol
+#  class.soap_server.php,v 1.63 2010/04/26 20:15:08 snichol
+#  class.soap_transport_http.php,v 1.68 2010/04/26 20:15:08 snichol
+#  class.soapclient.php,v 1.69 2010/04/26 20:15:08 snichol
+#  class.wsdl.php,v 1.76 2010/04/26 20:15:08 snichol
+#  class.xmlschema.php,v 1.53 2010/04/26 20:15:08 snichol
+#  nusoapmime.php,v 1.13 2010/04/26 20:15:08 snichol
 #  src/CpCoreMailHelper.php: n/a
 #  src/Controller/CpCoreController.php: n/a
 #  src/Form/RegisterBuyer.php: n/a
@@ -56,8 +65,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-09-20 17:05+0200\n"
-"PO-Revision-Date: 2022-09-20 17:05+0200\n"
+"POT-Creation-Date: 2022-09-20 19:19+0200\n"
+"PO-Revision-Date: 2022-09-20 19:19+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -139,7 +148,7 @@ msgstr "@num elementos"
 msgid "Email or NIT"
 msgstr "Correo or NIT"
 
-#: cp_core.module:720 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:508;518;553;565;665;675 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
+#: cp_core.module:720 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:509;519;554;566;666;676 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -349,6 +358,662 @@ msgstr "Hora"
 msgid "Daily activity (Moderator)"
 msgstr ""
 
+#: sf/lib/class.nusoap_base.php:413 sf/lib/nusoap.php:413
+msgid "serialize_val: serialize soapval"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:451 sf/lib/nusoap.php:451
+msgid "serialize_val: serialize null"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:470 sf/lib/nusoap.php:470
+msgid "serialize_val: serialize xsd built-in primitive type"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:494 sf/lib/nusoap.php:494
+msgid "serialize_val: serialize boolean"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:507 sf/lib/nusoap.php:507
+msgid "serialize_val: serialize int"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:515 sf/lib/nusoap.php:515
+msgid "serialize_val: serialize float"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:523 sf/lib/nusoap.php:523
+msgid "serialize_val: serialize string"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:532 sf/lib/nusoap.php:532
+msgid "serialize_val: serialize object"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:534 sf/lib/nusoap.php:534
+msgid "serialize_val: serialize soapval object"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:565 sf/lib/nusoap.php:565
+msgid "serialize_val: serialize array"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:627 sf/lib/nusoap.php:627
+msgid "serialize_val: serialize struct"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:653 sf/lib/nusoap.php:653
+msgid "serialize_val: serialize unknown"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:679 sf/lib/nusoap.php:679
+msgid "headers:"
+msgstr ""
+
+#: sf/lib/class.nusoap_base.php:681 sf/lib/nusoap.php:681
+msgid "namespaces:"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:84 sf/lib/nusoap.php:6605
+msgid "Charset from HTTP Content-Type matches encoding from XML declaration"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:87 sf/lib/nusoap.php:6608
+msgid "No encoding specified in XML declaration"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:90 sf/lib/nusoap.php:6611
+msgid "No XML declaration"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:115 sf/lib/nusoap.php:6636
+msgid "in nusoap_parser ctor, message:"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:141 sf/lib/nusoap.php:6662
+msgid "xml was empty, didn't parse!"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:502 sf/lib/nusoap.php:7023
+msgid "Decode base64 value"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:535 sf/lib/nusoap.php:7056
+msgid "in buildVal, there are children"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:592 sf/lib/nusoap.php:7113
+msgid "in buildVal, handling attributes"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:599 sf/lib/nusoap.php:7120
+msgid "in buildVal, handling simpleContent"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:612 sf/lib/nusoap.php:7133
+msgid "in buildVal, return:"
+msgstr ""
+
+#: sf/lib/class.soap_parser.php:616 sf/lib/nusoap.php:7137
+msgid "in buildVal, no children, building scalar"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:180 sf/lib/nusoap.php:3638
+msgid "_SERVER is defined:"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:183 sf/lib/nusoap.php:3641
+msgid "HTTP_SERVER_VARS is defined:"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:186 sf/lib/nusoap.php:3644
+msgid "Neither _SERVER nor HTTP_SERVER_VARS is defined."
+msgstr ""
+
+#: sf/lib/class.soap_server.php:212 sf/lib/nusoap.php:3670
+msgid "In nusoap_server, WSDL is specified"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:257 sf/lib/nusoap.php:3715
+msgid "In service, invoke the request"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:267 sf/lib/nusoap.php:3725
+msgid "In service, this is a request for WSDL"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:270 sf/lib/nusoap.php:3728
+msgid "In service, re-direct for WSDL"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:273 sf/lib/nusoap.php:3731
+msgid "In service, use file passthru for WSDL"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:285 sf/lib/nusoap.php:3743
+msgid "In service, serialize WSDL"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:289 sf/lib/nusoap.php:3747
+msgid "wsdl:"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:294 sf/lib/nusoap.php:3752
+msgid "In service, there is no WSDL"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:299 sf/lib/nusoap.php:3757
+msgid "In service, return Web description"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:302 sf/lib/nusoap.php:3760
+msgid "In service, no Web description"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:326 sf/lib/nusoap.php:3784
+msgid "In parse_http_headers, use getallheaders"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:351 sf/lib/nusoap.php:3809
+msgid "In parse_http_headers, use _SERVER"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:385 sf/lib/nusoap.php:3843
+msgid "In parse_http_headers, use HTTP_SERVER_VARS"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:419 sf/lib/nusoap.php:3877
+msgid "In parse_http_headers, HTTP headers not accessible"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:447 sf/lib/nusoap.php:3905
+msgid "entering parse_request()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:473 sf/lib/nusoap.php:3931
+msgid "leaving parse_request"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:522 sf/lib/nusoap.php:3980
+msgid "in invoke_method, no WSDL to validate method"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:551 sf/lib/nusoap.php:4009
+msgid "in invoke_method, no class to try"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:576 sf/lib/nusoap.php:4034
+msgid "ERROR: request not verified against method signature"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:584 sf/lib/nusoap.php:4042
+msgid "in invoke_method, params:"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:589 sf/lib/nusoap.php:4047
+msgid "in invoke_method, calling function using eval()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:593 sf/lib/nusoap.php:4051
+msgid "in invoke_method, calling class method using eval()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:596 sf/lib/nusoap.php:4054
+msgid "in invoke_method, calling instance method using eval()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:618 sf/lib/nusoap.php:4076
+msgid "in invoke_method, calling function using call_user_func_array()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:621 sf/lib/nusoap.php:4079
+msgid "in invoke_method, calling class method using call_user_func_array()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:624 sf/lib/nusoap.php:4082
+msgid "in invoke_method, calling instance method using call_user_func_array()"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:634 sf/lib/nusoap.php:4092
+msgid "in invoke_method, methodreturn:"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:654 sf/lib/nusoap.php:4112
+msgid "got a fault object from method"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:662 sf/lib/nusoap.php:4120
+msgid "serializing return value"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:665 sf/lib/nusoap.php:4123
+msgid "more than one output part, so use the method return unchanged"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:668 sf/lib/nusoap.php:4126
+msgid "exactly one output part, so wrap the method return in a simple array"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:688 sf/lib/nusoap.php:4146
+msgid "in absence of WSDL, assume void return for backward compatibility"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:692 sf/lib/nusoap.php:4150
+msgid "return value:"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:695 sf/lib/nusoap.php:4153
+msgid "serializing response"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:715 sf/lib/nusoap.php:4173
+msgid "style is not rpc for serialization: assume document"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:719 sf/lib/nusoap.php:4177
+msgid "do not have WSDL for serialization: assume rpc/encoded"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:737 sf/lib/nusoap.php:4195
+msgid "Leaving serialize_return"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:751 sf/lib/nusoap.php:4209
+msgid "Enter send_response"
+msgstr ""
+
+#: sf/lib/class.soap_server.php:886 sf/lib/nusoap.php:4344
+msgid "calling parser->get_soapbody()"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:203 sf/lib/nusoap.php:2357
+msgid "Re-use persistent connection"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:207 sf/lib/nusoap.php:2361
+msgid "Closed persistent connection at EOF"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:240 sf/lib/nusoap.php:2394
+msgid "socket connected"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:274 sf/lib/nusoap.php:2428
+msgid "connect using cURL"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:284 sf/lib/nusoap.php:2438
+msgid "safe_mode or open_basedir set, so do not set CURLOPT_FOLLOWLOCATION"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:285 sf/lib/nusoap.php:2439
+msgid "safe_mode = "
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:287 sf/lib/nusoap.php:2441
+msgid "open_basedir = "
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:320 sf/lib/nusoap.php:2474
+msgid "set cURL SSL verify options"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:330 sf/lib/nusoap.php:2484
+msgid "set cURL certificate options"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:360 sf/lib/nusoap.php:2514
+msgid "set cURL username/password"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:364 sf/lib/nusoap.php:2518
+msgid "set cURL for Basic authentication"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:368 sf/lib/nusoap.php:2522
+msgid "set cURL for digest authentication"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:372 sf/lib/nusoap.php:2526
+msgid "set cURL for NTLM authentication"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:377 sf/lib/nusoap.php:2531
+msgid "set cURL proxy options"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:384 sf/lib/nusoap.php:2538
+msgid "set cURL proxy authentication options"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:394 sf/lib/nusoap.php:2548
+msgid "cURL connection set up"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:438 sf/lib/nusoap.php:2592
+msgid "end of send()"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:471 sf/lib/nusoap.php:2625
+msgid "certRequest="
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:525 sf/lib/nusoap.php:2679
+msgid "Authorization header not set for certificate"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:528 sf/lib/nusoap.php:2682
+msgid "Authorization header not set for ntlm"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:589 sf/lib/nusoap.php:2743
+msgid "remove proxy"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:640 sf/lib/nusoap.php:2794
+msgid "no linebreak found in decodeChunked"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:748 sf/lib/nusoap.php:2902
+msgid "couldn't write message data to socket"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:771 sf/lib/nusoap.php:2925
+msgid "set cURL HTTP headers"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:775 sf/lib/nusoap.php:2929
+msgid "set cURL POST data"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:783 sf/lib/nusoap.php:2937
+msgid "set cURL payload"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:872 sf/lib/nusoap.php:3026
+msgid "want to read chunked content"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:880 sf/lib/nusoap.php:3034
+msgid "want to read content to EOF"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:928 sf/lib/nusoap.php:3082
+msgid "read to EOF"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:940 sf/lib/nusoap.php:3094
+msgid "closed socket"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:962 sf/lib/nusoap.php:3116
+msgid "send and receive with cURL"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:983 sf/lib/nusoap.php:3137
+msgid "No cURL error, closing cURL"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:989 sf/lib/nusoap.php:3143
+msgid "Found HTTP header to skip"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1015 sf/lib/nusoap.php:3169
+msgid "no proper separation of headers and document"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1022 sf/lib/nusoap.php:3176
+msgid "found proper separation of headers and document"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1065 sf/lib/nusoap.php:3219
+msgid "Server wants digest authentication"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1083 sf/lib/nusoap.php:3237
+msgid "HTTP authentication failed"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1105 sf/lib/nusoap.php:3259
+msgid "The gzinflate function exists"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1113 sf/lib/nusoap.php:3267
+msgid "The inflated payload is smaller than the gzipped one; try again"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1120 sf/lib/nusoap.php:3274
+msgid "Error using gzinflate to inflate the payload"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1129 sf/lib/nusoap.php:3283
+msgid "The un-gzipped payload is smaller than the gzipped one; try again"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1136 sf/lib/nusoap.php:3290
+msgid "Error using gzinflate to un-gzip the payload"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1145 sf/lib/nusoap.php:3299
+msgid "The server sent compressed data. Your php install must have the Zlib extension compiled in to support this."
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1153 sf/lib/nusoap.php:3307
+msgid "No Content-Encoding header"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1157 sf/lib/nusoap.php:3311
+msgid "no data after headers!"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1276 sf/lib/nusoap.php:3430
+msgid "cookie has expired"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1283 sf/lib/nusoap.php:3437
+msgid "cookie has different domain"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1290 sf/lib/nusoap.php:3444
+msgid "cookie is for a different path"
+msgstr ""
+
+#: sf/lib/class.soap_transport_http.php:1295 sf/lib/nusoap.php:3449
+msgid "cookie is secure, transport is not"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:183 sf/lib/nusoap.php:7344
+msgid "found operation"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:210;249 sf/lib/nusoap.php:7371;7410
+msgid "params must be array or string"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:263 sf/lib/nusoap.php:7424
+msgid "wrapping RPC request with literal method element"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:273 sf/lib/nusoap.php:7434
+msgid "wrapping RPC request with encoded method element"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:301 sf/lib/nusoap.php:7462
+msgid "got fault"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:323 sf/lib/nusoap.php:7484
+msgid "return shifted value: "
+msgstr ""
+
+#: sf/lib/class.soapclient.php:342 sf/lib/nusoap.php:7503
+msgid "checkWSDL"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:359 sf/lib/nusoap.php:7520
+msgid "**************** WARNING: SOAP 1.2 BINDING *****************"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:363 sf/lib/nusoap.php:7524
+msgid "getOperations returned false"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:420 sf/lib/nusoap.php:7581
+msgid "transporting via HTTP"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:573 sf/lib/nusoap.php:7734
+msgid "setHeaders headers="
+msgstr ""
+
+#: sf/lib/class.soapclient.php:660 sf/lib/nusoap.php:7821
+msgid "useHTTPPersistentConnection"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:706 sf/lib/nusoap.php:7867
+msgid "Error from _getProxyClassCode, so return NULL"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:901 sf/lib/nusoap.php:8062
+msgid "Remove cookie that is not an array"
+msgstr ""
+
+#: sf/lib/class.soapclient.php:929 sf/lib/nusoap.php:8090
+msgid "Setting new cookie(s)"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:126;152 sf/lib/nusoap.php:4708;4734
+msgid "Unexpected scenario: empty URL for unloaded import"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:199 sf/lib/nusoap.php:4781
+msgid "no wsdl passed to parseWSDL()!!"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:233 sf/lib/nusoap.php:4815
+msgid "got WSDL URL"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:255 sf/lib/nusoap.php:4837
+msgid "Parse WSDL"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:283 sf/lib/nusoap.php:4865
+msgid "Parsing WSDL done"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:306 sf/lib/nusoap.php:4888
+msgid "Parsing WSDL schema"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:519 sf/lib/nusoap.php:5101
+msgid "Parsing WSDL schema done"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1055 sf/lib/nusoap.php:5637
+msgid "in parametersMatchWrapped: found typeDef="
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1066 sf/lib/nusoap.php:5648
+msgid "in parametersMatchWrapped: not a struct"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1117;1219 sf/lib/nusoap.php:5699;5801
+msgid "The value of the \\$direction argument needs to be either \"input\" or \"output\""
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1126 sf/lib/nusoap.php:5708
+msgid "in serializeRPCParameters: opData:"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1150 sf/lib/nusoap.php:5732
+msgid "check whether the caller has wrapped the parameters"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1154 sf/lib/nusoap.php:5736
+msgid "change simple array to associative with 'parameters' element"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1159 sf/lib/nusoap.php:5741
+msgid "check whether caller's parameters match the wrapped ones"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1161 sf/lib/nusoap.php:5743
+msgid "wrap the parameters for the caller"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1180;1261 sf/lib/nusoap.php:5762;5843
+msgid "calling serializeType w/indexed param"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1183;1264 sf/lib/nusoap.php:5765;5846
+msgid "calling serializeType w/named param"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1187;1268 sf/lib/nusoap.php:5769;5850
+msgid "calling serializeType w/null param"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1192;1273 sf/lib/nusoap.php:5774;5855
+msgid "no parameters passed."
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1228 sf/lib/nusoap.php:5810
+msgid "opData:"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1312 sf/lib/nusoap.php:5894
+msgid "in serializeType: soapval does not override type"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1324 sf/lib/nusoap.php:5906
+msgid "in serializeType: soapval provides attributes"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1341 sf/lib/nusoap.php:5923
+msgid "in serializeType: type namespace indicates XML Schema or SOAP Encoding type"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1391 sf/lib/nusoap.php:5973
+msgid "custom type extends XML Schema or SOAP Encoding namespace (yuck)"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1393 sf/lib/nusoap.php:5975
+msgid "in serializeType: appears to be Apache SOAP type"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1397 sf/lib/nusoap.php:5979
+msgid "in serializeType: Add namespace for Apache SOAP type"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1423 sf/lib/nusoap.php:6005
+msgid "in serializeType: Apache SOAP type, but only support Map"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1437 sf/lib/nusoap.php:6019
+msgid "in serializeType: found typeDef"
+msgstr ""
+
+#: sf/lib/class.wsdl.php:1505 sf/lib/nusoap.php:6087
+msgid "in serializeType: phpType is struct, but value is not an array"
+msgstr ""
+
+#: sf/lib/class.xmlschema.php:56 sf/lib/nusoap.php:1136
+msgid "nusoap_xmlschema class instantiated, inside constructor"
+msgstr ""
+
+#: sf/lib/class.xmlschema.php:148 sf/lib/nusoap.php:1228
+msgid "no xml passed to parseString()!!"
+msgstr ""
+
+#: sf/lib/nusoapmime.php:227;457
+msgid "Decode multipart/related"
+msgstr ""
+
+#: sf/lib/nusoapmime.php:262;490
+msgid "Not multipart/related"
+msgstr ""
+
 #: src/CpCoreMailHelper.php:138
 msgid "Error sending mail with key %key"
 msgstr ""
@@ -389,11 +1054,11 @@ msgstr ""
 msgid "terms of use"
 msgstr ""
 
-#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:531;578;656;688;701 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:532;579;657;689;702 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
 msgid "Yes"
 msgstr "Si"
 
-#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:533;580;658;690;703 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:534;581;659;691;704 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
 msgid "No"
 msgstr "No"
 
@@ -553,82 +1218,82 @@ msgstr ""
 msgid "Descripción del producto / Servicio"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:464;653
+#: src/Form/CpCoreMultiStepForm.php:465;654
 msgid "Add product / service"
 msgstr "Añadir producto / servicio"
 
-#: src/Form/CpCoreMultiStepForm.php:465
+#: src/Form/CpCoreMultiStepForm.php:466
 msgid "All uploaded content must comply with the <a href=\"/en/information/terms-use\" target=\"_BLANK\">publishing policy.</a>"
 msgstr ""
 "Todo el contenido subido debe cumplir con las  <a "
 "href=\"/informacion/condiciones-de-uso\" target=\"_BLANK\">políticas "
 "de publicación.</a>"
 
-#: src/Form/CpCoreMultiStepForm.php:466
+#: src/Form/CpCoreMultiStepForm.php:467
 msgid "I agree"
-msgstr "De acuerdo"
+msgstr "Entendido"
 
-#: src/Form/CpCoreMultiStepForm.php:497
+#: src/Form/CpCoreMultiStepForm.php:498
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/Form/CpCoreMultiStepForm.php:528;575;685
+#: src/Form/CpCoreMultiStepForm.php:529;576;686
 msgid "Cancel process"
 msgstr "Cancelar el proceso"
 
-#: src/Form/CpCoreMultiStepForm.php:529;576;686
+#: src/Form/CpCoreMultiStepForm.php:530;577;687
 msgid "You are about to cancel the \"Upload product or service\" process."
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:530;577;655;687;700
+#: src/Form/CpCoreMultiStepForm.php:531;578;656;688;701
 msgid "Do you wish to continue?"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:538;585
+#: src/Form/CpCoreMultiStepForm.php:539;586
 msgid "Next"
 msgstr "Continuar"
 
-#: src/Form/CpCoreMultiStepForm.php:545
+#: src/Form/CpCoreMultiStepForm.php:546
 msgid "Insert video"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:617
+#: src/Form/CpCoreMultiStepForm.php:618
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: src/Form/CpCoreMultiStepForm.php:626
+#: src/Form/CpCoreMultiStepForm.php:627
 msgid "Unselect All"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:643
+#: src/Form/CpCoreMultiStepForm.php:644
 msgid "Load another product"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:654
+#: src/Form/CpCoreMultiStepForm.php:655
 msgid "You are about to upload another product/service, you must start the <strong>\"Product or service information\"</strong> process to add a new product."
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:698
+#: src/Form/CpCoreMultiStepForm.php:699
 msgid "Send to aprobation"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:699
+#: src/Form/CpCoreMultiStepForm.php:700
 msgid "Do you want send to aprobation the loaded product/services?<br /><strong>@products</strong>"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:709;717
+#: src/Form/CpCoreMultiStepForm.php:710;718
 msgid "Save and publish"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:735
+#: src/Form/CpCoreMultiStepForm.php:736
 msgid "Successful process"
 msgstr "Proceso exitoso"
 
-#: src/Form/CpCoreMultiStepForm.php:736
+#: src/Form/CpCoreMultiStepForm.php:737
 msgid "Your products <strong>\"@elements\"</strong> are in pending status for approval by ProColombia.<br /><br />Products without selection have been successfully saved in the system. If you want to publish them, you must go to the user dashboard and select the Edit option."
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:737
+#: src/Form/CpCoreMultiStepForm.php:738
 msgid "I got it"
 msgstr ""
 
@@ -1066,7 +1731,7 @@ msgstr ""
 
 #: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:118
 msgid "Add"
-msgstr "Añadir"
+msgstr "Agregar"
 
 #: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:18
 msgid "CP Core: Video with preview"
@@ -1109,7 +1774,9 @@ msgstr "De acuerdo"
 
 #: templates/cp_core_translations.html.twig:1
 msgid "<span>In order to ensure the smooth operation of the system, it will only display the first 10 matching products.</span>"
-msgstr "<span>A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes.</span>"
+msgstr ""
+"<span>A fin de asegurar el buen funcionamiento del sistema, sólo "
+"presentará los 10 primeros productos coincidentes.</span>"
 
 #: templates/dsb_company_info.html.twig:7
 msgid "You currently do not have a company or registered products. Please create a company and then its products."
@@ -1166,4 +1833,3 @@ msgstr "Registrarse como empresa Colombiana"
 #: templates/pre_register.html.twig:6
 msgid "Sign up as an international buyer"
 msgstr "Registrarse como comprador internacional"
-
