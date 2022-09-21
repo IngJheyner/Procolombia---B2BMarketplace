@@ -26,6 +26,11 @@
 					background-color: white;
 					border-radius: 5px;
 					font-weight: bold;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 				}
 			}
 			@include media-breakpoint-down(lg){
@@ -230,11 +235,12 @@
 		}
 
 		.after-filters-container {
-			top: 300px;
+			top: 305px;
 			margin: 15px 0;
-			@include media-breakpoint-down(md){
-				margin-bottom: 15px;
+			@include media-breakpoint-down(lg){
+				margin-bottom: 0;
 				position: static;
+        order: +1;
 			}
 		}
 
@@ -338,6 +344,15 @@
 				padding-top: 40px;
 				background: url(../images/icons-2/Editar.svg) no-repeat 0 0 / auto 40px;
 				overflow: hidden;
+        @include media-breakpoint-down(lg){
+          padding: 0;
+          background: none;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 			}
 		}
 		
@@ -444,7 +459,7 @@
 						width: calc(100% - 40px);						
 						align-self: center;
 					
-						.views-label{
+						.field-content{
 							width: 100%;
 							height: 56px;
 							color: $procol-light-blue;
@@ -455,7 +470,7 @@
 							background-color: $button-lighter-gray;
 							font-family: $font-family-Century-Gothic;
 						}
-						.field-content{
+						.views-label{
 							display: none;
 						}
 					}
