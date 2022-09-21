@@ -31,7 +31,7 @@ class CpCoreGroupMarkup extends FieldGroupFormatterBase {
       // to use text formats.
       'markup' => [
         '#type' => 'processed_text',
-        '#text' => $this->getSetting('markup')['value'],
+        '#text' => $this->t($this->getSetting('markup')['value']),
         '#format' => $this->getSetting('markup')['format'],
       ],
       '#show_empty_fields' => $this->getSetting('show_empty_fields'),

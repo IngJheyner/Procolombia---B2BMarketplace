@@ -35,7 +35,7 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
     $form_object = $form_state->getFormObject();
     $entity = $form_object->getEntity();
 
-    $current_language = $this->languageManager->getCurrentLanguage()->getId();
+    $current_language = $entity->language()->getId();
 
     // If ($entity instanceof FieldConfigInterface) {
     //
@@ -119,8 +119,8 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
 
           if (($definition->isComputed() || (!empty($storage_definition)  && $this->isFieldTranslatabilityConfigurable($entity_type, $storage_definition))) && $definition->isTranslatable()) {
 
+            $translated_entity->set($field_name, NULL);
             $translated_items = $translated_entity->get($field_name);
-            $translated_items->filterEmptyItems();
             $translated_form['#parents'] = [];
             $widget = $form_display->getRenderer($field_name);
 
@@ -128,8 +128,11 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
               $field_name_with_ident = $this->getUniqueName($field_name, $langcode);
               foreach ($form_state->get('language_values_' . $langcode) as $fn => $fv) {
                 if ($fn == $field_name_with_ident) {
-                  foreach ($fv as $delta => $dv) {
-                    $translated_items->appendItem($dv);
+                  foreach ($fv as $dv) {
+                    // Check if the delta is not empty.
+                    if (!empty($dv['value']) || !empty($dv['fids'])) {
+                      $translated_items->appendItem($dv);
+                    }
                   }
                 }
               }

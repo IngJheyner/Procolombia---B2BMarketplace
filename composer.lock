@@ -17540,6 +17540,18 @@
             ]
         },
         {
+            "name": "npm-asset/litepicker",
+            "version": "2.0.12",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/litepicker/-/litepicker-2.0.12.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "npm-asset/longest",
             "version": "1.0.1",
             "dist": {
@@ -23332,5 +23344,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

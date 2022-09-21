@@ -8,6 +8,8 @@
 
 		&::after {
 			font-size: 20px;
+			color: $procol-dark-blue;
+			font-weight: bold;
 		}
 	}
 	
@@ -91,7 +93,8 @@
 		}
 
 		.field__label {
-			font-weight: bold;
+			font-weight: normal;
+			font-family: $font-bold-Century-Gothic;
 		}
 		
 		.field--name-field-body {
@@ -104,6 +107,7 @@
 			gap: 17px;
 			align-items: flex-end;
 			flex-grow: .3;
+			
 			@include media-breakpoint-down(md){
 				flex-direction: column;
 			}
@@ -124,9 +128,9 @@
 				text-indent: 0;
 				font-size: 14px;
 				line-height: 17px;
-				height: 56px;
 				@include media-breakpoint-down(md){
-					justify-content: center;
+					justify-content: center;					
+					height: 56px;
 				}
 			}
 
@@ -224,6 +228,8 @@
 		}
 		.group-right h2{
 			font-size: 30px;
+			font-family:  Maven-Bold;
+			font-weight: bolder;
 		}
 	}
 }

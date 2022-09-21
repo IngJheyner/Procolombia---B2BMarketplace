@@ -1,0 +1,17 @@
+label: Countries
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Order by'
+          text_input_required: 'Select any filter and choose Apply to view results'
+          bef:
+            general:
+              secondary_label: 'Advanced options'
+      filters:
+        name:
+          expose:
+            placeholder: Search

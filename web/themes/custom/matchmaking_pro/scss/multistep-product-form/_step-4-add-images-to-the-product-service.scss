@@ -10,6 +10,12 @@
     }
     #edit-field-images{
         padding-top: 20px;
+        .messages--error{
+            padding-bottom: 10px;
+        }
+        .tooltip-is-invalid{
+            display: none;
+        }
         @include media-breakpoint-down(lg){
             padding-top: 0;
         }

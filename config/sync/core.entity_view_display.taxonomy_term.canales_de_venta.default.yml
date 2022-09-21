@@ -1,0 +1,35 @@
+uuid: 8358749e-20c6-41fd-b21f-2d34bdad7dd0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.canales_de_venta.field_cv_category
+    - taxonomy.vocabulary.canales_de_venta
+  module:
+    - text
+id: taxonomy_term.canales_de_venta.default
+targetEntityType: taxonomy_term
+bundle: canales_de_venta
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cv_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true
