@@ -167,7 +167,7 @@ third_party_settings:
       format_type: cp_core_group_markup
       format_settings:
         markup:
-          value: "<h2>Agregar imágenes del producto</h2>\r\n<p>Se recomienda cargar fotografías reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>"
+          value: '<h2>Add product images</h2><p>It is recommended to upload real photographs of the product in good quality to improve the positioning of your product within the Catalog.</p>'
           format: html
         show_empty_fields: '1'
         id: ''

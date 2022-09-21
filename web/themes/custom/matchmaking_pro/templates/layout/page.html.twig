@@ -76,13 +76,17 @@
       {% if logged_in %}
       {#check id user is exportador#}
       {% if 'exportador' in user.getroles %}
-      <div class="row px-3 py-2 menu_dashboard" style="z-index:4">
-        <div id="img_click" class="col-lg-5">
 
-          <img class="logo"
-            src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/logo_pco_negro2%20%281%29.svg"
-            alt="" srcset="">
+      <div class="row px-3 py-2 menu_dashboard" style="z-index:4">
+
+        <div id="img_click" class="col-lg-5">
+          <a href="{{ path('cp_company_col.dashboard') }}">
+            <img class="logo"
+              src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/logo_pco_negro2%20%281%29.svg"
+              alt="" srcset="">
+          </a>
         </div>
+
         <div class="icon_secction col-lg-4">
           <div class="icono toltip_i">
             <span id="menu_status" class="tooltiptext_menu">
@@ -489,6 +493,7 @@
                 </li>
               </ul>
             </div>
+            {{ drupal_block('language_block:language_interface', wrapper=false) }}
           </div>
         </div>
       </div>
@@ -2085,9 +2090,9 @@ PIE DE PAGINA
         srcset="">
     </div>
     <div class="col-lg-6 logo_footer_2">
-      <img
+      <!--<img
         src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Gobierno_de_la_Repu%CC%81blica_de_Colombia.svg"
-        alt="" srcset="">
+        alt="" srcset="">-->
     </div>
 
   </div>
@@ -2194,10 +2199,10 @@ PIE DE PAGINA
           class="social-buttons__button social-button social-button--linkedin" aria-label="Twitter">
           <i class='bx bxl-twitter bx-tada-hover'></i>
         </a>
-        <a href="https://www.instagram.com/procolombiaco/" target="_blank"
+        <!--<a href="https://www.instagram.com/procolombiaco/" target="_blank"
           class="social-buttons__button social-button social-button--instagram" aria-label="Instagram">
           <i class='bx bxl-instagram bx-tada-hover'></i>
-        </a>
+        </a>-->
         <a href="https://www.youtube.com/channel/UCJcfl1AklKSvGXfUwV5kJow" target="_blank"
           class="social-buttons__button social-button social-button--youtube" aria-label="YouTube">
           <i class='bx bxl-youtube bx-tada-hover'></i>

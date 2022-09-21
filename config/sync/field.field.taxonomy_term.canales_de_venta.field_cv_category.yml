@@ -1,0 +1,25 @@
+uuid: bedfbdb3-112d-4b1f-b6f5-ae35e4ab5499
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_cv_category
+    - taxonomy.vocabulary.canales_de_venta
+id: taxonomy_term.canales_de_venta.field_cv_category
+field_name: field_cv_category
+entity_type: taxonomy_term
+bundle: canales_de_venta
+label: Categoría
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: cp_core_parent_categories
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

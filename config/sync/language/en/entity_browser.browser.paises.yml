@@ -5,4 +5,4 @@ widgets:
   d6a44a14-62ce-4d06-b965-3ac7d421cc92:
     label: Countries
     settings:
-      submit_text: Country
+      submit_text: 'Select countries'

@@ -177,7 +177,7 @@ third_party_settings:
       format_type: cp_core_group_markup
       format_settings:
         markup:
-          value: '<h2>Campos para ambos idiomas</h2>'
+          value: '<h2>Fields for both languages</h2>'
           format: html
         show_empty_fields: '1'
         id: ''

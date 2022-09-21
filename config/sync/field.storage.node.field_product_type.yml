@@ -17,10 +17,10 @@ settings:
   allowed_values:
     -
       value: product
-      label: Producto
+      label: Product
     -
       value: service
-      label: Servicio
+      label: Service
   allowed_values_function: ''
 module: options
 locked: false

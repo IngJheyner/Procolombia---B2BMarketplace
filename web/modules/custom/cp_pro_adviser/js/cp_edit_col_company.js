@@ -696,12 +696,14 @@
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user';
             } else {
-                alert('Error al aprobar el usuario');
+                //alert('Error al aprobar el usuario');
+                window.location.href = '/dashboard/adviser/user';
             }
         }).catch(function (error) {
             $("#loading_3").hide();
             $("#modal_aproved_user_exportador").show();
-            alert('Error al aprobar el usuario');
+            //alert('Error al aprobar el usuario');
+            window.location.href = '/dashboard/adviser/user';
         });
     }
 
@@ -848,7 +850,7 @@
                     $('#question_modal').modal('show');
                 }
             });
-            
+
 
             $("#confirm_save2", context).click(function () {
                 updateForm2();
@@ -872,7 +874,7 @@
                 getCities();
             });
 
-            // remove display none toltip_content when description_business_spanish onInput  
+            // remove display none toltip_content when description_business_spanish onInput
 
             $("#description_business_spanish", context).on("input", function () {
                 $("#notification_english").css("display", "block");

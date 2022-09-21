@@ -10,7 +10,7 @@ field_name: field_body
 entity_type: node
 bundle: product
 label: 'Descripción del producto / servicio'
-description: 'Por favor incluya una descripción resumen del producto/servicio con sus principales características y/o atributos.'
+description: ''
 required: true
 translatable: true
 default_value: {  }
