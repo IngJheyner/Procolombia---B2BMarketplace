@@ -583,7 +583,7 @@ function myFunction() {
       });
       //call function edit profile col
       $("#img_click", context).click(function () {
-        goToDashboardCompanyCol();
+        //goToDashboardCompanyCol();
       });
       //call function edit profile asesor
       $("#img_click_asesor", context).click(function () {
