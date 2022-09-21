@@ -8,6 +8,11 @@
     Drupal.behaviors.matchmaking_pro = {
       attach: function(context, settings) {
         // Custom code here
+
+        //Dashboard
+        const productDashboard = $('.view-product-dashboard');
+        const itemsPerPage = $('.form-item-items-per-page');
+        itemsPerPage.appendTo(productDashboard)
         //Paso 2 mover cambiar posicion contenedor
         let partidaAranTax = $('#edit-field-partida-arancelaria-tax-wrapper');
         let tooltipAranTax = $('.lightbulb-tooltip');
