@@ -65,7 +65,7 @@
                 }
             }
         }
-        
+
     }
     .information-step-1 {
         width: 100%;
@@ -143,10 +143,10 @@
                                 @include remove-files;
                             }
                         }
-                    }                    
+                    }
                 }
             }
-            
+
         }
         .form-type-select{
             display: none;
@@ -160,9 +160,6 @@
         }
         small{
             order: +1;
-        }
-        #edit-field-file-en-0--description{
-            display: none;
         }
         .js-form-item{
             margin-bottom: 0 !important;
@@ -179,12 +176,12 @@
                 margin-bottom: 0 !important;
             }
         }
-        
+
         }
     #edit-footer-form #edit-actions {
         justify-content: flex-end;
         #edit-previous{
             display: none;
-        }    
+        }
     }
 }

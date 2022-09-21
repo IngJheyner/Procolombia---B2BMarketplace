@@ -111,7 +111,7 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: field
-          label: ''
+          label: Idioma
           exclude: true
           alter:
             alter_text: true
@@ -592,8 +592,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: custom
-            custom_date_format: d/m/Y
+            date_format: medium
+            custom_date_format: r
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -659,8 +659,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: custom
-            custom_date_format: d/m/Y
+            date_format: medium
+            custom_date_format: r
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -1015,7 +1015,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: 'Translation language'
+            label: Idioma
             description: ''
             use_operator: false
             operator: langcode_op
@@ -1036,7 +1036,8 @@ display:
               buyer: '0'
               web_services: '0'
               moderador: '0'
-            reduce: false
+              asesor_internacional: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''

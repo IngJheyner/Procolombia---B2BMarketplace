@@ -119,8 +119,8 @@ class CpCoreMultilingualFieldWidget extends MultilingualFormDisplayWidget {
 
           if (($definition->isComputed() || (!empty($storage_definition)  && $this->isFieldTranslatabilityConfigurable($entity_type, $storage_definition))) && $definition->isTranslatable()) {
 
+            $translated_entity->set($field_name, NULL);
             $translated_items = $translated_entity->get($field_name);
-            $translated_items->filterEmptyItems();
             $translated_form['#parents'] = [];
             $widget = $form_display->getRenderer($field_name);
 

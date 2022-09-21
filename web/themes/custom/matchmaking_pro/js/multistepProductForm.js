@@ -327,7 +327,7 @@
           $('input#edit-field-pr-video-2-0-value').once().change(function(e) {
             if ($(this).val() != "") {
               $(this).trigger('state:empty');
-            }
+            }4
           });
         }
 
