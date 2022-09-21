@@ -161,9 +161,10 @@
         small{
             order: +1;
         }
-        .js-form-item{
-            margin-bottom: 0 !important;
-        }
+    }
+    #edit-field-file,
+    #edit-field-file-en{
+        margin-top: 0;
     }
     #edit-field-file-wrapper--2{
         margin-bottom: 0 !important;

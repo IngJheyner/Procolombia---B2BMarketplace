@@ -28,7 +28,8 @@
     .group-right.step-3{
         justify-content: space-between;        
         .field--name-field-pr-country{
-            flex-grow: 1;            
+            flex-grow: 1;
+            margin-top: 5px;     
             details{
                 margin-top: 0;
                 border: none;
@@ -154,7 +155,6 @@
                 padding: 0 5px;
                 width: 100%;
                 grid-area: 2 / 1 / 3 / 2;
-                margin-top: 10px;
             }
             li{
                 width: 100%;
@@ -200,6 +200,9 @@
             }
         }
     }
+    .js-form-item-field-pr-type-certifications{
+        min-height: 120px;
+    }
     #edit-field-pr-type-certifications-wrapper{
         @include media-breakpoint-down(lg){
             margin-bottom: 0 !important;
@@ -213,7 +216,7 @@
     }
     
     .js-form-type-managed-file {
-        padding-top: 25px;
+        margin-top: 7px;
         .js-form-managed-file{
             flex-wrap: wrap;
             .messages--error{
@@ -223,8 +226,10 @@
         }
     }
     #edit-field-pr-sales-channel-wrapper,
+    .js-form-item-field-pr-type-certifications,
     .js-form-item-field-pr-product-availability,
     #edit-field-pr-certifications-wrapper,
+    #edit-field-pr-type-certifications-wrapper,
     .field--widget-entity-browser-entity-reference,
     #edit-field-pr-target-market-wrapper,
     .js-form-item-field-pr-target-market {
@@ -246,7 +251,7 @@
      }
     }
     .show-more-cType{
-        top: -52px;
+        top: -20px;
         @include media-breakpoint-down(lg){
             top: 0;
         }

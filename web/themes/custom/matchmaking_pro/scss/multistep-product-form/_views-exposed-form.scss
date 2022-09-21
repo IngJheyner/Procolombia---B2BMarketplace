@@ -5,6 +5,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    top: 40% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     &.ui-dialog .ui-dialog-title {
         display: block !important;
       }
