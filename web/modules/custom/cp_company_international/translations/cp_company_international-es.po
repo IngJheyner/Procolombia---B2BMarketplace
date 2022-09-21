@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-msgid CONNECTED COMPANIES"
+msgid "CONNECTED COMPANIES"
 msgstr "EMPRESAS CONECTADAS"
 
 msgid "Required Field"
@@ -91,7 +91,7 @@ msgid "Company Name"
 msgstr "Nombre de la Empresa"
 
 msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
-msgstr "Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no."
+msgstr "Usted debe registrar el nombre de la empresa con la cual su compañía es reconocida. Puede ser la misma razón social."
 
 msgid "Cell Phone"
 msgstr "Celular"
@@ -352,3 +352,15 @@ msgstr "Por favor seleccione una subcategoría"
 
 msgid "Please select a company model"
 msgstr "Por favor seleccione un modelo de empresa"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Recipient's username"
+msgstr "Nombre de usuario del destinatario"
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"

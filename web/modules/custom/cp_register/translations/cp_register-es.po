@@ -100,7 +100,7 @@ msgid "please login"
 msgstr "por favor, inicie sesión"
 
 msgid "Login"
-msgstr "iniciar sesión"
+msgstr "Iniciar sesión"
 
 msgid "Cancel process."
 msgstr "Cancelar el proceso."
@@ -210,7 +210,7 @@ msgstr "ANTERIOR"
 msgid "Select an option"
 msgstr "Seleccione una opción"
 
-msgid "CIIU Code Main or Economic Activit"
+msgid "CIIU Code Main or Economic Activity"
 msgstr "Código CIIU Actividad principal o económica"
 
 msgid "Indicate the CIIU code or economic activity to which your company belongs."
@@ -246,7 +246,7 @@ msgstr "Introduzca la palabra clave o seleccione varias opciones"
 msgid "Names"
 msgstr "Nombres"
 
-msgid "Surname"
+msgid "Last names"
 msgstr "Apellidos"
 
 msgid "Position name"
@@ -291,8 +291,8 @@ msgstr "Empresa colombiana con una oferta exportable de bienes o servicios."
 msgid "international buyer"
 msgstr "comprador internacional"
 
-msgid "Company outside Colombia with interest in products or services of Colombian origin."
-msgstr "Empresa fuera de Colombia con interés en productos o servicios de origen colombiano."
+msgid "Offshore company with interest in colombian products and services."
+msgstr "Empresa de origen colombiana con oferta exportable de bienes o servicios."
 
 msgid "Do you have an account?"
 msgstr "¿Tiene una cuenta?"
@@ -541,7 +541,7 @@ msgid "NOTE:"
 msgstr "NOTA:"
 
 msgid "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."
-msgstr "A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes."
+msgstr "A fin de asegurar el buen funcionamiento del sistema, solo presentará los 10 primeros productos coincidentes."
 
 msgid "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."
 msgstr "Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó."
@@ -568,7 +568,7 @@ msgid "REGISTER TO HAVE THE COLOMBIAN OFFER JUST A CLICK AWAY"
 msgstr "REGÍSTRESE PARA TENER LA OFERTA COLOMBIANA AL ALCANCE DE UN CLIC"
 
 msgid "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."
-msgstr "Regístrese en el Catálogo de Exportación de Colombia para ampliar su oferta a Encuentre todos los productos y servicios de origen colombiano para satisfacer sus necesidades de abastecimiento. Filtrar y descubrir productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guardar fácilmente los filtros de búsqueda y recibir notificaciones de los nuevos productos añadidos al Mercado B2B de ProColombia."
+msgstr "Regístrese en el Catálogo de Exportación de Colombia para ampliar su oferta y Encuentre todos los productos y servicios de origen colombiano para satisfacer sus necesidades de abastecimiento. Filtrar y descubrir productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guardar fácilmente los filtros de búsqueda y recibir notificaciones de los nuevos productos añadidos al Mercado B2B de ProColombia."
 
 
 msgid "Name is required"
@@ -630,3 +630,270 @@ msgstr "Debe aceptar las políticas de privacidad"
 
 msgid "You must accept the terms of use"
 msgstr "Debe aceptar las condiciones de uso"
+
+msgid "Request Appointment"
+msgstr "Solicitar cita"
+
+msgid "To ensure the proper functioning of the system, only the first 10 matching products will be presented."
+msgstr "A fin de asegurar el buen funcionamiento del sistema, solo presentará los 10 primeros productos coincidentes."
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "Basic example"
+msgstr "Ejemplo básico"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Sign In"
+msgstr "Iniciar Sesión"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Company video"
+msgstr "Video de la empresa"
+
+msgid "Please select a country"
+msgstr "Por favor seleccione un país"
+
+msgid "Please select a category"
+msgstr "Por favor seleccione una categoría"
+
+msgid "Please select a subcategory"
+msgstr "Por favor seleccione una subcategoría"
+
+msgid "Please select a subcategory"
+msgstr "Por favor seleccione una subcategoría"
+
+msgid "Please select a business model"
+msgstr "Por favor seleccione un modelo de empresa"
+
+msgid "NIT"
+msgstr "NIT"
+
+msgid "Welcome to Colombia B2B marketplace, enter your data to start session."
+msgstr "Bienvenido a Colombia B2B marketplace, ingresa tus datos para iniciar sesión."
+
+msgid "Type something specific to perform a search"
+msgstr "Escribe algo en específico para realizar una búsqueda"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Forgot"
+msgstr "¿Olvidó"
+
+msgid "Password?"
+msgstr "su contraseña?"
+
+msgid "E-mail?"
+msgstr "su correo?"
+
+msgid "Forgot Password?"
+msgstr "¿Olvidó su contraseña?"
+
+msgid "Forgot E-mail?"
+msgstr "¿Olvidó su correo?"
+
+msgid "E-mail"
+msgstr "Correo electrónico"
+
+msgid "E-mail or NIT"
+msgstr "Correo electrónico o NIT"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+msgid "Uploading..."
+msgstr "Cargando..."
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+msgid "Back to page"
+msgstr "Volver a la página" 
+
+msgid "Unread messages"
+msgstr "Mensajes no leídos"
+
+msgid "Promotional activities"
+msgstr "Actividades de promoción"
+
+msgid "Hello, "
+msgstr "Hola, "
+
+msgid "Password recovery"
+msgstr "Recuperación de la contraseña"
+
+msgid "E-mail recovery"
+msgstr "Recuperación del correo"
+
+msgid "Recover E-mail"
+msgstr "Recuperar correo"
+
+msgid "Recover Password"
+msgstr "Recuperar contraseña"
+
+msgid "Password change process was successful"
+msgstr "El cambio de contraseña ha sido exitoso"
+
+msgid "Sign up"
+msgstr "Regístrese"
+
+msgid "Don't have an account?"
+msgstr "¿No tiene una cuenta?"
+
+msgid "Verification code"
+msgstr "Código de verificación"
+
+msgid "Receive verification link at:"
+msgstr "Recibir el link de verificación en:"
+
+msgid "Profile update"
+msgstr "Actualización del Perfil"
+
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+msgid "General User Profile"
+msgstr "Perfil General de Usuario"
+
+msgid "View general User Profile"
+msgstr "Ver Perfil general de Usuario"
+
+msgid "You must update your Profile information."
+msgstr "Debe actualizar la información de su perfil."
+
+msgid "Since the update of your data took place on"
+msgstr "Dado que la actualización de tus datos fue el día"
+
+msgid "Data update:"
+msgstr "Actualización de los datos:"
+
+msgid "Search history"
+msgstr "Historial de búsquedas"
+
+msgid "Mass communication"
+msgstr "Comunicaciones masivas"
+
+msgid "LOG OUT"
+msgstr "CERRAR SESIÓN"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Products and Services"
+msgstr "Productos y Servicios"
+
+msgid "View Products and services"
+msgstr "Ver Productos y Servicios"
+
+msgid "Your favorite products or services"
+msgstr "Tus productos o servicios favoritos"
+
+msgid "Notifications"
+msgstr "Notificaciones"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Help"
+msgstr "Ayuda"
+
+msgid "Hours of operation"
+msgstr "Horario de atención"
+
+msgid "Monday through Friday 8:30 a.m. - 5:30 p.m."
+msgstr "Lunes a viernes 8:30 a.m. - 5:30 p.m."
+
+msgid "Citizen service"
+msgstr "Servicio al ciudadano"
+
+msgid "Complaints"
+msgstr "Denuncias"
+
+msgid "Work with us"
+msgstr "Trabaje con nosotros"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "Companies with interaction"
+msgstr "Empresas con interacción"
+
+msgid "Terms of access"
+msgstr "Condiciones de acceso"
+
+msgid "Terms of use"
+msgstr "Condiciones de uso"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Messages"
+msgstr "Mensajes"
+
+msgid "Offer for"
+msgstr "Oferta para"
+
+msgid "View - Colombian Company"
+msgstr "Ver - Empresa Colombiana"
+
+msgid "View - International Buyer"
+msgstr "Ver - Comprador Internacional"
+
+msgid "Manage Surveys"
+msgstr "Gestionar Encuestas"
+
+msgid "Dashboard"
+msgstr "Tablero"
+
+msgid "Recommendations or suggestions"
+msgstr "Recomendaciones o sugerencias"
+
+msgid "Address"
+msgstr "Dirección"
+
+msgid "Phone number"
+msgstr "Número teléfonico"
+
+msgid "Street 28 N° 13A - 15 Floor 35-36"
+msgstr "Calle 28 No 13A - 15 Piso 35-36"
+
+msgid "Frequently Asked Questions (FAQs)"
+msgstr "Preguntas frecuentes"
+
+msgid "Social Networks"
+msgstr "Redes Sociales"
+
+msgid "Sustainability Report"
+msgstr "Informe de sostenibilidad"
+
+msgid "About this website"
+msgstr "Acerca del sitio"
+
+msgid "Privacy and Data Handling Policy"
+msgstr "Política de privacidad y manejo de datos"

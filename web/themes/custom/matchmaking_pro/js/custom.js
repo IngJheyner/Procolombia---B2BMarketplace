@@ -3,20 +3,17 @@
  * Global utilities.
  *
  */
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+
+
+
+
+
 
 
 (function ($, Drupal) {
 
   'use strict';
-
+  
   // function to go to step 3
   function goToLogin() {
     $("#login_modal").modal('show');
@@ -31,9 +28,9 @@ function myFunction() {
   }
 
   function goToDashboardCompanyCol() {
-    window.location.href = "/dashboard/col/user"
+    window.location.href = "/dashboard"
   }
-  function   goToDashboardAsesorCol() {
+  function goToDashboardAsesorCol() {
     window.location.href = "/dashboard/adviser/user/col"
   }
 
@@ -203,9 +200,12 @@ function myFunction() {
             $("#loading").hide();
             //show login button
             $("#login_button").show();
-            $("#error_username").show();
+            $("#error_username_alert").show();
+            //change style display to flex
+            $("#conteedor").css("display", "flex");
+
             //aca
-            $("#error_username_message").text(data.error);
+            $("#error_username_alert").text(data.error);
           }
         }).catch((error) => {
           //hide loading
@@ -213,8 +213,9 @@ function myFunction() {
           //show login button
           $("#login_button").show();
           //show error message
-          $("#error_username").show();
-          $("#error_username_message").text(error);
+          $("#conteedor").css("display", "flex");
+          $("#error_username_alert").show();
+          $("#error_username_alert").text(error);
         }
         );
     }
@@ -267,6 +268,19 @@ function myFunction() {
       $("#error_nit").hide();
       $(".nit_container").css("border-color", "#cccccc");
     }
+
+    //validate captcha getResponse and if is empty show error
+    var response = grecaptcha.getResponse();
+    console.log(response);
+    console.log("HI")
+    if (response.length == 0) {
+      alert("Please verify that you are not a robot");
+      $("#error_captcha").show();
+      isValid = false;
+    } else {
+      $("#error_captcha").hide();
+    }
+
     return isValid;
   }
 
@@ -589,7 +603,7 @@ function myFunction() {
       $("#img_click_asesor", context).click(function () {
         goToDashboardAsesorCol();
       });
-    
+
       //call function edit buyer
       $("#edit_buyer", context).click(function () {
         goToEditBuyer();
@@ -598,7 +612,7 @@ function myFunction() {
       //add css when click menu_user
       $("#menu_user", context).click(function () {
         //toggle style css
-        $("#menu_drop").toggleClass("active");
+        $("#menu_drop").toggleClass("activ_menu");
       });
       //add css when click drop_menu
       $("#drop_menu", context).click(function () {
@@ -615,7 +629,7 @@ function myFunction() {
         if ($(e.target).closest("#menu_drop").length === 0 && $(e.target).closest("#menu_user").length === 0) {
           //delay to remove css
           setTimeout(function () {
-            $("#menu_drop").removeClass("active");
+            $("#menu_drop").removeClass("activ_menu");
           }, 200);
         }
       });
@@ -643,8 +657,11 @@ function myFunction() {
         var language = url_split[1];
         console.log(language);
         if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
           window.location.href = url.replace("es", "en");
         } else {
+          document.cookie = "language=es;path=/;";
           window.location.href = url.replace("en", "es");
         }
       });
@@ -725,6 +742,17 @@ function myFunction() {
       //toggle dashboard
       $("#button_dashboard_buyer", context).click(function () {
         showDashboardBuyer();
+      });
+
+      //show menu drop mobile
+      $("#show_menu_mobil", context).click(function () {
+        //toggle style css
+        $("#menu_drop_mobil").toggleClass("activ_menu");
+      });
+      //show menu drop mobile
+      $("#show_menu_login", context).click(function () {
+        //toggle style css
+        $("#menu_drop_login").toggleClass("activ_menu");
       });
 
       if (context === document) {

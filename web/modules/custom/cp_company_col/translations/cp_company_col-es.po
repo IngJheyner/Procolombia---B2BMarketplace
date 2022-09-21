@@ -51,6 +51,9 @@ msgstr "Mensajes"
 msgid "Edit"
 msgstr "Editar"
 
+msgid "Edit "
+msgstr "Editar "
+
 msgid "Administrator and Contact Information"
 msgstr "Administrador y Datos de contacto"
 
@@ -106,7 +109,7 @@ msgid "Only png formats with a maximum weight of 2 MB and minimum dimensions of 
 msgstr "Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones mínimas de 200x200 px"
 
 msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
-msgstr "Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no."
+msgstr "Usted debe registrar el nombre de la empresa con la cual su compañía es reconocida. Puede ser la misma razón social."
 
 msgid "Company website"
 msgstr "Sitio Web de la compañía"
@@ -209,8 +212,6 @@ msgstr "Perfil de la compañía e información de contacto"
 
 msgid "has been successfully modified."
 msgstr "Modificado con exito"
-
-
 
 msgid "Name is required"
 msgstr "El nombre es requerido"
@@ -325,3 +326,24 @@ msgstr "El codigo de pais del celular es requerido"
 
 msgid "Cell phone is required"
 msgstr "El celular es requerido"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Recipient's username"
+msgstr "Nombre de usuario del destinatario"
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "Choose files"
+msgstr "Seleccione los archivos"
+
+msgid "Enter the keyword or select multiple options"
+msgstr "Introduzca la palabra clave o seleccione varias opciones"
+
+msgid "Username"
+msgstr "Nombre de usuario"

@@ -1,6 +1,6 @@
 cp_company_international.render:
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 # pre_register routes
 

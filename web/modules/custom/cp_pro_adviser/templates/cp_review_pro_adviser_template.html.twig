@@ -1,38 +1,38 @@
 {{ attach_library('cp_pro_adviser/cp_pro_adviser') }}
 <main class="step_registre">
-	<button class="btn btn_download mb-3" id="back_table"><i class='bx bx-left-arrow-alt'></i> Volver al proceso</button>
+	<button class="btn btn_download mb-3" id="back_table"><i class='bx bx-left-arrow-alt'></i> {{ 'Back to process'|t }}</button>
 
 
 	<div id="not_row" class="form_table row mb-5 gy-4" style="padding:10px !important">
 		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
-			<label for="mail">Correo del asesor</label>
+			<label for="mail">{{ 'Associate consultant email'|t }}</label>
 			<input class="form-control" type="text" name="mail" id="mail">
 		</div>
 		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
-			<label for="nit_search">Nombre de la empresa</label>
+			<label for="nit_search">{{ 'Company name'|t }}</label>
 			<input class="form-control" type="text" name="nit_search" id="nit_search">
 		</div>
 		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
-			<label for="state">Fecha de Actualización</label>
+			<label for="state">{{ 'Update date'|t }}</label>
 			<select name="state" id="action">
-				<option value="1">Activo</option>
-				<option value="0">Inactivo</option>
+				<option value="1">{{ 'Active'|t }}</option>
+				<option value="0">{{ 'Inactive'|t }}</option>
 			</select>
 		</div>
 		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
-			<label for="public">Estado</label>
+			<label for="public">{{ 'Status'|t }}</label>
 			<select name="public" id="state">
-				<option value="En espera de Aprobación">En espera de Aprobación</option>
-				<option value="Aprobado">Aprobado</option>
-				<option value="Rechazado">Rechazado</option>
+				<option value="En espera de Aprobación">{{ 'Waiting for approval'|t }}</option>
+				<option value="Aprobado">{{ 'Approved'|t }}</option>
+				<option value="Rechazado">{{ 'Rejected'|t }}</option>
 			</select>
 		</div>
 		<div class="col-sm-12 col-lg-9"></div>
 		<div class="col-sm-12 col-lg-3 d-flex flex-row justify-content-between align-items-end">
 			<button id="filter-log" class="filtter_btn btn">
 				<i class='bx bx-slider-alt'></i>
-				Aplicar filtro</button>
-			<button id="clean-log" class="clear_btn btn">Limpiar filtro</button>
+				{{ 'Apply filter'|t }}</button>
+			<button id="clean-log" class="clear_btn btn">{{ 'Clean filter'|t }}</button>
 		</div>
 	</div>
 	<div class="form_table">

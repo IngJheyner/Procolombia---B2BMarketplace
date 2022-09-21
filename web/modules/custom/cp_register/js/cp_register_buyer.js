@@ -265,7 +265,7 @@
     let isValid = true;
     let message = ""
     if (country == "") {
-      message = Drupal.t("Por favor seleccione un país");
+      message = Drupal.t("Please select a country");
       $("#country").css("border-color", "#ba0c2f");
       $("#error_country_message").text(message)
       $("#error_country").show();
@@ -362,7 +362,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_1 == "") {
-      message = Drupal.t("Por favor seleccione una categoría");
+      message = Drupal.t("Please select a category");
       $("#cat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_1_message").text(message)
       $("#error_cat_interest_1").show();
@@ -373,7 +373,7 @@
     }
 
     if (subcat_interest_1 == "") {
-      message = Drupal.t("Por favor seleccione una subcategoría");
+      message = Drupal.t("Please select a subcategory");
       $("#subcat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_1_message").text(message)
       $("#error_subcat_interest_1").show();
@@ -384,7 +384,7 @@
     }
 
     if (company_model == "") {
-      message = Drupal.t("Por favor seleccione un modelo de empresa");
+      message = Drupal.t("Please select a business model");
       $("#company_model_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_message").text(message)
       $("#error_company_model").show();
@@ -457,7 +457,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_2 == "") {
-      message = Drupal.t("Por favor seleccione una categoría");
+      message = Drupal.t("Please select a category");
       $("#cat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_2_message").text(message)
       $("#error_cat_interest_2").show();
@@ -468,7 +468,7 @@
     }
 
     if (subcat_interest_2 == "") {
-      message = Drupal.t("Por favor seleccione una subcategoría");
+      message = Drupal.t("Please select a subcategory");
       $("#subcat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_2_message").text(message)
       $("#error_subcat_interest_2").show();
@@ -479,7 +479,7 @@
     }
 
     if (company_model_2 == "") {
-      message = Drupal.t("Por favor seleccione un modelo de empresa");
+      message = Drupal.t("Please select a business model");
       $("#company_model_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_2_message").text(message)
       $("#error_company_model_2").show();
@@ -552,7 +552,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_3 == "") {
-      message = Drupal.t("Por favor seleccione una categoría");
+      message = Drupal.t("Please select a category");
       $("#cat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_3_message").text(message)
       $("#error_cat_interest_3").show();
@@ -563,7 +563,7 @@
     }
 
     if (subcat_interest_3 == "") {
-      message = Drupal.t("Por favor seleccione una subcategoría");
+      message = Drupal.t("Please select a subcategory");
       $("#subcat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_3_message").text(message)
       $("#error_subcat_interest_3").show();
@@ -574,7 +574,7 @@
     }
 
     if (company_model_3 == "") {
-      message = Drupal.t("Por favor seleccione un modelo de empresa");
+      message = Drupal.t("Please select a business model");
       $("#company_model_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_3_message").text(message)
       $("#error_company_model_3").show();

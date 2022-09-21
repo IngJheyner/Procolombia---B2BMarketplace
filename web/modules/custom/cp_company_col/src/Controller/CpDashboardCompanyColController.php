@@ -5,6 +5,8 @@ namespace Drupal\cp_company_col\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 /**
  * An cp_company_col controller.
@@ -26,6 +28,7 @@ class CpDashboardCompanyColController extends ControllerBase
                 //get username
                 'username' => $user->get('name')->value,
                 //get path and name of field_company_logo
+                
                 'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
                 //get name of file
                 'company_logo_name' => $user->get('field_company_logo')->entity->getFilename(),
@@ -52,6 +55,34 @@ class CpDashboardCompanyColController extends ControllerBase
                 'contact_phone' => $user->get('field_company_contact_phone')->value,
                 'contact_cellphone' => $user->get('field_company_contact_cell_phone')->value,
             ];
+        }
+
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/dashboard/col/user", 301);
+                }else{
+                    return new RedirectResponse("/es/tablero/col/usuario", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/dashboard/col/user'){
+                        return new RedirectResponse("/en/dashboard/col/user", 301);
+                    }
+                }else{
+                    if($path != '/tablero/col/usuario'){
+                        return new RedirectResponse("/es/tablero/col/usuario", 301);
+                    }
+                }
+            }
         }
 
         return [

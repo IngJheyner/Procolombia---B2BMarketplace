@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * An cp_register controller.
  */
@@ -68,6 +69,34 @@ class CpRegisterBuyerController extends ControllerBase
                     "Name" => $user->get('field_company_contact_name')->value . ' ' . $user->get('field_company_contact_lastname')->value
                 ]
             );
+        }
+
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/register/user/buyer", 301);
+                }else{
+                    return new RedirectResponse("/es/registro/usuario/comprador", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/register/user/buyer'){
+                        return new RedirectResponse("/en/register/user/buyer", 301);
+                    }
+                }else{
+                    if($path != '/registro/usuario/comprador'){
+                        return new RedirectResponse("/es/registro/usuario/comprador", 301);
+                    }
+                }
+            }
         }
 
         return [
@@ -211,30 +240,27 @@ class CpRegisterBuyerController extends ControllerBase
         //check if user exist and is not deleted
         //ceck if user is not deleted in drupal
 
-        if($user->isActive()){
-            $data_user = [
-                'step' => $user->get('field_step')->value,
-                'name' => $user->get('name')->value,
-                'email' => $user->get('mail')->value,
-                'position' => $user->get('field_company_contact_position')->value,
-                'web_site' => $user->get('field_company_web_site')->uri,
-                'city' => $user->get('field_company_city')->value,
-                'country' => $user->get('field_country')->value,
-                'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
-                'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
-                'company_model' => $user->get('field_company_model')->target_id,
-                'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
-                'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
-                'company_model_2' => $user->get('field_company_model_2')->target_id,
-                'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
-                'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
-                'company_model_3' => $user->get('field_company_model_3')->target_id,
-            ];
+        $data_user = [
+            'step' => $user->get('field_step')->value,
+            'name' => $user->get('name')->value,
+            'email' => $user->get('mail')->value,
+            'position' => $user->get('field_company_contact_position')->value,
+            'web_site' => $user->get('field_company_web_site')->uri,
+            'city' => $user->get('field_company_city')->value,
+            'country' => $user->get('field_country')->value,
+            'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
+            'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
+            'company_model' => $user->get('field_company_model')->target_id,
+            'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
+            'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
+            'company_model_2' => $user->get('field_company_model_2')->target_id,
+            'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
+            'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
+            'company_model_3' => $user->get('field_company_model_3')->target_id,
+        ];
+
+        return new JsonResponse(['status' => 200, 'data' => $data_user]);
     
-            return new JsonResponse(['status' => 200, 'data' => $data_user]);
-        }else{
-            return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
-        }
     }
 
     /**

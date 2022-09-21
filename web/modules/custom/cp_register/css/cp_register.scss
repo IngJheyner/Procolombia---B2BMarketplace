@@ -518,7 +518,7 @@ div#main-wrapper {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 14px 20px;
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;
@@ -535,7 +535,7 @@ div#main-wrapper {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 14px 20px;
     background-color: $color-Pantone-116-C;
     color: $color-White;
     font-family: $font-regular;
@@ -560,7 +560,7 @@ div#main-wrapper {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 14px 20px;
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;
@@ -1547,7 +1547,7 @@ strong {
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
   .header_title_buyer h1 {
-    padding: 5rem 2rem !important;
+    padding: 5rem 1rem !important;
   }
 
   .header_title h1 {

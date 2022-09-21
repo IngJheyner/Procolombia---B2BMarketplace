@@ -626,7 +626,7 @@
                     alert(error);
                 });
                 //return to dashboard
-                window.location.href = '/dashboard/adviser/user';
+                window.location.href = '/dashboard/adviser/user/international';
             } else {
                 alert('Error al rechazar el usuario');
             }
@@ -666,7 +666,7 @@
                     alert(error);
                 });
                 //return to dashboard
-                window.location.href = '/dashboard/adviser/user';
+                window.location.href = '/dashboard/adviser/user/international';
             } else {
                 alert('Error al aprobar el usuario');
             }

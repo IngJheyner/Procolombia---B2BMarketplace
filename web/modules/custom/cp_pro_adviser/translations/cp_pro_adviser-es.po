@@ -189,6 +189,9 @@ msgstr "Añadir"
 msgid "Spanish information"
 msgstr "Información en español"
 
+msgid "English Information"
+msgstr "Información en inglés"
+
 msgid "Company Description"
 msgstr "Descripción de la empresa"
 
@@ -200,6 +203,9 @@ msgstr "Principal cadena de producción"
 
 msgid "Enter the keyword or select an option"
 msgstr "Introduzca la palabra clave o seleccione una opción"
+
+msgid "Enter the keyword or select multiple options"
+msgstr "Introduzca la palabra clave o seleccione varias opciones"
 
 msgid "Departments"
 msgstr "Departamentos"
@@ -291,8 +297,8 @@ msgstr "Empresa colombiana con una oferta exportable de bienes o servicios."
 msgid "international buyer"
 msgstr "comprador internacional"
 
-msgid "Company outside Colombia with interest in products or services of Colombian origin."
-msgstr "Empresa fuera de Colombia con interés en productos o servicios de origen colombiano."
+msgid "Offshore company with interest in colombian products and services."
+msgstr "Empresa de origen colombiana con oferta exportable de bienes o servicios."
 
 msgid "Do you have an account?"
 msgstr "¿Tiene una cuenta?"
@@ -463,7 +469,7 @@ msgid "REQUEST APPOINTMENT"
 msgstr "SOLICITAR CITA"
 
 msgid "To continue with the registration process, please validate your e-mail account where you will receive an e-mail with a verification link."
-msgstr "Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico donde recibirá un e-mail con un link de verificación"
+msgstr "Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico donde recibirá un e-mail con un link de verificación."
 
 msgid "The consulted company already has a registered user, please"
 msgstr "La empresa consultada ya cuenta con un usuario registrado, por favor"
@@ -479,3 +485,180 @@ msgstr "Registro Empresa Colombiana"
 
 msgid "Do you want to continue?"
 msgstr "¿Desea continuar?"
+
+msgid "Category"
+msgstr "Categoría"
+
+msgid "Subcategory"
+msgstr "Subcategoría"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Inactive"
+msgstr "Inactivo"
+
+msgid "Update date"
+msgstr "Fecha de Actualización"
+
+msgid "Apply filter"
+msgstr "Aplicar filtro"
+
+msgid "Clean filter"
+msgstr "Limpiar filtro"
+
+msgid "Company NIT"
+msgstr "NIT de la Empresa"
+
+msgid "Published"
+msgstr "Publicado"
+
+msgid "Productive chain"
+msgstr "Cadena productiva"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "Associate consultant assigned to the company"
+msgstr "Asesor asignado para la empresa"
+
+msgid "CONTACT INFORMATION"
+msgstr "INFORMACIÓN DE CONTACTO"
+
+msgid "EDIT - Company profile & contact"
+msgstr "EDITAR - Perfil de la empresa & contacto"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Main CIIU code or economic activity"
+msgstr "Código CIIU principial o actividad económica"
+
+msgid "Company Name"
+msgstr "Nombre de la empresa"
+
+msgid "Country"
+msgstr "País"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Please include the name of your position within the company."
+msgstr "Por favor especifique el cargo que ocupa en la empresa."
+
+msgid "United States"
+msgstr "Estados Unidos"
+
+msgid "EDIT MY PRODUCTS OF INTEREST"
+msgstr "EDITAR MIS PRODUCTOS DE INTERÉS"
+
+msgid "I am interested in..."
+msgstr "Estoy interesado/a en..."
+
+msgid "Particularly in..."
+msgstr "Particularmente en..."
+
+msgid "Tariff Item"
+msgstr "Partida arancelaria"
+
+msgid "Tariff Item #2"
+msgstr "Partida arancelaria #2"
+
+msgid "Tariff Item #3"
+msgstr "Partida arancelaria #3"
+
+msgid "NOTE:"
+msgstr "NOTA:"
+
+msgid "Edit company profile and contact"
+msgstr "Editar perfil de la empresa & contacto"
+
+msgid "All uploaded content must comply with the"
+msgstr "Todo contenido subido debe cumplir con la"
+
+msgid "publication policy."
+msgstr "política de publicaciones."
+
+msgid "You are about to delete the changes made."
+msgstr "Está a punto de borrar los cambios."
+
+msgid "User successfully updated"
+msgstr "Usuario actualizado exitosamente"
+
+msgid "Associate consultant email"
+msgstr "Correo del asesor"
+
+msgid "Update date"
+msgstr "Fecha de Actualización"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Waiting for approval"
+msgstr "En espera de aprobación"
+
+msgid "Approved"
+msgstr "Aprobado"
+
+msgid "Rejected"
+msgstr "Rechazado"
+
+msgid "Back to process"
+msgstr "Volver al proceso"
+
+msgid "NIT"
+msgstr "NIT"
+
+msgid "E-mail address"
+msgstr "Correo electrónico"
+
+msgid "Company profile and contact information"
+msgstr "El perfil de la empresa e información de contacto"
+
+msgid "have been successfully modified."
+msgstr "han sido modificados exitosamente."
+
+msgid "Spanish Information"
+msgstr "Información en español"
+
+msgid "Contact name"
+msgstr "Nombre de contacto"
+
+msgid "Contact last name"
+msgstr "Apellido de contacto"
+
+msgid "Also remember to update the information in English."
+msgstr "También recuerda actualizar la información en inglés."
+
+msgid "Indicate the CIIU code or economic activity to which your company belongs."
+msgstr "Indique el código CIIU o actividad económica a la que pertenece su empresa."
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "You are about to update the company's information"
+msgstr "Está a punto actualizar la información de la empresa"
+
+msgid "PROCOLOMBIA'S CLASSIFICATION INFORMATION"
+msgstr "INFORMACIÓN DE CLASIFICACIÓN DE PROCOLOMBIA"
+
+msgid "Update information"
+msgstr "Actualizar información"
+
+msgid "Update information"
+msgstr "Actualizar información"
+
+msgid "International Buyer Approval"
+msgstr "Aprobación Comprador Internacional"
+
+msgid "International Buyer Rejection"
+msgstr "Rechazo Comprador Internacional"

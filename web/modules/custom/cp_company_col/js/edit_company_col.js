@@ -440,7 +440,7 @@
                             //reload page
                             window.location.reload();
                         } else {
-                            window.location.href = "/dashboard/col/user";
+                            window.location.href = "/dashboard";
                         }
                     }, 2000);
 

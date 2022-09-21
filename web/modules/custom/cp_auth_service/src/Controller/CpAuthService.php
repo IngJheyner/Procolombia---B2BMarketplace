@@ -66,16 +66,16 @@ class CpAuthService extends ControllerBase
                     
                 } else {
                     //return error message
-                    return new JsonResponse(['error' => 'User is not active']);
+                    return new JsonResponse(['error' => 'El usuario no esta activo']);
                 }
                 
             } else {
                 //return error
-                return new JsonResponse(['error' => 'Invalid credentials']);
+                return new JsonResponse(['error' => 'El correo electrónico o la contraseña que ingresaste son incorrectos. Inténtalo de nuevo']);
             }
         } else {
             //return error message
-            return new JsonResponse(['error' => 'Invalid credentials']);
+            return new JsonResponse(['error' => 'El correo electrónico o la contraseña que ingresaste son incorrectos. Inténtalo de nuevo']);
         }
     }
 

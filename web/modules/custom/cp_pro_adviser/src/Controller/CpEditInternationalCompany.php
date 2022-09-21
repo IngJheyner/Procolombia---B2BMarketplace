@@ -68,6 +68,33 @@ class CpEditInternationalCompany extends ControllerBase
             );
         }
 
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/adviser/edit/col", 301);
+                }else{
+                    return new RedirectResponse("/es/asesor/editar/coll", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/adviser/edit/col'){
+                        return new RedirectResponse("/en/adviser/edit/col", 301);
+                    }
+                }else{
+                    if($path != '/asesor/editar/col'){
+                        return new RedirectResponse("/es/asesor/editar/col", 301);
+                    }
+                }
+            }
+        }
 
         return [
             // Your theme hook name.

@@ -1,5 +1,5 @@
 cp_register:
-  version: 2.3
+  version: 2.5
   css:
     theme:
       css/cp_register.css: {}

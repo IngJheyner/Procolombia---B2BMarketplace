@@ -69,12 +69,10 @@
               <div class="toltip_content">
                 <i class='bx bxs-info-circle toltip_i'>
                   <span class="tooltiptext">
-                    {{ 'You must register the companys trade name, which is the name by which your company is
-                    recognized; it may or may not be the same company name.'|t }}
+                    {{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}
                   </span>
                 </i>
-                <span>{{ 'You must register the companys trade name, which is the name by which your company is
-                  recognized; it may or may not be the same company name.'|t }}</span>
+                <span>{{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}</span>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 ps-4">
@@ -94,9 +92,9 @@
                 <sup>*</sup>
               </label>
               <div class="input_error">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Example@example.com"
-                  title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web."
-                  aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web.">
+                <input type="email" class="form-control" id="email" name="email" placeholder="{{ "Example@example.com"|t }}" title="{{ "Enter the institutional e-mail address where correspondence from this web site will be sent."|t }}"
+                  aria-label="{{ "Enter the institutional e-mail address where correspondence from this web site will be sent."|t }}">
+                  
                 <i id="error_mail" class='bx bxs-info-circle toltip_i'>
                   <span id="error_mail_message" class="tooltiptext_error">
                     {{ 'Required Field'|t }}
@@ -110,8 +108,7 @@
                     }}
                   </span>
                 </i>
-                <span>{{ 'Enter the institutional e-mail address where correspondence from this web site will be
-                  sent.'|t }}</span>
+                <span>{{ 'Enter the institutional e-mail address where correspondence from this web site will be sent.'|t }}</span>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 pe-4">
@@ -120,7 +117,7 @@
                   <span>*</span>
                 </label>
                 <div class="input-group mb-3">
-                  <input type="password" id="password_buyer" class="form-control" aria-label="Recipient's username"
+                  <input type="password" id="password_buyer" class="form-control" aria-label="{{ "Recipient's username"|t }}"
                     aria-describedby="basic-addon2">
                   <span class="input-group-text">
                     <img id="pass_bloq_buyer" style="display:none"
@@ -162,7 +159,7 @@
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="departament_contain" class="w-100">
-                  <select id="country" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+                  <select id="country" class="single_select" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
                     <option value="">{{ "Enter the keyword or select an option"|t }}
                     </option>
                     {% for country in tree_countries %}
@@ -260,7 +257,7 @@
               </div>
               <div class="input_error">
                 <i id="error_asesor" class='bx bxs-info-circle' data-bs-toggle="tooltip" data-bs-placement="bottom"
-                  data-original-title="Campo requerido."></i>
+                  data-original-title="{{ "Required Field"|t }}"></i>
               </div>
             </div>
             <div class="col-lg-12 mb-5">
@@ -341,8 +338,7 @@
                   </svg>
                   <span class="tooltiptext_yotube">
                     <p class="note">{{ 'NOTE:'|t }}</p>
-                    {{ 'In order to ensure the smooth operation of the system, it will only present the first 10
-                    matching products.'|t }}
+                    {{ 'In order to ensure the smooth operation of the system, it will only present the first 10 matching products.'|t }}
                   </span>
                 </div>
                 <div class="input_error">
@@ -363,14 +359,10 @@
                 <div class="toltip_content">
                   <i class='bx bxs-info-circle toltip_i'>
                     <span class="tooltiptext">
-                      {{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff
-                      code, that defines your product. After the third character you enter, the system will search for
-                      the first 10 products that include the characters/word you entered.'|t }}
+                      {{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}
                     </span>
                   </i>
-                  <span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff
-                    code, that defines your product. After the third character you enter, the system will search for the
-                    first 10 products that include the characters/word you entered.'|t }}</span>
+                  <span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
                 </div>
               </div>
             </div>
@@ -451,8 +443,7 @@
                   </svg>
                   <span class="tooltiptext_yotube">
                     <p class="note">{{ 'NOTE:'|t }}</p>
-                    {{ 'In order to ensure the smooth operation of the system, it will only present the first 10
-                    matching products.'|t }}
+                    {{ 'In order to ensure the smooth operation of the system, it will only present the first 10 matching products.'|t }}
                   </span>
                 </div>
                 <div class="input_error">
@@ -471,14 +462,10 @@
                 </div>
                 <div class="toltip_content">
                   <i class='bx bxs-info-circle toltip_i'>
-                    <span class="tooltiptext">{{ 'If the product you are looking for is not listed, please enter a word,
-                      or the 6-digit tariff code, that defines your product. After the third character you enter, the
-                      system will search for the first 10 products that include the characters/word you entered.'|t
+                    <span class="tooltiptext">{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t
                       }}</span>
                   </i>
-                  <span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff
-                    code, that defines your product. After the third character you enter, the system will search for the
-                    first 10 products that include the characters/word you entered.'|t }}</span>
+                  <span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
                 </div>
               </div>
             </div>
@@ -559,8 +546,7 @@
                   </svg>
                   <span class="tooltiptext_yotube">
                     <p class="note">{{ 'NOTE:'|t }}</p>
-                    {{ 'In order to ensure the smooth operation of the system, it will only present the first 10
-                    matching products.'|t }}
+                    {{ 'In order to ensure the smooth operation of the system, it will only present the first 10 matching products.'|t }}
                   </span>
                 </div>
                 <div class="input_error">
@@ -580,20 +566,16 @@
                 </div>
                 <div class="toltip_content">
                   <i class='bx bxs-info-circle toltip_i'>
-                    <span class="tooltiptext">{{ 'If the product you are looking for is not listed, please enter a word,
-                      or the 6-digit tariff code, that defines your product. After the third character you enter, the
-                      system will search for the first 10 products that include the characters/word you entered.'|t
+                    <span class="tooltiptext">{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t
                       }}</span>
                   </i>
-                  <span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff
-                    code, that defines your product. After the third character you enter, the system will search for the
-                    first 10 products that include the characters/word you entered.'|t }}</span>
+                  <span>{{ 'If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered.'|t }}</span>
                 </div>
               </div>
             </div>
             <div class="col-lg-12 my-5">
               <div class="description px-0 mb-3">
-                <p class="title">INFORMACIÓN DE CLASIFICACIÓN DE PROCOLOMBIA</p>
+                <p class="title">{{ "PROCOLOMBIA'S CLASSIFICATION INFORMATION"|t }}</p>
 
               </div>
             </div>
@@ -604,7 +586,7 @@
                 <div class="d-flex align-items-center error_select">
                   <div id="production_chain_contain" class="w-100">
                     <select id="production_chain" class="single_select"
-                      placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                      placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                       <option value="">{{ 'Enter the keyword or select an option'|t }}
                       </option>
 
@@ -626,7 +608,7 @@
                 <div class="d-flex align-items-center error_select">
                   <div id="production_chain_contain" class="w-100">
                     <select id="production_chain" class="single_select"
-                      placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                      placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                       <option value="">{{ 'Enter the keyword or select an option'|t }}
                       </option>
 
@@ -648,7 +630,7 @@
                 <div class="d-flex align-items-center error_select">
                   <div id="production_chain_contain" class="w-100">
                     <select id="production_chain" class="single_select"
-                      placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                      placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                       <option value="">{{ 'Enter the keyword or select an option'|t }}
                       </option>
 
@@ -669,11 +651,11 @@
               <button id="confirm_cancel" class="cancel">{{ 'CANCEL'|t }}</button>
             </div>
             <div class="col-lg-4 continue d-flex justify-content-between px-0">
-              <button id="modal_reject_user_buyer" name="reject_user_buyer" aria-label="Continuar con el registro"
+              <button id="modal_reject_user_buyer" name="reject_user_buyer" aria-label=" {{ "Continue registration"|t }}"
                 class="continue rechazar">RECHAZAR</button>
-              <button id="modal_aproved_user_buyer" name="aproved_user_buyer" aria-label="Continuar con el registro"
+              <button id="modal_aproved_user_buyer" name="aproved_user_buyer" aria-label=" {{ "Continue registration"|t }}"
                 class="continue aprove">APROBADO</button>
-              <button id="modal_confirm_save_buyer" name="confirm_save_buyer" aria-label="Continuar con el registro"
+              <button id="modal_confirm_save_buyer" name="confirm_save_buyer" aria-label=" {{ "Continue registration"|t }}"
                 class="continue">GUARDAR</button>
               <button style="display:none" class="continue" id="loading_1" type="button" disabled>
                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -695,7 +677,7 @@
           <h5 class="modal-title" id="alert_1Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg"
               alt="" srcset="">{{ 'Edit company profile and contact'|t }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
         </div>
         <div class="modal-body">
           <p>{{ 'All uploaded content must comply with the'|t }}
@@ -719,12 +701,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Actualizar Información
+              srcset="">{{ "Update information"|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the company's information"|t }} <strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -735,9 +717,9 @@
               <strong>{{ "Would you like to continue?"|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button data-bs-dismiss="modal" id="confirm_save_buyer" aria-label={{ "YES" |t }} class="yes">{{ "YES"|t
+              <button data-bs-dismiss="modal" id="confirm_save_buyer" aria-label="{{ "YES"|t }}" class="yes">{{ "YES"|t
                 }}</button>
-              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="Close" aria-label={{ "NO" |t }}
+              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}" aria-label="{{ "NO"|t }}"
                 class="no">{{ "NO"|t }}</button>
             </div>
           </div>
@@ -752,12 +734,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Aprobación Comprador Internacional
+              srcset="">{{ "International Buyer Approval"|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the company's information"|t }} <strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -768,9 +750,9 @@
               <strong>{{ "Would you like to continue?"|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button data-bs-dismiss="modal" id="aproved_user_buyer" aria-label={{ "YES" |t }} class="yes">{{ "YES"|t
+              <button data-bs-dismiss="modal" id="aproved_user_buyer" aria-label="{{ "YES"|t }}" class="yes">{{ "YES"|t
                 }}</button>
-              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="Close" aria-label={{ "NO" |t }} class="no">{{ "NO"|t }}</button>
+              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}" aria-label="{{ "NO"|t }}" class="no">{{ "NO"|t }}</button>
             </div>
           </div>
         </div>
@@ -784,12 +766,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Rechazo Comprador Internacional
+              srcset="">{{ "International Buyer Rejection"|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the company's information"|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -800,8 +782,8 @@
               <strong>{{ "Would you like to continue?"|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button data-bs-dismiss="modal" id="reject_user_buyer" aria-label={{ "YES" |t }} class="yes">{{ "YES"|t }}</button>
-              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="Close" aria-label={{ "NO" |t }} class="no">{{ "NO"|t }}</button>
+              <button data-bs-dismiss="modal" id="reject_user_buyer" aria-label="{{ "YES"|t }}" class="yes">{{ "YES"|t }}</button>
+              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}" aria-label="{{ "NO"|t }}" class="no">{{ "NO"|t }}</button>
             </div>
           </div>
         </div>
@@ -819,7 +801,7 @@
               srcset="">
             {{ 'Cancel'|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
         </div>
         <div class="modal-body">
           <p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p>

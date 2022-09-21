@@ -332,7 +332,7 @@
     var isValid = true;
     if (logo == undefined) {
       message =
-        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
       $("#logo_input").css("border-color", "#ba0c2f");
       $("#logo_name").css("border-color", "#ba0c2f");
       $("#error_logo_message").text(message)
@@ -346,7 +346,7 @@
       var fileExtension = fileName.split(".").pop();
       if (fileExtension != "png" && fileExtension != "jpg") {
         message =
-          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
         $("#logo_input").css("border-color", "#ba0c2f");
         $("#logo_name").css("border-color", "#ba0c2f");
         $("#error_logo_message").text(message)
@@ -358,7 +358,7 @@
       } else {
         if (fileSize > 2000000) {
           message =
-            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
           $("#logo_input").css("border-color", "#ba0c2f");
           $("#logo_name").css("border-color", "#ba0c2f");
           $("#error_logo_message").text(message)
@@ -370,7 +370,7 @@
         } else {
           if (logo.width > 200 || logo.height > 200) {
             message =
-              Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+              Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
             $("#logo_input").css("border-color", "#ba0c2f");
             $("#logo_name").css("border-color", "#ba0c2f");
             $("#error_logo_message").text(message)

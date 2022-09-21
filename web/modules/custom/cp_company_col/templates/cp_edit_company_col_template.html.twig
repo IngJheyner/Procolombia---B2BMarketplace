@@ -40,7 +40,7 @@
                         <img id="logo_img" src="" alt="" srcset="" class="mb-3" style="width: 80px; height: 80px;">
                         <div class="input-group mb-3">
                           <input type="text" id="logo_name" disabled style="background-color: #fff;"
-                            class="form-control" placeholder="https://www.youtube.com" aria-label="Recipient's username"
+                            class="form-control" placeholder="https://www.youtube.com" aria-label="{{ "Recipient's username"|t }}"
                             aria-describedby="basic-addon2">
                           <span id="remove_logo" style="background: #ba0c2f;" class="input-group-text">
                             <svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26"
@@ -100,11 +100,9 @@
 
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
-                        <span class="tooltiptext">{{ 'Only png formats with a maximum weight of
-                          2 MB and minimum dimensions of 200x200 px are allowed'|t }}</span>
+                        <span class="tooltiptext">{{ 'Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed'|t }}</span>
                       </i>
-                      <span>{{ 'Only png formats with a maximum weight of 2 MB and minimum
-                        dimensions of 200x200 px are allowed'|t }}</span>
+                      <span>{{ 'Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed'|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -122,14 +120,10 @@
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
                         <span class="tooltiptext">
-                          {{ 'You must register the companys trade name, which is the name by
-                          which your company is recognized; it may or may not be the same
-                          company name.'|t }}
+                          {{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}
                         </span>
                       </i>
-                      <span>{{ 'You must register the companys trade name, which is the name by
-                        which your company is recognized; it may or may not be the same company
-                        name.'|t }}</span>
+                      <span>{{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -162,7 +156,7 @@
                     <div class="d-flex align-items-center error_select">
                       <div id="production_chain_contain" class="w-100">
                         <select id="production_chain" class="single_select"
-                          placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                          placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
                           <option value="">{{ 'Enter the keyword or select an option'|t }}
                           </option>
                           {% for production_chain_item in production_chain %}
@@ -193,8 +187,7 @@
               <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="row p-0">
                   <div class="col-md-12">
-                    <label for="principal_code_ciiu" class="form-label">{{ 'Main CIIU code or
-                      economic activity'|t }}
+                    <label for="principal_code_ciiu" class="form-label">{{ 'Main CIIU code or economic activity'|t }}
                       <span>*</span>
                     </label>
                     <div class="input_error">
@@ -208,17 +201,14 @@
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
                         <span class="tooltiptext">
-                          {{ 'Indicate the CIIU code or economic activity to which your
-                          company belongs.'|t }}
+                          {{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}
                         </span>
                       </i>
-                      <span>{{ 'Indicate the CIIU code or economic activity to which your company
-                        belongs.'|t }}</span>
+                      <span>{{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <label for="nombre_del_sitio" class="form-label">{{ 'CIIU Code Secondary or
-                      Economic Activity'|t }}</label>
+                    <label for="nombre_del_sitio" class="form-label">{{ 'CIIU Code Secondary or Economic Activity'|t }}</label>
                     <div class="input_error">
                       <input type="text" class="form-control" id="secondary_code_ciiu" placeholder="">
                       <i id="error_secondary_code_ciiu" class='bx bxs-info-circle toltip_i'>
@@ -230,12 +220,10 @@
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
                         <span class="tooltiptext">
-                          {{ 'Indicate the CIIU code or economic activity to which your
-                          company belongs.'|t }}
+                          {{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}
                         </span>
                       </i>
-                      <span>{{ 'Indicate the CIIU code or economic activity to which your company
-                        belongs.'|t }}</span>
+                      <span>{{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -244,7 +232,7 @@
                     </label>
                     <div class="d-flex align-items-center error_select">
                       <div id="departament_contain" class="w-100">
-                        <select id="departament" class="single_select" placeholder="Seleccione una opción..."
+                        <select id="departament" class="single_select" placeholder="{{ "Select an option"|t }}"
                           autocomplete="off">
                           <option value="">{{ 'Select an option'|t }}</option>
                           {% for deparment in deparments %}
@@ -267,7 +255,7 @@
                     </label>
                     <div class="d-flex align-items-center error_select">
                       <div id="ciudad_contain" class="w-100">
-                        <select id="ciudad" class="single_select" placeholder="Seleccione una opción..."
+                        <select id="ciudad" class="single_select" placeholder="{{ "Select an option"|t }}"
                           autocomplete="off"></select>
                       </div>
                       <i id="error_ciudad" class='bx bxs-info-circle toltip_i'>
@@ -285,7 +273,7 @@
                     <div class="d-flex align-items-center error_select">
                       <div id="modelo_de_negocio_contain" class="w-100">
                         <select id="modelo_de_negocio" multiple
-                          placeholder="Ingrese la palabra clave o seleccione varias opciones">
+                          placeholder={{ 'Enter the keyword or select multiple options'|t }}>
                           <option value="">{{ 'Select an option'|t }}</option>
                           {% for business_model_item in business_model %}
                           <option value="{{business_model_item.ID}}">
@@ -349,9 +337,9 @@
           <div class="row p-0">
             <div class="col-lg-12 continue">
               <button id="cancel_process_1" class="cancel">{{ 'CANCEL'|t }}</button>
-              <button id="save_only" name="save_only" aria-label="Continuar con el registro" class="save_only">{{
+              <button id="save_only" name="save_only" aria-label="{{ "Continuar con el registro"|t }}" class="save_only">{{
                 'SAVE'|t }}</button>
-              <button id="save_1" name="save_1" aria-label="Continuar con el registro" class="continue">{{
+              <button id="save_1" name="save_1" aria-label="{{ "Continuar con el registro"|t }}" class="continue">{{
                 'SAVE AND EXIT'|t }}</button>
               <button style="display:none" class="continue" id="loading_1" type="button" disabled>
                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -372,8 +360,7 @@
     </div>
     <div class="description">
       <p class="title">{{ 'Keep the following in mind!'|t }}</p>
-      <p class="desc">{{ 'The information filled out in these fields will be used to send all notifications
-        arising from the Contact Company form.'|t }}</p>
+      <p class="desc">{{ 'The information filled out in these fields will be used to send all notifications arising from the Contact Company form.'|t }}</p>
     </div>
     <div class="step_content">
       <div>
@@ -409,7 +396,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="name" type="text" class="form-control" aria-label="Username"
+                  <input id="name" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -471,7 +458,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="last_name" type="text" class="form-control" aria-label="Username"
+                  <input id="last_name" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -534,7 +521,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="contact_email" type="text" class="form-control" aria-label="Username"
+                  <input id="contact_email" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -576,7 +563,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="position_spanish" type="text" class="form-control" aria-label="Username"
+                  <input id="position_spanish" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -593,7 +580,7 @@
           <div class="row p-0">
             <div class="col-lg-12 continue">
               <button id="cancel_process_2" class="cancel">{{ 'CANCEL'|t }}</button>
-              <button id="save_2" name="save_2" aria-label="Continuar con el registro" class="continue">{{
+              <button id="save_2" name="save_2" aria-label="{{ "Continuar con el registro"|t }}" class="continue">{{
                 'SAVE'|t }}</button>
               <button style="display:none" class="continue" id="loading_1" type="button" disabled>
                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -614,7 +601,7 @@
           <h5 class="modal-title" id="alert_1Label"><img
               src="http://52.201.168.42/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt="" srcset="">{{
             'Edit company profile and contact'|t }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
           <p>{{ 'All uploaded content must comply with the'|t }}
@@ -638,8 +625,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
-              src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Save
-            Edit'|t }}</h5>
+              src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Save Edit'|t }}</h5>
         </div>
         <div class="modal-body">
           <p>{{ 'You are about to save the modified fields Do you want to update the information?'|t }}</p>
@@ -658,8 +644,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
-              src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Save
-            Edit'|t }}</h5>
+              src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Save Edit'|t }}</h5>
         </div>
         <div class="modal-body">
           <p>{{ 'You are about to save the modified fields Do you want to update the information?'|t }}</p>
@@ -682,7 +667,7 @@
               src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
             {{ 'Cancel'|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
           <p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p>
@@ -710,8 +695,7 @@
             'Successful process'|t }}</h5>
         </div>
         <div class="modal-body">
-          <p> <strong>"{{ 'Company profile and contact information'|t }}"</strong> {{ 'has been successfully
-            modified.'|t }}</p>
+          <p> <strong>"{{ 'Company profile and contact information'|t }}"</strong> {{ 'has been successfully modified.'|t }}</p>
         </div>
         <div class="modal-footer">
           <button id="" type="button" class="btn btn_save" data-bs-dismiss="modal">{{ 'UNDERSTOOD'|t }}</button>
