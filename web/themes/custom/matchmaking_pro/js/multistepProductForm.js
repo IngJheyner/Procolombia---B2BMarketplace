@@ -69,12 +69,12 @@
           $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
           $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')  
         
-        //Paso 5                
-          if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
-            $('#edit-field-pr-video-wrapper button').show();
-          } else {
-          $('#edit-field-pr-video-wrapper button').hide();
-          }
+        // //Paso 5                
+        //   if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
+        //     $('#edit-field-pr-video-wrapper button').show();
+        //   } else {
+        //   $('#edit-field-pr-video-wrapper button').hide();
+        //   }
 
         //Sumo select
           $('#edit-field-product-type').SumoSelect({
