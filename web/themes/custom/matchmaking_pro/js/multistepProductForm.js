@@ -18,9 +18,8 @@
           const noResults = $('#generic-modal-view-no-results');
           const btnOkNoResults = $('#generic-modal-view-no-results .modal-footer-left');
           const btncloseNoResults = $('#generic-modal-view-no-results .modal-header span[aria-hidden="true"]');
-          
+                    
           if(noResults){
-           console.log('Modal existe');
            $(noResults).addClass('show')
           }
           function closeNoResultsModal(btn){
@@ -89,6 +88,12 @@
         //Sumo select
           $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
             forceCustomRendering: true,
+          });
+          $('#edit-field-categorization-target-id').SumoSelect({
+            forceCustomRendering: true,
+            search:true,
+            searchText: Drupal.t('Search'),
+            noMatch: Drupal.t('No matches for "{0}"')
           });
 
           $('#edit-field-product-type').SumoSelect({
