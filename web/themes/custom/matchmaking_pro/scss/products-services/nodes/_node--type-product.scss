@@ -128,7 +128,10 @@
 			gap: 17px;
 			align-items: flex-end;
 			flex-grow: .3;
-			
+			padding-top: 16px;
+			.field--name-field-file .field__items{
+				width: 100%;
+			}			
 			@include media-breakpoint-down(md){
 				flex-direction: column;
 			}
