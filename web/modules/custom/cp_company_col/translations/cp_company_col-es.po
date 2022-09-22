@@ -225,6 +225,9 @@ msgstr "El apellido es requerido"
 msgid "The last name cannot be longer than 20 characters"
 msgstr "El apellido no puede tener mas de 20 caracteres"
 
+msgid "The lastname cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
 msgid "Email is required and must be a valid email address"
 msgstr "El email es requerido y debe ser un email válido"
 
@@ -278,6 +281,9 @@ msgstr "Debe aceptar las condiciones de uso"
 
 msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension"
 msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200"
+
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n"
+msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n"
 
 msgid "Company name is required"
 msgstr "El nombre de la empresa es requerido"
@@ -347,3 +353,21 @@ msgstr "Introduzca la palabra clave o seleccione varias opciones"
 
 msgid "Username"
 msgstr "Nombre de usuario"
+
+msgid "Company's name cannot be longer than 100 characters."
+msgstr "El nombre de la empresa no puede tener mas de 100 caracteres."
+
+msgid "Spanish description must be less than 1000 characters."
+msgstr "La descripción en español debe tener menos de 1000 caracteres."
+
+msgid "English description must be less than 1000 characters."
+msgstr "La descripción en inglés debe tener menos de 1000 caracteres."
+
+msgid "The position in Spanish must be less than 1000 characters."
+msgstr "La posición en español debe tener menos de 1000 caracteres."
+
+msgid "Phone line must not be longer than 20 characters."
+msgstr "La linea de telefono no debe tener mas de 20 caracteres."
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"

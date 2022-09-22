@@ -122,7 +122,7 @@ class CpAuthService extends ControllerBase
         //get the username from the request
         $username = $request->request->get('username');
         //load the user by the username
-        $user = user_load_by_name($username);
+        $user = user_load_by_mail($username);
         //if the user exists, send the email, finally, return status 200, if not return 500
         if ($user) {
             // Create a timestamp.

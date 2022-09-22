@@ -9,6 +9,7 @@
 			<div class="col-sm-12 col-lg-4 d-flex flex-column">
 				<label for="category">{{ "Category"|t }}</label>
 				<select name="category" id="category">
+					<option value="">{{ "Select category"|t }}</option>
 					{% for category in tree_categorization %}
 						<option value="{{category.ID}}">{{category.Name}}</option>
 					{% endfor %}
@@ -16,20 +17,23 @@
 			</div>
 			<div class="col-sm-12 col-lg-4 d-flex flex-column">
 				<label for="subcat_interest_1">{{ "Subcategory"|t }}</label>
-				<select name="subcat_interest_1" id="subcat_interest_1"></select>
+				<select name="subcat_interest_1" id="subcat_interest_1">
+					<option value="">{{ "Select subcategory"|t }}</option>
+				</select>
 			</div>
 			<div class="col-sm-12 col-lg-4 d-flex flex-column">
 				<label for="status_buyer">{{ "Status"|t }}</label>
 				<select name="status_buyer" id="status_buyer">
-					<option value="1">{{ "Active"|t }}</option>
-					<option value="0">{{ "Inactive"|t }}</option>
+					<option value="">{{ "Select Status"|t }}</option>
+					{% for status in tree_account_status %}
+						<option value="{{status.ID}}">{{status.Name}}</option>
+					{% endfor %}
 				</select>
 			</div>
 			<div class="col-sm-12 col-lg-4">
 				<label for="update_date">{{ "Update date"|t }}</label>
 				<select name="update_date" id="update_date">
-					<option value="si">{{ "YES"|t }}</option>
-					<option value="no">{{ "NO"|t }}</option>
+					<option value="">{{ ""|t }}</option>
 				</select>
 			</div>
 			<div class="col-sm-12 col-lg-4 d-flex flex-row justify-content-between align-items-end">

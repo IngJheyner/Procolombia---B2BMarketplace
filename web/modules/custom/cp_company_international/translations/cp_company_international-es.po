@@ -213,18 +213,25 @@ msgstr "Proceso exitoso"
 msgid "User successfully updated"
 msgstr "Usuario actualizado con exito"
 
-
-
 msgid "Name is required"
 msgstr "El nombre es requerido"
+
+msgid "Name is required\n"
+msgstr "El nombre es requerido\n"
 
 msgid "The name cannot be longer than 20 characters"
 msgstr "El nombre no puede tener mas de 20 caracteres"
 
-msgid "Last name is required"
+msgid "The name cannot be longer than 20 characters\n"
+msgstr "El nombre no puede tener mas de 20 caracteres\n"
+
+msgid "Lastname is required"
 msgstr "El apellido es requerido"
 
-msgid "The last name cannot be longer than 20 characters"
+msgid "Lastname is required\n"
+msgstr "El apellido es requerido\n"
+
+msgid "The lastname cannot be longer than 20 characters"
 msgstr "El apellido no puede tener mas de 20 caracteres"
 
 msgid "Email is required and must be a valid email address"
@@ -245,8 +252,14 @@ msgstr "El celular no debe tener mas 10 digitos"
 msgid "Company is required"
 msgstr "La compañia es requerida"
 
+msgid "Company is required\n"
+msgstr "La compañia es requerida\n"
+
 msgid "The company cannot be longer than 100 characters"
 msgstr "La compañia no puede tener mas de 100 caracteres"
+
+msgid "The company cannot be longer than 100 characters\n"
+msgstr "La compañia no puede tener mas de 100 caracteres\n"
 
 msgid "Password is required"
 msgstr "La contraseña es requerida"
@@ -364,3 +377,15 @@ msgstr "Nombre de usuario del destinatario"
 
 msgid "Example@example.com"
 msgstr "Ejemplo@ejemplo.com"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Cellphone is required"
+msgstr "El teléfono es requerido"
+
+msgid "Cellphone is required\n"
+msgstr "El teléfono es requerido\n"
+
+msgid "Error While Creating User: "
+msgstr "Error al crear el usuario: "

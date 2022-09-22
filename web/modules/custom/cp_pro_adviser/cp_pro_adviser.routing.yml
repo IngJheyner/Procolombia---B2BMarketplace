@@ -1,6 +1,6 @@
 cp_pro_adviser.render:
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 # pre_register routes
 
@@ -11,7 +11,7 @@ cp_pro_adviser.dashboard:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###Index route
 cp_pro_adviser.tablero:
@@ -20,7 +20,7 @@ cp_pro_adviser.tablero:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###get_all_exportador_by_page route
 cp_pro_adviser.get_all_exportador_by_page:
@@ -29,7 +29,7 @@ cp_pro_adviser.get_all_exportador_by_page:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::get_all_exportador_by_page'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###get_all_buyer_by_page route
 cp_pro_adviser.get_all_buyer_by_page:
@@ -38,7 +38,7 @@ cp_pro_adviser.get_all_buyer_by_page:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::get_all_buyer_by_page'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###Index route
 cp_pro_adviser.review:
@@ -47,7 +47,7 @@ cp_pro_adviser.review:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###Index route
 cp_pro_adviser.revisar:
@@ -56,7 +56,7 @@ cp_pro_adviser.revisar:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###Index edit col company
 cp_pro_adviser.edit_col_company:
@@ -65,7 +65,7 @@ cp_pro_adviser.edit_col_company:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial"
 
 ###Index edit col company
 cp_pro_adviser.editar_col_company:
@@ -74,7 +74,7 @@ cp_pro_adviser.editar_col_company:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial"
 
 ###get_col_user route
 cp_pro_adviser.get_col_user:
@@ -83,7 +83,7 @@ cp_pro_adviser.get_col_user:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::get_col_user'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial"
 
 ###update_form col company route
 cp_pro_adviser.update_form_col_company:
@@ -92,7 +92,7 @@ cp_pro_adviser.update_form_col_company:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::update_form_col_company'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###approve_user_col route
 cp_pro_adviser.approve_user_col:
@@ -101,7 +101,7 @@ cp_pro_adviser.approve_user_col:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::approve_user_col'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial"
 
 ###reject_user_col route
 cp_pro_adviser.reject_user_col:
@@ -110,7 +110,7 @@ cp_pro_adviser.reject_user_col:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::reject_user_col'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial"
 
 ###Index edit international company
 cp_pro_adviser.edit_international_company:
@@ -119,7 +119,7 @@ cp_pro_adviser.edit_international_company:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
 
 ###Index edit international company
 cp_pro_adviser.editar_international_company:
@@ -128,7 +128,7 @@ cp_pro_adviser.editar_international_company:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
 
 ###get_international_user route
 cp_pro_adviser.get_international_user:
@@ -137,7 +137,7 @@ cp_pro_adviser.get_international_user:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::get_international_user'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
 
 ###update_form international company route
 cp_pro_adviser.update_form_international_company:
@@ -146,7 +146,7 @@ cp_pro_adviser.update_form_international_company:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::update_form_international_company'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
   
 ###approve_user_international route
 cp_pro_adviser.approve_user_international:
@@ -155,7 +155,7 @@ cp_pro_adviser.approve_user_international:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::approve_user_international'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
 
 ###reject_user_international route
 cp_pro_adviser.reject_user_international:
@@ -164,7 +164,7 @@ cp_pro_adviser.reject_user_international:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::reject_user_international'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
 
 ###getAdvisorLogs route
 cp_pro_adviser.getAdvisorLogs:
@@ -173,7 +173,7 @@ cp_pro_adviser.getAdvisorLogs:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::getAdvisorLogs'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: "asesor_comercial+asesor_internacional"
 
 ###Index route
 cp_pro_adviser.dashboard_international:
@@ -182,7 +182,7 @@ cp_pro_adviser.dashboard_international:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"
 
 ###Index route
 cp_pro_adviser.tablero_international:
@@ -191,4 +191,4 @@ cp_pro_adviser.tablero_international:
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: "asesor_internacional"

@@ -18,6 +18,18 @@ class CpReviewProAdviserController extends ControllerBase
     {
 
         //redirect if $_SESSION['language'] is not the current path
+        // get account_status
+        $vid = 'account_status';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_account_status=[];
+        foreach ($terms as $term) {
+            array_push($tree_account_status, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
         $language = $_COOKIE['language'];
         //get actual language
         $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -48,6 +60,7 @@ class CpReviewProAdviserController extends ControllerBase
         return [
             // Your theme hook name.
             '#theme' => 'cp_review_pro_adviser_template_hook',
+            '#tree_account_status' => $tree_account_status,
         ];
     }
 

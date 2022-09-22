@@ -184,8 +184,7 @@
             var fileName = logo.name;
             var fileExtension = fileName.split(".").pop();
             if (fileExtension != "png" && fileExtension != "jpg") {
-                message =
-                    "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
                 $("#logo_input").css("border-color", "#ba0c2f");
                 $("#logo_name").css("border-color", "#ba0c2f");
                 $("#error_logo_message").text(message)
@@ -196,8 +195,7 @@
                 isValid = false;
             } else {
                 if (fileSize > 2000000) {
-                    message =
-                        "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                    message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
                     $("#logo_input").css("border-color", "#ba0c2f");
                     $("#logo_name").css("border-color", "#ba0c2f");
                     $("#error_logo_message").text(message)
@@ -208,8 +206,7 @@
                     isValid = false;
                 } else {
                     if (logo.width > 200 || logo.height > 200) {
-                        message =
-                            "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                        message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
                         $("#logo_input").css("border-color", "#ba0c2f");
                         $("#logo_name").css("border-color", "#ba0c2f");
                         $("#error_logo_message").text(message)
@@ -248,8 +245,7 @@
             isValid = false;
         } else {
             if (business_name.length > 100) {
-                message =
-                    "El nombre de la empresa no puede tener mas de 100 caracteres";
+                message = Drupal.t("Company's name cannot be longer than 100 characters");
                 $("#business_name").css("border-color", "#ba0c2f");
                 $("#error_business_name_message").text(message)
                 $("#error_business_name").show();
@@ -296,8 +292,7 @@
             isValid = false;
         } else {
             if (description_business_spanish.length > 1000) {
-                message =
-                    "La descripción en español debe tener menos de 1000 caracteres";
+                message = Drupal.t("Spanish description must be less than 1000 characters.");
                 $("#description_business_spanish").css("border-color", "#ba0c2f");
                 $("#error_description_business_spanish_message").text(message)
                 $("#error_description_business_spanish").show();
@@ -316,8 +311,7 @@
             isValid = false;
         } else {
             if (description_business_english.length > 1000) {
-                message =
-                    "La descripción en inglés debe tener menos de 1000 caracteres";
+                message = Drupal.t("English description must be less than 1000 characters.");
                 $("#description_business_english").css("border-color", "#ba0c2f");
                 $("#error_description_business_english_message").text(message)
                 $("#error_description_business_english").show();
@@ -537,8 +531,7 @@
             isValid = false;
         } else {
             if (position_spanish.length > 50) {
-                message =
-                    "La posición en español no debe tener mas de 50 caracteres";
+                message = Drupal.t("The position in Spanish must be less than 1000 characters.");
                 $("#position_spanish").css("border-color", "#ba0c2f");
                 $("#error_position_spanish_message").text(message)
                 $("#error_position_spanish").show();
@@ -557,8 +550,7 @@
             isValid = false;
         } else {
             if (landline.length > 20) {
-                message =
-                    "La linea de telefono no debe tener mas de 20 caracteres";
+                message = Drupal.t("Phone line must not be longer than 20 characters.");
                 $("#landline").css("border-color", "#ba0c2f");
                 $("#error_landline").show();
                 $("#error_landline_message").text(message)

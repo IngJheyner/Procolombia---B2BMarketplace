@@ -110,7 +110,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t("Select an option") },
             ],
             sortField: {
                 field: "text",
@@ -144,7 +144,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t("Select an option") },
             ],
             sortField: {
                 field: "text",
@@ -178,7 +178,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t("Select an option") },
             ],
             sortField: {
                 field: "text",
@@ -241,14 +241,14 @@
             }
         }
         if (last_name === "") {
-            message = Drupal.t("Last name is required\n");
+            message = Drupal.t("Lastname is required\n");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = Drupal.t("The last name cannot be longer than 20 characters\n");
+                message = Drupal.t("The lastname cannot be longer than 20 characters\n");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name").show();
                 $("#error_last_name_message").text(message)
@@ -260,7 +260,7 @@
         }
 
         if (email == "" || !isEmail(email)) {
-            message = Drupal.t("Email is required and must be a valid email address");
+            message = Drupal.t("Email is required and must be a valid email address.");
             $("#email").css("border-color", "#ba0c2f");
             $("#error_mail").show();
             $("#error_mail_message").text(message)
@@ -273,7 +273,7 @@
                 || email.indexOf("@outlook.com") > -1
                 || email.indexOf("@live.com") > -1
                 || email.indexOf("@msn.com") > -1) {
-                message = Drupal.t("The email is invalid");
+                message = Drupal.t("E-mail is invalid");
                 $("#email").css("border-color", "#ba0c2f");
                 $("#error_mail").show();
                 $("#error_mail_message").text(message)
@@ -293,14 +293,14 @@
             isValid = false;
         } else {
             if (!isNumber(cellphone)) {
-                message = Drupal.t("The cell phone must be a number");
+                message = Drupal.t("Cell phone must be a number");
                 $("#cellphone").css("border-color", "#ba0c2f");
                 $("#error_cellphone").show();
                 $("#error_cellphone_message").text(message)
                 isValid = false;
             } else {
                 if (cellphone.length > 10) {
-                    message = Drupal.t("The cell phone must not have more than 10 digits");
+                    message = Drupal.t("Cell phone must not have more than 10 digits");
                     $("#cellphone").css("border-color", "#ba0c2f");
                     $("#error_cellphone").show();
                     $("#error_cellphone_message").text(message)
@@ -320,7 +320,7 @@
             isValid = false;
         } else {
             if (business_name.length > 100) {
-                message = Drupal.t("The company cannot be longer than 100 characters\n");
+                message = Drupal.t("The company name cannot be longer than 100 characters.\n");
                 $("#business_name").css("border-color", "#ba0c2f");
                 $("#error_business_name").show();
                 $("#error_business_name_message").text(message)
@@ -363,8 +363,7 @@
                         isValid = false;
                     } else {
                         if (!password.match(/[^a-zA-Z0-9]/)) {
-                            message =
-                                "El password debe tener al menos un caracter especial";
+                            message = Drupal.t("The password must have at least one special character");
                             $("#password_buyer").css("border-color", "#ba0c2f");
                             $("#error_password_buyer_message").text(message)
                             $("#error_password_buyer").show();
@@ -439,7 +438,7 @@
         }
 
         if (company_model == "") {
-            message = Drupal.t("Please select a company model");
+            message = Drupal.t("Please select a business model");
             $("#company_model_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_company_model_message").text(message)
             $("#error_company_model").show();
@@ -472,7 +471,7 @@
         }
 
         if (company_model_2 == "") {
-            message = Drupal.t("Please select a company model");
+            message = Drupal.t("Please select a business model");
             $("#company_model_2_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_company_model_2_message").text(message)
             $("#error_company_model_2").show();
@@ -505,7 +504,7 @@
         }
 
         if (company_model_3 == "") {
-            message = Drupal.t("Please select a company model");
+            message = Drupal.t("Please select a business model");
             $("#company_model_3_cont .ts-control").css("border-color", "#ba0c2f");
             $("#error_company_model_3_message").text(message)
             $("#error_company_model_3").show();
@@ -585,13 +584,13 @@
                             window.location.reload()
                         }, 2500);
                     } else {
-                        alert("Error al crear el usuario" + error);
+                        alert(Drupal.t("Error while creating user") + " " + error);
                     }
                 })
                 .catch(function (error) {
                     $("#loading_1").hide();
                     $("#save").show();
-                    alert("Error al crear el usuario" + error);
+                    alert(Drupal.t("Error while creating user") + " " + error);
                 });
 
         }
@@ -628,12 +627,12 @@
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/international';
             } else {
-                alert('Error al rechazar el usuario');
+                alert(Drupal.t("Error rejecting user"));
             }
         }).catch(function (error) {
             $("#loading_2").hide();
             $("#reject").show();
-            alert('Error al rechazar el usuario');
+            alert(Drupal.t("Error rejecting user"));
         });
     }
 
@@ -668,12 +667,12 @@
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/international';
             } else {
-                alert('Error al aprobar el usuario');
+                alert(Drupal.t("Error approving user"));
             }
         }).catch(function (error) {
             $("#loading_3").hide();
             $("#modal_aproved_user_buyer").show();
-            alert('Error al aprobar el usuario');
+            alert(Drupal.t("Error approving user"));
         });
     }
 

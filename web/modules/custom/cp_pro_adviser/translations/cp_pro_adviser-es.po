@@ -315,11 +315,17 @@ msgstr "No se reconoce el vídeo"
 msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension"
 msgstr "El logotipo debe ser un archivo de imagen y debe ser png y jpg y tener un tamaño inferior a 2MB y una dimensión inferior a 200x200"
 
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n"
+msgstr "El logotipo debe ser un archivo de imagen y debe ser png y jpg y tener un tamaño inferior a 2MB y una dimensión inferior a 200x200\n"
+
 msgid "Company name is required"
 msgstr "El nombre de la empresa es obligatorio"
 
 msgid "The company name cannot be longer than 100 characters."
 msgstr "El nombre de la empresa no puede tener más de 100 caracteres."
+
+msgid "The company name cannot be longer than 100 characters.\n"
+msgstr "El nombre de la empresa no puede tener más de 100 caracteres.\n"
 
 msgid "Website is required"
 msgstr "El sitio web es obligatorio"
@@ -355,13 +361,13 @@ msgid "Description in Spanish is required"
 msgstr "Se requiere una descripción en español"
 
 msgid "The Spanish description must be less than 1000 characters"
-msgstr "La descripción en español debe ser inferior a 1000 caracteres"
+msgstr "La descripción en español debe tener menos de 1000 caracteres"
 
 msgid "English description is required"
 msgstr "Se requiere una descripción en inglés"
 
 msgid "The English description must be less than 1000 characters"
-msgstr "La descripción en inglés debe ser inferior a 1000 caracteres"
+msgstr "La descripción en inglés debe tener menos de 1000 caracteres"
 
 msgid "The production chain is required"
 msgstr "Se requiere la cadena de producción"
@@ -393,10 +399,10 @@ msgstr "El nombre es obligatorio"
 msgid "The name must not be longer than 20 characters"
 msgstr "El nombre no debe tener más de 20 caracteres"
 
-msgid "Last name is required"
+msgid "Lastname is required"
 msgstr "El apellido es obligatorio"
 
-msgid "The last name must not be longer than 20 characters"
+msgid "The lastname must not be longer than 20 characters"
 msgstr "El apellido no debe tener más de 20 caracteres"
 
 msgid "Spanish position is required"
@@ -418,6 +424,9 @@ msgid "The phone line must not be longer than 20 characters"
 msgstr "El teléfono fijo no debe tener más de 20 caracteres"
 
 msgid "The telephone line must not have letters"
+msgstr "El teléfono fijo no debe tener letras"
+
+msgid "The phone line should not have letters"
 msgstr "El teléfono fijo no debe tener letras"
 
 msgid "The country code of the cell phone is required"
@@ -630,7 +639,7 @@ msgstr "Información en español"
 msgid "Contact name"
 msgstr "Nombre de contacto"
 
-msgid "Contact last name"
+msgid "Contact lastname"
 msgstr "Apellido de contacto"
 
 msgid "Also remember to update the information in English."
@@ -662,3 +671,96 @@ msgstr "Aprobación Comprador Internacional"
 
 msgid "International Buyer Rejection"
 msgstr "Rechazo Comprador Internacional"
+
+msgid "International Buyer Rejection"
+msgstr "Rechazo Comprador Internacional"
+
+msgid "Error rejecting user"
+msgstr "Error al rechazar al usuario"
+
+msgid "Error approving user"
+msgstr "Error al aprobar al usuario"
+
+msgid "Website is not valid"
+msgstr "El sitio web no es válido"
+
+msgid "Productive chain is required"
+msgstr "La cadena productiva es obligatoria"
+
+msgid "The main CIIU code is required"
+msgstr "El código CIIU principal es requerido"
+
+msgid "The lastname cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "The lastname cannot be longer than 20 characters\n"
+msgstr "El apellido no puede tener mas de 20 caracteres\n"
+
+msgid "The name cannot be longer than 20 characters"
+msgstr "El nombre no puede tener mas de 20 caracteres"
+
+msgid "The name cannot be longer than 20 characters\n"
+msgstr "El nombre no puede tener mas de 20 caracteres\n"
+
+msgid "Phone line should not have more than 10 digits"
+msgstr "El teléfono fijo no puede tener más de 10 dígitos"
+
+msgid "Cell phone must not have more than 10 digits"
+msgstr "El teléfono celular no debe tener más de 10 dígitos"
+
+msgid "E-mail is invalid"
+msgstr "El correo no es válido"
+
+msgid "Error while creating user"
+msgstr "Error al crear el usuario"
+
+msgid "Name is required\n"
+msgstr "El nombre es obligatorio\n"
+
+msgid "Name is required"
+msgstr "El nombre es obligatorio"
+
+msgid "Lastname is required\n"
+msgstr "El apellido es obligatorio\n"
+
+msgid "Cell phone is required\n"
+msgstr "Se requiere un celular\n"
+
+msgid "Cellphone is required\n"
+msgstr "Se requiere un celular\n"
+
+msgid "Cell phone must be a number"
+msgstr "El teléfono celular debe ser un número"
+
+msgid "Company is required"
+msgstr "La empresa es requerida"
+
+msgid "Company is required\n"
+msgstr "La empresa es requerida\n"
+
+msgid "Please select a country"
+msgstr "Por favor seleccione un país"
+
+msgid "Please select a position"
+msgstr "Por favor seleccione el cargo"
+
+msgid "Please enter a valid website"
+msgstr "Por favor ingrese un sitio web válido"
+
+msgid "Please select a category"
+msgstr "Por favor seleccione una categoría"
+
+msgid "Please select a subcategory"
+msgstr "Por favor seleccione una subcategoría"
+
+msgid "Please select a business model"
+msgstr "Por favor seleccione un modelo de negocio"
+
+msgid "Download Report"
+msgstr "Descargar Reporte"
+
+msgid "Found "
+msgstr "Se encontraron "
+
+msgid " records:"
+msgstr " resultados asociados a tu búsqueda:"

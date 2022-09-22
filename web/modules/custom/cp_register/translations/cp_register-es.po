@@ -130,7 +130,7 @@ msgid "Colombian Company Registration - Information"
 msgstr "Registro de la Empresa Colombiana - Información"
 
 msgid "Company Profile"
-msgstr "Perfil de la compañía"
+msgstr "Perfil de la empresa"
 
 msgid "Economic Activity"
 msgstr "Actividad Económica"
@@ -514,7 +514,7 @@ msgid "City"
 msgstr "Ciudad"
 
 msgid "Company website"
-msgstr "Sitio Web de la compañía"
+msgstr "Sitio Web de la empresa"
 
 msgid "Please include the complete URL starting with http or https."
 msgstr "Por favor incluir la URL completa iniciando con http o https."
@@ -596,10 +596,10 @@ msgid "The cell phone must not have more than 10 digits"
 msgstr "El celular no debe tener mas 10 digitos"
 
 msgid "Company is required"
-msgstr "La compañia es requerida"
+msgstr "La empresa es requerida"
 
 msgid "The company cannot be longer than 100 characters"
-msgstr "La compañia no puede tener mas de 100 caracteres"
+msgstr "La empresa no puede tener mas de 100 caracteres"
 
 msgid "Password is required"
 msgstr "La contraseña es requerida"
@@ -897,3 +897,78 @@ msgstr "Acerca del sitio"
 
 msgid "Privacy and Data Handling Policy"
 msgstr "Política de privacidad y manejo de datos"
+
+msgid "Enter your company's NIT below and we will show you the email address associated with the account."
+msgstr "Ingrese el NIT de su empresa a continuación y le mostraremos su correo asociado a la cuenta."
+
+msgid "If the e-mail with which the company is registered in the B2B Marketplace isn't active, check with your systems area or contact your ProColombia advisor, in case you need to update the e-mail information."
+msgstr "Si el correo electrónico con el que se encuentra registrada la empresa en el B2B Marketplace no se encuentra activo, verifique con su área de sistemas o comuníquese con su asesor de ProColombia, en caso de que requiera actualizar la información de correo electrónico."
+
+msgid "Enter your company email below and we will send you a secure link to reset your password."
+msgstr "Introduzca el correo electrónico de su empresa a continuación y le enviaremos un enlace seguro para restablecer su contraseña."
+
+msgid "Check your e-mail, we have sent you the instructions to recover your password."
+msgstr "Revisa tu correo electrónico, te hemos enviado las instrucciones necesarias para recuperar tu contraseña."
+
+msgid "December 6, 2021"
+msgstr "6 de Diciembre 2021"
+
+msgid "Alarms"
+msgstr "Alarmas"
+
+msgid "points"
+msgstr "puntos"
+
+msgid "Weak"
+msgstr "Débil"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Good"
+msgstr "Buena"
+
+msgid "Strong"
+msgstr "Fuerte"
+
+msgid "Company name is required\n"
+msgstr "El nombre de la empresa es obligatorio\n"
+
+msgid "The name cannot be longer than 20 characters\n"
+msgstr "El nombre no puede tener mas de 20 caracteres\n"
+
+msgid "Lastname is required\n"
+msgstr "El apellido es obligatorio\n"
+
+msgid "Cell phone is required\n"
+msgstr "Se requiere un celular\n"
+
+msgid "Company is required\n"
+msgstr "La empresa es requerida\n"
+
+msgid "The company cannot be longer than 100 characters\n"
+msgstr "La compañia no puede tener mas de 100 caracteres\n"
+
+msgid "Token invalid"
+msgstr "Toke no válido"
+
+msgid "Please verify that you are not a robot"
+msgstr "Por favor verifique que no es un robot"
+
+msgid "Error while creating user"
+msgstr "Error al crear el usuario"
+
+msgid "Email request error"
+msgstr "Error de solicitud de correo electrónico"
+
+msgid "Error: E-mail already has been registered"
+msgstr "Error: El correo electrónico ya ha sido registrado"
+
+msgid "Please select a position"
+msgstr "Por favor seleccione el cargo"
+
+msgid "Please enter a valid website"
+msgstr "Por favor ingrese un sitio web válido"
+
+msgid "Error when deleting user"
+msgstr "Error al eliminar el usuario"

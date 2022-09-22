@@ -63,6 +63,31 @@ class CpDashboardProAdviserController extends ControllerBase
             );
         }
 
+        $vid = 'account_status';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_account_status=[];
+        foreach ($terms as $term) {
+            array_push($tree_account_status, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
+        //get user with role asesor_comercial
+        $query = \Drupal::entityQuery('user');
+        $query->condition('roles', 'asesor_comercial');
+        $uids = $query->execute();
+        $users = \Drupal\user\Entity\User::loadMultiple($uids);
+        $tree_users=[];
+        foreach ($users as $user) {
+            array_push($tree_users, [
+                    "ID" => $user->id(),
+                    "Name" => $user->get('field_company_contact_name')->value . " " . $user->get('field_company_contact_lastname')->value
+                ]
+            );
+        }
+
         //redirect if $_SESSION['language'] is not the current path
         $language = $_COOKIE['language'];
         //get actual language
@@ -98,6 +123,8 @@ class CpDashboardProAdviserController extends ControllerBase
             '#tree_business_model' => $tree_business_model,
             '#tree_categorization' => $tree_categorization,
             '#tree_deparment' => $tree_deparment,
+            '#tree_account_status' => $tree_account_status,
+            '#tree_users' => $tree_users,
         ];
     }
 
@@ -149,6 +176,18 @@ class CpDashboardProAdviserController extends ControllerBase
             );
         }
 
+        // get account_status
+        $vid = 'account_status';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_account_status=[];
+        foreach ($terms as $term) {
+            array_push($tree_account_status, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
         //redirect if $_SESSION['language'] is not the current path
         $language = $_COOKIE['language'];
         //get actual language
@@ -183,6 +222,7 @@ class CpDashboardProAdviserController extends ControllerBase
             '#tree_business_model' => $tree_business_model,
             '#tree_categorization' => $tree_categorization,
             '#tree_deparment' => $tree_deparment,
+            '#tree_account_status' => $tree_account_status,
         ];
     }
     
@@ -240,7 +280,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //filter deparment
             $deparment = $request->request->get('deparment');
@@ -254,14 +294,16 @@ class CpDashboardProAdviserController extends ControllerBase
             }
             //filter published
             $published = $request->request->get('published');
-            if (!empty($published)) {
-                //$query->condition('field_published', $published, 'CONTAINS');
+            if (is_numeric($published)) {
+                //check if account is active
+                $query->condition('status', $published, '=');
             }
+
 
             //filter advisor
             $advisor = $request->request->get('advisor');
             if (!empty($advisor)) {
-                //$query->condition('field_advisor', $advisor, 'CONTAINS');
+                $query->condition('field_company_adviser', $advisor, '=');
             }
             //step equal 3
             $query->condition('field_step', 3, '=');
@@ -348,6 +390,8 @@ class CpDashboardProAdviserController extends ControllerBase
                         'update_date' => $update_date,
                         //get status name
                         'status' => $user->get('field_account_status')->entity->getName(),
+                        //get status value
+                        'status_value' => $status,
                     );
                 }
                 
@@ -370,7 +414,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //filter deparment
             $deparment = $request->request->get('deparment');
@@ -384,14 +428,16 @@ class CpDashboardProAdviserController extends ControllerBase
             }
             //filter published
             $published = $request->request->get('published');
-            if (!empty($published)) {
-                //$query->condition('field_published', $published, 'CONTAINS');
+            if (is_numeric($published)) {
+                //check if account is active
+                $query->condition('status', $published, '=');
             }
+
 
             //filter advisor
             $advisor = $request->request->get('advisor');
             if (!empty($advisor)) {
-                //$query->condition('field_advisor', $advisor, 'CONTAINS');
+                $query->condition('field_company_adviser', $advisor, '=');
             }
 
             //check step 3
@@ -447,7 +493,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //step equal 5
             $query->condition('field_step', 5, '=');
@@ -544,7 +590,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //step 5
             $query->condition('field_step', 5, '=');

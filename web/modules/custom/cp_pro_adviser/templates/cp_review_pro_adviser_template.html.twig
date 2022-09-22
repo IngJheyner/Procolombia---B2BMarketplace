@@ -15,16 +15,16 @@
 		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
 			<label for="state">{{ 'Update date'|t }}</label>
 			<select name="state" id="action">
-				<option value="1">{{ 'Active'|t }}</option>
-				<option value="0">{{ 'Inactive'|t }}</option>
+				<option value="">{{ ''|t }}</option>
 			</select>
 		</div>
 		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
 			<label for="public">{{ 'Status'|t }}</label>
 			<select name="public" id="state">
-				<option value="En espera de Aprobación">{{ 'Waiting for approval'|t }}</option>
-				<option value="Aprobado">{{ 'Approved'|t }}</option>
-				<option value="Rechazado">{{ 'Rejected'|t }}</option>
+				<option value="">{{ "Select Status"|t }}</option>
+				{% for status in tree_account_status %}
+					<option value="{{status.Name}}">{{status.Name}}</option>
+				{% endfor %}
 			</select>
 		</div>
 		<div class="col-sm-12 col-lg-9"></div>
