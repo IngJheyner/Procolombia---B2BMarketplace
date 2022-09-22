@@ -496,6 +496,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
           '#value' => $this->t('Previous'),
+          '#name' => 'previous-button-' . $this->step,
           '#submit' => [
             '::previousPage',
           ],
@@ -537,6 +538,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['next'] = [
           '#type' => 'submit',
           '#value' => $this->t('Next'),
+          '#name' => 'continue-button-' . $this->step,
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
