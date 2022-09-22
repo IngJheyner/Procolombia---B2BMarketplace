@@ -94,6 +94,11 @@
         &:hover{
             border: none;
         }
+        @include media-breakpoint-down(lg){
+            select{
+                margin-top: 18px;
+            }
+        }
         .CaptionCont{
             height: 35px;
             display: flex;
@@ -117,6 +122,11 @@
         .optWrapper{
             border-radius: 1px;
             box-shadow: 0 3px 10px $gray-shadow;
+            &.isFloating{
+                position: relative;
+                width: 100%;
+                max-height: none;
+            }
             .options{
                 li.opt:hover{
                     background-color: $procol-dark-blue;

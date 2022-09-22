@@ -297,6 +297,11 @@
 					}
 				}
 				.optWrapper{
+					&.isFloating{
+						position: relative;
+						width: 100%;
+						max-height: none;
+					}
 					border-radius: 1px;
 					box-shadow: 0 3px 10px $gray-shadow;
 					.options{
@@ -378,10 +383,6 @@
 			.page-item:last-child{
 				flex-grow: 1;
 			}
-		}
-
-		.page-item {
-
 		}
 
 		.page-link {
