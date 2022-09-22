@@ -251,3 +251,31 @@
 		}
 	}
 }
+
+.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
+	border-radius: 4px;
+	padding-bottom: 60px;
+	max-width: 1286px;
+	background-color: $white;
+	border: none;
+	.ui-dialog-titlebar{
+		background-color: transparent;
+		border: none;
+	}
+	.ui-dialog-titlebar-close {
+		left: 20px;
+		top: 5px;
+		position: relative;
+		background-color: transparent;
+		border: none;
+		background-image: url(../images/icons/arrow-back-fill.svg);
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		}
+
+}
+
+.path-dashboard .ui-widget-overlay{
+	background-color: rgba(59, 61, 66, 0.5) !important;
+}
