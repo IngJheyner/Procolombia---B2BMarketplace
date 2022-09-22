@@ -163,15 +163,21 @@
         small{
             order: +1;
         }
+        .js-form-file::after {
+          content: "Pick files";
+          position: absolute;
+          z-index: 2;
+          display: block;
+          top: 30px;
+          height: 31px;
+          display: flex;
+          align-items: center;
+          left: 47px;
+          width: 120px;
+          background-color: $procol-dark-blue;
+          color: $white;
+        }
     }
-      .js-form-file::after {
-        content: "Pick file";
-        position: absolute;
-        z-index: 2;
-        display: block;
-        background-color: #eee;
-        width: 80px;
-      }
     #edit-field-file,
     #edit-field-file-en{
         margin-top: 0;
