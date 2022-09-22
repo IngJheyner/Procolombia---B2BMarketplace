@@ -10,7 +10,7 @@ id: user.user.field_company_contact_position
 field_name: field_company_contact_position
 entity_type: user
 bundle: user
-label: 'Company contact position'
+label: 'Cargo del contacto de la empresa'
 description: ''
 required: false
 translatable: false
