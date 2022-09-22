@@ -218,7 +218,7 @@
             new bootstrap.Modal(modal, {});
             modal.once().show();
           }
-          $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function() {
+          $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function(e) {
             $(this).closest('.generic-modal:not(.generic-modal-legal-modal)').addClass('modal-closed').hide();
           });
         }
@@ -258,24 +258,28 @@
 
         if ($('.save-publish-question-modal').length) {
           $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
         else if($('.cancel-confirm-question-modal').length) {
           $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
 
         if ($('.save-publish-question-modal').length) {
           $('.save-publish-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.save-and-publish').click();
           });
         }
 
         // Close drupal default modal.
         if ($('.node--view-mode-product-service-presave-preview .close').length) {
-          $('.node--view-mode-product-service-presave-preview .close').once().click(function () {
+          $('.node--view-mode-product-service-presave-preview .close').once().click(function (e) {
+            e.preventDefault();
             Drupal.dialog($('#drupal-modal').get(0)).close();
           });
         }
