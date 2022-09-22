@@ -18,6 +18,7 @@
           const noResults = $('#generic-modal-view-no-results');
           const btnOkNoResults = $('#generic-modal-view-no-results .modal-footer-left');
           const btncloseNoResults = $('#generic-modal-view-no-results .modal-header span[aria-hidden="true"]');
+          
           if(noResults){
            console.log('Modal existe');
            $(noResults).addClass('show')
