@@ -152,10 +152,11 @@
         $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
         $('.lightbulb-tooltip').click(()=>{
         $( '.lightbulb-tooltip span').toggle();
-        })
+        });
 
         //Multistep, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
+          
           //Paso 3 ver mas de 3 items
           const certifications = $('#edit-field-pr-type-certifications-wrapper')
           certifications.click(()=>{
@@ -350,7 +351,7 @@
           $('input#edit-field-pr-video-2-0-value').once().change(function(e) {
             if ($(this).val() != "") {
               $(this).trigger('state:empty');
-            }4
+            }
           });
         }
 
