@@ -824,6 +824,9 @@ class CpCoreMultiStepForm extends FormBase {
     if (!$entity->label()) {
       $entity->title = 'Generated el: ' . date('d/m/Y H:i');
     }
+    if ($entity->hasTranslation('en')) {
+      $entity->removeTranslation('en');
+    }
     $entity->save();
     $saved_entities = $form_state->get('saved_entities');
     if (empty($saved_entities)) {
@@ -887,7 +890,7 @@ class CpCoreMultiStepForm extends FormBase {
           }
 
           if (!$entity->hasTranslation($langcode)) {
-            continue;
+            $entity->addTranslation($langcode);
           }
 
           $translation = $entity->getTranslation($langcode);
