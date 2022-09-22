@@ -36,7 +36,7 @@
       endDate: endDate,
       zIndex: 9999,
       minDate: null,
-      maxDate: null,
+      maxDate: Date.now(),
       minDays: null,
       maxDays: null,
       selectForward: !1,

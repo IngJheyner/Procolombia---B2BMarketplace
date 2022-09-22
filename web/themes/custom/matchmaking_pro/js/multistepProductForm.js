@@ -10,7 +10,7 @@
         // Custom code here
 
         //Dashboard
-                
+
         $(context).find('body').once('.view-product-dashboard').each(function () {
           const productDashboard = $('.view-product-dashboard');
           const itemsPerPage = $('.form-item-items-per-page');
@@ -58,9 +58,9 @@
         const fieldCountryWrapper = $('#edit-field-pr-country-wrapper');
         showMoreCountrie.appendTo(fieldCountryWrapper);
 
-        function toggleText(text){           
+        function toggleText(text){
           if(text.hasClass('show-less')){
-            text.text(Drupal.t('View less')); 
+            text.text(Drupal.t('View less'));
           }
           else{
            text.text(Drupal.t('View more'))
@@ -68,7 +68,7 @@
          }
         function hideBtnShowMore (item, btn,btnText){
           if(item.length <= 3){
-            btn.hide()       
+            btn.hide()
           }else{
             btn.show();
           }
@@ -82,15 +82,15 @@
         hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
 
         // Agregar clases modales Drupal
-          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
-          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')  
-        
+          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');
+          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')
 
-        //Sumo select        
+
+        //Sumo select
           $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
             forceCustomRendering: true,
           });
-          
+
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
           });
@@ -162,17 +162,17 @@
             if (itemCtype.length > 3) {
               itemCtype.slice(3).toggleClass('show-item')
               showMorecTypeText.toggleClass('show-less')
-              toggleText(showMorecTypeText);                           
+              toggleText(showMorecTypeText);
             }else{
               showMorecTypeText.text(Drupal.t('View more'))
             }
           })
-          
+
           showMoreCountrie.click(()=>{
             const itemCountrie = $('.entities-list .item-container');
             if(itemCountrie.length > 3){
               itemCountrie.slice(3).toggleClass('show-item');
-             showMoreCountrieText.toggleClass('show-less');             
+             showMoreCountrieText.toggleClass('show-less');
              toggleText(showMoreCountrieText);
             }else{
               showMoreCountrieText.text(Drupal.t('View more'))
@@ -285,7 +285,7 @@
         if ($('form .entity-browser-paises-close').length) {
           $('form .entity-browser-paises-close').once().click(function (e) {
             e.preventDefault();
-            $(".entity-browser-modal .ui-dialog-titlebar-close").click();
+            parent.jQuery(parent.document).find('.entity-browser-modal-iframe').parents('.ui-dialog').eq(0).find('.ui-dialog-titlebar-close').click();
           });
         }
 
