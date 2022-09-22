@@ -47,6 +47,7 @@
           $(partidaAranTax).prependTo('.step_2 .group-right');
          }
       });
+
         //Ver mas de 3 items funciones variables
         const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
         const showMorecType = $('.show-more-cType');
@@ -115,6 +116,12 @@
             searchText: Drupal.t('Search'),
             noMatch: Drupal.t('No matches for "{0}"')
           });
+          
+          const requiredFieldSelect2 = $('.cp-core-multistep-form .form-select.required');          
+          $(requiredFieldSelect2).filter('.error.is-invalid').each(function(i) {
+            $(this).closest('.js-form-type-select').addClass('is-invalid');
+          });
+
           if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').length) {
             if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').val().length > 0) {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');

@@ -135,6 +135,26 @@
 
     .group-left.step-3,
     .group-right.step-3{
+        .js-form-type-select.is-invalid{
+            .select2-selection--multiple li.select2-search {
+                border: 2px solid $procol-red !important;
+            }
+        }
+        .is-invalid::after {
+            top: 35px;
+            left: auto;
+            right: -20px;
+            @include media-breakpoint-down (lg){
+                top: 0;
+                right: 0;
+            }
+            }
+     
+        .js-form-item-field-pr-target-market.is-invalid .is-invalid::after {
+                top: 100px;
+                left: auto;
+            }
+
         .select2-selection--multiple{
             position: relative;
             width: 100%;
@@ -273,6 +293,9 @@
     }
 }
 .path-dashboard{
+    .js-form-type-select.is-invalid{
+
+    }
     .select2-selection--single{
         height: 35px;
     }
