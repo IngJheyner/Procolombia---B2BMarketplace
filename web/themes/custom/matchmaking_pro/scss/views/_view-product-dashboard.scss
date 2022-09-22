@@ -185,14 +185,138 @@
 				}
 			}
 			.form-select,
-      .form-control {
+      		.form-control {
 				height: 35px;
 				padding: 0 !important;
 				font-size: $font-size-sm;
-        border-radius: 4px;
+        		border-radius: 4px;
+				border: #A1A5AA 1px solid;
+				@include fields-hover-and-focus;
+				&:hover{
+					border-color: $procol-light-blue;
+				}
+				}
 			}
-		}
-
+			.form-select{
+				width: 100% !important;
+				background-image: url(../images/icons/Fecha.svg);
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				background-position-x: calc(100% - 10px);
+				@include media-breakpoint-down(lg){
+					background-position-x: calc(100% - 20px);
+				}
+			}
+			.chosen-container-single .chosen-single {
+				height: 100%;
+				background: none;
+				border: none;
+				box-shadow: none;
+				span{
+					height: 100%;
+					display: flex;
+					align-items: center;
+					margin: 0;
+					padding-right: 40px;
+				}
+				div{
+					display: none;
+				}
+				}
+			.chosen-results{
+				.active-result.highlighted{
+					background-color: $procol-light-blue !important;
+					background: none;
+				}
+			}
+			select, .SumoSelect{
+				height: 35px;
+				&:focus{
+					box-shadow: none;
+				}
+			}
+			.SumoSelect{
+				width: 100%;
+				@include fields-hover-and-focus;
+				&:hover{
+					border: none;					
+				}
+				&.sumo_items_per_page{
+					&.open{
+						.optWrapper{
+							@include media-breakpoint-down(lg){
+								top: 56px;
+							}
+							
+						}
+					}
+					max-width: 181px;
+					color: $procol-light-blue;
+					height: 30px;
+					margin: 14px 0 14px auto;
+					font-size: 14px;
+					.CaptionCont {
+						background-image: url(../images/icons/icon-navigation-expand_more_blue.svg) !important;
+						background-size: 40px;
+						background-repeat: no-repeat;
+						background-position-y: center;
+						background-position-x: calc(100% - 10px);
+						&:hover{
+							border-color: $procol-light-blue;
+						}
+						@include media-breakpoint-down(lg){
+							height: 56px;
+						}
+					}
+					@include media-breakpoint-down(lg){
+						height: 56px;
+					}
+					
+				}
+				.CaptionCont{
+					height: 35px;
+					display: flex;
+					align-items: center;
+					border-radius: 4px;
+					border: 1px solid #A1A5AA;
+					&:hover{
+						border: 2px solid $procol-light-blue;
+					}
+					label{
+						width: 50%;
+					}
+					i{
+						background-image: url(../images/icons/Fecha.svg);
+						background-size: 20px 20px;
+						background-repeat: no-repeat;
+						background-position: center center;
+						height: 32px;
+						width: 32px;
+						right: 10px;
+						left: auto;
+					}
+				}
+				.optWrapper{
+					&.isFloating{
+						position: relative;
+						width: 100%;
+						max-height: none;
+					}
+					border-radius: 1px;
+					box-shadow: 0 3px 10px $gray-shadow;
+					.options{
+						li.opt:hover{
+							background-color: $procol-light-blue;
+							color: $white;
+						}
+						label{
+							font-weight: 300;
+							padding-bottom: 0;
+							font-family: $font-family-Century-Gothic;             
+						}
+					}
+				}
+			}
 		form {
 			padding-top: 20px;
 
@@ -259,10 +383,6 @@
 			.page-item:last-child{
 				flex-grow: 1;
 			}
-		}
-
-		.page-item {
-
 		}
 
 		.page-link {
@@ -395,9 +515,13 @@
 			}
 		}
 		.js-form-item-items-per-page{
+			max-width: 181px;
+			width: 100%;
+			margin-left: auto;
 			@include media-breakpoint-down(lg){
 				max-width: 181px;
 				width: 100%;
+				margin-left: 0;
 			}
 			order: 2;
 			label{
@@ -407,7 +531,6 @@
 				max-width: 181px;
 				color: $procol-light-blue;
 				height: 30px;
-				margin: 14px 0 14px auto;
 				font-size: 14px;
 				padding: 0 !important;
 				padding-left: 17px !important;

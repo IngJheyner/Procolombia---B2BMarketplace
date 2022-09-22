@@ -72,10 +72,77 @@
             }
         }
     }
+    &#generic-modal-view-no-results.show {
+        display: block;
+        background-color: rgba(59, 61, 66, 0.5) !important;
+        .modal-content{
+            .modal-header{
+                padding: 19px;
+                position: relative;
+                &::before{
+                    background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
+                    background-size: 100%;
+                    height: 35px;
+                    width: 40px;
+                }
+                .modal-header-title{
+                    font-size: 22px;
+                    @include media-breakpoint-down(lg){
+                        font-size: 18px;
+                    }
+                    
+                }
+                span[aria-hidden="true"]{
+                    height: 24px;
+                    width: 24px;
+                    color: transparent;
+                    background-image: url(../images/icons/Cerrar-negro.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                }
+            }
+            .modal-body{
+                span{
+                    font-family: $font-family-Century-Gothic;
+                }
+                
+            }
+            .modal-footer-left{
+                cursor: pointer;
+                @include blue-btn;
+                @include media-breakpoint-down(lg){
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 56px;
+                    cursor: pointer;
+                }
+                span{
+                    text-transform: uppercase;
+                    font-family: $font-bold-Century-Gothic;
+                    font-weight: normal;
+                    font-size: $font-size-sm;
+                }
+            }
+            
+            @include media-breakpoint-down(lg){
+                max-width: 286px;
+                .modal-body{
+                    padding: 10px 20px 20px 26px;
+                }
+            }
+        }
+        
+    }
     //Estilos modal Header mensaje rojo
     &.cancel-confirm-question-modal,
     &.add-other-question-modal{
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-header{
             padding: 19px;
             &::before{
@@ -88,6 +155,10 @@
             .modal-header-close{ 
                 &.close{
                     width: auto !important;
+                    span{
+                        width: 20px !important;
+                        display: flex;
+                    }
                 }               
                 background-image: url(../images/icons/Cerrar-negro.svg);
             }
@@ -148,7 +219,7 @@
     &.cancel-confirm-question-modal,
     &.add-other-question-modal,
     &.save-publish-correct-modal{
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-footer{
             justify-content: space-between;
             padding-left: 25px;
@@ -180,6 +251,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    min-width: 62px
                 }
             }
         }
