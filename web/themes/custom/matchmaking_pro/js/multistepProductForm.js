@@ -89,12 +89,7 @@
           $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
             forceCustomRendering: true,
           });
-          $('#edit-field-categorization-target-id').SumoSelect({
-            forceCustomRendering: true,
-            search:true,
-            searchText: Drupal.t('Search'),
-            noMatch: Drupal.t('No matches for "{0}"')
-          });
+          
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
           });

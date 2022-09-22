@@ -6,6 +6,10 @@
 
 		.ui-dialog-content {
 			max-height: none !important;
+			@include media-breakpoint-down(lg){
+				max-height: 100vh !important;
+				overflow-y: scroll;
+			}
 		}
 	}
 	.ui-widget-content{
