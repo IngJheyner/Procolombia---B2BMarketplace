@@ -40,7 +40,10 @@
             border-radius: 4px;
             &#edit-field-pr-video-2-0-preview-button {
                 top: 45px;
+                @include media-breakpoint-down(md){
+                    top: 40px;
                 }
+            }
         }
         .js-text-full {
             height: 33px;
