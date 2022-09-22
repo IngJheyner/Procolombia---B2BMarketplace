@@ -90,11 +90,32 @@
 				display: flex;
 				justify-content: space-between;
 			}
+			&.field--name-field-pr-country{
+				.field__item{
+					text-transform: uppercase;
+					&::after{
+						content: ", ";
+						}
+					&:last-child{
+						&::after{
+							content: "";
+							background-color: red;
+						}
+					}
+				}
+			}
 		}
-
+		// field--name-field-pr-country .field__item:last-child::after {
+		// 	background-color: red;
+		// 	content: "";
+		// 	color: transparent;
+		//   }
 		.field__label {
 			font-weight: normal;
 			font-family: $font-bold-Century-Gothic;
+			&::after {
+				content: ": ";
+				}
 		}
 		
 		.field--name-field-body {

@@ -136,6 +136,8 @@
                         }
                         td {
                             padding: 0 !important;
+                            width: 100%;
+                            border: none;
                             span{
                                 background-color: white;
                             }
@@ -183,6 +185,12 @@
         justify-content: flex-end;
         #edit-previous{
             display: none;
+        }
+    }
+    .ajax-new-content{
+        td{
+            width: 100%;
+            border: none;
         }
     }
 }

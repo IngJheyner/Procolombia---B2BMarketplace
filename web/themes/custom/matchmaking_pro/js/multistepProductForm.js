@@ -10,10 +10,25 @@
         // Custom code here
 
         //Dashboard
-        const productDashboard = $('.view-product-dashboard');
-        const itemsPerPage = $('.form-item-items-per-page');
-        $(context).find('body').once('.form-item-items-per-page').each(function () {
+                
+        $(context).find('body').once('.view-product-dashboard').each(function () {
+          const productDashboard = $('.view-product-dashboard');
+          const itemsPerPage = $('.form-item-items-per-page');
           itemsPerPage.appendTo(productDashboard);
+          const noResults = $('#generic-modal-view-no-results');
+          const btnOkNoResults = $('#generic-modal-view-no-results .modal-footer-left');
+          const btncloseNoResults = $('#generic-modal-view-no-results .modal-header span[aria-hidden="true"]');
+          if(noResults){
+           console.log('Modal existe');
+           $(noResults).addClass('show')
+          }
+          function closeNoResultsModal(btn){
+            btn.click(()=>{
+              noResults.removeClass('show')
+            })
+          }
+          closeNoResultsModal(btnOkNoResults);
+          closeNoResultsModal(btncloseNoResults);
         })
         //Paso 2 mover cambiar posicion contenedor
         let partidaAranTax = $('#edit-field-partida-arancelaria-tax-wrapper');
@@ -69,14 +84,11 @@
           $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
           $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')  
         
-        // //Paso 5                
-        //   if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
-        //     $('#edit-field-pr-video-wrapper button').show();
-        //   } else {
-        //   $('#edit-field-pr-video-wrapper button').hide();
-        //   }
 
-        //Sumo select
+        //Sumo select        
+          $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
+            forceCustomRendering: true,
+          });
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
           });
@@ -141,12 +153,10 @@
           const certifications = $('#edit-field-pr-type-certifications-wrapper')
           certifications.click(()=>{
             const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            console.log(itemCtype.length);
             hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
           })
           showMorecType.click(()=>{
             const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            console.log(itemCtype.length);
             if (itemCtype.length > 3) {
               itemCtype.slice(3).toggleClass('show-item')
               showMorecTypeText.toggleClass('show-less')
@@ -158,7 +168,6 @@
           
           showMoreCountrie.click(()=>{
             const itemCountrie = $('.entities-list .item-container');
-            console.log(itemCountrie.length);
             if(itemCountrie.length > 3){
               itemCountrie.slice(3).toggleClass('show-item');
              showMoreCountrieText.toggleClass('show-less');             
