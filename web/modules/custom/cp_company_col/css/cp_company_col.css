@@ -75,6 +75,11 @@ div#main {
   height: 40px;
   margin: 8px;
 }
+.dashboard .title_card_dashboard span {
+  font-size: 19px;
+  font-family: Gothic-Regular;
+  color: #3b3d42;
+}
 .dashboard .title_card_content {
   padding: 18px 0px;
 }
@@ -218,6 +223,12 @@ span {
   font-family: Gothic-Regular;
 }
 
+.title-pop {
+  font-family: Gothic-Bold !important;
+  font-size: 0.9rem;
+  color: #3b3d42;
+}
+
 .continue {
   margin-top: 1rem;
   font-family: Gothic-Regular;
@@ -228,7 +239,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
@@ -243,7 +254,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   background-color: #0085ca;
   color: #ffffff;
   font-family: Gothic-Regular;
@@ -253,7 +264,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   background-color: #005ca4;
   color: #ffffff;
   font-family: Gothic-Regular;
@@ -275,7 +286,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
@@ -2250,4 +2261,4 @@ span {
   .iti__flag {
     background-image: url("../img/flags@2x.png");
   }
-}/*# sourceMappingURL=cp_company_col.css.map */
+}

@@ -11,7 +11,7 @@ id: user.user.field_company_contact_cell_phone
 field_name: field_company_contact_cell_phone
 entity_type: user
 bundle: user
-label: 'Company contact cellphone'
+label: 'Teléfono celular de contacto de la empresa'
 description: ''
 required: false
 translatable: false

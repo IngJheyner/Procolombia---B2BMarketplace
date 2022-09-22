@@ -106,6 +106,11 @@ div#main {
       height: 40px;
       margin: 8px;
     }
+    span{
+      font-size: 19px;
+      font-family: $font-regular;
+      color: $color-Gris-Oscuro;
+    }
   }
 
   .title_card_content {
@@ -294,7 +299,11 @@ div#main {
 span {
   font-family: $font-regular;
 }
-
+.title-pop{
+ font-family: $font-bold !important;
+ font-size: 0.9rem;
+ color: $color-Gris-Oscuro;
+}
 .continue {
   margin-top: 1rem;
   font-family: $font-regular;
@@ -305,7 +314,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;
@@ -322,7 +331,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     background-color: $color-Pantone-process-Blue;
     color: $color-White;
     font-family: $font-regular;
@@ -334,7 +343,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     background-color: $color-Pantone-116-C;
     color: $color-White;
     font-family: $font-regular;
@@ -359,7 +368,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;

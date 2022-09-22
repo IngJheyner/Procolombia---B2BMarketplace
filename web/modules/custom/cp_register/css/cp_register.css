@@ -422,7 +422,7 @@ div#main-wrapper {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 14px 20px;
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
@@ -437,7 +437,7 @@ div#main-wrapper {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 14px 20px;
   background-color: #005ca4;
   color: #ffffff;
   font-family: Gothic-Regular;
@@ -459,7 +459,7 @@ div#main-wrapper {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 14px 20px;
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
@@ -1255,7 +1255,7 @@ strong {
 
 @media (max-width: 575.98px) {
   .header_title_buyer h1 {
-    padding: 5rem 2rem !important;
+    padding: 5rem 1rem !important;
   }
   .header_title h1 {
     padding: 5rem 2rem !important;
@@ -2834,4 +2834,4 @@ strong {
   .iti__flag {
     background-image: url("../img/flags@2x.png");
   }
-}/*# sourceMappingURL=cp_register.css.map */
+}

@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-msgid CONNECTED COMPANIES"
+msgid "CONNECTED COMPANIES"
 msgstr "EMPRESAS CONECTADAS"
 
 msgid "Required Field"
@@ -91,7 +91,7 @@ msgid "Company Name"
 msgstr "Nombre de la Empresa"
 
 msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
-msgstr "Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no."
+msgstr "Usted debe registrar el nombre de la empresa con la cual su compañía es reconocida. Puede ser la misma razón social."
 
 msgid "Cell Phone"
 msgstr "Celular"
@@ -213,18 +213,25 @@ msgstr "Proceso exitoso"
 msgid "User successfully updated"
 msgstr "Usuario actualizado con exito"
 
-
-
 msgid "Name is required"
 msgstr "El nombre es requerido"
+
+msgid "Name is required\n"
+msgstr "El nombre es requerido\n"
 
 msgid "The name cannot be longer than 20 characters"
 msgstr "El nombre no puede tener mas de 20 caracteres"
 
-msgid "Last name is required"
+msgid "The name cannot be longer than 20 characters\n"
+msgstr "El nombre no puede tener mas de 20 caracteres\n"
+
+msgid "Lastname is required"
 msgstr "El apellido es requerido"
 
-msgid "The last name cannot be longer than 20 characters"
+msgid "Lastname is required\n"
+msgstr "El apellido es requerido\n"
+
+msgid "The lastname cannot be longer than 20 characters"
 msgstr "El apellido no puede tener mas de 20 caracteres"
 
 msgid "Email is required and must be a valid email address"
@@ -245,8 +252,14 @@ msgstr "El celular no debe tener mas 10 digitos"
 msgid "Company is required"
 msgstr "La compañia es requerida"
 
+msgid "Company is required\n"
+msgstr "La compañia es requerida\n"
+
 msgid "The company cannot be longer than 100 characters"
 msgstr "La compañia no puede tener mas de 100 caracteres"
+
+msgid "The company cannot be longer than 100 characters\n"
+msgstr "La compañia no puede tener mas de 100 caracteres\n"
 
 msgid "Password is required"
 msgstr "La contraseña es requerida"
@@ -352,3 +365,27 @@ msgstr "Por favor seleccione una subcategoría"
 
 msgid "Please select a company model"
 msgstr "Por favor seleccione un modelo de empresa"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Recipient's username"
+msgstr "Nombre de usuario del destinatario"
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Cellphone is required"
+msgstr "El teléfono es requerido"
+
+msgid "Cellphone is required\n"
+msgstr "El teléfono es requerido\n"
+
+msgid "Error While Creating User: "
+msgstr "Error al crear el usuario: "

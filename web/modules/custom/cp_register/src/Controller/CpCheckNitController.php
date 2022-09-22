@@ -5,6 +5,7 @@ namespace Drupal\cp_register\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * An cp_register controller.
@@ -17,9 +18,41 @@ class CpCheckNitController extends ControllerBase
      */
     public function index()
     {
+        //get site key of module reCaptcha
+        $site_key = \Drupal::config('recaptcha.settings')->get('site_key');
+
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/verification/user", 301);
+                }else{
+                    return new RedirectResponse("/es/verificacion/usuario", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/verification/user'){
+                        return new RedirectResponse("/en/verification/user", 301);
+                    }
+                }else{
+                    if($path != '/verificacion/usuario'){
+                        return new RedirectResponse("/es/verificacion/usuario", 301);
+                    }
+                }
+            }
+        }
+
         return [
             // Your theme hook name.
             '#theme' => 'cp_check_nit_template_hook',
+            '#site_key' => $site_key,
         ];
     }
 

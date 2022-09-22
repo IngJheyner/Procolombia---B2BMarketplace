@@ -42,7 +42,7 @@
                 {
                     data: null,
                     "render": function (data, type, row, meta) {
-                        return '<a href="/adviser/buyer/' + row.id + '" class="btn btn-primary"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
+                        return '<a href="/adviser/buyer/' + row.id + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                     },                    
                     title: 'Edit'
                 },

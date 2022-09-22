@@ -5,6 +5,7 @@ namespace Drupal\cp_pro_adviser\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * An cp_pro_adviser controller.
@@ -62,6 +63,59 @@ class CpDashboardProAdviserController extends ControllerBase
             );
         }
 
+        $vid = 'account_status';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_account_status=[];
+        foreach ($terms as $term) {
+            array_push($tree_account_status, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
+        //get user with role asesor_comercial
+        $query = \Drupal::entityQuery('user');
+        $query->condition('roles', 'asesor_comercial');
+        $uids = $query->execute();
+        $users = \Drupal\user\Entity\User::loadMultiple($uids);
+        $tree_users=[];
+        foreach ($users as $user) {
+            array_push($tree_users, [
+                    "ID" => $user->id(),
+                    "Name" => $user->get('field_company_contact_name')->value . " " . $user->get('field_company_contact_lastname')->value
+                ]
+            );
+        }
+
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/dashboard/adviser/user/col", 301);
+                }else{
+                    return new RedirectResponse("/es/tablero/adviser/usuario/col", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/dashboard/adviser/user/col'){
+                        return new RedirectResponse("/en/dashboard/adviser/user/col", 301);
+                    }
+                }else{
+                    if($path != '/tablero/adviser/usuario/col'){
+                        return new RedirectResponse("/es/tablero/adviser/usuario/col", 301);
+                    }
+                }
+            }
+        }
+
         return [
             // Your theme hook name.
             '#theme' => 'cp_dashboard_pro_adviser_template_hook',
@@ -69,6 +123,8 @@ class CpDashboardProAdviserController extends ControllerBase
             '#tree_business_model' => $tree_business_model,
             '#tree_categorization' => $tree_categorization,
             '#tree_deparment' => $tree_deparment,
+            '#tree_account_status' => $tree_account_status,
+            '#tree_users' => $tree_users,
         ];
     }
 
@@ -120,6 +176,45 @@ class CpDashboardProAdviserController extends ControllerBase
             );
         }
 
+        // get account_status
+        $vid = 'account_status';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_account_status=[];
+        foreach ($terms as $term) {
+            array_push($tree_account_status, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/dashboard/adviser/user/international", 301);
+                }else{
+                    return new RedirectResponse("/es/tablero/adviser/usuario/international", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/dashboard/adviser/user/international'){
+                        return new RedirectResponse("/en/dashboard/adviser/user/international", 301);
+                    }
+                }else{
+                    if($path != '/tablero/adviser/usuario/international'){
+                        return new RedirectResponse("/es/tablero/adviser/usuario/international", 301);
+                    }
+                }
+            }
+        }
         return [
             // Your theme hook name.
             '#theme' => 'cp_dashboard_pro_adviser_international_template_hook',
@@ -127,6 +222,7 @@ class CpDashboardProAdviserController extends ControllerBase
             '#tree_business_model' => $tree_business_model,
             '#tree_categorization' => $tree_categorization,
             '#tree_deparment' => $tree_deparment,
+            '#tree_account_status' => $tree_account_status,
         ];
     }
     
@@ -184,7 +280,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //filter deparment
             $deparment = $request->request->get('deparment');
@@ -198,14 +294,16 @@ class CpDashboardProAdviserController extends ControllerBase
             }
             //filter published
             $published = $request->request->get('published');
-            if (!empty($published)) {
-                //$query->condition('field_published', $published, 'CONTAINS');
+            if (is_numeric($published)) {
+                //check if account is active
+                $query->condition('status', $published, '=');
             }
+
 
             //filter advisor
             $advisor = $request->request->get('advisor');
             if (!empty($advisor)) {
-                //$query->condition('field_advisor', $advisor, 'CONTAINS');
+                $query->condition('field_company_adviser', $advisor, '=');
             }
             //step equal 3
             $query->condition('field_step', 3, '=');
@@ -238,7 +336,8 @@ class CpDashboardProAdviserController extends ControllerBase
                     $query->sort('status', $dir);
                     break;
                 default:
-                    $query->sort('field_company_name', $dir);
+                    //sort by create date of drupal
+                    $query->sort('changed', "desc");
                     break;
             }
             
@@ -291,6 +390,8 @@ class CpDashboardProAdviserController extends ControllerBase
                         'update_date' => $update_date,
                         //get status name
                         'status' => $user->get('field_account_status')->entity->getName(),
+                        //get status value
+                        'status_value' => $status,
                     );
                 }
                 
@@ -313,7 +414,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //filter deparment
             $deparment = $request->request->get('deparment');
@@ -327,50 +428,20 @@ class CpDashboardProAdviserController extends ControllerBase
             }
             //filter published
             $published = $request->request->get('published');
-            if (!empty($published)) {
-                //$query->condition('field_published', $published, 'CONTAINS');
+            if (is_numeric($published)) {
+                //check if account is active
+                $query->condition('status', $published, '=');
             }
+
 
             //filter advisor
             $advisor = $request->request->get('advisor');
             if (!empty($advisor)) {
-                //$query->condition('field_advisor', $advisor, 'CONTAINS');
+                $query->condition('field_company_adviser', $advisor, '=');
             }
 
             //check step 3
             $query->condition('field_step', 3, '=');
-
-            //sort
-            //check if 
-            switch ($column) {
-               case 1:
-                    $query->sort('name', $dir);
-                    break;
-                case 2:
-                    $query->sort('field_company_name', $dir);
-                    break;
-                case 3:
-                    $query->sort('langcode', $dir);
-                    break;
-                case 5:
-                    $query->sort('field_company_deparment.entity.name', $dir);
-                    break;
-                case 6:
-                    $query->sort('field_company_city.entity.name', $dir);
-                    break;
-                case 7:
-                    $query->sort('field_productive_chain.entity.name', $dir);
-                    break;
-                case 8:
-                    $query->sort('changed', $dir);
-                    break;
-                case 11:
-                    $query->sort('status', $dir);
-                    break;
-                default:
-                    $query->sort('field_company_name', $dir);
-                    break;
-            }
             $query->count();
             $count = $query->execute();
             return new JsonResponse(array(
@@ -422,7 +493,7 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //step equal 5
             $query->condition('field_step', 5, '=');
@@ -451,7 +522,8 @@ class CpDashboardProAdviserController extends ControllerBase
                     $query->sort('status', $dir);
                     break;
                 default:
-                    $query->sort('field_company_name', $dir);
+                    //sort by create date of drupal
+                    $query->sort('changed', "desc");
                     break;
             }
             
@@ -518,38 +590,10 @@ class CpDashboardProAdviserController extends ControllerBase
             //filter status
             $status = $request->request->get('status');
             if (!empty($status)) {
-                $query->condition('status', $status, 'CONTAINS');
+                $query->condition('field_account_status', $status, '=');
             }
             //step 5
             $query->condition('field_step', 5, '=');
-            //sort
-            //check if 
-            switch ($column) {
-                case 1:
-                    $query->sort('field_company_name', $dir);
-                    break;
-                case 2:
-                    $query->sort('mail', $dir);
-                    break;
-                case 3:
-                    $query->sort('langcode', $dir);
-                    break;
-                case 4:
-                    $query->sort('field_country', $dir);
-                    break;
-                case 5:
-                    $query->sort('field_subcat_interest_1', $dir);
-                    break;
-                case 6:
-                    $query->sort('changed', $dir);
-                    break;
-                case 7:
-                    $query->sort('status', $dir);
-                    break;
-                default:
-                    $query->sort('field_company_name', $dir);
-                    break;
-            }
             $query->count();
             $count = $query->execute();
             return new JsonResponse(array(

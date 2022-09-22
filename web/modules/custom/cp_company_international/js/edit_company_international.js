@@ -241,14 +241,14 @@
             }
         }
         if (last_name === "") {
-            message = Drupal.t("Last name is required\n");
+            message = Drupal.t("Lastname is required\n");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = Drupal.t("The last name cannot be longer than 20 characters\n");
+                message = Drupal.t("The lastname cannot be longer than 20 characters\n");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name").show();
                 $("#error_last_name_message").text(message)
@@ -363,8 +363,7 @@
                         isValid = false;
                     } else {
                         if (!password.match(/[^a-zA-Z0-9]/)) {
-                            message =
-                                "El password debe tener al menos un caracter especial";
+                            message = Drupal.t("The password must have at least one special character");
                             $("#password_buyer").css("border-color", "#ba0c2f");
                             $("#error_password_buyer_message").text(message)
                             $("#error_password_buyer").show();
@@ -593,13 +592,13 @@
                             window.location.reload()
                         }, 2500);
                     } else {
-                        alert("Error al crear el usuario" + error);
+                        alert(Drupal.t("Error While Creating User: ") + error);
                     }
                 })
                 .catch(function (error) {
                     $("#loading_1").hide();
                     $("#save").show();
-                    alert("Error al crear el usuario" + error);
+                    alert(Drupal.t("Error While Creating User: ") + error);
                 });
 
         }

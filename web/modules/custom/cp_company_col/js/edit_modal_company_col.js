@@ -71,8 +71,7 @@
                         isValid = false;
                     } else {
                         if (!password.match(/[^a-zA-Z0-9]/)) {
-                            message =
-                                "El password debe tener al menos un caracter especial";
+                            message = Drupal.t("The password must have at least one special character");
                             $("#password").css("border-color", "#ba0c2f");
                             $("#error_password_message").text(message)
                             $("#error_password").show();
@@ -109,7 +108,7 @@
         }
 
         if (contact_email == "") {
-            message = Drupal.t("Email is required and must be a valid email addres");
+            message = Drupal.t("Email is required and must be a valid email address");
             $("#contact_email").css("border-color", "#ba0c2f");
             $("#error_email").show();
             $("#error_email")

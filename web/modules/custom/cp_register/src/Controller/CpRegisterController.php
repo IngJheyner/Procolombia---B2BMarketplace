@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * An cp_register controller.
  */
@@ -81,6 +82,34 @@ class CpRegisterController extends ControllerBase
             );
         }
 
+        //redirect if $_SESSION['language'] is not the current path
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/register/user", 301);
+                }else{
+                    return new RedirectResponse("/es/registro/usuario", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/register/user'){
+                        return new RedirectResponse("/en/register/user", 301);
+                    }
+                }else{
+                    if($path != '/registro/usuario'){
+                        return new RedirectResponse("/es/registro/usuario", 301);
+                    }
+                }
+            }
+        }
+        
         return [
             // Your theme hook name.
             '#theme' => 'cp_register_template_hook',
@@ -216,8 +245,8 @@ class CpRegisterController extends ControllerBase
         $user->set('field_company_contact_lastname', $data['last_name']);
         $user->set('field_company_contact_position', $data['position_spanish']);
         $user->set('field_company_contact_position_e', $data['position_english']);
-        $user->set('field_company_contact_phone', $data['country_code_landline'].$data['landline']);
-        $user->set('field_company_contact_cell_phone', $data['country_code_mobile'].$data['mobile']);
+        $user->set('field_company_contact_phone', $data['landline']);
+        $user->set('field_company_contact_cell_phone', $data['mobile']);
         $user->set('field_company_contact_email', $data['contact_email']);
         //country_code_landline
         $user->set('field_country_code_landline', $data['country_code_landline']);
@@ -256,30 +285,27 @@ class CpRegisterController extends ControllerBase
         //check if user exist and is not deleted
         //ceck if user is not deleted in drupal
 
-        if($user->isActive()){
-            $data_user = [
-                'step' => $user->get('field_step')->value,
-                //'logo' => $user->get('field_company_logo')->entity->getFileUri(),
-                'business_name' => $user->get('field_company_name')->value,
-                //get url field website and video youtube
-                'website' => $user->get('field_company_web_site')->uri,
-                'video' => $user->get('field_company_video_youtube')->uri,
-                'description_spanish' => $user->get('field_company_info')->value,
-                'description_english' => $user->get('field_company_info_english')->value,
-                'production_chain' => $user->get('field_productive_chain')->target_id,
-                'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
-                'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
-                'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
-                'departament' => $user->get('field_company_deparment')->target_id,
-                'ciudad' => $user->get('field_company_city')->target_id,
-                'modelo_de_negocio' => $user->get('field_company_model')->target_id,
-                'certification_business' => $user->get('field_company_certification')->target_id,
-            ];
-    
-            return new JsonResponse(['status' => 200, 'data' => $data_user]);
-        }else{
-            return new JsonResponse(['status' => 'error', 'message' => 'El usuario no existe']);
-        }
+        $data_user = [
+            'step' => $user->get('field_step')->value,
+            //'logo' => $user->get('field_company_logo')->entity->getFileUri(),
+            'business_name' => $user->get('field_company_name')->value,
+            //get url field website and video youtube
+            'website' => $user->get('field_company_web_site')->uri,
+            'video' => $user->get('field_company_video_youtube')->uri,
+            'description_spanish' => $user->get('field_company_info')->value,
+            'description_english' => $user->get('field_company_info_english')->value,
+            'production_chain' => $user->get('field_productive_chain')->target_id,
+            'principal_code_ciiu' => $user->get('field_ciiu_principal')->value,
+            'secondary_code_ciiu' => $user->get('field_ciiu_secundario')->value,
+            'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
+            'departament' => $user->get('field_company_deparment')->target_id,
+            'ciudad' => $user->get('field_company_city')->target_id,
+            'modelo_de_negocio' => $user->get('field_company_model')->target_id,
+            'certification_business' => $user->get('field_company_certification')->target_id,
+        ];
+
+        return new JsonResponse(['status' => 200, 'data' => $data_user]);
+
     }
 
     /**

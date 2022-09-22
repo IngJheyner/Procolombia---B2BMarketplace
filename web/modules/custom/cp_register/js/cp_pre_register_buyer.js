@@ -33,7 +33,7 @@
               window.location.href = '/register/user/buyer';
             }, 3000);
           } else {
-            alert("Token invalid");
+            alert(Drupal.t("Token invalid"));
           }
         }).catch(function (error) {
           console.log('Request failed', error);
@@ -118,18 +118,18 @@
 
     if (progress === 25) {
       $("#progressbar").css("background", "#ba0c2f");
-      $("#error_mensaje_pass").text("Debil");
+      $("#error_mensaje_pass").text(Drupal.t("Weak"));
     } else {
       if (progress === 50) {
         $("#progressbar").css("background", "#fdca00");
-        $("#error_mensaje_pass").text("Normal");
+        $("#error_mensaje_pass").text(Drupal.t("Normal"));
       } else {
         if (progress === 75) {
           $("#progressbar").css("background", "#0085ca");
-          $("#error_mensaje_pass").text("Buena");
+          $("#error_mensaje_pass").text(Drupal.t("Good"));
         } else {
           if (progress === 100) {
-            $("#error_mensaje_pass").text("Fuerte");
+            $("#error_mensaje_pass").text(Drupal.t("Strong"));
             $("#progressbar").css("background", "#31d394");
           }
         }
@@ -186,7 +186,7 @@
       }
     }
     if (last_name === "") {
-      message = Drupal.t("El apellido es requerido\n");
+      message = Drupal.t("Lastname is required\n");
       $("#last_name").css("border-color", "#ba0c2f");
       $("#error_last_name").show();
       $("#error_last_name_message").text(message)
@@ -309,8 +309,7 @@
             isValid = false;
           } else {
             if (!password.match(/[^a-zA-Z0-9]/)) {
-              message = Drupal.t(
-                "The password must have at least one special character");
+              message = Drupal.t("The password must have at least one special character");
               $("#password_buyer").css("border-color", "#ba0c2f");
               $("#error_password_buyer_message").text(message)
               $("#error_password_buyer").show();
@@ -373,6 +372,18 @@
       isValid = false;
     } else {
       $("#error_conditions").hide();
+    }
+
+    //validate captcha getResponse and if is empty show error
+    var response = grecaptcha.getResponse();
+    console.log(response);
+    console.log("HI")
+    if (response.length == 0) {
+      alert(Drupal.t("Please verify that you are not a robot"));
+      $("#error_captcha").show();
+      isValid = false;
+    } else {
+      $("#error_captcha").hide();
     }
 
     return isValid;
@@ -439,21 +450,21 @@
                   }, 15000);
                 } else {
                   $("#loader").modal('hide');
-                  alert("Request failed email");
+                  alert(Drupal.t("Email request error"));
                 }
               })
               .catch(function (error) {
                 $("#loader").modal('hide');
-                alert("Request failed email", error);
+                alert(Drupal.t("Email request error"));
               });
           } else {
-            alert("Error: Email ya registrado");
+            alert(Drupal.t("Error: E-mail already has been registered"));
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error while creating user") + error);
         });
     }
   }
@@ -500,6 +511,4 @@
 
     }
   };
-
-
 }(jQuery, Drupal));
