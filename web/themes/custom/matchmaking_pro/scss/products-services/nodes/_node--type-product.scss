@@ -61,10 +61,7 @@
 			font-size: 24px;
 			@include media-breakpoint-down(md){
 				font-size: 20px;
-				position: absolute;
 				top: 0;
-				left: 50%;
-				transform: translateX(-50%);
 				text-align: left;
 				width: 100%;
 				padding: 0 20px;
@@ -90,11 +87,27 @@
 				display: flex;
 				justify-content: space-between;
 			}
+			&.field--name-field-pr-country{
+				.field__item{
+					text-transform: uppercase;
+					&::after{
+						content: ", ";
+						}
+					&:last-child{
+						&::after{
+							content: "";
+							background-color: red;
+						}
+					}
+				}
+			}
 		}
-
 		.field__label {
 			font-weight: normal;
 			font-family: $font-bold-Century-Gothic;
+			&::after {
+				content: ": ";
+				}
 		}
 		
 		.field--name-field-body {
@@ -107,11 +120,14 @@
 			gap: 17px;
 			align-items: flex-end;
 			flex-grow: .3;
-			
+			padding-top: 16px;
+			.field--name-field-file .field__items{
+				width: 100%;
+			}			
 			@include media-breakpoint-down(md){
 				flex-direction: column;
 			}
-
+			
 			* {
 				display: inline-block;
 			}
@@ -170,7 +186,8 @@
 			flex-direction: column;
 			text-indent: -9999px;
 		}
-		.field--name-field-file{
+		.field--name-field-file,
+		.field--name-field-file-certifications{
 			margin-top: 0;
 			a{
 				background-image: url(../images/icons/file-pdf.svg);
@@ -178,6 +195,7 @@
 				background-size: 16px 20px;
 				padding-left: 40px;
 				background-position: 10px center;
+				font-family: $font-family-Century-Gothic;
 				@include media-breakpoint-down(md){					
 					background-position: 20% center;
 					padding-left: 0;
@@ -232,4 +250,32 @@
 			font-weight: bolder;
 		}
 	}
+}
+
+.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
+	border-radius: 4px;
+	padding-bottom: 60px;
+	max-width: 1286px;
+	background-color: $white;
+	border: none;
+	.ui-dialog-titlebar{
+		background-color: transparent;
+		border: none;
+	}
+	.ui-dialog-titlebar-close {
+		left: 20px;
+		top: 5px;
+		position: relative;
+		background-color: transparent;
+		border: none;
+		background-image: url(../images/icons/arrow-back-fill.svg);
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		}
+
+}
+
+.path-dashboard .ui-widget-overlay{
+	background-color: rgba(59, 61, 66, 0.5) !important;
 }

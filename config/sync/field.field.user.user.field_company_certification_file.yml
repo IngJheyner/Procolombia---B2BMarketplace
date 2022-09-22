@@ -11,7 +11,7 @@ id: user.user.field_company_certification_file
 field_name: field_company_certification_file
 entity_type: user
 bundle: user
-label: 'Company certification file'
+label: 'Archivo de Certificación de la empresa'
 description: ''
 required: false
 translatable: false

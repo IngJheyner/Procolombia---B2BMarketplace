@@ -1,103 +1,117 @@
-
 {{ attach_library('cp_company_col/cp_company_col') }}
 
 <section class="dashboard">
 
-  <div class="card p-3">
-    <div class="title_card_dashboard">
-      <img src="{{data.company_logo}}" alt="logo">
-      {{ 'Company profile'|t }}
-    </div>
-    <div class="title_card_content">
-      <div class="title">
-        <p>{{ 'NIT'|t }}</p>
-      </div>
-      <div class="contenido">
-        <p>{{data.username}}</p>
-      </div>
-      <div class="title">
-        <p>{{ 'Company Name'|t }}</p>
-      </div>
-      <div class="contenido">
-        <p>{{data.business_name}}</p>
-      </div>
-      <div class="title">
-        <p>{{ 'Approval status'|t }}</p>
-      </div>
-      <div class="contenido">
-        <div class="me-2" style="width: 10px; height: 10px;background-color: #00D320; border-radius: 100px;"></div>
-        <p>{{ 'Approval status'|t }}</p>
-      </div>
-      <div class="title">
-        <p>{{ 'Visualizations'|t }}</p>
-      </div>
-      <div class="contenido">
-        <p>3.462.345</p>
-      </div>
-      <div class="row p-0">
-        <div class="col-6 p-0">
-          <div class="title">
-            <p>{{ 'Published'|t }}</p>
-          </div>
-          <div class="contenido">
-            <p>{{ 'Yes'|t }}</p>
-            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-            <label for="someSwitchOptionDefault" class="label-default"></label>
-          </div>
-        </div>
-        <div class="col-6 p-0">
-          <div class="title">
-            <p>{{ 'Notifications'|t }}</p>
-          </div>
-          <div class="contenido">
-            <p class="bg-danger rounded-pill text-white px-2 py-1">
-              <strong>120</strong>
-              {{ 'Messages'|t }}</p>
-          </div>
-        </div>
-      </div>
+	<div class="card p-3">
+		<div class="title_card_dashboard">
+			 <svg id="Grupo_1345" data-name="Grupo 1345" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33.584" height="31" viewBox="0 0 33.584 31">
+            <defs>
+              <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                <stop offset="0" stop-color="#005ca4"/>
+                <stop offset="1" stop-color="#008cce"/>
+              </linearGradient>
+              <linearGradient id="linea" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                <stop offset="0" stop-color="#d88d00"/>
+                <stop offset="1" stop-color="#edc500"/>
+              </linearGradient>
+            </defs>
+            <path id="Trazado_141" data-name="Trazado 141" d="M601.069,625.28a1.034,1.034,0,0,0,1.033-1.033V607.713a1.034,1.034,0,0,1,1.033-1.033H605.2a1.034,1.034,0,0,1,1.033,1.033V628.9a2.584,2.584,0,0,0,2.583,2.583h1.033a2.584,2.584,0,0,0,2.583-2.583v-10.85a1.034,1.034,0,0,1,1.033-1.033h2.067a1.034,1.034,0,0,1,1.033,1.033V628.9a2.584,2.584,0,0,0,2.583,2.583h1.033a2.584,2.584,0,0,0,2.583-2.583V622.18a1.034,1.034,0,0,1,1.033-1.033h2.067a1.034,1.034,0,0,1,1.033,1.033v7.233a2.066,2.066,0,0,0,2.067,2.067,4.133,4.133,0,0,0,4.134-4.133V601.513a1.033,1.033,0,0,0-2.067,0v25.833c0,1.142-.8,2.067-1.55,2.067a.516.516,0,0,1-.517-.517v-7.233a2.584,2.584,0,0,0-2.583-2.583h-3.1a2.584,2.584,0,0,0-2.583,2.583v6.717a1.033,1.033,0,1,1-2.067,0V617.53a2.584,2.584,0,0,0-2.583-2.583h-3.1a2.584,2.584,0,0,0-2.583,2.583v10.85a1.033,1.033,0,1,1-2.067,0V607.2a2.584,2.584,0,0,0-2.583-2.583h-3.1a2.584,2.584,0,0,0-2.583,2.583v17.05a1.034,1.034,0,0,0,1.033,1.033" transform="translate(-599.519 -600.48)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+            <path id="Trazado_142" data-name="Trazado 142" d="M660.586,651.48a1.55,1.55,0,1,0,1.55,1.55,1.551,1.551,0,0,0-1.55-1.55" transform="translate(-659.036 -625.13)" fill-rule="evenodd" fill="url(#linea)"/>
+          </svg>
+			<span>Perfil de la compañía y contacto</span>
+		</div>
+		<div class="title_card_content">
+			<div class="title">
+				<p>{{ 'NIT'|t }}</p>
+			</div>
+			<div class="contenido">
+				<p>{{data.username}}</p>
+			</div>
+			<div class="title">
+				<p>{{ 'Company Name'|t }}</p>
+			</div>
+			<div class="contenido">
+				<p>{{data.business_name}}</p>
+			</div>
+			<div class="title">
+				<p>{{ 'Approval status'|t }}</p>
+			</div>
+			<div class="contenido">
+				<div class="me-2" style="width: 10px; height: 10px;background-color: #00D320; border-radius: 100px;"></div>
+				<p>{{ 'Approval status'|t }}</p>
+			</div>
+			<div class="title">
+				<p>{{ 'Visualizations'|t }}</p>
+			</div>
+			<div class="contenido">
+				<p>3.462.345</p>
+			</div>
+			<div class="row p-0">
+				<div class="col-6 p-0">
+					<div class="title">
+						<p>{{ 'Published'|t }}</p>
+					</div>
+					<div class="contenido">
+						<p>{{ 'Yes'|t }}</p>
+						<input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						<label for="someSwitchOptionDefault" class="label-default"></label>
+					</div>
+				</div>
+				<div class="col-6 p-0">
+					<div class="title">
+						<p>{{ 'Notifications'|t }}</p>
+					</div>
+					<div class="contenido">
+						<p class="bg-danger rounded-pill text-white px-2 py-1">
+							<strong>120</strong>
+							{{ 'Messages'|t }}</p>
+					</div>
+				</div>
+			</div>
 
-    </div>
-  </div>
+		</div>
+	</div>
 
-  <div class="card p-3 mt-5">
-    <button data-bs-toggle="modal" data-bs-target="#edit-company-sidebar">{{ 'Edit'|t }}</button>
-    <div class="title_card_dashboard">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 25 25">
-        <defs>
-          <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
-            <stop offset="0" stop-color="#005ca4"/>
-            <stop offset="1" stop-color="#008cce"/>
-          </linearGradient>
-          <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
-            <stop offset="0" stop-color="#d88d00"/>
-            <stop offset="1" stop-color="#edc500"/>
-          </linearGradient>
-        </defs>
-        <g id="Grupo_1371" data-name="Grupo 1371" transform="translate(0 0)">
-          <path id="Trazado_33" data-name="Trazado 33" d="M321.911,925.48h-18.75a3.125,3.125,0,0,1-3.125-3.125v-2.344c0-1.276.988-2.44,2.638-3.365l0,0a.725.725,0,1,1,.7,1.27l.005.009c-1.125.617-1.785,1.339-1.785,2.082v2.344a1.562,1.562,0,0,0,1.563,1.563h18.75a1.562,1.562,0,0,0,1.563-1.562v-2.344c0-2.157-4.9-3.906-10.938-3.906a6.257,6.257,0,0,1-6.225-5.771c-.013-.159-.025-.318-.025-.479v-4.687a4.688,4.688,0,0,1,4.688-4.687H314.1a4.688,4.688,0,0,1,4.688,4.687v4.688a4.534,4.534,0,0,1-.025.479,6.153,6.153,0,0,1-.752,2.5.778.778,0,1,1-1.426-.609l-.008-.005a4.653,4.653,0,0,0,.647-2.367v-4.687a3.125,3.125,0,0,0-3.125-3.125h-3.125a3.126,3.126,0,0,0-3.125,3.125v4.688a4.685,4.685,0,0,0,4.479,4.677c.063.006.132.01.208.01a27.6,27.6,0,0,1,3.81.259c.307.043.61.093.906.145l.033.007c.289.051.572.108.85.169l.072.016q.828.186,1.581.421c.023.008.048.016.073.022q.369.117.718.247l.047.017c.23.086.453.174.668.267l.023.009c.213.092.418.189.616.286l.084.043c.2.1.385.2.564.307l.007,0c.176.1.34.209.5.318l.069.048c.154.108.3.219.435.331l.065.055c.13.112.254.224.367.339l.02.019a4.534,4.534,0,0,1,.314.359l.057.075a3.779,3.779,0,0,1,.246.368c.009.016.017.032.026.049a3.084,3.084,0,0,1,.165.352c.009.022.02.043.027.065a2.623,2.623,0,0,1,.108.385c.005.027.009.055.014.083a2.471,2.471,0,0,1,.038.405v2.344a3.125,3.125,0,0,1-3.125,3.125" transform="translate(-300.036 -900.481)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
-          <path id="Trazado_34" data-name="Trazado 34" d="M313.3,936.48a1.267,1.267,0,0,1,1.2,1.665,1.227,1.227,0,0,1-.8.8,1.265,1.265,0,1,1-.4-2.464" transform="translate(-307.386 -922.532)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
-        </g>
-      </svg>
-      {{ 'Administrator and Contact Information'|t }}
-    </div>
-    <div class="title_card_content">
-      <div class="title">
-        <p>{{ 'Contact name'|t }}</p>
-      </div>
-      <div class="contenido">
-        <p>{{data.contact_name}}</p>
-      </div>
-      <div class="title">
-        <p>{{ 'E-mail address'|t }}</p>
-      </div>
-      <div class="contenido">
-        <p>{{data.contact_email}}</p>
-      </div>
+	<div class="card p-3 mt-5">
+		<button data-bs-toggle="modal" data-bs-target="#edit-company-sidebar">{{ 'Edit '|t }}</button>
+		<div class="title_card_dashboard">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.153" height="31" viewBox="0 0 38.153 31">
+				<defs>
+				  <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+					<stop offset="0" stop-color="#d88d00"/>
+					<stop offset="1" stop-color="#edc500"/>
+				  </linearGradient>
+				  <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+					<stop offset="0" stop-color="#005ca4"/>
+					<stop offset="1" stop-color="#008cce"/>
+				  </linearGradient>
+				</defs>
+				<path id="Trazado_3808" data-name="Trazado 3808" d="M609.824,1081.48a1.794,1.794,0,0,1,1.7,2.357,1.738,1.738,0,0,1-1.132,1.132,1.79,1.79,0,1,1-.568-3.489" transform="translate(-603.267 -1065.385)" fill-rule="evenodd" fill="url(#linea)"/>
+				<g id="Grupo_3886" data-name="Grupo 3886">
+				  <path id="Trazado_45" data-name="Trazado 45" d="M633.42,1079.518h-1.192a1.192,1.192,0,0,1,0-2.385h1.192a2.384,2.384,0,0,0,2.385-2.385v-3.577a1.03,1.03,0,0,0-.044-.28c-.012-.036-.028-.074-.044-.111a1.1,1.1,0,0,0-.053-.12,2.5,2.5,0,0,0-1.765-1.234,12,12,0,0,0-4.055-.64,11.823,11.823,0,0,0-3.961.631,2.713,2.713,0,0,0-1.353.615l-.006-.006a1.1,1.1,0,1,1-1.26-1.777,8.613,8.613,0,0,1,2.385-1.2,5.938,5.938,0,0,1-1.743-3.736,4.864,4.864,0,0,1-.024-.486v-3.577a4.77,4.77,0,0,1,4.769-4.769h2.385a4.77,4.77,0,0,1,4.769,4.769v3.577a1.192,1.192,0,1,1-2.385,0v-3.577a2.384,2.384,0,0,0-2.385-2.385h-2.385a2.384,2.384,0,0,0-2.385,2.385v3.577a3.577,3.577,0,0,0,3.577,3.577c4.61,0,8.346,2.136,8.346,4.769v3.577a4.77,4.77,0,0,1-4.769,4.769m-12.529-10.266a1.189,1.189,0,1,1-2.218-.85l0,0a4.721,4.721,0,0,0,.444-2,4.82,4.82,0,0,0-.07-.781,3.183,3.183,0,0,0,.07-.667V1060.1a3.207,3.207,0,0,0-3.18-3.236h-3.179a3.207,3.207,0,0,0-3.179,3.236v4.854a3.337,3.337,0,0,0,.069.667,4.89,4.89,0,0,0-.069.781,4.77,4.77,0,0,0,4.769,4.769c7.9,0,14.307,2.937,14.307,6.558v2.981a4.768,4.768,0,0,1-4.769,4.769H604.805a4.769,4.769,0,0,1-4.769-4.769v-2.981c0-1.37.912-2.631,2.458-3.674a1.085,1.085,0,0,1,.675-.239,1.1,1.1,0,0,1,.6,2.032l.008.011a2.479,2.479,0,0,0-1.355,1.87v2.981a2.384,2.384,0,0,0,2.385,2.385h19.076a2.384,2.384,0,0,0,2.385-2.385v-2.981c0-2.306-5.338-4.173-11.923-4.173a7.125,7.125,0,0,1-4.932-1.98,7.208,7.208,0,0,1-1.291-1.655c0-.009-.01-.014-.015-.022-.1-.189-.2-.386-.291-.585a.539.539,0,0,1-.028-.059c-.082-.187-.153-.378-.219-.572-.012-.036-.026-.07-.037-.106-.058-.181-.106-.368-.147-.555-.012-.05-.03-.1-.04-.149-.038-.182-.063-.37-.087-.556-.008-.058-.02-.114-.026-.171a7.16,7.16,0,0,1-.039-.746c0-.131.012-.26.02-.39-.01-.135-.02-.268-.02-.4v-5.565a5.467,5.467,0,0,1,5.365-5.564h3.577a5.468,5.468,0,0,1,5.365,5.564v5.565c0,.136-.01.27-.02.4.008.129.02.259.02.39a7.072,7.072,0,0,1-.606,2.85" transform="translate(-600.036 -1054.48)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+				</g>
+			  </svg>
+			  
+			  
+			<span>{{ 'Administrator and Contact Information'|t }}</span>
+		</div>
+		<div class="title_card_content">
+			<div class="title">
+				<p>{{ 'Contact name'|t }}</p>
+			</div>
+			<div class="contenido">
+				<p>{{data.contact_name}}</p>
+			</div>
+			<div class="title">
+				<p>{{ 'E-mail address'|t }}</p>
+			</div>
+			<div class="contenido">
+				<p>{{data.contact_email}}</p>
+			</div>
 
 
-    </div>
-  </div>
+		</div>
+	</div>
 
 </section>
 
@@ -105,97 +119,113 @@
 
 <!-- Modal -->
 <div class="modal fade" id="edit-company-sidebar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Administrator and Contact Information'|t }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row p-0 content px-4">
-          <div class="col-sm-6 col-md-6">
-            <div class="title">
-              <p>{{ 'Contact name'|t }}</p>
-            </div>
-            <div class="contenido">
-              <p>{{data.contact_name}}</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-6">
-            <div class="title">
-              <p>{{ 'E-mail address'|t }}</p>
-            </div>
-            <div class="contenido">
-              <p>{{data.contact_email}}</p>
-            </div>
-          </div>
-        </div>
-        <h6 class="px-4">{{ 'Edit Information'|t }}</h6>
-        <div class="row px-4">
-          <div class="col-md-12">
-            <label for="contact_email" class="form-label">{{ 'E-mail address'|t }}
-              <span>*</span>
-            </label>
-            <input type="email" class="form-control" id="contact_email" placeholder="">
-          </div>
-          <div class="col-md-12">
-            <div class="form-group password">
-              <label for="nit">{{ 'Password'|t }}
-                <span>*</span>
-              </label>
-              <div class="input-group mb-3">
-                <input type="password" id="password" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <span class="input-group-text">
-                  <img id="pass_bloq" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
-                  <img id="pass_show" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
-                </span>
-                <div class="input_error">
-                  <i id="error_password" class='bx bxs-info-circle toltip_i'>
-                    <span id="error_password_message" class="tooltiptext_error">
-                      {{ 'Required Field'|t }}
-                    </span>
-                  </i>
-                </div>
-              </div>
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_1Label">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.153" height="31" class="me-2" viewBox="0 0 38.153 31">
+						<defs>
+						  <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+							<stop offset="0" stop-color="#d88d00"/>
+							<stop offset="1" stop-color="#edc500"/>
+						  </linearGradient>
+						  <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+							<stop offset="0" stop-color="#005ca4"/>
+							<stop offset="1" stop-color="#008cce"/>
+						  </linearGradient>
+						</defs>
+						<path id="Trazado_3808" data-name="Trazado 3808" d="M609.824,1081.48a1.794,1.794,0,0,1,1.7,2.357,1.738,1.738,0,0,1-1.132,1.132,1.79,1.79,0,1,1-.568-3.489" transform="translate(-603.267 -1065.385)" fill-rule="evenodd" fill="url(#linea)"/>
+						<g id="Grupo_3886" data-name="Grupo 3886">
+						  <path id="Trazado_45" data-name="Trazado 45" d="M633.42,1079.518h-1.192a1.192,1.192,0,0,1,0-2.385h1.192a2.384,2.384,0,0,0,2.385-2.385v-3.577a1.03,1.03,0,0,0-.044-.28c-.012-.036-.028-.074-.044-.111a1.1,1.1,0,0,0-.053-.12,2.5,2.5,0,0,0-1.765-1.234,12,12,0,0,0-4.055-.64,11.823,11.823,0,0,0-3.961.631,2.713,2.713,0,0,0-1.353.615l-.006-.006a1.1,1.1,0,1,1-1.26-1.777,8.613,8.613,0,0,1,2.385-1.2,5.938,5.938,0,0,1-1.743-3.736,4.864,4.864,0,0,1-.024-.486v-3.577a4.77,4.77,0,0,1,4.769-4.769h2.385a4.77,4.77,0,0,1,4.769,4.769v3.577a1.192,1.192,0,1,1-2.385,0v-3.577a2.384,2.384,0,0,0-2.385-2.385h-2.385a2.384,2.384,0,0,0-2.385,2.385v3.577a3.577,3.577,0,0,0,3.577,3.577c4.61,0,8.346,2.136,8.346,4.769v3.577a4.77,4.77,0,0,1-4.769,4.769m-12.529-10.266a1.189,1.189,0,1,1-2.218-.85l0,0a4.721,4.721,0,0,0,.444-2,4.82,4.82,0,0,0-.07-.781,3.183,3.183,0,0,0,.07-.667V1060.1a3.207,3.207,0,0,0-3.18-3.236h-3.179a3.207,3.207,0,0,0-3.179,3.236v4.854a3.337,3.337,0,0,0,.069.667,4.89,4.89,0,0,0-.069.781,4.77,4.77,0,0,0,4.769,4.769c7.9,0,14.307,2.937,14.307,6.558v2.981a4.768,4.768,0,0,1-4.769,4.769H604.805a4.769,4.769,0,0,1-4.769-4.769v-2.981c0-1.37.912-2.631,2.458-3.674a1.085,1.085,0,0,1,.675-.239,1.1,1.1,0,0,1,.6,2.032l.008.011a2.479,2.479,0,0,0-1.355,1.87v2.981a2.384,2.384,0,0,0,2.385,2.385h19.076a2.384,2.384,0,0,0,2.385-2.385v-2.981c0-2.306-5.338-4.173-11.923-4.173a7.125,7.125,0,0,1-4.932-1.98,7.208,7.208,0,0,1-1.291-1.655c0-.009-.01-.014-.015-.022-.1-.189-.2-.386-.291-.585a.539.539,0,0,1-.028-.059c-.082-.187-.153-.378-.219-.572-.012-.036-.026-.07-.037-.106-.058-.181-.106-.368-.147-.555-.012-.05-.03-.1-.04-.149-.038-.182-.063-.37-.087-.556-.008-.058-.02-.114-.026-.171a7.16,7.16,0,0,1-.039-.746c0-.131.012-.26.02-.39-.01-.135-.02-.268-.02-.4v-5.565a5.467,5.467,0,0,1,5.365-5.564h3.577a5.468,5.468,0,0,1,5.365,5.564v5.565c0,.136-.01.27-.02.4.008.129.02.259.02.39a7.072,7.072,0,0,1-.606,2.85" transform="translate(-600.036 -1054.48)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+						</g>
+					  </svg>
+					{{ 'Administrator and Contact Information'|t }}</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row p-0 content px-4">
+					<div class="col-sm-6 col-md-6">
+						<div class="title">
+							<p class="title-pop">{{ 'Contact name'|t }}</p>
+						</div>
+						<div class="contenido">
+							<p>{{data.contact_name}}</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<div class="title">
+							<p class="title-pop">{{ 'E-mail address'|t }}</p>
+						</div>
+						<div class="contenido">
+							<p>{{data.contact_email}}</p>
+						</div>
+					</div>
+				</div>
+				<h6 class="px-4 my-3">{{ 'Edit Information'|t }}</h6>
+				<div class="row px-4">
+					<div class="col-md-12 mb-3">
+						<label for="contact_email" class="form-label title-pop">{{ 'E-mail address'|t }}
+							<sup>*</sup>
+						</label>
+						<input type="email" class="form-control" id="contact_email" placeholder="">
+					</div>
+					<div class="col-md-12 mb-3">
+						<div class="form-group password">
+							<label class="title-pop" for="nit">{{ 'Password'|t }}
+								<sup>*</sup>
+							</label>
+							<div class="input-group mb-3">
+								<input type="password" id="password" class="form-control" aria-label="{{ "Recipient's username"|t }}" aria-describedby="basic-addon2">
+								<span class="input-group-text">
+									<img id="pass_bloq" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+									<img id="pass_show" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+								</span>
+								<div class="input_error">
+									<i id="error_password" class='bx bxs-info-circle toltip_i'>
+										<span id="error_password_message" class="tooltiptext_error">
+											{{ 'Required Field'|t }}
+										</span>
+									</i>
+								</div>
+							</div>
 
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-group password">
-              <label for="nit">{{ 'Password verification'|t }}
-                <span>*</span>
-              </label>
-              <div class="input-group mb-3">
-                <input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
-                <span class="input-group-text">
-                  <img id="pass_bloq_confirm" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
-                  <img id="pass_show_confirm" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
-                </span>
-                <div class="input_error">
-                  <i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
-                    <span id="error_confirm_password_message" class="tooltiptext_error">
-                      {{ 'Required Field'|t }}
-                    </span>
-                  </i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="row">
-          <div class="col-lg-12 continue">
-            <button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="Close">{{ 'CANCEL'|t }}</button>
-            <button id="save_modal" name="save_modal" aria-label="Continuar con el registro" class="continue">{{ 'CONTINUE'|t }}</button>
-            <button style="display:none" class="continue" id="loading_1" type="button" disabled>
-              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-              {{ 'Loading...'|t }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+						</div>
+					</div>
+					<div class="col-md-12 mb-3">
+						<div class="form-group password">
+							<label class="title-pop" for="nit">{{ 'Password verification'|t }}
+								<sup>*</sup>
+							</label>
+							<div class="input-group mb-3">
+								<input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
+								<span class="input-group-text">
+									<img id="pass_bloq_confirm" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+									<img id="pass_show_confirm" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+								</span>
+								<div class="input_error">
+									<i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
+										<span id="error_confirm_password_message" class="tooltiptext_error">
+											{{ 'Required Field'|t }}
+										</span>
+									</i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col-lg-12 continue">
+						<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}">{{ 'CANCEL'|t }}</button>
+						<button id="save_modal" name="save_modal" aria-label="{{ "Continue registration"|t }}" class="continue">{{ 'CONTINUE'|t }}</button>
+						<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+							<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+							{{ 'Loading...'|t }}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-

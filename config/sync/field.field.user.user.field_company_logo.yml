@@ -11,7 +11,7 @@ id: user.user.field_company_logo
 field_name: field_company_logo
 entity_type: user
 bundle: user
-label: 'Company logo'
+label: 'Logo de la empresa'
 description: ''
 required: false
 translatable: false

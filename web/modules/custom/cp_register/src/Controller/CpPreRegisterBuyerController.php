@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
 use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * An cp_register controller.
  */
@@ -19,9 +20,42 @@ class CpPreRegisterBuyerController extends ControllerBase
      */
     public function index()
     {
+         //get site key of module reCaptcha
+         $site_key = \Drupal::config('recaptcha.settings')->get('site_key');
+
+         //redirect if $_SESSION['language'] is not the current path
+         $language = $_COOKIE['language'];
+         //get actual language
+         $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+         //check if query params has token
+         $token = \Drupal::request()->query->get('token');
+         if(isset($language) && !isset($token)){
+             if ($language != $actual_language) {
+                 if($language == 'en'){
+                     return new RedirectResponse("/en/pre-register/buyer", 301);
+                 }else{
+                     return new RedirectResponse("/es/pre-registro/comprador", 301);
+                 }
+             }else{
+                 //get path of url
+                 $path = \Drupal::service('path.current')->getPath();
+                 if($language == 'en'){
+                     if($path != '/pre-register/buyer'){
+                         return new RedirectResponse("/en/pre-register/buyer", 301);
+                     }
+                 }else{
+                     if($path != '/pre-registro/comprador'){
+                         return new RedirectResponse("/es/pre-registro/comprador", 301);
+                     }
+                 }
+             }
+         }
+ 
+
         return [
             // Your theme hook name.
             '#theme' => 'cp_pre_register_buyer_template_hook',
+            '#site_key' => $site_key,
         ];
     }
 

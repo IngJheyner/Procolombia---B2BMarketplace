@@ -29,6 +29,8 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
         'tree_business_model'=> null,
         'tree_categorization'=> null,
         'tree_deparment'=> null,
+        'tree_account_status'=> null,
+        'tree_users'=> null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -46,6 +48,7 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
         'tree_business_model'=> null,
         'tree_categorization'=> null,
         'tree_deparment'=> null,
+        'tree_account_status' => null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -60,6 +63,7 @@ function cp_pro_adviser_theme($existing, $type, $theme, $path)
       'variables' => [
         'tree_categorization' => null,
         'tree_business_model' => null,
+        'tree_account_status' => null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

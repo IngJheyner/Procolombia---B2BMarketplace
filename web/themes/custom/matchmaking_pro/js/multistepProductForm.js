@@ -10,10 +10,25 @@
         // Custom code here
 
         //Dashboard
-        const productDashboard = $('.view-product-dashboard');
-        const itemsPerPage = $('.form-item-items-per-page');
-        $(context).find('body').once('.form-item-items-per-page').each(function () {
+
+        $(context).find('body').once('.view-product-dashboard').each(function () {
+          const productDashboard = $('.view-product-dashboard');
+          const itemsPerPage = $('.form-item-items-per-page');
           itemsPerPage.appendTo(productDashboard);
+          const noResults = $('#generic-modal-view-no-results');
+          const btnOkNoResults = $('#generic-modal-view-no-results .modal-footer-left');
+          const btncloseNoResults = $('#generic-modal-view-no-results .modal-header span[aria-hidden="true"]');
+                    
+          if(noResults){
+           $(noResults).addClass('show')
+          }
+          function closeNoResultsModal(btn){
+            btn.click(()=>{
+              noResults.removeClass('show')
+            })
+          }
+          closeNoResultsModal(btnOkNoResults);
+          closeNoResultsModal(btncloseNoResults);
         })
         //Paso 2 mover cambiar posicion contenedor
         let partidaAranTax = $('#edit-field-partida-arancelaria-tax-wrapper');
@@ -42,9 +57,9 @@
         const fieldCountryWrapper = $('#edit-field-pr-country-wrapper');
         showMoreCountrie.appendTo(fieldCountryWrapper);
 
-        function toggleText(text){           
+        function toggleText(text){
           if(text.hasClass('show-less')){
-            text.text(Drupal.t('View less')); 
+            text.text(Drupal.t('View less'));
           }
           else{
            text.text(Drupal.t('View more'))
@@ -52,7 +67,7 @@
          }
         function hideBtnShowMore (item, btn,btnText){
           if(item.length <= 3){
-            btn.hide()       
+            btn.hide()
           }else{
             btn.show();
           }
@@ -66,17 +81,21 @@
         hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
 
         // Agregar clases modales Drupal
-          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
-          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')  
-        
-        // //Paso 5                
-        //   if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
-        //     $('#edit-field-pr-video-wrapper button').show();
-        //   } else {
-        //   $('#edit-field-pr-video-wrapper button').hide();
-        //   }
+          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');
+          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')
+
 
         //Sumo select
+          $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('#edit-field-categorization-target-id').SumoSelect({
+            forceCustomRendering: true,
+            search:true,
+            searchText: Drupal.t('Search'),
+            noMatch: Drupal.t('No matches for "{0}"')
+          });
+
           $('#edit-field-product-type').SumoSelect({
             forceCustomRendering: true,
           });
@@ -141,27 +160,24 @@
           const certifications = $('#edit-field-pr-type-certifications-wrapper')
           certifications.click(()=>{
             const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            console.log(itemCtype.length);
             hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
           })
           showMorecType.click(()=>{
             const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            console.log(itemCtype.length);
             if (itemCtype.length > 3) {
               itemCtype.slice(3).toggleClass('show-item')
               showMorecTypeText.toggleClass('show-less')
-              toggleText(showMorecTypeText);                           
+              toggleText(showMorecTypeText);
             }else{
               showMorecTypeText.text(Drupal.t('View more'))
             }
           })
-          
+
           showMoreCountrie.click(()=>{
             const itemCountrie = $('.entities-list .item-container');
-            console.log(itemCountrie.length);
             if(itemCountrie.length > 3){
               itemCountrie.slice(3).toggleClass('show-item');
-             showMoreCountrieText.toggleClass('show-less');             
+             showMoreCountrieText.toggleClass('show-less');
              toggleText(showMoreCountrieText);
             }else{
               showMoreCountrieText.text(Drupal.t('View more'))
@@ -208,7 +224,7 @@
             new bootstrap.Modal(modal, {});
             modal.once().show();
           }
-          $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function() {
+          $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function(e) {
             $(this).closest('.generic-modal:not(.generic-modal-legal-modal)').addClass('modal-closed').hide();
           });
         }
@@ -248,24 +264,28 @@
 
         if ($('.save-publish-question-modal').length) {
           $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
         else if($('.cancel-confirm-question-modal').length) {
           $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
 
         if ($('.save-publish-question-modal').length) {
           $('.save-publish-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.save-and-publish').click();
           });
         }
 
         // Close drupal default modal.
         if ($('.node--view-mode-product-service-presave-preview .close').length) {
-          $('.node--view-mode-product-service-presave-preview .close').once().click(function () {
+          $('.node--view-mode-product-service-presave-preview .close').once().click(function (e) {
+            e.preventDefault();
             Drupal.dialog($('#drupal-modal').get(0)).close();
           });
         }
@@ -274,7 +294,7 @@
         if ($('form .entity-browser-paises-close').length) {
           $('form .entity-browser-paises-close').once().click(function (e) {
             e.preventDefault();
-            $(".entity-browser-modal .ui-dialog-titlebar-close").click();
+            parent.jQuery(parent.document).find('.entity-browser-modal-iframe').parents('.ui-dialog').eq(0).find('.ui-dialog-titlebar-close').click();
           });
         }
 

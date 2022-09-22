@@ -11,7 +11,7 @@ id: user.user.field_company_web_site
 field_name: field_company_web_site
 entity_type: user
 bundle: user
-label: 'Company Web Site'
+label: 'Sitio web de la empresa'
 description: ''
 required: false
 translatable: true

@@ -496,6 +496,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
           '#value' => $this->t('Previous'),
+          '#name' => 'previous-button-' . $this->step,
           '#submit' => [
             '::previousPage',
           ],
@@ -537,6 +538,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['next'] = [
           '#type' => 'submit',
           '#value' => $this->t('Next'),
+          '#name' => 'continue-button-' . $this->step,
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
@@ -824,6 +826,9 @@ class CpCoreMultiStepForm extends FormBase {
     if (!$entity->label()) {
       $entity->title = 'Generated el: ' . date('d/m/Y H:i');
     }
+    if ($entity->hasTranslation('en')) {
+      $entity->removeTranslation('en');
+    }
     $entity->save();
     $saved_entities = $form_state->get('saved_entities');
     if (empty($saved_entities)) {
@@ -887,7 +892,7 @@ class CpCoreMultiStepForm extends FormBase {
           }
 
           if (!$entity->hasTranslation($langcode)) {
-            continue;
+            $entity->addTranslation($langcode);
           }
 
           $translation = $entity->getTranslation($langcode);

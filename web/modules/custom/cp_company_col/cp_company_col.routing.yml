@@ -1,6 +1,6 @@
 cp_company_col.render:
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 # pre_register routes
 
@@ -11,7 +11,7 @@ cp_company_col.dashboard:
     _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###Index route
 cp_company_col.tablero:
@@ -20,7 +20,7 @@ cp_company_col.tablero:
     _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###edit_email_password
 cp_company_col.edit_email_password:
@@ -29,7 +29,7 @@ cp_company_col.edit_email_password:
     _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::edit_email_password'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###Index route
 cp_company_col.edit:
@@ -38,7 +38,7 @@ cp_company_col.edit:
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###Index route
 cp_company_col.editar:
@@ -47,7 +47,7 @@ cp_company_col.editar:
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###get logged user
 cp_company_col.get_logged_user:
@@ -56,7 +56,7 @@ cp_company_col.get_logged_user:
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::get_logged_user'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###update_form1
 cp_company_col.update_form1:
@@ -65,7 +65,7 @@ cp_company_col.update_form1:
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::update_form1'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'
 
 ###update_form2
 cp_company_col.update_form2:
@@ -74,4 +74,4 @@ cp_company_col.update_form2:
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::update_form2'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: 'exportador'

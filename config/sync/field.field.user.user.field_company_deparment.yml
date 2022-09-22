@@ -11,7 +11,7 @@ id: user.user.field_company_deparment
 field_name: field_company_deparment
 entity_type: user
 bundle: user
-label: company_deparment
+label: 'Departamento donde se ubica la empresa'
 description: ''
 required: false
 translatable: false

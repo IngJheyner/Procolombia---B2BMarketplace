@@ -158,7 +158,7 @@
                         <button class="btn btn_download" id="btn_download_report_buyer"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/carpeta.svg" class="me-2"> Descargar Reporte</button>
                     </div>
                     <div class="text_result">
-                        Se encontraron <span id="filter_total_buyer"></span> resultados asociados a tu búsqueda:
+                        {{ "Found "|t }}<span id="filter_total_buyer"></span> resultados asociados a tu búsqueda:
                     </div>
                 </div>
                    
@@ -357,7 +357,7 @@
                             <button class="btn btn_download" id="btn_download_report_exportador"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/carpeta.svg" class="me-2"> Descargar Reporte</button>
                         </div>
                         <div class="text_result">
-                            Se encontraron <span id="filter_total_exportador"></span> resultados asociados a tu búsqueda:
+                        {{ "Found "|t }}<span id="filter_total_exportador"></span> resultados asociados a tu búsqueda:
                         </div>
                     </div>
                 `);

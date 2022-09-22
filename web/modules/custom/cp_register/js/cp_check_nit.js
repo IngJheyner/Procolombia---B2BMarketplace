@@ -97,6 +97,17 @@
       $("#conditions").removeClass('error');
     }
 
+    //validate captcha getResponse and if is empty show error
+    var response = grecaptcha.getResponse();
+    console.log(response);
+    if (response.length == 0) {
+      alert("Please verify that you are not a robot");
+      $("#error_captcha").show();
+      isValid = false;
+    } else {
+      $("#error_captcha").hide();
+    }
+
     return isValid;
   }
 

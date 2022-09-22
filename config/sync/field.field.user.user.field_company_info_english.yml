@@ -10,7 +10,7 @@ id: user.user.field_company_info_english
 field_name: field_company_info_english
 entity_type: user
 bundle: user
-label: 'company info english'
+label: 'Información de la empresa en inglés'
 description: ''
 required: false
 translatable: false

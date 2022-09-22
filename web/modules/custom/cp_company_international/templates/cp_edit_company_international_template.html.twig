@@ -87,7 +87,7 @@
 								<sup>*</sup>
 							</label>
 							<div class="input_error">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web.">
+								<input type="email" class="form-control" id="email" name="email" placeholder="{{ "Example@example.com"|t }}" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="{{ "Enter the institutional e-mail address where correspondence from this web site will be sent."|t }}">
 								<i id="error_mail" class='bx bxs-info-circle toltip_i'>
 									<span id="error_mail_message" class="tooltiptext_error">
 										{{ 'Required Field'|t }}
@@ -109,7 +109,7 @@
 									<span>*</span>
 								</label>
 								<div class="input-group mb-3">
-									<input type="password" id="password_buyer" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input type="password" id="password_buyer" class="form-control" aria-label= "{{ "Recipient's username"|t }}" aria-describedby="basic-addon2">
 									<span class="input-group-text">
 										<img id="pass_bloq_buyer" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 										<img id="pass_show_buyer" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
@@ -146,7 +146,7 @@
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
-									<select id="country" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+									<select id="country" class="single_select" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 										<option value="">{{ "Enter the keyword or select an option"|t }}
 										</option>
 										{% for country in tree_countries %}
@@ -185,27 +185,26 @@
 							</div>
 						</div>
 						{# <div class="col-md-6">
-							<label for="city" class="form-label">{{ 'City'|t }}<span>*</span>
-							</label>
-							<div class="d-flex align-items-center error_select">
-								<div id="" class="w-100">
-									<select id="city" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
-										<option value="">{{ 'Select an option'|t }}</option>
-										<option value="usa">{{ 'United States'|t }}</option>
-									</select>
-								</div>
-
-								<i id="error_city" class='bx bxs-info-circle toltip_i'>
-									<span id="error_city_message" class="tooltiptext_error">
-										{{ 'Required Field'|t }}
-									</span>
-								</i>
-							</div>
-
-						</div> #}
+													<label for="city" class="form-label">{{ 'City'|t }}<span>*</span>
+													</label>
+													<div class="d-flex align-items-center error_select">
+														<div id="" class="w-100">
+															<select id="city" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+																<option value="">{{ 'Select an option'|t }}</option>
+																<option value="usa">{{ 'United States'|t }}</option>
+															</select>
+														</div>
+						
+														<i id="error_city" class='bx bxs-info-circle toltip_i'>
+															<span id="error_city_message" class="tooltiptext_error">
+																{{ 'Required Field'|t }}
+															</span>
+														</i>
+													</div>
+						
+												</div> #}
 						<div class="col-md-6">
 							<label for="web_site" class="form-label">{{ 'Company website'|t }}
-								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="web_site">
@@ -548,7 +547,7 @@
 						<div class="col-lg-12 continue">
 							<button id="cancel_process_1" class="cancel">{{ 'CANCEL'|t }}</button>
 
-							<button id="edit_company_international" name="edit_company_international" aria-label="Continuar con el registro" class="continue">{{ 'SAVE CHANGES'|t }}
+							<button id="edit_company_international" name="edit_company_international" aria-label="{{ 'Continue registration'|t }}" class="continue">{{ 'SAVE CHANGES'|t }}
 							</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -568,7 +567,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt="" srcset="">{{ 'Edit company profile and contact'|t }}</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button>
 			</div>
 			<div class="modal-body">
 				<p>{{ 'All uploaded content must comply with the'|t }}
@@ -588,7 +587,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">Guardar Edición
+				<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ "Save Edit"|t }}
 				</h5>
 			</div>
 			<div class="modal-body">
@@ -615,7 +614,7 @@
 <h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
 	{{ 'Cancel'|t }}
 </h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}"></button></div><div class="modal-body">
 <p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p></div><div class="modal-footer "><div class="row"><div class="col-6 fs-6">
 <strong>{{ 'Do you want to continue?'|t }}</strong></div><div class="col-6 btn_options">
 <button class="yes">{{ 'YES'|t }}</button>

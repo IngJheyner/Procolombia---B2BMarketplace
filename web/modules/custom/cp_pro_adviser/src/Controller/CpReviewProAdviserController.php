@@ -16,9 +16,51 @@ class CpReviewProAdviserController extends ControllerBase
      */
     public function index()
     {
+
+        //redirect if $_SESSION['language'] is not the current path
+        // get account_status
+        $vid = 'account_status';
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
+        $tree_account_status=[];
+        foreach ($terms as $term) {
+            array_push($tree_account_status, [
+                    "ID" => $term->tid,
+                    "Name" => $term->name
+                ]
+            );
+        }
+
+        $language = $_COOKIE['language'];
+        //get actual language
+        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        //check if query params has token
+        $token = \Drupal::request()->query->get('token');
+        if(isset($language) && !isset($token)){
+            if ($language != $actual_language) {
+                if($language == 'en'){
+                    return new RedirectResponse("/en/adviser/audit-log", 301);
+                }else{
+                    return new RedirectResponse("/es/revisar/adviser/usuario", 301);
+                }
+            }else{
+                //get path of url
+                $path = \Drupal::service('path.current')->getPath();
+                if($language == 'en'){
+                    if($path != '/adviser/audit-log'){
+                        return new RedirectResponse("/en/adviser/audit-log", 301);
+                    }
+                }else{
+                    if($path != '/revisar/adviser/usuario'){
+                        return new RedirectResponse("/es/revisar/adviser/usuario", 301);
+                    }
+                }
+            }
+        }
+
         return [
             // Your theme hook name.
             '#theme' => 'cp_review_pro_adviser_template_hook',
+            '#tree_account_status' => $tree_account_status,
         ];
     }
 
@@ -80,6 +122,9 @@ class CpReviewProAdviserController extends ControllerBase
             case 4:
                 $query->orderBy('status', $dir);
                 break;
+            default:
+                $query->orderBy('created_at', 'DESC');
+                break;
         }
 
         $query->range($start, $limit);
@@ -123,25 +168,8 @@ class CpReviewProAdviserController extends ControllerBase
         if (!empty($status)) {
             $query->condition('status', $status, '=');
         }
-
-        //sort
-        //check if 
-        switch ($column) {
-            case 1:
-                $query->orderBy('email', $dir);
-                break;
-            case 2:
-                $query->orderBy('company_name', $dir);
-                break;
-            case 3:
-                $query->orderBy('created_at', $dir);
-                break;
-            case 4:
-                $query->orderBy('status', $dir);
-                break;
-        }
-        $query->countQuery();
-        $count = $query->execute()->fetchField();
+        //get number of row of query
+        $count = $query->countQuery()->execute()->fetchField();
         return new JsonResponse(array(
             'draw' => $request->request->get('draw'),
             'recordsTotal' => $count,

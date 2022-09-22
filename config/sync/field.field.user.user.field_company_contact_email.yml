@@ -10,7 +10,7 @@ id: user.user.field_company_contact_email
 field_name: field_company_contact_email
 entity_type: user
 bundle: user
-label: 'Company contact email'
+label: 'Correo del contacto de la empresa'
 description: ''
 required: false
 translatable: false

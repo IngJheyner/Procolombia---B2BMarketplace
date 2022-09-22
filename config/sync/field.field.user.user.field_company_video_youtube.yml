@@ -11,7 +11,7 @@ id: user.user.field_company_video_youtube
 field_name: field_company_video_youtube
 entity_type: user
 bundle: user
-label: 'Company Video Youtube'
+label: 'Video de YouTube de la Empresa'
 description: ''
 required: false
 translatable: false
