@@ -856,7 +856,6 @@ class CpCoreMultiStepForm extends FormBase {
     if (!$entity->isTranslatable()) {
       return;
     }
-    $entity->save();
 
     // Does this entity have a mfd field?
     $mfd_field_manager = new MfdFieldManager();
@@ -909,6 +908,7 @@ class CpCoreMultiStepForm extends FormBase {
             }
           }
           $translation->save();
+          $entity->save();
         }
       }
     }
@@ -948,9 +948,6 @@ class CpCoreMultiStepForm extends FormBase {
       if ($nid) {
         // Set wait status.
         $node = $nodeStorage->load($nid);
-        $node->field_states = 'waiting';
-        $node->setPublished();
-        $node->save();
         if ($nid == $edit_nid) {
           $edit_list_names[] = $node->label();
         }
@@ -963,6 +960,7 @@ class CpCoreMultiStepForm extends FormBase {
         foreach ($available_langcodes as $langcode) {
           if ($node->hasTranslation($langcode)) {
             $translation = $node->getTranslation($langcode);
+            $translation->field_states = 'waiting';
             $translation->setPublished();
             $translation->save();
           }
