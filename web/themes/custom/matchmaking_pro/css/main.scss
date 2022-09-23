@@ -399,6 +399,7 @@ div#main {
 
 .toltip_i {
 	position: relative;
+	cursor: pointer;
 
 	.tooltiptext {
 		visibility: hidden;
@@ -410,6 +411,26 @@ div#main {
 		padding: 10px;
 		position: absolute;
 		z-index: 8;
+		font-family: $font-regular;
+
+	}
+
+	.tooltip-table {
+		visibility: hidden;
+		width: fit-content;
+		background-color: $color-Black;
+		color: $color-White;
+		text-align: center;
+		border-radius: 6px;
+		padding: 10px 15px;
+		position: absolute;
+		z-index: 8;
+		left: 0;
+		right: 0;
+		bottom: -31%;
+		margin: 0 auto;
+		font-family: $font-regular;
+		font-size: 10px;
 
 	}
 
@@ -426,6 +447,7 @@ div#main {
 		font-family: 'Gothic-Regular';
 		font-size: 14px;
 		right: 1rem;
+		font-family: $font-regular;
 	}
 
 	.tooltiptext_yotube {
@@ -438,9 +460,9 @@ div#main {
 		padding: 10px;
 		position: absolute;
 		z-index: 8;
-		font-family: 'Gothic-Regular';
 		font-size: 14px;
 		right: 1.5rem;
+		font-family: $font-regular;
 
 		.note {
 			margin-bottom: 0px;
@@ -483,7 +505,8 @@ div#main {
 	&:hover .tooltiptext,
 	&:hover .tooltiptext_error,
 	&:hover .tooltiptext_yotube,
-	&:hover .tooltiptext_menu {
+	&:hover .tooltiptext_menu,
+	&:hover .tooltip-table {
 		visibility: visible;
 	}
 
@@ -1331,6 +1354,11 @@ div#page {
 
 }
 
+.form__label.single {
+	left: 17px !important;
+
+}
+
 .button_modal {
 	margin: 0px;
 	border: none;
@@ -1425,7 +1453,11 @@ sup {
 	}
 }
 
-
+.toast {
+	display: none !important;
+	z-index: -7 !important;
+	opacity: 0 !important;
+  }
 
 
 

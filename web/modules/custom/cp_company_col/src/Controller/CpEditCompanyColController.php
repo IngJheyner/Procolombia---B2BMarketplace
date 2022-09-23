@@ -102,7 +102,19 @@ class CpEditCompanyColController extends ControllerBase
     {
         $uid = \Drupal::currentUser();
         $user = \Drupal\user\Entity\User::load($uid->id());
-        //ceck if user is not deleted in drupal
+        //get all 'field_company_model' target_id.
+        $field_company_model = $user->get('field_company_model')->getValue();
+        foreach ($field_company_model as $key => $value) {
+            //push targer_id to array.
+            $field_company_model_target_id[$key] = $value['target_id'];
+        }
+
+        //get all 'certification_business' target_id.
+        $certification_business = $user->get('field_company_certification')->getValue();
+        foreach ($certification_business as $key => $value) {
+            //push targer_id to array.
+            $certification_business_target_id[$key] = $value['target_id'];
+        }
 
         if($user->isActive()){
             $data_user = [
@@ -125,14 +137,16 @@ class CpEditCompanyColController extends ControllerBase
                 'third_code_ciiu' => $user->get('field_ciiu_terciario')->value,
                 'departament' => $user->get('field_company_deparment')->target_id,
                 'ciudad' => $user->get('field_company_city')->target_id,
-                'modelo_de_negocio' => $user->get('field_company_model')->target_id,
-                'certification_business' => $user->get('field_company_certification')->target_id,
+                'modelo_de_negocio' => $field_company_model_target_id,
+                'certification_business' => $certification_business_target_id,
                 'contact_name' => $user->get('field_company_contact_name')->value,
                 'contact_lastname' => $user->get('field_company_contact_lastname')->value,
                 'contact_email' => $user->get('field_company_contact_email')->value,
                 'contact_position' => $user->get('field_company_contact_position')->value,
                 'contact_phone' => $user->get('field_company_contact_phone')->value,
                 'contact_cellphone' => $user->get('field_company_contact_cell_phone')->value,
+                'country_code_landline' => $user->get('field_country_code_landline')->value,
+                'country_code_mobile' => $user->get('field_country_code_mobile')->value,
             ];
 
             return new JsonResponse(['status' => 200, 'data' => $data_user]);
@@ -165,13 +179,14 @@ class CpEditCompanyColController extends ControllerBase
         $user->set('field_ciiu_secundario', $data['secondary_code_ciiu']);
         $user->set('field_company_deparment', $data['departament']);
         $user->set('field_company_city', $data['ciudad']);
-        $user->set('field_company_model', $data['modelo_de_negocio']);
+        $model_arr = explode(',', $data['modelo_de_negocio']);
+        $user->set('field_company_model', $model_arr);
 
         $file = $request->files->get('logo');
         if(!empty($file)){
             $file2 = file_get_contents($file);
             //check if file2 is not empty
-            $user->set("field_company_logo", $this->saveFile($file2, $user->get('name')->value . '-logo.' . $file->getClientOriginalName(), 'public://logos/'));
+            $user->set("field_company_logo", $this->saveFile($file2, $user->get('name')->value . '-logo.' . $file->getClientOriginalName(), 'public://matchmaking/images/users_logos/'));
         }
         $user->set("field_company_name", $data['business_name']);
         $user->set("field_company_web_site", $data['website']);
@@ -193,9 +208,12 @@ class CpEditCompanyColController extends ControllerBase
         $user->set('field_company_contact_name', $data['name']);
         $user->set('field_company_contact_lastname', $data['last_name']);
         $user->set('field_company_contact_position', $data['position_spanish']);
-        $user->set('field_company_contact_phone', $data['country_code_landline'].$data['landline']);
-        $user->set('field_company_contact_cell_phone', $data['country_code_mobile'].$data['mobile']);
+        $user->set('field_company_contact_phone', $data['landline']);
+        $user->set('field_company_contact_cell_phone', $data['mobile']);
         $user->set('field_company_contact_email', $data['contact_email']);
+        //country_code_landline
+        $user->set('field_country_code_landline', $data['country_code_landline']);
+        $user->set('field_country_code_mobile', $data['country_code_mobile']);
         $user->save();
         return new JsonResponse(['status' =>  200]);
     }

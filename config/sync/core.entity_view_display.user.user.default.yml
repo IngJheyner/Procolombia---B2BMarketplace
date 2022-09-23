@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_account_status
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
@@ -10,6 +11,7 @@ dependencies:
     - field.field.user.user.field_ciiu_secundario
     - field.field.user.user.field_ciiu_terciario
     - field.field.user.user.field_company
+    - field.field.user.user.field_company_adviser
     - field.field.user.user.field_company_certification
     - field.field.user.user.field_company_certification_file
     - field.field.user.user.field_company_city
@@ -32,6 +34,8 @@ dependencies:
     - field.field.user.user.field_company_web_site
     - field.field.user.user.field_complete_name
     - field.field.user.user.field_country
+    - field.field.user.user.field_country_code_landline
+    - field.field.user.user.field_country_code_mobile
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
@@ -55,6 +59,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_account_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 91
+    region: content
   field_cat_interest_1:
     type: entity_reference_label
     label: above
@@ -110,6 +122,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 53
+    region: content
+  field_company_adviser:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 89
     region: content
   field_company_certification:
     type: entity_reference_label
@@ -296,6 +316,24 @@ content:
       link: true
     third_party_settings: {  }
     weight: 52
+    region: content
+  field_country_code_landline:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 87
+    region: content
+  field_country_code_mobile:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 90
     region: content
   field_previous_id:
     type: string

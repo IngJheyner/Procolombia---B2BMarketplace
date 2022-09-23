@@ -1,4 +1,9 @@
 .cp-core-multistep-form.step_4{
+    .js-form-wrapper.field--widget-cp-core-image-multi-widget{
+        .js-form-wrapper{
+            padding-top: 20px;
+        }
+    }
     @include media-breakpoint-down(lg){
         .form-wrapper.step-title{
             padding: 0;
@@ -10,6 +15,12 @@
     }
     #edit-field-images{
         padding-top: 20px;
+        .messages--error{
+            padding-bottom: 10px;
+        }
+        .tooltip-is-invalid{
+            display: none;
+        }
         @include media-breakpoint-down(lg){
             padding-top: 0;
         }
@@ -19,6 +30,7 @@
         border-right: 1px solid #D8DADD;
         margin: 0 !important;
         padding-right: 50px;
+        padding-bottom: 15px;
         @include media-breakpoint-down(lg){
             border-right: none;
             padding-right: 0;

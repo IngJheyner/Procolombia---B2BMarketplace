@@ -1,0 +1,11 @@
+uuid: 94c35c8b-9099-40b6-9427-afc3e70e76c3
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.canales_de_venta
+id: taxonomy_term.canales_de_venta
+target_entity_type_id: taxonomy_term
+target_bundle: canales_de_venta
+default_langcode: site_default
+language_alterable: false

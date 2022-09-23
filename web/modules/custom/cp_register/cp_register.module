@@ -48,7 +48,7 @@ function cp_register_theme($existing, $type, $theme, $path)
         'production_chain' => null,
         'business_model' => null,
         'certificacion_de_empresa' => null,
-        'countries' => null,
+        'advisor' => null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -73,6 +73,8 @@ function cp_register_theme($existing, $type, $theme, $path)
       'variables' => [
         'tree_categorization' => null,
         'tree_business_model' => null,
+        'tree_countries' => null,
+        'tree_advisor' => null,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

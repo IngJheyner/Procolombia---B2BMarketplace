@@ -10,6 +10,8 @@
     var departament_select;
     var select_cities;
     var modelo_de_negocio_select;
+    var code_landline_select;
+    var code_mobile_select;
     //initial config
     function init() {
         //show modal information
@@ -57,18 +59,6 @@
                     return '<div>' + escape(data.text) + '</div>';
                 }
             }
-        });
-
-        const phoneInputField = document.querySelector("#country_code_landline");
-        const phoneInput = window.intlTelInput(phoneInputField, {
-            initialCountry: "co",
-            separateDialCode: true,
-        });
-
-        const phoneInputField2 = document.querySelector("#country_code_mobile");
-        const phoneInput2 = window.intlTelInput(phoneInputField2, {
-            initialCountry: "co",
-            separateDialCode: true,
         });
 
         getDataUser();
@@ -185,7 +175,7 @@
         var ciudad = $("#ciudad").val();
         var modelo_de_negocio = $("#modelo_de_negocio").val();
 
-        varmessage = "";
+        var message = "";
         var isValid = true;
         //check if logo is
         if (logo) {
@@ -237,7 +227,7 @@
             }
         } else {
             if (isLogoRemove) {
-               message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+                message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
                 $("#logo_input").css("border-color", "#ba0c2f");
                 $("#logo_name").css("border-color", "#ba0c2f");
                 $("#error_logo_message").text(message)
@@ -248,7 +238,7 @@
         }
 
         if (business_name == "") {
-           message = Drupal.t("Company name is required");
+            message = Drupal.t("Company name is required");
             $("#business_name").css("border-color", "#ba0c2f");
             $("#error_business_name_message").text(message)
             $("#error_business_name").show();
@@ -274,7 +264,7 @@
         }
 
         if (website == "") {
-           message = Drupal.t("Website is required");
+            message = Drupal.t("Website is required");
             $("#website").css("border-color", "#ba0c2f");
             $("#error_website_message").text(message)
             $("#error_website").show();
@@ -284,7 +274,7 @@
             isValid = false;
         } else {
             if (!isUrl(website)) {
-               message = Drupal.t("The website is not valid");
+                message = Drupal.t("The website is not valid");
                 $("#website").css("border-color", "#ba0c2f");
                 $("#error_website_message").text(message)
                 $("#error_website").show();
@@ -299,7 +289,7 @@
         }
 
         if (description_business_spanish == "") {
-           message = Drupal.t("Description in Spanish is required");
+            message = Drupal.t("Description in Spanish is required");
             $("#description_business_spanish").css("border-color", "#ba0c2f");
             $("#error_description_business_spanish_message").text(message)
             $("#error_description_business_spanish").show();
@@ -319,7 +309,7 @@
         }
 
         if (description_business_english == "") {
-           message = Drupal.t("Description in English is required");
+            message = Drupal.t("Description in English is required");
             $("#description_business_english").css("border-color", "#ba0c2f");
             $("#error_description_business_english_message").text(message)
             $("#error_description_business_english").show();
@@ -339,7 +329,7 @@
         }
 
         if (production_chain == "") {
-           message = Drupal.t("The production line is required");
+            message = Drupal.t("The production line is required");
             $("#production_chain_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_production_chain_message").text(message)
             $("#error_production_chain").show();
@@ -349,7 +339,7 @@
             $("#production_chain_contain .ts-control").css("border-color", "#cccccc");
         }
         if (principal_code_ciiu == "") {
-           message = Drupal.t("The main CIIU code is required");
+            message = Drupal.t("The main CIIU code is required");
             $("#principal_code_ciiu").css("border-color", "#ba0c2f");
             $("#error_principal_code_ciiu").show();
             $("#error_principal_code_ciiu_message").text(message)
@@ -361,7 +351,7 @@
         }
 
         if (departament == "") {
-           message = Drupal.t("The department is required");
+            message = Drupal.t("The department is required");
             $("#departament_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_departament_message").text(message)
             $("#error_departament").show();
@@ -372,7 +362,7 @@
         }
 
         if (ciudad == "") {
-           message = Drupal.t("The city is required");
+            message = Drupal.t("The city is required");
             $("#ciudad_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_ciudad_message").text(message)
             $("#error_ciudad").show();
@@ -383,7 +373,7 @@
         }
 
         if (modelo_de_negocio == "") {
-           message = Drupal.t("The business model is required");
+            message = Drupal.t("The business model is required");
             $("#modelo_de_negocio_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_modelo_de_negocio_message").text(message)
             $("#error_modelo_de_negocio").show();
@@ -439,6 +429,11 @@
                 $("#save_1").show();
                 if (response.status == 200) {
                     //show question save
+                    fetch("/mailing/send/change/data/col", {
+                        method: "POST",
+                    }).catch(function (error) {
+                        alert("No se pudo enviar el correo de cambio de datos");
+                    });
                     successProcess();
                     setTimeout(() => {
                         if (sw == 0) {
@@ -487,25 +482,23 @@
      */
     function validateForm2() {
         var isValid = true;
-        varmessage = "";
+        var message = "";
         var name = $("#name").val();
         var last_name = $("#last_name").val();
         var position_spanish = $("#position_spanish").val();
-        var country_code_landline = $("#country_code_landline").val();
         var landline = $("#landline").val();
-        var country_code_mobile = $("#country_code_mobile").val();
         var mobile = $("#mobile").val();
         var contact_email = $("#contact_email").val();
 
         if (name == "") {
-           message = Drupal.t("Name is required");
+            message = Drupal.t("Name is required");
             $("#name").css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
         } else {
             if (name.length > 20) {
-               message = Drupal.t("The name cannot be longer than 20 characters");
+                message = Drupal.t("The name cannot be longer than 20 characters");
                 $("#name").css("border-color", "#ba0c2f");
                 $("#error_name_message").text(message)
                 $("#error_name").show();
@@ -516,14 +509,14 @@
             }
         }
         if (last_name == "") {
-           message = Drupal.t("Last name is required");
+            message = Drupal.t("Last name is required");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-               message = Drupal.t("The last name cannot be longer than 20 characters");
+                message = Drupal.t("The last name cannot be longer than 20 characters");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name_message").text(message)
                 $("#error_last_name").show();
@@ -537,7 +530,7 @@
             }
         }
         if (position_spanish == "") {
-           message = Drupal.t("Spanish position is required");
+            message = Drupal.t("Spanish position is required");
             $("#position_spanish").css("border-color", "#ba0c2f");
             $("#error_position_spanish_message").text(message)
             $("#error_position_spanish").show();
@@ -556,20 +549,8 @@
                 $("#position_spanish").css("border-color", "#cccccc");
             }
         }
-        if (country_code_landline == "") {
-           message = Drupal.t("The country code of the phone line is required");
-            $("#country_code_landline").css("border-color", "#ba0c2f");
-            $("#error_country_code_landline").show();
-            $("#error_country_code_landline")
-
-                ;
-            isValid = false;
-        } else {
-            $("#error_country_code_landline").hide();
-            $("#country_code_landline").css("border-color", "#cccccc");
-        }
         if (landline == "") {
-           message = Drupal.t("Phone line is required");
+            message = Drupal.t("Phone line is required");
             $("#landline").css("border-color", "#ba0c2f");
             $("#error_landline").show();
             $("#error_landline_message").text(message)
@@ -585,7 +566,7 @@
                 isValid = false;
             } else {
                 if (!landline.match(/^[0-9]+$/)) {
-                   message = Drupal.t("The phone line should not have letters");
+                    message = Drupal.t("The phone line should not have letters");
                     $("#landline").css("border-color", "#ba0c2f");
                     $("#error_landline").show();
                     $("#error_landline_message").text(message)
@@ -597,27 +578,15 @@
                 }
             }
         }
-        if (country_code_mobile == "") {
-           message = Drupal.t("The country code of the cell phone is required");
-            $("#country_code_mobile").css("border-color", "#ba0c2f");
-            $("#error_country_code_mobile").show();
-            $("#error_country_code_mobile")
-
-                ;
-            isValid = false;
-        } else {
-            $("#error_country_code_mobile").hide();
-            $("#country_code_mobile").css("border-color", "#cccccc");
-        }
         if (mobile == "") {
-           message = Drupal.t("Cell phone is required");
+            message = Drupal.t("Cell phone is required");
             $("#mobile").css("border-color", "#ba0c2f");
             $("#error_mobile").show();
             $("#error_mobile_message").text(message)
             isValid = false;
         } else {
             if (mobile.length > 10) {
-               message = Drupal.t("The cell phone must not have more than 10 digits");
+                message = Drupal.t("The cell phone must not have more than 10 digits");
                 $("#mobile").css("border-color", "#ba0c2f");
                 $("#error_mobile").show();
                 $("#error_mobile_message").text(message)
@@ -625,7 +594,7 @@
                 isValid = false;
             } else {
                 if (!mobile.match(/^[0-9]+$/)) {
-                   message = Drupal.t("The cell phone should not have letters");
+                    message = Drupal.t("The cell phone should not have letters");
                     $("#mobile").css("border-color", "#ba0c2f");
                     $("#error_mobile").show();
                     $("#error_mobile_message").text(message)
@@ -638,7 +607,7 @@
             }
         }
         if (contact_email == "") {
-           message = Drupal.t("Email is required and must be a valid email address");
+            message = Drupal.t("Email is required and must be a valid email address");
             $("#contact_email").css("border-color", "#ba0c2f");
             $("#error_contact_email").show();
             $("#error_contact_email_message").text(message)
@@ -649,7 +618,7 @@
                     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
                 )
             ) {
-               message = Drupal.t("The email is invalid");
+                message = Drupal.t("The email is invalid");
                 $("#contact_email").css("border-color", "#ba0c2f");
                 $("#error_contact_email").show();
                 $("#error_contact_email_message").text(message)
@@ -676,11 +645,11 @@
             name: $("#name").val(),
             last_name: $("#last_name").val(),
             position_spanish: $("#position_spanish").val(),
-            country_code_landline: $("#country_code_landline").val(),
             landline: $("#landline").val(),
-            country_code_mobile: $("#country_code_mobile").val(),
             mobile: $("#mobile").val(),
             contact_email: $("#contact_email").val(),
+            country_code_landline: code_landline_select.getSelectedCountryData().dialCode,
+            country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode,
         };
         var formData = new FormData();
         for (var key in data) {
@@ -694,6 +663,11 @@
             .then(function (response) {
                 if (response.status === 200) {
                     //show alert success
+                    fetch("/mailing/send/change/data/col", {
+                        method: "POST",
+                    }).catch(function (error) {
+                        alert("No se pudo enviar el correo de cambio de datos");
+                    });
                     successProcess();
                     setTimeout(() => {
 
@@ -773,7 +747,7 @@
         production_chain_select.setValue(data.production_chain);
         departament_select.setValue(data.departament);
         getCities(data.ciudad);
-        modelo_de_negocio_select.setValue([data.modelo_de_negocio]);
+        modelo_de_negocio_select.setValue(data.modelo_de_negocio);
         $("#principal_code_ciiu").val(data.principal_code_ciiu);
         $("#secondary_code_ciiu").val(data.secondary_code_ciiu);
         $("#third_code_ciiu").val(data.third_code_ciiu);
@@ -783,6 +757,23 @@
         $("#landline").val(data.contact_phone);
         $("#mobile").val(data.contact_cellphone);
         $("#contact_email").val(data.contact_email);
+
+        //search country by dialCode
+        var countryData = window.intlTelInputGlobals.getCountryData();
+        let country_code_landline = countryData.filter(item => item.dialCode === data.country_code_landline)[0]
+        const phoneInputField = document.querySelector("#country_code_landline");
+        code_landline_select = window.intlTelInput(phoneInputField, {
+            initialCountry: country_code_landline.iso2,
+            separateDialCode: true,
+        });
+
+        let country_code_mobile = countryData.filter(item => item.dialCode === data.country_code_mobile)[0]
+        console.log(country_code_mobile.iso2)
+        const phoneInputField2 = document.querySelector("#country_code_mobile");
+        code_mobile_select = window.intlTelInput(phoneInputField2, {
+            initialCountry: country_code_mobile.iso2,
+            separateDialCode: true,
+        });
 
         //fill logo informatio
         var fileSize = data.company_logo_size / 1024;

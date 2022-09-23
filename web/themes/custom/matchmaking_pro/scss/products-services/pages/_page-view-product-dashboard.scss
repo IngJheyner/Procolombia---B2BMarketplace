@@ -6,23 +6,44 @@
 
 		.ui-dialog-content {
 			max-height: none !important;
+			@include media-breakpoint-down(lg){
+				max-height: 100vh !important;
+				overflow-y: scroll;
+			}
 		}
 	}
 	.ui-widget-content{
-		padding-top: 30px;
+		border-radius: 4px;
+		padding-bottom: 30px;
 	}
 	.ui-dialog .ui-dialog-titlebar {
 		border: none;
 		background: transparent;
+		padding-top: 40px;
 		.ui-dialog-titlebar-close{
 			font-family: swiper-icons;
-			content: 'previous';
 			right: 100%;
 			left: 20px;
 			content: 'volver';
+			width: 100px;
+			background-color: transparent;
+			background-image: url(../images/icons/arrow-back-fill.svg);
+			background-size: 20px;
+			background-repeat: no-repeat;
+			background-position: left center;
+			color: $procol-light-blue;
+			border: none;
+			}
+			span{
+				display: none;
 			}
 		}
 
+	.ui-widget-overlay{
+		z-index: 10;
+		background-color: $procol-gray-400;
+		opacity: 0.5;
+	}
 	#main {
 		> .row {
 			display: grid;
@@ -44,23 +65,21 @@
 		width: 100%;
 		padding: 0;
 	}
-}
-.path-dashboard{
-
-	.ui-widget-content{
-		padding-top: 30px;
-		max-width: 1286px;
-		border-radius: 4px;
+	.view-content{
+		@include media-breakpoint-down(lg){
+			padding: 0 !important;
+			.table-responsive {
+				display: none;
+				}
+		}
 	}
-	.ui-dialog .ui-dialog-titlebar {
-		background: transparent;
-		border: none;
-		.ui-dialog-titlebar-close{
-			font-family: swiper-icons;
-			content: 'previous';
-			right: 100%;
-			left: 20px;
-			content: 'volver';
+	.attachment.attachment-after{
+		display: none;
+		@include media-breakpoint-down(lg){
+			display: block;
+			.col-sm-12{
+				padding: 0;
 			}
 		}
+	}
 }

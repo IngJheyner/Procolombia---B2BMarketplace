@@ -10,3 +10,93 @@ cp_mailing_service.verification_email_col:
   methods:  [POST]
   requirements:
     _permission: "access content"
+
+###verification_email_international route
+cp_mailing_service.verification_email_international:
+  path: "mailing/verification/email/international"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::verification_email_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###verification_user route
+cp_mailing_service.verification_user:
+  path: "mailing/verification/user"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::verification_user'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_success_registration_user route
+cp_mailing_service.send_success_registration_user:
+  path: "mailing/send/success/registration/col"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_success_registration_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_success_registration_user_international route
+cp_mailing_service.send_success_registration_user_international:
+  path: "mailing/send/success/registration/international"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_success_registration_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_change_data_user_col route
+cp_mailing_service.send_change_data_user_col:
+  path: "mailing/send/change/data/col"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_change_data_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_change_data_user_international route
+cp_mailing_service.send_change_data_user_international:
+  path: "mailing/send/change/data/international"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_change_data_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_account_rejected_user_international route
+cp_mailing_service.send_account_rejected_user_international:
+  path: "mailing/send/account/rejected/international"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_account_rejected_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_account_rejected_user_col route
+cp_mailing_service.send_account_rejected_user_col:
+  path: "mailing/send/account/rejected/col"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_account_rejected_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_account_approved_user_international route
+cp_mailing_service.send_account_approved_user_international:
+  path: "mailing/send/account/approved/international"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_account_approved_user_international'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###send_account_approved_user_col route
+cp_mailing_service.send_account_approved_user_col:
+  path: "mailing/send/account/approved/col"
+  defaults:
+    _controller: '\Drupal\cp_mailing_service\Controller\CpMailingService::send_account_approved_user_col'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"

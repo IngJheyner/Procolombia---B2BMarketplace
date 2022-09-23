@@ -1,0 +1,8 @@
+uuid: a4ef834d-d288-4a5a-9699-d181426d7bcf
+langcode: es
+status: true
+dependencies: {  }
+name: 'Canales de venta'
+vid: canales_de_venta
+description: ''
+weight: 0

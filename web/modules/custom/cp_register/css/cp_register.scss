@@ -288,10 +288,10 @@ div#main-wrapper {
     border: none;
     box-shadow: none;
     color: $color-Pantone-116-C;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 200;
     font-family: $font-bold;
-    padding: 6px 9px;
+    padding: 10px 14px;
     border: 1px solid $color-White;
     border-radius: 6px;
     transition: all 0.2s ease-out;
@@ -359,6 +359,7 @@ div#main-wrapper {
       text-transform: uppercase;
       margin: 0px;
       letter-spacing: 2px;
+      word-break: break-word;
     }
 
   }
@@ -623,6 +624,7 @@ div#main-wrapper {
     }
   }
 }
+
 .iti--separate-dial-code .iti__selected-flag {
   width: 120px !important;
 }
@@ -1547,16 +1549,20 @@ strong {
   .header_title_buyer h1 {
     padding: 5rem 2rem !important;
   }
+
   .header_title h1 {
     padding: 5rem 2rem !important;
   }
+
   .container,
   .container-sm {
     max-width: 100% !important;
   }
+
   .header_title_buyer h1 {
     padding: 5rem 2rem;
   }
+
   .title_tab {
     font-family: $font-bold;
     font-size: 19px !important;
@@ -1581,6 +1587,8 @@ strong {
     overflow: hidden;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 0px !important;
+    margin-left: -6px !important;
 
     .row.g-5 {
       .col-sm-12.col-md-12.col-lg-6 {
@@ -1596,7 +1604,7 @@ strong {
 
   .main_registre {
     .body {
-      padding: 2rem 0rem;
+      padding: 5rem 0rem;
       margin-top: 17rem;
     }
 
@@ -1688,7 +1696,30 @@ strong {
   }
 
 
+  .pe-4,
+  .ps-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 
+  .row.gy-4.form_pre_registre {
+    padding: 10px;
+    padding-right: 10px;
+    padding-right: 10px !important;
+  }
+
+  .main_registre.container {
+    padding: 0px !important;
+  }
+
+  .code-input {
+    width: 40% !important;
+  }
+
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
 
 }
 
@@ -1699,9 +1730,11 @@ strong {
   .header_title_buyer h1 {
     padding: 5rem 2rem !important;
   }
+
   .header_title h1 {
     padding: 5rem 2rem !important;
   }
+
   .container,
   .container-sm {
     max-width: 90% !important;
@@ -1712,7 +1745,7 @@ strong {
   .btn_header {
     display: none;
   }
- 
+
   .body_login {
     padding: 0rem;
     height: auto !important;
@@ -1722,6 +1755,8 @@ strong {
     overflow: hidden;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 0px !important;
+    margin-left: -6px !important;
 
     .row.g-5 {
       .col-sm-12.col-md-12.col-lg-6 {
@@ -1795,6 +1830,31 @@ strong {
     margin-left: 6%;
     margin-right: 6%;
   }
+
+  .pe-4,
+  .ps-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .row.gy-4.form_pre_registre {
+    padding: 10px;
+    padding-right: 10px;
+    padding-right: 10px !important;
+  }
+
+  .main_registre.container {
+    padding: 0px !important;
+  }
+
+  .code-input {
+    width: 40% !important;
+  }
+
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -1802,9 +1862,11 @@ strong {
   .header_title_buyer h1 {
     padding: 5rem 2rem !important;
   }
+
   .header_title h1 {
     padding: 5rem 2rem !important;
   }
+
   .sub-header,
   .pt-6,
   .btn_header {
@@ -1824,6 +1886,8 @@ strong {
     overflow: hidden;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 0px !important;
+    margin-left: -6px !important;
 
     .row.g-5 {
       .col-sm-12.col-md-12.col-lg-6 {
@@ -1843,6 +1907,31 @@ strong {
 
   .step_registre {
     padding: 0rem;
+  }
+
+  .pe-4,
+  .ps-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .row.gy-4.form_pre_registre {
+    padding: 10px;
+    padding-right: 10px;
+    padding-right: 10px !important;
+  }
+
+  .main_registre.container {
+    padding: 0px !important;
+  }
+
+  .code-input {
+    width: 40% !important;
+  }
+
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
   }
 
 }
@@ -1894,7 +1983,8 @@ strong {
   padding-right: 36px;
   margin-right: 0;
 
-  &[type=text], &[type=tel] {
+  &[type=text],
+  &[type=tel] {
     position: relative;
     z-index: 0;
     margin-top: 0 !important;
@@ -1986,11 +2076,14 @@ strong {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.iti__flag-box, .iti__country-name, .iti__dial-code {
+.iti__flag-box,
+.iti__country-name,
+.iti__dial-code {
   vertical-align: middle;
 }
 
-.iti__flag-box, .iti__country-name {
+.iti__flag-box,
+.iti__country-name {
   margin-right: 6px;
 }
 
@@ -1999,7 +2092,8 @@ strong {
   padding-left: 52px;
   margin-left: 0;
 
-  &[type=text], &[type=tel] {
+  &[type=text],
+  &[type=tel] {
     padding-right: 6px;
     padding-left: 52px;
     margin-left: 0;
@@ -2011,14 +2105,16 @@ strong {
   padding-left: 52px;
   margin-left: 0;
 
-  &[type=text], &[type=tel] {
+  &[type=text],
+  &[type=tel] {
     padding-right: 6px;
     padding-left: 52px;
     margin-left: 0;
   }
 }
 
-.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
+.iti--allow-dropdown .iti__flag-container,
+.iti--separate-dial-code .iti__flag-container {
   right: auto;
   left: 0;
 }
@@ -2033,11 +2129,14 @@ strong {
   }
 
   input {
-    &[disabled] + .iti__flag-container:hover, &[readonly] + .iti__flag-container:hover {
+
+    &[disabled]+.iti__flag-container:hover,
+    &[readonly]+.iti__flag-container:hover {
       cursor: default;
     }
 
-    &[disabled] + .iti__flag-container:hover .iti__selected-flag, &[readonly] + .iti__flag-container:hover .iti__selected-flag {
+    &[disabled]+.iti__flag-container:hover .iti__selected-flag,
+    &[readonly]+.iti__flag-container:hover .iti__selected-flag {
       background-color: transparent;
     }
   }
@@ -3414,13 +3513,15 @@ strong {
   }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .iti__flag {
     background-size: 5652px 15px;
   }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .iti__flag {
     background-image: url("../img/flags@2x.png");
   }

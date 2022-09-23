@@ -1,5 +1,5 @@
 {{ attach_library('cp_company_international/cp_company_international') }}
-<main class="step_registre">
+<section class="step_registre container">
 	<div class="steps">
 		<div class="row p-0 step_tittle">
 			<div class="col-md-9">
@@ -147,8 +147,11 @@
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
 									<select id="country" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
-										<option value="">{{ 'Select an option'|t }}</option>
-										<option value="usa">{{ 'United States'|t }}</option>
+										<option value="">{{ "Enter the keyword or select an option"|t }}
+										</option>
+										{% for country in tree_countries %}
+											<option value="{{country.ID}}">{{country.Name}}</option>
+										{% endfor %}
 									</select>
 								</div>
 
@@ -181,7 +184,7 @@
 								<span>{{ 'Please include the name of your position within the company.'|t }}</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						{# <div class="col-md-6">
 							<label for="city" class="form-label">{{ 'City'|t }}<span>*</span>
 							</label>
 							<div class="d-flex align-items-center error_select">
@@ -199,7 +202,7 @@
 								</i>
 							</div>
 
-						</div>
+						</div> #}
 						<div class="col-md-6">
 							<label for="web_site" class="form-label">{{ 'Company website'|t }}
 								<span>*</span>
@@ -225,11 +228,11 @@
 							<label for="principal_advisor" class="form-label">{{ 'ProColombia Senior Advisor'|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
-								<option disabled hidden>{{ 'Enter the keyword or select an option'|t }}</option>
-								<option value="Jaime Francisco">Jaime Francisco</option>
-								<option value="Ruth Silvana">Ruth Silvana</option>
-								<option value="Luis Felipe">Luis Felipe</option>
-								<option value="Montserrat Carolina">Montserrat Carolina</option>
+								<option value="">{{ "Enter the keyword or select an option"|t }}
+								</option>
+								{% for advisor_user in tree_advisor %}
+									<option value="{{advisor_user.ID}}">{{advisor_user.Name}}</option>
+								{% endfor %}
 							</select>
 							<div class="toltip_content">
 								<i class='bx bxs-info-circle toltip_i'>
@@ -237,7 +240,7 @@
 										{{ 'Select the ProColombia advisor with whom your company has a defined work plan.'|t }}
 									</span>
 								</i>
-								<span>S{{ 'Select the ProColombia advisor with whom your company has a defined work plan.'|t }}</span>
+								<span>{{ 'Select the ProColombia advisor with whom your company has a defined work plan.'|t }}</span>
 							</div>
 							<div class="input_error">
 								<i id="error_asesor" class='bx bxs-info-circle' data-bs-toggle="tooltip" data-bs-placement="bottom" data-original-title="Campo requerido."></i>
@@ -276,7 +279,7 @@
 							</label>
 
 							<div id="company_model_cont" class="input_error">
-								<select name="company_model" id="company_model" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+								<select multiple name="company_model" id="company_model" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
 									<option value="">{{ 'Enter the keyword or select an option'|t }}</option>
 									{% for company_model_item in tree_business_model %}
 										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
@@ -374,7 +377,7 @@
 							</label>
 
 							<div id="company_model_2_cont" class="input_error">
-								<select name="company_model_2" id="company_model_2" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+								<select multiple name="company_model_2" id="company_model_2" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
 									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 									{% for company_model_item in tree_business_model %}
@@ -410,7 +413,7 @@
 						</div>
 						<div class="col-md-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
-								<label for="nit">{{ 'Tariff Item No.2'|t }}</label>
+								<label for="nit">{{ 'Tariff Item #2'|t }}</label>
 								<div class="icon_help toltip_i">
 									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
 										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
@@ -471,7 +474,7 @@
 							</label>
 
 							<div id="company_model_3_cont" class="input_error">
-								<select name="company_model_3" id="company_model_3" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
+								<select multiple name="company_model_3" id="company_model_3" placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
 									<option value="">{{ 'Enter the keyword or select an option'|t }}
 									</option>
 									{% for company_model_item in tree_business_model %}
@@ -507,7 +510,7 @@
 						</div>
 						<div class="col-md-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
-								<label for="nit">{{ 'Tariff Item No.3'|t }}</label>
+								<label for="nit">{{ 'Tariff Item #3'|t }}</label>
 								<div class="icon_help toltip_i">
 									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
 										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
@@ -616,4 +619,4 @@
 <p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p></div><div class="modal-footer "><div class="row"><div class="col-6 fs-6">
 <strong>{{ 'Do you want to continue?'|t }}</strong></div><div class="col-6 btn_options">
 <button class="yes">{{ 'YES'|t }}</button>
-<button data-bs-dismiss="modal" id="confirm_cancel" class="no">{{ 'NO'|t }}</button></div></div></div></div></div></div><div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Successful process'|t }}</h5></div><div class="modal-body"><p>{{ 'User successfully updated'|t }}</p></div></div></div></div></main>
+<button data-bs-dismiss="modal" id="confirm_cancel" class="no">{{ 'NO'|t }}</button></div></div></div></div></div></div><div class="modal fade" id="success_modal" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Successful process'|t }}</h5></div><div class="modal-body"><p>{{ 'User successfully updated'|t }}</p></div></div></div></div></section>

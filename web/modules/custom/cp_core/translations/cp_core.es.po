@@ -1,0 +1,1225 @@
+# $Id$
+#
+# Español translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  cp_core.field.inc: n/a
+#  cp_core.module: n/a
+#  cp_core.routing.yml: n/a
+#  src/Form/AddEditCompany.php: n/a
+#  src/Form/AddEditProduct.php: n/a
+#  src/Form/SearchCategoriesModalForm.php: n/a
+#  js/litepicker.js: n/a
+#  src/Form/CpCoreMultiStepForm.php: n/a
+#  src/Form/ForgetMail.php: n/a
+#  src/Form/RecoverPass.php: n/a
+#  templates/cp-core-node-multistep-header.html.twig: n/a
+#  cp_core.info.yml: n/a
+#  cp_core.links.menu.yml: n/a
+#  cp_core.links.task.yml: n/a
+#  cp_core.permissions.yml: n/a
+#  templates/dsb_company_info.html.twig: n/a
+#  templates/dsb_add_product.html.twig: n/a
+#  config/schema/cp_core.schema.yml: n/a
+#  src/Form/CpCoreNotificationsSettings.php: n/a
+#  src/CpCoreMailHelper.php: n/a
+#  src/Controller/CpCoreController.php: n/a
+#  src/Form/RegisterBuyer.php: n/a
+#  src/Controller/CpCoreMultiStepForms.php: n/a
+#  src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php: n/a
+#  src/Form/EditUser.php: n/a
+#  src/Form/TestForm.php: n/a
+#  templates/dsb_info_user.html.twig: n/a
+#  src/Form/ConfigChangeStates.php: n/a
+#  src/Form/RegisterExporter.php: n/a
+#  src/Form/SearchHeader.php: n/a
+#  src/Plugin/Block/CustomLogin.php: n/a
+#  src/Plugin/Block/DSBAddProduct.php: n/a
+#  src/Plugin/Block/DSBEditUser.php: n/a
+#  src/Plugin/Block/DSBInfoCompany.php: n/a
+#  src/Plugin/Block/HelloLoginUser.php: n/a
+#  src/Plugin/Block/PreRegister.php: n/a
+#  src/Plugin/Block/SearchCategoriesModalBlock.php: n/a
+#  src/Plugin/Block/SearchTopHeader.php: n/a
+#  src/Plugin/Field/FieldWidget/CpCoreBooleanSelectWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/CpCoreFileWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/CpCoreMultilingualFieldWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php: n/a
+#  src/Plugin/field_group/FieldGroupFormatter/CpCoreGroupMarkup.php: n/a
+#  src/Plugin/views/argument_default/CpCoreCurrentCompany.php: n/a
+#  templates/cp-core-node-multistep-legal-modal.html.twig: n/a
+#  templates/cp_core_translations.html.twig: n/a
+#  templates/hello_user.html.twig: n/a
+#  templates/pre_register.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-09-22 18:33+0200\n"
+"PO-Revision-Date: 2022-09-22 18:33+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Español <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cp_core.field.inc:29
+msgid "File information"
+msgstr "Información de archivo"
+
+#: cp_core.field.inc:32
+msgid "Display"
+msgstr "Presentación"
+
+#: cp_core.field.inc:36
+msgid "Weight"
+msgstr "Peso"
+
+#: cp_core.field.inc:37
+msgid "Operations"
+msgstr "Operaciones"
+
+#: cp_core.module:377;445;453
+msgid "Home"
+msgstr "Inicio"
+
+#: cp_core.module:380;615 cp_core.routing.yml:0
+msgid "Company"
+msgstr "Empresa"
+
+#: cp_core.module:446;454 src/Form/AddEditCompany.php:188 src/Form/AddEditProduct.php:70
+msgid "Dashboard"
+msgstr "Panel de control"
+
+#: cp_core.module:447
+msgid "Edit company"
+msgstr "Editar empresa"
+
+#: cp_core.module:455 cp_core.routing.yml:0
+msgid "Edit product"
+msgstr "Editar producto"
+
+#: cp_core.module:503
+msgid "This is your first login. It's mandatory to change the password!"
+msgstr ""
+"Este es tu primer inicio de sesión. ¡Es obligatorio cambiar la "
+"contraseña!"
+
+#: cp_core.module:519 src/Form/SearchCategoriesModalForm.php:82
+msgid "# tariff item"
+msgstr ""
+
+#: cp_core.module:527;581
+msgid "- Category -"
+msgstr "- Categoría -"
+
+#: cp_core.module:563
+msgid "filter by"
+msgstr "filtrar por"
+
+#: cp_core.module:564
+msgid "to show"
+msgstr "a mostrar"
+
+#: cp_core.module:603
+msgid "Ex: Agricultural"
+msgstr "Ej: Agricultura"
+
+#: cp_core.module:617
+msgid "Product"
+msgstr "Producto"
+
+#: cp_core.module:638
+msgid "@num items"
+msgstr "@num elementos"
+
+#: cp_core.module:650
+msgid "Email or NIT"
+msgstr "Correo or NIT"
+
+#: cp_core.module:720 js/litepicker.js:0 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:510;520;556;568;668;678 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: cp_core.module:976
+msgid "Encuentre aquí"
+msgstr ""
+
+#: cp_core.module:977
+msgid ". ProColombia es una entidad que promueve la internacionalización de empresas colombianas."
+msgstr ""
+
+#: cp_core.module:982
+msgid "Find here"
+msgstr "Encuentre aquí"
+
+#: cp_core.module:983
+msgid "ProColombia is an entity that promotes the Internationalization of Colombian companies."
+msgstr ""
+"ProColombia es una entidad que promueve la internacionalización de "
+"empresas colombianas."
+
+#: cp_core.module:1034
+msgid "CP Core: Title h2 no link"
+msgstr ""
+
+#: cp_core.module:1035
+msgid "Shows the title of the node"
+msgstr "Muestra el título del nodo"
+
+#: cp_core.module:1041
+msgid "CP Core: Presave preview"
+msgstr ""
+
+#: cp_core.module:1042
+msgid "Enables a preview link."
+msgstr "Habilita un enlace de previsualización"
+
+#: cp_core.module:1048
+msgid "CP Core: Close Modal"
+msgstr ""
+
+#: cp_core.module:1049
+msgid "Show the close link."
+msgstr ""
+
+#: cp_core.module:1065
+msgid "Preview"
+msgstr "Vista previa"
+
+#: cp_core.module:1086
+msgid "Go back to process"
+msgstr "Volver al proceso"
+
+#: cp_core.module:1098
+msgid "CP Core: Change the product availability"
+msgstr ""
+
+#: cp_core.module:1105
+msgid "CP Core: Change the company published status"
+msgstr ""
+
+#: cp_core.module:1112;1114
+msgid "CP Core: Start and End date"
+msgstr ""
+
+#: cp_core.info.yml:0
+msgid "CP Core"
+msgstr ""
+
+#: cp_core.info.yml:0
+msgid "Module with the general features of procolombia catalogo"
+msgstr ""
+
+#: cp_core.info.yml:0
+msgid "Custom"
+msgstr "Personalizado"
+
+#: cp_core.links.menu.yml:0
+msgid "Configuración cambio dinámico de estados"
+msgstr ""
+
+#: cp_core.links.menu.yml:0
+msgid "CP Core: Notifications"
+msgstr ""
+
+#: cp_core.links.menu.yml:0
+msgid "Configuración cambio dinámico de estados en empresas y productos."
+msgstr ""
+
+#: cp_core.links.task.yml:0 cp_core.routing.yml:0
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: cp_core.permissions.yml:0
+msgid "Access to product dashboard"
+msgstr "Acceder al dashboard de productos"
+
+#: cp_core.routing.yml:0
+msgid "Forgot your email"
+msgstr "Olvidó su correo"
+
+#: cp_core.routing.yml:0
+msgid "Olvidó su correo"
+msgstr ""
+
+#: cp_core.routing.yml:0
+msgid "Recover pass"
+msgstr "Recuperar contraseña"
+
+#: cp_core.routing.yml:0
+msgid "Recuperar contraseña"
+msgstr ""
+
+#: cp_core.routing.yml:0
+msgid "Buyer Register"
+msgstr "Registro de comprador"
+
+#: cp_core.routing.yml:0
+msgid "Register international buyer"
+msgstr "Registro internacional de comprador"
+
+#: cp_core.routing.yml:0 templates/dsb_company_info.html.twig:9
+msgid "Add company"
+msgstr "Agregar empresa"
+
+#: cp_core.routing.yml:0 templates/dsb_add_product.html.twig:4
+msgid "Add product"
+msgstr "Agregar producto"
+
+#: cp_core.routing.yml:0
+msgid "Add product multistep"
+msgstr "Agregar producto multipaso"
+
+#: cp_core.routing.yml:0
+msgid "Edit product multistep"
+msgstr "Editar producto multipaso"
+
+#: cp_core.routing.yml:0
+msgid "Change states"
+msgstr "Cambiar estados"
+
+#: cp_core.routing.yml:0
+msgid "Configuración cambio de estados"
+msgstr ""
+
+#: cp_core.routing.yml:0
+msgid "Change product availability"
+msgstr "Cambiar disponibilidad de producto"
+
+#: cp_core.routing.yml:0
+msgid "Change company published"
+msgstr "Cambiar publicación de empresa"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "CP Core: notifications"
+msgstr ""
+
+#: config/schema/cp_core.schema.yml:0 src/Form/CpCoreNotificationsSettings.php:69
+msgid "Notifications email"
+msgstr "Email de notificación"
+
+#: config/schema/cp_core.schema.yml:0;0
+msgid "Post products or services"
+msgstr "Enviar productos o servicios"
+
+#: config/schema/cp_core.schema.yml:0;0;0;0;0;0;0;0;0;0
+msgid "Active"
+msgstr "Activo"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Edition of products or services"
+msgstr "Edición de productos o servicios"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Approval of company products or services"
+msgstr "Aprobación de productos o servicios de empresa"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Rejection of company products or services"
+msgstr "Rechazo de productos o servicios de empresa"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Approval of the company profile (Seller)"
+msgstr "Aprobación del perfil de empresa (Vendedor)"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Rejection of the company profile (Seller)"
+msgstr "Rechazo del perfil de empresa (Vendedor)"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Token Verification (Seller)"
+msgstr "Verificación de Token (Vendedor)"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Approval of the company profile (Buyer)"
+msgstr "Aprobación del perfil de empresa (Comprador)"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Rejection of the company profile (Buyer)"
+msgstr "Rechazo del perfil de empresa (Comprador)"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Token Verification (Buyer)"
+msgstr "Verificación por token (Comprador)"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Hour"
+msgstr "Hora"
+
+#: config/schema/cp_core.schema.yml:0
+msgid "Daily activity (Moderator)"
+msgstr ""
+
+#: js/litepicker.js:0
+msgid "Apply"
+msgstr "Aplicar"
+
+#: src/CpCoreMailHelper.php:138
+msgid "Error sending mail with key %key"
+msgstr ""
+
+#: src/Controller/CpCoreController.php:97
+msgid "User has been update"
+msgstr "El usuario se ha actualizado"
+
+#: src/Controller/CpCoreController.php:109
+msgid "Password was not updated."
+msgstr "La contraseña no se ha actualizado."
+
+#: src/Controller/CpCoreController.php:159 src/Form/RegisterBuyer.php:123;148;184;323
+msgid "- Select -"
+msgstr "- Seleccionar -"
+
+#: src/Controller/CpCoreController.php:250
+msgid "There was a problem sending your email notification to @email."
+msgstr ""
+
+#: src/Controller/CpCoreController.php:254
+msgid "An email notification has been sent to @email "
+msgstr ""
+
+#: src/Controller/CpCoreController.php:634
+msgid "Image has been deleted"
+msgstr ""
+
+#: src/Controller/CpCoreController.php:792
+msgid "personal data processing policy"
+msgstr ""
+
+#: src/Controller/CpCoreController.php:796
+msgid "management Habeas data"
+msgstr ""
+
+#: src/Controller/CpCoreController.php:800
+msgid "terms of use"
+msgstr ""
+
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:533;581;659;691;704 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+msgid "Yes"
+msgstr "Si"
+
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:535;583;661;693;706 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+msgid "No"
+msgstr "No"
+
+#: src/Form/AddEditCompany.php:183
+msgid "<b>Company</b> information"
+msgstr "Información de <b>Empresa</b>"
+
+#: src/Form/AddEditCompany.php:186
+msgid "View company"
+msgstr "Ver empresa"
+
+#: src/Form/AddEditCompany.php:210
+msgid "Company logo"
+msgstr "Logo de empresa"
+
+#: src/Form/AddEditCompany.php:227 templates/dsb_company_info.html.twig:28
+msgid "Company name"
+msgstr "Nombre de la empresa"
+
+#: src/Form/AddEditCompany.php:235
+msgid "Company url website"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:258
+msgid "Sector"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:265
+msgid "NIT:"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:283
+msgid " Indique el código CIIU o la actividad ecónomica a la que pertenece su empresa."
+msgstr ""
+
+#: src/Form/AddEditCompany.php:300
+msgid "Código CIIU principal o actividad ecónomica."
+msgstr ""
+
+#: src/Form/AddEditCompany.php:303
+msgid "Código CIIU secundario o actividad ecónomica."
+msgstr ""
+
+#: src/Form/AddEditCompany.php:306
+msgid "Código CIIU terciario o actividad ecónomica."
+msgstr ""
+
+#: src/Form/AddEditCompany.php:342
+msgid "<b>Contact</b> information"
+msgstr "Inofrmación de <b>Contacto</b>"
+
+#: src/Form/AddEditCompany.php:372
+msgid "Contact name"
+msgstr "Nombre del contacto"
+
+#: src/Form/AddEditCompany.php:381
+msgid "City"
+msgstr "Ciudad"
+
+#: src/Form/AddEditCompany.php:391
+msgid "Charge"
+msgstr "Cargo"
+
+#: src/Form/AddEditCompany.php:407
+msgid "Phone"
+msgstr "Teléfono"
+
+#: src/Form/AddEditCompany.php:415
+msgid "Cellphone"
+msgstr "Celular"
+
+#: src/Form/AddEditCompany.php:424 src/Form/RecoverPass.php:59
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: src/Form/AddEditCompany.php:435 src/Form/AddEditProduct.php:636 src/Form/EditUser.php:79 src/Form/TestForm.php:45 templates/dsb_info_user.html.twig:69
+msgid "Save"
+msgstr "Guardar"
+
+#: src/Form/AddEditCompany.php:459;498;504
+msgid "This field can not be numeric"
+msgstr "Este campo no puede ser numérico"
+
+#: src/Form/AddEditCompany.php:462
+msgid "The \"Nombre de la Empresa\" field can not be longer than 50 characters"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:468
+msgid "Format url not valid"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:480
+msgid "The \"Descripción empresa\" field can not be longer than 1000 characters"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:486
+msgid "The \"Company description\" field can not be longer than 1000 characters"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:492 src/Form/RecoverPass.php:85
+msgid "Format email not valid"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:511
+msgid "This field must have a minimum of 7 characters"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:518 src/Form/ForgetMail.php:127
+msgid "This field must be numeric"
+msgstr ""
+
+#: src/Form/AddEditCompany.php:673
+msgid "Company content has been created correctly."
+msgstr ""
+
+#: src/Form/AddEditCompany.php:923
+msgid "Company content has been update correctly."
+msgstr ""
+
+#: src/Form/AddEditProduct.php:50
+msgid "Notice"
+msgstr "Aviso"
+
+#: src/Form/AddEditProduct.php:51
+msgid "You need to create a company to create your products."
+msgstr ""
+
+#: src/Form/AddEditProduct.php:69
+msgid "<b>Product</b> information"
+msgstr "Información de <b>Producto</b>"
+
+#: src/Form/AddEditProduct.php:72
+msgid "View product"
+msgstr "Ver producto"
+
+#: src/Form/AddEditProduct.php:661
+msgid "The \"Nombre producto\" field can not be longer than 150 characters"
+msgstr ""
+
+#: src/Form/AddEditProduct.php:673
+msgid "The \"Product description\" field can not be longer than 1000 characters"
+msgstr ""
+
+#: src/Form/AddEditProduct.php:1097
+msgid "Product content has been updated correctly."
+msgstr ""
+
+#: src/Form/ConfigChangeStates.php:57
+msgid "Number of days"
+msgstr "Número de días"
+
+#: src/Form/CpCoreMultiStepForm.php:259
+msgid "No existe ningún paso configurado para este tipo de contenido"
+msgstr ""
+
+#: src/Form/CpCoreMultiStepForm.php:340
+msgid "Descripción del producto / Servicio"
+msgstr ""
+
+#: src/Form/CpCoreMultiStepForm.php:465;656
+msgid "Add product / service"
+msgstr "Añadir producto / servicio"
+
+#: src/Form/CpCoreMultiStepForm.php:466
+msgid "All uploaded content must comply with the <a href=\"/en/information/terms-use\" target=\"_BLANK\">publishing policy.</a>"
+msgstr ""
+"Todo el contenido subido debe cumplir con las  <a "
+"href=\"/informacion/condiciones-de-uso\" target=\"_BLANK\">políticas "
+"de publicación.</a>"
+
+#: src/Form/CpCoreMultiStepForm.php:467
+msgid "I agree"
+msgstr "De acuerdo"
+
+#: src/Form/CpCoreMultiStepForm.php:498
+msgid "Previous"
+msgstr "Anterior"
+
+#: src/Form/CpCoreMultiStepForm.php:530;578;688
+msgid "Cancel process"
+msgstr "Cancelar el proceso"
+
+#: src/Form/CpCoreMultiStepForm.php:531;579;689
+msgid "You are about to cancel the \"Upload product or service\" process."
+msgstr "Está a punto de cancelar el proceso \"Carga del producto o servicio\""
+
+#: src/Form/CpCoreMultiStepForm.php:532;580;658;690;703
+msgid "Do you wish to continue?"
+msgstr "¿Desea continuar?"
+
+#: src/Form/CpCoreMultiStepForm.php:540;588
+msgid "Next"
+msgstr "Continuar"
+
+#: src/Form/CpCoreMultiStepForm.php:548
+msgid "Insert video"
+msgstr "Insertar vídeo"
+
+#: src/Form/CpCoreMultiStepForm.php:620
+msgid "Select All"
+msgstr "Seleccionar todo"
+
+#: src/Form/CpCoreMultiStepForm.php:629
+msgid "Unselect All"
+msgstr "Deseleccionar Todos"
+
+#: src/Form/CpCoreMultiStepForm.php:646
+msgid "Load another product"
+msgstr "Cargar otro producto"
+
+#: src/Form/CpCoreMultiStepForm.php:657
+msgid "You are about to upload another product/service, you must start the <strong>\"Product or service information\"</strong> process to add a new product."
+msgstr ""
+"Está a punto de cargar otro producto/servicio, debe iniciar el "
+"proceso <strong>“Información del producto o servicio”</strong> "
+"para agregar un nuevo producto."
+
+#: src/Form/CpCoreMultiStepForm.php:701
+msgid "Send to aprobation"
+msgstr "Enviar a aprobación"
+
+#: src/Form/CpCoreMultiStepForm.php:702
+msgid "Do you want send to aprobation the loaded product/services?<br /><strong>@products</strong>"
+msgstr ""
+"¿Quiere enviar a aprobación los productos/servicios cargados? <br "
+"/><strong>@products</strong> "
+
+#: src/Form/CpCoreMultiStepForm.php:712;720
+msgid "Save and publish"
+msgstr "Guardar y publicar"
+
+#: src/Form/CpCoreMultiStepForm.php:738
+msgid "Successful process"
+msgstr "Proceso exitoso"
+
+#: src/Form/CpCoreMultiStepForm.php:739
+msgid "Your products <strong>\"@elements\"</strong> are in pending status for approval by ProColombia.<br /><br />Products without selection have been successfully saved in the system. If you want to publish them, you must go to the user dashboard and select the Edit option."
+msgstr ""
+"Sus productos <strong>\"@elements\"</strong> se encuentran en estado "
+"pendiente por aprobación por parte de ProColombia.<br /><br />Los "
+"productos sin selección han sido guardados en el sistema "
+"exitosamente. Si quiere publicarlos debe remitirse al dashboard de "
+"usuario y seleccionar la opción de Editar."
+
+#: src/Form/CpCoreMultiStepForm.php:740
+msgid "I got it"
+msgstr "Entendido"
+
+#: src/Form/CpCoreNotificationsSettings.php:76
+msgid "Emails"
+msgstr "Correos electrónicos"
+
+#: src/Form/CpCoreNotificationsSettings.php:79
+msgid "You can use tokens in the subject and the body of each email. The custom replacements are only available on the body and them will be specified on each mail body."
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:84
+msgid "Seller emails"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:94
+msgid "Active product publish mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:99;140;181;222;263;300;337;385;422;459;523
+msgid "Subject"
+msgstr "Asunto"
+
+#: src/Form/CpCoreNotificationsSettings.php:113;154;195;236;277;314;351;399;436;473;537
+msgid "Body"
+msgstr "Cuerpo"
+
+#: src/Form/CpCoreNotificationsSettings.php:115;156;198;239;354;476;540
+msgid "You can use the next special replacements in the mail body: @replacements"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:135
+msgid "Active product edit mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:176
+msgid "Active product approbation mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:217
+msgid "Active product reject mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:258
+msgid "Active company approbation mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:295;417
+msgid "Active company reject mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:332
+msgid "Active verification seller token mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:371
+msgid "Buyer emails"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:380
+msgid "Active company approbation email"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:454
+msgid "Active verification buyer token mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:492
+msgid "Moderator emails"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:501
+msgid "Active daily activity mail"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:506
+msgid "Active daily activity hour of send"
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:511
+msgid "Use a 24 hours format, the min value is 0 and the max value is 23 hours."
+msgstr ""
+
+#: src/Form/CpCoreNotificationsSettings.php:557
+msgid "Tokens"
+msgstr "Comodines"
+
+#: src/Form/EditUser.php:49
+msgid "Infor user"
+msgstr ""
+
+#: src/Form/EditUser.php:64
+msgid "User name"
+msgstr "Nombre de usuario"
+
+#: src/Form/EditUser.php:73 src/Form/RegisterExporter.php:84
+msgid "Mail"
+msgstr "Correo"
+
+#: src/Form/ForgetMail.php:55 src/Form/RecoverPass.php:48
+msgid "Forgot "
+msgstr ""
+
+#: src/Form/ForgetMail.php:55
+msgid "your mail?"
+msgstr ""
+
+#: src/Form/ForgetMail.php:61
+msgid "Enter the company ID of your company then we will show you the email associated with the account"
+msgstr ""
+
+#: src/Form/ForgetMail.php:66 src/Form/RegisterExporter.php:70 templates/dsb_company_info.html.twig:24
+msgid "Nit"
+msgstr "Nit"
+
+#: src/Form/ForgetMail.php:75
+msgid "Recover your mail"
+msgstr ""
+
+#: src/Form/ForgetMail.php:90
+msgid "Recover "
+msgstr ""
+
+#: src/Form/ForgetMail.php:90
+msgid "your information"
+msgstr ""
+
+#: src/Form/ForgetMail.php:94
+msgid "here"
+msgstr "aquí"
+
+#: src/Form/ForgetMail.php:98
+msgid "With the following email you can recover your password by clicking "
+msgstr ""
+
+#: src/Form/ForgetMail.php:107
+msgid "Go back to start"
+msgstr ""
+
+#: src/Form/ForgetMail.php:130
+msgid "This field requires a minimum of 8 digits"
+msgstr ""
+
+#: src/Form/ForgetMail.php:138
+msgid "The NIT is not valid"
+msgstr ""
+
+#: src/Form/RecoverPass.php:48
+msgid "your pass?"
+msgstr ""
+
+#: src/Form/RecoverPass.php:54
+msgid "Enter your company email and we will send you a secure link to reset your password"
+msgstr ""
+
+#: src/Form/RecoverPass.php:68
+msgid "Recover password"
+msgstr ""
+
+#: src/Form/RecoverPass.php:88
+msgid "User mail not found"
+msgstr ""
+
+#: src/Form/RecoverPass.php:107
+msgid "Your recovery email has been sent."
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:77
+msgid "Explore Colombian Export Opportunities"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:83
+msgid "Find the best products and services from Colombian origin, contact companies and save your favorite products, services or companies."
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:90 templates/dsb_info_user.html.twig:18
+msgid "Name and Lastname"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:100 templates/dsb_info_user.html.twig:23
+msgid "E-mail"
+msgstr "Correo electrónico"
+
+#: src/Form/RegisterBuyer.php:116 templates/dsb_info_user.html.twig:34
+msgid "Country"
+msgstr "País"
+
+#: src/Form/RegisterBuyer.php:131 templates/dsb_info_user.html.twig:40
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+#: src/Form/RegisterBuyer.php:152
+msgid "I'm interested in"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:153
+msgid "Particulary in"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:156
+msgid "Category Interest"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:157
+msgid "Subcategory Interest"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:217 src/Form/RegisterExporter.php:95 templates/dsb_info_user.html.twig:60
+msgid "Password"
+msgstr "Contraseña"
+
+#: src/Form/RegisterBuyer.php:227 src/Form/RegisterExporter.php:124
+msgid "Continue"
+msgstr "Continuar"
+
+#: src/Form/RegisterBuyer.php:251
+msgid "This email is already registered on the platform"
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:254
+msgid "The value of the complete name field is very short "
+msgstr ""
+
+#: src/Form/RegisterBuyer.php:319
+msgid "You have successfully registered a confirmation has been sent by mail."
+msgstr ""
+
+#: src/Form/RegisterExporter.php:56
+msgid "Register"
+msgstr "Registro"
+
+#: src/Form/RegisterExporter.php:62
+msgid "Sign up to the Colombia’s Export Catalog to expand your offer to international markets. Remember that you must be a ProColombia account in order to sign up"
+msgstr ""
+
+#: src/Form/RegisterExporter.php:71
+msgid "Write the tax identification number corresponding to your company"
+msgstr ""
+"Escriba el número de identificación tributaria correspondiente a su "
+"empresa, sin espacios ni caracteres especiales. Intente con y sin el "
+"dígito de verificación para confirmar que su empresa es o no una "
+"cuenta ProColombia en la actualidad"
+
+#: src/Form/RegisterExporter.php:85
+msgid "Write the institutional email where the correspondence from this website will be sent"
+msgstr ""
+
+#: src/Form/RegisterExporter.php:107
+msgid "I have read and accept"
+msgstr ""
+
+#: src/Form/RegisterExporter.php:116
+msgid "I have read and accept "
+msgstr ""
+
+#: src/Form/RegisterExporter.php:147;150
+msgid "The registration has not been completed correctly"
+msgstr ""
+
+#: src/Form/RegisterExporter.php:162
+msgid "Your company isn’t registered as a ProColombia account. Please, send a request to abustos@procolombia.co"
+msgstr ""
+
+#: src/Form/RegisterExporter.php:166;169
+msgid "Your company is alredy registered at Colombian Export Catalog. Please LOG IN, <a href=\":userLogin\">Here</a>"
+msgstr ""
+
+#: src/Form/RegisterExporter.php:200
+msgid "You have successfully registered and a notification has been sent by mail."
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:55
+msgid "query"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:59
+msgid "Example: computers or organic farming"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:61
+msgid "what are you looking for?"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:66
+msgid "- or -"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:71
+msgid "Example: 009845635"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:98 src/Form/SearchHeader.php:42
+msgid "Search"
+msgstr "Buscar"
+
+#: src/Form/SearchCategoriesModalForm.php:111
+msgid "Restart search"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:144
+msgid "search options"
+msgstr ""
+
+#: src/Form/SearchCategoriesModalForm.php:152
+msgid "Please, give some search query word"
+msgstr ""
+
+#: src/Form/SearchHeader.php:34
+msgid "Search..."
+msgstr "Buscar..."
+
+#: src/Form/TestForm.php:36
+msgid "Choose a file"
+msgstr "Elija un archivo"
+
+#: src/Plugin/Block/CustomLogin.php:59
+msgid "Forgot your mail?"
+msgstr ""
+
+#: src/Plugin/Block/CustomLogin.php:62;84
+msgid "Send password reset instructions via email."
+msgstr "Enviadas instrucciones de reestablecimiento de contraseña por correo."
+
+#: src/Plugin/Block/CustomLogin.php:70
+msgid "You don’t have an account? Sign up."
+msgstr ""
+
+#: src/Plugin/Block/CustomLogin.php:73
+msgid "Create a new user account."
+msgstr "Crear una nueva cuenta de usuario."
+
+#: src/Plugin/Block/CustomLogin.php:81
+msgid "Forgot your password?"
+msgstr ""
+
+#: src/Plugin/Block/CustomLogin.php:90
+msgid "Sign in"
+msgstr ""
+
+#: src/Plugin/Block/CustomLogin.php:14
+msgid "Custom Login"
+msgstr ""
+
+#: src/Plugin/Block/DSBAddProduct.php:16
+msgid "Dashboard user add product"
+msgstr ""
+
+#: src/Plugin/Block/DSBEditUser.php:13
+msgid "Dashboard edit user"
+msgstr ""
+
+#: src/Plugin/Block/DSBInfoCompany.php:16
+msgid "Dashboard user info company"
+msgstr ""
+
+#: src/Plugin/Block/HelloLoginUser.php:15
+msgid "Hello Login User"
+msgstr ""
+
+#: src/Plugin/Block/PreRegister.php:11
+msgid "Pre Register"
+msgstr ""
+
+#: src/Plugin/Block/SearchCategoriesModalBlock.php:11
+msgid "Search categories modal block"
+msgstr ""
+
+#: src/Plugin/Block/SearchTopHeader.php:13
+msgid "Search Top Header"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreBooleanSelectWidget.php:10
+msgid "CP Core: Boolean Select list"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:86
+msgid "Weight for row @number"
+msgstr "Peso para la fila @number"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:142 src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:218
+msgid "Add a new file"
+msgstr "Añadir archivo nuevo"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:168
+msgid "Include file in display"
+msgstr "Incluir archivo en presentación"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:190
+msgid "Description"
+msgstr "Descripción"
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:193
+msgid "The description may be used as the label of the link to the file."
+msgstr "La descipción se puede usar como etiqueta del enlace al archivo."
+
+#: src/Plugin/Field/FieldWidget/CpCoreFileWidget.php:19
+msgid "CP Core: File"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:74
+msgid "Delta limit"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:77
+msgid "Limit the number of items to this value. The field storage must be equal or enough than this value."
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:81
+msgid "Custom Item title"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:84;91
+msgid "You can use @weight to show the weight inside the title."
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:88
+msgid "First Item Title"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:103
+msgid "Lmit the widget to @items"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreImageMultiWidget.php:13
+msgid "CP Core: Multi-Image"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreMultilingualFieldWidget.php:10
+msgid "CP Core: Multilingual Form Display"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:71
+msgid "Show a video preview"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:82
+msgid "Show preview"
+msgstr "Mostrar vista previa"
+
+#: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:82
+msgid "No preview"
+msgstr "Sin previsualización"
+
+#: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:83
+msgid "Max width: @width"
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:118
+msgid "Add"
+msgstr "Agregar"
+
+#: src/Plugin/Field/FieldWidget/CpCoreVideoTextfield.php:18
+msgid "CP Core: Video with preview"
+msgstr ""
+
+#: src/Plugin/field_group/FieldGroupFormatter/CpCoreGroupMarkup.php:68
+msgid "Markup"
+msgstr "Marcado"
+
+#: src/Plugin/field_group/FieldGroupFormatter/CpCoreGroupMarkup.php:8
+msgid "CP Core: Markup"
+msgstr ""
+
+#: src/Plugin/field_group/FieldGroupFormatter/CpCoreGroupMarkup.php:8
+msgid "Add a markup element"
+msgstr ""
+
+#: src/Plugin/views/argument_default/CpCoreCurrentCompany.php:11
+msgid "CP Core: Current Company NID from current user."
+msgstr ""
+
+#: templates/cp-core-node-multistep-header.html.twig:3
+msgid "<strong>Information</strong> of the product or service"
+msgstr "<strong>Información</strong> del producto o servicio"
+
+#: templates/cp-core-node-multistep-legal-modal.html.twig:3
+msgid "Add Product or Service"
+msgstr "Agregar Producto o Servicio"
+
+#: templates/cp-core-node-multistep-legal-modal.html.twig:7
+msgid "All uploaded content must comply with the <a href=\"en/information/terms-use\" target=\"_BLANK\">publishing policy.</a>"
+msgstr ""
+"Todo el contenido subido debe cumplir con la <a "
+"href=\"es/informacion/condiciones-de-uso\" target=\"_BLANK\">política "
+"de publicación.</a>"
+
+#: templates/cp-core-node-multistep-legal-modal.html.twig:10
+msgid "I Agree"
+msgstr "De acuerdo"
+
+#: templates/cp_core_translations.html.twig:1
+msgid "<span>In order to ensure the smooth operation of the system, it will only display the first 10 matching products.</span>"
+msgstr ""
+"<span>A fin de asegurar el buen funcionamiento del sistema, sólo "
+"presentará los 10 primeros productos coincidentes.</span>"
+
+#: templates/cp_core_translations.html.twig:2
+msgid "<h2>Add Product Videos</h2><p>It is recommended to upload real videos of the product in good quality to improve the positioning of your product within the Catalog.</p>"
+msgstr ""
+"<h2>Agregar Vídeos del producto</h2><p>Se recomienda cargar vídeos "
+"reales del producto en buena calidad para mejorar el posicionamiento "
+"de su producto dentro del Catálogo.</p>"
+
+#: templates/cp_core_translations.html.twig:3
+msgid "<span>We suggest uploading summary videos that give a cross-sectional tour of the company's offer. It is important for the international buyer because it quickly, briefly and directly shows the skills, competencies and experience.<br>If they do not have an English video, it is suggested to include subtitles to the video in Spanish.</span>"
+msgstr ""
+"<span>Sugerimos subir videos resumen que dan un paseo transversal la "
+"oferta de la empresa. Es importante para el comprador internacional "
+"porque muestra de forma rápida, breve y directa las habilidades, "
+"competencias y experiencia.<br>Si no cuentan con un video en inglés, "
+"se sugiere incluir subtítulos al video en español.</span>"
+
+#: templates/cp_core_translations.html.twig:4
+msgid "<h2>Add product images</h2><p>It is recommended to upload real photographs of the product in good quality to improve the positioning of your product within the Catalog.</p>"
+msgstr ""
+"<h2>Agregar imágenes del producto</h2><p>Se recomienda cargar "
+"fotografías reales del producto en buena calidad para mejorar el "
+"posicionamiento de su producto dentro del Catálogo.</p>"
+
+#: templates/dsb_company_info.html.twig:7
+msgid "You currently do not have a company or registered products. Please create a company and then its products."
+msgstr ""
+
+#: templates/dsb_company_info.html.twig:18
+msgid "Company profile and contact"
+msgstr ""
+
+#: templates/dsb_company_info.html.twig:33
+msgid "State"
+msgstr "Estado"
+
+#: templates/dsb_company_info.html.twig:37
+msgid "Published"
+msgstr "Publicado"
+
+#: templates/dsb_info_user.html.twig:10
+msgid "Admin profile"
+msgstr "Perfil Admin"
+
+#: templates/dsb_info_user.html.twig:28
+msgid "Company ID"
+msgstr "ID Empresa"
+
+#: templates/dsb_info_user.html.twig:50
+msgid "Edit information"
+msgstr "Editar información"
+
+#: templates/dsb_info_user.html.twig:56
+msgid "Change mail"
+msgstr "Cambiar correo"
+
+#: templates/dsb_info_user.html.twig:64
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+#: templates/hello_user.html.twig:13
+msgid "Hello"
+msgstr "Hola"
+
+#: templates/hello_user.html.twig:19
+msgid "profile"
+msgstr "perfil"
+
+#: templates/hello_user.html.twig:25
+msgid "log out"
+msgstr "cerrar sesión"
+
+#: templates/pre_register.html.twig:3
+msgid "Sign up as a Colombian company"
+msgstr "Registrarse como empresa Colombiana"
+
+#: templates/pre_register.html.twig:6
+msgid "Sign up as an international buyer"
+msgstr "Registrarse como comprador internacional"
+

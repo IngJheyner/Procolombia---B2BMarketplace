@@ -38,3 +38,13 @@ video_embed_preview:
       css/video_embed_preview.css: {}
   dependencies:
     - core/jquery
+
+litepicker:
+  version: VERSION
+  js:
+    /libraries/litepicker/dist/litepicker.js: {}
+    js/litepicker.js: {}
+  dependencies:
+    - core/jquery
+
+

@@ -1,0 +1,24 @@
+uuid: 105f8904-0fe2-4b16-a4ab-246ef8f51ef6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_country_code_mobile
+  module:
+    - user
+id: user.user.field_country_code_mobile
+field_name: field_country_code_mobile
+entity_type: user
+bundle: user
+label: country_code_mobile
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

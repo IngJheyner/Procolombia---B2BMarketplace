@@ -230,10 +230,10 @@ div#main-wrapper {
   border: none;
   box-shadow: none;
   color: #005ca4;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 200;
   font-family: Gothic-Bold;
-  padding: 6px 9px;
+  padding: 10px 14px;
   border: 1px solid #ffffff;
   border-radius: 6px;
   transition: all 0.2s ease-out;
@@ -292,6 +292,7 @@ div#main-wrapper {
   text-transform: uppercase;
   margin: 0px;
   letter-spacing: 2px;
+  word-break: break-word;
 }
 .main_registre .header_title {
   position: absolute;
@@ -1288,6 +1289,8 @@ strong {
     overflow: hidden;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 0px !important;
+    margin-left: -6px !important;
   }
   .body_login .row.g-5 .col-sm-12.col-md-12.col-lg-6 {
     padding: 0px !important;
@@ -1296,7 +1299,7 @@ strong {
     padding-top: 2rem !important;
   }
   .main_registre .body {
-    padding: 2rem 0rem;
+    padding: 5rem 0rem;
     margin-top: 17rem;
   }
   .main_registre .header_title_buyer h1 {
@@ -1367,6 +1370,26 @@ strong {
   .tooltiptext_yotube {
     width: 290px !important;
   }
+  .pe-4,
+.ps-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .row.gy-4.form_pre_registre {
+    padding: 10px;
+    padding-right: 10px;
+    padding-right: 10px !important;
+  }
+  .main_registre.container {
+    padding: 0px !important;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .header_title_buyer h1 {
@@ -1393,6 +1416,8 @@ strong {
     overflow: hidden;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 0px !important;
+    margin-left: -6px !important;
   }
   .body_login .row.g-5 .col-sm-12.col-md-12.col-lg-6 {
     padding: 0px !important;
@@ -1447,6 +1472,26 @@ strong {
     margin-left: 6%;
     margin-right: 6%;
   }
+  .pe-4,
+.ps-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .row.gy-4.form_pre_registre {
+    padding: 10px;
+    padding-right: 10px;
+    padding-right: 10px !important;
+  }
+  .main_registre.container {
+    padding: 0px !important;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .header_title_buyer h1 {
@@ -1472,6 +1517,8 @@ strong {
     overflow: hidden;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 0px !important;
+    margin-left: -6px !important;
   }
   .body_login .row.g-5 .col-sm-12.col-md-12.col-lg-6 {
     padding: 0px !important;
@@ -1482,6 +1529,26 @@ strong {
   }
   .step_registre {
     padding: 0rem;
+  }
+  .pe-4,
+.ps-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .row.gy-4.form_pre_registre {
+    padding: 10px;
+    padding-right: 10px;
+    padding-right: 10px !important;
+  }
+  .main_registre.container {
+    padding: 0px !important;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
   }
 }
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
@@ -1609,11 +1676,14 @@ strong {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.iti__flag-box, .iti__country-name, .iti__dial-code {
+.iti__flag-box,
+.iti__country-name,
+.iti__dial-code {
   vertical-align: middle;
 }
 
-.iti__flag-box, .iti__country-name {
+.iti__flag-box,
+.iti__country-name {
   margin-right: 6px;
 }
 
@@ -1639,7 +1709,8 @@ strong {
   margin-left: 0;
 }
 
-.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
+.iti--allow-dropdown .iti__flag-container,
+.iti--separate-dial-code .iti__flag-container {
   right: auto;
   left: 0;
 }

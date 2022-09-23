@@ -1,4 +1,5 @@
-.node--view-mode-product-service-presave-preview {
+.node--type-product.node--view-mode-product-service-presave-preview,
+.node--type-product.node--view-mode-full {
 	padding-top: 0;
 	font-family: $font-family-Century-Gothic;
 	.swiper-button-prev,
@@ -7,6 +8,8 @@
 
 		&::after {
 			font-size: 20px;
+			color: $procol-dark-blue;
+			font-weight: bold;
 		}
 	}
 	
@@ -44,6 +47,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		padding-left: 54px;
+		width: 100%;
 		@include media-breakpoint-down(lg){
 			gap: 20px;
 			padding-bottom: 40px;
@@ -58,10 +62,7 @@
 			font-size: 24px;
 			@include media-breakpoint-down(md){
 				font-size: 20px;
-				position: absolute;
 				top: 0;
-				left: 50%;
-				transform: translateX(-50%);
 				text-align: left;
 				width: 100%;
 				padding: 0 20px;
@@ -87,16 +88,29 @@
 				display: flex;
 				justify-content: space-between;
 			}
+			&.field--name-field-pr-country{
+				.field__item{
+					text-transform: uppercase;
+					&::after{
+						content: ", ";
+						}
+					&:last-child{
+						&::after{
+							content: "";
+							background-color: red;
+						}
+					}
+				}
+			}
 		}
-
 		.field__label {
-			font-weight: bold;
+			font-weight: normal;
+			font-family: $font-bold-Century-Gothic;
+			&::after {
+				content: ": ";
+				}
 		}
 		
-		.field__item {
-
-		}
-
 		.field--name-field-body {
 			display: block;
 			margin-bottom: 20px;
@@ -107,10 +121,14 @@
 			gap: 17px;
 			align-items: flex-end;
 			flex-grow: .3;
+			padding-top: 16px;
+			.field--name-field-file .field__items{
+				width: 100%;
+			}			
 			@include media-breakpoint-down(md){
 				flex-direction: column;
 			}
-
+			
 			* {
 				display: inline-block;
 			}
@@ -127,9 +145,9 @@
 				text-indent: 0;
 				font-size: 14px;
 				line-height: 17px;
-				height: 56px;
 				@include media-breakpoint-down(md){
-					justify-content: center;
+					justify-content: center;					
+					height: 56px;
 				}
 			}
 
@@ -169,7 +187,8 @@
 			flex-direction: column;
 			text-indent: -9999px;
 		}
-		.field--name-field-file{
+		.field--name-field-file,
+		.field--name-field-file-certifications{
 			margin-top: 0;
 			a{
 				background-image: url(../images/icons/file-pdf.svg);
@@ -177,6 +196,7 @@
 				background-size: 16px 20px;
 				padding-left: 40px;
 				background-position: 10px center;
+				font-family: $font-family-Century-Gothic;
 				@include media-breakpoint-down(md){					
 					background-position: 20% center;
 					padding-left: 0;
@@ -184,4 +204,85 @@
 			}
 		}
 	}
+}
+.node--type-product.node--view-mode-full{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.group-row{
+		background-color: $white;
+		max-width: 1286px;
+		width: 100%;
+		box-shadow: 0px 3px 6px #00000029;
+		border-radius: 4px;
+		padding: 53px 40px 60px 40px;
+		position: relative;
+		.flag {
+			position: absolute;
+			top: -7%;
+			right: 0;
+			background-color: $procol-red;
+			border-radius: 4px 4px 0 0;
+			height: 37px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 244px;
+			background-image: url(../images/icons/Favorito-EstadoInactivo.svg);
+			background-repeat: no-repeat;
+			background-position: 27px 24px;
+			background-position: 15px center;
+			@include media-breakpoint-down(lg){
+				top: -4%;
+			}
+
+			a{
+				color: $white;
+				font-weight: bold;
+			}
+			}
+		@include media-breakpoint-down(lg){
+			padding: 20px;
+			padding-right: 20px !important;
+		}
+		.group-right h2{
+			font-size: 30px;
+			font-family:  Maven-Bold;
+			font-weight: bolder;
+		}
+	}
+}
+
+.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
+	border-radius: 4px;
+	padding-bottom: 60px;
+	max-width: 1286px;
+	background-color: $white;
+	border: none;
+	.ui-dialog-titlebar{
+		background-color: transparent;
+		border: none;
+	}
+	.ui-dialog-titlebar-close {
+		left: 20px;
+		top: 5px;
+		position: relative;
+		background-color: transparent;
+		border: none;
+		background-image: url(../images/icons/arrow-back-fill.svg);
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		&::after {
+			content: "Volver";
+			right: 0;
+			margin-left: 20px;
+			color: $procol-gray-400;
+			}
+		}
+
+}
+
+.path-dashboard .ui-widget-overlay{
+	background-color: rgba(59, 61, 66, 0.5) !important;
 }

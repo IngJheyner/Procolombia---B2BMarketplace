@@ -15,6 +15,7 @@
     grid-template-columns: 210px repeat(2, 1fr);
     grid-template-rows: auto repeat(2, 1fr) auto;
     background-color: $white;
+    font-family:$font-family-Century-Gothic;
     &.step-2,
     &.step_3,
     &.step_4,
@@ -68,6 +69,7 @@
         resize: none;
         border: 1px solid #A1A5AA;
     }
+    
     .form-textarea{
         height: 100px;
     }
@@ -93,6 +95,16 @@
         &:hover{
             border: none;
         }
+        @include media-breakpoint-down(lg){
+            select{
+                margin-top: 18px;
+            }
+        }
+        &.is-invalid{
+            .CaptionCont{
+                border: 2px solid $procol-red !important;
+            }
+        }
         .CaptionCont{
             height: 35px;
             display: flex;
@@ -116,6 +128,11 @@
         .optWrapper{
             border-radius: 1px;
             box-shadow: 0 3px 10px $gray-shadow;
+            &.isFloating{
+                position: relative;
+                width: 100%;
+                max-height: none;
+            }
             .options{
                 li.opt:hover{
                     background-color: $procol-dark-blue;
@@ -123,7 +140,8 @@
                 }
                 label{
                     font-weight: 300;
-                    padding-bottom: 0;                 
+                    padding-bottom: 0;
+                    font-family: $font-family-Century-Gothic;             
                 }
             }
         }
@@ -137,11 +155,13 @@
         background-position-y: 11px;
         background-size: 12px 12px;
         padding-right: 0;
+        font-family: 'century_gothicregular';
+        font-size: 11px;
 
     }
     .js-form-type-managed-file{
         small{
-            max-height: 41px;
+            max-height: 40px;
             overflow: hidden;
         }
     }
@@ -153,15 +173,18 @@
         .field-group-html-element.group-left{
             border-right: none;
         }
-        .lightbulb-tooltip span{
-            max-width: 400px;
-            top: -100px;
-        }
         .insert-video{
             border: 1px solid $procol-light-blue;
             color: $procol-light-blue;
             position: relative;
             padding-left: 35px;
+            @include media-breakpoint-down(lg){
+                width: 100%;
+                height: 56px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             &::before,
             &::after{
                 content: "";
@@ -172,6 +195,13 @@
                 top: 10px;
                 left: 16px;
                 border-radius: 10px;
+                @include media-breakpoint-down(lg){
+                    top: 20px;
+                    left: 40%;
+                }
+                @include media-breakpoint-down(sm){
+                    left: 30%;
+                }
             }
             &::after{
                 transform: rotate(90deg);
@@ -213,6 +243,10 @@
             gap: 10px;
             align-items: center;
             position: relative;
+            .form-check-input{
+                width: 18px;
+                height: 18px;
+            }
             input[type=checkbox]:checked{
                 box-shadow: none;
                 
@@ -223,13 +257,37 @@
               }
         }
         label{
-           font-weight: bold;
+           font-family: $font-bold-Century-Gothic;
            padding-bottom: 8px;
+           font-size: 14px;
            
         }
              
         input[type="text"]{
             height: 40px;
+            background-color: $white;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px $white inset;
+        box-shadow: 0 0 0px 1000px $white inset;
+        transition: background-color 5000s ease-in-out 0s;
+        }
+
+        input:-internal-autofill-selected{
+            background-color: $white !important;
+        }
+
+        input[data-autocompleted] {
+            background-color: white !important;
         }
         input[type="file"]{
             height: 33px;
@@ -258,6 +316,12 @@
             justify-content: space-between;
             max-width: 442px;
             align-items: flex-end;
+            .messages--error{
+                padding-left: 10px;
+            }
+            @include media-breakpoint-down(lg){
+                max-width: 100%;
+            }
             &.step-4{
             justify-content: flex-start;
             margin-top: 35px;
@@ -408,28 +472,6 @@
             width: 100%;
             padding: 0 15PX;
          }
-         @include media-breakpoint-down(md){
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 26px;
-            
-            .field--name-field-product-type{
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                label{
-                    position: static;
-                    height: auto;
-                }
-            }
-            #ajax-wrapper{
-                display: flex;
-                width: 100%;
-                justify-content: center;
-            }
-         }
     }
     .field-group-html-element.group-left{
         @include media-breakpoint-down(md){
@@ -505,7 +547,7 @@
                 padding: 0 25px;
             }
             @include media-breakpoint-down(lg){
-                padding: 0 20px;
+                padding: 0 33px;
             }
             button{
                 border-radius: 4px;
@@ -517,6 +559,10 @@
                     background-color: $white;
                     border: 1px solid $procol-light-blue;
                     color: $procol-gray-400;
+                    text-transform: uppercase;
+                    @include media-breakpoint-down(lg){
+                        order: 3;
+                    }
                     &:hover{
                         box-shadow: 0px 3px 6px $gray-shadow;
                     }
@@ -530,8 +576,14 @@
             .cancel-confirm-link{
                 @include gray-btn;
                 height: 37px;
-                 @include media-breakpoint-down(md){
+                text-transform: uppercase;
+                 @include media-breakpoint-down(lg){
                     width: 100%;
+                    height: 56px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    order: 2;
                  }
             }
             .save-publish-button{
@@ -540,8 +592,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                @include media-breakpoint-down(md){
+                text-transform: uppercase;
+                @include media-breakpoint-down(lg){
                     width: 100%;
+                    height: 56px;
                  }
             }
             .add-other{
@@ -552,6 +606,7 @@
                 height: 37px;
                 position: relative;
                 padding-left: 30px;
+                text-transform: uppercase;
                 &::before,
                 &::after{
                     font-family: swiper-icons;
@@ -563,26 +618,46 @@
                     top: 10px;
                     left: 16px;
                     border-radius: 10px;
+                    @include media-breakpoint-down(lg){
+                        top: 20px;
+                        left: 30%;
+                    }
+                    @include media-breakpoint-down(sm){
+                        left: 15%;
+                     }
                 }
                 &::after{
                     transform: rotate(90deg);
                 }
-                @include media-breakpoint-down(md){
+                @include media-breakpoint-down(lg){
                     width: 100%;
+                    height: 56px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                  }
+                 
             }
-            @include media-breakpoint-down(md){
+            #edit-submit,
+            #edit-previous,
+            #edit-next{
+                text-transform: uppercase;
+                @include media-breakpoint-down(lg){
+                    width: 100%;
+                    height: 56px;
+                }
+            }
+            @include media-breakpoint-down(lg){
                 flex-wrap: wrap;
                 width: 100%;
-                button{
-                    width: 100%;
-                }
             }
                
            }
         // Ends Buttons styles
            
-     } 
+     }
+
+    
 }
 
     

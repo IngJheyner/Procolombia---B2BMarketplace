@@ -51,8 +51,10 @@ dependencies:
     - field.field.node.product.field_trading_channel
     - node.type.product
   module:
+    - advanced_text_formatter
     - cp_core
     - field_group
+    - maxlength
 third_party_settings:
   field_group:
     group_left:
@@ -196,11 +198,11 @@ mode: step_1
 content:
   field_body:
     type: string_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
-      placeholder: ''
+      placeholder: 'Product / Service description'
     third_party_settings:
       maxlength:
         maxlength_js: 160
@@ -210,14 +212,14 @@ content:
         show_token_tree: 0
   field_file:
     type: cp_core_file_generic
-    weight: 4
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pr_multilingual_step1:
     type: cp_core_multilingual_field_widget
-    weight: 21
+    weight: 22
     region: content
     settings:
       collapsible_state: '-1'
@@ -239,7 +241,12 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: 100
+        maxlength_js_label: ' '
+      advanced_text_formatter:
+        show_token_tree: 0
 hidden:
   body_class: true
   created: true
