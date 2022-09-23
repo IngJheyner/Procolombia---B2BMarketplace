@@ -24,6 +24,7 @@
     }
     .field--type-video-embed-field,
     #edit-field-pr-video-2-wrapper {
+        margin-bottom: 0 !important;
         position: relative;
         .js-form-submit {
             position: absolute;
@@ -39,7 +40,10 @@
             border-radius: 4px;
             &#edit-field-pr-video-2-0-preview-button {
                 top: 45px;
+                @include media-breakpoint-down(md){
+                    top: 40px;
                 }
+            }
         }
         .js-text-full {
             height: 33px;
@@ -48,6 +52,13 @@
             margin-bottom: 0 !important;
         }
     }
+    .js-form-item-field-pr-video-description-2-0-value {
+        margin-bottom: 0;
+        margin-top: 0;
+        }
+    .js-form-item-field-pr-video-description-1-0-value {
+        margin-top: 0;
+        }
     .remove-remote-video-value {
         color: transparent;
         background-image: url(../images/icons/Cerrar-negro.svg);

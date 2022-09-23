@@ -66,6 +66,7 @@
                 padding-right: 35px !important;
                 font-size: 12px;
                 padding-left: 5px !important;
+
             }
         }
         @include media-breakpoint-down(lg){
@@ -140,6 +141,27 @@
     .SumoSelect .chosen-container{
         position: absolute;
     }
+    .js-form-type-select.is-invalid .SumoSelect .CaptionCont{
+        border: 2px solid $procol-red !important;
+    }
+    .is-invalid::after{
+        top: 70px;
+    }
+    .js-form-item-field-categorization-parent.js-form-type-select.is-invalid{
+        select{
+            position: absolute;
+        }
+        &::after{
+            top: 30px;
+            left: auto;
+            right: -5%;
+            @include media-breakpoint-down(lg){
+                top: 0;
+                right: 0;
+            }    
+        }
+    }
+    
     #edit-field-partida-arancelaria-tax-wrapper{
         @include media-breakpoint-down(lg){
             position: relative;

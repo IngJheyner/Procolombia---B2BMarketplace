@@ -69,6 +69,7 @@
         resize: none;
         border: 1px solid #A1A5AA;
     }
+    
     .form-textarea{
         height: 100px;
     }
@@ -97,6 +98,11 @@
         @include media-breakpoint-down(lg){
             select{
                 margin-top: 18px;
+            }
+        }
+        &.is-invalid{
+            .CaptionCont{
+                border: 2px solid $procol-red !important;
             }
         }
         .CaptionCont{
@@ -649,7 +655,9 @@
            }
         // Ends Buttons styles
            
-     } 
+     }
+
+    
 }
 
     
