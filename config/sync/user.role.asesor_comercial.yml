@@ -7,7 +7,9 @@ dependencies:
     - node.type.product
   module:
     - content_translation
+    - cp_advisor_moderation
     - field_permissions
+    - form_mode_control
     - media
     - mfd
     - node
@@ -24,15 +26,22 @@ permissions:
   - 'access content overview'
   - 'access toolbar'
   - 'access webform overview'
+  - 'cp access advisor dashboard'
+  - 'cp core access advisor product dashboard'
+  - 'cp_advisor_moderation dashboard'
+  - 'cp_advisor_moderation product dashboard'
   - 'create field_iframe'
   - 'create field_tags'
+  - 'edit any product content'
   - 'edit field_iframe'
   - 'edit field_tags'
   - 'edit multilingual form'
   - 'edit own field_iframe'
   - 'edit own field_tags'
+  - 'edit own product content'
   - 'translate company node'
   - 'translate product node'
+  - 'use  The form mode advisor_moderation linked to  node entity( product )'
   - 'view any webform submission'
   - 'view field_iframe'
   - 'view field_tags'

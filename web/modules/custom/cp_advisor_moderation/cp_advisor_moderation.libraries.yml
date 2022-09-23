@@ -1,0 +1,6 @@
+cp_advisor_moderation:
+  version: VERSION
+  js:
+    js/cp_advisor_moderation.js: {}
+  dependencies:
+    - core/jquery
