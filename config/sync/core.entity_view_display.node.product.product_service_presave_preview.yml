@@ -67,6 +67,7 @@ third_party_settings:
       children:
         - group_left
         - field_images
+        - cp_core_title_h2_no_link
         - group_right
       label: Row
       parent_name: ''
@@ -104,7 +105,6 @@ third_party_settings:
         speed: fast
     group_right:
       children:
-        - cp_core_title_h2_no_link
         - field_body
         - field_categorization_parent
         - field_categorization
@@ -114,7 +114,7 @@ third_party_settings:
       label: Right
       parent_name: group_row
       region: content
-      weight: 11
+      weight: 12
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-8'
@@ -135,7 +135,7 @@ third_party_settings:
       label: 'Footer links'
       parent_name: group_right
       region: content
-      weight: 9
+      weight: 7
       format_type: html_element
       format_settings:
         classes: group-footer-links
@@ -161,14 +161,14 @@ content:
   cp_core_title_h2_no_link:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 11
     region: content
   field_body:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_categorization:
     type: entity_reference_label
@@ -183,7 +183,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 5
+    weight: 4
     region: content
   field_categorization_parent:
     type: entity_reference_label
@@ -198,7 +198,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 4
+    weight: 3
     region: content
   field_file:
     type: formatter_suite_general_file_link
@@ -285,7 +285,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 7
+    weight: 5
     region: content
   field_pr_country:
     type: entity_reference_label
@@ -293,7 +293,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 8
+    weight: 6
     region: content
 hidden:
   cp_core_edit_product: true
