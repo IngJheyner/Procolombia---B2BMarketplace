@@ -607,6 +607,9 @@
                 position: relative;
                 padding-left: 30px;
                 text-transform: uppercase;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 &::before,
                 &::after{
                     font-family: swiper-icons;
@@ -614,20 +617,17 @@
                     background: linear-gradient(180deg, #D88D00 0%, #EDC500 100%);
                     width: 2px;
                     height: 16px;
-                    position: absolute;
-                    top: 10px;
-                    left: 16px;
+                    position: relative;
                     border-radius: 10px;
-                    @include media-breakpoint-down(lg){
-                        top: 20px;
-                        left: 30%;
-                    }
-                    @include media-breakpoint-down(sm){
-                        left: 15%;
-                     }
+                    
                 }
                 &::after{
                     transform: rotate(90deg);
+                    order: -1;
+                    left: 1px;
+                }
+                &::before{
+                    margin-right: 20px;
                 }
                 @include media-breakpoint-down(lg){
                     width: 100%;
