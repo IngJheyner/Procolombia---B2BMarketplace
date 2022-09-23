@@ -1,0 +1,178 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+use Drupal\Core\Entity\EntityForm;
+use Twig\Node\Expression\Test\NullTest;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\cp_advisor_moderation\Entity\Product;
+
+function cp_advisor_moderation_entity_bundle_info_alter(array &$bundles): void {
+  if (isset($bundles['node']['product'])) {
+    $bundles['node']['product']['class'] = Product::class;
+  }
+}
+
+
+
+function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
+    $form_object = $form_state->getFormObject();
+    if ($form_object instanceof EntityForm) {
+      $bundle = $form_object->getEntity()->bundle();
+      if($bundle === 'product'){
+        $form['actions']['reject'] = array(
+          '#type' => 'submit',
+          '#value' => t('Reject'),
+          '#access' => TRUE,
+          '#submit' => array('reject_product'),
+          '#weight' => -11,
+          '#attributes' =>['class'=>['d-none']]
+        );
+
+        $form['actions']['btn_modal_reject']=[
+          '#type' => 'html_tag',
+          '#tag'  => 'button',
+          '#value' => t('Reject'),
+          '#attributes' => [
+            'class' => ['btn'],
+            'type' =>['button'],
+            'data-bs-toggle' => ['modal'],
+            'data-bs-target'=> ['#modal-reject']
+            ],
+        ];
+
+        $form['actions']['modal_reject'] = [
+          '#theme' => 'confirmation_modal',
+          '#title' => t('Reject'),
+          '#message' => t('You are about to reject the edition of the selected product or service'),
+          '#idModal' =>  'modal-reject'
+        ];
+
+        $form['actions']['approve'] = array(
+          '#type' => 'submit',
+          '#value' => t('Approve'),
+          '#access' => TRUE,
+          '#submit' => array('approve_product'),
+          '#weight' => -10,
+          '#attributes' =>['class'=>['d-none']]
+        );
+        $form['actions']['btn_modal_approve']=[
+          '#type' => 'html_tag',
+          '#tag'  => 'button',
+          '#value' => t('Approve'),
+          '#attributes' => [
+            'class' => ['btn'],
+            'type' =>['button'],
+            'data-bs-toggle' => ['modal'],
+            'data-bs-target'=> ['#modal-approve']
+            ],
+          ];
+
+        $form['actions']['modal_approve'] = [
+            '#theme' => 'confirmation_modal',
+            '#title' => 'Approve',
+            '#message' => t('You are about to approve the edition of the selected product or service'),
+            '#idModal' =>  'modal-approve'
+        ];
+        $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
+
+      }
+    }
+  }
+}
+
+function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
+  return [
+    'confirmation_modal' => [
+      'variables' => [
+        'title' => NULL,
+        'message' => NULL,
+        'idModal' => Null,
+      ],
+      'template' => 'confirmation_modal',
+    ],
+  ];
+}
+
+function cp_advisor_moderation_entity_type_build(array &$entity_types) {
+  $entity_types['node']->setFormClass('advisor_moderation', 'Drupal\node\NodeForm');
+}
+
+
+
+function approve_product(&$form, FormStateInterface $form_state) {
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof EntityForm) {
+    $node = $form_object->getEntity();
+    $node->field_states->value = 'approved';
+    $node->save();
+    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()]);
+    $form_state->setRedirectUrl($url);
+  }
+  \Drupal::messenger()->addMessage(t('approved product or service'), 'status', TRUE);
+
+   //Notification
+   $owner = User::load($node->getOwnerID());
+   $custom_replacements = ['{{ product_name }}' => $node->getTitle()];
+   $key = 'product_seller_approbation_mail';
+   $to = $owner->getEmail();
+   $from = NULL;
+   $langcode = $owner->getPreferredLangcode();
+   $params = [];
+   \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
+}
+
+function reject_product(&$form, FormStateInterface $form_state) {
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof EntityForm) {
+
+    //change sate
+    $node = $form_object->getEntity();
+    $node->field_states->value = 'incomp_info';
+    $node->save();
+    //Redirect
+    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()]);
+    $form_state->setRedirectUrl($url);
+    \Drupal::messenger()->addMessage(t('rejected product or service'), 'status', TRUE);
+
+
+    //Notification
+    $owner = User::load($node->getOwnerID());
+    $custom_replacements = ['{{ product_name }}' => $node->getTitle()];
+    $key = 'product_seller_reject_mail';
+    $to = $owner->getEmail();
+    $from = NULL;
+    $langcode = $owner->getPreferredLangcode();
+    $params = [];
+    \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
+  }
+}
+
+
+
+
+function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+    $view = $form_state->get('view');
+
+    //Crear un servicio LocationService
+    $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', 0, 1, FALSE);
+    $options = array();
+
+    foreach($terms AS $term) {
+      if($parent === 0 AND !$full) {
+        if(!empty($term->parents[0] === '0')) {
+          $options[$term->tid] = $term->name;
+        }
+      } else {
+        $options[$term->tid] = $term->name;
+      }
+    }
+
+    if (($view->id() == 'dashboard_advisor')) {
+      $form['field_company_deparment_target_id']['#options'] = $options;
+      $form['field_company_deparment_target_id']['#options']["All"] = t('Any');
+    }
+
+}
+
