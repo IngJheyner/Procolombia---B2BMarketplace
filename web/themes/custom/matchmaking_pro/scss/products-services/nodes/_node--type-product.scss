@@ -1,5 +1,8 @@
 .node--type-product.node--view-mode-product-service-presave-preview,
 .node--type-product.node--view-mode-full {
+	.node__content{
+		margin-top: 24px;
+	}
 	padding-top: 0;
 	font-family: $font-family-Century-Gothic;
 	.swiper-button-prev,
@@ -25,19 +28,40 @@
 		position: relative;
 		margin: 0 30px;
 		width: 400px;
+		grid-area: 1 / 1 / 3 / 2;
 	}
 	
 	.group-row {
 		display: grid;
 		grid-template-columns: 400px 1fr;
-		gap: 40px;
+		grid-template-rows: 60px auto;
+		grid-column-gap: 40px;
+		grid-row-gap: 16px; 
 		@include media-breakpoint-down(lg){
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-		@include media-breakpoint-down(md){
-			padding-top: 30px;
+		
+		h2 {
+			text-align: left;
+			font-family: $font-bold-Maven;
+			letter-spacing: 0px;
+			color: $procol-dark-blue;
+			font-size: 24px;
+			padding-left: 54px;
+			display: flex;
+			align-items: center;
+			@include media-breakpoint-down(lg){
+				font-size: 20px;
+				top: 0;
+				text-align: left;
+				width: 100%;
+				padding: 0 20px;
+				order: -1;
+			}
+
+
 		}
 	}
 
@@ -54,23 +78,6 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
-		h2 {
-			text-align: left;
-			font: normal normal bold 30px/35px "Maven Pro";
-			letter-spacing: 0px;
-			color: $procol-dark-blue;
-			font-size: 24px;
-			@include media-breakpoint-down(md){
-				font-size: 20px;
-				top: 0;
-				text-align: left;
-				width: 100%;
-				padding: 0 20px;
-			}
-
-
-		}
-		
 		.field {
 			display: grid;
 			grid-template-columns: 224px 1fr;
@@ -85,8 +92,8 @@
 				
 			}
 			@include media-breakpoint-down(sm){
-				display: flex;
-				justify-content: space-between;
+				display: grid;
+				grid-template-columns: 120px 1fr;
 			}
 			&.field--name-field-pr-country{
 				.field__item{
@@ -114,6 +121,9 @@
 		.field--name-field-body {
 			display: block;
 			margin-bottom: 20px;
+			@include media-breakpoint-down(lg){
+				margin-bottom: 0;
+			}
 		}
 
 		.group-footer-links {
@@ -125,7 +135,7 @@
 			.field--name-field-file .field__items{
 				width: 100%;
 			}			
-			@include media-breakpoint-down(md){
+			@include media-breakpoint-down(lg){
 				flex-direction: column;
 			}
 			
@@ -145,7 +155,7 @@
 				text-indent: 0;
 				font-size: 14px;
 				line-height: 17px;
-				@include media-breakpoint-down(md){
+				@include media-breakpoint-down(lg){
 					justify-content: center;					
 					height: 56px;
 				}
@@ -164,12 +174,19 @@
 				border-radius: 4px;
 				font-size: 14px;
 				line-height: 17px;
-				background-image: url(../images/icons/back.svg);
-				background-repeat: no-repeat;
-				background-size: 15px;
-				padding-left: 40px;
-				background-position: 15px center;
-				@include media-breakpoint-down(md){
+				padding-left: 40px;				
+				&::before{
+					position: relative;
+					content: '';
+					width: 20px;
+					height: 20px;
+					background-image: url(../images/icons/back.svg);
+					background-repeat: no-repeat;
+					background-size: 15px;	
+					margin-right: 20px;			
+					background-position: center;	
+				}
+				@include media-breakpoint-down(lg){
 					width: 100%;
 					height: 56px;
 					justify-content: center;
@@ -190,14 +207,25 @@
 		.field--name-field-file,
 		.field--name-field-file-certifications{
 			margin-top: 0;
+			@include media-breakpoint-down(lg){
+				width: 100%;
+			}
 			a{
-				background-image: url(../images/icons/file-pdf.svg);
-				background-repeat: no-repeat;
-				background-size: 16px 20px;
 				padding-left: 40px;
 				background-position: 10px center;
 				font-family: $font-family-Century-Gothic;
-				@include media-breakpoint-down(md){					
+				&::before{
+					position: relative;
+					content: '';
+					background-image: url(../images/icons/file-pdf.svg);
+					background-repeat: no-repeat;
+					background-size: 16px 20px;
+					width: 20px;
+					height: 20px;
+					margin-right: 20px;
+				}
+				@include media-breakpoint-down(lg){
+					width: 100%;				
 					background-position: 20% center;
 					padding-left: 0;
 				}
@@ -254,14 +282,18 @@
 }
 
 .path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
+	.ui-dialog .ui-dialog-content{
+		padding: 0;
+	}
 	border-radius: 4px;
-	padding-bottom: 60px;
 	max-width: 1286px;
 	background-color: $white;
 	border: none;
+	padding: 0;
 	.ui-dialog-titlebar{
 		background-color: transparent;
 		border: none;
+		padding-bottom: 0;
 	}
 	.ui-dialog-titlebar-close {
 		left: 20px;
@@ -281,6 +313,12 @@
 			}
 		}
 
+}
+.view-product-service-presave-preview{
+	padding-bottom: 50px;
+	@include media-breakpoint-down(lg){
+		padding-bottom: 0;
+	}
 }
 
 .path-dashboard .ui-widget-overlay{
