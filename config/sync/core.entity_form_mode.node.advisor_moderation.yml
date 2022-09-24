@@ -1,0 +1,10 @@
+uuid: cadd8e8a-5378-405e-82ea-0adc448d7806
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.advisor_moderation
+label: 'advisor moderation'
+targetEntityType: node
+cache: true

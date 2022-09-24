@@ -138,6 +138,10 @@
 
 		.view-header {
 			border-bottom: 1px solid #D8DADD;
+			.button{
+				text-transform: uppercase;
+				font-size: $font-size-sm;
+			}
 			@include media-breakpoint-down(lg){
 				padding-bottom: 16px;
 			}
@@ -169,6 +173,12 @@
 			}
 			#edit-changed-wrapper{
 				display: none !important;
+			}
+			#edit-litepicker{
+				background-image: url(../images/icons/calendario.svg);
+				background-repeat: no-repeat;
+				background-size: 20px;
+				background-position: 95% center;
 			}
 			.bef-exposed-form .row {
 				.js-form-item-items-per-page {
@@ -241,11 +251,64 @@
 				&:hover{
 					border: none;					
 				}
+				&.open{
+					.CaptionCont label i{
+						background-image: url(../images/icons/icon-expand-select.svg);
+						background-size: cover;
+						right: 3px;
+					}
+				}
 				&.sumo_items_per_page{
+					.CaptionCont {
+						height: 30px;
+						background-image: url(../images/icons/icon-navigation-expand_more_blue.svg) !important;
+						background-size: 30px;
+						background-repeat: no-repeat;
+						background-position-y: center;
+						background-position-x: calc(100% - 10px);			
+						span{
+							font-family: $font-family-Century-Gothic;
+							}			
+						border-color: $procol-gray-200;
+						&:hover{
+							border-color: $procol-light-blue;
+						}
+						@include media-breakpoint-down(lg){
+							height: 56px;
+						}
+					}
+					
 					&.open{
 						.optWrapper{
 							@include media-breakpoint-down(lg){
 								top: 56px;
+							}
+							&.isFloating{
+								top: 0;
+							}
+							.options label{
+								padding-left: 30px;
+								position: relative;
+								&::before{
+									display: flex;
+									position: absolute;
+									left: 6px;
+									top: 2px;
+									content: '';
+									width: 15px;
+									height: 15px;
+									border: 1px solid $procol-gray-200;
+									border-radius: 50%;						
+								}
+							}
+							.opt.selected{
+
+								label::before{
+									background-color: $procol-light-blue;
+									background-image:  url(../images/icons/icon-navigation-expand_more_24px.svg);
+									background-size: 12px;
+									background-position: 0 2px;
+								}
 							}
 							
 						}
@@ -255,30 +318,50 @@
 					height: 30px;
 					margin: 14px 0 14px auto;
 					font-size: 14px;
-					.CaptionCont {
-						background-image: url(../images/icons/icon-navigation-expand_more_blue.svg) !important;
-						background-size: 40px;
-						background-repeat: no-repeat;
-						background-position-y: center;
-						background-position-x: calc(100% - 10px);
-						&:hover{
-							border-color: $procol-light-blue;
-						}
-						@include media-breakpoint-down(lg){
-							height: 56px;
-						}
-					}
+					
 					@include media-breakpoint-down(lg){
 						height: 56px;
 					}
 					
 				}
+				&.sumo_langcode{
+					.CaptionCont span{
+						background-image: url(../images/icons/Icono-Menu-Idioma);
+						background-repeat: no-repeat;
+						background-size: 25px;
+						background-position: 0 center;
+						padding-left: 30px;
+						height: 100%;
+						display: flex;
+						align-items: center;
+					}
+					.opt:nth-child(n+2){
+						background-image: url(../images/icons/Icono-Menu-Idioma);
+						background-repeat: no-repeat;
+						background-size: 25px;
+						background-position: 5px center;
+						padding-right: 40px;
+						label{
+							padding-left: 30px;
+						}
+					}
+				}
+				.search-txt{
+						height: 100%;
+						background-image: url(../images/icons/icon-expand-select.svg);
+						background-repeat: no-repeat;
+						background-position: right;
+						background-size: 35px;
+					}
 				.CaptionCont{
 					height: 35px;
 					display: flex;
 					align-items: center;
 					border-radius: 4px;
 					border: 1px solid #A1A5AA;
+					span{						
+					font-family: $font-family-Century-Gothic;
+					}
 					&:hover{
 						border: 2px solid $procol-light-blue;
 					}
@@ -289,22 +372,30 @@
 						background-image: url(../images/icons/Fecha.svg);
 						background-size: 20px 20px;
 						background-repeat: no-repeat;
-						background-position: center center;
+						background-position: right center;
 						height: 32px;
 						width: 32px;
 						right: 10px;
 						left: auto;
 					}
 				}
+				
 				.optWrapper{
 					&.isFloating{
 						position: relative;
 						width: 100%;
 						max-height: none;
 					}
-					border-radius: 1px;
+					border-radius: 4px;
 					box-shadow: 0 3px 10px $gray-shadow;
 					.options{
+						scrollbar-color: $procol-light-blue $white;
+					&::-webkit-scrollbar-thumb{
+						background: $procol-light-blue;
+					}
+						li.opt{
+							border-bottom: none;
+						}
 						li.opt:hover{
 							background-color: $procol-light-blue;
 							color: $white;
@@ -359,7 +450,7 @@
 		}
 
 		.after-filters-container {
-			top: 305px;
+			top: 301px;
 			margin: 15px 0;
 			@include media-breakpoint-down(lg){
 				margin-bottom: 0;
@@ -373,11 +464,17 @@
 			margin: 0;
 			border-radius: 4px;
 			border: 1px solid #DEE2E6;
-			border-left: 0;
-			border-right: 0;
 			overflow: hidden;
 			@include media-breakpoint-down(md){
 				width: 100%;
+			}
+			li:last-child{
+				a{
+					border-right: none;
+				}
+			}
+			.pager__item--next a {
+				border-left: none;
 			}
 			.pager__item--next,
 			.page-item:last-child{
@@ -390,7 +487,7 @@
 			align-items: center;
 			justify-content: center;
 			min-width: 40px;
-			height: 36px;
+			height: 31px;
 			font-family: $font-family-Century-Gothic;
 			font-size: 12px;
 			line-height: 15px;
@@ -415,8 +512,15 @@
 
 		.view-content {
 			order: 3;
+			.row::-webkit-scrollbar{
+				width: 8px !important;
+			}
 			&.row > * {
 				padding: 0;
+				scrollbar-color: $procol-light-blue $white;
+				&::-webkit-scrollbar-thumb{
+					background: $procol-light-blue;
+				}
 			}
 
 			.table > :not(caption) > * > * {
@@ -436,6 +540,12 @@
 				position: relative;
 				vertical-align: top;
 				height: 60px;
+				font-family: $font-bold-Century-Gothic;
+				font-weight: normal;
+				a{
+					font-family: $font-bold-Century-Gothic;
+					font-weight: normal;
+				}
 			}
 
 			th a {
@@ -569,11 +679,22 @@
 					font-size: 14px;
 					gap: 20px;
 					.views-label {
-						// font-weight: bold;
 						font-family: $font-bold-Century-Gothic;
+						
 					}
 					.field-content{
 						font-size: 13px;
+						font-family: $font-family-Century-Gothic;
+						
+					}
+					&.views-field-title{
+						.field-content{
+							a{
+								color: $procol-gray-400;
+							}
+							
+						}
+						
 					}
 					&.views-field-nothing{
 						order: -1;

@@ -1,0 +1,7 @@
+cp_advisor_moderation.edit_form:
+  path: '/dashboard-advisor/product/{node}/edit'
+  defaults:
+    _entity_form: 'node.edit'
+  requirements:
+    node: \d+
+    _entity_access: 'node.update'

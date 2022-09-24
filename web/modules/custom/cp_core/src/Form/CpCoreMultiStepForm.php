@@ -966,6 +966,7 @@ class CpCoreMultiStepForm extends FormBase {
         foreach ($available_langcodes as $langcode) {
           if ($node->hasTranslation($langcode)) {
             $translation = $node->getTranslation($langcode);
+            $translation->field_states = 'waiting';
             $translation->setPublished();
             $translation->save();
           }

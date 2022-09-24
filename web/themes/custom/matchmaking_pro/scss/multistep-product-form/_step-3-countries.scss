@@ -135,6 +135,11 @@
 
     .group-left.step-3,
     .group-right.step-3{
+        .field--name-field-pr-country .is-invalid{
+            .entity-browser-processed::before{
+                border: 2px solid $procol-red !important;
+            }
+        }
         .js-form-type-select.is-invalid{
             .select2-selection--multiple li.select2-search {
                 border: 2px solid $procol-red !important;
