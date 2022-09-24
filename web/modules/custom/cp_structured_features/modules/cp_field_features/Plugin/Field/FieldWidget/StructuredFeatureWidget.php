@@ -2,14 +2,9 @@
 
 namespace Drupal\link\Plugin\Field\FieldWidget;
 
-use Drupal\Core\Url;
-use Drupal\Core\Entity\Element\EntityAutocomplete;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\link\LinkItemInterface;
-use Symfony\Component\Validator\ConstraintViolation;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * Plugin implementation of the 'structured_feature' widget.
@@ -32,7 +27,6 @@ class StructuredFeatureWidget extends WidgetBase {
       'placeholder_value' => '',
     ] + parent::defaultSettings();
   }
-
 
   /**
    * {@inheritdoc}
@@ -57,18 +51,68 @@ class StructuredFeatureWidget extends WidgetBase {
    * Handles generic features for multiple fields:
    * - number of widgets
    * - AHAH-'add more' button
-   * - table display and drag-n-drop value reordering
+   * - table display and drag-n-drop value reordering.
    */
   protected function formMultipleElements(FieldItemListInterface $items, array &$form, FormStateInterface $form_state) {
     $sf = [];
-    $sf['prod_090111'] = [
+    $sf['structure_one'] = [
+      'id' => 'structure_one',
+      'label' => 'Structure one',
+      'uuid' => '....',
+      'description' => '...',
       'type' => 'product',
-      'part' => '090111',
-      ''
-
+      'references' => ['090111', '090112'],
+      'properties' => [
+        'first' => [
+          'multiple' => TRUE,
+          'required' => TRUE,
+          'type' => 'select',
+          'options' => ['one' => 'Uno', 'two' => 'Dos'],
+          'label' => 'Etiqueta 1',
+          'help' => 'Help 1',
+          'maxlength' => NULL,
+        ],
+        'second' => [
+          'multiple' => FALSE,
+          'required' => TRUE,
+          'type' => 'select',
+          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
+          'label' => 'Etiqueta 2',
+          'help' => 'Help 2',
+          'maxlength' => NULL,
+        ],
+        'third' => [
+          'multiple' => TRUE,
+          'required' => TRUE,
+          'type' => 'textfield',
+          'options' => NULL,
+          'label' => 'Etiqueta 3',
+          'help' => 'Help 3',
+          'maxlength' => 100,
+        ],
+      ],
+    ];
+    $sf['structure_two'] = [
+      'id' => 'structure_two',
+      'label' => 'Structure two',
+      'uuid' => '....',
+      'description' => '...',
+      'type' => 'service',
+      'references' => ['123'],
+      'properties' => [
+        'first' => [
+          'multiple' => TRUE,
+          'required' => TRUE,
+          'type' => 'select',
+          'options' => ['one' => 'Uno', 'two' => 'Dos'],
+          'label' => 'Etiqueta 1',
+          'help' => 'Help',
+          'maxlength' => NULL,
+        ],
+      ],
     ];
 
-    $delta = $this->getSetting('delta_limit');
+    $delta = count($sf['structure_one']['properties']);
     if (count($items) < $delta) {
       for ($i = count($items); $i < $delta; $i++) {
         $items->appendItem();
@@ -95,7 +139,7 @@ class StructuredFeatureWidget extends WidgetBase {
       }
       if (count($field_state['items']) > $delta) {
         for ($i = count($items); $i > $delta; $i--) {
-          if(isset($field_state['items'][$i])) {
+          if (isset($field_state['items'][$i])) {
             unset($field_state['items'][$i]);
           }
         }
@@ -187,7 +231,6 @@ class StructuredFeatureWidget extends WidgetBase {
     return $elements;
   }
 
-
   /**
    * {@inheritdoc}
    */
@@ -200,6 +243,19 @@ class StructuredFeatureWidget extends WidgetBase {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     return $values;
+  }
+
+  /**
+   * Form API callback: Processes an field element.
+   *
+   * Expands the image_image type to include the alt and title fields.
+   *
+   * This method is assigned as a #process callback in formElement() method.
+   */
+  public static function process($element, FormStateInterface $form_state, $form) {
+    $process = parent::process($element, $form_state, $form);
+    unset($element['_weight']);
+    return $process;
   }
 
 }

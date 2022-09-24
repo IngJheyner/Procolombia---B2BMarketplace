@@ -8,11 +8,9 @@ use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\DataDefinition;
-use Drupal\Core\TypedData\MapDataDefinition;
-use Drupal\Core\Url;
 
 /**
- * Plugin implementation of the 'link' field type.
+ * Plugin implementation of the 'structured_feature' field type.
  *
  * @FieldType(
  *   id = "structured_feature",
