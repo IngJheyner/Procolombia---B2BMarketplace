@@ -1,10 +1,11 @@
 <?php
 
-namespace Drupal\link\Plugin\Field\FieldWidget;
+namespace Drupal\cp_field_features\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
  * Plugin implementation of the 'structured_feature' widget.
@@ -32,14 +33,13 @@ class StructuredFeatureWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
-    $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
     $element += [
-      '#type' => 'select',
-      '#options' => $this->getOptions($items->getEntity()),
-      '#default_value' => $this->getSelectedOptions($items),
+      '#type' => 'textfield',
+      // '#options' => $this->getOptions($items->getEntity()),
+      // '#default_value' => $this->getSelectedOptions($items),
       // Do not display a 'multiple' select box if there is only one option.
-      '#multiple' => $this->multiple && count($this->options) > 1,
+      // '#multiple' => $this->multiple && count($this->options) > 1,
     ];
 
     return $element;
@@ -192,7 +192,7 @@ class StructuredFeatureWidget extends WidgetBase {
         ];
       }
 
-      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state);
+      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $sf['structure_one']['properties']);
 
       if ($element) {
         // Input field for the delta (drag-n-drop reordering).
@@ -229,6 +229,36 @@ class StructuredFeatureWidget extends WidgetBase {
     }
 
     return $elements;
+  }
+
+  /**
+   * Generates the form element for a single copy of the widget.
+   */
+  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
+    $element += [
+      '#field_parents' => $form['#parents'],
+      // Only the first widget should be required.
+      '#required' => $delta == 0 && $this->fieldDefinition->isRequired(),
+      '#delta' => $delta,
+      '#weight' => $delta,
+    ];
+
+    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure);
+
+    if ($element) {
+      // Allow modules to alter the field widget form element.
+      $context = [
+        'form' => $form,
+        'widget' => $this,
+        'items' => $items,
+        'delta' => $delta,
+        'default' => $this->isDefaultValueWidget($form_state),
+      ];
+      \Drupal::moduleHandler()->alterDeprecated('Deprecated in drupal:9.2.0 and is removed from drupal:10.0.0. Use hook_field_widget_single_element_form_alter or hook_field_widget_single_element_WIDGET_TYPE_form_alter instead. See https://www.drupal.org/node/3180429.', ['field_widget_form', 'field_widget_' . $this->getPluginId() . '_form'], $element, $form_state, $context);
+      \Drupal::moduleHandler()->alter(['field_widget_single_element_form', 'field_widget_single_element_' . $this->getPluginId() . '_form'], $element, $form_state, $context);
+    }
+
+    return $element;
   }
 
   /**

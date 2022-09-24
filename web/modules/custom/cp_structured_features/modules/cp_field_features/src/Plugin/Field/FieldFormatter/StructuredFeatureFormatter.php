@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\link\Plugin\Field\FieldFormatter;
+namespace Drupal\cp_field_features\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Field\FieldDefinitionInterface;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Field\FieldItemInterface;
 
 /**
- * Plugin implementation of the 'link' formatter.
+ * Plugin implementation of the 'structured_feature' formatter.
  *
  * @FieldFormatter(
  *   id = "sf_default",
@@ -48,7 +48,7 @@ class StructuredFeatureFormatter extends FormatterBase {
   }
 
   /**
-   * Constructs a new LinkFormatter.
+   * Constructs a new Formatter.
    *
    * @param string $plugin_id
    *   The plugin_id for the formatter.
