@@ -16,6 +16,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   id = "structured_feature",
  *   label = @Translation("Structured feature"),
  *   description = @Translation("Create a dynamic field with structures."),
+ *   category = @Translation("General"),
  *   default_widget = "sf_default",
  *   default_formatter = "sf_default",
  * )
