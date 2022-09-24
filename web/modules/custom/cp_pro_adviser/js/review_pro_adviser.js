@@ -9,6 +9,45 @@
     let log_auditory;
     var filterLog = false;
     function init() {
+        //init daterangepicker
+        $('#update_date_log').daterangepicker({
+            "locale": {
+                "format": "DD/MM/YYYY",
+                "separator": " - ",
+                "applyLabel": "Aplicar",
+                "cancelLabel": "Cancelar",
+                "fromLabel": "Desde",
+                "toLabel": "Hasta",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Do",
+                    "Lu",
+                    "Ma",
+                    "Mi",
+                    "Ju",
+                    "Vi",
+                    "Sa"
+                ],
+                "monthNames": [
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre"
+                ],
+                "firstDay": 1
+            },
+            "opens": "center"
+        });
+
         log_auditory = $('#log_auditory').DataTable({
             "processing": true,
             "serverSide": true,
@@ -23,6 +62,7 @@
                         d.company_name = $('#nit_search').val();
                         d.email = $('#mail').val();
                         d.status = $('#state').val();
+                        d.update_date = $('#update_date_log').val();
                     }
                 }
             },
@@ -106,6 +146,7 @@
             'company_name': company_name,
             'email': email,
             'status': status,
+            'update_date': $('#update_date_log').val(),
         }
         var formData = new FormData();
         for (var key in data) {

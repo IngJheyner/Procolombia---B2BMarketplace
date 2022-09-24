@@ -1,0 +1,10 @@
+# Custom module library for general purposes.
+cp_chat:
+  js:
+    js/cp-chat.js: {}
+  css:
+    component:
+      css/cp-chat.css: {}
+  dependencies:
+    - core/drupalSettings
+    - cp_chat/jquery-labelauty

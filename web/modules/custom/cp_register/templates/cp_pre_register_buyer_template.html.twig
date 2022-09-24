@@ -11,7 +11,7 @@
 		<div class="row gy-4 form_pre_registre">
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="nombre_del_sitio" class="form-label">{{ "Names"|t }}
-					<span>*</span>
+					<sup>*</sup>
 				</label>
 				<div class="input_error">
 					<input type="text" class="form-control" id="name" placeholder="">
@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="nombre_del_sitio" class="form-label">{{ "Last names"|t }}
-					<span>*</span>
+					<sup>*</sup>
 				</label>
 				<div class="input_error">
 					<input type="text" class="form-control" id="last_name" placeholder="">
@@ -37,10 +37,10 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="business_name" class="form-label">{{ "Company name"|t }}
-					<span>*</span>
+					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="text" class="form-control" id="business_name" placeholder="">
+					<input type="text" class="form-control" id="business_name" placeholder="" maxlength="100">
 					<i id="error_business_name" class='bx bxs-info-circle toltip_i'>
 						<span id="error_business_name_message" class="tooltiptext_error">
 							{{ "Required Field"|t }}
@@ -58,14 +58,29 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="sitio" class="form-label">{{ "Cell Phone"|t }}
+					<sup>*</sup>
 				</label>
-				<div class="row p-0" style="justify-content: space-between;">
+				{# <div class="row p-0" style="justify-content: space-between;">
 					<div class="col-lg-3 code-input" style="padding: 0px;">
 						<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
 					</div>
 					<div class="col-lg-9 cel-input" style="padding-right: 0px;padding-left: 0px;">
 						<input class="w-100 form-control" type="tel" name="" id="cellphone">
 					</div>
+				</div> #}
+				<div class="input_error">
+					<div class="col-lg-3 code-input" style="padding: 0px;">
+						<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
+					</div>
+					<div class="col-lg-9 cel-input d-flex align-items-center" style="padding-right: 0px;padding-left: 0px;">
+						<input class="w-100 form-control" type="tel" name="" id="cellphone">
+						<i id="error_cellphone" class='bx bxs-info-circle toltip_i'>
+						<span id="error_cellphone_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+					</div>
+					
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
@@ -90,7 +105,7 @@
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
-				<label for="sitio" class="form-label">{{ "Preferred language"|t }}<span>*</span>
+				<label for="sitio" class="form-label">{{ "Preferred language"|t }}<sup>*</sup>
 				</label>
 				<select id="langcode">
 					<option value="es">{{ "Spanish"|t }}</option>
@@ -100,15 +115,15 @@
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<div class="form-group password">
 					<label for="nit">{{ "Password"|t }}
-						<span>*</span>
+						<sup>*</sup>
 					</label>
 					<div class="input-group mb-3">
 						<input type="password" id="password_buyer" class="form-control" aria-label="{{ "Recipient's username"|t }}" aria-describedby="basic-addon2">
-						<span class="input-group-text">
+						<span id="password_buyer__span" class="input-group-text">
 							<img id="pass_bloq_buyer" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 							<img id="pass_show_buyer" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 						</span>
-						<div class="input_error">
+						<div class="input_error mb-0">
 							<i id="error_password_buyer" class='bx bxs-info-circle toltip_i'>
 								<span id="error_password_buyer_message" class="tooltiptext_error">
 									{{ "Required Field"|t }}
@@ -134,15 +149,15 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<div class="form-group password">
-					<label for="nit">{{ "Verify Password"|t }}<span>*</span>
+					<label for="nit">{{ "Verify Password"|t }}<sup>*</sup>
 					</label>
 					<div class="input-group mb-3">
 						<input type="password" id="confirm_password_buyer" class="form-control" aria-describedby="basic-addon2">
-						<span class="input-group-text">
+						<span id="pass_bloq_buyer_confirm__span" class="input-group-text">
 							<img id="pass_bloq_buyer_confirm" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 							<img id="pass_show_buyer_confirm" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 						</span>
-						<div class="input_error">
+						<div class="input_error mb-0">
 							<i id="error_confirm_password_buyer" class='bx bxs-info-circle toltip_i'>
 								<span id="error_confirm_password_buyer_message" class="tooltiptext_error">
 									{{ "Required Field"|t }}

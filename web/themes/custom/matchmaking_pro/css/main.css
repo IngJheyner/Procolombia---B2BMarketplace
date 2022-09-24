@@ -48,6 +48,32 @@ body {
   font-family: Gothic-Regular !important;
 }
 
+.yes {
+  border: 1px solid #005ca4;
+}
+
+#auth_box {
+  width: 35%;
+}
+#auth_box #middle_part {
+  padding: 2rem 3rem;
+}
+#auth_box input {
+  width: 100% !important;
+}
+#auth_box #edit-persistent-login {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+@media (max-width: 600px) {
+  #auth_box {
+    width: 95%;
+  }
+  #auth_box #middle_part {
+    padding: 2rem 3rem;
+  }
+}
 .form-control {
   height: 46px !important;
 }
@@ -59,7 +85,8 @@ body {
   font-size: 14px;
   font-family: "Gothic-Regular";
   margin: 0px;
-  line-height: 1.7em;
+  line-height: 1.2em;
+  font-weight: bold;
 }
 .modal-body h6 {
   font-size: 1.5rem;
@@ -114,6 +141,20 @@ body {
 
 .modal-title img {
   margin-right: 10px;
+}
+
+.toltip_content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.toltip_content span {
+  line-height: 1.21em;
+}
+
+.ts-control .item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .form-control:focus {
@@ -1080,6 +1121,10 @@ div#page {
   color: #ba0c2f;
 }
 
+.dropdown_cont {
+  z-index: 10089;
+}
+
 .activ_menu {
   display: block !important;
   animation: fadeInRight 0.3s ease;
@@ -1184,6 +1229,7 @@ div#page {
   cursor: pointer;
   padding-bottom: 0.5rem;
   background-color: transparent;
+  position: relative;
 }
 .dropdown-cont-movil #logout {
   background: #f0F0F0;
@@ -1233,7 +1279,7 @@ div#page {
   margin-bottom: 8px;
 }
 .dropdown-cont-movil .logo_img_menu .status {
-  color: #000;
+  color: #3b3d42;
   font-size: 16px;
   font-family: "Gothic-Bold";
   display: flex;
@@ -1263,6 +1309,11 @@ div#page {
   padding-right: 40px;
 }
 .dropdown-cont-movil ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   padding-left: 0px;
   display: none;
   width: 100%;
@@ -1311,6 +1362,7 @@ div#page {
 }
 .dropdown-cont-movil ul > li:hover > a {
   color: #ffffff;
+  background: transparent;
 }
 .dropdown-cont-movil ul > li:last-child:hover {
   background: #f0f0f0;
@@ -1398,7 +1450,7 @@ div#page {
   border: none;
   background: transparent;
   color: #0085ca;
-  width: 100%;
+  margin-top: 6px;
   text-align: end;
   padding: 7px 0px;
 }
@@ -1426,15 +1478,11 @@ div#page {
   font-size: 14px;
 }
 
-#login_modal .modal-dialog {
-  width: 520px !important;
-  min-width: 520px !important;
-}
-
 sup {
   color: #ba0c2f;
   font-family: Gothic-Bold;
   font-size: 17px;
+  top: -4px;
 }
 
 .dropdown-toggle::after {
@@ -1598,6 +1646,18 @@ sup {
   .logo-center {
     text-align: center;
   }
+  a.dropdown-item {
+    width: 100%;
+    color: #6b6d71;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  a.li_icon_url svg {
+    width: 31px;
+    height: 23px;
+    margin-right: 10px !important;
+  }
 }
 .resalte {
   font-family: Gothic-Bold;
@@ -1605,12 +1665,13 @@ sup {
 }
 
 .hidden-input {
-  z-index: -6 !important;
+  z-index: -20 !important;
   opacity: 0;
+  height: 46px;
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-  width: 150px;
+  width: 9vw;
   height: 46px;
   background: #fff !important;
   border: 1px solid #ccc;
@@ -1799,6 +1860,10 @@ select,
   font-size: 15px;
   padding-right: 2.4rem !important;
   height: 46px;
+  font-family: Gothic-Regular !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  -moz-appearance: none !important;
 }
 
 select:hover {
@@ -1811,7 +1876,10 @@ select:hover {
 
 select,
 textarea {
-  -webkit-appearance: none;
+  font-family: Gothic-Regular !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  -moz-appearance: none !important;
   border: none;
   outline: none;
   padding: 7px 20px;
@@ -1819,6 +1887,7 @@ textarea {
   border: 1px solid #cccccc;
   width: 100%;
   border-radius: 4px;
+  background-color: #ffffff;
 }
 select:focus,
 textarea:focus {
@@ -1831,6 +1900,20 @@ textarea:active {
 select header,
 textarea header {
   background: #f7f8f8;
+}
+select a.dropdown-item,
+textarea a.dropdown-item {
+  width: 100%;
+  color: #6b6d71;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+select a.li_icon_url svg,
+textarea a.li_icon_url svg {
+  width: 31px;
+  height: 23px;
+  margin-right: 10px !important;
 }
 
 .btn {
@@ -1935,6 +2018,18 @@ textarea header {
   }
   .logo-center {
     text-align: center;
+  }
+  a.dropdown-item {
+    width: 100%;
+    color: #6b6d71;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  a.li_icon_url svg {
+    width: 31px;
+    height: 23px;
+    margin-right: 10px !important;
   }
 }
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {

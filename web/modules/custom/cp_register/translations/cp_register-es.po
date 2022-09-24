@@ -384,6 +384,9 @@ msgstr "El archivo de certificación debe ser un archivo PDF"
 msgid "Name is required"
 msgstr "El nombre es obligatorio"
 
+msgid "Name is required\n"
+msgstr "El nombre es obligatorio\n"
+
 msgid "The name must not be longer than 20 characters"
 msgstr "El nombre no debe tener más de 20 caracteres"
 
@@ -940,6 +943,9 @@ msgstr "El nombre no puede tener mas de 20 caracteres\n"
 msgid "Lastname is required\n"
 msgstr "El apellido es obligatorio\n"
 
+msgid "Lastname is required"
+msgstr "El apellido es obligatorio"
+
 msgid "Cell phone is required\n"
 msgstr "Se requiere un celular\n"
 
@@ -972,3 +978,15 @@ msgstr "Por favor ingrese un sitio web válido"
 
 msgid "Error when deleting user"
 msgstr "Error al eliminar el usuario"
+
+msgid "E-mail is required."
+msgstr "El correo es requerido."
+
+msgid "E-mail is required"
+msgstr "El correo es requerido"
+
+msgid "E-mail is not valid"
+msgstr "El correo no es válido"
+
+msgid "Please enter a web site"
+msgstr "Por favor ingrese un sitio web"

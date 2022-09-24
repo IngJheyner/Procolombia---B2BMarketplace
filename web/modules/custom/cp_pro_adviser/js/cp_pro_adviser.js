@@ -15,6 +15,45 @@
         * -- This table has paginate with send to endpoint /adviser/get_all_buyer_by_page and the data is in array buyers
         *///
 
+        //init daterangepicker
+        console.log("update_date", $("#update_date"));
+        $('#update_date').daterangepicker({
+            "locale": {
+                "format": "DD/MM/YYYY",
+                "separator": " - ",
+                "applyLabel": "Aplicar",
+                "cancelLabel": "Cancelar",
+                "fromLabel": "Desde",
+                "toLabel": "Hasta",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Do",
+                    "Lu",
+                    "Ma",
+                    "Mi",
+                    "Ju",
+                    "Vi",
+                    "Sa"
+                ],
+                "monthNames": [
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre"
+                ],
+                "firstDay": 1
+            },
+            "opens": "center"
+        });
 
         if ($('#buyers-list').length > 0) {
             tableBuyer = $('#buyers-list').DataTable({
@@ -48,37 +87,37 @@
                     //company name
                     {
                         "data": "company_name",
-                        "title": "Company Name"
+                        "title": "Nombre de la empresa"
                     },
                     //email
                     {
                         "data": "email",
-                        "title": "Email"
+                        "title": "Cooreo electrónico"
                     },
                     //lang
                     {
                         "data": "lang",
-                        "title": "Language"
+                        "title": "Idioma"
                     },
                     //country
                     {
                         "data": "country",
-                        "title": "Country"
+                        "title": "Pais"
                     },
                     //subcategory
                     {
                         "data": "subcategory",
-                        "title": "Subcategory"
+                        "title": "Subcategoria"
                     },
                     //update date
                     {
                         "data": "update_date",
-                        "title": "Update Date"
+                        "title": "Fecha de actualización"
                     },
                     //status
                     {
                         "data": "status",
-                        "title": "Status"
+                        "title": "Estado"
                     },
                     //action
                     {
@@ -86,7 +125,7 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/asesor/editar/internacional?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
-                        "title": "Action",
+                        "title": "Acción",
                         "className": "text-center"
                     }
                 ],
@@ -158,7 +197,7 @@
                         <button class="btn btn_download" id="btn_download_report_buyer"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/carpeta.svg" class="me-2"> Descargar Reporte</button>
                     </div>
                     <div class="text_result">
-                        {{ "Found "|t }}<span id="filter_total_buyer"></span> resultados asociados a tu búsqueda:
+                        Se encontraron <span id="filter_total_buyer"></span> resultados asociados a tu búsqueda:
                     </div>
                 </div>
                    
@@ -206,23 +245,23 @@
                     //Email empresa hidden
                     {
                         "data": "email",
-                        "title": "Email",
+                        "title": "Correo empresa",
                         "visible": false,
                     },
                     //company_name
                     {
                         "data": "company_name",
-                        "title": "Company Name",
+                        "title": "Nombre de la empresa",
                     },
                     //lang
                     {
                         "data": "lang",
-                        "title": "Language",
+                        "title": "Idioma",
                     },
                     //company_logo is image
                     {
                         "data": "company_logo",
-                        "title": "Company Logo",
+                        "title": "Logo de la empresa",
                         "render": function (data, type, row, meta) {
                             return '<img src="' + row.company_logo + '" width="100px" height="100px">';
                         }
@@ -230,23 +269,23 @@
                     //company_deparment
                     {
                         "data": "company_deparment",
-                        "title": "Company Department"
+                        "title": "Departamento",
                     },
                     //company_city
                     {
                         "data": "company_city",
-                        "title": "Company City"
+                        "title": "Ciudad",
                     },
                     //productive_chain
                     {
                         "data": "productive_chain",
-                        "title": "Productive Chain",
+                        "title": "Cadena productiva",
 
                     },
                     //update_date
                     {
                         "data": "update_date",
-                        "title": "Update Date"
+                        "title": "Fecha de actualización",
                     },
                     //add See products as url that have string See products
                     {
@@ -254,12 +293,12 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/adviser/exportador' + row.id + '" class="see_btn">See products</a>';
                         },
-                        "title": "See products"
+                        "title": "Ver productos",
                     },
                     //published as string
                     {
                         "data": "id",
-                        "title": "Published",
+                        "title": "Publicado",
                         "render": function (data, type, row, meta) {
                             return 'Yes';
                         },
@@ -267,12 +306,12 @@
                     //status
                     {
                         "data": "status",
-                        "title": "Status"
+                        "title": "Estado",
                     },
                     //views
                     {
                         "data": "id",
-                        "title": "Views",
+                        "title": "Vistas",
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Ojo_gris.svg" alt="" srcset="" class="img-views img-table" /><span class="tooltip-table">180</span></div>';
@@ -281,7 +320,7 @@
                     //incentives
                     {
                         "data": "id",
-                        "title": "Incentives",
+                        "title": "Incentivos",
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/gold.svg" alt="" srcset="" class="img-status" /><span class="tooltip-table">180</span></div>';
@@ -293,7 +332,7 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/asesor/editar/col?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
-                        "title": "Action",
+                        "title": "Acción",
                         "className": "text-center"
                     }
 

@@ -385,6 +385,9 @@ div#main-wrapper {
   align-items: center;
   font-family: Gothic-Regular;
   font-weight: 300;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .main_registre .check label a {
   font-family: Gothic-Bold;

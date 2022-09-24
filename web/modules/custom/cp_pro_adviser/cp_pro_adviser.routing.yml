@@ -8,6 +8,7 @@ cp_pro_adviser.render:
 cp_pro_adviser.dashboard:
   path: "dashboard/adviser/user/col"
   defaults:
+    _title: 'Dashboard'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
   methods:  [GET]
   requirements:
@@ -17,6 +18,7 @@ cp_pro_adviser.dashboard:
 cp_pro_adviser.tablero:
   path: "tablero/adviser/usuario/col"
   defaults:
+    _title: 'Tablero'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
   methods:  [GET]
   requirements:
@@ -44,6 +46,7 @@ cp_pro_adviser.get_all_buyer_by_page:
 cp_pro_adviser.review:
   path: "adviser/audit-log"
   defaults:
+    _title: 'Audit user'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
   methods:  [GET]
   requirements:
@@ -53,6 +56,7 @@ cp_pro_adviser.review:
 cp_pro_adviser.revisar:
   path: "revisar/adviser/usuario"
   defaults:
+    _title: 'Revisar usuario'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
   methods:  [GET]
   requirements:
@@ -62,6 +66,7 @@ cp_pro_adviser.revisar:
 cp_pro_adviser.edit_col_company:
   path: "adviser/edit/col"
   defaults:
+    _title: 'Edit company'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
   methods:  [GET]
   requirements:
@@ -71,6 +76,7 @@ cp_pro_adviser.edit_col_company:
 cp_pro_adviser.editar_col_company:
   path: "asesor/editar/col"
   defaults:
+    _title: 'Editar empresa'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
   methods:  [GET]
   requirements:
@@ -116,6 +122,7 @@ cp_pro_adviser.reject_user_col:
 cp_pro_adviser.edit_international_company:
   path: "adviser/edit/international"
   defaults:
+    _title: 'Edit international buyer'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
   methods:  [GET]
   requirements:
@@ -125,6 +132,7 @@ cp_pro_adviser.edit_international_company:
 cp_pro_adviser.editar_international_company:
   path: "asesor/editar/internacional"
   defaults:
+    _title: 'Editar comprador internacional'
     _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
   methods:  [GET]
   requirements:
@@ -179,6 +187,7 @@ cp_pro_adviser.getAdvisorLogs:
 cp_pro_adviser.dashboard_international:
   path: "dashboard/adviser/user/international"
   defaults:
+    _title: "Dashboard International Adviser"
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
   methods:  [GET]
   requirements:
@@ -188,6 +197,7 @@ cp_pro_adviser.dashboard_international:
 cp_pro_adviser.tablero_international:
   path: "tablero/adviser/usuario/international"
   defaults:
+    _title: "Tablero de Asesor Internacional"
     _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
   methods:  [GET]
   requirements:

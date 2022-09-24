@@ -23,9 +23,9 @@
 			<div>
 				<div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
-						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 pe-4">
 							<label for="nombre_del_sitio" class="form-label">{{ 'Names'|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="name" placeholder="">
@@ -36,9 +36,9 @@
 								</i>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 ps-4">
 							<label for="nombre_del_sitio" class="form-label">{{ 'Surname'|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="last_name" placeholder="">
@@ -49,9 +49,9 @@
 								</i>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 pe-4">
 							<label for="business_name" class="form-label">{{ 'Company Name'|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="business_name" placeholder="">
@@ -70,19 +70,26 @@
 								<span>{{ 'You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name.'|t }}</span>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 ps-4">
 							<label for="sitio" class="form-label">{{ 'Cell Phone'|t }}
 							</label>
-							<div class="row">
-								<div class="col-lg-3" style="padding: 0px;">
+							 <sup>*</sup>
+							<div class="row input_error p-0">
+								<div class="col-lg-3 code-input" style="padding: 0px;">
 									<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
 								</div>
-								<div class="col-lg-9">
+								<div class="col-lg-9 cel-input d-flex align-items-center">
 									<input class="w-100 form-control" style="height: 100%;" type="tel" name="" id="cellphone">
+									<i id="error_cellphone" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cellphone_message" class="tooltiptext_error">
+										{{ 'Required Field'|t }}
+									</span>
+									</i>                
 								</div>
+							
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 pe-4">
 							<label for="email">{{ 'E-mail address'|t }}
 								<sup>*</sup>
 							</label>
@@ -103,10 +110,10 @@
 								<span>{{ 'Enter the institutional e-mail address where correspondence from this web site will be sent.'|t }}</span>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 pe-4">
 							<div class="form-group password">
 								<label for="nit">{{ 'Password'|t }}
-									<span>*</span>
+									 <sup>*</sup>
 								</label>
 								<div class="input-group mb-3">
 									<input type="password" id="password_buyer" class="form-control" aria-label= "{{ "Recipient's username"|t }}" aria-describedby="basic-addon2">
@@ -133,16 +140,16 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 ps-4">
-							<label for="sitio" class="form-label">{{ 'Preferred language'|t }}<span>*</span>
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6 ps-4">
+							<label for="sitio" class="form-label">{{ 'Preferred language'|t }} <sup>*</sup>
 							</label>
 							<select id="langcode">
 								<option value="es">{{ 'Spanish'|t }}</option>
 								<option value="en">{{ 'English'|t }}</option>
 							</select>
 						</div>
-						<div class="col-md-6">
-							<label for="sitio" class="form-label">{{ 'Country'|t }}<span>*</span>
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
+							<label for="sitio" class="form-label">{{ 'Country'|t }} <sup>*</sup>
 							</label>
 							<div class="d-flex align-items-center error_select">
 								<div id="departament_contain" class="w-100">
@@ -163,9 +170,9 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="position" class="form-label">{{ 'Position name'|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="position" placeholder="">
@@ -184,8 +191,8 @@
 								<span>{{ 'Please include the name of your position within the company.'|t }}</span>
 							</div>
 						</div>
-						{# <div class="col-md-6">
-													<label for="city" class="form-label">{{ 'City'|t }}<span>*</span>
+						{# <div class="col-sm-12 col-md-12 mt-0 col-lg-6">
+													<label for="city" class="form-label">{{ 'City'|t }} <sup>*</sup>
 													</label>
 													<div class="d-flex align-items-center error_select">
 														<div id="" class="w-100">
@@ -203,7 +210,7 @@
 													</div>
 						
 												</div> #}
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="web_site" class="form-label">{{ 'Company website'|t }}
 							</label>
 							<div class="input_error">
@@ -223,7 +230,7 @@
 								<span>{{ 'Please include the complete URL starting with http or https.'|t }}</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="principal_advisor" class="form-label">{{ 'ProColombia Senior Advisor'|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
@@ -251,10 +258,10 @@
 
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="cat_interest_1" class="form-label">{{ 'I am interested in...'|t }}
 								(Categoría de interés)
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_1_cont" class="input_error">
@@ -272,9 +279,9 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="company_model" class="form-label">{{ 'Business Model'|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_cont" class="input_error">
@@ -292,10 +299,10 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="subcat_interest_1" class="form-label">{{ 'Particularly in...'|t }}
 								(Subcategoría de Interés)
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_1_cont" class="input_error">
@@ -310,7 +317,7 @@
 							</div>
 
 						</div>
-						<div class="col-md-6" style="padding-bottom: 30px;">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
 								<label for="nit">{{ 'Tariff Item'|t }}</label>
 								<div class="icon_help toltip_i">
@@ -347,10 +354,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="cat_interest_2" class="form-label">{{ 'I am interested in...'|t }}
 								(Categoría de interés) #2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_2_cont" class="input_error">
@@ -369,10 +376,10 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="company_model_2" class="form-label">{{ 'Business Model'|t }}
 								#2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_2_cont" class="input_error">
@@ -391,10 +398,10 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="subcat_interest_2" class="form-label">{{ 'Particularly in...'|t }}
 								(Subcategoría de Interés) #2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_2_cont" class="input_error">
@@ -410,7 +417,7 @@
 							</div>
 
 						</div>
-						<div class="col-md-6" style="padding-bottom: 30px;">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
 								<label for="nit">{{ 'Tariff Item #2'|t }}</label>
 								<div class="icon_help toltip_i">
@@ -444,10 +451,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="cat_interest_3" class="form-label">{{ 'I am interested in...'|t }}
 								(Categoría de interés) #3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_3_cont" class="input_error">
@@ -466,10 +473,10 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="company_model_3" class="form-label">{{ 'Business Model'|t }}
 								#3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_3_cont" class="input_error">
@@ -488,10 +495,10 @@
 							</div>
 
 						</div>
-						<div class="col-md-6">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6">
 							<label for="subcat_interest_3" class="form-label">{{ 'Particularly in...'|t }}
 								(Subcategoría de Interés) #3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_3_cont" class="input_error">
@@ -507,7 +514,7 @@
 							</div>
 
 						</div>
-						<div class="col-md-6" style="padding-bottom: 30px;">
+						<div class="col-sm-12 col-md-12 mt-0 col-lg-6" style="padding-bottom: 30px;">
 							<div class="form-group rihgt">
 								<label for="nit">{{ 'Tariff Item #3'|t }}</label>
 								<div class="icon_help toltip_i">

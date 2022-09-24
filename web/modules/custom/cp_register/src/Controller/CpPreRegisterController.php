@@ -8,48 +8,30 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * An cp_register controller.
+ * PHP version 7.
+ *
+ * @category Template_Class
+ * @package Template_Class
+ * @author Author <author@domain.com>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link http://localhost/
  */
-class CpPreRegisterController extends ControllerBase
-{
+class CpPreRegisterController extends ControllerBase {
 
-    /**
-     * Returns a template twig file.
-     */
-    public function index()
-    {
+  /**
+   * Returns a template twig file.
+   *
+   * @return array
+   *
+   *   DESCRIPTION
+   */
+  public function index() {
+    
+    return [
+      // Your theme hook name.
+      '#theme' => 'cp_pre_register_template_hook',
+      '#site_key' => $site_key,
+    ];
+  }
 
-        //redirect if $_SESSION['language'] is not the current path
-        $language = $_COOKIE['language'];
-        //get actual language
-        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        //check if query params has token
-        $token = \Drupal::request()->query->get('token');
-        if(isset($language) && !isset($token)){
-            if ($language != $actual_language) {
-                if($language == 'en'){
-                    return new RedirectResponse("/en/pre-register", 301);
-                }else{
-                    return new RedirectResponse("/es/pre-registro", 301);
-                }
-            }else{
-                //get path of url
-                $path = \Drupal::service('path.current')->getPath();
-                if($language == 'en'){
-                    if($path != '/pre-register'){
-                        return new RedirectResponse("/en/pre-register", 301);
-                    }
-                }else{
-                    if($path != '/pre-registro'){
-                        return new RedirectResponse("/es/pre-registro", 301);
-                    }
-                }
-            }
-        }
-        return [
-            // Your theme hook name.
-            '#theme' => 'cp_pre_register_template_hook',
-            '#site_key' => $site_key,
-        ];
-    }
 }

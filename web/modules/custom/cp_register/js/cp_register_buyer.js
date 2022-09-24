@@ -29,7 +29,6 @@
     });
     select_model1 = new TomSelect("#company_model", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -63,7 +62,6 @@
     });
     select_model2 = new TomSelect("#company_model_2", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -97,7 +95,6 @@
     });
     select_model3 = new TomSelect("#company_model_3", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -262,16 +259,17 @@
     var country = $("#country").val();
     var position = $("#position").val();
     var web_site = $("#web_site").val();
+    var advisor = $("#principal_advisor").val();
     let isValid = true;
     let message = ""
     if (country == "") {
       message = Drupal.t("Please select a country");
-      $("#country").css("border-color", "#ba0c2f");
+      $("#country_contain").find("div.ts-control").css("border-color", "#ba0c2f");
       $("#error_country_message").text(message)
       $("#error_country").show();
       isValid = false;
     } else {
-      $("#country").css("border-color", "#ccc");
+      $("#country_contain").find("div.ts-control").css("border-color", "#ccc");
       $("#error_country").hide();
     }
 
@@ -286,7 +284,14 @@
       $("#error_position").hide();
     }
 
-    if (web_site != "") {
+    if (web_site == "") {
+      message = Drupal.t("Please enter a web site");
+      $("#web_site").css("border-color", "#ba0c2f");
+      $("#error_web_site_message").text(message)
+      $("#error_web_site").show();
+      isValid = false;
+    }
+    else if (web_site != "") {
       if (!validateURL(web_site)) {
         message = Drupal.t("Please enter a valid website");
         $("#web_site").css("border-color", "#ba0c2f");
@@ -297,6 +302,18 @@
         $("#web_site").css("border-color", "#ccc");
         $("#error_web_site").hide();
       }
+      
+    }
+
+    if (advisor == "") {
+      message = Drupal.t("Select the ProColombia advisor with whom your company has a defined work plan.");
+      $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ba0c2f");
+      $("#error_principal_advisor-ts-control_message").text(message)
+      $("#error_principal_advisor-ts-control").show();
+      isValid = false;
+    } else {
+      $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ccc");
+      $("#error_principal_advisor-ts-control").hide();
     }
 
     return isValid;
@@ -739,6 +756,8 @@
     select_model1.setValue(data.company_model);
     select_model2.setValue(data.company_model_2);
     select_model3.setValue(data.company_model_3);
+    country.setValue(data.country);
+    advisor.setValue(data.advisor);
   }
 
   /*

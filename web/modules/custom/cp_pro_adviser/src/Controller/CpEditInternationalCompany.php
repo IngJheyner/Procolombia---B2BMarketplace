@@ -9,134 +9,105 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * An cp_pro_adviser controller.
  */
-class CpEditInternationalCompany extends ControllerBase
-{
+class CpEditInternationalCompany extends ControllerBase {
 
-    /**
-     * Returns a template twig file.
-     */
-    public function index()
-    {
-        //List of terms to set a select field deparments.
-        $vid = 'categorization';
-        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-        $tree_categorization=[];
-        foreach ($terms as $term) {
-            array_push($tree_categorization, [
-                    "ID" => $term->tid,
-                    "Name" => $term->name
-                ]
-            );
-        }
-         //List of terms to set a select field modelos_de_negocio.
-         $vid = 'modelos_de_negocio';
-         //load taxonomy_term storage.
-         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-         $tree_business_model=[];
-         foreach ($terms as $term) {
-             array_push($tree_business_model, [
-                     "ID" => $term->tid,
-                     "Name" => $term->name
-                 ]
-             );
-         }
-
-         //List of terms to set a select field modelos_de_negocio.
-         $vid = 'countries';
-         //load taxonomy_term storage.
-         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, false);
-         $tree_countries=[];
-         foreach ($terms as $term) {
-             array_push($tree_countries, [
-                     "ID" => $term->tid,
-                     "Name" => $term->name
-                 ]
-             );
-         }
-
-          //get advisor user with role asesor_comercial.
-        $query = \Drupal::entityQuery('user');
-        $query->condition('roles', 'asesor_internacional');
-        $uids = $query->execute();
-        $users = \Drupal\user\Entity\User::loadMultiple($uids);
-        $tree_advisor=[];
-        foreach ($users as $user) {
-            array_push($tree_advisor, [
-                    "ID" => $user->id(),
-                    "Name" => $user->get('field_company_contact_name')->value . ' ' . $user->get('field_company_contact_lastname')->value
-                ]
-            );
-        }
-
-        //redirect if $_SESSION['language'] is not the current path
-        $language = $_COOKIE['language'];
-        //get actual language
-        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        //check if query params has token
-        $token = \Drupal::request()->query->get('token');
-        if(isset($language) && !isset($token)){
-            if ($language != $actual_language) {
-                if($language == 'en'){
-                    return new RedirectResponse("/en/adviser/edit/col", 301);
-                }else{
-                    return new RedirectResponse("/es/asesor/editar/coll", 301);
-                }
-            }else{
-                //get path of url
-                $path = \Drupal::service('path.current')->getPath();
-                if($language == 'en'){
-                    if($path != '/adviser/edit/col'){
-                        return new RedirectResponse("/en/adviser/edit/col", 301);
-                    }
-                }else{
-                    if($path != '/asesor/editar/col'){
-                        return new RedirectResponse("/es/asesor/editar/col", 301);
-                    }
-                }
-            }
-        }
-
-        return [
-            // Your theme hook name.
-            '#theme' => 'cp_edit_international_company_template_hook',
-            '#tree_categorization' => $tree_categorization,
-            '#tree_business_model' => $tree_business_model,
-            '#tree_countries' => $tree_countries,
-            '#tree_advisor' => $tree_advisor,
-        ];
+  /**
+   * Returns a template twig file.
+   */
+  public function index() {
+    // List of terms to set a select field deparments.
+    $vid = 'categorization';
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, FALSE);
+    $tree_categorization = [];
+    foreach ($terms as $term) {
+      array_push($tree_categorization, [
+        "ID" => $term->tid,
+        "Name" => $term->name,
+      ]
+      );
+    }
+    // List of terms to set a select field modelos_de_negocio.
+    $vid = 'modelos_de_negocio';
+    // Load taxonomy_term storage.
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, FALSE);
+    $tree_business_model = [];
+    foreach ($terms as $term) {
+      array_push($tree_business_model, [
+        "ID" => $term->tid,
+        "Name" => $term->name,
+      ]
+      );
     }
 
-    //create register in table advisor_logs.
-    public function createLog($email, $company_name, $action, $status)
-    {
-        $connection = \Drupal::database();
-        $connection->insert('advisor_logs')
-            ->fields([
-                'email' => $email,
-                'company_name' => $company_name,
-                'created_at' => date('Y-m-d H:i:s'),
-                'action' => $action,
-                'status' => $status,
-            ])
-            ->execute();
+    // List of terms to set a select field modelos_de_negocio.
+    $vid = 'countries';
+    // Load taxonomy_term storage.
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, 1, FALSE);
+    $tree_countries = [];
+    foreach ($terms as $term) {
+      array_push($tree_countries, [
+        "ID" => $term->tid,
+        "Name" => $term->name,
+      ]
+      );
     }
 
-    
-
-    public function getUid($email)
-    {
-        $query = \Drupal::entityQuery('user')
-            ->condition('mail', $email)
-            ->execute();
-        if(!empty($query)){
-            $user = \Drupal\user\Entity\User::load(reset($query));
-            $uid = $user->id();
-            return $uid;
-        }
-        else{
-            return null;
-        }
+      //get advisor user with role asesor_comercial.
+    $query = \Drupal::entityQuery('user');
+    $query->condition('roles', 'asesor_internacional');
+    $uids = $query->execute();
+    $users = \Drupal\user\Entity\User::loadMultiple($uids);
+    $tree_advisor = [];
+    foreach ($users as $user) {
+      array_push($tree_advisor, [
+        "ID" => $user->id(),
+        "Name" => $user->get('field_company_contact_name')->value . ' ' . $user->get('field_company_contact_lastname')->value,
+      ]
+      );
     }
+
+    return [
+      // Your theme hook name.
+      '#theme' => 'cp_edit_international_company_template_hook',
+      '#tree_categorization' => $tree_categorization,
+      '#tree_business_model' => $tree_business_model,
+      '#tree_countries' => $tree_countries,
+      '#tree_advisor' => $tree_advisor,
+    ];
+  }
+
+  /**
+   * Create register in table advisor_logs.
+   */
+  public function createLog($email, $company_name, $action, $status) {
+    $connection = \Drupal::database();
+    $connection->insert('advisor_logs')
+      ->fields([
+        'email' => $email,
+        'company_name' => $company_name,
+        'created_at' => date('Y-m-d H:i:s'),
+        'action' => $action,
+        'status' => $status,
+      ])
+      ->execute();
+  }
+
+  /**
+   * Get User ID. with email.
+   */
+  public function getUid($email) {
+    $query = \Drupal::entityQuery('user')
+      ->condition('mail', $email)
+      ->execute();
+    if (!empty($query)) {
+      $user = \Drupal\user\Entity\User::load(reset($query));
+      $uid = $user->id();
+      return $uid;
+    }
+    else {
+      return NULL;
+    }
+  }
 
     //get_international_user in drupal and return user object data.
     public function get_international_user(Request $request)

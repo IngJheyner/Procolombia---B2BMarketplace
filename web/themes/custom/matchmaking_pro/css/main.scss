@@ -76,10 +76,49 @@ body {
 	font: inherit !important;
 	font-family: $font-regular  !important;
 }
+.yes{
+	border: 1px solid #005ca4;
+}
 
-.form-control{
+///
+/// Estilos Menu Drupal
+/// 
+#auth_box {
+	width: 35%;
+
+	#middle_part {
+		padding: 2rem 3rem;
+	}
+
+	input {
+		width: 100% !important;
+	}
+
+	#edit-persistent-login {
+		width: 20px !important;
+		height: 20px !important;
+	}
+}
+
+@media (max-width: 600px) {
+	#auth_box {
+		width: 95%;
+
+		#middle_part {
+			padding: 2rem 3rem;
+		}
+
+	}
+}
+
+/// 
+/// 
+
+
+.form-control {
 	height: 46px !important;
 }
+
 .modal-body {
 
 	padding: 37px 18px;
@@ -88,7 +127,8 @@ body {
 		font-size: 14px;
 		font-family: 'Gothic-Regular';
 		margin: 0px;
-		line-height: 1.7em;
+		line-height: 1.2em;
+		font-weight: bold;
 	}
 
 
@@ -166,6 +206,20 @@ body {
 	img {
 		margin-right: 10px;
 	}
+}
+
+.toltip_content {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	span{
+		line-height: 1.21em;
+	}
+}
+
+.ts-control .item {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .form-control:focus {
@@ -899,20 +953,20 @@ strong {
 	right: 0rem;
 	background: #f4f4f4;
 	padding-top: 2rem;
-    height: 200vh;
-    width: 500px;
-    z-index: 10011;
-    padding-left: 1.8rem;
-    padding-right: 0.5rem;
-    padding-bottom: 1.8rem;
-    transition: all 0.5s ease-out;
-    top: 5.5rem;
-    overflow: auto;
+	height: 200vh;
+	width: 500px;
+	z-index: 10011;
+	padding-left: 1.8rem;
+	padding-right: 0.5rem;
+	padding-bottom: 1.8rem;
+	transition: all 0.5s ease-out;
+	top: 5.5rem;
+	overflow: auto;
 
 	.bar_content {
 		overflow: auto;
 		height: 45%;
-   		width: 100%;
+		width: 100%;
 		padding-right: 0.5rem;
 		word-break: break-all;
 
@@ -1280,6 +1334,10 @@ div#page {
 
 }
 
+.dropdown_cont {
+	z-index: 10089;
+}
+
 .activ_menu {
 	display: block !important;
 	animation: fadeInRight .3s ease;
@@ -1401,6 +1459,8 @@ div#page {
 	cursor: pointer;
 	padding-bottom: 0.5rem;
 	background-color: transparent;
+	position: relative;
+    
 
 	#logout {
 		background: #f0F0F0;
@@ -1458,7 +1518,7 @@ div#page {
 		}
 
 		.status {
-			color: #000;
+			color: $color-Gris-Oscuro;
 			font-size: 16px;
 			font-family: 'Gothic-Bold';
 			display: flex;
@@ -1495,7 +1555,11 @@ div#page {
 	}
 
 	ul {
-
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
 		padding-left: 0px;
 		display: none;
 		width: 100%;
@@ -1552,6 +1616,7 @@ div#page {
 
 				>a {
 					color: $color-White;
+					background: transparent;
 				}
 			}
 
@@ -1680,7 +1745,7 @@ div#page {
 	border: none;
 	background: transparent;
 	color: $color-Pantone-process-Blue;
-	width: 100%;
+	margin-top: 6px;
 	text-align: end;
 	padding: 7px 0px;
 
@@ -1700,15 +1765,13 @@ div#page {
 	font-size: 14px;
 }
 
-#login_modal .modal-dialog {
-	width: 520px !important;
-	min-width: 520px !important;
-}
+
 
 sup {
 	color: $color-Pantone-200;
 	font-family: $font-bold;
 	font-size: 17px;
+	top: -4px;
 }
 
 .dropdown-toggle::after {
@@ -1925,6 +1988,18 @@ sup {
 	.logo-center {
 		text-align: center;
 	}
+	a.dropdown-item {
+		width: 100%;
+		color: #6b6d71;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	a.li_icon_url svg {
+		width: 31px;
+		height: 23px;
+		margin-right: 10px !important;
+	}
 }
 
 .resalte {
@@ -1933,12 +2008,13 @@ sup {
 }
 
 .hidden-input {
-	z-index: -6 !important;
+	z-index: -20 !important;
 	opacity: 0;
+	height: 46px;
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-	width: 150px;
+	width: 9vw;
 	height: 46px;
 	background: #fff !important;
 	border: 1px solid #ccc;
@@ -2174,9 +2250,13 @@ select,
 	background-position-y: 50% !important;
 	border: 1px solid #dfdfdf;
 	padding: 4px 0.7rem !important;
-    font-size: 15px;
-    padding-right: 2.4rem !important;
-    height: 46px;
+	font-size: 15px;
+	padding-right: 2.4rem !important;
+	height: 46px;
+	font-family: $font-regular !important;
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	-moz-appearance: none !important;
 }
 
 select {
@@ -2193,7 +2273,10 @@ select {
 
 select,
 textarea {
-	-webkit-appearance: none;
+	font-family: $font-regular !important;
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	-moz-appearance: none !important;
 	border: none;
 	outline: none;
 	padding: 7px 20px;
@@ -2201,7 +2284,7 @@ textarea {
 	border: 1px solid $color-cccccc;
 	width: 100%;
 	border-radius: 4px;
-
+	background-color: $color-White;
 	&:focus {
 		outline: none;
 
@@ -2213,6 +2296,18 @@ textarea {
 
 	header {
 		background: $color-f7f8f8;
+	}
+	a.dropdown-item {
+		width: 100%;
+		color: #6b6d71;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	a.li_icon_url svg {
+		width: 31px;
+		height: 23px;
+		margin-right: 10px !important;
 	}
 }
 
@@ -2359,6 +2454,18 @@ textarea {
 
 	.logo-center {
 		text-align: center;
+	}
+	a.dropdown-item {
+		width: 100%;
+		color: #6b6d71;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	a.li_icon_url svg {
+		width: 31px;
+		height: 23px;
+		margin-right: 10px !important;
 	}
 }
 

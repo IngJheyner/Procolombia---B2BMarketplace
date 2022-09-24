@@ -51,7 +51,6 @@
 
     modelo_de_negocio_select = new TomSelect("#modelo_de_negocio", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -74,7 +73,6 @@
 
     certificacion_de_empresa_select = new TomSelect("#certificacion_de_empresa", {
       plugins: ['remove_button'],
-      create: true,
       create: false,
       onItemAdd: function () {
         this.setTextboxValue('');
