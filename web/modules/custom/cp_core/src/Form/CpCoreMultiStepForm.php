@@ -97,6 +97,13 @@ class CpCoreMultiStepForm extends FormBase {
   protected $step = 1;
 
   /**
+   * Control vars.
+   *
+   * @var int
+   */
+  protected $step_sf = FALSE;
+
+  /**
    * Max step to control the last step.
    *
    * @var int
@@ -219,7 +226,12 @@ class CpCoreMultiStepForm extends FormBase {
   protected function buildFormDisplay(FormStateInterface $form_state) {
     // Fetch the display used by the form. It is the display for the 'default'
     // form mode, with only the current field visible.
-    $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "{$this->formModePattern}_{$this->step}");
+    if ($this->step_sf) {
+      $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "step_sf");
+    }
+    else {
+      $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "{$this->formModePattern}_{$this->step}");
+    }
     $display->removeComponent('revision_log');
     $form_state->set('form_display', $display);
   }
@@ -754,7 +766,19 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function previousPage(array &$form, FormStateInterface $form_state) {
     $form_state->setRebuild();
-    $this->step--;
+    if ($this->step_sf) {
+      $this->step_sf = FALSE;
+    }
+    else {
+      if ($this->step == 3) {
+        $this->step_sf = TRUE;
+        $this->step = 2;
+      }
+      else {
+        $this->step--;
+        $this->step_sf = FALSE;
+      }
+    }
   }
 
   /**
@@ -805,7 +829,19 @@ class CpCoreMultiStepForm extends FormBase {
     // an previous step.
     if ($this->step <= ($this->maxStep - 1)) {
       $form_state->setRebuild();
-      $this->step++;
+      if ($this->step_sf) {
+        $this->step_sf = FALSE;
+        $this->step++;
+      }
+      else {
+        if ($this->step == 2) {
+          $this->step_sf = TRUE;
+        }
+        else {
+          $this->step_sf = FALSE;
+          $this->step++;
+        }
+      }
     }
     else {
       // Show the last step.

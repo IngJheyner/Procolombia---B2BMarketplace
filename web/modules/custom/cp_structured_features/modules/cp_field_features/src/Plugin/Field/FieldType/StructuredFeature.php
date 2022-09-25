@@ -105,7 +105,7 @@ class StructuredFeature extends FieldItemBase {
     // Treat the values as property value of the main property, if no array is
     // given.
     if (isset($values) && !is_array($values)) {
-      $values = [static::mainPropertyName() => $values];
+      $values = [static::mainPropertyName() => $values, 'property' => '--'];
     }
     parent::setValue($values, $notify);
   }

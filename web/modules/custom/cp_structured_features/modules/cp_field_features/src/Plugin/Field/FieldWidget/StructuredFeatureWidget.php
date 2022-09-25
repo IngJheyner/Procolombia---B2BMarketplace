@@ -30,22 +30,6 @@ class StructuredFeatureWidget extends WidgetBase {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
-
-    $element += [
-      '#type' => 'textfield',
-      // '#options' => $this->getOptions($items->getEntity()),
-      // '#default_value' => $this->getSelectedOptions($items),
-      // Do not display a 'multiple' select box if there is only one option.
-      // '#multiple' => $this->multiple && count($this->options) > 1,
-    ];
-
-    return $element;
-  }
-
-  /**
    * Special handling to create form elements for multiple values.
    *
    * Handles generic features for multiple fields:
@@ -71,6 +55,9 @@ class StructuredFeatureWidget extends WidgetBase {
           'label' => 'Etiqueta 1',
           'help' => 'Help 1',
           'maxlength' => NULL,
+          'size' => NULL,
+          'placeholder' => NULL,
+          'class' => NULL,
         ],
         'second' => [
           'multiple' => FALSE,
@@ -80,6 +67,9 @@ class StructuredFeatureWidget extends WidgetBase {
           'label' => 'Etiqueta 2',
           'help' => 'Help 2',
           'maxlength' => NULL,
+          'size' => NULL,
+          'placeholder' => NULL,
+          'class' => NULL,
         ],
         'third' => [
           'multiple' => TRUE,
@@ -88,7 +78,10 @@ class StructuredFeatureWidget extends WidgetBase {
           'options' => NULL,
           'label' => 'Etiqueta 3',
           'help' => 'Help 3',
-          'maxlength' => 100,
+          'maxlength' => NULL,
+          'size' => NULL,
+          'placeholder' => NULL,
+          'class' => NULL,
         ],
       ],
     ];
@@ -108,21 +101,14 @@ class StructuredFeatureWidget extends WidgetBase {
           'label' => 'Etiqueta 1',
           'help' => 'Help',
           'maxlength' => NULL,
+          'size' => NULL,
+          'placeholder' => NULL,
+          'class' => NULL,
         ],
       ],
     ];
 
     $delta = count($sf['structure_one']['properties']);
-    if (count($items) < $delta) {
-      for ($i = count($items); $i < $delta; $i++) {
-        $items->appendItem();
-      }
-    }
-    if (count($items) > $delta) {
-      for ($i = count($items); $i > $delta; $i--) {
-        $items->removeItem($i);
-      }
-    }
     $field_name = $this->fieldDefinition->getName();
     $parents = $form['#parents'];
 
@@ -149,74 +135,40 @@ class StructuredFeatureWidget extends WidgetBase {
 
     $cardinality = $this->fieldDefinition->getFieldStorageDefinition()->getCardinality();
     $parents = $form['#parents'];
-
-    // Determine the number of widgets to display.
-    switch ($cardinality) {
-      case FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED:
-        $field_state = static::getWidgetState($parents, $field_name, $form_state);
-        $max = $field_state['items_count'];
-        $is_multiple = TRUE;
-        break;
-
-      default:
-        $max = $cardinality - 1;
-        $is_multiple = ($cardinality > 1);
-        break;
-    }
+    $field_state = static::getWidgetState($parents, $field_name, $form_state);
+    $max = $delta;
+    $is_multiple = TRUE;
 
     $title = $this->fieldDefinition->getLabel();
     $description = $this->getFilteredDescription();
 
     $elements = [];
 
-    for ($delta = 0; $delta <= $max; $delta++) {
+    $delta = 0;
+    foreach ($sf['structure_one']['properties'] as $property => $structure) {
       // Add a new empty item if it doesn't exist yet at this delta.
       if (!isset($items[$delta])) {
         $items->appendItem();
       }
-
-      // For multiple fields, title and description are handled by the wrapping
-      // table.
-      if ($is_multiple) {
-        $element = [
-          '#title' => $this->t('@title (value @number)', ['@title' => $title, '@number' => $delta + 1]),
-          '#title_display' => 'invisible',
-          '#description' => '',
-        ];
-      }
-      else {
-        $element = [
-          '#title' => $title,
-          '#title_display' => 'before',
-          '#description' => $description,
-        ];
-      }
-
-      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $sf['structure_one']['properties']);
+      $element = [];
+      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $structure, $property);
 
       if ($element) {
         // Input field for the delta (drag-n-drop reordering).
         if ($is_multiple) {
           // We name the element '_weight' to avoid clashing with elements
           // defined by widget.
-          $element['_weight'] = [
-            '#type' => 'weight',
-            '#title' => $this->t('Weight for row @number', ['@number' => $delta + 1]),
-            '#title_display' => 'invisible',
-            // Note: this 'delta' is the FAPI #type 'weight' element's property.
-            '#delta' => $max,
-            '#default_value' => $items[$delta]->_weight ?: $delta,
-            '#weight' => 100,
-          ];
+          unset($element['_weight']);
         }
 
         $elements[$delta] = $element;
       }
+      $delta++;
     }
 
     if ($elements) {
       $elements += [
-        '#theme' => 'field_multiple_value_form',
+        '#theme' => 'cp_field_features_multiple_value_form',
         '#field_name' => $field_name,
         '#cardinality' => $cardinality,
         '#cardinality_multiple' => $this->fieldDefinition->getFieldStorageDefinition()->isMultiple(),
@@ -234,7 +186,7 @@ class StructuredFeatureWidget extends WidgetBase {
   /**
    * Generates the form element for a single copy of the widget.
    */
-  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
+  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL, string $property = NULL) {
     $element += [
       '#field_parents' => $form['#parents'],
       // Only the first widget should be required.
@@ -243,7 +195,7 @@ class StructuredFeatureWidget extends WidgetBase {
       '#weight' => $delta,
     ];
 
-    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure);
+    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure, $property);
 
     if ($element) {
       // Allow modules to alter the field widget form element.
@@ -264,6 +216,68 @@ class StructuredFeatureWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL, string $property = NULL) {
+    $element['property'] = [
+      '#type' => 'hidden',
+      '#default_value' => $property,
+    ];
+    switch ($structure['type']) {
+      case 'select':
+      case 'radios':
+      case 'checkboxes':
+        if ($structure['multiple']) {
+          $default_value = !empty($items[$delta]->value) ?
+            array_combine(explode(';', $items[$delta]->value), explode(';', $items[$delta]->value))
+          :
+            array_combine(explode(';', $structure['default_value']), explode(';', $structure['default_value']));
+        }
+        else {
+          $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
+        }
+        $element['value'] = [
+          '#type' => $structure['type'],
+          '#title' => $structure['label'],
+          '#default_value' => $default_value,
+          '#placeholder' => $structure['placeholder'],
+          '#attributes' => ['class' => [$structure['class']]],
+          '#required' => $structure['required'],
+          '#options' => $structure['options'],
+        ];
+        break;
+
+      case 'checkbox':
+        $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
+        $element['value'] = [
+          '#type' => $structure['type'],
+          '#title' => $structure['label'],
+          '#default_value' => $default_value,
+          '#attributes' => ['class' => [$structure['class']]],
+          '#required' => $structure['required'],
+        ];
+        break;
+
+      case 'textfield':
+      case 'textarea':
+        $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
+        $element['value'] = [
+          '#type' => $structure['type'],
+          '#title' => $structure['label'],
+          '#default_value' => $default_value,
+          '#size' => $structure['size'],
+          '#placeholder' => $structure['placeholder'],
+          '#maxlength' => $structure['maxlength'],
+          '#attributes' => ['class' => [$structure['class']]],
+          '#required' => $structure['required'],
+        ];
+        break;
+    }
+
+    return $element;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function settingsSummary() {
     return [];
   }
@@ -273,19 +287,6 @@ class StructuredFeatureWidget extends WidgetBase {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     return $values;
-  }
-
-  /**
-   * Form API callback: Processes an field element.
-   *
-   * Expands the image_image type to include the alt and title fields.
-   *
-   * This method is assigned as a #process callback in formElement() method.
-   */
-  public static function process($element, FormStateInterface $form_state, $form) {
-    $process = parent::process($element, $form_state, $form);
-    unset($element['_weight']);
-    return $process;
   }
 
 }
