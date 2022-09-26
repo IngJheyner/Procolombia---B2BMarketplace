@@ -178,10 +178,10 @@
 				<div class="tab-pane fade show active" id="step_2" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">{{ "Country"|t }}<span>*</span>
+							<label for="sitio" class="form-label">{{ "Country"|t }} <sup>*</sup>
 							</label>
 							<div class="d-flex align-items-center error_select">
-								<div id="departament_contain" class="w-100">
+								<div id="country_contain" class="w-100">
 									<select id="country" class="single_select" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 										<option value="">{{ "Enter the keyword or select an option"|t }}
 										</option>
@@ -201,7 +201,7 @@
 						</div>
 						<div class="col-md-6">
 							<label for="position" class="form-label">{{ "Position name"|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="position" placeholder="">
@@ -221,7 +221,7 @@
 							</div>
 						</div>
 						{# <div class="col-md-6">
-																			<label for="city" class="form-label">{{ "City"|t }}<span>*</span>
+																			<label for="city" class="form-label">{{ "City"|t }} <sup>*</sup>
 																			</label>
 																			<div class="d-flex align-items-center error_select">
 																				<div id="" class="w-100">
@@ -251,15 +251,15 @@
 								</i>
 							</div>
 							<div class="toltip_content">
-								<i class='bx bxs-info-circle toltip_i'>
-									<span class="tooltiptext">
+								<i id="error_web_site" class='bx bxs-info-circle toltip_i'>
+									<span id="error_web_site_message" class="tooltiptext">
 										{{ "Please include the complete URL starting with http or https."|t }}
 									</span>
 								</i>
 								<span>{{ "Please include the complete URL starting with http or https."|t }}</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6" id="principal_advisor_contain">
 							<label for="principal_advisor" class="form-label">{{ "ProColombia Senior Advisor"|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
@@ -270,8 +270,8 @@
 								{% endfor %}
 							</select>
 							<div class="toltip_content">
-								<i class='bx bxs-info-circle toltip_i'>
-									<span class="tooltiptext">
+								<i id="error_principal_advisor-ts-control" class='bx bxs-info-circle toltip_i'>
+									<span id="error_principal_advisor-ts-control_message" class="tooltiptext">
 										{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
 									</span>
 								</i>
@@ -301,7 +301,7 @@
 							<label for="cat_interest_1" class="form-label">
 								{{ "I am interested in..."|t }}
 								(Categoría de interés)
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_1_cont" class="input_error">
@@ -321,7 +321,7 @@
 						</div>
 						<div class="col-md-6">
 							<label for="company_model" class="form-label">{{ "Business Model"|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_cont" class="input_error">
@@ -341,7 +341,7 @@
 						</div>
 						<div class="col-md-6">
 							<label for="subcat_interest_1" class="form-label">{{ "Particularly in..."|t }}
-								(Subcategoría de Interés)<span>*</span>
+								(Subcategoría de Interés) <sup>*</sup>
 							</label>
 							<div id="subcat_interest_1_cont" class="input_error">
 								<select name="subcat_interest_1" id="subcat_interest_1">
@@ -368,12 +368,12 @@
 									</span>
 								</div>
 								<div class="input_error">
-									<select name="principal_advisor" id="principal_advisor">
+									<select>
 										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
-										<option value="Jaime Francisco">Jaime Francisco</option>
-										<option value="Ruth Silvana">Ruth Silvana</option>
-										<option value="Luis Felipe">Luis Felipe</option>
-										<option value="Montserrat Carolina">Montserrat Carolina</option>
+										<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
@@ -412,7 +412,7 @@
 							<label for="cat_interest_2" class="form-label">
 								{{ "I am interested in..."|t }}
 								(Categoría de interés) No.2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_2_cont" class="input_error">
@@ -435,7 +435,7 @@
 							<label for="company_model_2" class="form-label">
 								{{ "Business Model"|t }}
 								No.2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_2_cont" class="input_error">
@@ -457,7 +457,7 @@
 							<label for="subcat_interest_2" class="form-label">
 								{{ "Particularly in..."|t }}
 								(Subcategoría de Interés) No.2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_2_cont" class="input_error">
@@ -485,12 +485,12 @@
 									</span>
 								</div>
 								<div class="input_error">
-									<select name="principal_advisor" id="principal_advisor">
+									<select>
 										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
-										<option value="Jaime Francisco">Jaime Francisco</option>
-										<option value="Ruth Silvana">Ruth Silvana</option>
-										<option value="Luis Felipe">Luis Felipe</option>
-										<option value="Montserrat Carolina">Montserrat Carolina</option>
+									<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
@@ -528,7 +528,7 @@
 						<div class="col-md-6">
 							<label for="cat_interest_3" class="form-label">{{ "I am interested in..."|t }}
 								(Categoría de interés) No.3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_3_cont" class="input_error">
@@ -549,7 +549,7 @@
 						<div class="col-md-6">
 							<label for="company_model_3" class="form-label">{{ "Business Model"|t }}
 								No.3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_3_cont" class="input_error">
@@ -571,7 +571,7 @@
 						<div class="col-md-6">
 							<label for="subcat_interest_3" class="form-label">{{ "Particularly in..."|t }}
 								(Subcategoría de Interés) No.3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_3_cont" class="input_error">
@@ -599,12 +599,12 @@
 									</span>
 								</div>
 								<div class="input_error">
-									<select name="principal_advisor" id="principal_advisor">
+									<select>
 										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
-										<option value="Jaime Francisco">Jaime Francisco</option>
-										<option value="Ruth Silvana">Ruth Silvana</option>
-										<option value="Luis Felipe">Luis Felipe</option>
-										<option value="Montserrat Carolina">Montserrat Carolina</option>
+									    <option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">

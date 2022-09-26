@@ -13,7 +13,7 @@
 (function ($, Drupal) {
 
   'use strict';
-  
+
   // function to go to step 3
   function goToLogin() {
     $("#login_modal").modal('show');
@@ -370,14 +370,15 @@
     var message = "";
     var isValid = true;
     if (email_forgot == "") {
-      message = Drupal.t("The email is required");
+      message = Drupal.t("E-mail is required");
       $("#email_forgot_container").css("border-color", "#ba0c2f");
       $("#error_email_forgot").show();
       $("#error_email_forgot_message").text(message)
+      $('#error_email_forgot').attr('data-bs-original-title', "Foo").tooltip('show');
       isValid = false;
     } else {
       if (!isEmail(email_forgot)) {
-        message = Drupal.t("The email is not valid");
+        message = Drupal.t("E-mail is not valid");
         $("#email_forgot_container").css("border-color", "#ba0c2f");
         $("#error_email_forgot").show();
         $("#error_email_forgot_message").text(message)
@@ -575,6 +576,20 @@
 
   Drupal.behaviors.custom = {
     attach: function (context, settings) {
+
+      //call function login and validate form
+      $("#login_modal #username", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          login_drupal();
+        }
+      });
+      //call function login and validate form
+      $("#login_modal #password", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          login_drupal();
+        }
+      });
+
       //call function login
       $("#btn_login", context).click(function () {
         goToLogin();
@@ -651,7 +666,7 @@
 
       //change languages base in path url
       $("#change_language", context).click(function () {
-        var url = window.location.pathname;
+        var url = window.location.pathname + window.location.search;
         console.log(url);
         var url_split = url.split("/");
         var language = url_split[1];
@@ -659,10 +674,10 @@
         if (language == "es") {
           //save in session storage
           document.cookie = "language=en;path=/;";
-          window.location.href = url.replace("es", "en");
+          window.location.href = url.replace("/es", "/en");
         } else {
           document.cookie = "language=es;path=/;";
-          window.location.href = url.replace("en", "es");
+          window.location.href = url.replace("/en", "/es");
         }
       });
 
@@ -723,10 +738,23 @@
       $("#nit_button", context).click(function () {
         getEmailByNit();
       });
+      //get email by nit
+      $("#forgot_email_modal #nit", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          getEmailByNit();
+        };
+      });
 
       //recover password
       $("#password_forgot_button", context).click(function () {
         recoverPassword();
+      });
+
+      //recover password
+      $("#forgot_password_modal #email_forgot", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          recoverPassword();
+        };
       });
 
       //change password
@@ -766,7 +794,161 @@
           $("#modal_recover_password").modal("show");
         }
       }
+
+      //buttons international
+      //edit button mobile international
+      $("#edit_button_mobile_international", context).click(function () {
+        //redirect
+        window.location.href = "/edit/international/user";
+      });
+
+      //change language button
+      $("#change_language_button", context).click(function () {
+        //change display
+        $("#change_language_button").css("display", "none");
+      });
+
+      //buttons exportador
+      //edit button mobile exportador
+      $("#edit_button_mobile_exportador", context).click(function () {
+        //redirect
+        window.location.href = "/edit/col/user";
+      });
+
+      //change language button
+      $("#change_language_button_exportador", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_exportador").css("display") == "none") {
+          $("#change_language_content_exportador").css("display", "block");
+          $("#change_language_content_exportador").css("min-width", "100%");
+        } else {
+          $("#change_language_content_exportador").css("display", "none");
+          $("#change_language_content_exportador").css("min-width", "0");
+        }
+      });
+
+      //change languages base in path url
+      $("#change_language_exportador", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //buttons asesor_comercial
+      //edit button mobile asesor_comercial
+     //change language button
+      $("#change_language_button_asesor_comercial", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_asesor_comercial").css("display") == "none") {
+          $("#change_language_content_asesor_comercial").css("display", "block");
+          $("#change_language_content_asesor_comercial").css("min-width", "100%");
+        } else {
+          $("#change_language_content_asesor_comercial").css("display", "none");
+          $("#change_language_content_asesor_comercial").css("min-width", "0");
+        }
+      });
+      
+      //change languages base in path url
+      $("#change_language_asesor_comercial", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //buttons asesor_internacional
+      //edit button mobile asesor_internacional
+      $("#edit_button_mobile_asesor_internacional", context).click(function () {
+        //redirect
+        window.location.href = "/edit/international/user";
+      });
+
+      //change language button
+      $("#change_language_button_asesor_internacional", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_asesor_internacional").css("display") == "none") {
+          $("#change_language_content_asesor_internacional").css("display", "block");
+          $("#change_language_content_asesor_internacional").css("min-width", "100%");
+        } else {
+          $("#change_language_content_asesor_internacional").css("display", "none");
+          $("#change_language_content_asesor_internacional").css("min-width", "0");
+        }
+      });
+      //change languages base in path url
+      $("#change_language_asesor_internacional", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //change language button
+      $("#change_language_button_main", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_main").css("display") == "none") {
+          $("#change_language_content_main").css("display", "block");
+          $("#change_language_content_main").css("min-width", "100%");
+        } else {
+          $("#change_language_content_main").css("display", "none");
+          $("#change_language_content_main").css("min-width", "0");
+        }
+      });
+      //change languages base in path url
+      $("#change_language_main", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //change language button
+      $("#change_language_button", context).click(function () {
+        //change display
+        $("#change_language_button").css("display", "none");
+      });
+      
+      
     }
   };
-
 })(jQuery, Drupal);

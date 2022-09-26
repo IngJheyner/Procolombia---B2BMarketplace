@@ -8,6 +8,7 @@ cp_company_international.render:
 cp_company_international.dashboard:
   path: "dashboard/international/user"
   defaults:
+    _title: 'Dashboard'
     _controller: '\Drupal\cp_company_international\Controller\CpDashboardCompanyInternationalController::index'
   methods:  [GET]
   requirements:
@@ -17,6 +18,7 @@ cp_company_international.dashboard:
 cp_company_international.tablero:
   path: "tablero/internacional/usuario"
   defaults:
+    _title: 'Tablero'
     _controller: '\Drupal\cp_company_international\Controller\CpDashboardCompanyInternationalController::index'
   methods:  [GET]
   requirements:
@@ -26,6 +28,7 @@ cp_company_international.tablero:
 cp_company_international.edit:
   path: "edit/international/user"
   defaults:
+    _title: 'Edit user'
     _controller: '\Drupal\cp_company_international\Controller\CpEditCompanyInternationalController::index'
   methods:  [GET]
   requirements:
@@ -35,6 +38,7 @@ cp_company_international.edit:
 cp_company_international.editar:
   path: "editar/internacional/usuario"
   defaults:
+    _title: 'Editar usuario'
     _controller: '\Drupal\cp_company_international\Controller\CpEditCompanyInternationalController::index'
   methods:  [GET]
   requirements:

@@ -47,11 +47,11 @@ function cp_register_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_register_template',
       'variables' => [
-        'deparments' => null,
-        'production_chain' => null,
-        'business_model' => null,
-        'certificacion_de_empresa' => null,
-        'advisor' => null,
+        'deparments' => NULL,
+        'production_chain' => NULL,
+        'business_model' => NULL,
+        'certificacion_de_empresa' => NULL,
+        'advisor' => NULL,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -77,10 +77,10 @@ function cp_register_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_register_buyer_template',
       'variables' => [
-        'tree_categorization' => null,
-        'tree_business_model' => null,
-        'tree_countries' => null,
-        'tree_advisor' => null,
+        'tree_categorization' => NULL,
+        'tree_business_model' => NULL,
+        'tree_countries' => NULL,
+        'tree_advisor' => NULL,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

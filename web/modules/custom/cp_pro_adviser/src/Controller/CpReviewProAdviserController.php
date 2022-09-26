@@ -30,33 +30,6 @@ class CpReviewProAdviserController extends ControllerBase
             );
         }
 
-        $language = $_COOKIE['language'];
-        //get actual language
-        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        //check if query params has token
-        $token = \Drupal::request()->query->get('token');
-        if(isset($language) && !isset($token)){
-            if ($language != $actual_language) {
-                if($language == 'en'){
-                    return new RedirectResponse("/en/adviser/audit-log", 301);
-                }else{
-                    return new RedirectResponse("/es/revisar/adviser/usuario", 301);
-                }
-            }else{
-                //get path of url
-                $path = \Drupal::service('path.current')->getPath();
-                if($language == 'en'){
-                    if($path != '/adviser/audit-log'){
-                        return new RedirectResponse("/en/adviser/audit-log", 301);
-                    }
-                }else{
-                    if($path != '/revisar/adviser/usuario'){
-                        return new RedirectResponse("/es/revisar/adviser/usuario", 301);
-                    }
-                }
-            }
-        }
-
         return [
             // Your theme hook name.
             '#theme' => 'cp_review_pro_adviser_template_hook',
@@ -96,9 +69,22 @@ class CpReviewProAdviserController extends ControllerBase
         
 
         //created_at
-        $created_at = $request->request->get('created_at');
-        if (!empty($created_at)) {
-            $query->condition('created_at', $created_at, '=');
+        $update_date = $request->request->get('update_date');
+        if (!empty($update_date)) {
+            //split range date with -
+            $update_date = explode('-', $update_date);
+            //replace / with -
+            $update_date[0] = str_replace('/', '-', $update_date[0]);
+            $update_date[1] = str_replace('/', '-', $update_date[1]);
+            //trim spaces
+            $update_date[0] = trim($update_date[0]);
+            $update_date[1] = trim($update_date[1]);
+            //convert dates to date('Y-m-d H:i:s') for compare with created_at
+            $first_date = date('Y-m-d H:i:s', strtotime($update_date[0]));
+            $second_date = date('Y-m-d H:i:s', strtotime($update_date[1]));
+            //get all users with update date between first date and second date
+            $query->condition('created_at', $first_date, '>');
+            $query->condition('created_at', $second_date, '<=');
         }
 
         //status
@@ -158,10 +144,24 @@ class CpReviewProAdviserController extends ControllerBase
         
 
         //created_at
-        $created_at = $request->request->get('created_at');
-        if (!empty($created_at)) {
-            $query->condition('created_at', $created_at, '=');
+        $update_date = $request->request->get('update_date');
+        if (!empty($update_date)) {
+            //split range date with -
+            $update_date = explode('-', $update_date);
+            //replace / with -
+            $update_date[0] = str_replace('/', '-', $update_date[0]);
+            $update_date[1] = str_replace('/', '-', $update_date[1]);
+            //trim spaces
+            $update_date[0] = trim($update_date[0]);
+            $update_date[1] = trim($update_date[1]);
+            //convert dates to date('Y-m-d H:i:s') for compare with created_at
+            $first_date = date('Y-m-d H:i:s', strtotime($update_date[0]));
+            $second_date = date('Y-m-d H:i:s', strtotime($update_date[1]));
+            //get all users with update date between first date and second date
+            $query->condition('created_at', $first_date, '>');
+            $query->condition('created_at', $second_date, '<=');
         }
+
 
         //status
         $status = $request->request->get('status');

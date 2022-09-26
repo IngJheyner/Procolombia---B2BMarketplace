@@ -94,7 +94,6 @@
         $("#information").modal('show');
         select_model1 = new TomSelect("#company_model", {
             plugins: ['remove_button'],
-            create: true,
             onItemAdd: function () {
                 this.setTextboxValue('');
                 this.refreshOptions();
@@ -128,7 +127,6 @@
         });
         select_model2 = new TomSelect("#company_model_2", {
             plugins: ['remove_button'],
-            create: true,
             onItemAdd: function () {
                 this.setTextboxValue('');
                 this.refreshOptions();
@@ -162,7 +160,6 @@
         });
         select_model3 = new TomSelect("#company_model_3", {
             plugins: ['remove_button'],
-            create: true,
             onItemAdd: function () {
                 this.setTextboxValue('');
                 this.refreshOptions();
@@ -223,14 +220,14 @@
         var isValid = true;
 
         if (name === "") {
-            message = Drupal.t("Name is required\n");
+            message = Drupal.t("Name is required");
             $("#name").css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
         } else {
             if (name.length > 20) {
-                message = Drupal.t("The name cannot be longer than 20 characters\n");
+                message = Drupal.t("The name cannot be longer than 20 characters");
                 $("#name").css("border-color", "#ba0c2f");
                 $("#error_name").show();
                 $("#error_name_message").text(message)
@@ -241,14 +238,14 @@
             }
         }
         if (last_name === "") {
-            message = Drupal.t("Lastname is required\n");
+            message = Drupal.t("Lastname is required");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = Drupal.t("The lastname cannot be longer than 20 characters\n");
+                message = Drupal.t("The lastname cannot be longer than 20 characters");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name").show();
                 $("#error_last_name_message").text(message)
@@ -286,7 +283,7 @@
         }
 
         if (cellphone === "") {
-            message = Drupal.t("Cellphone is required\n");
+            message = Drupal.t("Cellphone is required");
             $("#cellphone").css("border-color", "#ba0c2f");
             $("#error_cellphone").show();
             $("#error_cellphone_message").text(message)
@@ -313,14 +310,14 @@
         }
 
         if (business_name === "") {
-            message = Drupal.t("Company is required\n");
+            message = Drupal.t("Company is required");
             $("#business_name").css("border-color", "#ba0c2f");
             $("#error_business_name").show();
             $("#error_business_name_message").text(message)
             isValid = false;
         } else {
             if (business_name.length > 100) {
-                message = Drupal.t("The company cannot be longer than 100 characters\n");
+                message = Drupal.t("The company cannot be longer than 100 characters");
                 $("#business_name").css("border-color", "#ba0c2f");
                 $("#error_business_name").show();
                 $("#error_business_name_message").text(message)
@@ -764,6 +761,44 @@
         });
     }
 
+    // progress bar
+    function valueProgressBar() {
+        var password = $("#password_buyer").val();
+        let progress = 0;
+        if (password.length >= 8) {
+        progress += 25;
+        }
+        if (password.match(/[A-Z]/)) {
+        progress += 25;
+        }
+        if (password.match(/[0-9]/)) {
+        progress += 25;
+        }
+        if (password.match(/[^a-zA-Z0-9]/)) {
+        progress += 25;
+        }
+
+        if (progress === 25) {
+        $("#progressbar").css("background", "#ba0c2f");
+        $("#error_mensaje_pass").text(Drupal.t("Weak"));
+        } else {
+        if (progress === 50) {
+            $("#progressbar").css("background", "#fdca00");
+            $("#error_mensaje_pass").text(Drupal.t("Normal"));
+        } else {
+            if (progress === 75) {
+            $("#progressbar").css("background", "#0085ca");
+            $("#error_mensaje_pass").text(Drupal.t("Good"));
+            } else {
+            if (progress === 100) {
+                $("#error_mensaje_pass").text(Drupal.t("Strong"));
+                $("#progressbar").css("background", "#31d394");
+            }
+            }
+        }
+        }
+        $("#progressbar").css("width", progress + "%");
+    }
 
     // **********************
     // *** Call functions ***
@@ -783,6 +818,10 @@
             $("#pass_bloq_buyer", context).click(function () {
                 textToPassword();
             });
+            //call function valueProgressBar oninput
+            $("#password_buyer", context).on("input", function () {
+                valueProgressBar();
+            });
             //call subcategory of selected category
             $("#cat_interest_1", context).on("input", function () {
                 getSubcategories1();
@@ -799,7 +838,6 @@
                 if (validateForm()) {
                     $('#question_modal').modal('show');
                 }
-
             });
             //Open MOdal cancel buyer
             $("#cancel_process_1", context).click(function () {

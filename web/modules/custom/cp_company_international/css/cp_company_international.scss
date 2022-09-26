@@ -350,7 +350,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;
@@ -367,7 +367,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     background-color: $color-Pantone-process-Blue;
     color: $color-White;
     font-family: $font-regular;
@@ -380,7 +380,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     background-color: $color-Pantone-116-C;
     color: $color-White;
     font-family: $font-regular;
@@ -405,7 +405,7 @@ span {
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    padding: 6px 20px;
+    padding: 11px 20px;
     margin-right: 10px;
     font-family: $font-regular;
     color: $color-Pantone-116-C;
@@ -524,8 +524,6 @@ span {
   }
 
   .description {
-    margin-bottom: -57px !important;
-    padding: 1.5rem 0rem;
     margin: 0px;
 
     .title {
@@ -967,8 +965,6 @@ span {
   }
 
   .steps .description {
-    margin-bottom: -57px !important;
-    padding: 1.5rem 2rem;
     margin: 0px;
   }
 
@@ -1040,6 +1036,7 @@ span {
 
   .steps .step_content form {
     box-shadow: none !important;
+    padding-left: 0px !important;
   }
 
   .dashboard .anuncio_dashboard .img_anuncio {
@@ -1061,6 +1058,17 @@ span {
 
   button#cancel_process {
     display: none;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag{
+    width: 160% !important;
   }
 }
 
@@ -1132,8 +1140,6 @@ span {
   }
 
   .steps .description {
-    margin-bottom: -57px !important;
-    padding: 1.5rem 2rem;
     margin: 0px;
   }
 
@@ -1199,6 +1205,17 @@ span {
 
   button#cancel_process {
     display: none;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag{
+    width: 160% !important;
   }
 }
 
@@ -1266,6 +1283,17 @@ span {
 
   .card.p-4 {
     padding: 2.5rem 0.5rem !important;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag{
+    width: 160% !important;
   }
 }
 
