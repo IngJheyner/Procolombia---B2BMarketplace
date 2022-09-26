@@ -213,4 +213,55 @@
             }
         }
     }
+    .step-sf-title {
+        padding: 0 50px;
+    }
+    #edit-field-pr-structured-features-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, auto);
+        display: grid;
+        padding: 0 50px;
+        grid-auto-flow: column;
+        column-gap: 82px;
+        @include media-breakpoint-down(lg){
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .js-form-item{
+            max-width: 100%;
+        }
+        .SumoSelect select{
+            position: absolute;
+        }
+        .is-invalid::after {
+            top: 30px !important;
+            right: -25px !important;
+            left: auto !important;
+        }
+        .tooltip-is-invalid{
+            p{
+                display: none;
+            }
+        }
+        .js-form-item-field-pr-structured-features-14-value,
+        .js-form-item-field-pr-structured-features-15-value{
+            grid-area: 6 / 2 / 7 / 3;
+        }
+        .js-form-item-field-pr-structured-features-15-value{
+            width: 30%;
+        }
+        .js-form-item-field-pr-structured-features-14-value{
+            width: 65%;
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            label{
+                flex-grow: 1;
+            }
+        }
+        .js-form-item-field-pr-structured-features-18-value{
+            max-width: 100%;
+            grid-area: 10 / 1 / 11 / 3;
+        }
+      }
 }
