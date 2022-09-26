@@ -154,22 +154,20 @@ function reject_product(&$form, FormStateInterface $form_state) {
 
 function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
     $view = $form_state->get('view');
-
-    //Crear un servicio LocationService
-    $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', 0, 1, FALSE);
-    $options = array();
-
-    foreach($terms AS $term) {
-      if($parent === 0 AND !$full) {
-        if(!empty($term->parents[0] === '0')) {
-          $options[$term->tid] = $term->name;
-        }
-      } else {
-        $options[$term->tid] = $term->name;
-      }
-    }
-
     if (($view->id() == 'dashboard_advisor')) {
+      //Crear un servicio LocationService
+      $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', 0, 1, FALSE);
+      $options = array();
+
+      foreach($terms AS $term) {
+        // if($parent === 0 AND !$full) {
+        //   if(!empty($term->parents[0] === '0')) {
+        //     $options[$term->tid] = $term->name;
+        //   }
+        // } else {
+          $options[$term->tid] = $term->name;
+        // }
+      }
       $form['field_company_deparment_target_id']['#options'] = $options;
       $form['field_company_deparment_target_id']['#options']["All"] = t('Any');
     }
