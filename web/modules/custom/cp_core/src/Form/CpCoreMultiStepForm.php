@@ -779,6 +779,7 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->buildEntity($form, $form_state);
+    $entity->removeTranslation('en');
     $input = $form_state->getUserInput();
     if ($this->step <= $this->maxStep && (!isset($input['_triggering_element_name']) || strpos($input['_triggering_element_name'], 'upload_button') === FALSE)) {
       $form_state->get('form_display')->validateFormValues($entity, $form, $form_state);
@@ -856,7 +857,6 @@ class CpCoreMultiStepForm extends FormBase {
     if (!$entity->isTranslatable()) {
       return;
     }
-    $entity->save();
 
     // Does this entity have a mfd field?
     $mfd_field_manager = new MfdFieldManager();
@@ -912,6 +912,9 @@ class CpCoreMultiStepForm extends FormBase {
         }
       }
     }
+    $entity->save();
+    $form_state->set('entity', $entity);
+    $this->entity = $entity;
   }
 
   /**
@@ -963,6 +966,7 @@ class CpCoreMultiStepForm extends FormBase {
         foreach ($available_langcodes as $langcode) {
           if ($node->hasTranslation($langcode)) {
             $translation = $node->getTranslation($langcode);
+            $translation->field_states = 'waiting';
             $translation->setPublished();
             $translation->save();
           }

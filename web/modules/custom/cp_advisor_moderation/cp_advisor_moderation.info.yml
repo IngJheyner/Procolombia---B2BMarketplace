@@ -4,5 +4,7 @@ description: advisor moderation
 package: Custom
 core: 8.x
 core_version_requirement: ^8 || ^9
+interface translation project: cp_advisor_moderation
+interface translation server pattern: modules/custom/cp_advisor_moderation/translations/cp_advisor_moderation.%language.po
 dependencies:
   - cp_core
