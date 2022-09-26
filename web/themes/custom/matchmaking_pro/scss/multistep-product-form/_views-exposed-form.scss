@@ -33,7 +33,7 @@
         background-image:  url(../images/icons/Cerrar-negro.svg);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 16px 16px;
+        background-size: cover;
         position: absolute;
         top: 26px;
         right: 26px;
@@ -59,24 +59,16 @@
             height: 511px;
             border-radius: 10px;
             padding-bottom: 21px !important;
-            body{
-                background-color: $white !important;
-            }
-            #document{
-                @include  media-breakpoint-down(lg){
-                    entity-browser-paises-form #edit-actions--2 button{
-                        height: 56px;
-                        width: 100%;
-                    }  
+            a.entity-browser-paises-close {
+                @include media-breakpoint-down(lg){
+                    height: 56px;
+                    order: 3;
                 }
             }
             @include media-breakpoint-down(lg){
                 height: 605px;
-                .entity-browser-paises-form #edit-actions--2 button{
-                    height: 56px;
-                    width: 100%;
-                }
-                }
+                
+            }
             }
     }
     .ui-widget-overlay{
@@ -113,30 +105,27 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 0 !important;                
+                padding: 0 !important;
+                gap: 13px;
+                @media screen and (max-device-width: 992px) {                            
+                    gap: 0;
+                }              
                 .js-form-type-textfield{
                     max-width: 425px;
                     width: 100%;
                     padding: 0;
                     height: 34px;
                     margin-bottom: 0 !important;
+                    max-width: calc(100% - 47px);
                     input{
                         height: 34px;
                         border: none;
                         gap: 4px;
-                        @include media-breakpoint-down(md){
-                            border: none;
+                        @media screen and (max-device-width: 992px) {                            
                             border-radius: 4px 0 0 4px;
                         }
                     }
-                    @include media-breakpoint-down(lg){
-                        max-width: 100%;
-                        width: auto;
-                        flex-grow: 1;
-                        margin-right: 13px;
-                    }
-
-                    @include media-breakpoint-down(md){
+                    @media screen and (max-device-width: 992px){
                         max-width: calc(100% - 34px);
                         margin-right: 0;
                     }
@@ -181,6 +170,11 @@
         align-items: baseline;
         height: 37px;
         justify-content: flex-end;
+        @media screen and (max-device-width: 992px) {
+            height: 56px;
+            margin-top: 19px;
+            order: 2;
+        }
         button{
             @include blue-btn;
             font-weight: lighter;
@@ -191,6 +185,10 @@
             max-width: 213px;
             width: 100%;
             text-transform: uppercase;
+            @media screen and (max-device-width: 992px) {
+                height: 56px;
+                max-width: 100%;
+            }
         }
       }
       .table-responsive{
@@ -217,6 +215,11 @@
         align-items: center;
         max-width: 213px;
         width: 100%;
+        @media screen and (max-device-width: 992px) {
+            height: 56px;
+            max-width: 100%;
+            order: 3;
+        }
        }
        
 }
