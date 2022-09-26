@@ -1,0 +1,70 @@
+cp_structured_features.structured_feature.*:
+  type: config_entity
+  label: 'Structured Feature'
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: text
+      label: Label
+    type:
+      type: string
+      label: 'Product or service'
+    references:
+      type: sequence
+      label: 'References'
+      sequence:
+        type: uuid
+        label: 'Reference'
+    properties:
+      type: sequence
+      label: 'Properties'
+      sequence:
+        type: mapping
+        label: 'Property'
+        mapping:
+          multiple:
+            type: boolean
+            label: 'Multiple'
+          required:
+            type: boolean
+            label: 'Required'
+          type:
+            type: string
+            label: 'Type'
+          label:
+            type: plural_label
+            label: 'Label'
+          help:
+            type: text
+            label: 'Label'
+          maxlength:
+            type: integer
+            label: 'Max Length'
+          size:
+            type: integer
+            label: 'Field size'
+          placeholder:
+            type: label
+            label: 'Placeholder'
+          class:
+            type: string
+            label: 'Classes'
+          default_value:
+            type: string
+            label: 'Default value'
+          language:
+            type: string
+            label: 'Language'
+          options:
+            type: 'sequence'
+            label: 'Options'
+            sequence:
+              type: 'string'
+              label: 'Option'
