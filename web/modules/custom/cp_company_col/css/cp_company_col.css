@@ -544,7 +544,7 @@ span {
   -webkit-appearance: none;
   border: none;
   outline: none;
-  padding: 7px 20px;
+  padding: 7px 4px;
   color: #000000;
   border: 1px solid #cccccc;
   border-radius: 4px;
@@ -562,7 +562,7 @@ span {
   background-position-x: 96% !important;
   background-position-y: 50% !important;
   border: 1px solid #dfdfdf;
-  padding: 10px 1rem !important;
+  padding: 13px 1rem !important;
   font-size: 15px;
   padding-right: 2.4rem !important;
 }
@@ -799,6 +799,7 @@ span {
   .steps .step_content form {
     box-shadow: none !important;
     padding-right: 0px !important;
+    padding-left: 0px !important;
   }
   .order_1 {
     order: 1;
@@ -820,6 +821,16 @@ span {
   }
   button#cancel_process {
     display: none;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -930,6 +941,16 @@ span {
   button#cancel_process {
     display: none;
   }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-lg-9,
@@ -985,6 +1006,16 @@ span {
   }
   button#cancel_process {
     display: none;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
   }
 }
 /*Input cell css*/

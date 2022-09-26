@@ -8,6 +8,7 @@ cp_company_col.render:
 cp_company_col.dashboard:
   path: "dashboard/col/user"
   defaults:
+    _title: 'Dashboard'
     _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
   methods:  [GET]
   requirements:
@@ -17,6 +18,7 @@ cp_company_col.dashboard:
 cp_company_col.tablero:
   path: "tablero/col/usuario"
   defaults:
+    _title: 'Tablero'
     _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
   methods:  [GET]
   requirements:
@@ -35,6 +37,7 @@ cp_company_col.edit_email_password:
 cp_company_col.edit:
   path: "edit/col/user"
   defaults:
+    _title: 'Edit user'
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
   methods:  [GET]
   requirements:
@@ -44,6 +47,7 @@ cp_company_col.edit:
 cp_company_col.editar:
   path: "editar/col/usuario"
   defaults:
+    _title: 'Editar usuario'
     _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
   methods:  [GET]
   requirements:

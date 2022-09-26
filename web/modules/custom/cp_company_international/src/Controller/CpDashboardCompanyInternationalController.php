@@ -30,34 +30,6 @@ class CpDashboardCompanyInternationalController extends ControllerBase
             ];
         }
 
-        //redirect if $_SESSION['language'] is not the current path
-        $language = $_COOKIE['language'];
-        //get actual language
-        $actual_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        //check if query params has token
-        $token = \Drupal::request()->query->get('token');
-        if(isset($language) && !isset($token)){
-            if ($language != $actual_language) {
-                if($language == 'en'){
-                    return new RedirectResponse("/en/dashboard/international/user", 301);
-                }else{
-                    return new RedirectResponse("/es/tablero/internacional/usuario", 301);
-                }
-            }else{
-                //get path of url
-                $path = \Drupal::service('path.current')->getPath();
-                if($language == 'en'){
-                    if($path != '/dashboard/international/user'){
-                        return new RedirectResponse("/en/dashboard/international/user", 301);
-                    }
-                }else{
-                    if($path != '/tablero/internacional/usuario'){
-                        return new RedirectResponse("/es/tablero/internacional/usuario", 301);
-                    }
-                }
-            }
-        }
-
         return [
             // Your theme hook name.
             '#theme' => 'cp_dashboard_company_international_template_hook',

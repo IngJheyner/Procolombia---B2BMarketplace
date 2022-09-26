@@ -51,7 +51,6 @@
 
     modelo_de_negocio_select = new TomSelect("#modelo_de_negocio", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -74,7 +73,6 @@
 
     certificacion_de_empresa_select = new TomSelect("#certificacion_de_empresa", {
       plugins: ['remove_button'],
-      create: true,
       create: false,
       onItemAdd: function () {
         this.setTextboxValue('');
@@ -938,29 +936,23 @@
     if (landline == "") {
       message = Drupal.t("Phone line is required");
       $("#landline").css("border-color", "#ba0c2f");
+      $("#error_landline_message").text(message)
       $("#error_landline").show();
-      $("#error_landline")
-
-        ;
       isValid = false;
     } else {
       if (landline.length > 20) {
         message =
           Drupal.t("The phone line must not be longer than 20 characters");
         $("#landline").css("border-color", "#ba0c2f");
+        $("#error_landline_message").text(message)
         $("#error_landline").show();
-        $("#error_landline")
-
-          ;
         isValid = false;
       } else {
         if (!landline.match(/^[0-9]+$/)) {
           message = Drupal.t("The telephone line must not have letters");
           $("#landline").css("border-color", "#ba0c2f");
+          $("#error_landline_message").text(message)
           $("#error_landline").show();
-          $("#error_landline")
-
-            ;
           isValid = false;
         } else {
           $("#error_landline").hide();
@@ -971,10 +963,8 @@
     if (country_code_mobile == "") {
       message = Drupal.t("The country code of the cell phone is required");
       $("#country_code_mobile").css("border-color", "#ba0c2f");
+      $("#error_country_code_mobile_message").text(message)
       $("#error_country_code_mobile").show();
-      $("#error_country_code_mobile")
-
-        ;
       isValid = false;
     } else {
       $("#error_country_code_mobile").hide();
@@ -983,28 +973,22 @@
     if (mobile == "") {
       message = Drupal.t("Cell phone is required");
       $("#mobile").css("border-color", "#ba0c2f");
+      $("#error_mobile_message").text(message)
       $("#error_mobile").show();
-      $("#error_mobile")
-
-        ;
       isValid = false;
     } else {
       if (mobile.length > 10) {
         message = Drupal.t("The cell phone must not be longer than 10 characters");
         $("#mobile").css("border-color", "#ba0c2f");
+        $("#error_mobile_message").text(message)
         $("#error_mobile").show();
-        $("#error_mobile")
-
-          ;
         isValid = false;
       } else {
         if (!mobile.match(/^[0-9]+$/)) {
           message = Drupal.t("The cell phone should not have letters");
           $("#mobile").css("border-color", "#ba0c2f");
+          $("#error_mobile_message").text(message)
           $("#error_mobile").show();
-          $("#error_mobile")
-
-            ;
           isValid = false;
         } else {
           $("#error_mobile").hide();
@@ -1015,8 +999,8 @@
     if (contact_email == "") {
       message = Drupal.t("Email is required");
       $("#contact_email").css("border-color", "#ba0c2f");
+      $("#error_email_message").text(message)
       $("#error_email").show();
-      $("#error_email");
       isValid = false;
     } else {
       if (
@@ -1026,10 +1010,8 @@
       ) {
         message = Drupal.t("The email address is not valid");
         $("#contact_email").css("border-color", "#ba0c2f");
+        $("#error_email_message").text(message)
         $("#error_email").show();
-        $("#error_email")
-
-          ;
         isValid = false;
       } else {
         $("#error_email").hide();
