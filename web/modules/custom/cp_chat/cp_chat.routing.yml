@@ -1,0 +1,7 @@
+cp_chat.example:
+  path: '/cp-chat/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::build'
+  requirements:
+    _permission: 'access content'

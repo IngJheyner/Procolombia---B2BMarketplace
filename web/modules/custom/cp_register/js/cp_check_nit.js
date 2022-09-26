@@ -213,6 +213,27 @@
       $("#check_nit", context).click(function () {
         checkNit();
       });
+
+      var url = window.location.href;
+
+      if(url.includes("/en/verification/user") || url.includes("/es/verificacion/usuario")){
+        //call function to check nit
+        $("#nit", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            checkNit();
+          };
+        });
+        //call function to check nit
+        $("#email", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            checkNit();
+          };
+        });
+      };
+      //call function to check nit
+      $("#check_nit", context).click(function () {
+        checkNit();
+      });
       //call function to redirect to google form
       $("#go_form", context).click(function () {
         window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform";

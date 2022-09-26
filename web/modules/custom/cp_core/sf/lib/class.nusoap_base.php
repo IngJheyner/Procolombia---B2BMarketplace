@@ -274,7 +274,7 @@ class nusoap_base {
 	*/
 	function debug($string){
 		if ($this->debugLevel > 0) {
-			$this->appendDebug($this->getmicrotime().' '.get_class($this).": $string\n");
+			$this->appendDebug($this->getmicrotime().' '.get_class($this).": $string");
 		}
 	}
 
@@ -328,7 +328,7 @@ class nusoap_base {
 		while (strpos($this->debug_str, '--')) {
 			$this->debug_str = str_replace('--', '- -', $this->debug_str);
 		}
-		$ret = "<!--\n" . $this->debug_str . "\n-->";
+		$ret = "<!--" . $this->debug_str . "-->";
     	return $ret;
 	}
 
