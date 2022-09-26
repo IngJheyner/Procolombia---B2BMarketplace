@@ -83,11 +83,21 @@
 
         // Agregar clases modales Drupal
           $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');
-          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')
+          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries');
 
+         //Tooltips Campos validación campos requeridos
+         $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+         $('.form-select.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+         $('#edit-field-pr-country-wrapper .is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
 
+         $('.lightbulb-tooltip').click(()=>{
+         $( '.lightbulb-tooltip span').toggle();
+         });
         //Sumo select
           $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('#cp-core-multistep-form .form-select:not(#edit-field-categorization-target-id, #edit-field-partida-arancelaria-tax, #edit-field-pr-type-certifications, #edit-field-pr-target-market, #edit-field-pr-sales-channel)').SumoSelect({
             forceCustomRendering: true,
           });
           $('#edit-field-categorization-target-id').SumoSelect({
@@ -97,19 +107,6 @@
             noMatch: Drupal.t('No matches for "{0}"')
           });
 
-          $('#edit-field-product-type').SumoSelect({
-            forceCustomRendering: true,
-          });
-          $('.js-form-item-field-categorization-parent .form-select').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
-          $('#edit-field-categorization').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
           $('#edit-field-partida-arancelaria-tax').SumoSelect({
             forceCustomRendering: true,
             search:true,
@@ -122,6 +119,11 @@
             $(this).closest('.js-form-type-select').addClass('is-invalid');
           });
 
+          const imagesStep4 = $('.cp-core-multistep-form.step_4 input.js-form-file');
+          $(imagesStep4).filter('.error.is-invalid').each(function(i) {
+            $(this).closest('.js-form-type-managed-file').addClass('is-invalid');
+          });
+  
           if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').length) {
             if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').val().length > 0) {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');
@@ -155,11 +157,6 @@
         $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
         $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
 
-        //Tooltips interacciones
-        $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
-        $('.lightbulb-tooltip').click(()=>{
-        $( '.lightbulb-tooltip span').toggle();
-        });
 
         //Multistep, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {

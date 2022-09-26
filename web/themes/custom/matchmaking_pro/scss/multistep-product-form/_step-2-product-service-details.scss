@@ -1,4 +1,5 @@
-.cp-core-multistep-form.step_2{
+.cp-core-multistep-form.step_2,
+.cp-core-multistep-form.step_sf{
     label{
         @include media-breakpoint-down(md){
             padding-bottom: 15px;
@@ -147,6 +148,48 @@
     .is-invalid::after{
         top: 70px;
     }
+    .js-form-type-select .tooltip-is-invalid{
+        width: auto;
+        height: 20px;
+        display: flex;
+        position: absolute;
+        top: 69px;
+        z-index: 3;
+        padding-left: 25px;
+        &:hover{
+            width: 157px;
+            p{
+                @include hover-invalid-tooltip;
+                top: 28px;
+                left: -5px;
+                right: auto; 
+                &::before{
+                    right: auto;
+                }
+            }
+        }
+        
+    }
+    
+    .form-item-field-categorization-parent .tooltip-is-invalid{
+        top: 30px;
+        right: -28px;
+        p{
+            left: auto !important;
+            right: 0 !important;
+            @include media-breakpoint-down(lg){
+                left: 0;
+                right: -3px;
+            }
+            &::before{
+                right: 5px !important;
+            }
+        }
+        @include media-breakpoint-down(lg){
+            top: -30px;
+            right: 0;
+        }
+    }
     .js-form-item-field-categorization-parent.js-form-type-select.is-invalid{
         select{
             position: absolute;
@@ -154,7 +197,7 @@
         &::after{
             top: 30px;
             left: auto;
-            right: -5%;
+            right: -6%;
             @include media-breakpoint-down(lg){
                 top: 0;
                 right: 0;
