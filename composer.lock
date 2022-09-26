@@ -147,7 +147,7 @@
             "version": "3.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "3711efedf0ca2e998cd0417324f717f2e0b828ec"
             },
             "dist": {
@@ -7601,6 +7601,10 @@
                     "homepage": "https://www.drupal.org/user/612814"
                 },
                 {
+                    "name": "Kingdutch",
+                    "homepage": "https://www.drupal.org/user/1868952"
+                },
+                {
                     "name": "klausi",
                     "homepage": "https://www.drupal.org/user/262198"
                 },
@@ -8980,10 +8984,6 @@
                     "homepage": "https://www.drupal.org/user/61221"
                 },
                 {
-                    "name": "Oliver Huynh",
-                    "homepage": "https://www.drupal.org/user/243730"
-                },
-                {
                     "name": "beautifulmind",
                     "homepage": "https://www.drupal.org/user/219482"
                 },
@@ -9006,6 +9006,10 @@
                 {
                     "name": "moshe weitzman",
                     "homepage": "https://www.drupal.org/user/23"
+                },
+                {
+                    "name": "Oliver Huynh",
+                    "homepage": "https://www.drupal.org/user/243730"
                 },
                 {
                     "name": "perennial.sky",
@@ -13781,8 +13785,8 @@
                     "homepage": "https://www.drupal.org/u/graber"
                 },
                 {
-                    "name": "benjy",
-                    "homepage": "https://www.drupal.org/user/1852732"
+                    "name": "Graber",
+                    "homepage": "https://www.drupal.org/user/1599440"
                 }
             ],
             "description": "Allows bulk edition of entity field values.",
