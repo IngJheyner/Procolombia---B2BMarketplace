@@ -761,6 +761,44 @@
         });
     }
 
+    // progress bar
+    function valueProgressBar() {
+        var password = $("#password_buyer").val();
+        let progress = 0;
+        if (password.length >= 8) {
+        progress += 25;
+        }
+        if (password.match(/[A-Z]/)) {
+        progress += 25;
+        }
+        if (password.match(/[0-9]/)) {
+        progress += 25;
+        }
+        if (password.match(/[^a-zA-Z0-9]/)) {
+        progress += 25;
+        }
+
+        if (progress === 25) {
+        $("#progressbar").css("background", "#ba0c2f");
+        $("#error_mensaje_pass").text(Drupal.t("Weak"));
+        } else {
+        if (progress === 50) {
+            $("#progressbar").css("background", "#fdca00");
+            $("#error_mensaje_pass").text(Drupal.t("Normal"));
+        } else {
+            if (progress === 75) {
+            $("#progressbar").css("background", "#0085ca");
+            $("#error_mensaje_pass").text(Drupal.t("Good"));
+            } else {
+            if (progress === 100) {
+                $("#error_mensaje_pass").text(Drupal.t("Strong"));
+                $("#progressbar").css("background", "#31d394");
+            }
+            }
+        }
+        }
+        $("#progressbar").css("width", progress + "%");
+    }
 
     // **********************
     // *** Call functions ***
@@ -780,6 +818,10 @@
             $("#pass_bloq_buyer", context).click(function () {
                 textToPassword();
             });
+            //call function valueProgressBar oninput
+            $("#password_buyer", context).on("input", function () {
+                valueProgressBar();
+            });
             //call subcategory of selected category
             $("#cat_interest_1", context).on("input", function () {
                 getSubcategories1();
@@ -796,7 +838,6 @@
                 if (validateForm()) {
                     $('#question_modal').modal('show');
                 }
-
             });
             //Open MOdal cancel buyer
             $("#cancel_process_1", context).click(function () {

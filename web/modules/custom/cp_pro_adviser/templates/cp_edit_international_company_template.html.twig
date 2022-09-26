@@ -342,13 +342,13 @@
                   </span>
                 </div>
                 <div class="input_error">
-                  <select name="principal_advisor" id="principal_advisor">
+                  <select>
                     <option disabled hidden>{{ 'Enter the keyword or select an option'|t }}
                     </option>
-                    <option value="Jaime Francisco">Jaime Francisco</option>
-                    <option value="Ruth Silvana">Ruth Silvana</option>
-                    <option value="Luis Felipe">Luis Felipe</option>
-                    <option value="Montserrat Carolina">Montserrat Carolina</option>
+                  <option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
                   </select>
                   <i id="error_website" class='bx bxs-info-circle toltip_i'>
                     <span id="error_website_message" class="tooltiptext_error">
@@ -447,12 +447,12 @@
                   </span>
                 </div>
                 <div class="input_error">
-                  <select name="principal_advisor" id="principal_advisor">
+                  <select>
                     <option disabled hidden>{{ 'Enter the keyword or select an option'|t }}</option>
-                    <option value="Jaime Francisco">Jaime Francisco</option>
-                    <option value="Ruth Silvana">Ruth Silvana</option>
-                    <option value="Luis Felipe">Luis Felipe</option>
-                    <option value="Montserrat Carolina">Montserrat Carolina</option>
+                   <option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
                   </select>
                   <i id="error_website" class='bx bxs-info-circle toltip_i'>
                     <span id="error_website_message" class="tooltiptext_error">
@@ -550,13 +550,13 @@
                   </span>
                 </div>
                 <div class="input_error">
-                  <select name="principal_advisor" id="principal_advisor">
+                  <select>
                     <option disabled hidden>{{ 'Enter the keyword or select an option'|t }}
                     </option>
-                    <option value="Jaime Francisco">Jaime Francisco</option>
-                    <option value="Ruth Silvana">Ruth Silvana</option>
-                    <option value="Luis Felipe">Luis Felipe</option>
-                    <option value="Montserrat Carolina">Montserrat Carolina</option>
+                    <option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
                   </select>
                   <i id="error_website" class='bx bxs-info-circle toltip_i'>
                     <span id="error_website_message" class="tooltiptext_error">
@@ -648,7 +648,7 @@
           </form>
           <div class="row px-0 mt-2 py-2" style="border-top :1px solid #ccc">
             <div class="col-lg-8 continue px-0">
-              <button id="confirm_cancel" class="cancel">{{ 'CANCEL'|t }}</button>
+              <button id="cancel_process_1" class="cancel">{{ 'CANCEL'|t }}</button>
             </div>
             <div class="col-lg-4 continue d-flex justify-content-between px-0">
               <button id="modal_reject_user_buyer" name="reject_user_buyer" aria-label=" {{ "Continue registration"|t }}"
@@ -812,8 +812,8 @@
               <strong>{{ 'Do you want to continue?'|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button class="yes">{{ 'YES'|t }}</button>
-              <button data-bs-dismiss="modal" id="confirm_cancel" class="no">{{ 'NO'|t }}</button>
+              <button id="confirm_cancel" class="yes">{{ 'YES'|t }}</button>
+              <button data-bs-dismiss="modal" class="no">{{ 'NO'|t }}</button>
             </div>
           </div>
         </div>

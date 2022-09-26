@@ -896,6 +896,10 @@
                 $('#cancel_modal').modal('show');
 
             });
+            $("#cancel_process_1", context).click(function () {
+                $('#cancel_modal').modal('show');
+
+            });
             // Cancel Process
             $("#confirm_cancel", context).click(function () {
                 window.location.reload();

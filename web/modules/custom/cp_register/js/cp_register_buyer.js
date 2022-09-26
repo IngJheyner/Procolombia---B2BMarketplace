@@ -757,7 +757,8 @@
     select_model2.setValue(data.company_model_2);
     select_model3.setValue(data.company_model_3);
     country.setValue(data.country);
-    advisor.setValue(data.advisor);
+    console.log(data);
+    advisor.setValue(data.adviser);
   }
 
   /*

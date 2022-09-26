@@ -666,7 +666,7 @@
 
       //change languages base in path url
       $("#change_language", context).click(function () {
-        var url = window.location.pathname;
+        var url = window.location.pathname + window.location.search;
         console.log(url);
         var url_split = url.split("/");
         var language = url_split[1];
@@ -674,10 +674,10 @@
         if (language == "es") {
           //save in session storage
           document.cookie = "language=en;path=/;";
-          window.location.href = url.replace("es", "en");
+          window.location.href = url.replace("/es", "/en");
         } else {
           document.cookie = "language=es;path=/;";
-          window.location.href = url.replace("en", "es");
+          window.location.href = url.replace("/en", "/es");
         }
       });
 
@@ -828,35 +828,9 @@
         }
       });
 
-      //buttons asesor_comercial
-      //edit button mobile asesor_comercial
-      $("#edit_button_mobile_asesor_comercial", context).click(function () {
-        //redirect
-        window.location.href = "/edit/col/user";
-      });
-
-      //change language button
-      $("#change_language_button", context).click(function () {
-        //change display
-        $("#change_language_button").css("display", "none");
-      });
-
-      //buttons asesor_internacional
-      //edit button mobile asesor_internacional
-      $("#edit_button_mobile_asesor_internacional", context).click(function () {
-        //redirect
-        window.location.href = "/edit/international/user";
-      });
-
-      //change language button
-      $("#change_language_button", context).click(function () {
-        //change display
-        $("#change_language_button").css("display", "none");
-      });
-      
       //change languages base in path url
       $("#change_language_exportador", context).click(function () {
-        var url = window.location.pathname;
+        var url = window.location.pathname + window.location.search;
         console.log(url);
         var url_split = url.split("/");
         var language = url_split[1];
@@ -870,6 +844,111 @@
           window.location.href = url.replace("en", "es");
         }
       });
+
+      //buttons asesor_comercial
+      //edit button mobile asesor_comercial
+     //change language button
+      $("#change_language_button_asesor_comercial", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_asesor_comercial").css("display") == "none") {
+          $("#change_language_content_asesor_comercial").css("display", "block");
+          $("#change_language_content_asesor_comercial").css("min-width", "100%");
+        } else {
+          $("#change_language_content_asesor_comercial").css("display", "none");
+          $("#change_language_content_asesor_comercial").css("min-width", "0");
+        }
+      });
+      
+      //change languages base in path url
+      $("#change_language_asesor_comercial", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //buttons asesor_internacional
+      //edit button mobile asesor_internacional
+      $("#edit_button_mobile_asesor_internacional", context).click(function () {
+        //redirect
+        window.location.href = "/edit/international/user";
+      });
+
+      //change language button
+      $("#change_language_button_asesor_internacional", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_asesor_internacional").css("display") == "none") {
+          $("#change_language_content_asesor_internacional").css("display", "block");
+          $("#change_language_content_asesor_internacional").css("min-width", "100%");
+        } else {
+          $("#change_language_content_asesor_internacional").css("display", "none");
+          $("#change_language_content_asesor_internacional").css("min-width", "0");
+        }
+      });
+      //change languages base in path url
+      $("#change_language_asesor_internacional", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //change language button
+      $("#change_language_button_main", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_main").css("display") == "none") {
+          $("#change_language_content_main").css("display", "block");
+          $("#change_language_content_main").css("min-width", "100%");
+        } else {
+          $("#change_language_content_main").css("display", "none");
+          $("#change_language_content_main").css("min-width", "0");
+        }
+      });
+      //change languages base in path url
+      $("#change_language_main", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //change language button
+      $("#change_language_button", context).click(function () {
+        //change display
+        $("#change_language_button").css("display", "none");
+      });
+      
+      
     }
   };
 })(jQuery, Drupal);

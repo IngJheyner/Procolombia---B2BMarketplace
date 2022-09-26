@@ -670,13 +670,19 @@
 								{{ "Company landline telephone"|t }}
 								 <sup>*</sup>
 							</label>
-							<div class="row">
-								<div class="col-lg-3" style="padding: 0px;">
+							<div class="input_error">
+								<div class="col-lg-3 code-input" style="padding: 0px;">
 									<input id="country_code_landline" class="hidden-input" type="tel" name="phone"/>
 								</div>
-								<div class="col-lg-9">
-									<input class="w-100 form-control" style="height: 100%;" type="tel" name="" id="landline">
+								<div class="col-lg-9 cel-input d-flex align-items-center" style="padding-right: 0px;padding-left: 0px;">
+									<input class="w-100 form-control" style="height: 100%;" type="tel" name="" maxlength="10" id="landline">
+									<i id="error_landline" class='bx bxs-info-circle toltip_i'>
+									<span id="error_landline_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
 								</div>
+								
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -684,20 +690,33 @@
 								{{ "Cell Phone"|t }}
 								 <sup>*</sup>
 							</label>
-							<div class="row">
-								<div class="col-lg-3" style="padding: 0px;">
+							<div class="input_error">
+								<div class="col-lg-3 code-input" style="padding: 0px;">
 									<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
 								</div>
-								<div class="col-lg-9">
-									<input class="w-100 form-control" style="height: 100%;" type="tel" name="" id="mobile">
+								<div class="col-lg-9 cel-input d-flex align-items-center" style="padding-right: 0px;padding-left: 0px;">
+									<input class="w-100 form-control" maxlength="10" style="height: 100%;" type="tel" name="" id="mobile">
+									<i id="error_mobile" class='bx bxs-info-circle toltip_i'>
+									<span id="error_mobile_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
 								</div>
+								
 							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="contact_email" class="form-label">{{ "Email"|t }}
 								 <sup>*</sup>
 							</label>
+							<div class="input_error">
 							<input type="email" class="form-control" id="contact_email" placeholder="">
+								<i id="error_email" class='bx bxs-info-circle toltip_i'>
+									<span id="error_email_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
 						</div>
 					</form>
 					<div class="row">

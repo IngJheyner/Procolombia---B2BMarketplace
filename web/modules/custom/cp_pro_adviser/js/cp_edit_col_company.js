@@ -853,6 +853,9 @@
             $("#cancel_process_2", context).click(function () {
                 cancelProcess();
             });
+            $("#cancel_process_4", context).click(function () {
+                cancelProcess();
+            });
             //call function hideCancelProcess
             $("#confirm_cancel", context).click(function () {
                 reloadPage();

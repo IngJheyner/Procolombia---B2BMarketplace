@@ -128,7 +128,10 @@ input[type=checkbox]:checked:before {
 .ts-wrapper {
   width: 100% !important;
 }
+.ts-wrapper.single .ts-control{
+  padding: 8px 7px 8px 13px !important;
 
+}
 .ts-wrapper.single .ts-control,
 .ts-wrapper.single .ts-control input {
   cursor: pointer;
@@ -137,7 +140,6 @@ input[type=checkbox]:checked:before {
   -webkit-appearance: none;
   border: none;
   outline: none;
-  padding: 8px 7px 8px 13px !important;
   color: #000000;
   border-radius: 5px;
   border: 1px solid #cccccc;
@@ -627,7 +629,7 @@ div#main-wrapper {
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-  width: 120px !important;
+  width: 140px !important;
 }
 
 .cita_btn {
@@ -966,7 +968,7 @@ strong {
         border: 1px solid #dfdfdf;
         padding: 10px 0.7rem !important;
         font-size: 15px;
-        padding-right: 2.4rem !important;
+        padding-right: 3.4rem !important;
 
       }
 

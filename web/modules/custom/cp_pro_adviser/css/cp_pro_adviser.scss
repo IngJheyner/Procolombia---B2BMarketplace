@@ -2280,6 +2280,11 @@ table.dataTable {
     border: 1px solid #ccc;
     padding: 0px !important;
     border-radius: 4px;
+    width: fit-content;
+    margin-top: 43px !important;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
 
     .paginate_button {
       box-sizing: border-box;

@@ -1718,6 +1718,13 @@ table.dataTable td {
   border: 1px solid #ccc;
   padding: 0px !important;
   border-radius: 4px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 43px !important;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   box-sizing: border-box;
