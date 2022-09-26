@@ -28,7 +28,7 @@ class EditProductAccess implements AccessInterface {
     $userId = \Drupal::currentUser()->id();
     $access = false;
 
-    if($adviserId == $userId || $userId = 1) {
+    if($adviserId == $userId || $userId == 1) {
       $access = true ;
     }
     return ($account->hasPermission('cp_advisor_moderation product dashboard') && $access) ? AccessResult::allowed() : AccessResult::forbidden();

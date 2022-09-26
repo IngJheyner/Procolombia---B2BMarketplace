@@ -69,3 +69,6 @@ creation+administrator+node+product: node.product.default
 creation+asesor_comercial+node+product: node.product.advisor_moderation
 modification+administrator+node+product: node.product.default
 modification+asesor_comercial+node+product: node.product.advisor_moderation
+'use  The form mode default linked to  taxonomy_term entity( account_status )': taxonomy_term.account_status.default
+'use  The form mode default linked to  taxonomy_term entity( canales_de_venta )': taxonomy_term.canales_de_venta.default
+'use  The form mode default linked to  taxonomy_term entity( certification_types )': taxonomy_term.certification_types.default
