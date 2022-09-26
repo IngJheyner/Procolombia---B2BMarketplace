@@ -40,11 +40,13 @@ module:
   cp_company_col: 0
   cp_company_international: 0
   cp_core: 0
+  cp_field_features: 0
   cp_mailing_service: 0
   cp_migrate: 0
   cp_pro_adviser: 0
   cp_register: 0
   cp_search: 0
+  cp_structured_features: 0
   cp_wf_contact: 0
   crop: 0
   csv_serialization: 0

@@ -1,0 +1,10 @@
+uuid: 1e434db5-5709-4190-a28f-d2230790ba48
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_sf
+label: 'Características estructuradas'
+targetEntityType: node
+cache: true
