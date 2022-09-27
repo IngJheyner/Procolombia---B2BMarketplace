@@ -57,8 +57,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-09-27 16:42+0200\n"
-"PO-Revision-Date: 2022-09-27 16:42+0200\n"
+"POT-Creation-Date: 2022-09-27 18:43+0200\n"
+"PO-Revision-Date: 2022-09-27 18:43+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -200,7 +200,7 @@ msgstr "Volver al proceso"
 
 #: cp_core.module:1102
 msgid "Edit"
-msgstr "Edit"
+msgstr "Editar"
 
 #: cp_core.module:1113
 msgid "CP Core: Change the product availability"

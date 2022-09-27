@@ -106,6 +106,7 @@ third_party_settings:
         speed: fast
     group_right:
       children:
+        - cp_core_edit_product
         - field_body
         - field_categorization_parent
         - field_categorization
@@ -115,7 +116,7 @@ third_party_settings:
       label: Right
       parent_name: group_row
       region: content
-      weight: 12
+      weight: 13
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-8'
@@ -136,7 +137,7 @@ third_party_settings:
       label: 'Footer links'
       parent_name: group_right
       region: content
-      weight: 7
+      weight: 18
       format_type: html_element
       format_settings:
         classes: group-footer-links
@@ -159,6 +160,11 @@ content:
     third_party_settings: {  }
     weight: 18
     region: content
+  cp_core_edit_product:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
   cp_core_title_h2_no_link:
     settings: {  }
     third_party_settings: {  }
@@ -169,7 +175,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 13
     region: content
   field_categorization:
     type: entity_reference_label
@@ -184,7 +190,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 4
+    weight: 15
     region: content
   field_categorization_parent:
     type: entity_reference_label
@@ -199,7 +205,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 3
+    weight: 14
     region: content
   field_file:
     type: formatter_suite_general_file_link
@@ -286,7 +292,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 5
+    weight: 16
     region: content
   field_pr_country:
     type: entity_reference_label
@@ -294,10 +300,9 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 17
     region: content
 hidden:
-  cp_core_edit_product: true
   cp_core_presave_preview: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
