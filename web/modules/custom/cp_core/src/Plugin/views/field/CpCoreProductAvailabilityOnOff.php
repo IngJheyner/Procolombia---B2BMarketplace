@@ -40,8 +40,12 @@ class CpCoreProductAvailabilityOnOff extends FieldPluginBase {
         '#title' => $status,
         '#url' => $url,
         '#attributes' => [
-          'class' => [$status, 'use-ajax', 'toggle'],
-          'id' => 'product-availability-toggle-' . $node->id(),
+          'class' => [
+            $status,
+            'use-ajax',
+            'toggle',
+            'product-availability-toggle-' . $node->id()
+          ],
         ],
       ];
       return $link;
