@@ -12,7 +12,7 @@ field_name: field_pr_video
 entity_type: node
 bundle: product
 label: 'Video principal'
-description: "Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. \r\nEs importante para el comprador internacional porque muestra de forma rápida, \r\nbreve y directa las habilidades, competencias y experiencia."
+description: "Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. \r\nEs importante para el comprador internacional porque muestra de forma rápida, \r\nbreve y directa las habilidades, competencias y experiencia.\r\nSi no cuentan con un video en inglés, se sugiere incluir subtítulos al video en inglés."
 required: false
 translatable: false
 default_value: {  }
