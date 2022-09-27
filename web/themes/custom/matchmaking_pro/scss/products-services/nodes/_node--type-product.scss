@@ -308,10 +308,19 @@
 			padding: 20px;
 			padding-right: 20px !important;
 		}
+		.group-right {
+			align-items: stretch;
+			min-height: 434px;
+			.field--name-field-pr-country{
+				a{
+					color: $procol-gray-400;
+				}
+			}
+		}
 		.group-right h2{
 			font-size: 30px;
 			font-family:  Maven-Bold;
-			font-weight: bolder;
+			padding-left: 0 !important;
 		}
 	}
 }
