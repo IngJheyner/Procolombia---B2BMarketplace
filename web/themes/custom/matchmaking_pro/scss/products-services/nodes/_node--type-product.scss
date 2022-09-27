@@ -309,6 +309,9 @@
 			padding-right: 20px !important;
 		}
 		.group-right {
+			> a{
+				top: 28px;
+			}
 			align-items: stretch;
 			min-height: 434px;
 			.field--name-field-pr-country{
