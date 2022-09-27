@@ -377,9 +377,9 @@
           $('.form-item-field-aditional-information-0-value textarea').once().change(function() {
             $('<small class="advise">' + advise + '</small>').insertAfter(this);
           });
-          // $('.form-item-title-0-value input').once().change(function() {
-          //   $('<small class="advise">' + advise + '</small>').insertAfter(this);
-          // });
+          $('.field--name-field-pr-video button').once().click(function() {
+            $('<small class="advise">' + advise + '</small>').appendTo('.form-item-field-pr-video-0-value');
+          });
         }
 
       }
