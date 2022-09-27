@@ -1,0 +1,23 @@
+uuid: a8889dd5-8e21-4966-9f1f-f14072e9bc0d
+langcode: es
+status: true
+dependencies:
+  module:
+    - cp_field_features
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_pr_structured_features
+field_name: field_pr_structured_features
+entity_type: node
+type: structured_feature
+settings: {  }
+module: cp_field_features
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

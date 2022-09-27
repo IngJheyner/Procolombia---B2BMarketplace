@@ -1,0 +1,8 @@
+name: 'CP Structured Features'
+type: module
+description: 'Provides a structured_feature configuration entity.'
+package: Custom
+core_version_requirement: ^8.9 || ^9.0
+configure: entity.structured_feature.collection
+interface translation project: cp_structured_features
+interface translation server pattern: modules/custom/cp_structured_features/translations/cp_structured_features.%language.po
