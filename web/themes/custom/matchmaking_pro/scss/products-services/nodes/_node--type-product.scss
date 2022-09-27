@@ -72,6 +72,41 @@
 		justify-content: space-between;
 		padding-left: 54px;
 		width: 100%;
+		> a {
+			position: absolute;
+			top: 0;
+			right: 38px;
+			background-color: white;
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 4px;
+			width: 103px;
+			height: 38px;
+			position: displa;
+			display: flex;
+			align-items: center;
+			padding-left: 15px;
+			font-family: $font-bold-Century-Gothic;
+			background-image: url(../images/icons-2/Editar.svg);
+			background-repeat:no-repeat;
+			background-position: right -1px;
+			position: absolute;
+			&:hover{
+				background: linear-gradient(180deg, $procol-dark-blue 0%, $procol-light-blue 100%) !important;
+				justify-content: space-between;
+				&::after{
+					position: relative;
+					background-image: url(../images/icons/Editar-blanco.svg);
+					background-repeat: no-repeat;
+					background-size: 35px;
+					background-position: right -1px;
+					content: "";
+					right: 0;
+					width: 40px;
+					height: 40px;
+				}
+				color: $white;
+			}
+		}
 		@include media-breakpoint-down(lg){
 			gap: 20px;
 			padding-bottom: 40px;
