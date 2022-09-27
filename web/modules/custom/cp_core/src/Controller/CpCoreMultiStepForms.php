@@ -85,12 +85,11 @@ class CpCoreMultiStepForms extends ControllerBase {
       '#title' => $status,
       '#url' => $url,
       '#attributes' => [
-        'class' => [$status, 'use-ajax', 'toggle'],
-        'id' => 'product-availability-toggle-' . $node->id(),
+        'class' => [$status, 'use-ajax', 'toggle', 'product-availability-toggle-' . $node->id()],
       ],
     ];
     $link = $this->renderer->render($build);
-    $response->addcommand(new ReplaceCommand('#product-availability-toggle-' . $node->id(), $link));
+    $response->addcommand(new ReplaceCommand('.product-availability-toggle-' . $node->id(), $link));
     return $response;
   }
 
