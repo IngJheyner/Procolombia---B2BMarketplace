@@ -34,9 +34,6 @@
             }
         }
         &.is-invalid{
-            .is-invalid{
-                border-width: 3px !important;
-            }
             .tooltip-is-invalid{
                 width: auto;
                 height: 20px;
