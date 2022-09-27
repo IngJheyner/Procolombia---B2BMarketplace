@@ -18,7 +18,7 @@
           const noResults = $('#generic-modal-view-no-results');
           const btnOkNoResults = $('#generic-modal-view-no-results .modal-footer-left');
           const btncloseNoResults = $('#generic-modal-view-no-results .modal-header span[aria-hidden="true"]');
-                    
+
           if(noResults){
            $(noResults).addClass('show')
           }
@@ -46,7 +46,7 @@
          }else{
           $(partidaAranTax).prependTo('.step_2 .group-right');
          }
-      });
+        });
 
         //Ver mas de 3 items funciones variables
         const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
@@ -113,8 +113,8 @@
             searchText: Drupal.t('Search'),
             noMatch: Drupal.t('No matches for "{0}"')
           });
-          
-          const requiredFieldSelect2 = $('.cp-core-multistep-form .form-select.required');          
+
+          const requiredFieldSelect2 = $('.cp-core-multistep-form .form-select.required');
           $(requiredFieldSelect2).filter('.error.is-invalid').each(function(i) {
             $(this).closest('.js-form-type-select').addClass('is-invalid');
           });
@@ -123,7 +123,7 @@
           $(imagesStep4).filter('.error.is-invalid').each(function(i) {
             $(this).closest('.js-form-type-managed-file').addClass('is-invalid');
           });
-  
+
           if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').length) {
             if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').val().length > 0) {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');
@@ -160,7 +160,7 @@
 
         //Multistep, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
-          
+
           //Paso 3 ver mas de 3 items
           const certifications = $('#edit-field-pr-type-certifications-wrapper')
           certifications.click(()=>{
@@ -360,6 +360,25 @@
             if ($(this).val() != "") {
               $(this).trigger('state:empty');
             }
+          });
+        }
+
+        if ($('form.cp-core-multistep-edit-form').length) {
+          var advise = Drupal.t('Also remember to update the information in English.');
+          $('.form-item-title-0-value input').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').insertAfter(this);
+          });
+          $('.form-item-field-body-0-value textarea').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').insertAfter(this);
+          });
+          $('.form-item-field-file-0 input').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').appendTo('.group-left .field--name-field-file.field--widget-cp-core-file-generic ');
+          });
+          $('.form-item-field-aditional-information-0-value textarea').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').insertAfter(this);
+          });
+          $('.field--name-field-pr-video button').once().click(function() {
+            $('<small class="advise">' + advise + '</small>').appendTo('.form-item-field-pr-video-0-value');
           });
         }
 
