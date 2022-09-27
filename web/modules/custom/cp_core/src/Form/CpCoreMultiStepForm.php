@@ -440,10 +440,11 @@ class CpCoreMultiStepForm extends FormBase {
 
       if ($this->entity->field_categorization->target_id && isset($form['field_pr_type_certifications'])) {
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
-          'parent' => $this->entity->field_categorization->target_id,
-          'vid' => 'categorization',
+          'field_ct_category' => $this->entity->field_categorization->target_id,
+          'vid' => 'certification_types',
         ]);
-        $newcertification_options = [key($form['field_pr_type_certifications']['widget']['#options']) => reset($form['field_pr_type_certifications']['widget']['#options'])];
+        // $newcertification_options = [key($form['field_pr_type_certifications']['widget']['#options']) => reset($form['field_pr_type_certifications']['widget']['#options'])];
+        $newcertification_options = [];
         foreach ($categorization_terms as $categorization_term) {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
@@ -452,10 +453,11 @@ class CpCoreMultiStepForm extends FormBase {
 
       if ($this->entity->field_categorization->target_id && isset($form['field_pr_sales_channel'])) {
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
-          'parent' => $this->entity->field_categorization->target_id,
-          'vid' => 'categorization',
+          'field_cv_category' => $this->entity->field_categorization->target_id,
+          'vid' => 'canales_de_venta',
         ]);
-        $newcertification_options = [key($form['field_pr_sales_channel']['widget']['#options']) => reset($form['field_pr_sales_channel']['widget']['#options'])];
+        // $newcertification_options = [key($form['field_pr_sales_channel']['widget']['#options']) => reset($form['field_pr_sales_channel']['widget']['#options'])];
+        $newcertification_options = [];
         foreach ($categorization_terms as $categorization_term) {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
