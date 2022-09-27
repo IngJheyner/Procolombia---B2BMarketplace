@@ -215,7 +215,18 @@
     }
     .step-sf-title {
         padding: 0 50px;
+        h2{
+            font-family: $font-bold-Century-Gothic;
+            font-size: 20px;
+        }
+        @include media-breakpoint-down(xl){
+            padding: 0 25px;
+        }
+        @include media-breakpoint-down(lg){
+            padding: 0 20px;
+        }
     }
+    
     #edit-field-pr-structured-features-wrapper {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(10, auto);
@@ -223,24 +234,87 @@
         padding: 0 50px;
         grid-auto-flow: column;
         column-gap: 82px;
+        .js-form-item{
+            max-width: 100%;            
+        }
+        div.js-form-item.js-form-type-select{
+            &:nth-of-type(-n+14){
+                @include media-breakpoint-down(lg){
+                    order: 1;
+                }
+            }
+            &:nth-of-type(n+17){
+                @include media-breakpoint-down(lg){
+                    order: 3;
+                }
+            }
+        }
+        @include media-breakpoint-down(xl){
+            padding: 0 25px;
+            column-gap: 41px;
+        }
         @include media-breakpoint-down(lg){
             display: flex;
             flex-wrap: wrap;
+            padding: 0 20px;
         }
-        .js-form-item{
-            max-width: 100%;
-        }
-        .SumoSelect select{
-            position: absolute;
+        .form-control::placeholder {
+            font-size: 14px;
+            }
+        .SumoSelect {
+            select{
+                position: absolute;
+            }
+            &.open{
+                .CaptionCont label i {
+                    background-image: url(../images/icons/icon-expand-select.svg);
+                    background-size: 35px;
+                    right: 10px;
+                  }
+            }
+            .opt{
+                &:hover{
+                    background-color: $procol-light-blue;
+                }
+            }
         }
         .is-invalid::after {
             top: 30px !important;
-            right: -25px !important;
+            right: -20px !important;
             left: auto !important;
+            @include media-breakpoint-down(lg){
+                top: 0 !important;
+                right: 0 !important;
+            }
         }
         .tooltip-is-invalid{
+            top: 30px;
+            right: -25px;
+            @include media-breakpoint-down(lg){
+                top: 0;
+                right: 0;
+            }
             p{
                 display: none;
+                
+            }
+            &:hover{
+                width: 152px;
+                p{                    
+                    @include hover-invalid-tooltip;
+                    top: 30px;
+                    right: 0;
+                    &::before{
+                        right: 3px;
+                    }
+                }
+            }
+        }
+        .js-form-item-field-pr-structured-features-5-value{
+            display: flex;
+            flex-direction: column;
+            label{
+                flex-grow: 1;
             }
         }
         .js-form-item-field-pr-structured-features-14-value,
@@ -248,20 +322,84 @@
             grid-area: 6 / 2 / 7 / 3;
         }
         .js-form-item-field-pr-structured-features-15-value{
-            width: 30%;
+            width: 38%;
+            input{
+                border-radius: 5px;
+                padding-right: 10px;
+            }
+            @include media-breakpoint-down(lg){
+                width: 100%;
+                order: 2;
+            }
         }
         .js-form-item-field-pr-structured-features-14-value{
-            width: 65%;
+            width: 59.8%;
             margin-left: auto;
             display: flex;
             flex-direction: column;
             label{
                 flex-grow: 1;
             }
+            @include media-breakpoint-down(lg){
+                margin-left: 0;
+                width: 100%;
+                order: 3;
+            }
         }
         .js-form-item-field-pr-structured-features-18-value{
             max-width: 100%;
             grid-area: 10 / 1 / 11 / 3;
+            margin-top: 30px;
+            .is-invalid::after{
+                @include media-breakpoint-down(lg){
+                    top: -30px !important;
+                }
+            }
+            .tooltip-is-invalid{
+                width: 30px;
+                height: 20px;
+                position: absolute;
+                top: 30px;
+                right: -28px;
+                z-index: 3;
+                &:hover{
+                    width: 162px;
+                }
+                p{
+                    left: auto !important;
+                    right: 0 !important;
+                    @include media-breakpoint-down(lg){
+                        left: 0;
+                        right: -3px;
+                    }
+                    &::before{
+                        right: 5px !important;
+                    }
+                }
+                @include media-breakpoint-down(lg){
+                    top: -30px;
+                    right: 0;
+                }
+            }
+            @include media-breakpoint-down(lg){
+                order: 3;
+            }
+            label{
+                position: relative;
+                top: 7px;
+                left: 11px;
+                background-color: $white;
+                padding: 0 4px;
+                z-index: 2;
+            }
+            #edit-field-pr-structured-features-18-value {
+                height: 127px;
+                border-radius: 6px;
+                @include media-breakpoint-down(lg){
+                    height: 272px;
+                    padding: 12px 20px 12px;
+                }
+              }
         }
       }
 }
