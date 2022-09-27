@@ -57,8 +57,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-09-22 18:33+0200\n"
-"PO-Revision-Date: 2022-09-22 18:33+0200\n"
+"POT-Creation-Date: 2022-09-27 16:42+0200\n"
+"PO-Revision-Date: 2022-09-27 16:42+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -98,7 +98,7 @@ msgstr "Panel de control"
 msgid "Edit company"
 msgstr "Editar empresa"
 
-#: cp_core.module:455 cp_core.routing.yml:0
+#: cp_core.module:455;1056 cp_core.routing.yml:0
 msgid "Edit product"
 msgstr "Editar producto"
 
@@ -140,7 +140,7 @@ msgstr "@num elementos"
 msgid "Email or NIT"
 msgstr "Correo or NIT"
 
-#: cp_core.module:720 js/litepicker.js:0 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:510;520;556;568;668;678 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
+#: cp_core.module:720 js/litepicker.js:0 src/Form/AddEditCompany.php:184;439 src/Form/AddEditProduct.php:74;641 src/Form/CpCoreMultiStepForm.php:524;534;570;582;682;692 src/Form/ForgetMail.php:78 src/Form/RecoverPass.php:71 templates/cp-core-node-multistep-header.html.twig:6
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -186,23 +186,31 @@ msgstr ""
 msgid "Show the close link."
 msgstr ""
 
-#: cp_core.module:1065
+#: cp_core.module:1055
+msgid "CP Core: Edit product"
+msgstr ""
+
+#: cp_core.module:1072
 msgid "Preview"
 msgstr "Vista previa"
 
-#: cp_core.module:1086
+#: cp_core.module:1093
 msgid "Go back to process"
 msgstr "Volver al proceso"
 
-#: cp_core.module:1098
+#: cp_core.module:1102
+msgid "Edit"
+msgstr "Edit"
+
+#: cp_core.module:1113
 msgid "CP Core: Change the product availability"
 msgstr ""
 
-#: cp_core.module:1105
+#: cp_core.module:1120
 msgid "CP Core: Change the company published status"
 msgstr ""
 
-#: cp_core.module:1112;1114
+#: cp_core.module:1127;1129
 msgid "CP Core: Start and End date"
 msgstr ""
 
@@ -398,11 +406,11 @@ msgstr ""
 msgid "terms of use"
 msgstr ""
 
-#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:533;581;659;691;704 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:547;595;673;705;718 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
 msgid "Yes"
 msgstr "Si"
 
-#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:535;583;661;693;706 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
+#: src/Controller/CpCoreMultiStepForms.php:114 src/Form/CpCoreMultiStepForm.php:549;597;675;707;720 src/Plugin/views/field/CpCoreCompanyPublishedOnOff.php:40
 msgid "No"
 msgstr "No"
 
@@ -554,91 +562,91 @@ msgstr ""
 msgid "Number of days"
 msgstr "Número de días"
 
-#: src/Form/CpCoreMultiStepForm.php:259
+#: src/Form/CpCoreMultiStepForm.php:271
 msgid "No existe ningún paso configurado para este tipo de contenido"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:340
+#: src/Form/CpCoreMultiStepForm.php:352
 msgid "Descripción del producto / Servicio"
 msgstr ""
 
-#: src/Form/CpCoreMultiStepForm.php:465;656
+#: src/Form/CpCoreMultiStepForm.php:479;670
 msgid "Add product / service"
-msgstr "Añadir producto / servicio"
+msgstr "Agregar producto / servicio"
 
-#: src/Form/CpCoreMultiStepForm.php:466
+#: src/Form/CpCoreMultiStepForm.php:480
 msgid "All uploaded content must comply with the <a href=\"/en/information/terms-use\" target=\"_BLANK\">publishing policy.</a>"
 msgstr ""
 "Todo el contenido subido debe cumplir con las  <a "
 "href=\"/informacion/condiciones-de-uso\" target=\"_BLANK\">políticas "
 "de publicación.</a>"
 
-#: src/Form/CpCoreMultiStepForm.php:467
+#: src/Form/CpCoreMultiStepForm.php:481
 msgid "I agree"
 msgstr "De acuerdo"
 
-#: src/Form/CpCoreMultiStepForm.php:498
+#: src/Form/CpCoreMultiStepForm.php:512
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/Form/CpCoreMultiStepForm.php:530;578;688
+#: src/Form/CpCoreMultiStepForm.php:544;592;702
 msgid "Cancel process"
 msgstr "Cancelar el proceso"
 
-#: src/Form/CpCoreMultiStepForm.php:531;579;689
+#: src/Form/CpCoreMultiStepForm.php:545;593;703
 msgid "You are about to cancel the \"Upload product or service\" process."
 msgstr "Está a punto de cancelar el proceso \"Carga del producto o servicio\""
 
-#: src/Form/CpCoreMultiStepForm.php:532;580;658;690;703
+#: src/Form/CpCoreMultiStepForm.php:546;594;672;704;717
 msgid "Do you wish to continue?"
 msgstr "¿Desea continuar?"
 
-#: src/Form/CpCoreMultiStepForm.php:540;588
+#: src/Form/CpCoreMultiStepForm.php:554;602
 msgid "Next"
 msgstr "Continuar"
 
-#: src/Form/CpCoreMultiStepForm.php:548
+#: src/Form/CpCoreMultiStepForm.php:562
 msgid "Insert video"
 msgstr "Insertar vídeo"
 
-#: src/Form/CpCoreMultiStepForm.php:620
+#: src/Form/CpCoreMultiStepForm.php:634
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: src/Form/CpCoreMultiStepForm.php:629
+#: src/Form/CpCoreMultiStepForm.php:643
 msgid "Unselect All"
 msgstr "Deseleccionar Todos"
 
-#: src/Form/CpCoreMultiStepForm.php:646
+#: src/Form/CpCoreMultiStepForm.php:660
 msgid "Load another product"
 msgstr "Cargar otro producto"
 
-#: src/Form/CpCoreMultiStepForm.php:657
+#: src/Form/CpCoreMultiStepForm.php:671
 msgid "You are about to upload another product/service, you must start the <strong>\"Product or service information\"</strong> process to add a new product."
 msgstr ""
 "Está a punto de cargar otro producto/servicio, debe iniciar el "
 "proceso <strong>“Información del producto o servicio”</strong> "
 "para agregar un nuevo producto."
 
-#: src/Form/CpCoreMultiStepForm.php:701
+#: src/Form/CpCoreMultiStepForm.php:715
 msgid "Send to aprobation"
 msgstr "Enviar a aprobación"
 
-#: src/Form/CpCoreMultiStepForm.php:702
+#: src/Form/CpCoreMultiStepForm.php:716
 msgid "Do you want send to aprobation the loaded product/services?<br /><strong>@products</strong>"
 msgstr ""
 "¿Quiere enviar a aprobación los productos/servicios cargados? <br "
 "/><strong>@products</strong> "
 
-#: src/Form/CpCoreMultiStepForm.php:712;720
+#: src/Form/CpCoreMultiStepForm.php:726;734
 msgid "Save and publish"
 msgstr "Guardar y publicar"
 
-#: src/Form/CpCoreMultiStepForm.php:738
+#: src/Form/CpCoreMultiStepForm.php:752
 msgid "Successful process"
 msgstr "Proceso exitoso"
 
-#: src/Form/CpCoreMultiStepForm.php:739
+#: src/Form/CpCoreMultiStepForm.php:753
 msgid "Your products <strong>\"@elements\"</strong> are in pending status for approval by ProColombia.<br /><br />Products without selection have been successfully saved in the system. If you want to publish them, you must go to the user dashboard and select the Edit option."
 msgstr ""
 "Sus productos <strong>\"@elements\"</strong> se encuentran en estado "
@@ -647,7 +655,7 @@ msgstr ""
 "exitosamente. Si quiere publicarlos debe remitirse al dashboard de "
 "usuario y seleccionar la opción de Editar."
 
-#: src/Form/CpCoreMultiStepForm.php:740
+#: src/Form/CpCoreMultiStepForm.php:754
 msgid "I got it"
 msgstr "Entendido"
 
