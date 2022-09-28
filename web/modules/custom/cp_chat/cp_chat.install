@@ -48,19 +48,16 @@ function cp_chat_schema() {
       'created' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
-        'not null' => TRUE,
         'description' => 'Timestamp when the record was created.',
       ],
       'updated' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
-        'not null' => TRUE,
         'description' => 'Timestamp when the record was updated.',
       ],
       'deleted' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
-        'not null' => TRUE,
         'description' => 'Timestamp when the record was deleted.',
       ]
     ],
@@ -90,13 +87,13 @@ function cp_chat_schema() {
         'description' => 'The {users}.id of the sender who belong to this message.',
       ],
       'message' => [
-        'type' => 'text_long',
+        'type' => 'text',
         'not null' => TRUE,
         'default' => '',
         'description' => 'Sender message',
       ],
       'files' => [
-        'type' => 'text_long',
+        'type' => 'text',
         'not null' => TRUE,
         'default' => '',
         'description' => 'Sender files attached to message', 
@@ -110,19 +107,16 @@ function cp_chat_schema() {
       'created' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
-        'default' => 0,
         'description' => 'Timestamp when the record was created.',
       ],
       'updated' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
-        'default' => 0,
         'description' => 'Timestamp when the record was updated.',
       ],
       'deleted' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
-        'default' => 0,
         'description' => 'Timestamp when the record was deleted.',
       ]
     ],

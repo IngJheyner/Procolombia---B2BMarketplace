@@ -76,12 +76,15 @@ body {
 	font: inherit !important;
 	font-family: $font-regular  !important;
 }
-.yes{
+
+.yes {
 	border: 1px solid #005ca4;
 }
+
 .input-group-text {
 	height: 46px !important;
-  }
+}
+
 ///
 /// Estilos Menu Drupal
 /// 
@@ -213,7 +216,8 @@ body {
 .toltip_content {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	span{
+
+	span {
 		line-height: 1.21em;
 	}
 }
@@ -1338,9 +1342,11 @@ div#page {
 }
 
 .dropdown_cont {
-	z-index: 10089;
+	z-index: 6;
 }
-
+.dropdown-menu{
+	z-index: 3 !important;
+}
 .activ_menu {
 	display: block !important;
 	animation: fadeInRight .3s ease;
@@ -1437,11 +1443,13 @@ div#page {
 .topnav {
 	display: none;
 }
+
 a.li_icon_url svg {
 	width: 31px;
 	height: 23px;
 	margin-right: 10px !important;
 }
+
 .input_error {
 	margin-bottom: 21px;
 }
@@ -1467,7 +1475,7 @@ a.li_icon_url svg {
 	padding-bottom: 0.5rem;
 	background-color: transparent;
 	position: relative;
-    
+
 
 	#logout {
 		background: #f0F0F0;
@@ -1995,6 +2003,7 @@ sup {
 	.logo-center {
 		text-align: center;
 	}
+
 	a.dropdown-item {
 		width: 100%;
 		color: #6b6d71;
@@ -2002,12 +2011,46 @@ sup {
 		align-items: center;
 		justify-content: flex-start;
 	}
+
 	a.li_icon_url svg {
 		width: 31px;
 		height: 23px;
 		margin-right: 10px !important;
 	}
-	
+
+	.code-input {
+		width: 40% !important;
+	}
+
+	.cel-input {
+		width: 55% !important;
+		padding-right: 0px !important;
+	}
+
+	.order_1 {
+		order: 1;
+	}
+
+	.order_2 {
+		order: 2;
+	}
+
+	.order_3 {
+		order: 3;
+	}
+
+	.order_4 {
+		order: 4;
+	}
+
+	.order_5 {
+		order: 5;
+	}
+
+	.order_6 {
+		order: 6;
+	}
+
 }
 
 .resalte {
@@ -2248,6 +2291,40 @@ sup {
 	.logo-center {
 		text-align: center;
 	}
+
+	.code-input {
+		width: 40% !important;
+	}
+
+	.cel-input {
+		width: 55% !important;
+		padding-right: 0px !important;
+	}
+
+	.order_1 {
+		order: 1;
+	}
+
+	.order_2 {
+		order: 2;
+	}
+
+	.order_3 {
+		order: 3;
+	}
+
+	.order_4 {
+		order: 4;
+	}
+
+	.order_5 {
+		order: 5;
+	}
+
+	.order_6 {
+		order: 6;
+	}
+
 }
 
 select,
@@ -2261,7 +2338,7 @@ select,
 	font-size: 15px;
 	padding-right: 2.4rem !important;
 	height: 46px;
-	font-family: $font-regular !important;
+	font-family: $font-regular  !important;
 	-webkit-appearance: none !important;
 	appearance: none !important;
 	-moz-appearance: none !important;
@@ -2278,13 +2355,14 @@ select {
 		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0 0 32 32'> <defs> <linearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#005ca4'/> <stop offset='1' stop-color='#008cce'/> </linearGradient> <linearGradient id='gradient_1-2' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'> <stop offset='0' stop-color='#d88d00'/> <stop offset='1' stop-color='#edc500'/> </linearGradient> </defs> <g id='icon_navigation_expand_more_24px' data-name='icon/navigation/expand_more_24px' transform='translate(0 0)'> <rect id='Boundary' width='32' height='32' transform='translate(0 0)' fill='none'/> <g id='Grupo_1428' data-name='Grupo 1428' transform='translate(6 10.001)'> <g id='Grupo_1417' data-name='Grupo 1417' transform='translate(0 2.288)'> <path id='Trazado_1893' data-name='Trazado 1893' d='M1006.623,705.634a1.337,1.337,0,0,1-.933-.379l-7.1-6.874a1.391,1.391,0,0,1-.047-1.944,1.337,1.337,0,0,1,1.913-.047l6.169,5.971,6.169-5.971a1.337,1.337,0,0,1,1.913.047,1.391,1.391,0,0,1-.047,1.944l-7.1,6.874A1.337,1.337,0,0,1,1006.623,705.634Z' transform='translate(-998.168 -696.009)' fill='url(#gradient_1)'/> </g> <path id='Trazado_1847' data-name='Trazado 1847' d='M469.031,357.48a1.144,1.144,0,1,1-1.144,1.144,1.145,1.145,0,0,1,1.144-1.144' transform='translate(-450.976 -357.48)' fill-rule='evenodd' fill='url(#gradient_1-2)'/> </g> </g> </svg>");
 	}
 }
-.multi .ts-control{
+
+.multi .ts-control {
 	height: auto !important;
 }
 
 select,
 textarea {
-	font-family: $font-regular !important;
+	font-family: $font-regular  !important;
 	-webkit-appearance: none !important;
 	appearance: none !important;
 	-moz-appearance: none !important;
@@ -2296,6 +2374,7 @@ textarea {
 	width: 100%;
 	border-radius: 4px;
 	background-color: $color-White;
+
 	&:focus {
 		outline: none;
 
@@ -2308,6 +2387,7 @@ textarea {
 	header {
 		background: $color-f7f8f8;
 	}
+
 	a.dropdown-item {
 		width: 100%;
 		color: #6b6d71;
@@ -2315,6 +2395,7 @@ textarea {
 		align-items: center;
 		justify-content: flex-start;
 	}
+
 	a.li_icon_url svg {
 		width: 31px;
 		height: 23px;
@@ -2466,6 +2547,7 @@ textarea {
 	.logo-center {
 		text-align: center;
 	}
+
 	a.dropdown-item {
 		width: 100%;
 		color: #6b6d71;
@@ -2473,10 +2555,44 @@ textarea {
 		align-items: center;
 		justify-content: flex-start;
 	}
+
 	a.li_icon_url svg {
 		width: 31px;
 		height: 23px;
 		margin-right: 10px !important;
+	}
+
+	.code-input {
+		width: 40% !important;
+	}
+
+	.cel-input {
+		width: 55% !important;
+		padding-right: 0px !important;
+	}
+
+	.order_1 {
+		order: 1;
+	}
+
+	.order_2 {
+		order: 2;
+	}
+
+	.order_3 {
+		order: 3;
+	}
+
+	.order_4 {
+		order: 4;
+	}
+
+	.order_5 {
+		order: 5;
+	}
+
+	.order_6 {
+		order: 6;
 	}
 }
 

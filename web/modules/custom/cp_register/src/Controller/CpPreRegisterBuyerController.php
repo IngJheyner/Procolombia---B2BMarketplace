@@ -5,10 +5,6 @@ namespace Drupal\cp_register\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Drupal\media\Entity\Media;
-use Drupal\file\Entity\File;
-use Drupal\taxonomy\Entity\Term;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * An cp_register controller.
@@ -75,7 +71,6 @@ class CpPreRegisterBuyerController extends ControllerBase {
       $user->set("field_company_contact_cell_phone", $data['cellphone']);
       $user->set('field_country_code_mobile', $data['country_code_mobile']);
       $user->save();
-      // _user_mail_notify('status_activated', $user);
       return new JsonResponse(['status' => 200]);
     }
     return new JsonResponse(['status' => 500]);

@@ -1,8 +1,7 @@
-name: cp_chat
+name: Cp Procolombia Chat
 type: module
-description: Custom module for chat messages
+description: Custom module for Procolombia chat messages
 package: Custom
-core: 8.x
 core_version_requirement: ^8 || ^9
 dependencies:
   - block

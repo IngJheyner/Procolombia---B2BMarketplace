@@ -1301,7 +1301,12 @@ input[type=checkbox]:checked:before {
       margin-top: 20px;
     }
   }
-
+  .iti--separate-dial-code .iti__selected-flag{
+		width: 160% !important;
+	  }
+    .bt_eliminar {
+      display: none;
+    }
 
 }
 
@@ -1428,6 +1433,12 @@ input[type=checkbox]:checked:before {
     margin-left: 6%;
     margin-right: 6%;
   }
+  .iti--separate-dial-code .iti__selected-flag{
+		width: 160% !important;
+	  }
+    .bt_eliminar {
+      display: none;
+    }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -1478,7 +1489,12 @@ input[type=checkbox]:checked:before {
   .step_registre {
     padding: 0rem;
   }
-
+  .iti--separate-dial-code .iti__selected-flag{
+		width: 160% !important;
+	  }
+    .bt_eliminar {
+      display: none;
+    }
 }
 
 

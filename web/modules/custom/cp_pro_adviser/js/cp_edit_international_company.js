@@ -331,6 +331,7 @@
         if (password == "") {
             message = Drupal.t("Password is required");
             $("#password_buyer").css("border-color", "#ba0c2f");
+            $("#password_buyer_span").css("border-color", "#ba0c2f");
             $("#error_password_buyer_message").text(message)
             $("#error_password_buyer").show();
             isValid = false;
@@ -338,6 +339,7 @@
             if (password.length < 8 && password.length > 15) {
                 message = Drupal.t("The password must be between 8 and 15 characters long");
                 $("#password_buyer").css("border-color", "#ba0c2f");
+                $("#password_buyer_span").css("border-color", "#ba0c2f");
                 $("#error_password_buyer_message").text(message)
                 $("#error_password_buyer").show();
                 isValid = false;
@@ -345,6 +347,7 @@
                 if (!password.match(/[A-Z]/)) {
                     message = Drupal.t("The password must have at least one capital letter");
                     $("#password_buyer").css("border-color", "#ba0c2f");
+                    $("#password_buyer_span").css("border-color", "#ba0c2f");
                     $("#error_password_buyer_message").text(message)
                     $("#error_password_buyer").show();
                     isValid = false;
@@ -352,6 +355,7 @@
                     if (!password.match(/[0-9]/)) {
                         message = Drupal.t("The password must have at least one number");
                         $("#password_buyer").css("border-color", "#ba0c2f");
+                        $("#password_buyer_span").css("border-color", "#ba0c2f");
                         $("#error_password_buyer_message").text(message)
                         $("#error_password_buyer").show();
                         $("#error_password_buyer")
@@ -362,6 +366,7 @@
                         if (!password.match(/[^a-zA-Z0-9]/)) {
                             message = Drupal.t("The password must have at least one special character");
                             $("#password_buyer").css("border-color", "#ba0c2f");
+                            $("#password_buyer_span").css("border-color", "#ba0c2f");
                             $("#error_password_buyer_message").text(message)
                             $("#error_password_buyer").show();
                             $("#error_password_buyer")
@@ -371,6 +376,7 @@
                         } else {
                             $("#error_password_buyer").hide();
                             $("#password_buyer").css("border-color", "#cccccc");
+                            $("#password_buyer_span").css("border-color", "#cccccc");
                         }
                     }
                 }
@@ -399,7 +405,13 @@
             $("#error_position").hide();
         }
 
-        if (web_site != "") {
+        if (web_site == "") {
+            message = Drupal.t("Please enter a website");
+            $("#web_site").css("border-color", "#ba0c2f");
+            $("#error_web_site_message").text(message)
+            $("#error_web_site").show();
+            isValid = false;
+        } else {
             if (!validateURL(web_site)) {
                 message = Drupal.t("Please enter a valid website");
                 $("#web_site").css("border-color", "#ba0c2f");
@@ -581,13 +593,13 @@
                             window.location.reload()
                         }, 2500);
                     } else {
-                        alert(Drupal.t("Error while creating user") + " " + error);
+                        alert(Drupal.t("Error while creating user. ") + " " + error);
                     }
                 })
                 .catch(function (error) {
                     $("#loading_1").hide();
                     $("#save").show();
-                    alert(Drupal.t("Error while creating user") + " " + error);
+                    alert(Drupal.t("Error while creating user. ") + " " + error);
                 });
 
         }
