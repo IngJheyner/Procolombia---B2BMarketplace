@@ -34,7 +34,7 @@ function myFunction() {
     window.location.href = "/dashboard/col/user"
   }
   function   goToDashboardAsesorCol() {
-    window.location.href = "/dashboard/adviser/user/col"
+    window.location.href = "/dashboard-advisor"
   }
 
   function goToEditBuyer() {
@@ -172,7 +172,7 @@ function myFunction() {
                 url = "/dashboard/international/user";
               } else {
                 if (data.role == "asesor_comercial") {
-                  url = "/dashboard/adviser/user/col";
+                  url = "/dashboard-advisor";
                 } else {
                   if (data.role == "asesor_internacional") {
                     url = "/dashboard/adviser/user/international";
@@ -589,7 +589,7 @@ function myFunction() {
       $("#img_click_asesor", context).click(function () {
         goToDashboardAsesorCol();
       });
-    
+
       //call function edit buyer
       $("#edit_buyer", context).click(function () {
         goToEditBuyer();
