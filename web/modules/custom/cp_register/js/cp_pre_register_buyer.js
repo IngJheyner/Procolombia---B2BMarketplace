@@ -416,7 +416,7 @@
         company: $("#business_name").val(),
         password: $("#password_buyer").val(),
         langcode: $("#langcode").val(),
-        country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode
+        country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode,
       };
       console.log(data);
       var formData = new FormData();
@@ -470,7 +470,9 @@
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save").show();
-          alert(Drupal.t("Error while creating user") + error);
+          alert(Drupal.t("Error while creating user. ") + error);
+          console.log(Drupal.t("Error while creating user. ") + error);
+          console.log(error);
         });
     }
   }

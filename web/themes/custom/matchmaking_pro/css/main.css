@@ -1127,7 +1127,11 @@ div#page {
 }
 
 .dropdown_cont {
-  z-index: 10089;
+  z-index: 6;
+}
+
+.dropdown-menu {
+  z-index: 3 !important;
 }
 
 .activ_menu {
@@ -1669,6 +1673,31 @@ sup {
     height: 23px;
     margin-right: 10px !important;
   }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .order_1 {
+    order: 1;
+  }
+  .order_2 {
+    order: 2;
+  }
+  .order_3 {
+    order: 3;
+  }
+  .order_4 {
+    order: 4;
+  }
+  .order_5 {
+    order: 5;
+  }
+  .order_6 {
+    order: 6;
+  }
 }
 .resalte {
   font-family: Gothic-Bold;
@@ -1859,6 +1888,31 @@ sup {
   .logo-center {
     text-align: center;
   }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .order_1 {
+    order: 1;
+  }
+  .order_2 {
+    order: 2;
+  }
+  .order_3 {
+    order: 3;
+  }
+  .order_4 {
+    order: 4;
+  }
+  .order_5 {
+    order: 5;
+  }
+  .order_6 {
+    order: 6;
+  }
 }
 select,
 .ts-control {
@@ -2045,6 +2099,31 @@ textarea a.li_icon_url svg {
     width: 31px;
     height: 23px;
     margin-right: 10px !important;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .order_1 {
+    order: 1;
+  }
+  .order_2 {
+    order: 2;
+  }
+  .order_3 {
+    order: 3;
+  }
+  .order_4 {
+    order: 4;
+  }
+  .order_5 {
+    order: 5;
+  }
+  .order_6 {
+    order: 6;
   }
 }
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {

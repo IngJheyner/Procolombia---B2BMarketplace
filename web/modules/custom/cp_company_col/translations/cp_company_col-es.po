@@ -177,6 +177,9 @@ msgstr "Celular"
 msgid "Position name"
 msgstr "Nombre del cargo"
 
+msgid "Job title"
+msgstr "Nombre del cargo"
+
 msgid "Edit company profile and contact"
 msgstr "Editar el perfil de la compañía y contacto"
 

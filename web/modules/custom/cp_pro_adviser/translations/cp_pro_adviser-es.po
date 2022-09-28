@@ -36,7 +36,7 @@ msgstr "Correo electrónico"
 msgid "Write the corporate email where the mailing from this website will be sent"
 msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web"
 
-msgid "I have read and accept the Terms of use"
+msgid "I have read and agree to the Terms and Conditions of Use"
 msgstr "He leído y acepto los Términos y Condiciones de uso"
 
 msgid "I have read and accept the Personal data processing policy"
@@ -45,7 +45,7 @@ msgstr "He leído y acepto la Política de Tratamiento de datos personales"
 msgid "I have read and accept the"
 msgstr "He leído y acepto la"
 
-msgid "Terms of use"
+msgid "Terms and Conditions of Use"
 msgstr "Política de términos y Condiciones de uso"
 
 msgid "Personal data processing policy"
@@ -216,7 +216,7 @@ msgstr "ANTERIOR"
 msgid "Select an option"
 msgstr "Seleccione una opción"
 
-msgid "CIIU Code Main or Economic Activit"
+msgid "CIIU Code Main or Economic Activity"
 msgstr "Código CIIU Actividad principal o económica"
 
 msgid "Indicate the CIIU code or economic activity to which your company belongs."
@@ -256,6 +256,9 @@ msgid "Surname"
 msgstr "Apellidos"
 
 msgid "Position name"
+msgstr "Nombre del cargo"
+
+msgid "Job title"
 msgstr "Nombre del cargo"
 
 msgid "This field must be completed in English."
@@ -711,7 +714,7 @@ msgstr "El teléfono celular no debe tener más de 10 dígitos"
 msgid "E-mail is invalid"
 msgstr "El correo no es válido"
 
-msgid "Error while creating user"
+msgid "Error while creating user. "
 msgstr "Error al crear el usuario"
 
 msgid "Name is required\n"
@@ -747,6 +750,9 @@ msgstr "Por favor seleccione el cargo"
 msgid "Please enter a valid website"
 msgstr "Por favor ingrese un sitio web válido"
 
+msgid "Please enter a website"
+msgstr "Por favor ingrese un sitio web"
+
 msgid "Please select a category"
 msgstr "Por favor seleccione una categoría"
 
@@ -764,3 +770,12 @@ msgstr "Se encontraron "
 
 msgid " records:"
 msgstr " resultados asociados a tu búsqueda:"
+
+msgid "Select Status"
+msgstr "Seleccione el estado"
+
+msgid "Select category"
+msgstr "Seleccione una categoría"
+
+msgid "Select subcategory"
+msgstr "Seleccione una subcategoría"

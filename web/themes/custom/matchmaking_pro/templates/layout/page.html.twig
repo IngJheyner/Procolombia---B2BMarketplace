@@ -606,7 +606,7 @@
               </li>
 
               <li class="border-0">
-                <p class="title">Perfil Empresa Colombiana</p>
+                <p class="title">{{ "Colombian Company Profile"|t }}</p>
               </li>
               <li>
                 <a class="li_icon_url" href="/dashboard">
@@ -1229,9 +1229,11 @@
                     <p class="name m-0">{{ email }}</p>
                   </div>
                   <div class="col-2">
-                    <button id="edit_buyer" class="editar-mobil"><img
+                    <button class="editar-mobil" id="edit_buyer2">
+                      <img
                         src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"
-                        alt="Editar Perfil" srcset="Editar Perfil"></button>
+                        alt="Editar Perfil" srcset="Editar Perfil">
+                    </button>
                   </div>
                 </div>
               </li>
@@ -1825,9 +1827,11 @@
                     <p class="name m-0">{{ email }}</p>
                   </div>
                   <div class="col-2">
-                    <button id="edit_buyer" class="editar-mobil"><img
+                    <button class="editar-mobil" id="edit_buyer2">
+                      <img
                         src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"
-                        alt="Editar Perfil" srcset="Editar Perfil"></button>
+                        alt="Editar Perfil" srcset="Editar Perfil">
+                    </button>
                   </div>
                 </div>
               </li>
@@ -2512,9 +2516,11 @@
                     <p class="name m-0">{{ email }}</p>
                   </div>
                   <div class="col-2">
-                    <button id="edit_buyer" class="editar-mobil"><img
+                    <button class="editar-mobil" id="edit_buyer2">
+                      <img
                         src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"
-                        alt="Editar Perfil" srcset="Editar Perfil"></button>
+                        alt="Editar Perfil" srcset="Editar Perfil">
+                    </button>
                   </div>
                 </div>
               </li>
@@ -3252,7 +3258,7 @@ MODALES DEL SISTEMA
                       alt="" srcset="">
                   </span>
                   <input type="text" id="username" autocomplete="off" class="form__input form-control" placeholder="">
-                    <label for="password" class="form__label">{{ "E-mail or NIT"|t }} <sup>*</sup></label>
+                    <label for="password" class="form__label">{{ "Email or Tax ID number (Without hyphen)"|t }} <sup>*</sup></label>
                 </div>
                 <i id="error_username" class='bx bxs-info-circle toltip_i ms-2 error_icon'>
                   <span id="error_username_message" class="tooltiptext_error">
@@ -3261,7 +3267,7 @@ MODALES DEL SISTEMA
                 </i>
               </div>
               <div style="text-align: end;">
-                <button class="button_modal" id="forgot_email_button" class="mb-3">{{ "Forgot E-mail?"|t }}</button>
+                <button class="button_modal" id="forgot_email_button" class="mb-3">{{ "Forgot your email?"|t }}</button>
               </div>
             </div>
           </div>
@@ -3306,7 +3312,7 @@ MODALES DEL SISTEMA
                 </i>
               </div>
               <div style="text-align: end;">
-                <button class="button_modal" id="forgot_password_button" class="mb-3">{{ "Forgot Password?"|t }}</button>
+                <button class="button_modal" id="forgot_password_button" class="mb-3">{{ "Forgot your password?"|t }}</button>
               </div>
             </div>
           </div>
@@ -3323,7 +3329,7 @@ MODALES DEL SISTEMA
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span class="ms-2">{{ "Uploading..."|t }}</span>
           </button>
-          <p class="mt-2">{{ "Don't have an account?"|t }}<a href="/pre-register"> <strong> {{ "Sign up"|t }}</strong></a></p>
+          <p class="mt-2">{{ "You don't have an account?"|t }}<a href="/pre-register"> <strong> {{ "Sign up"|t }}</strong></a></p>
         </div>
       </div>
     </div>
@@ -3336,7 +3342,7 @@ MODALES DEL SISTEMA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
       </div>
       <div class="modal-body login_body">
-        <h5 class="title">{{ "Forgot"|t }} <span style="color: #000;">{{ "E-mail?"|t }}</span></h5>
+        <h5 class="title">{{ "Forgot your"|t }} <span style="color: #000;">{{ "email?"|t }}</span></h5>
         <p class="desc">{{ "Enter your company's NIT below and we will show you the email address associated with the account."|t }}</p>
         <div class="row mb-4">
           <div class="col-lg-12 p-0">
@@ -3358,11 +3364,11 @@ MODALES DEL SISTEMA
           <div class="toltip_content p-0">
             <i class='bx bxs-info-circle toltip_i'>
               <span class="tooltiptext">
-                {{ "If the e-mail with which the company is registered in the B2B Marketplace isn't active, check with your systems area or contact your ProColombia advisor, in case you need to update the e-mail information."|t }}
+                {{ "If the email that your company has registered at the B2B Marketplace is not active, check with your IT department or contact your ProColombia advisor in case you need to update the email address information in the website."|t }}
               </span>
             </i>
             <span>
-              {{ "If the e-mail with which the company is registered in the B2B Marketplace isn't active, check with your systems area or contact your ProColombia advisor, in case you need to update the e-mail information."|t }}
+              {{ "If the email that your company has registered at the B2B Marketplace is not active, check with your IT department or contact your ProColombia advisor in case you need to update the email address information in the website."|t }}
             </span>
           </div>
           <div class="col-lg-12 p-0">
@@ -3418,7 +3424,7 @@ MODALES DEL SISTEMA
       </div>
       <div class="modal-body">
         <p>
-          {{ "If the e-mail with which the company is registered in the B2B Marketplace isn't active, check with your systems area or contact your ProColombia advisor, in case you need to update the e-mail information."|t }}
+          {{ "If the email that your company has registered at the B2B Marketplace is not active, check with your IT department or contact your ProColombia advisor in case you need to update the email address information in the website."|t }}
         </p>
       </div>
       <div class="modal-footer">
@@ -3437,7 +3443,7 @@ MODALES DEL SISTEMA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
       </div>
       <div class="modal-body login_body">
-        <h5 class="title">{{ "Forgot"|t }} <span style="color: #000;">{{ "Password?"|t }}</span></h5>
+        <h5 class="title">{{ "Forgot your"|t }} <span style="color: #000;">{{ "Password?"|t }}</span></h5>
         <p class="desc">{{ "Enter your company email below and we will send you a secure link to reset your password."|t }}</p>
         <div class="row mb-4">
           <div class="col-lg-12 p-0 mt-3 mb-5">
@@ -3503,7 +3509,7 @@ MODALES DEL SISTEMA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
       </div>
       <div class="modal-body login_body">
-        <h5 class="title">{{ "Forgot"|t }} <span style="color: #000;">{{ "Password?"|t }}</span></h5>
+        <h5 class="title">{{ "Forgot your"|t }} <span style="color: #000;">{{ "Password?"|t }}</span></h5>
         <p class="desc">{{ "Enter your company email below and we will send you a secure link to reset your password."|t }}</p>
         <div class="row mb-4">
           <div class="col-lg-12 p-0">

@@ -439,13 +439,13 @@
 
                 } else {
                     $("#question_modal").modal("hide");
-                    alert("Error al crear el usuario" + error);
+                    alert(Drupal.t("Error While Creating User: ")+ error);
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
-                alert("Error al crear el usuario" + error);
+                alert(Drupal.t("Error While Creating User: ")+ error);
             });
     }
 

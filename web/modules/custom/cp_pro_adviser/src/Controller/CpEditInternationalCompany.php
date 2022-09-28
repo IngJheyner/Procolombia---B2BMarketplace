@@ -52,7 +52,7 @@ class CpEditInternationalCompany extends ControllerBase {
       );
     }
 
-      //get advisor user with role asesor_comercial.
+    // Get advisor user with role asesor_comercial.
     $query = \Drupal::entityQuery('user');
     $query->condition('roles', 'asesor_internacional');
     $uids = $query->execute();
@@ -109,174 +109,170 @@ class CpEditInternationalCompany extends ControllerBase {
     }
   }
 
-    //get_international_user in drupal and return user object data.
-    public function get_international_user(Request $request)
-    {
-        $data = $request->request->all();
-        //get user with email
-        $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
+  /**
+   * GetInternationalUser in drupal and return user object data.
+   */
+  public function getInternationalUser(Request $request) {
+    $data = $request->request->all();
+    // Get user with email.
+    $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
 
-        //get all 'field_company_model' target_id.
-        $field_company_model = $user->get('field_company_model')->getValue();
-        foreach ($field_company_model as $key => $value) {
-            //push targer_id to array.
-            $field_company_model_target_id[$key] = $value['target_id'];
-        }
-        //get all 'field_company_model' target_id.
-        $field_company_model_2 = $user->get('field_company_model_2')->getValue();
-        foreach ($field_company_model_2 as $key => $value) {
-            //push targer_id to array.
-            $field_company_model_target_id_2[$key] = $value['target_id'];
-        }
-        //get all 'field_company_model' target_id.
-        $field_company_model_3 = $user->get('field_company_model_3')->getValue();
-        foreach ($field_company_model_3 as $key => $value) {
-            //push targer_id to array.
-            $field_company_model_target_id_3[$key] = $value['target_id'];
-        }
-        $data_user = [
-            'step' => $user->get('field_step')->value,
-            'name' => $user->get('field_company_contact_name')->value,
-            'lastname' => $user->get('field_company_contact_lastname')->value,
-            'business_name' => $user->get('field_company_name')->value,
-            'cellphone' => $user->get('field_company_contact_cell_phone')->value,
-            'email' => $user->get('mail')->value,
-            'position' => $user->get('field_company_contact_position')->value,
-            'web_site' => $user->get('field_company_web_site')->uri,
-            'city' => $user->get('field_company_city')->value,
-            'country' => $user->get('field_country')->target_id,
-            'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
-            'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
-            'company_model' => $field_company_model_target_id,
-            'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
-            'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
-            'company_model_2' => $field_company_model_target_id_2,
-            'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
-            'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
-            'company_model_3' => $field_company_model_target_id_3,
-            'country_code_mobile' => $user->get('field_country_code_mobile')->value,
-            'advisor' => $user->get('field_company_adviser')->target_id,
-        ];
-
-        return new JsonResponse(['status' => 200, 'data' => $data_user]);
-        
+    // Get all 'field_company_model' target_id.
+    $field_company_model = $user->get('field_company_model')->getValue();
+    foreach ($field_company_model as $key => $value) {
+      // Push targer_id to array.
+      $field_company_model_target_id[$key] = $value['target_id'];
     }
-
-    /**
-     * Save file in drupal 9 media library and return file
-     */
-    public function saveFile($fileToSave, $name, $directory)
-    {
-        \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
-        $file = file_save_data($fileToSave, $directory . $name, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
-        return $file;
+    // Get all 'field_company_model' target_id.
+    $field_company_model_2 = $user->get('field_company_model_2')->getValue();
+    foreach ($field_company_model_2 as $key => $value) {
+      // Push targer_id to array.
+      $field_company_model_target_id_2[$key] = $value['target_id'];
     }
-
-    /**
-     * Update data of user form1
-     */
-    public function update_form_international_company(Request $request)
-    {
-        //get data request
-        $data = $request->request->all();
-        //get user with email
-        $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
-        $user->setPassword($data['password']);
-        $user->set("field_company_contact_name", $data['name']);
-        $user->set("field_company_name", $data['business_name']);
-        $user->set("field_company_contact_lastname", $data['last_name']);
-        $user->set("field_company_contact_cell_phone", $data['cellphone']);
-        $user->set("field_company_contact_position", $data['position']);
-        $user->set("field_country", $data['country']);
-        $user->set('field_country_code_mobile', $data['country_code_mobile']);
-        $user->set("field_company_web_site", $data['web_site']);
-        $user->set("field_cat_interest_1", $data['cat_interest_1']);
-        $user->set("field_subcat_interest_1", $data['subcat_interest_1']);
-        $model_arr = explode(',', $data['company_model']);
-        $user->set('field_company_model', $model_arr);        
-        $user->set("field_cat_interest_2", $data['cat_interest_2']);
-        $user->set("field_subcat_interest_2", $data['subcat_interest_2']);
-        $model_arr1 = explode(',', $data['company_model_2']);
-        $user->set('field_company_model_2', $model_arr1);
-        $user->set("field_cat_interest_3", $data['cat_interest_3']);
-        $user->set("field_subcat_interest_3", $data['subcat_interest_3']);
-        $user->set("field_company_adviser", $data['advisor']);
-        $model_arr2 = explode(',', $data['company_model_3']);
-        $user->set('field_company_model_3', $model_arr2);
-        $user->save();
-        //create log
-        //current user email
-        $current_user = \Drupal::currentUser();
-        $current_user = \Drupal\user\Entity\User::load($current_user->id());
-        $current_user_email = $current_user->get('mail')->value;
-        $this->createLog($current_user_email , $data['business_name'], 'Editado', 'En espera de Aprobación');
-        return new JsonResponse(['status' =>  200]);
+    // Get all 'field_company_model' target_id.
+    $field_company_model_3 = $user->get('field_company_model_3')->getValue();
+    foreach ($field_company_model_3 as $key => $value) {
+      // Push targer_id to array.
+      $field_company_model_target_id_3[$key] = $value['target_id'];
     }
+    $data_user = [
+      'step' => $user->get('field_step')->value,
+      'name' => $user->get('field_company_contact_name')->value,
+      'lastname' => $user->get('field_company_contact_lastname')->value,
+      'business_name' => $user->get('field_company_name')->value,
+      'cellphone' => $user->get('field_company_contact_cell_phone')->value,
+      'email' => $user->get('mail')->value,
+      'position' => $user->get('field_company_contact_position')->value,
+      'web_site' => $user->get('field_company_web_site')->uri,
+      'city' => $user->get('field_company_city')->value,
+      'country' => $user->get('field_country')->target_id,
+      'cat_interest_1' => $user->get('field_cat_interest_1')->target_id,
+      'subcat_interest_1' => $user->get('field_subcat_interest_1')->target_id,
+      'company_model' => $field_company_model_target_id,
+      'cat_interest_2' => $user->get('field_cat_interest_2')->target_id,
+      'subcat_interest_2' => $user->get('field_subcat_interest_2')->target_id,
+      'company_model_2' => $field_company_model_target_id_2,
+      'cat_interest_3' => $user->get('field_cat_interest_3')->target_id,
+      'subcat_interest_3' => $user->get('field_subcat_interest_3')->target_id,
+      'company_model_3' => $field_company_model_target_id_3,
+      'country_code_mobile' => $user->get('field_country_code_mobile')->value,
+      'advisor' => $user->get('field_company_adviser')->target_id,
+    ];
 
-    /**
-     * Aprove user
-     */
-    public function approve_user_international(Request $request)
-    {
-        try
-        {
-            //get data request
-            $data = $request->request->all();
-            //get user with email
-            $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
-            //set status user
-            $user->set('status', 1);
-            //change account_status to taxonomy id Aprobado
-            //get taxonomy id
-            $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'Aprobado']);
-            $term = reset($terms);
-            $user->set('field_account_status', $term->id());
-            $user->save();
-            //create log
-            //current user email
+    return new JsonResponse(['status' => 200, 'data' => $data_user]);
+  }
 
-            //user get company name
-            $company_name = $user->get('field_company_name')->value;
-            $current_user = \Drupal::currentUser();
-            $current_user = \Drupal\user\Entity\User::load($current_user->id());
-            $current_user_email = $current_user->get('mail')->value;
-            $this->createLog($current_user_email ,  $company_name, 'Aprobación', 'Aprobado');
-            return new JsonResponse(['status' =>  200]);
-        }catch(Exception $e){
-            return new JsonResponse(['status' =>  500]);
-        }
+  /**
+   * Save file in drupal 9 media library and return file.
+   */
+  public function saveFile($fileToSave, $name, $directory) {
+    \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+    $file = file_save_data($fileToSave, $directory . $name, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+    return $file;
+  }
+
+  /**
+   * Update data of user form1.
+   */
+  public function updateFormInternationalCompany(Request $request) {
+    // Get data request.
+    $data = $request->request->all();
+    // Get user with email.
+    $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
+    $user->setPassword($data['password']);
+    $user->set("field_company_contact_name", $data['name']);
+    $user->set("field_company_name", $data['business_name']);
+    $user->set("field_company_contact_lastname", $data['last_name']);
+    $user->set("field_company_contact_cell_phone", $data['cellphone']);
+    $user->set("field_company_contact_position", $data['position']);
+    $user->set("field_country", $data['country']);
+    $user->set('field_country_code_mobile', $data['country_code_mobile']);
+    $user->set("field_company_web_site", $data['web_site']);
+    $user->set("field_cat_interest_1", $data['cat_interest_1']);
+    $user->set("field_subcat_interest_1", $data['subcat_interest_1']);
+    $model_arr = explode(',', $data['company_model']);
+    $user->set('field_company_model', $model_arr);        
+    $user->set("field_cat_interest_2", $data['cat_interest_2']);
+    $user->set("field_subcat_interest_2", $data['subcat_interest_2']);
+    $model_arr1 = explode(',', $data['company_model_2']);
+    $user->set('field_company_model_2', $model_arr1);
+    $user->set("field_cat_interest_3", $data['cat_interest_3']);
+    $user->set("field_subcat_interest_3", $data['subcat_interest_3']);
+    $user->set("field_company_adviser", $data['advisor']);
+    $model_arr2 = explode(',', $data['company_model_3']);
+    $user->set('field_company_model_3', $model_arr2);
+    $user->save();
+    // Create log.
+    // Current user email.
+    $current_user = \Drupal::currentUser();
+    $current_user = \Drupal\user\Entity\User::load($current_user->id());
+    $current_user_email = $current_user->get('mail')->value;
+    $this->createLog($current_user_email , $data['business_name'], 'Editado', 'En espera de Aprobación');
+    return new JsonResponse(['status' =>  200]);
+  }
+
+  /**
+   * Approve user.
+   */
+  public function approveUserInternational(Request $request) {
+    try {
+      // Get data request.
+      $data = $request->request->all();
+      // Get user with email.
+      $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
+      // Set status user.
+      $user->set('status', 1);
+      // Change account_status to taxonomy id Aprobado.
+      // Get taxonomy id.
+      $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'Aprobado']);
+      $term = reset($terms);
+      $user->set('field_account_status', $term->id());
+      $user->save();
+      // Create log.
+      // Current user email.
+      // User get company name.
+      $company_name = $user->get('field_company_name')->value;
+      $current_user = \Drupal::currentUser();
+      $current_user = \Drupal\user\Entity\User::load($current_user->id());
+      $current_user_email = $current_user->get('mail')->value;
+      $this->createLog($current_user_email ,  $company_name, 'Aprobación', 'Aprobado');
+      return new JsonResponse(['status' => 200]);
     }
-
-    /**
-     * Reject user
-     */
-    public function reject_user_international(Request $request)
-    {
-        try
-        {
-            //get data request
-            $data = $request->request->all();
-            //get user with email
-            $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
-            //set status user
-            $user->set('status', 0);
-            //change account_status to taxonomy id Rechazado
-            //get taxonomy id
-            $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'Rechazado']);
-            $term = reset($terms);
-            $user->set('field_account_status', $term->id());
-            $user->save();
-            //create log
-            //current user email
-            //user get company name
-            $company_name = $user->get('field_company_name')->value;
-            $current_user = \Drupal::currentUser();
-            $current_user = \Drupal\user\Entity\User::load($current_user->id());
-            $current_user_email = $current_user->get('mail')->value;
-            $this->createLog($current_user_email , $company_name, 'Rechazo', 'Rechazado');
-            return new JsonResponse(['status' =>  200]);
-        }catch(Exception $e){
-            return new JsonResponse(['status' =>  500]);
-        }
+    catch (Exception $e) {
+      return new JsonResponse(['status' => 500]);
     }
+  }
+
+  /**
+   * Reject user.
+   */
+  public function rejectUserInternational(Request $request) {
+    try {
+      // Get data request.
+      $data = $request->request->all();
+      // Get user with email.
+      $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
+      // Set status user.
+      $user->set('status', 0);
+      // Change account_status to taxonomy id Rechazado.
+      // Get taxonomy id.
+      $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'Rechazado']);
+      $term = reset($terms);
+      $user->set('field_account_status', $term->id());
+      $user->save();
+      // Create log.
+      // Current user email.
+      // User get company name.
+      $company_name = $user->get('field_company_name')->value;
+      $current_user = \Drupal::currentUser();
+      $current_user = \Drupal\user\Entity\User::load($current_user->id());
+      $current_user_email = $current_user->get('mail')->value;
+      $this->createLog($current_user_email, $company_name, 'Rechazo', 'Rechazado');
+      return new JsonResponse(['status' => 200]);
+    }
+    catch (Exception $e) {
+      return new JsonResponse(['status' => 500]);
+    }
+  }
+
 }

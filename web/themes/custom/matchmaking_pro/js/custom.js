@@ -101,7 +101,7 @@
     let message = "";
 
     if (username == "") {
-      message = Drupal.t("Username is required.");
+      message = Drupal.t("Email or Tax ID number is required.");
       $(".username_container").css("border-color", "#ba0c2f");
       $("#error_username").show();
       $("#error_username_message").text(message)
@@ -274,7 +274,7 @@
     console.log(response);
     console.log("HI")
     if (response.length == 0) {
-      alert("Please verify that you are not a robot");
+      alert(Drupal.t("Please verify that you are not a robot"));
       $("#error_captcha").show();
       isValid = false;
     } else {
@@ -622,6 +622,12 @@
       //call function edit buyer
       $("#edit_buyer", context).click(function () {
         goToEditBuyer();
+      });
+
+      //call function edit buyer
+      $("#edit_buyer2", context).click(function () {
+        goToEditBuyer();
+        console.log("edit_buyer2");
       });
 
       //add css when click menu_user

@@ -113,9 +113,9 @@ class CpEditColCompany extends ControllerBase {
   }
 
   /**
-   * Get_col_user in drupal and return user object data.
+   * GetColUser in drupal and return user object data.
    */
-  public function get_col_user(Request $request) {
+  public function getColUser(Request $request) {
     $data = $request->request->all();
     // Get user with email.
     $user = \Drupal\user\Entity\User::load($this->getUid($data['email']));
@@ -179,9 +179,9 @@ class CpEditColCompany extends ControllerBase {
   }
 
   /**
-   * Update data of user form1
+   * Update data of user form1.
    */
-  public function update_form_col_company(Request $request) {
+  public function updateFormColCompany(Request $request) {
     // Get data request.
     $data = $request->request->all();
     // Get user with email.
@@ -220,7 +220,7 @@ class CpEditColCompany extends ControllerBase {
   /**
    * Approve user.
    */
-  public function approve_user_col(Request $request) {
+  public function approveUserCol(Request $request) {
     try {
       // Get data request.
       $data = $request->request->all();
@@ -244,7 +244,7 @@ class CpEditColCompany extends ControllerBase {
   /**
    * Reject user.
    */
-  public function reject_user_col(Request $request) {
+  public function rejectUserCol(Request $request) {
     try {
       // Get data request.
       $data = $request->request->all();

@@ -36,7 +36,7 @@ msgstr "Correo electrónico"
 msgid "Write the corporate email where the mailing from this website will be sent"
 msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web"
 
-msgid "I have read and accept the Terms of use"
+msgid "I have read and accept to the Terms and Conditions of Use"
 msgstr "He leído y acepto los Términos y Condiciones de uso"
 
 msgid "I have read and accept the Personal data processing policy"
@@ -45,8 +45,11 @@ msgstr "He leído y acepto la Política de Tratamiento de datos personales"
 msgid "I have read and accept the"
 msgstr "He leído y acepto la"
 
-msgid "Terms of use"
-msgstr "Política de términos y Condiciones de uso"
+msgid "the"
+msgstr "los"
+
+msgid "I have read and accept"
+msgstr "He leído y acepto"
 
 msgid "Personal data processing policy"
 msgstr "Política tratamiento de datos personales"
@@ -204,6 +207,9 @@ msgstr "Introduzca la palabra clave o seleccione una opción"
 msgid "Departments"
 msgstr "Departamentos"
 
+msgid "Department"
+msgstr "Departamento"
+
 msgid "PREVIOUS"
 msgstr "ANTERIOR"
 
@@ -250,6 +256,9 @@ msgid "Last names"
 msgstr "Apellidos"
 
 msgid "Position name"
+msgstr "Nombre del cargo"
+
+msgid "Job title"
 msgstr "Nombre del cargo"
 
 msgid "This field must be completed in English."
@@ -568,10 +577,10 @@ msgid "REGISTER AS AN INTERNATIONAL BUYER"
 msgstr "REGISTRARSE COMO COMPRADOR INTERNACIONAL"
 
 msgid "REGISTER TO HAVE THE COLOMBIAN OFFER JUST A CLICK AWAY"
-msgstr "REGÍSTRESE PARA TENER LA OFERTA COLOMBIANA AL ALCANCE DE UN CLIC"
+msgstr "REGÍSTRESE PARA TENER LA OFERTA COLOMBIANA A UN CLIC"
 
-msgid "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."
-msgstr "Regístrese en el Catálogo de Exportación de Colombia para ampliar su oferta y Encuentre todos los productos y servicios de origen colombiano para satisfacer sus necesidades de abastecimiento. Filtrar y descubrir productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guardar fácilmente los filtros de búsqueda y recibir notificaciones de los nuevos productos añadidos al Mercado B2B de ProColombia."
+msgid "Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."
+msgstr "Encuentre todos los productos y servicios de origen colombiano para atender su necesidad de proveeduría. Filtre y descubra productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guarde fácilmente los filtros de búsqueda y reciba notificaciones de nuevos productos agregados al B2B Marketplace de ProColombia."
 
 
 msgid "Name is required"
@@ -709,13 +718,28 @@ msgstr "su correo?"
 msgid "Forgot Password?"
 msgstr "¿Olvidó su contraseña?"
 
+msgid "Forgot your password?"
+msgstr "¿Olvidó su contraseña?"
+
 msgid "Forgot E-mail?"
 msgstr "¿Olvidó su correo?"
+
+msgid "Forgot your email?"
+msgstr "¿Olvidó su correo?"
+
+msgid "Forgot your"
+msgstr "¿Olvidó su"
+
+msgid "email?"
+msgstr "correo?"
 
 msgid "E-mail"
 msgstr "Correo electrónico"
 
 msgid "E-mail or NIT"
+msgstr "Correo electrónico o NIT"
+
+msgid "Email or Tax ID number (Without hyphen)"
 msgstr "Correo electrónico o NIT"
 
 msgid "Password"
@@ -764,6 +788,9 @@ msgid "Sign up"
 msgstr "Regístrese"
 
 msgid "Don't have an account?"
+msgstr "¿No tiene una cuenta?"
+
+msgid "You don’t have an account?"
 msgstr "¿No tiene una cuenta?"
 
 msgid "Verification code"
@@ -847,8 +874,8 @@ msgstr "Empresas con interacción"
 msgid "Terms of access"
 msgstr "Condiciones de acceso"
 
-msgid "Terms of use"
-msgstr "Condiciones de uso"
+msgid "Terms and Conditions of Use"
+msgstr "Términos y Condiciones de uso"
 
 msgid "News"
 msgstr "Noticias"
@@ -904,8 +931,8 @@ msgstr "Política de privacidad y manejo de datos"
 msgid "Enter your company's NIT below and we will show you the email address associated with the account."
 msgstr "Ingrese el NIT de su empresa a continuación y le mostraremos su correo asociado a la cuenta."
 
-msgid "If the e-mail with which the company is registered in the B2B Marketplace isn't active, check with your systems area or contact your ProColombia advisor, in case you need to update the e-mail information."
-msgstr "Si el correo electrónico con el que se encuentra registrada la empresa en el B2B Marketplace no se encuentra activo, verifique con su área de sistemas o comuníquese con su asesor de ProColombia, en caso de que requiera actualizar la información de correo electrónico."
+msgid "If the email that your company has registered at the B2B Marketplace is not active, check with your IT department or contact your ProColombia advisor in case you need to update the email address information in the website."
+msgstr "Si el correo electrónico con el que se encuentra registrada la empresa en el B2B Marketplace no se encuentra activo, verifique con su área de sistemas o comuníquese con su asesor de ProColombia en caso de que requiera actualizar la información de correo electrónico."
 
 msgid "Enter your company email below and we will send you a secure link to reset your password."
 msgstr "Introduzca el correo electrónico de su empresa a continuación y le enviaremos un enlace seguro para restablecer su contraseña."
@@ -961,7 +988,7 @@ msgstr "Toke no válido"
 msgid "Please verify that you are not a robot"
 msgstr "Por favor verifique que no es un robot"
 
-msgid "Error while creating user"
+msgid "Error while creating user. "
 msgstr "Error al crear el usuario"
 
 msgid "Email request error"
@@ -990,3 +1017,66 @@ msgstr "El correo no es válido"
 
 msgid "Please enter a web site"
 msgstr "Por favor ingrese un sitio web"
+
+msgid "Colombian Company Profile"
+msgstr "Perfil Empresa Colombiana"
+
+msgid "The url does not belong to a YouTube video"
+msgstr "La url no pertenece a un vídeo de YouTube"
+
+msgid "You don't have an account?"
+msgstr "¿No tiene una cuenta?"
+
+msgid "Productive Chain"
+msgstr"Cadena productiva"
+
+msgid "Published"
+msgstr"Publicado"
+
+msgid "Views"
+msgstr"Vistas"
+
+msgid "Incentives"
+msgstr"Incentivos"
+
+msgid "Action"
+msgstr"Acción"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Subcategory"
+msgstr "Subcategoría"
+
+msgid "Tax ID number"
+msgstr "NIT"
+
+msgid "Registration International buyer"
+msgstr "Registro comprador internacional"
+
+msgid "Dashboard International Adviser"
+msgstr "Tablero Asesor Internacional"
+
+msgid "Pre-register - Company"
+msgstr "Pre-registro - Empresa"
+
+msgid "Pre-register"
+msgstr "Pre-registro"
+
+msgid "User verification"
+msgstr "Verificación de usuario"
+
+msgid "User registration"
+msgstr "Registro de usuario"
+
+msgid "Pre-registration - International buyer"
+msgstr "Pre-registro - Comprador internacional"
+
+msgid "Registration - International buyer"
+msgstr "Registro - Comprador Internacional"
+
+msgid "Tax ID validation"
+msgstr "Validación de NIT"
+
+msgid "International buyer"
+msgstr "Comprador Internacional"

@@ -354,13 +354,13 @@
             $("#validate_progresss").css("width", "33%");
             $("#step_2").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user") + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_2").hide();
           $("#save_buyer_1").show();
-          alert(Drupal.t("Error while creating user") + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -448,13 +448,13 @@
             $("#validate_progresss").css("width", "53%");
             $("#step_3").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user") + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_3").hide();
           $("#save_buyer_2").show();
-          alert(Drupal.t("Error while creating user") + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -543,13 +543,13 @@
             $("#validate_progresss").css("width", "73%");
             $("#step_4").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user") + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_4").hide();
           $("#save_buyer_3").show();
-          alert(Drupal.t("Error while creating user") + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -643,13 +643,13 @@
             $("#empresa_popup").text(localStorage.getItem("company_name"));
             localStorage.clear();
           } else {
-            alert(Drupal.t("Error while creating user") + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_5").hide();
           $("#save_buyer_4").show();
-          alert(Drupal.t("Error while creating user") + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
