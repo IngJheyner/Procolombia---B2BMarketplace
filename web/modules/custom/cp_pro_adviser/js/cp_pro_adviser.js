@@ -87,37 +87,37 @@
                     //company name
                     {
                         "data": "company_name",
-                        "title": "Nombre de la empresa"
+                        "title": Drupal.t("Company name"),
                     },
                     //email
                     {
                         "data": "email",
-                        "title": "Cooreo electrónico"
+                        "title": Drupal.t("Email"),
                     },
                     //lang
                     {
                         "data": "lang",
-                        "title": "Idioma"
+                        "title": Drupal.t("Language"),
                     },
                     //country
                     {
                         "data": "country",
-                        "title": "Pais"
+                        "title": Drupal.t("Country"),
                     },
                     //subcategory
                     {
                         "data": "subcategory",
-                        "title": "Subcategoria"
+                        "title": Drupal.t("Subcategory"),
                     },
                     //update date
                     {
                         "data": "update_date",
-                        "title": "Fecha de actualización"
+                        "title": Drupal.t("Update date")
                     },
                     //status
                     {
                         "data": "status",
-                        "title": "Estado"
+                        "title": Drupal.t("Status")
                     },
                     //action
                     {
@@ -125,7 +125,7 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/asesor/editar/internacional?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
-                        "title": "Acción",
+                        "title": Drupal.t("Action"),
                         "className": "text-center"
                     }
                 ],
@@ -214,7 +214,7 @@
                 "scrollX": true,
                 "stripe": false,
                 "ajax": {
-                    "url": "/adviser/get_all_exportador_by_page",
+                    "url": "/adviser/get_all_exporters_by_page",
                     "type": "POST",
                     "data": function (d) {
                         if (filterExportadores) {
@@ -240,28 +240,28 @@
                     //NIT Empresa
                     {
                         "data": "nit",
-                        "title": "NIT Empresa",
+                        "title": Drupal.t("Tax ID number"),
                     },
                     //Email empresa hidden
                     {
                         "data": "email",
-                        "title": "Correo empresa",
+                        "title": Drupal.t("Email"),
                         "visible": false,
                     },
                     //company_name
                     {
                         "data": "company_name",
-                        "title": "Nombre de la empresa",
+                        "title": Drupal.t("Company name"),
                     },
                     //lang
                     {
                         "data": "lang",
-                        "title": "Idioma",
+                        "title": Drupal.t("Language"),
                     },
                     //company_logo is image
                     {
                         "data": "company_logo",
-                        "title": "Logo de la empresa",
+                        "title": Drupal.t("Language"),
                         "render": function (data, type, row, meta) {
                             return '<img src="' + row.company_logo + '" width="100px" height="100px">';
                         }
@@ -269,23 +269,26 @@
                     //company_deparment
                     {
                         "data": "company_deparment",
-                        "title": "Departamento",
+                        "title": Drupal.t("Department"),
+                        "class": "table__td",
                     },
                     //company_city
                     {
                         "data": "company_city",
-                        "title": "Ciudad",
+                        "title": Drupal.t("City"),
+                        "class": "table__td",
                     },
                     //productive_chain
                     {
                         "data": "productive_chain",
-                        "title": "Cadena productiva",
-
+                        "title": Drupal.t("Productive Chain"),
+                        "class": "table__td",
                     },
                     //update_date
                     {
                         "data": "update_date",
-                        "title": "Fecha de actualización",
+                        "title": Drupal.t("Update date"),
+                        "class": "table__td",
                     },
                     //add See products as url that have string See products
                     {
@@ -293,12 +296,13 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/adviser/exportador' + row.id + '" class="see_btn">See products</a>';
                         },
-                        "title": "Ver productos",
+                        "title": Drupal.t("View Products and services"),
+                        "class": "table__td",
                     },
                     //published as string
                     {
                         "data": "id",
-                        "title": "Publicado",
+                        "title": Drupal.t("Published"),
                         "render": function (data, type, row, meta) {
                             return 'Yes';
                         },
@@ -306,12 +310,12 @@
                     //status
                     {
                         "data": "status",
-                        "title": "Estado",
+                        "title": Drupal.t("Status"),
                     },
                     //views
                     {
                         "data": "id",
-                        "title": "Vistas",
+                        "title": Drupal.t("Views"),
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Ojo_gris.svg" alt="" srcset="" class="img-views img-table" /><span class="tooltip-table">180</span></div>';
@@ -320,7 +324,7 @@
                     //incentives
                     {
                         "data": "id",
-                        "title": "Incentivos",
+                        "title": Drupal.t("Incentives"),
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/gold.svg" alt="" srcset="" class="img-status" /><span class="tooltip-table">180</span></div>';
@@ -332,7 +336,7 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/asesor/editar/col?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
-                        "title": "Acción",
+                        "title": Drupal.t("Action"),
                         "className": "text-center"
                     }
 
@@ -481,7 +485,7 @@
         }
         //load data with post ajax and insert in data table
         $.ajax({
-            url: '/adviser/get_all_exportador_by_page',
+            url: '/adviser/get_all_exporters_by_page',
             type: 'POST',
             data: formData,
             contentType: false,

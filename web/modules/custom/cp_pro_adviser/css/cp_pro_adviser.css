@@ -1076,6 +1076,12 @@ input[type=checkbox]:checked:before {
   .nav_table .btn_download.btn {
     margin-top: 20px;
   }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
+  }
+  .bt_eliminar {
+    display: none;
+  }
 }
 .num_table {
   box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.1019607843);
@@ -1172,6 +1178,12 @@ input[type=checkbox]:checked:before {
     margin-left: 6%;
     margin-right: 6%;
   }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
+  }
+  .bt_eliminar {
+    display: none;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-lg-9,
@@ -1206,6 +1218,12 @@ input[type=checkbox]:checked:before {
   }
   .step_registre {
     padding: 0rem;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
+  }
+  .bt_eliminar {
+    display: none;
   }
 }
 .dataTables_scrollHeadInner th {

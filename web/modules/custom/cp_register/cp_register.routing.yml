@@ -8,7 +8,7 @@ cp_register.render:
 cp_register.pre_register:
   path: "pre-register"
   defaults:
-    _title: 'Pre-register - Company'
+    _title: 'Pre-register'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
   methods:  [GET]
   requirements:
@@ -17,7 +17,7 @@ cp_register.pre_register:
 cp_register.pre_registro:
   path: "pre-registro"
   defaults:
-    _title: 'Pre-registro - Empresa'
+    _title: 'Pre-registro'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
   methods:  [GET]
   requirements:
@@ -48,6 +48,7 @@ cp_register.verificacion_user:
 cp_register.validate_nit:
   path: "verification/validate_nit"
   defaults:
+    _title: 'Tax ID validation'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::checkNit'
   methods:  [POST]
   requirements:
@@ -143,7 +144,7 @@ cp_register.delete_user:
 cp_register.pre_register_buyer:
   path: "pre-register/buyer"
   defaults:
-    _title: 'Pre-registration - International buyer'
+    _title: 'International buyer'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
   methods:  [GET]
   requirements:
@@ -152,7 +153,7 @@ cp_register.pre_register_buyer:
 cp_register.pre_registro_comprador:
   path: "pre-registro/comprador"
   defaults:
-    _title: 'Pre-registro - Comprador internacional'
+    _title: 'Comprador Internacional'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
   methods:  [GET]
   requirements:

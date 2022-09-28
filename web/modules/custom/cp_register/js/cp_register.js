@@ -254,7 +254,7 @@
         });
     } else {
       //show video error
-      let message = "the url is not a youtube url";
+      let message = Drupal.t("The url does not belong to a YouTube video");
       $("#video").css("border-color", "#ba0c2f");
       $("#error_video_message").text(message)
       $("#error_video").show();
@@ -616,13 +616,13 @@
             $("#home-tab").addClass("complete");
             $("#home-tab-pane").removeClass("show active");
           } else {
-            alert("Error al crear el usuario" + error);
+            alert(Drupal.t("Error While Creating User: ")+ error);
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save_1").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error While Creating User: ")+ error);
         });
     }
   }

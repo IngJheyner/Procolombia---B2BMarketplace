@@ -263,4 +263,5 @@ class CpRegisterBuyerController extends ControllerBase {
     }
     return new JsonResponse(['status' => 200]);
   }
+  
 }

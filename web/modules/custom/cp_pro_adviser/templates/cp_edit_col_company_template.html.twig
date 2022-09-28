@@ -392,22 +392,21 @@
             <div class="col-sm-12 col-md-6 col-lg-6 order_5">
               <label for="sitio" class="form-label">{{ 'Company landline telephone'|t }} <sup>*</sup>
               </label>
-              <div class="row p-0">
-                <div class="col-lg-3" style="padding: 0px;">
+                <div class="row input_error p-0" style="display: flex;justify-content: space-between;">
+                  <div class="col-lg-3 code-input" style="padding: 0px;">
                   <input id="country_code_landline" class="hidden-input" type="tel" name="phone" />
-                </div>
-                <div class="col-lg-9">
-                  <div class="input_error">
-                    <input id="landline" class="w-100 form-control" style="height: 100%;" type="tel" name=""
-                      id="landline">
+                  </div>
+                  <div class="col-lg-9 cel-input d-flex align-items-center">
+                   <input id="landline" class="w-100 form-control" style="height: 100%;" type="tel" name="" id="landline">
                     <i id="error_landline" class='bx bxs-info-circle toltip_i'>
-                      <span id="error_landline_message" class="tooltiptext_error">
+                    <span id="error_landline_message" class="tooltiptext_error">
                         {{ 'Required Field'|t }}
                       </span>
-                    </i>
+                    </i>                
                   </div>
+                  
                 </div>
-              </div>
+            
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_2">
               <label for="asesor" class="form-label">{{ 'Contact last name'|t }}
@@ -455,22 +454,20 @@
               <label for="sitio" class="form-label">{{ 'Cell Phone'|t }}
                  <sup>*</sup>
               </label>
-              <div class="row p-0">
-                <div class="col-lg-3" style="padding: 0px;">
-                  <input id="country_code_mobile" class="hidden-input" type="tel" name="phone" />
-                </div>
-                <div class="col-lg-9">
-                  <div class="input_error">
-                    <input id="mobile" class="w-100 form-control" style="height: 100%;" type="tel" name=""
-                      id="landline">
+               <div class="row input_error p-0" style="display: flex;justify-content: space-between;">
+                  <div class="col-lg-3 code-input" style="padding: 0px;">
+                    <input id="country_code_mobile" class="hidden-input" type="tel" name="phone" />
+                  </div>
+                  <div class="col-lg-9 cel-input d-flex align-items-center">
+                    <input id="mobile" class="w-100 form-control" style="height: 100%;" type="tel" name="" id="landline" maxlength="10"> 
                     <i id="error_mobile" class='bx bxs-info-circle toltip_i'>
-                      <span id="error_mobile_message" class="tooltiptext_error">
+                    <span id="error_mobile_message" class="tooltiptext_error">
                         {{ 'Required Field'|t }}
                       </span>
-                    </i>
+                    </i>                
                   </div>
+                  
                 </div>
-              </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_3">
               <label for="asesor" class="form-label">{{ 'E-mail address'|t }}
@@ -515,7 +512,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_4">
-              <label for="asesor" class="form-label">{{ 'Position name'|t }}
+              <label for="asesor" class="form-label">{{ 'Job title'|t }}
                  <sup>*</sup>
               </label>
               <div style="display:flex">
@@ -714,10 +711,10 @@
 
           </form>
           <div class="row px-0 mt-2 py-2" style="border-top :1px solid #ccc">
-            <div class="col-lg-8 continue px-0">
+            <div class="col-lg-8 continue">
               <button id="cancel_process_1" class="cancel">{{ 'CANCEL'|t }}</button>
             </div>
-            <div class="col-lg-4 continue d-flex justify-content-between px-0">
+            <div class="col-lg-4 continue d-flex justify-content-between">
               <button id="modal_reject_user_exportador" name="reject_user_exportador" aria-label="{{ "Continue registration"|t }}"
                 class="continue rechazar">RECHAZAR</button>
               <button id="modal_aproved_user_exportador" name="aproved_user_exportador" aria-label="{{ "Continue registration"|t }}"

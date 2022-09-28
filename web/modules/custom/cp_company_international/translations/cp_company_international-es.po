@@ -123,6 +123,9 @@ msgstr "Estados Unidos"
 msgid "Position name"
 msgstr "Nombre del cargo"
 
+msgid "Job title"
+msgstr "Nombre del cargo"
+
 msgid "Please include the name of your position within the company."
 msgstr "Por favor incluya el nombre del cargo que desempeña dentro de la empresa."
 

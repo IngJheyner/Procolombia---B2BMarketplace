@@ -24,11 +24,11 @@ cp_pro_adviser.tablero:
   requirements:
     _role: "asesor_comercial+asesor_internacional"
 
-###get_all_exportador_by_page route
-cp_pro_adviser.get_all_exportador_by_page:
-  path: "adviser/get_all_exportador_by_page"
+###get_all_exporters_by_page route
+cp_pro_adviser.get_all_exporters_by_page:
+  path: "adviser/get_all_exporters_by_page"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::get_all_exportador_by_page'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::getAllExportersByPage'
   methods:  [POST]
   requirements:
     _role: "asesor_comercial+asesor_internacional"
@@ -37,7 +37,7 @@ cp_pro_adviser.get_all_exportador_by_page:
 cp_pro_adviser.get_all_buyer_by_page:
   path: "adviser/get_all_buyer_by_page"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::get_all_buyer_by_page'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::getAllBuyerByPage'
   methods:  [POST]
   requirements:
     _role: "asesor_comercial+asesor_internacional"
@@ -86,7 +86,7 @@ cp_pro_adviser.editar_col_company:
 cp_pro_adviser.get_col_user:
   path: "adviser/get_col_user"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::get_col_user'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::getColUser'
   methods:  [POST]
   requirements:
     _role: "asesor_comercial"
@@ -95,7 +95,7 @@ cp_pro_adviser.get_col_user:
 cp_pro_adviser.update_form_col_company:
   path: "adviser/update_form_col_company"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::update_form_col_company'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::updateFormColCompany'
   methods:  [POST]
   requirements:
     _role: "asesor_comercial+asesor_internacional"
@@ -104,7 +104,7 @@ cp_pro_adviser.update_form_col_company:
 cp_pro_adviser.approve_user_col:
   path: "adviser/approve_user_col"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::approve_user_col'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::approveUserCol'
   methods:  [POST]
   requirements:
     _role: "asesor_comercial"
@@ -113,7 +113,7 @@ cp_pro_adviser.approve_user_col:
 cp_pro_adviser.reject_user_col:
   path: "adviser/reject_user_col"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::reject_user_col'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::rejectUserCol'
   methods:  [POST]
   requirements:
     _role: "asesor_comercial"
@@ -142,7 +142,7 @@ cp_pro_adviser.editar_international_company:
 cp_pro_adviser.get_international_user:
   path: "adviser/get_international_user"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::get_international_user'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::getInternationalUser'
   methods:  [POST]
   requirements:
     _role: "asesor_internacional"
@@ -151,7 +151,7 @@ cp_pro_adviser.get_international_user:
 cp_pro_adviser.update_form_international_company:
   path: "adviser/update/international"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::update_form_international_company'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::updateFormInternationalCompany'
   methods:  [POST]
   requirements:
     _role: "asesor_internacional"
@@ -160,7 +160,7 @@ cp_pro_adviser.update_form_international_company:
 cp_pro_adviser.approve_user_international:
   path: "adviser/approve_user_international"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::approve_user_international'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::approveUserInternational'
   methods:  [POST]
   requirements:
     _role: "asesor_internacional"
@@ -169,7 +169,7 @@ cp_pro_adviser.approve_user_international:
 cp_pro_adviser.reject_user_international:
   path: "adviser/reject_user_international"
   defaults:
-    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::reject_user_international'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::rejectUserInternational'
   methods:  [POST]
   requirements:
     _role: "asesor_internacional"

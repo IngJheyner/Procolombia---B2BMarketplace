@@ -101,7 +101,7 @@
     var response = grecaptcha.getResponse();
     console.log(response);
     if (response.length == 0) {
-      alert("Please verify that you are not a robot");
+      alert(Drupal.t("Please verify that you are not a robot"));
       $("#error_captcha").show();
       isValid = false;
     } else {
@@ -120,7 +120,8 @@
 
   function checkNit() {
     if (validateForm()) {
-      $("#loader").modal('show');
+      $("#loader").show();
+      $("#check_nit").hide();
       var nit = $("#nit").val();
       var email = $("#email").val();
       var url = "/verification/validate_nit";
@@ -160,21 +161,24 @@
                   localStorage.setItem("email", email);
                   let json = data.split(":[")[1].split("]")[0];
                   localStorage.setItem("data_neo", json);
-                  setTimeout(() => {
-                    $("#loader").modal('hide');
-                  }, 15000);
+                  console.log("ENTRO A VALIDAR")
+                  $("#loader").hide();
+                  $("#check_nit").show();
+                  $("#email_verification").modal('show');
                 } else {
-                  $("#loader").modal('hide');
+                  $("#loader").hide();
+                  $("#check_nit").show();
                   alert("Request failed email");
                 }
               })
               .catch(function (error) {
-                $("#loader").modal('hide');
+                $("#loader").hide();
                 alert("Request failed email", error);
               });
           } else {
             setTimeout(() => {
-              $("#loader").modal('hide');
+              $("#loader").hide();
+              $("#check_nit").show();
               if (data.includes("user")) {
                 $("#error_user").modal('show');
               } else {
@@ -189,7 +193,8 @@
         })
         .catch(function (error) {
           setTimeout(() => {
-            $("#loader").modal('hide');
+            $("#loader").hide();
+            $("#check_nit").show();
             alert("ERROR INESPERADO")
           }, 4000);
         });
