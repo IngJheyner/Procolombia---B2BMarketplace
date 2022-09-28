@@ -48,10 +48,11 @@
 			font-family: $font-bold-Maven;
 			letter-spacing: 0px;
 			color: $procol-dark-blue;
-			font-size: 24px;
+			font-size: 30px;
 			padding-left: 54px;
 			display: flex;
 			align-items: center;
+			padding-right: 105px;
 			@include media-breakpoint-down(lg){
 				font-size: 20px;
 				top: 0;
@@ -72,6 +73,41 @@
 		justify-content: space-between;
 		padding-left: 54px;
 		width: 100%;
+		> a {
+			position: absolute;
+			top: 0;
+			right: 38px;
+			background-color: white;
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 4px;
+			width: 103px;
+			height: 38px;
+			position: displa;
+			display: flex;
+			align-items: center;
+			padding-left: 15px;
+			font-family: $font-bold-Century-Gothic;
+			background-image: url(../images/icons-2/Editar.svg);
+			background-repeat:no-repeat;
+			background-position: right -1px;
+			position: absolute;
+			&:hover{
+				background: linear-gradient(180deg, $procol-dark-blue 0%, $procol-light-blue 100%) !important;
+				justify-content: space-between;
+				&::after{
+					position: relative;
+					background-image: url(../images/icons/Editar-blanco.svg);
+					background-repeat: no-repeat;
+					background-size: 35px;
+					background-position: right -1px;
+					content: "";
+					right: 0;
+					width: 40px;
+					height: 40px;
+				}
+				color: $white;
+			}
+		}
 		@include media-breakpoint-down(lg){
 			gap: 20px;
 			padding-bottom: 40px;
@@ -273,10 +309,22 @@
 			padding: 20px;
 			padding-right: 20px !important;
 		}
+		.group-right {
+			> a{
+				top: 28px;
+			}
+			align-items: stretch;
+			min-height: 434px;
+			.field--name-field-pr-country{
+				a{
+					color: $procol-gray-400;
+				}
+			}
+		}
 		.group-right h2{
 			font-size: 30px;
 			font-family:  Maven-Bold;
-			font-weight: bolder;
+			padding-left: 0 !important;
 		}
 	}
 }
@@ -305,13 +353,26 @@
 		background-size: 20px;
 		background-repeat: no-repeat;
 		background-position: left center;
+		@include media-breakpoint-down(lg){
+			left: calc(100% - 20px);
+			top: 12px;
+			background-size: 25px;
+			background-image: url(../images/icons/Cerrar-negro.svg);
+			background-repeat: no-repeat;
+			background-position: left center;
+			width: 30px;
+		}
 		&::after {
 			content: "Volver";
 			right: 0;
 			margin-left: 20px;
 			color: $procol-gray-400;
+			@include media-breakpoint-down(lg){
+				content: "";
+			}
 			}
 		}
+		
 
 }
 .view-product-service-presave-preview{
