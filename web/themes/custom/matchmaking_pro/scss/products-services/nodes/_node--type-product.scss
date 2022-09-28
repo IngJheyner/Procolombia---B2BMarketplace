@@ -48,10 +48,11 @@
 			font-family: $font-bold-Maven;
 			letter-spacing: 0px;
 			color: $procol-dark-blue;
-			font-size: 24px;
+			font-size: 30px;
 			padding-left: 54px;
 			display: flex;
 			align-items: center;
+			padding-right: 105px;
 			@include media-breakpoint-down(lg){
 				font-size: 20px;
 				top: 0;
@@ -352,13 +353,26 @@
 		background-size: 20px;
 		background-repeat: no-repeat;
 		background-position: left center;
+		@include media-breakpoint-down(lg){
+			left: calc(100% - 20px);
+			top: 12px;
+			background-size: 25px;
+			background-image: url(../images/icons/Cerrar-negro.svg);
+			background-repeat: no-repeat;
+			background-position: left center;
+			width: 30px;
+		}
 		&::after {
 			content: "Volver";
 			right: 0;
 			margin-left: 20px;
 			color: $procol-gray-400;
+			@include media-breakpoint-down(lg){
+				content: "";
+			}
 			}
 		}
+		
 
 }
 .view-product-service-presave-preview{
