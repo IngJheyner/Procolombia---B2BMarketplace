@@ -175,3 +175,19 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
 
 }
 
+/**
+ * Implements hook_views_data_alter().
+ */
+function cp_advisor_moderation_views_data_alter(array &$data)
+{
+  //Campo custom para servicios de facultades
+  $data['users']['field_collection_file_color'] = array(
+    'title' => t('Color Link'),
+    'field' => array(
+      'title' => t('Color Link'),
+      'help' => t('Color Link.'),
+      'id' => 'field_collection_file_color',
+    ),
+  );
+}
+
