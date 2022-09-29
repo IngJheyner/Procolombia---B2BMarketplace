@@ -1,7 +1,9 @@
 .view-product-dashboard,
 .view-dashboard-advisor,
 .view-products-advisor {
-	&.view-display-id-page_1 {
+	&.view-display-id-page_1,
+	&.view-display-id-dashboard_table,
+	&.view-id-products_advisor {
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -753,7 +755,7 @@
 			
 		}
 	}
-	&.view-id-dashboard_advisor,
+	&.view-display-id-dashboard_table,
 	&.view-id-products_advisor{
 		padding: 0 26px;
 		@include media-breakpoint-down(lg){
@@ -781,7 +783,9 @@
 			margin-top: 58px;
 			.table-responsive{
 				.views-field.views-field-nothing{
-					width: 100%;
+					@include media-breakpoint-down(lg){
+						width: 100%;
+					}
 					a{
 						color: $procol-light-blue;
 					}
