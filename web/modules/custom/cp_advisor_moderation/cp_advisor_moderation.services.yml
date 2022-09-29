@@ -8,3 +8,13 @@ services:
     class: Drupal\cp_advisor_moderation\EventSubscriber\CpAdvisorModerationRouteSubscriber
     tags:
       - { name: event_subscriber }
+  color_entity.twig_extension:
+    arguments: [ '@renderer' ]
+    class: Drupal\cp_advisor_moderation\TwigExtension\ColorByEntity
+    tags:
+      - { name: twig.extension }
+  empty_values.views.subscriber:
+    class: Drupal\cp_advisor_moderation\EventSubscriber\ViewsAjaxResponseSubscriber
+    arguments: ['@ajax_response.attachments_processor']
+    tags:
+      - { name: event_subscriber }
