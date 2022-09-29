@@ -1307,7 +1307,6 @@ display:
           empty: true
           content: "<div class=\"row\">\r\n  <div class=\"col-sm-9\">\r\n    <h1>Productos / Servicios</h1>\r\n  </div>\r\n  <div class=\"col-sm-3\">\r\n    <a class=\"button btn\" href=\"/dashboard/product-add-multistep\">Agregar producto / servicio</a>\r\n  </div>\r\n</div>"
           tokenize: false
-      footer:
         result:
           id: result
           table: views
@@ -1317,7 +1316,8 @@ display:
           admin_label: ''
           plugin_id: result
           empty: true
-          content: 'Total de items <span>@total</span>'
+          content: 'Se encontraron   @total resultados asociados a tu búsqueda:'
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -2616,6 +2616,7 @@ display:
         row: false
         filters: false
         filter_groups: false
+        header: true
       display_extenders:
         metatag_display_extender:
           metatags: {  }
