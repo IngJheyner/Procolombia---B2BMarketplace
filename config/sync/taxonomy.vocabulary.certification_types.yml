@@ -1,0 +1,8 @@
+uuid: 1205c89d-c43b-4fc0-b9de-41757e196d28
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tipos de certificación'
+vid: certification_types
+description: ''
+weight: 0

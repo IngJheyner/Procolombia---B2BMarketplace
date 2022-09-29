@@ -11,7 +11,7 @@ field_name: field_categorization
 entity_type: node
 bundle: product
 label: Categorization
-description: ''
+description: 'Remember that this is the category with which your service.'
 required: true
 translatable: false
 default_value: {  }

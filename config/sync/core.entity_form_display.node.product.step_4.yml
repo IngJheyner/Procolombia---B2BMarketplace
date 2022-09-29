@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_structured_features
     - field.field.node.product.field_pr_target_market
     - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
@@ -167,7 +168,7 @@ third_party_settings:
       format_type: cp_core_group_markup
       format_settings:
         markup:
-          value: "<h2>Agregar imágenes del producto</h2>\r\n<p>Se recomienda cargar fotografías reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>"
+          value: '<h2>Add product images</h2><p>It is recommended to upload real photographs of the product in good quality to improve the positioning of your product within the Catalog.</p>'
           format: html
         show_empty_fields: '1'
         id: ''
@@ -231,6 +232,7 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
+  field_pr_structured_features: true
   field_pr_target_market: true
   field_pr_terms_of_condition: true
   field_pr_type_certifications: true

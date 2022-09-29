@@ -1,6 +1,6 @@
 cp_company_international.render:
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 # pre_register routes
 
@@ -8,37 +8,41 @@ cp_company_international.render:
 cp_company_international.dashboard:
   path: "dashboard/international/user"
   defaults:
+    _title: 'Dashboard'
     _controller: '\Drupal\cp_company_international\Controller\CpDashboardCompanyInternationalController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 ###Index route
 cp_company_international.tablero:
   path: "tablero/internacional/usuario"
   defaults:
+    _title: 'Tablero'
     _controller: '\Drupal\cp_company_international\Controller\CpDashboardCompanyInternationalController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 ###Index route
 cp_company_international.edit:
   path: "edit/international/user"
   defaults:
+    _title: 'Edit user'
     _controller: '\Drupal\cp_company_international\Controller\CpEditCompanyInternationalController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 ###Index route
 cp_company_international.editar:
   path: "editar/internacional/usuario"
   defaults:
+    _title: 'Editar usuario'
     _controller: '\Drupal\cp_company_international\Controller\CpEditCompanyInternationalController::index'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 ###get logged user
 cp_company_international.get_logged_user:
@@ -47,7 +51,7 @@ cp_company_international.get_logged_user:
     _controller: '\Drupal\cp_company_international\Controller\CpEditCompanyInternationalController::get_logged_user'
   methods:  [GET]
   requirements:
-    _permission: "access content"
+    _role: 'buyer'
 
 ###update_form
 cp_company_international.update_form:
@@ -56,4 +60,4 @@ cp_company_international.update_form:
     _controller: '\Drupal\cp_company_international\Controller\CpEditCompanyInternationalController::update_form'
   methods:  [POST]
   requirements:
-    _permission: "access content"
+    _role: 'buyer'

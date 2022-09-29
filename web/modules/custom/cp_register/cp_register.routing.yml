@@ -8,6 +8,7 @@ cp_register.render:
 cp_register.pre_register:
   path: "pre-register"
   defaults:
+    _title: 'Pre-register'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
   methods:  [GET]
   requirements:
@@ -16,6 +17,7 @@ cp_register.pre_register:
 cp_register.pre_registro:
   path: "pre-registro"
   defaults:
+    _title: 'Pre-registro'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
   methods:  [GET]
   requirements:
@@ -27,6 +29,7 @@ cp_register.pre_registro:
 cp_register.verification_user:
   path: "verification/user"
   defaults:
+    _title: 'User verification'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::index'
   methods:  [GET]
   requirements:
@@ -35,6 +38,7 @@ cp_register.verification_user:
 cp_register.verificacion_user:
   path: "verificacion/usuario"
   defaults:
+    _title: 'Verificación de usuario'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::index'
   methods:  [GET]
   requirements:
@@ -44,6 +48,7 @@ cp_register.verificacion_user:
 cp_register.validate_nit:
   path: "verification/validate_nit"
   defaults:
+    _title: 'Tax ID validation'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::checkNit'
   methods:  [POST]
   requirements:
@@ -56,6 +61,7 @@ cp_register.validate_nit:
 cp_register.registerUser:
   path: "register/user"
   defaults:
+    _title: 'User registration'
     _controller: '\Drupal\cp_register\Controller\CpRegisterController::index'
   methods:  [GET]
   requirements:
@@ -64,6 +70,7 @@ cp_register.registerUser:
 cp_register.registroUsuario:
   path: "registro/usuario"
   defaults:
+    _title: 'Registro de usuario'
     _controller: '\Drupal\cp_register\Controller\CpRegisterController::index'
   methods:  [GET]
   requirements:
@@ -137,6 +144,7 @@ cp_register.delete_user:
 cp_register.pre_register_buyer:
   path: "pre-register/buyer"
   defaults:
+    _title: 'International buyer'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
   methods:  [GET]
   requirements:
@@ -145,6 +153,7 @@ cp_register.pre_register_buyer:
 cp_register.pre_registro_comprador:
   path: "pre-registro/comprador"
   defaults:
+    _title: 'Comprador Internacional'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
   methods:  [GET]
   requirements:
@@ -163,6 +172,7 @@ cp_register.create_step_1_buyer:
 cp_register.register_buyer:
   path: "register/user/buyer"
   defaults:
+    _title: "Registration - International buyer"
     _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
   methods:  [GET]
   requirements:
@@ -172,6 +182,7 @@ cp_register.register_buyer:
 cp_register.registro_comprador:
   path: "registro/usuario/comprador"
   defaults:
+    _title: "Registro - Comprador internacional"
     _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
   methods:  [GET]
   requirements:

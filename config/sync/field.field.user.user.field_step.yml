@@ -10,7 +10,7 @@ id: user.user.field_step
 field_name: field_step
 entity_type: user
 bundle: user
-label: step
+label: Paso
 description: ''
 required: false
 translatable: false

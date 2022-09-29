@@ -38,7 +38,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t("Select an option") },
             ],
             sortField: {
                 field: "text",
@@ -49,7 +49,6 @@
 
         modelo_de_negocio_select = new TomSelect("#modelo_de_negocio", {
             plugins: ['remove_button'],
-            create: true,
             onItemAdd: function () {
                 this.setTextboxValue('');
                 this.refreshOptions();
@@ -184,8 +183,7 @@
             var fileName = logo.name;
             var fileExtension = fileName.split(".").pop();
             if (fileExtension != "png" && fileExtension != "jpg") {
-                message =
-                    "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
                 $("#logo_input").css("border-color", "#ba0c2f");
                 $("#logo_name").css("border-color", "#ba0c2f");
                 $("#error_logo_message").text(message)
@@ -196,8 +194,7 @@
                 isValid = false;
             } else {
                 if (fileSize > 2000000) {
-                    message =
-                        "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                    message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
                     $("#logo_input").css("border-color", "#ba0c2f");
                     $("#logo_name").css("border-color", "#ba0c2f");
                     $("#error_logo_message").text(message)
@@ -208,8 +205,7 @@
                     isValid = false;
                 } else {
                     if (logo.width > 200 || logo.height > 200) {
-                        message =
-                            "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n";
+                        message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
                         $("#logo_input").css("border-color", "#ba0c2f");
                         $("#logo_name").css("border-color", "#ba0c2f");
                         $("#error_logo_message").text(message)
@@ -227,7 +223,7 @@
             }
         } else {
             if (isLogoRemove) {
-                message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+                message = Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
                 $("#logo_input").css("border-color", "#ba0c2f");
                 $("#logo_name").css("border-color", "#ba0c2f");
                 $("#error_logo_message").text(message)
@@ -248,8 +244,7 @@
             isValid = false;
         } else {
             if (business_name.length > 100) {
-                message =
-                    "El nombre de la empresa no puede tener mas de 100 caracteres";
+                message = Drupal.t("The company name cannot be longer than 100 characters.");
                 $("#business_name").css("border-color", "#ba0c2f");
                 $("#error_business_name_message").text(message)
                 $("#error_business_name").show();
@@ -274,7 +269,7 @@
             isValid = false;
         } else {
             if (!isUrl(website)) {
-                message = Drupal.t("The website is not valid");
+                message = Drupal.t("Website is not valid");
                 $("#website").css("border-color", "#ba0c2f");
                 $("#error_website_message").text(message)
                 $("#error_website").show();
@@ -296,8 +291,7 @@
             isValid = false;
         } else {
             if (description_business_spanish.length > 1000) {
-                message =
-                    "La descripción en español debe tener menos de 1000 caracteres";
+                message = Drupal.t("The Spanish description must be less than 1000 characters");
                 $("#description_business_spanish").css("border-color", "#ba0c2f");
                 $("#error_description_business_spanish_message").text(message)
                 $("#error_description_business_spanish").show();
@@ -309,15 +303,14 @@
         }
 
         if (description_business_english == "") {
-            message = Drupal.t("Description in English is required");
+            message = Drupal.t("English description is required");
             $("#description_business_english").css("border-color", "#ba0c2f");
             $("#error_description_business_english_message").text(message)
             $("#error_description_business_english").show();
             isValid = false;
         } else {
             if (description_business_english.length > 1000) {
-                message =
-                    "La descripción en inglés debe tener menos de 1000 caracteres";
+                message = Drupal.t("The English description must be less than 1000 characters");
                 $("#description_business_english").css("border-color", "#ba0c2f");
                 $("#error_description_business_english_message").text(message)
                 $("#error_description_business_english").show();
@@ -329,7 +322,7 @@
         }
 
         if (production_chain == "") {
-            message = Drupal.t("The production line is required");
+            message = Drupal.t("Productive chain is required");
             $("#production_chain_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_production_chain_message").text(message)
             $("#error_production_chain").show();
@@ -351,7 +344,7 @@
         }
 
         if (departament == "") {
-            message = Drupal.t("The department is required");
+            message = Drupal.t("Department is required");
             $("#departament_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_departament_message").text(message)
             $("#error_departament").show();
@@ -362,7 +355,7 @@
         }
 
         if (ciudad == "") {
-            message = Drupal.t("The city is required");
+            message = Drupal.t("City is required");
             $("#ciudad_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_ciudad_message").text(message)
             $("#error_ciudad").show();
@@ -373,7 +366,7 @@
         }
 
         if (modelo_de_negocio == "") {
-            message = Drupal.t("The business model is required");
+            message = Drupal.t("Business model is required");
             $("#modelo_de_negocio_contain .ts-control").css("border-color", "#ba0c2f");
             $("#error_modelo_de_negocio_message").text(message)
             $("#error_modelo_de_negocio").show();
@@ -443,13 +436,13 @@
 
                 } else {
                     $("#question_modal").modal("hide");
-                    alert("Error al crear el usuario" + error);
+                    alert(Drupal.t("Error While Creating User: ")+ error);
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
-                alert("Error al crear el usuario" + error);
+                alert(Drupal.t("Error While Creating User: ")+ error);
             });
     }
 
@@ -499,14 +492,14 @@
             }
         }
         if (last_name == "") {
-            message = Drupal.t("Last name is required");
+            message = Drupal.t("Lastname is required");
             $("#last_name").css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
         } else {
             if (last_name.length > 20) {
-                message = Drupal.t("The last name cannot be longer than 20 characters");
+                message = Drupal.t("The lastname cannot be longer than 20 characters");
                 $("#last_name").css("border-color", "#ba0c2f");
                 $("#error_last_name_message").text(message)
                 $("#error_last_name").show();
@@ -527,8 +520,7 @@
             isValid = false;
         } else {
             if (position_spanish.length > 50) {
-                message =
-                    "La posición en español no debe tener mas de 50 caracteres";
+                message = Drupal.t("The position in Spanish must be no longer than 50 characters");
                 $("#position_spanish").css("border-color", "#ba0c2f");
                 $("#error_position_spanish_message").text(message)
                 $("#error_position_spanish").show();
@@ -547,8 +539,7 @@
             isValid = false;
         } else {
             if (landline.length > 20) {
-                message =
-                    "La linea de telefono no debe tener mas de 20 caracteres";
+                message = Drupal.t("Phone line must not be longer than 20 characters");
                 $("#landline").css("border-color", "#ba0c2f");
                 $("#error_landline").show();
                 $("#error_landline_message").text(message)
@@ -556,7 +547,7 @@
                 isValid = false;
             } else {
                 if (!landline.match(/^[0-9]+$/)) {
-                    message = Drupal.t("The phone line should not have letters");
+                    message = Drupal.t("Phone line should not have letters");
                     $("#landline").css("border-color", "#ba0c2f");
                     $("#error_landline").show();
                     $("#error_landline_message").text(message)
@@ -576,7 +567,7 @@
             isValid = false;
         } else {
             if (mobile.length > 10) {
-                message = Drupal.t("The cell phone must not have more than 10 digits");
+                message = Drupal.t("Cell phone must not have more than 10 digits");
                 $("#mobile").css("border-color", "#ba0c2f");
                 $("#error_mobile").show();
                 $("#error_mobile_message").text(message)
@@ -597,7 +588,7 @@
             }
         }
         if (contact_email == "") {
-            message = Drupal.t("Email is required and must be a valid email address");
+            message = Drupal.t("Email is required and must be a valid email address.");
             $("#contact_email").css("border-color", "#ba0c2f");
             $("#error_contact_email").show();
             $("#error_contact_email_message").text(message)
@@ -608,7 +599,7 @@
                     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
                 )
             ) {
-                message = Drupal.t("The email is invalid");
+                message = Drupal.t("E-mail is invalid");
                 $("#contact_email").css("border-color", "#ba0c2f");
                 $("#error_contact_email").show();
                 $("#error_contact_email_message").text(message)
@@ -653,14 +644,14 @@
                     alert(error);
                 });
                 //return to dashboard
-                window.location.href = '/dashboard/adviser/user';
+                window.location.href = '/dashboard/adviser/user/col';
             } else {
-                alert('Error al rechazar el usuario');
+                alert(Drupal.t("Error rejecting user"));
             }
         }).catch(function (error) {
             $("#loading_2").hide();
             $("#reject").show();
-            alert('Error al rechazar el usuario');
+            alert(Drupal.t("Error rejecting user"));
         });
     }
 
@@ -694,17 +685,16 @@
                     alert(error);
                 });
                 //return to dashboard
-                window.location.href = '/dashboard/adviser/user';
+                window.location.href = '/dashboard/adviser/user/col';
             } else {
-                alert('Error al aprobar el usuario');
+                alert(Drupal-t("Error approving user"));
             }
         }).catch(function (error) {
             $("#loading_3").hide();
             $("#modal_aproved_user_exportador").show();
-            alert('Error al aprobar el usuario');
+            alert(Drupal-t("Error approving user"));
         });
     }
-
 
     /*
     * open modal to cancel process
@@ -848,7 +838,7 @@
                     $('#question_modal').modal('show');
                 }
             });
-            
+
 
             $("#confirm_save2", context).click(function () {
                 updateForm2();
@@ -863,6 +853,9 @@
             $("#cancel_process_2", context).click(function () {
                 cancelProcess();
             });
+            $("#cancel_process_4", context).click(function () {
+                cancelProcess();
+            });
             //call function hideCancelProcess
             $("#confirm_cancel", context).click(function () {
                 reloadPage();
@@ -872,7 +865,7 @@
                 getCities();
             });
 
-            // remove display none toltip_content when description_business_spanish onInput  
+            // remove display none toltip_content when description_business_spanish onInput
 
             $("#description_business_spanish", context).on("input", function () {
                 $("#notification_english").css("display", "block");

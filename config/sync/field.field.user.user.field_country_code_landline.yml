@@ -10,7 +10,7 @@ id: user.user.field_country_code_landline
 field_name: field_country_code_landline
 entity_type: user
 bundle: user
-label: country_code_landline
+label: 'Prefijo del teléfono fijo en el país'
 description: ''
 required: false
 translatable: false

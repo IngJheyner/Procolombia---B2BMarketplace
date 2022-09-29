@@ -53,26 +53,30 @@
                 left: auto;
                 background-size: 12px 12px;
                 @include media-breakpoint-down(lg){
-                    top: 0;
+                    top: -25px;
                     right: 5px;
                 }
             }
             &:hover p{
                 @include hover-invalid-tooltip;
                 @include media-breakpoint-down(lg){
-                    top: 30%;
+                    top: -70px;
                     right: 0;
+                    &::before {
+                        border-bottom-color: transparent;
+                        border-top-color: #3B3D42;
+                        top: 26px;
+                        }
                 }
             }
         }
-        
+
     }
     .information-step-1 {
         width: 100%;
         h2{
             font-size: 20px;
-            font-weight: bold;
-            font-family: $font-family-Century-Gothic;
+            font-family: $font-bold-Century-Gothic;
             margin-bottom: 0;
             @include media-breakpoint-down(lg){
                 padding-bottom: 20px;
@@ -110,6 +114,79 @@
     .field--name-title{
         margin-bottom: 0 !important;
     }
+    .field--type-file{
+        summary{
+            display: none;
+        }
+        details{
+            border: none;
+            .details-wrapper{
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                small{
+                    order: +1;
+                }
+                .table-responsive{
+                    .tabledrag-toggle-weight-wrapper{
+                        display: none;
+
+                    }
+                    thead{
+                        display: none;
+                    }
+                    tbody{
+                        .tabledrag-handle{
+                            display: none;
+                        }
+                        td {
+                            padding: 0 !important;
+                            width: 100%;
+                            border: none;
+                            span{
+                                background-color: white;
+                            }
+                            button{
+                                @include remove-files;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        .form-type-select{
+            display: none;
+        }
+
+    }
+    #edit-field-file-en{
+        .details-wrapper{
+            display: flex;
+            flex-direction: column;
+        }
+        small{
+            order: +1;
+        }
+        .js-form-file::after {
+          content: "Pick files";
+          position: absolute;
+          z-index: 2;
+          display: block;
+          top: 30px;
+          height: 31px;
+          display: flex;
+          align-items: center;
+          left: 47px;
+          width: 120px;
+          background-color: $procol-dark-blue;
+          color: $white;
+        }
+    }
+    #edit-field-file,
+    #edit-field-file-en{
+        margin-top: 0;
+    }
     #edit-field-file-wrapper--2{
         margin-bottom: 0 !important;
     }
@@ -121,12 +198,18 @@
                 margin-bottom: 0 !important;
             }
         }
-        
+
         }
     #edit-footer-form #edit-actions {
         justify-content: flex-end;
         #edit-previous{
             display: none;
-        }    
+        }
+    }
+    .ajax-new-content{
+        td{
+            width: 100%;
+            border: none;
+        }
     }
 }

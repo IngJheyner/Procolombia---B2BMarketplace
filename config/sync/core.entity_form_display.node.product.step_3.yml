@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_structured_features
     - field.field.node.product.field_pr_target_market
     - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
@@ -177,7 +178,7 @@ third_party_settings:
       format_type: cp_core_group_markup
       format_settings:
         markup:
-          value: '<h2>Campos para ambos idiomas</h2>'
+          value: '<h2>Fields for both languages</h2>'
           format: html
         show_empty_fields: '1'
         id: ''
@@ -312,6 +313,7 @@ hidden:
   field_pr_multilingual_step5: true
   field_pr_ref_company: true
   field_pr_status: true
+  field_pr_structured_features: true
   field_pr_terms_of_condition: true
   field_pr_video: true
   field_pr_video_2: true

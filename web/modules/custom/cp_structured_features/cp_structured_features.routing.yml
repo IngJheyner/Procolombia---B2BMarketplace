@@ -1,0 +1,31 @@
+entity.structured_feature.collection:
+  path: '/admin/structure/structured-feature'
+  defaults:
+    _entity_list: 'structured_feature'
+    _title: 'Structured Feature configuration'
+  requirements:
+    _permission: 'administer structured_feature'
+
+entity.structured_feature.add_form:
+  path: '/admin/structure/structured_feature/add'
+  defaults:
+    _entity_form: 'structured_feature.add'
+    _title: 'Add a Structured Feature'
+  requirements:
+    _permission: 'administer structured_feature'
+
+entity.structured_feature.edit_form:
+  path: '/admin/structure/structured-feature/{structured_feature}'
+  defaults:
+    _entity_form: 'structured_feature.edit'
+    _title: 'Edit a Structured Feature'
+  requirements:
+    _permission: 'administer structured_feature'
+
+entity.structured_feature.delete_form:
+  path: '/admin/structure/structured-feature/{structured_feature}/delete'
+  defaults:
+    _entity_form: 'structured_feature.delete'
+    _title: 'Delete a Structured Feature'
+  requirements:
+    _permission: 'administer structured_feature'

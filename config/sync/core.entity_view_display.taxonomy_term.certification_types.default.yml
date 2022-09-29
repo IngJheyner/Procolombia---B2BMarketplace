@@ -1,0 +1,35 @@
+uuid: f7faabcd-3bcd-4fed-ab2f-dbed985f5f9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.certification_types.field_ct_category
+    - taxonomy.vocabulary.certification_types
+  module:
+    - text
+id: taxonomy_term.certification_types.default
+targetEntityType: taxonomy_term
+bundle: certification_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ct_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

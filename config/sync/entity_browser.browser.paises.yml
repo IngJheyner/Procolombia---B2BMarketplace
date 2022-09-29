@@ -25,7 +25,7 @@ widgets:
     label: Países
     weight: 1
     settings:
-      submit_text: Países
+      submit_text: 'Seleccionar paises'
       auto_select: false
       view: paises
       view_display: entity_browser_1

@@ -13,7 +13,7 @@ id: user.user.field_account_status
 field_name: field_account_status
 entity_type: user
 bundle: user
-label: account_status
+label: 'Estado de la cuenta'
 description: ''
 required: false
 translatable: false

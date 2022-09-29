@@ -29,21 +29,26 @@ module:
   ckeditor_media_embed: 0
   color_field: 0
   comment: 0
+  conditional_fields: 0
   config: 0
   config_filter: 0
   config_translation: 0
   config_update: 0
   contextual: 0
   core_views_facets: 0
+  cp_advisor_moderation: 0
   cp_auth_service: 0
+  cp_chat: 0
   cp_company_col: 0
   cp_company_international: 0
   cp_core: 0
+  cp_field_features: 0
   cp_mailing_service: 0
   cp_migrate: 0
   cp_pro_adviser: 0
   cp_register: 0
   cp_search: 0
+  cp_structured_features: 0
   cp_wf_contact: 0
   crop: 0
   csv_serialization: 0
@@ -87,6 +92,7 @@ module:
   flag_follower: 0
   focal_point: 0
   force_password_change: 0
+  form_mode_control: 0
   formatter_suite: 0
   gin_toolbar: 0
   google_analytics: 0
@@ -175,6 +181,7 @@ module:
   responsive_preview: 0
   rest: 0
   restui: 0
+  rules: 0
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0

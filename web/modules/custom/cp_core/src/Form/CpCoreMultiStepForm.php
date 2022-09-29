@@ -97,6 +97,13 @@ class CpCoreMultiStepForm extends FormBase {
   protected $step = 1;
 
   /**
+   * Control vars.
+   *
+   * @var int
+   */
+  protected $step_sf = FALSE;
+
+  /**
    * Max step to control the last step.
    *
    * @var int
@@ -219,7 +226,12 @@ class CpCoreMultiStepForm extends FormBase {
   protected function buildFormDisplay(FormStateInterface $form_state) {
     // Fetch the display used by the form. It is the display for the 'default'
     // form mode, with only the current field visible.
-    $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "{$this->formModePattern}_{$this->step}");
+    if ($this->step_sf) {
+      $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "step_sf");
+    }
+    else {
+      $display = EntityFormDisplay::collectRenderDisplay($form_state->get('entity'), "{$this->formModePattern}_{$this->step}");
+    }
     $display->removeComponent('revision_log');
     $form_state->set('form_display', $display);
   }
@@ -276,6 +288,9 @@ class CpCoreMultiStepForm extends FormBase {
       $form['#attributes']['class'][] = $display->getMode();
       $form['#attributes']['id'] = 'cp-core-multistep-form';
       $form['#attributes']['class'][] = 'cp-core-multistep-form';
+      if ($nid) {
+        $form['#attributes']['class'][] = 'cp-core-multistep-edit-form';
+      }
 
       $context = [
         'entity_type' => $entity->getEntityTypeId(),
@@ -328,20 +343,43 @@ class CpCoreMultiStepForm extends FormBase {
         '#weight' => -10,
       ];
 
+      if (isset($form['title']['widget'][0]['value']['#title'])) {
+        $form['title']['widget'][0]['value']['#title'] = 'Nombre del producto / servicio';
+        $form['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
+      }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#title'] = 'Product/service';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
+      }
+      if (isset($form['field_body']['widget'][0]['value']['#title'])) {
+        $form['field_body']['widget'][0]['value']['#placeholder'] = t('Descripción del producto / Servicio');
+        $form['field_body']['widget'][0]['value']['#title'] = 'Descripción';
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'] = 'Description';
       }
+      if (isset($form['field_body']['widget'][0]['value']['#description'])) {
+        $form['field_body']['widget'][0]['value']['#description'] = 'Por favor incluya una descripción resumen del producto/servicio con sus principales características y/o atributos.';
+      }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'] = 'Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.';
       }
-      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#title'])) {
-        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#title'] = 'Technical specifications';
+      if (isset($form['field_file']['widget'])) {
+        $form['field_file']['widget']['#title'] = 'Ficha técnica';
+        $form['field_file']['widget']['#file_upload_title'] = 'Ficha técnica';
+        $form['field_file']['widget']['#file_upload_description']['#markup'] = 'Solo se permiten archivos con formato pdf con un peso máximo de 500K.';
+        $form['field_file']['widget']['#description'] = NULL;
       }
-      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#description'])) {
-        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget'][0]['#description'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
+      if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file'])) {
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#title'] = 'Technical specifications';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#file_upload_title'] = 'Technical specifications';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#file_upload_description']['#markup'] = 'Only files in pdf format with a maximum size of 500K are allowed.';
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['widget']['#description'] = NULL;
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_file']['#weight'] = 99;
+
+      }
+      if (isset($form['field_aditional_information']['widget'][0]['value']['#title'])) {
+        $form['field_aditional_information']['widget'][0]['value']['#title'] = 'Información adicional o complementaria del producto';
       }
       if (isset($form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'])) {
         $form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'] = 'Additional or complementary product information';
@@ -405,10 +443,11 @@ class CpCoreMultiStepForm extends FormBase {
 
       if ($this->entity->field_categorization->target_id && isset($form['field_pr_type_certifications'])) {
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
-          'parent' => $this->entity->field_categorization->target_id,
-          'vid' => 'categorization',
+          'field_ct_category' => $this->entity->field_categorization->target_id,
+          'vid' => 'certification_types',
         ]);
-        $newcertification_options = [key($form['field_pr_type_certifications']['widget']['#options']) => reset($form['field_pr_type_certifications']['widget']['#options'])];
+        // $newcertification_options = [key($form['field_pr_type_certifications']['widget']['#options']) => reset($form['field_pr_type_certifications']['widget']['#options'])];
+        $newcertification_options = [];
         foreach ($categorization_terms as $categorization_term) {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
@@ -417,10 +456,11 @@ class CpCoreMultiStepForm extends FormBase {
 
       if ($this->entity->field_categorization->target_id && isset($form['field_pr_sales_channel'])) {
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
-          'parent' => $this->entity->field_categorization->target_id,
-          'vid' => 'categorization',
+          'field_cv_category' => $this->entity->field_categorization->target_id,
+          'vid' => 'canales_de_venta',
         ]);
-        $newcertification_options = [key($form['field_pr_sales_channel']['widget']['#options']) => reset($form['field_pr_sales_channel']['widget']['#options'])];
+        // $newcertification_options = [key($form['field_pr_sales_channel']['widget']['#options']) => reset($form['field_pr_sales_channel']['widget']['#options'])];
+        $newcertification_options = [];
         foreach ($categorization_terms as $categorization_term) {
           $newcertification_options[$categorization_term->id()] = $categorization_term->label();
         }
@@ -440,7 +480,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#class' => 'legal-modal',
           '#autoload' => TRUE,
           '#title' => $this->t('Add product / service'),
-          '#message' => $this->t('All uploaded content must comply with the <a href="/cp-core-legal" target="_BLANK">publishing policy.</a>'),
+          '#message' => $this->t('All uploaded content must comply with the <a href="/en/node/177" target="_BLANK">publishing policy.</a>'),
           '#button_text' => $this->t('I agree'),
           '#weight' => -11,
         ];
@@ -473,6 +513,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['previous'] = [
           '#type' => 'submit',
           '#value' => $this->t('Previous'),
+          '#name' => 'previous-button-' . $this->step,
           '#submit' => [
             '::previousPage',
           ],
@@ -514,6 +555,7 @@ class CpCoreMultiStepForm extends FormBase {
         $form['footer_form']['actions']['next'] = [
           '#type' => 'submit',
           '#value' => $this->t('Next'),
+          '#name' => 'continue-button-' . $this->step,
         ];
       }
       elseif ($this->step == ($this->maxStep - 1)) {
@@ -729,7 +771,19 @@ class CpCoreMultiStepForm extends FormBase {
    */
   public function previousPage(array &$form, FormStateInterface $form_state) {
     $form_state->setRebuild();
-    $this->step--;
+    if ($this->step_sf) {
+      $this->step_sf = FALSE;
+    }
+    else {
+      if ($this->step == 3) {
+        $this->step_sf = TRUE;
+        $this->step = 2;
+      }
+      else {
+        $this->step--;
+        $this->step_sf = FALSE;
+      }
+    }
   }
 
   /**
@@ -753,11 +807,15 @@ class CpCoreMultiStepForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $entity = $this->buildEntity($form, $form_state);
+    $original_entity = $this->buildEntity($form, $form_state);
+    $entity = clone $original_entity;
+    $entity->removeTranslation('en');
     $input = $form_state->getUserInput();
     if ($this->step <= $this->maxStep && (!isset($input['_triggering_element_name']) || strpos($input['_triggering_element_name'], 'upload_button') === FALSE)) {
       $form_state->get('form_display')->validateFormValues($entity, $form, $form_state);
+      // $errors = $form_state->getLimitValidationErrors();
     }
+
   }
 
   /**
@@ -779,7 +837,19 @@ class CpCoreMultiStepForm extends FormBase {
     // an previous step.
     if ($this->step <= ($this->maxStep - 1)) {
       $form_state->setRebuild();
-      $this->step++;
+      if ($this->step_sf) {
+        $this->step_sf = FALSE;
+        $this->step++;
+      }
+      else {
+        if ($this->step == 2) {
+          $this->step_sf = TRUE;
+        }
+        else {
+          $this->step_sf = FALSE;
+          $this->step++;
+        }
+      }
     }
     else {
       // Show the last step.
@@ -800,6 +870,9 @@ class CpCoreMultiStepForm extends FormBase {
     $form_state->setValue('status_en', [0 => FALSE]);
     if (!$entity->label()) {
       $entity->title = 'Generated el: ' . date('d/m/Y H:i');
+    }
+    if ($entity->hasTranslation('en')) {
+      $entity->removeTranslation('en');
     }
     $entity->save();
     $saved_entities = $form_state->get('saved_entities');
@@ -828,7 +901,6 @@ class CpCoreMultiStepForm extends FormBase {
     if (!$entity->isTranslatable()) {
       return;
     }
-    $entity->save();
 
     // Does this entity have a mfd field?
     $mfd_field_manager = new MfdFieldManager();
@@ -864,7 +936,7 @@ class CpCoreMultiStepForm extends FormBase {
           }
 
           if (!$entity->hasTranslation($langcode)) {
-            continue;
+            $entity->addTranslation($langcode);
           }
 
           $translation = $entity->getTranslation($langcode);
@@ -884,6 +956,9 @@ class CpCoreMultiStepForm extends FormBase {
         }
       }
     }
+    $entity->save();
+    $form_state->set('entity', $entity);
+    $this->entity = $entity;
   }
 
   /**
@@ -935,6 +1010,7 @@ class CpCoreMultiStepForm extends FormBase {
         foreach ($available_langcodes as $langcode) {
           if ($node->hasTranslation($langcode)) {
             $translation = $node->getTranslation($langcode);
+            $translation->field_states = 'waiting';
             $translation->setPublished();
             $translation->save();
           }

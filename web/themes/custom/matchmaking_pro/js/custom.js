@@ -3,14 +3,11 @@
  * Global utilities.
  *
  */
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+
+
+
+
+
 
 
 (function ($, Drupal) {
@@ -31,9 +28,9 @@ function myFunction() {
   }
 
   function goToDashboardCompanyCol() {
-    window.location.href = "/dashboard/col/user"
+    window.location.href = "/dashboard"
   }
-  function   goToDashboardAsesorCol() {
+  function goToDashboardAsesorCol() {
     window.location.href = "/dashboard/adviser/user/col"
   }
 
@@ -86,7 +83,6 @@ function myFunction() {
     $("#pass_bloq_2").hide();
   }
 
-
   // check if is valid email
   const isEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -104,7 +100,7 @@ function myFunction() {
     let message = "";
 
     if (username == "") {
-      message = Drupal.t("Username is required.");
+      message = Drupal.t("Email or Tax ID number is required.");
       $(".username_container").css("border-color", "#ba0c2f");
       $("#error_username").show();
       $("#error_username_message").text(message)
@@ -172,7 +168,7 @@ function myFunction() {
                 url = "/dashboard/international/user";
               } else {
                 if (data.role == "asesor_comercial") {
-                  url = "/dashboard/adviser/user/col";
+                  url = "/dashboard-advisor";
                 } else {
                   if (data.role == "asesor_internacional") {
                     url = "/dashboard/adviser/user/international";
@@ -203,9 +199,12 @@ function myFunction() {
             $("#loading").hide();
             //show login button
             $("#login_button").show();
-            $("#error_username").show();
+            $("#error_username_alert").show();
+            //change style display to flex
+            $("#conteedor").css("display", "flex");
+
             //aca
-            $("#error_username_message").text(data.error);
+            $("#error_username_alert").text(data.error);
           }
         }).catch((error) => {
           //hide loading
@@ -213,8 +212,9 @@ function myFunction() {
           //show login button
           $("#login_button").show();
           //show error message
-          $("#error_username").show();
-          $("#error_username_message").text(error);
+          $("#conteedor").css("display", "flex");
+          $("#error_username_alert").show();
+          $("#error_username_alert").text(error);
         }
         );
     }
@@ -267,6 +267,19 @@ function myFunction() {
       $("#error_nit").hide();
       $(".nit_container").css("border-color", "#cccccc");
     }
+
+    //validate captcha getResponse and if is empty show error
+    var response = grecaptcha.getResponse();
+    console.log(response);
+    console.log("HI")
+    if (response.length == 0) {
+      alert(Drupal.t("Please verify that you are not a robot"));
+      $("#error_captcha").show();
+      isValid = false;
+    } else {
+      $("#error_captcha").hide();
+    }
+
     return isValid;
   }
 
@@ -356,14 +369,15 @@ function myFunction() {
     var message = "";
     var isValid = true;
     if (email_forgot == "") {
-      message = Drupal.t("The email is required");
+      message = Drupal.t("E-mail is required");
       $("#email_forgot_container").css("border-color", "#ba0c2f");
       $("#error_email_forgot").show();
       $("#error_email_forgot_message").text(message)
+      $('#error_email_forgot').attr('data-bs-original-title', "Foo").tooltip('show');
       isValid = false;
     } else {
       if (!isEmail(email_forgot)) {
-        message = Drupal.t("The email is not valid");
+        message = Drupal.t("E-mail is not valid");
         $("#email_forgot_container").css("border-color", "#ba0c2f");
         $("#error_email_forgot").show();
         $("#error_email_forgot_message").text(message)
@@ -561,6 +575,20 @@ function myFunction() {
 
   Drupal.behaviors.custom = {
     attach: function (context, settings) {
+
+      //call function login and validate form
+      $("#login_modal #username", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          login_drupal();
+        }
+      });
+      //call function login and validate form
+      $("#login_modal #password", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          login_drupal();
+        }
+      });
+
       //call function login
       $("#btn_login", context).click(function () {
         goToLogin();
@@ -583,22 +611,28 @@ function myFunction() {
       });
       //call function edit profile col
       $("#img_click", context).click(function () {
-        goToDashboardCompanyCol();
+        //goToDashboardCompanyCol();
       });
       //call function edit profile asesor
       $("#img_click_asesor", context).click(function () {
         goToDashboardAsesorCol();
       });
-    
+
       //call function edit buyer
       $("#edit_buyer", context).click(function () {
         goToEditBuyer();
       });
 
+      //call function edit buyer
+      $("#edit_buyer2", context).click(function () {
+        goToEditBuyer();
+        console.log("edit_buyer2");
+      });
+
       //add css when click menu_user
       $("#menu_user", context).click(function () {
         //toggle style css
-        $("#menu_drop").toggleClass("active");
+        $("#menu_drop").toggleClass("activ_menu");
       });
       //add css when click drop_menu
       $("#drop_menu", context).click(function () {
@@ -615,7 +649,7 @@ function myFunction() {
         if ($(e.target).closest("#menu_drop").length === 0 && $(e.target).closest("#menu_user").length === 0) {
           //delay to remove css
           setTimeout(function () {
-            $("#menu_drop").removeClass("active");
+            $("#menu_drop").removeClass("activ_menu");
           }, 200);
         }
       });
@@ -637,15 +671,18 @@ function myFunction() {
 
       //change languages base in path url
       $("#change_language", context).click(function () {
-        var url = window.location.pathname;
+        var url = window.location.pathname + window.location.search;
         console.log(url);
         var url_split = url.split("/");
         var language = url_split[1];
         console.log(language);
         if (language == "es") {
-          window.location.href = url.replace("es", "en");
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("/es", "/en");
         } else {
-          window.location.href = url.replace("en", "es");
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("/en", "/es");
         }
       });
 
@@ -706,10 +743,23 @@ function myFunction() {
       $("#nit_button", context).click(function () {
         getEmailByNit();
       });
+      //get email by nit
+      $("#forgot_email_modal #nit", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          getEmailByNit();
+        };
+      });
 
       //recover password
       $("#password_forgot_button", context).click(function () {
         recoverPassword();
+      });
+
+      //recover password
+      $("#forgot_password_modal #email_forgot", context).keypress(function (event) {
+        if (event.keyCode == 13) {
+          recoverPassword();
+        };
       });
 
       //change password
@@ -727,6 +777,17 @@ function myFunction() {
         showDashboardBuyer();
       });
 
+      //show menu drop mobile
+      $("#show_menu_mobil", context).click(function () {
+        //toggle style css
+        $("#menu_drop_mobil").toggleClass("activ_menu");
+      });
+      //show menu drop mobile
+      $("#show_menu_login", context).click(function () {
+        //toggle style css
+        $("#menu_drop_login").toggleClass("activ_menu");
+      });
+
       if (context === document) {
         //check if query params has email, time and token
         var urlParams = new URLSearchParams(window.location.search);
@@ -738,7 +799,161 @@ function myFunction() {
           $("#modal_recover_password").modal("show");
         }
       }
+
+      //buttons international
+      //edit button mobile international
+      $("#edit_button_mobile_international", context).click(function () {
+        //redirect
+        window.location.href = "/edit/international/user";
+      });
+
+      //change language button
+      $("#change_language_button", context).click(function () {
+        //change display
+        $("#change_language_button").css("display", "none");
+      });
+
+      //buttons exportador
+      //edit button mobile exportador
+      $("#edit_button_mobile_exportador", context).click(function () {
+        //redirect
+        window.location.href = "/edit/col/user";
+      });
+
+      //change language button
+      $("#change_language_button_exportador", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_exportador").css("display") == "none") {
+          $("#change_language_content_exportador").css("display", "block");
+          $("#change_language_content_exportador").css("min-width", "100%");
+        } else {
+          $("#change_language_content_exportador").css("display", "none");
+          $("#change_language_content_exportador").css("min-width", "0");
+        }
+      });
+
+      //change languages base in path url
+      $("#change_language_exportador", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //buttons asesor_comercial
+      //edit button mobile asesor_comercial
+     //change language button
+      $("#change_language_button_asesor_comercial", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_asesor_comercial").css("display") == "none") {
+          $("#change_language_content_asesor_comercial").css("display", "block");
+          $("#change_language_content_asesor_comercial").css("min-width", "100%");
+        } else {
+          $("#change_language_content_asesor_comercial").css("display", "none");
+          $("#change_language_content_asesor_comercial").css("min-width", "0");
+        }
+      });
+
+      //change languages base in path url
+      $("#change_language_asesor_comercial", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //buttons asesor_internacional
+      //edit button mobile asesor_internacional
+      $("#edit_button_mobile_asesor_internacional", context).click(function () {
+        //redirect
+        window.location.href = "/edit/international/user";
+      });
+
+      //change language button
+      $("#change_language_button_asesor_internacional", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_asesor_internacional").css("display") == "none") {
+          $("#change_language_content_asesor_internacional").css("display", "block");
+          $("#change_language_content_asesor_internacional").css("min-width", "100%");
+        } else {
+          $("#change_language_content_asesor_internacional").css("display", "none");
+          $("#change_language_content_asesor_internacional").css("min-width", "0");
+        }
+      });
+      //change languages base in path url
+      $("#change_language_asesor_internacional", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //change language button
+      $("#change_language_button_main", context).click(function () {
+        //change display
+        //check if style display is none
+        if ($("#change_language_content_main").css("display") == "none") {
+          $("#change_language_content_main").css("display", "block");
+          $("#change_language_content_main").css("min-width", "100%");
+        } else {
+          $("#change_language_content_main").css("display", "none");
+          $("#change_language_content_main").css("min-width", "0");
+        }
+      });
+      //change languages base in path url
+      $("#change_language_main", context).click(function () {
+        var url = window.location.pathname + window.location.search;
+        console.log(url);
+        var url_split = url.split("/");
+        var language = url_split[1];
+        console.log(language);
+        if (language == "es") {
+          //save in session storage
+          document.cookie = "language=en;path=/;";
+          window.location.href = url.replace("es", "en");
+        } else {
+          document.cookie = "language=es;path=/;";
+          window.location.href = url.replace("en", "es");
+        }
+      });
+
+      //change language button
+      $("#change_language_button", context).click(function () {
+        //change display
+        $("#change_language_button").css("display", "none");
+      });
+
+
     }
   };
-
 })(jQuery, Drupal);

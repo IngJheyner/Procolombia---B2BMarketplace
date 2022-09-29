@@ -75,6 +75,11 @@ div#main {
   height: 40px;
   margin: 8px;
 }
+.dashboard .title_card_dashboard span {
+  font-size: 19px;
+  font-family: Gothic-Regular;
+  color: #3b3d42;
+}
 .dashboard .title_card_content {
   padding: 18px 0px;
 }
@@ -218,6 +223,12 @@ span {
   font-family: Gothic-Regular;
 }
 
+.title-pop {
+  font-family: Gothic-Bold !important;
+  font-size: 0.9rem;
+  color: #3b3d42;
+}
+
 .continue {
   margin-top: 1rem;
   font-family: Gothic-Regular;
@@ -228,7 +239,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
@@ -243,7 +254,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   background-color: #0085ca;
   color: #ffffff;
   font-family: Gothic-Regular;
@@ -253,7 +264,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   background-color: #005ca4;
   color: #ffffff;
   font-family: Gothic-Regular;
@@ -275,7 +286,7 @@ span {
   border: none;
   border-radius: 4px;
   font-size: 14px;
-  padding: 6px 20px;
+  padding: 11px 20px;
   margin-right: 10px;
   font-family: Gothic-Regular;
   color: #005ca4;
@@ -533,7 +544,7 @@ span {
   -webkit-appearance: none;
   border: none;
   outline: none;
-  padding: 7px 20px;
+  padding: 7px 4px;
   color: #000000;
   border: 1px solid #cccccc;
   border-radius: 4px;
@@ -551,7 +562,7 @@ span {
   background-position-x: 96% !important;
   background-position-y: 50% !important;
   border: 1px solid #dfdfdf;
-  padding: 10px 1rem !important;
+  padding: 13px 1rem !important;
   font-size: 15px;
   padding-right: 2.4rem !important;
 }
@@ -788,6 +799,7 @@ span {
   .steps .step_content form {
     box-shadow: none !important;
     padding-right: 0px !important;
+    padding-left: 0px !important;
   }
   .order_1 {
     order: 1;
@@ -809,6 +821,16 @@ span {
   }
   button#cancel_process {
     display: none;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -919,6 +941,16 @@ span {
   button#cancel_process {
     display: none;
   }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-lg-9,
@@ -974,6 +1006,16 @@ span {
   }
   button#cancel_process {
     display: none;
+  }
+  .code-input {
+    width: 40% !important;
+  }
+  .cel-input {
+    width: 55% !important;
+    padding-right: 0px !important;
+  }
+  .iti--separate-dial-code .iti__selected-flag {
+    width: 160% !important;
   }
 }
 /*Input cell css*/
@@ -2250,4 +2292,4 @@ span {
   .iti__flag {
     background-image: url("../img/flags@2x.png");
   }
-}/*# sourceMappingURL=cp_company_col.css.map */
+}

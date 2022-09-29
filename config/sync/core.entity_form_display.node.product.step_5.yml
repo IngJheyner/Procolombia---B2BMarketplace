@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_structured_features
     - field.field.node.product.field_pr_target_market
     - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
@@ -171,7 +172,7 @@ third_party_settings:
       format_type: cp_core_group_markup
       format_settings:
         markup:
-          value: "<h2>Agregar Vídeos del producto</h2>\r\n<p>Se recomienda cargar vídeos reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del Catálogo.</p>\r\n"
+          value: '<h2>Add Product Videos</h2><p>It is recommended to upload real videos of the product in good quality to improve the positioning of your product within the Catalog.</p>'
           format: html
         show_empty_fields: '1'
         id: ''
@@ -184,12 +185,12 @@ third_party_settings:
       weight: 20
       format_type: cp_core_group_markup
       format_settings:
-        show_empty_fields: 1
+        markup:
+          value: '<span>We suggest uploading summary videos that give a cross-sectional tour of the company''s offer. It is important for the international buyer because it quickly, briefly and directly shows the skills, competencies and experience.<br>If they do not have an English video, it is suggested to include subtitles to the video in Spanish.</span>'
+          format: html
+        show_empty_fields: '1'
         id: ''
         classes: 'form-wrapper lightbulb-tooltip'
-        markup:
-          value: '<span>Sugerimos subir videos resumen que dan un paseo transversal la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia. Si no cuentan con un video en inglés, se sugiere incluir subtítulos al video en español.</span>'
-          format: html
 id: node.product.step_5
 targetEntityType: node
 bundle: product
@@ -276,6 +277,7 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
+  field_pr_structured_features: true
   field_pr_target_market: true
   field_pr_type_certifications: true
   field_previous_id: true

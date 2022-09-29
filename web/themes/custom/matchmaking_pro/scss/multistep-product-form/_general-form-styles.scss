@@ -69,6 +69,7 @@
         resize: none;
         border: 1px solid #A1A5AA;
     }
+    
     .form-textarea{
         height: 100px;
     }
@@ -94,6 +95,16 @@
         &:hover{
             border: none;
         }
+        @include media-breakpoint-down(lg){
+            select{
+                margin-top: 18px;
+            }
+        }
+        &.is-invalid{
+            .CaptionCont{
+                border: 2px solid $procol-red !important;
+            }
+        }
         .CaptionCont{
             height: 35px;
             display: flex;
@@ -117,6 +128,11 @@
         .optWrapper{
             border-radius: 1px;
             box-shadow: 0 3px 10px $gray-shadow;
+            &.isFloating{
+                position: relative;
+                width: 100%;
+                max-height: none;
+            }
             .options{
                 li.opt:hover{
                     background-color: $procol-dark-blue;
@@ -130,6 +146,7 @@
             }
         }
     }
+    
     small{
         width: 100%;
         display: flex;
@@ -156,10 +173,6 @@
     &.step_5{
         .field-group-html-element.group-left{
             border-right: none;
-        }
-        .lightbulb-tooltip span{
-            max-width: 400px;
-            top: -100px;
         }
         .insert-video{
             border: 1px solid $procol-light-blue;
@@ -231,6 +244,10 @@
             gap: 10px;
             align-items: center;
             position: relative;
+            .form-check-input{
+                width: 18px;
+                height: 18px;
+            }
             input[type=checkbox]:checked{
                 box-shadow: none;
                 
@@ -243,11 +260,35 @@
         label{
            font-family: $font-bold-Century-Gothic;
            padding-bottom: 8px;
+           font-size: 14px;
            
         }
              
         input[type="text"]{
             height: 40px;
+            background-color: $white;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px $white inset;
+        box-shadow: 0 0 0px 1000px $white inset;
+        transition: background-color 5000s ease-in-out 0s;
+        }
+
+        input:-internal-autofill-selected{
+            background-color: $white !important;
+        }
+
+        input[data-autocompleted] {
+            background-color: white !important;
         }
         input[type="file"]{
             height: 33px;
@@ -276,9 +317,6 @@
             justify-content: space-between;
             max-width: 442px;
             align-items: flex-end;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
             .messages--error{
                 padding-left: 10px;
             }
@@ -435,26 +473,6 @@
             width: 100%;
             padding: 0 15PX;
          }
-        //  @include media-breakpoint-down(md){
-        //      display: flex;
-        //      flex-direction: column;
-        //      align-items: center;
-        //      .field--name-field-product-type{
-        //          width: 100%;
-        //          display: flex;
-        //          justify-content: center;
-        //          label{
-        //              position: static;
-        //              height: auto;
-        //          }
-        //      }
-        //     justify-content: center;
-        //     #ajax-wrapper{
-        //         display: flex;
-        //         width: 100%;
-        //         justify-content: center;
-        //     }
-        //  }
     }
     .field-group-html-element.group-left{
         @include media-breakpoint-down(md){
@@ -590,6 +608,9 @@
                 position: relative;
                 padding-left: 30px;
                 text-transform: uppercase;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 &::before,
                 &::after{
                     font-family: swiper-icons;
@@ -597,20 +618,17 @@
                     background: linear-gradient(180deg, #D88D00 0%, #EDC500 100%);
                     width: 2px;
                     height: 16px;
-                    position: absolute;
-                    top: 10px;
-                    left: 16px;
+                    position: relative;
                     border-radius: 10px;
-                    @include media-breakpoint-down(lg){
-                        top: 20px;
-                        left: 30%;
-                    }
-                    @include media-breakpoint-down(sm){
-                        left: 15%;
-                     }
+                    
                 }
                 &::after{
                     transform: rotate(90deg);
+                    order: -1;
+                    left: 1px;
+                }
+                &::before{
+                    margin-right: 20px;
                 }
                 @include media-breakpoint-down(lg){
                     width: 100%;
@@ -638,7 +656,9 @@
            }
         // Ends Buttons styles
            
-     } 
+     }
+
+    
 }
 
     

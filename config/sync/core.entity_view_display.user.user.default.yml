@@ -37,6 +37,7 @@ dependencies:
     - field.field.user.user.field_country_code_landline
     - field.field.user.user.field_country_code_mobile
     - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_nit
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
@@ -334,6 +335,15 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 90
+    region: content
+  field_nit:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 92
     region: content
   field_previous_id:
     type: string

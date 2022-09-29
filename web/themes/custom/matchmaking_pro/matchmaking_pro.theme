@@ -43,11 +43,14 @@ function matchmaking_pro_preprocess_page(array &$variables) {
   $uid = \Drupal::currentUser();
   $user = \Drupal\user\Entity\User::load($uid->id());
   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  
+
 
   //force language in all paths
-  $variables['language'] = $language == 'en' ? 'Eng' : 'Esp';
-  $variables['language_2'] = $language != 'en' ? 'Eng' : 'Esp';
+  $variables['language'] = $language == 'en' ? 'EN' : 'ES';
+  $variables['language_2'] = $language != 'en' ? 'EN' : 'ES';
+  //key captcha
+  $site_key = \Drupal::config('recaptcha.settings')->get('site_key');
+  $variables['site_key'] = $site_key;
   //ceck if user is not deleted in drupal
 
   if($user->isActive()){
@@ -102,5 +105,18 @@ function matchmaking_pro_preprocess_views_view_table(&$variables) {
   $view = $variables['view'];
   if ($view->id() == 'paises') {
     $variables['table_class'] = '';
+  }
+}
+
+/**
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ */
+function matchmaking_pro_theme_suggestions_views_view_field_alter(array &$suggestions, array &$variables, $hook)
+{
+  if ($variables['view']->id() && $variables['view']->current_display) {
+    $suggestions[] = $hook . '__' . $variables['view']->id() . '__' . $variables['view']->current_display . '__' . $variables['field']->field;
+
   }
 }
