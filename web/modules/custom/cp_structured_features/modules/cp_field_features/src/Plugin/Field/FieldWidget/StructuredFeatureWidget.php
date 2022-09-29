@@ -58,6 +58,7 @@ class StructuredFeatureWidget extends WidgetBase {
           'size' => NULL,
           'placeholder' => NULL,
           'class' => 'left',
+          'status' => TRUE,
         ],
         'organico' => [
           'multiple' => FALSE,
@@ -274,6 +275,20 @@ class StructuredFeatureWidget extends WidgetBase {
           'size' => NULL,
           'placeholder' => 'Desde el año "X", en la empresa "Y" decidimos incorporar un enfoque de equidad de género/sostenibilidad/postconflicto como un pilar fundamental en la estrategia de generación de valor para la comunidad en el sector cafetero. Este enfoque está dirigido a "Z" familias/mujeres, que representan aproximadamente el X% de la caficultura en Colombia, y gracias a su implementación estamos generando un impacto positivo para la comunidad en la región "ZZ".',
           'class' => 'full',
+          'language' => NULL,
+        ],
+        'narrativa_en' => [
+          'multiple' => TRUE,
+          'required' => TRUE,
+          'type' => 'textarea',
+          'options' => NULL,
+          'label' => 'Narrativa',
+          'help' => NULL,
+          'maxlength' => NULL,
+          'size' => NULL,
+          'placeholder' => 'Desde el año "X", en la empresa "Y" decidimos incorporar un enfoque de equidad de género/sostenibilidad/postconflicto como un pilar fundamental en la estrategia de generación de valor para la comunidad en el sector cafetero. Este enfoque está dirigido a "Z" familias/mujeres, que representan aproximadamente el X% de la caficultura en Colombia, y gracias a su implementación estamos generando un impacto positivo para la comunidad en la región "ZZ".',
+          'class' => 'full',
+          'language' => 'en',
         ],
       ],
     ];
