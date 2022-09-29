@@ -246,7 +246,8 @@
             "drupal/core-vendor-hardening": true,
             "phpstan/extension-installer": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform-check": false
     },
     "extra": {
         "installer-types": ["bower-asset", "npm-asset"],
