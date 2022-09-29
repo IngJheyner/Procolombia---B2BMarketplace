@@ -1,5 +1,6 @@
 .view-product-dashboard,
-.view-dashboard-advisor {
+.view-dashboard-advisor,
+.view-products-advisor {
 	&.view-display-id-page_1 {
 		display: flex;
 		flex-direction: column;
@@ -69,7 +70,9 @@
 			opacity: 1;
 			color: #fff;
 			white-space: nowrap;
-			&#edit-submit-product-dashboard{
+			&#edit-submit-product-dashboard,
+			&#edit-submit-dashboard-advisor,
+			&#edit-submit-products-advisor{
 				background-color: $procol-light-blue;
 				display: flex;
 				justify-content: center;
@@ -609,7 +612,7 @@
 					height: 20px;
 					border-radius: 100px;
 					background: transparent linear-gradient(180deg, #005CA4 0%, #008CCE 100%) 0% 0% no-repeat padding-box;
-					
+					box-shadow: 0px 2px 2px $procol-gray-300;
 				}
 
 				&.on {
@@ -748,6 +751,75 @@
 			}
 			
 			
+		}
+	}
+	&.view-id-dashboard_advisor,
+	&.view-id-products_advisor{
+		padding: 0 26px;
+		@include media-breakpoint-down(lg){
+			padding: 20px;
+		}
+		.view-filters{
+			min-height: 171px;
+			@include media-breakpoint-down(lg){
+				width: 100%;
+				margin-top: 0;
+			}
+			#edit-reset{
+				background-color: $white;
+			}
+			.js-form-item-items-per-page{
+				top: 100% !important;
+			}
+			.js-form-item-items-per-page{
+				@include media-breakpoint-down(lg){
+					margin: 0 auto !important;
+				}
+			}
+		}
+		.view-content{
+			margin-top: 58px;
+			.table-responsive{
+				.views-field.views-field-nothing{
+					width: 100%;
+					a{
+						color: $procol-light-blue;
+					}
+				}
+				@include media-breakpoint-down(lg){
+					display: none;
+				}
+			}
+			@include media-breakpoint-down(lg){
+				padding: 0;
+				margin: 0;
+			}
+		}
+		.attachment-after{
+			display: none;
+			@include media-breakpoint-down(lg){
+				display: block;
+				width: 100%;
+				box-shadow: 0px 3px 6px #00000029;
+				border-radius: 4px;
+				margin-top: 84px;
+			}
+			.views-row {
+				.views-field-field-tariff-heading{
+					.field-content a{
+						color: $procol-gray-400;
+					}
+				}
+				.views-field.views-field-nothing{
+				width: 100%;
+				}
+			}
+			.view-id-dashboard_advisor,
+			.view-id-products_advisor{
+				@include media-breakpoint-down(lg){
+					padding: 0 0 20px 0;
+				}
+			}
 		}
 	}
 }
