@@ -37,6 +37,7 @@ dependencies:
     - field.field.user.user.field_country_code_landline
     - field.field.user.user.field_country_code_mobile
     - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_nit
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
@@ -59,6 +60,7 @@ third_party_settings:
   field_group:
     group_information_users:
       children:
+        - field_nit
         - field_step
         - field_company_contact_position
         - field_company_contact_cell_phone
@@ -91,7 +93,7 @@ third_party_settings:
       label: Informacion
       region: content
       parent_name: group_information_users
-      weight: 25
+      weight: 11
       format_type: tabs
       format_settings:
         classes: ''
@@ -109,7 +111,7 @@ third_party_settings:
       label: 'Informacion de usuarios'
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: tabs
       format_settings:
         classes: ''
@@ -206,7 +208,7 @@ content:
     region: content
   field_account_status:
     type: entity_reference_autocomplete
-    weight: 74
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -270,7 +272,7 @@ content:
     third_party_settings: {  }
   field_company_adviser:
     type: entity_reference_autocomplete
-    weight: 23
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -307,7 +309,7 @@ content:
     third_party_settings: {  }
   field_company_contact_cell_phone:
     type: telephone_default
-    weight: 17
+    weight: 3
     region: content
     settings:
       placeholder: ''
@@ -322,7 +324,7 @@ content:
     third_party_settings: {  }
   field_company_contact_lastname:
     type: string_textfield
-    weight: 18
+    weight: 4
     region: content
     settings:
       size: 60
@@ -330,7 +332,7 @@ content:
     third_party_settings: {  }
   field_company_contact_name:
     type: string_textfield
-    weight: 19
+    weight: 5
     region: content
     settings:
       size: 60
@@ -345,7 +347,7 @@ content:
     third_party_settings: {  }
   field_company_contact_position:
     type: string_textfield
-    weight: 16
+    weight: 2
     region: content
     settings:
       size: 60
@@ -395,7 +397,7 @@ content:
     third_party_settings: {  }
   field_company_model:
     type: entity_reference_autocomplete
-    weight: 20
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -425,7 +427,7 @@ content:
     third_party_settings: {  }
   field_company_name:
     type: string_textfield
-    weight: 21
+    weight: 7
     region: content
     settings:
       size: 60
@@ -441,7 +443,7 @@ content:
     third_party_settings: {  }
   field_company_web_site:
     type: link_default
-    weight: 22
+    weight: 8
     region: content
     settings:
       placeholder_url: ''
@@ -466,11 +468,49 @@ content:
     third_party_settings: {  }
   field_country_code_mobile:
     type: number
-    weight: 24
+    weight: 10
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_nit:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        a797b6c7-d202-470a-a0f9-f5283ae3b76f:
+          entity_type: user
+          bundle: user
+          dependee: roles
+          settings:
+            state: required
+            condition: value
+            grouping: OR
+            values_set: 5
+            value: ''
+            values: "administrator\r\nanonymous\r\nauthenticated\r\nasesor_comercial\r\nasesor_administrativo\r\nasesor_administrativo_ntc\r\nweb_services\r\nmoderador\r\nasesor_internacional"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+        f9b51094-2355-45f1-9bbc-b555c64bdee0:
+          entity_type: user
+          bundle: user
+          dependee: roles
+          settings:
+            state: visible
+            condition: value
+            grouping: OR
+            values_set: 5
+            value: ''
+            values: "administrator\r\nanonymous\r\nauthenticated\r\nasesor_comercial\r\nasesor_administrativo\r\nasesor_administrativo_ntc\r\nweb_services\r\nmoderador\r\nasesor_internacional"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_productive_chain:
     type: options_select
     weight: 19
@@ -479,7 +519,7 @@ content:
     third_party_settings: {  }
   field_step:
     type: number
-    weight: 15
+    weight: 1
     region: content
     settings:
       placeholder: ''

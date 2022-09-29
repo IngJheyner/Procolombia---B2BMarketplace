@@ -4,3 +4,5 @@ cp_advisor_moderation:
     js/cp_advisor_moderation.js: {}
   dependencies:
     - core/jquery
+    - core/drupal.ajax
+

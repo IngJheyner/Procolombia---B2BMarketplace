@@ -288,6 +288,9 @@ class CpCoreMultiStepForm extends FormBase {
       $form['#attributes']['class'][] = $display->getMode();
       $form['#attributes']['id'] = 'cp-core-multistep-form';
       $form['#attributes']['class'][] = 'cp-core-multistep-form';
+      if ($nid) {
+        $form['#attributes']['class'][] = 'cp-core-multistep-edit-form';
+      }
 
       $context = [
         'entity_type' => $entity->getEntityTypeId(),
@@ -804,12 +807,15 @@ class CpCoreMultiStepForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $entity = $this->buildEntity($form, $form_state);
+    $original_entity = $this->buildEntity($form, $form_state);
+    $entity = clone $original_entity;
     $entity->removeTranslation('en');
     $input = $form_state->getUserInput();
     if ($this->step <= $this->maxStep && (!isset($input['_triggering_element_name']) || strpos($input['_triggering_element_name'], 'upload_button') === FALSE)) {
       $form_state->get('form_display')->validateFormValues($entity, $form, $form_state);
+      // $errors = $form_state->getLimitValidationErrors();
     }
+
   }
 
   /**

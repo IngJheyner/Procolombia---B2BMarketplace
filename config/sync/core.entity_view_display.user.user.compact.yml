@@ -38,6 +38,7 @@ dependencies:
     - field.field.user.user.field_country_code_landline
     - field.field.user.user.field_country_code_mobile
     - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_nit
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
@@ -121,6 +122,7 @@ hidden:
   field_country_code_landline: true
   field_country_code_mobile: true
   field_last_password_reset: true
+  field_nit: true
   field_password_expiration: true
   field_pending_expire_sent: true
   field_previous_id: true

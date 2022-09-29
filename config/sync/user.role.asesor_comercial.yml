@@ -49,6 +49,8 @@ permissions:
   - 'view own field_tags'
   - 'view own unpublished media'
   - 'view post access counter'
+  - 'view terms in account_status'
+  - 'view terms in cadena_productiva_principal'
   - 'view terms in categories_flow_semaphore'
   - 'view terms in categorization'
   - 'view terms in ciiu_codes'
