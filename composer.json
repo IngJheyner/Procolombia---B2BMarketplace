@@ -19,6 +19,7 @@
     }
   ],
   "require": {
+    "bower-asset/spectrum": "^1.8.1",
     "composer/installers": "^1.9",
     "cweagans/composer-patches": "^1.7",
     "drupal/ace_editor": "^1.3",
@@ -45,6 +46,7 @@
     "drupal/coder": "^8.3",
     "drupal/coffee": "^1.0@beta",
     "drupal/color_field": "^2.4",
+    "drupal/conditional_fields": "^4.0@alpha",
     "drupal/config_filter": "^2.3.0",
     "drupal/config_ignore": "^2.1",
     "drupal/config_override_warn": "^1.3",
@@ -88,6 +90,7 @@
     "drupal/flag": "4.x-dev",
     "drupal/focal_point": "^1.0@beta",
     "drupal/force_password_change": "^2.0.0",
+    "drupal/form_mode_control": "^2.1",
     "drupal/formatter_suite": "^1.3",
     "drupal/gin": "^3.0@beta",
     "drupal/gin_toolbar": "^1.0@beta",
@@ -211,14 +214,13 @@
     "npm-asset/dropzone": "^4.3.0",
     "npm-asset/fakeobjects": "^4.15",
     "npm-asset/jquery-mousewheel": "^3.1",
+    "npm-asset/jquery-simple-color": "^1.2.3",
     "npm-asset/jquery-ui-touch-punch": "^0.2.3",
     "npm-asset/jquery.easing": "^1.4",
-    "npm-asset/jquery-simple-color": "^1.2.3",
     "npm-asset/link": "^1.5",
     "npm-asset/plupload": "^3.1",
     "npm-asset/slick": "^1.12.2",
     "npm-asset/slick-carousel": "^1.8",
-    "bower-asset/spectrum": "^1.8.1",
     "predis/predis": "^2.0",
     "vlucas/phpdotenv": "^2.4",
     "webflo/drupal-finder": "^1.0.0",
@@ -344,123 +346,10 @@
         "      composer remove drupal/core-project-message"
       ]
     },
-<<<<<<< HEAD
     "merge-plugin": {
       "include": [
           "web/modules/contrib/webform/composer.libraries.json"
       ]
-=======
-    "extra": {
-        "installer-types": ["bower-asset", "npm-asset"],
-		"enable-patching": true,
-		"patches": {
-            "drupal/core": {
-                "TypeError": "https://www.drupal.org/files/issues/2021-10-06/route-builder-undefined-null-path-3196793-11.patch",
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
-                "Make exposed filter values available as tokens for text areas": "https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch",
-                "Drupal Core Argument 1 passed ": "https://www.drupal.org/files/issues/2022-02-28/2701575-14.patch",
-                "htmlspecialchars": "https://www.drupal.org/files/issues/2022-03-18/fix-for-php-greater-8-1-3255637.patch",
-                "User context missing": "https://www.drupal.org/files/issues/2019-10-23/3056234-10.patch",
-		            "recovery password link" : "patches/unicode.patch"
-            },
-            "drupal/redirect": {
-                "Loop redirect fails on save nodes": "patches/loop-redirect-fails-on-save-node.patch"
-            },
-            "drupal/select2": {
-                "change directory select 2 library": "patches/library-select-2-b2b.patch"
-            },
-            "drupal/taxonomy": {
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
-            },
-            "drupal/views": {
-                "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2021-05-13/8.9.x-2457999-267-views-relationship-rendered-entity.patch"
-            },
-            "drupal/dblog":{
-                "Make exposed filter values available as tokens for text areas":"https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch"
-            },
-            "drupal/redis":{
-                "If Redis connection is not configured, the report page shows warnings":"https://www.drupal.org/files/issues/2021-04-07/redis-report_warnings-3207574-2.patch",
-                "Default lifetime for permanent TTL": "https://www.drupal.org/files/issues/2020-09-23/redis-default_permanent_ttl-2944938.patch"
-            },
-            "drupal/google_analytics":{
-                "Passing null to parameter #2": "https://www.drupal.org/files/issues/2022-06-03/google_analytics-jsonserialize-code-standard-fixes-3258588-20.patch"
-            },
-            "drupal/color_field":{
-                 "Warning Implicit color_field ColorRGB ": "https://www.drupal.org/files/issues/2022-02-23/3265958-implicit-conversion-float-int.patch"
-            },
-            "drupal/mailchimp_transactional":{
-              "The Mailchimp Transactional library has not been installed correctly": "https://www.drupal.org/files/issues/2022-04-07/mailchimp_transaction.install-ApiClient-misspelled.patch"
-            },
-            "drupal/webform":{
-              "eprecated function: preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in webform_css_alter()": "https://www.drupal.org/files/issues/2022-05-02/webform-3278191-3.patch"
-            },
-            "drupal/views_fieldsets": {
-                "AJAX error : Call to a member function get() on null\n": "https://www.drupal.org/files/issues/2020-10-23/views_fieldsets-ajax_error-3112466-3.patch"
-            }
-        },
-
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
-            }
-        },
-        "installer-paths": {
-            "web/core": [
-                "type:drupal-core"
-            ],
-            "web/libraries/{$name}": [
-                "type:drupal-library",
-                "type:npm-asset"
-            ],
-            "web/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "web/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "web/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "drush/Commands/contrib/{$name}": [
-                "type:drupal-drush"
-            ],
-            "web/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "web/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "web/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ]
-        },
-        "drupal-core-project-message": {
-            "include-keys": [
-                "homepage",
-                "support"
-            ],
-            "post-create-project-cmd-message": [
-                "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
-                "<bg=blue;fg=white>                                                         </>",
-                "",
-                "<bg=yellow;fg=black>Next steps</>:",
-                "  * Install the site: https://www.drupal.org/docs/8/install",
-                "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-                "  * Get support: https://www.drupal.org/support",
-                "  * Get involved with the Drupal community:",
-                "      https://www.drupal.org/getting-involved",
-                "  * Remove the plugin that prints this message:",
-                "      composer remove drupal/core-project-message"
-            ]
-        },
-		"merge-plugin": {
-            "include": [
-                "web/modules/contrib/webform/composer.libraries.json"
-            ]
-		}
->>>>>>> 651adce06306578c449ae6d74a4237fb1835190d
     }
   }
 }
