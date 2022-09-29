@@ -416,7 +416,11 @@
 			}
 		form {
 			padding-top: 20px;
-
+			&#views-form-dashboard-advisor-dashboard-table-7{
+				@include media-breakpoint-down(lg){
+					padding-top: 0;
+				}
+			}
 			> .row {
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
@@ -666,6 +670,7 @@
 					display: none;
 				}
 			}
+			
 			.view-content{
 				box-shadow: none;
 			}
@@ -757,7 +762,38 @@
 	}
 	&.view-display-id-dashboard_table,
 	&.view-id-products_advisor{
+			
 		padding: 0 26px;
+		.view-header{
+			.use-ajax {
+				width: 214px;
+				background-color: #005CA4;
+				color: white;
+				display: flex;
+				justify-content: center;
+				border-radius: 4px;
+				height: 41px;
+				font-family: $font-bold-Century-Gothic;
+				font-weight: normal;
+				font-size: $font-size-sm;
+				&::before{
+					content: '';
+					background-image: url('../images/icons/Icono_ElegirArchivos.svg');
+					background-size: cover;
+					width: 30px;
+					height: 30px;
+				}
+			}
+		}
+		#edit-user-bulk-form--2,
+		#edit-actions--2{
+			display: none !important;
+		}
+		#views-form-dashboard-advisor-attachment-1-7{
+			@include media-breakpoint-down(lg){
+				padding-top: 0;
+			}
+		}
 		@include media-breakpoint-down(lg){
 			padding: 20px;
 		}
@@ -781,7 +817,28 @@
 		}
 		.view-content{
 			margin-top: 58px;
+			
+			.js-form-type-checkbox input {
+				width: 18px;
+				height: 18px;
+				margin-left: 0 !important;
+				@include media-breakpoint-down(lg){
+					width: 29px;
+					height: 29px;
+				}
+			}	
 			.table-responsive{
+				.select-all input{
+					width: 18px;
+					height: 18px;
+					margin-left: 0;
+
+				}
+				.views-field-user-bulk-form{
+					input{
+						margin: 0;
+					}
+				}
 				.views-field.views-field-nothing{
 					@include media-breakpoint-down(lg){
 						width: 100%;
@@ -800,6 +857,14 @@
 			}
 		}
 		.attachment-after{
+			#edit-header--2,
+			#edit-actions--5 {
+				display: none !important;
+			}
+			#views-form-dashboard-advisor-attachment-1-7 {
+				padding-top: 0 ;
+			}
+
 			display: none;
 			@include media-breakpoint-down(lg){
 				display: block;
@@ -825,5 +890,14 @@
 				}
 			}
 		}
+		
+	}
+}
+.path-dashboard-advisor {
+	.container-fluid, .col-sm-9{
+		padding: 0;
+	}
+	.col-sm-9{
+	width: 100%;
 	}
 }
