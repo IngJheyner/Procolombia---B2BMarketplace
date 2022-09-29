@@ -121,6 +121,12 @@ function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
       ],
       'template' => 'confirmation_modal',
     ],
+    'cp_advisor_moderation_export' => [
+      'variables' => [
+        'url' => NULL,
+        'description' => NULL,
+      ],
+    ]
   ];
 }
 
@@ -209,8 +215,9 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
  */
 function cp_advisor_moderation_preprocess_views_view(&$vars) {
   $vars['#cache']['contexts'][] = 'route';
-  if (isset($vars['view_array']['#name']) && $vars['view_array']['#name'] == 'dashboard_advisor') {
+  /*if (isset($vars['view_array']['#name']) && $vars['view_array']['#name'] == 'dashboard_advisor') {
     $vars['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
     $vars['#attached']['library'][] = 'core/drupal.dialog.ajax';
-  }
+    $vars['#attached']['library'][] = 'views_data_export/views_data_export';
+  }*/
 }

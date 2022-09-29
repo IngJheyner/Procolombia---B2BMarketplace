@@ -13,8 +13,3 @@ services:
     class: Drupal\cp_advisor_moderation\TwigExtension\ColorByEntity
     tags:
       - { name: twig.extension }
-  empty_values.views.subscriber:
-    class: Drupal\cp_advisor_moderation\EventSubscriber\ViewsAjaxResponseSubscriber
-    arguments: ['@ajax_response.attachments_processor']
-    tags:
-      - { name: event_subscriber }

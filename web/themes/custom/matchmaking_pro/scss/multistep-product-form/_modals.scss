@@ -267,3 +267,85 @@
         }
     }
 }
+
+.page-view-dashboard-advisor{
+    .ui-dialog.generic-modal{
+        @include modals-basic-style;
+        .ui-dialog-titlebar{
+            background-color: $white;
+            padding: 15px;
+            border-bottom: 1px solid $procol-gray-200;
+            border-radius: 0;
+            
+            span.ui-dialog-title{
+                display: block;
+                color: $procol-gray-400;
+                font-size: 22px;
+                font-family: $font-bold-Century-Gothic;
+                margin: 0;
+                display: flex;
+                gap: 15px;
+                &::before{
+                    content: '';
+                    background-image: url("../images/icons/Icono_ElegirArchivos_azul.svg");
+                    -webkit-background-size: cover;
+                    background-size: cover;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            button.ui-button{
+                position: absolute;
+                top: 0;
+                right: 0;
+                .ui-button-icon{
+                    background-image: url(../images/icons/Cerrar-azul.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 25px;
+                    height: 25px;
+                    top: 10px;
+                }
+                .ui-button-icon-space {
+                    display: none;
+                    }
+            }
+
+        }
+        #drupal-modal{
+            color: $procol-gray-400;
+            a{
+                height: 37px;
+                width: 96px;
+                border: 1px solid #01C161;
+                border-radius: 4px;
+                font-size: $font-size-sm;
+                text-transform: uppercase;
+                color: $procol-gray-400;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+             &::before{
+                background-image: url(../images/icons/file-csv.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                content: "";
+                width: 15px;
+                height: 20px
+             }   
+            }
+            button#close-button{
+                @include gray-btn;
+                width: 111px;
+                height: 41px;
+                border-radius: 4px;
+                border: none;
+                font-size: $font-size-sm;
+            }
+        }
+    }
+    .ui-widget-overlay{
+        background-color: rgba(59, 61, 66, 0.5) !important;
+    }
+}
