@@ -3,6 +3,7 @@
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\EntityForm;
+use Drupal\views\ViewExecutable;
 use Twig\Node\Expression\Test\NullTest;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\cp_advisor_moderation\Entity\Product;
@@ -176,18 +177,12 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
 }
 
 /**
- * Implements hook_views_data_alter().
+ * Implements hook_preprocess_views_view().
  */
-function cp_advisor_moderation_views_data_alter(array &$data)
-{
-  //Campo custom para servicios de facultades
-  $data['users']['field_collection_file_color'] = array(
-    'title' => t('Color Link'),
-    'field' => array(
-      'title' => t('Color Link'),
-      'help' => t('Color Link.'),
-      'id' => 'field_collection_file_color',
-    ),
-  );
+function cp_advisor_moderation_preprocess_views_view(&$vars) {
+  $vars['#cache']['contexts'][] = 'route';
+  if (isset($vars['view_array']['#name']) && $vars['view_array']['#name'] == 'dashboard_advisor') {
+    $vars['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
+    $vars['#attached']['library'][] = 'core/drupal.dialog.ajax';
+  }
 }
-
