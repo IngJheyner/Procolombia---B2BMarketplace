@@ -628,12 +628,14 @@
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user';
             } else {
-                alert('Error al rechazar el usuario');
+                //alert('Error al rechazar el usuario');
+                window.location.href = '/dashboard/adviser/user/international';
             }
         }).catch(function (error) {
             $("#loading_2").hide();
             $("#reject").show();
-            alert('Error al rechazar el usuario');
+            //alert('Error al rechazar el usuario');
+            window.location.href = '/dashboard/adviser/user/international';
         });
     }
 
@@ -668,12 +670,14 @@
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user';
             } else {
-                alert('Error al aprobar el usuario');
+                //alert('Error al aprobar el usuario');
+                window.location.href = '/dashboard/adviser/user/international';
             }
         }).catch(function (error) {
             $("#loading_3").hide();
             $("#modal_aproved_user_buyer").show();
             alert('Error al aprobar el usuario');
+            window.location.href = '/dashboard/adviser/user/international';
         });
     }
 

@@ -1,5 +1,5 @@
 cp_pro_adviser:
-  version: 1.7
+  version: 1.8
   css:
     theme:
       css/cp_pro_adviser.css: {}
@@ -15,4 +15,3 @@ cp_pro_adviser:
     - core/jquery
     - core/jquery.once
 
-    
