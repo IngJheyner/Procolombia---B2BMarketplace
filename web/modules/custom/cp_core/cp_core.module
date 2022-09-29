@@ -1051,6 +1051,13 @@ function cp_core_entity_extra_field_info() {
     'visible' => FALSE,
   ];
 
+  $extra['node']['product']['display']['cp_core_edit_product'] = [
+    'label' => t('CP Core: Edit product'),
+    'description' => t('Edit product'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
   return $extra;
 }
 
@@ -1085,6 +1092,14 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
       '#tag' => 'button',
       '#value' => t('Go back to process'),
       '#attributes' => ['class' => ['close']],
+    ];
+  }
+
+  if ($display->getComponent('cp_core_edit_product')) {
+    $build['cp_core_edit_product'] = [
+      '#type' => 'link',
+      '#url' => Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]),
+      '#title' => t('Edit'),
     ];
   }
 }

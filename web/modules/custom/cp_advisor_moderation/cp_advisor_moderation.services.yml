@@ -1,0 +1,20 @@
+services:
+  access_check.block.add:
+    class: Drupal\cp_advisor_moderation\Access\EditProductAccess
+    arguments: ['@current_user']
+    tags:
+      - { name: access_check, applies_to: _access_edit_product }
+  cp_advisor_moderation.route_subscriber:
+    class: Drupal\cp_advisor_moderation\EventSubscriber\CpAdvisorModerationRouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  color_entity.twig_extension:
+    arguments: [ '@renderer' ]
+    class: Drupal\cp_advisor_moderation\TwigExtension\ColorByEntity
+    tags:
+      - { name: twig.extension }
+  empty_values.views.subscriber:
+    class: Drupal\cp_advisor_moderation\EventSubscriber\ViewsAjaxResponseSubscriber
+    arguments: ['@ajax_response.attachments_processor']
+    tags:
+      - { name: event_subscriber }

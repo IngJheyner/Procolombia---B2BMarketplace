@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_pr_type_certifications
     - node.type.product
-    - taxonomy.vocabulary.categorization
+    - taxonomy.vocabulary.certification_types
 id: node.product.field_pr_type_certifications
 field_name: field_pr_type_certifications
 entity_type: node
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      categorization: categorization
+      certification_types: certification_types
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: categorization
 field_type: entity_reference

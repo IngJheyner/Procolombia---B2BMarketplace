@@ -1,0 +1,88 @@
+# $Id$
+#
+# Español translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  cp_advisor_moderation.module: n/a
+#  cp_advisor_moderation.info.yml: n/a
+#  cp_advisor_moderation.permissions.yml: n/a
+#  src/Controller/CpAdvisorModerationController.php: n/a
+#  templates/confirmation_modal.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-09-24 18:10+0200\n"
+"PO-Revision-Date: 2022-09-24 18:10+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Español <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cp_advisor_moderation.module:26;36;47
+msgid "Reject"
+msgstr ""
+
+#: cp_advisor_moderation.module:48
+msgid "You are about to reject the edition of the selected product or service"
+msgstr ""
+
+#: cp_advisor_moderation.module:54;63
+msgid "Approve"
+msgstr "Aprobar"
+
+#: cp_advisor_moderation.module:75
+msgid "You are about to approve the edition of the selected product or service"
+msgstr ""
+
+#: cp_advisor_moderation.module:113
+msgid "approved product or service"
+msgstr ""
+
+#: cp_advisor_moderation.module:137
+msgid "rejected product or service"
+msgstr ""
+
+#: cp_advisor_moderation.module:174
+msgid "Any"
+msgstr "Cualquiera"
+
+#: cp_advisor_moderation.info.yml:0
+msgid "CP Advisor Moderation"
+msgstr ""
+
+#: cp_advisor_moderation.info.yml:0
+msgid "advisor moderation"
+msgstr ""
+
+#: cp_advisor_moderation.info.yml:0
+msgid "Custom"
+msgstr "Personalizado"
+
+#: cp_advisor_moderation.permissions.yml:0
+msgid "Access to advisor dashboard"
+msgstr ""
+
+#: cp_advisor_moderation.permissions.yml:0
+msgid "Access to advisor product dashboard"
+msgstr ""
+
+#: src/Controller/CpAdvisorModerationController.php:19
+msgid "It works!"
+msgstr ""
+
+#: templates/confirmation_modal.html.twig:14
+msgid "Do you wish to continue?"
+msgstr "¿Desea continuar?"
+
+#: templates/confirmation_modal.html.twig:15
+msgid "YES"
+msgstr "SI"
+
+#: templates/confirmation_modal.html.twig:16
+msgid "NO"
+msgstr "NO"
+

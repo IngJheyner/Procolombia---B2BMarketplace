@@ -29,7 +29,8 @@
         justify-content: space-between;        
         .field--name-field-pr-country{
             flex-grow: 1;
-            margin-top: 5px;     
+            margin-top: 5px;
+            position: relative;
             details{
                 margin-top: 0;
                 border: none;
@@ -119,6 +120,9 @@
 
                 }
             }
+            p{
+                display: none;
+            }
 
         }
         .field--type-multilingual-form-display{
@@ -135,6 +139,31 @@
 
     .group-left.step-3,
     .group-right.step-3{
+        .field--name-field-pr-country .is-invalid{
+            .entity-browser-processed::before{
+                border: 2px solid $procol-red !important;
+            }
+        }
+        .js-form-type-select.is-invalid{
+            .select2-selection--multiple li.select2-search {
+                border: 2px solid $procol-red !important;
+            }
+        }
+        .is-invalid::after {
+            top: 35px;
+            left: auto;
+            right: -20px;
+            @include media-breakpoint-down (lg){
+                top: 0;
+                right: 0;
+            }
+            }
+     
+        .js-form-item-field-pr-target-market.is-invalid .is-invalid::after {
+                top: 100px;
+                left: auto;
+            }
+
         .select2-selection--multiple{
             position: relative;
             width: 100%;
@@ -271,7 +300,40 @@
             top: 0;
         }
     }
+    .js-form-type-select .tooltip-is-invalid,
+    #edit-field-pr-country-wrapper .tooltip-is-invalid{
+        width: auto;
+        height: 20px;
+        display: flex;
+        position: absolute;
+        top: 35px;
+        right: -25px;
+        z-index: 3;
+        padding-left: 25px;
+        @include media-breakpoint-down(lg){
+            top: 0;
+            right: 0;
+        }
+        &:hover{
+            width: 157px;
+            p{
+                @include hover-invalid-tooltip;
+                top:28px;
+                left: 0;
+                right: auto; 
+                @include media-breakpoint-down(lg){
+                    right: -3px;
+                }
+                &::before{
+                    right: 5px;
+                }
+            }
+        }
+        
+    }
 }
+
+
 .path-dashboard{
     .select2-selection--single{
         height: 35px;

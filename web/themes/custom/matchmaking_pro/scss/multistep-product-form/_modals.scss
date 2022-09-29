@@ -58,6 +58,7 @@
                     font-size: 14px;
                     line-height: 17px;
                     margin: 0;
+                    text-transform: uppercase;
                     @include blue-btn;
                     @include media-breakpoint-down(lg) {
                         width: 100%;
@@ -127,6 +128,7 @@
                     font-family: $font-bold-Century-Gothic;
                     font-weight: normal;
                     font-size: $font-size-sm;
+                    text-transform: uppercase;
                 }
             }
             
@@ -240,6 +242,7 @@
                     color: $procol-gray-400;
                     border: 1px solid $procol-gray-300;
                     font-weight: 100;
+                    text-transform: uppercase;
                     @include media-breakpoint-down(lg){
                         border: none
                     }
@@ -251,7 +254,8 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    min-width: 62px
+                    min-width: 62px;
+                    text-transform: uppercase
                 }
             }
         }
@@ -259,6 +263,7 @@
     &.save-publish-correct-modal{
         .modal-footer .modal-footer-right .button.btn-ok{
             @include blue-btn;
+            text-transform: uppercase;
         }
     }
 }
