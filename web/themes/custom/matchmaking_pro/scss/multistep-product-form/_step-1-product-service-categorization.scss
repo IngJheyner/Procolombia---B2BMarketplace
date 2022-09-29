@@ -53,15 +53,20 @@
                 left: auto;
                 background-size: 12px 12px;
                 @include media-breakpoint-down(lg){
-                    top: 0;
+                    top: -25px;
                     right: 5px;
                 }
             }
             &:hover p{
                 @include hover-invalid-tooltip;
                 @include media-breakpoint-down(lg){
-                    top: 30%;
+                    top: -70px;
                     right: 0;
+                    &::before {
+                        border-bottom-color: transparent;
+                        border-top-color: #3B3D42;
+                        top: 26px;
+                        }
                 }
             }
         }
@@ -162,6 +167,20 @@
         }
         small{
             order: +1;
+        }
+        .js-form-file::after {
+          content: "Pick files";
+          position: absolute;
+          z-index: 2;
+          display: block;
+          top: 30px;
+          height: 31px;
+          display: flex;
+          align-items: center;
+          left: 47px;
+          width: 120px;
+          background-color: $procol-dark-blue;
+          color: $white;
         }
     }
     #edit-field-file,

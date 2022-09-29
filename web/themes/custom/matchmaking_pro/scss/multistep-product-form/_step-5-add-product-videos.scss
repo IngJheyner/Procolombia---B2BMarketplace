@@ -11,10 +11,37 @@
             font-family: $font-bold-Century-Gothic;
             font-weight: normal !important;
             @include media-breakpoint-down(lg){
-                padding: 0 13px;
+                padding: 0
+            }
+            @include media-breakpoint-down(md){
+                padding: 30px 13px 0 13px;
             }
         }
     }
+    .lightbulb-tooltip{
+        top: 0;
+    }
+    .video-embed-with-preview{
+        max-width: 100%;
+        
+    }
+    .video-embed-with-preview.field-pr-video,
+    .video-embed-with-preview.field-pr-video-2 {      
+        margin-top: 30px;
+        background-color: $procol-gray-200;
+        display: flex;
+        &.video-embed-preview-empty{
+            margin: 0;
+            margin-bottom: 0 !important;
+        }
+    }
+    #edit-field-pr-video-0-value {
+        position: relative;
+    }
+    .video-embed-with-preview iframe {
+        width: 118px;
+        height: 100px;
+      }
     .lightbulb-tooltip span{
         max-width: 400px;
         top: -120px;
@@ -22,12 +49,14 @@
     .field-group-html-element{
         margin-top: 0 !important;
     }
+    
     .field--type-video-embed-field,
     #edit-field-pr-video-2-wrapper {
+        margin-bottom: 0 !important;
         position: relative;
         .js-form-submit {
             position: absolute;
-            top: 24px;
+            top: 0;
             right: 0;
             height: 33px;
             display: flex;
@@ -37,27 +66,63 @@
             background-color: $procol-dark-blue;
             font-size: 14px;
             border-radius: 4px;
-            &#edit-field-pr-video-2-0-preview-button {
-                top: 45px;
-                }
         }
         .js-text-full {
             height: 33px;
-            padding-right: 107px;
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
     }
+    .js-form-item-field-pr-video-0-value > label:nth-child(1) {
+        position: absolute;
+        top: -30px;
+    }
+    #edit-field-pr-video-wrapper, #edit-field-pr-video-2-wrapper {
+        position: relative;
+        
+    }
+    #edit-field-pr-video-wrapper{
+        margin-top: 30px;
+    }
+    #edit-field-pr-video-2-wrapper{
+        margin-top: 30px;
+        .js-form-item-field-pr-video-2-0-value label{
+            top: -30px;
+        }
+        .video-embed-with-preview{
+            margin-top: 0;
+        }
+    }
+    #edit-field-pr-video-description-2-wrapper{
+        margin-top: auto;
+    }
+    .js-form-item-field-pr-video-0-value,
+    .js-form-item-field-pr-video-2-0-value {
+        position: static;
+        margin-top: 0;
+    }
+    .js-form-item-field-pr-video-2-0-value label{
+        position: absolute;
+        top: 0;
+    }
+    .js-form-item-field-pr-video-description-2-0-value {
+        margin-bottom: 0;
+        margin-top: 0;
+        }
+    .js-form-item-field-pr-video-description-1-0-value {
+        margin-top: 0;
+        }
     .remove-remote-video-value {
         color: transparent;
-        background-image: url(../images/icons/Cerrar-negro.svg);
+        background-image: url(../images/icons/cerrar-gris.svg);
         background-size: 20px;
         background-repeat: no-repeat;
         background-position: center;
         height: 20px;
         width: 20px;
         overflow: hidden;
-
+        top: 10px;
+        right: 15px;
       }
     .js-form-item.js-form-type-checkbox{
         margin-top: 0;

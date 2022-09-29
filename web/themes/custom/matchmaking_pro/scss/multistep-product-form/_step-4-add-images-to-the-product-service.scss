@@ -18,14 +18,53 @@
         .messages--error{
             padding-bottom: 10px;
         }
-        .tooltip-is-invalid{
-            display: none;
-        }
         @include media-breakpoint-down(lg){
             padding-top: 0;
         }
     }
-    
+    .js-form-type-managed-file{
+        position: relative;
+        &::after{
+            top: 30px;
+            right: 25px;
+            left: auto;
+            @include media-breakpoint-down(lg){
+                top: 0;
+                right: 0;
+            }
+        }
+        &.is-invalid{
+            .tooltip-is-invalid{
+                width: auto;
+                height: 20px;
+                display: flex;
+                position: absolute;
+                top: 30px;
+                right: 21px;
+                z-index: 3;
+                padding-left: 25px;
+                @include media-breakpoint-down(lg){
+                    top: 0;
+                    right: 0;
+                }
+                &:hover{
+                    width: 157px;
+                    p{
+                        @include hover-invalid-tooltip;
+                        top: 28px;
+                        left: 0;
+                        right: auto; 
+                        @include media-breakpoint-down(lg){
+                            right: -3px;
+                        }
+                        &::before{
+                            right: 5px;
+                        }
+                    }
+                } 
+            }
+        }
+    }
     .js-form-type-managed-file:nth-child(-n+3) {
         border-right: 1px solid #D8DADD;
         margin: 0 !important;
@@ -39,4 +78,5 @@
     .field--type-multilingual-form-display{
         display: none;
     }
+    
 }

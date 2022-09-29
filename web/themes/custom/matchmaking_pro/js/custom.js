@@ -83,7 +83,6 @@
     $("#pass_bloq_2").hide();
   }
 
-
   // check if is valid email
   const isEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -169,7 +168,7 @@
                 url = "/dashboard/international/user";
               } else {
                 if (data.role == "asesor_comercial") {
-                  url = "/dashboard/adviser/user/col";
+                  url = "/dashboard-advisor";
                 } else {
                   if (data.role == "asesor_internacional") {
                     url = "/dashboard/adviser/user/international";
@@ -865,7 +864,7 @@
           $("#change_language_content_asesor_comercial").css("min-width", "0");
         }
       });
-      
+
       //change languages base in path url
       $("#change_language_asesor_comercial", context).click(function () {
         var url = window.location.pathname + window.location.search;
@@ -953,8 +952,8 @@
         //change display
         $("#change_language_button").css("display", "none");
       });
-      
-      
+
+
     }
   };
 })(jQuery, Drupal);
