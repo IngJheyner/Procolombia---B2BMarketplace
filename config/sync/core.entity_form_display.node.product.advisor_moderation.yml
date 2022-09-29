@@ -53,17 +53,19 @@ dependencies:
     - image.style.thumbnail
     - node.type.product
   module:
+    - cp_core
+    - cp_field_features
     - field_group
     - file
     - shs
     - svg_image
-    - video_embed_field
 third_party_settings:
   field_group:
     group_row:
       children:
         - group_left
         - group_right
+        - group_bottom
       label: Row
       region: content
       parent_name: ''
@@ -126,7 +128,7 @@ third_party_settings:
       label: Right
       region: content
       parent_name: group_row
-      weight: 22
+      weight: 21
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-6'
@@ -204,6 +206,26 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
+    group_bottom:
+      children:
+        - field_pr_structured_features
+      label: Bottom
+      region: content
+      parent_name: group_row
+      weight: 22
+      format_type: html_element
+      format_settings:
+        classes: 'col-sm-12 col-md-12'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
 id: node.product.advisor_moderation
 targetEntityType: node
 bundle: product
@@ -340,6 +362,13 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_pr_structured_features:
+    type: sf_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_value: ''
+    third_party_settings: {  }
   field_pr_target_market:
     type: entity_reference_autocomplete
     weight: 38
@@ -361,16 +390,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_pr_video:
-    type: video_embed_field_textfield
+    type: cp_core_video_embed_with_preview
     weight: 8
     region: content
-    settings: {  }
+    settings:
+      show_preview: false
     third_party_settings: {  }
   field_pr_video_2:
-    type: video_embed_field_textfield
+    type: cp_core_video_embed_with_preview
     weight: 10
     region: content
-    settings: {  }
+    settings:
+      show_preview: false
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
@@ -437,7 +468,6 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
-  field_pr_structured_features: true
   field_pr_terms_of_condition: true
   field_previous_id: true
   field_producto_innovador: true
