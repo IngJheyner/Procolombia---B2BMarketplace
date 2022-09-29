@@ -10,7 +10,7 @@ field_name: field_aditional_information
 entity_type: node
 bundle: product
 label: 'Información adicional o complementaria del producto'
-description: ''
+description: '   '
 required: false
 translatable: true
 default_value: {  }
