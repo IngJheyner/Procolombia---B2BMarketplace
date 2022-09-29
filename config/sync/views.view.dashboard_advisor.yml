@@ -19,7 +19,6 @@ dependencies:
   module:
     - better_exposed_filters
     - color_field
-    - cp_advisor_moderation
     - csv_serialization
     - rest
     - serialization
@@ -1172,57 +1171,8 @@ display:
         - 'config:field.storage.user.field_company_logo'
         - 'config:field.storage.user.field_company_name'
         - 'config:field.storage.user.field_productive_chain'
-  data_export_1:
-    id: data_export_1
-    display_title: 'Data export'
-    display_plugin: data_export
-    position: 2
-    display_options:
-      style:
-        type: data_export
-        options:
-          formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-            utf8_bom: '0'
-            use_serializer_encode_only: false
-      display_extenders:
-        metatag_display_extender:
-          metatags: {  }
-          tokenize: false
-      path: dashboard-advisor/report
-      displays:
-        page_1: page_1
-        default: '0'
-      filename: 'companys-[date:html_date].csv'
-      automatic_download: false
-      store_in_public_file_directory: null
-      custom_redirect_path: false
-      redirect_to_display: none
-      include_query_params: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - request_format
-        - url
-        - user
-        - user.permissions
-      tags:
-        - 'config:field.storage.user.field_company_city'
-        - 'config:field.storage.user.field_company_deparment'
-        - 'config:field.storage.user.field_company_logo'
-        - 'config:field.storage.user.field_company_name'
-        - 'config:field.storage.user.field_productive_chain'
-  page_1:
-    id: page_1
+  dashboard_table:
+    id: dashboard_table
     display_title: Page
     display_plugin: page
     position: 1
@@ -2110,106 +2060,7 @@ display:
           text: editar
           output_url_as_text: false
           absolute: false
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: custom
-          label: Estado
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<p style="display: none;">{{ field_account_status }}</p>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-        field_collection_file_color:
-          id: field_collection_file_color
-          table: users
-          field: field_collection_file_color
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          plugin_id: field_collection_file_color
-          label: 'Color Link'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          field_collection_type: field_de_tu_interes
+      empty: {  }
       filters:
         status:
           id: status
@@ -2586,10 +2437,17 @@ display:
         groups:
           1: AND
       defaults:
+        empty: false
         title: false
+        use_ajax: false
         fields: false
         filters: false
         filter_groups: false
+        header: false
+        footer: false
+      use_ajax: true
+      header: {  }
+      footer: {  }
       display_extenders:
         metatag_display_extender:
           metatags: {  }
@@ -2612,4 +2470,53 @@ display:
         - 'config:field.storage.user.field_company_logo'
         - 'config:field.storage.user.field_company_name'
         - 'config:field.storage.user.field_nit'
+        - 'config:field.storage.user.field_productive_chain'
+  data_export_1:
+    id: data_export_1
+    display_title: 'Data export'
+    display_plugin: data_export
+    position: 2
+    display_options:
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      path: dashboard-advisor/report
+      displays:
+        page_1: page_1
+        default: '0'
+      filename: 'companys-[date:html_date].csv'
+      automatic_download: false
+      store_in_public_file_directory: null
+      custom_redirect_path: false
+      redirect_to_display: none
+      include_query_params: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user
+        - user.permissions
+      tags:
+        - 'config:field.storage.user.field_company_city'
+        - 'config:field.storage.user.field_company_deparment'
+        - 'config:field.storage.user.field_company_logo'
+        - 'config:field.storage.user.field_company_name'
         - 'config:field.storage.user.field_productive_chain'
