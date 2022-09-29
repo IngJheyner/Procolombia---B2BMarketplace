@@ -121,10 +121,7 @@ third_party_settings:
     group_right:
       children:
         - group_row_images
-        - field_pr_video
-        - field_pr_video_description_1
-        - field_pr_video_2
-        - field_pr_video_description_2
+        - group_row_videos
       label: Right
       region: content
       parent_name: group_row
@@ -216,6 +213,29 @@ third_party_settings:
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-12'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+    group_row_videos:
+      children:
+        - field_pr_video
+        - field_pr_video_description_1
+        - field_pr_video_2
+        - field_pr_video_description_2
+      label: 'Row videos'
+      region: content
+      parent_name: group_right
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: row-videos
         show_empty_fields: false
         id: ''
         element: div
@@ -394,14 +414,14 @@ content:
     weight: 8
     region: content
     settings:
-      show_preview: false
+      show_preview: '1'
     third_party_settings: {  }
   field_pr_video_2:
     type: cp_core_video_embed_with_preview
     weight: 10
     region: content
     settings:
-      show_preview: false
+      show_preview: '1'
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
