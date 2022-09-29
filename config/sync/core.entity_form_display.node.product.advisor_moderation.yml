@@ -94,6 +94,8 @@ third_party_settings:
         - field_pr_type_certifications
         - field_exist_certifications
         - field_file_certifications
+        - field_pr_target_market
+        - field_pr_country
         - field_tag_producto
         - field_states
         - field_pr_product_availability
@@ -167,7 +169,7 @@ third_party_settings:
       label: 'Left images'
       region: content
       parent_name: group_row_images
-      weight: 20
+      weight: 8
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-6'
@@ -188,7 +190,7 @@ third_party_settings:
       label: 'Right images'
       region: content
       parent_name: group_row_images
-      weight: 21
+      weight: 9
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-6'
@@ -281,9 +283,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pr_country:
+    type: entity_reference_autocomplete
+    weight: 39
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_pr_image_1:
     type: image_image
-    weight: 3
+    weight: 6
     region: content
     settings:
       progress_indicator: throbber
@@ -299,7 +311,7 @@ content:
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 4
+    weight: 7
     region: content
     settings:
       progress_indicator: throbber
@@ -315,7 +327,7 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 6
+    weight: 8
     region: content
     settings:
       progress_indicator: throbber
@@ -323,10 +335,20 @@ content:
     third_party_settings: {  }
   field_pr_product_availability:
     type: boolean_checkbox
-    weight: 40
+    weight: 42
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_pr_target_market:
+    type: entity_reference_autocomplete
+    weight: 38
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_pr_type_certifications:
     type: entity_reference_autocomplete
@@ -340,19 +362,19 @@ content:
     third_party_settings: {  }
   field_pr_video:
     type: video_embed_field_textfield
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pr_video_2:
     type: video_embed_field_textfield
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
@@ -360,7 +382,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 10
+    weight: 11
     region: content
     settings:
       size: 60
@@ -374,13 +396,13 @@ content:
     third_party_settings: {  }
   field_states:
     type: options_select
-    weight: 39
+    weight: 41
     region: content
     settings: {  }
     third_party_settings: {  }
   field_tag_producto:
     type: options_shs
-    weight: 38
+    weight: 40
     region: content
     settings:
       display_node_count: false
@@ -407,7 +429,6 @@ hidden:
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_pr_certifications: true
-  field_pr_country: true
   field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
@@ -417,7 +438,6 @@ hidden:
   field_pr_sales_channel: true
   field_pr_status: true
   field_pr_structured_features: true
-  field_pr_target_market: true
   field_pr_terms_of_condition: true
   field_previous_id: true
   field_producto_innovador: true
