@@ -23,30 +23,6 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
     if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
       $form_object = $form_state->getFormObject();
       if ($form_object instanceof EntityForm) {
-        // kpr($form);
-        $form['group_row_images']['images'] = [
-          'header' => [
-            '#markup' => '<h3>Agregar imágenes del producto</h3>',
-            '#allowed_tags' => ['h3'],  
-          ],
-          'notice' => [
-            '#markup' => '<div id="images-notice">Recuerde subir imágenes en formato JPGE y con dimensiones mínimas de 560x540 px</div>',
-            '#allowed_tags' => ['div'],
-          ],
-          '#weight' => -11,
-        ];
-        $form['group_row_videos']['videos'] = [
-          'header' => [
-            '#markup' => '<h3>Agregar videos del producto</h3>',
-            '#allowed_tags' => ['h3'],  
-          ],
-          'notice' => [
-            '#markup' => '<div id="videos-notice">Se recomienda cargar videos reales del producto en buena calidad para mejorar el 
-            posicionamiento de su producto dentro del catálogo.</div>',
-            '#allowed_tags' => ['div'],
-          ],
-          '#weight' => -11,
-        ];
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
           $form['actions']['reject'] = array(
