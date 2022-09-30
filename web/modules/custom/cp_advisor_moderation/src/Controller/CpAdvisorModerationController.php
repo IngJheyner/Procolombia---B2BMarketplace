@@ -3,6 +3,7 @@
 namespace Drupal\cp_advisor_moderation\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 
 /**
  * Returns responses for cp_advisor moderation routes.
@@ -20,6 +21,18 @@ class CpAdvisorModerationController extends ControllerBase {
     ];
 
     return $build;
+  }
+
+  public function exportView() {
+    return [
+      '#theme' => 'cp_advisor_moderation_export',
+      '#url' => [
+        '#type' => 'link',
+        '#title' => $this->t('EXCEL'),
+        '#url' => Url::fromRoute('view.dashboard_advisor.export_info'),
+      ],
+      '#description' => $this->t('Choose the format in which you want to download the file locally.'),
+    ];
   }
 
 }

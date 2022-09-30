@@ -97,6 +97,12 @@
           $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
             forceCustomRendering: true,
           });
+          $('.view-display-id-dashboard_table .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('.view-id-products_advisor .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
+            forceCustomRendering: true,
+          });
           $('#cp-core-multistep-form .form-select:not(#edit-field-categorization-target-id, #edit-field-partida-arancelaria-tax, #edit-field-pr-type-certifications, #edit-field-pr-target-market, #edit-field-pr-sales-channel)').SumoSelect({
             forceCustomRendering: true,
           });
