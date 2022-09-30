@@ -17,67 +17,95 @@ function cp_advisor_moderation_entity_bundle_info_alter(array &$bundles): void {
 
 
 function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
-    $form_object = $form_state->getFormObject();
-    if ($form_object instanceof EntityForm) {
-      $bundle = $form_object->getEntity()->bundle();
-      if($bundle === 'product'){
-        $form['actions']['reject'] = array(
-          '#type' => 'submit',
-          '#value' => t('Reject'),
-          '#access' => TRUE,
-          '#submit' => array('reject_product'),
+  $user = \Drupal::currentUser();
+  $userRoles = $user->getRoles(TRUE);
+  if (in_array('asesor_comercial', $userRoles)) {
+    if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
+      $form_object = $form_state->getFormObject();
+      if ($form_object instanceof EntityForm) {
+        // kpr($form);
+        $form['group_row_images']['images'] = [
+          'header' => [
+            '#markup' => '<h3>Agregar imágenes del producto</h3>',
+            '#allowed_tags' => ['h3'],  
+          ],
+          'notice' => [
+            '#markup' => '<div id="images-notice">Recuerde subir imágenes en formato JPGE y con dimensiones mínimas de 560x540 px</div>',
+            '#allowed_tags' => ['div'],
+          ],
           '#weight' => -11,
-          '#attributes' =>['class'=>['d-none']]
-        );
-
-        $form['actions']['btn_modal_reject']=[
-          '#type' => 'html_tag',
-          '#tag'  => 'button',
-          '#value' => t('Reject'),
-          '#attributes' => [
-            'class' => ['btn'],
-            'type' =>['button'],
-            'data-bs-toggle' => ['modal'],
-            'data-bs-target'=> ['#modal-reject']
-            ],
         ];
-
-        $form['actions']['modal_reject'] = [
-          '#theme' => 'confirmation_modal',
-          '#title' => t('Reject'),
-          '#message' => t('You are about to reject the edition of the selected product or service'),
-          '#idModal' =>  'modal-reject'
+        $form['group_row_videos']['videos'] = [
+          'header' => [
+            '#markup' => '<h3>Agregar videos del producto</h3>',
+            '#allowed_tags' => ['h3'],  
+          ],
+          'notice' => [
+            '#markup' => '<div id="videos-notice">Se recomienda cargar videos reales del producto en buena calidad para mejorar el 
+            posicionamiento de su producto dentro del catálogo.</div>',
+            '#allowed_tags' => ['div'],
+          ],
+          '#weight' => -11,
         ];
-
-        $form['actions']['approve'] = array(
-          '#type' => 'submit',
-          '#value' => t('Approve'),
-          '#access' => TRUE,
-          '#submit' => array('approve_product'),
-          '#weight' => -10,
-          '#attributes' =>['class'=>['d-none']]
-        );
-        $form['actions']['btn_modal_approve']=[
-          '#type' => 'html_tag',
-          '#tag'  => 'button',
-          '#value' => t('Approve'),
-          '#attributes' => [
-            'class' => ['btn'],
-            'type' =>['button'],
-            'data-bs-toggle' => ['modal'],
-            'data-bs-target'=> ['#modal-approve']
-            ],
+        $bundle = $form_object->getEntity()->bundle();
+        if($bundle === 'product') {
+          $form['actions']['reject'] = array(
+            '#type' => 'submit',
+            '#value' => t('Rejects'),
+            '#access' => TRUE,
+            '#submit' => array('reject_product'),
+            '#weight' => -11,
+            '#attributes' =>['class'=>['d-none']]
+          );
+  
+          $form['actions']['btn_modal_reject']=[
+            '#type' => 'html_tag',
+            '#tag'  => 'button',
+            '#value' => t('Rejects'),
+            '#attributes' => [
+              'class' => ['btn'],
+              'type' =>['button'],
+              'data-bs-toggle' => ['modal'],
+              'data-bs-target'=> ['#modal-reject']
+              ],
           ];
-
-        $form['actions']['modal_approve'] = [
+  
+          $form['actions']['modal_reject'] = [
             '#theme' => 'confirmation_modal',
-            '#title' => 'Approve',
-            '#message' => t('You are about to approve the edition of the selected product or service'),
-            '#idModal' =>  'modal-approve'
-        ];
-        $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
-
+            '#title' => t('Reject'),
+            '#message' => t('You are about to reject the edition of the selected product or service.'),
+            '#idModal' =>  'modal-reject'
+          ];
+  
+          $form['actions']['approve'] = array(
+            '#type' => 'submit',
+            '#value' => t('Approve'),
+            '#access' => TRUE,
+            '#submit' => array('approve_product'),
+            '#weight' => -10,
+            '#attributes' =>['class'=>['d-none']]
+          );
+          $form['actions']['btn_modal_approve']=[
+            '#type' => 'html_tag',
+            '#tag'  => 'button',
+            '#value' => t('Approve'),
+            '#attributes' => [
+              'class' => ['btn'],
+              'type' =>['button'],
+              'data-bs-toggle' => ['modal'],
+              'data-bs-target'=> ['#modal-approve']
+              ],
+            ];
+  
+          $form['actions']['modal_approve'] = [
+              '#theme' => 'confirmation_modal',
+              '#title' => 'Approve',
+              '#message' => t('You are about to approve the edition of the selected product or service'),
+              '#idModal' =>  'modal-approve'
+          ];
+          $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
+  
+        }
       }
     }
   }
@@ -93,6 +121,12 @@ function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
       ],
       'template' => 'confirmation_modal',
     ],
+    'cp_advisor_moderation_export' => [
+      'variables' => [
+        'url' => NULL,
+        'description' => NULL,
+      ],
+    ]
   ];
 }
 
@@ -181,8 +215,9 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
  */
 function cp_advisor_moderation_preprocess_views_view(&$vars) {
   $vars['#cache']['contexts'][] = 'route';
-  if (isset($vars['view_array']['#name']) && $vars['view_array']['#name'] == 'dashboard_advisor') {
+  /*if (isset($vars['view_array']['#name']) && $vars['view_array']['#name'] == 'dashboard_advisor') {
     $vars['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
     $vars['#attached']['library'][] = 'core/drupal.dialog.ajax';
-  }
+    $vars['#attached']['library'][] = 'views_data_export/views_data_export';
+  }*/
 }

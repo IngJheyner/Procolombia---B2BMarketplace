@@ -57,8 +57,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-09-27 20:51+0200\n"
-"PO-Revision-Date: 2022-09-27 20:51+0200\n"
+"POT-Creation-Date: 2022-09-29 17:31+0200\n"
+"PO-Revision-Date: 2022-09-29 17:31+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -580,6 +580,7 @@ msgstr ""
 "Todo el contenido subido debe cumplir con las  <a "
 "href=\"/informacion/condiciones-de-uso\" target=\"_BLANK\">políticas "
 "de publicación.</a>"
+
 
 #: src/Form/CpCoreMultiStepForm.php:484
 msgid "I agree"
