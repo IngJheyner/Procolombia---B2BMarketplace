@@ -1,0 +1,280 @@
+.node-product-edit-form {
+
+
+    %text-label {
+        margin-bottom: 8px;
+        color: #3B3D42;
+        font-family: 'Gothic-Bold';
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    %item-multiple {
+        padding: 4px 7px;
+        border: none;
+        background-color: #EFEFEF;
+        color: #3B3D42;
+        font-size: 14px;
+        font-family: 'century_gothicregular';
+        border-radius: 4px;
+    }
+
+    // General styles
+
+    .js-form-item {
+        label {
+            @extend %text-label;
+        }
+
+        input[type="text"],
+        select {
+            padding: 10px 17px 8px;
+            border: 1px solid #A1A5AA;
+            color: #3B3D42;
+            font-family: 'Gothic-Regular';
+            opacity: 1;
+        }
+
+        textarea {
+            padding: 15px;
+            border: 1px solid #A1A5AA;
+            font-size: 12px;
+            font-family: 'century_gothicregular';
+            line-height: 15px;
+            opacity: 1;
+        }
+
+        .shs-widget-container {
+            display: block;
+        }
+        
+    }
+
+    .field--type-file {
+
+        details {
+            border: none;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        summary {
+            @extend %text-label;
+            padding: 0;
+
+            &::marker {
+                font-size: 0;
+            }
+        }
+
+        .details-wrapper {
+            padding: 0;
+        }
+
+        .file {
+            a {
+                color: #6A6D71;
+                font-size: 14px;
+                font-family: 'Gothic-Regular';
+                opacity: 1;
+                letter-spacing: 0px;
+            }
+        }
+
+        .tabledrag-toggle-weight-wrapper {
+            display: none;
+        }
+
+    }
+
+    // Specific styles
+
+    .field--name-field-body {
+
+        label {
+            display: block;
+            width: max-content;
+            margin: 0;
+            padding: 0 8px 0 6px;
+            background-color: white;
+            transform: translate(15px,8px);
+        }
+
+        textarea {
+            padding-top: 15px;
+        }
+
+    }
+
+    // Ficha tecnica (se debe agregar clase) 
+
+    .field--name-field-body + .field--name-field-file {
+        
+        .table {
+
+            tr {
+                display: flex;
+                border: 1px solid #A1A5AA;
+                margin-bottom: 8px;
+                border-radius: 4px;     
+            }
+
+            td {
+                --bs-table-accent-bg: transparent !important;
+                padding: 0;
+                border: none;
+            }
+
+            td:first-child {
+                flex: 1 1 100%;
+                padding: 8px 20px 8px 8px;
+            }
+
+            td:nth-child(2){
+                display: none;
+            }
+
+            td:last-child {
+                flex: 1 0 112px;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: 0 10px;
+                border: none;
+                background-color: #BA0C2F;
+                font-size: 14px;
+                font-family: 'Gothic-Regular';
+                border-radius: 4px 0 0 4px;
+
+                &::before {
+                    content: '';
+                    width: 26px;
+                    height: 26px;
+                    display: inline-block;
+                    margin-right: 10px;
+                    background-image: url(../images/icons/Icono_Eliminar_Blanco.svg);
+                    background-size: contain;
+                }
+
+            }
+
+        }
+
+        .tabledrag-handle,
+        .tabledrag-hide,
+        thead {
+            display: none;
+        }
+
+    }
+
+    .field--name-field-categorization {
+        
+        .shs-widget-container {
+            margin-bottom: 18px;
+        }
+
+    }
+
+    .field--name-field-pr-type-certifications {
+
+        h4 {
+            @extend %text-label;
+        }
+
+        .table {
+
+            th {
+                border: none;
+            }
+
+            td {
+                --bs-table-accent-bg: transparent !important;
+                padding: 0;
+                border: none;
+            }
+
+        }
+
+        .js-form-item {
+
+            input[type="text"]{
+                @extend %item-multiple;
+            }
+           
+        }
+
+        .table thead tr th:last-child,
+        .field-multiple-drag,
+        .tabledrag-toggle-weight-wrapper,
+        .delta-order {
+            display: none;
+        }
+
+    }
+
+    .field--name-field-exist-certifications,
+    .field--name-field-pr-product-availability {
+
+        .form-item-field-exist-certifications-value {
+            display: flex;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 0;
+        }
+
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin-top: 0;
+            margin-right: 8px;
+        }
+
+        .form-check-input:checked {
+            background-color: #31D394;
+            border-color: transparent;
+        }
+
+    }
+
+    div[class*="field--name-field-pr-image"] {
+
+        .form-managed-file {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .image-preview {
+            display: flex;
+            flex: 1 1 100%;
+            padding: 0;
+        
+            img {
+                flex: 0 1 226px;
+                height: 219px;
+                margin-right: 12px;
+            }
+
+            button {
+                @include remove-files;
+                font-size: 0;
+                background-position: center;
+            }
+        
+        }
+
+    }
+
+}
+
+// Temporal styles
+
+.layout-main-wrapper {
+    background: transparent !important;
+}
