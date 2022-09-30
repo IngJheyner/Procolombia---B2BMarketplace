@@ -40,8 +40,6 @@
   ]
 %}
 
-
-
 <div class="container-fluid">
   <div class="two-columns-container row">
     <div class="col-sm-9">
@@ -53,20 +51,22 @@
         {{ title_suffix }}
 
         {% if exposed %}
-          <div class="view-filters">
-            {% if header %}
-              <div class="view-header">
-                {{ header }}
-                {% if view.getExposedInput.nit is defined %}
-
-                  <p>{{ 'Se encontraron'|t }} <strong>{{ view.total_rows }} {{ 'resultados'|t }}</strong> {{ 'asociados a tu búsqueda'|t }}</p>
-
-                  <a href="{{ view.getUrlInfo }}">{{ 'Restablecer filtrado'|t }}</a>
-                {% endif %}
-              </div>
-            {% endif %}
+          <div class="view-filters">            
             {{ exposed }}
           </div>
+          <div class="filters-result">
+            {% if header %}
+              <div class="view-header">
+                {{ header }}                
+              </div>
+            {% endif %}            
+            {% if view.getExposedInput.nit is defined %}
+              <div class="items-result"> 
+                  <p>{{ 'Se encontraron'|t }} <strong>{{ view.total_rows }} {{ 'resultados'|t }}</strong> {{ 'asociados a tu búsqueda'|t }}</p>
+                  <a href="{{ view.getUrlInfo }}">{{ 'Restablecer filtrado'|t }}</a>
+              </div>
+            {% endif %}
+            </div>
         {% endif %}
         {#<div class="after-filters-container">
         {% if pager %}
@@ -79,6 +79,8 @@
           </div>
         {% endif %}
 
+        <div>
+        </div>
         {% if rows %}
           <div class="view-content row">
             {{ rows }}
@@ -101,7 +103,7 @@
         <div class="pager-with-count">
           {% if footer %}
             <div class="view-footer">
-              {{ footer }}
+               <p>{{ 'Total ítems:'|t }} <span>{{ view.total_rows }}</span></p>
             </div>
           {% endif %}
           <div class="pager-right">
