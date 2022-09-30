@@ -40,6 +40,8 @@
   ]
 %}
 
+
+
 <div class="container-fluid">
   <div class="two-columns-container row">
     <div class="col-sm-9">
@@ -55,16 +57,22 @@
             {% if header %}
               <div class="view-header">
                 {{ header }}
+                {% if view.getExposedInput.nit is defined %}
+
+                  <p>{{ 'Se encontraron'|t }} <strong>{{ view.total_rows }} {{ 'resultados'|t }}</strong> {{ 'asociados a tu búsqueda'|t }}</p>
+
+                  <a href="{{ view.getUrlInfo }}">{{ 'Restablecer filtrado'|t }}</a>
+                {% endif %}
               </div>
             {% endif %}
             {{ exposed }}
           </div>
         {% endif %}
-        <div class="after-filters-container">
+        {#<div class="after-filters-container">
         {% if pager %}
           {{ pager }}
         {% endif %}
-        </div>
+        </div>#}
         {% if attachment_before %}
           <div class="attachment attachment-before">
             {{ attachment_before }}
