@@ -141,6 +141,7 @@ third_party_settings:
         required_fields: true
     group_row_images:
       children:
+        - group_images
         - group_left_images
         - group_right_images
       label: 'Row Images'
@@ -168,7 +169,7 @@ third_party_settings:
       label: 'Left images'
       region: content
       parent_name: group_row_images
-      weight: 8
+      weight: 10
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-6'
@@ -189,7 +190,7 @@ third_party_settings:
       label: 'Right images'
       region: content
       parent_name: group_row_images
-      weight: 9
+      weight: 11
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-6'
@@ -225,6 +226,7 @@ third_party_settings:
         required_fields: false
     group_row_videos:
       children:
+        - group_videos
         - field_pr_video
         - field_pr_video_description_1
         - field_pr_video_2
@@ -246,6 +248,34 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: false
+    group_videos:
+      children: {  }
+      label: videos
+      region: content
+      parent_name: group_row_videos
+      weight: 34
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: "<h3>Agregar videos del producto</h3>\r\n\r\n<div id=\"videos-notice\">Se recomienda cargar videos reales del producto en buena calidad para mejorar el posicionamiento de su producto dentro del catálogo.</div>\r\n"
+          format: full_html
+        show_empty_fields: '1'
+        id: ''
+        classes: form-wrapper
+    group_images:
+      children: {  }
+      label: images
+      region: content
+      parent_name: group_row_images
+      weight: 9
+      format_type: cp_core_group_markup
+      format_settings:
+        show_empty_fields: 1
+        id: ''
+        classes: form-wrapper
+        markup:
+          value: "<h3>Agregar imágenes del producto</h3>\r\n<div id=\"images-notice\">Recuerde subir imágenes en formato JPGE y con dimensiones mínimas de 560x540 px</div>"
+          format: html
 id: node.product.advisor_moderation
 targetEntityType: node
 bundle: product
@@ -411,21 +441,21 @@ content:
     third_party_settings: {  }
   field_pr_video:
     type: cp_core_video_embed_with_preview
-    weight: 8
+    weight: 35
     region: content
     settings:
       show_preview: '1'
     third_party_settings: {  }
   field_pr_video_2:
     type: cp_core_video_embed_with_preview
-    weight: 10
+    weight: 37
     region: content
     settings:
       show_preview: '1'
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
-    weight: 9
+    weight: 36
     region: content
     settings:
       size: 60
@@ -433,7 +463,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 11
+    weight: 38
     region: content
     settings:
       size: 60

@@ -29,6 +29,14 @@ cp_core_select_company:
   dependencies:
     - core/jquery
 
+cp_core_countries_list:
+  version: VERSION
+  js:
+    js/cp_core_countries_list.js: {}
+  dependencies:
+    - core/jquery
+    - drupal/core
+
 video_embed_preview:
   version: VERSION
   js:
