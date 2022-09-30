@@ -724,6 +724,8 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
         ],
         '#weight' => -99,
       ];
+
+      $form['#attached']['library'][] = 'cp_core/cp_core_countries_list';
   }
   $form['#attached']['library'][] = 'webform/webform';
 }
