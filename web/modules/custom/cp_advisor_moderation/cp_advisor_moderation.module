@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Entity\Sql\SqlEntityStorageInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\EntityForm;
@@ -33,7 +35,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             '#weight' => -11,
             '#attributes' =>['class'=>['d-none']]
           );
-  
+
           $form['actions']['btn_modal_reject']=[
             '#type' => 'html_tag',
             '#tag'  => 'button',
@@ -45,14 +47,14 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               'data-bs-target'=> ['#modal-reject']
               ],
           ];
-  
+
           $form['actions']['modal_reject'] = [
             '#theme' => 'confirmation_modal',
             '#title' => t('Reject'),
             '#message' => t('You are about to reject the edition of the selected product or service.'),
             '#idModal' =>  'modal-reject'
           ];
-  
+
           $form['actions']['approve'] = array(
             '#type' => 'submit',
             '#value' => t('Approve'),
@@ -72,7 +74,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               'data-bs-target'=> ['#modal-approve']
               ],
             ];
-  
+
           $form['actions']['modal_approve'] = [
               '#theme' => 'confirmation_modal',
               '#title' => 'Approve',
@@ -80,7 +82,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#idModal' =>  'modal-approve'
           ];
           $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
-  
+
         }
       }
     }
@@ -172,28 +174,9 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
       $options = array();
 
       foreach($terms AS $term) {
-        /*if($parent === 0 AND !$full) {
-          if(!empty($term->parents[0] === '0')) {
-            $options[$term->tid] = $term->name;
-          }
-        } else {*/
         $options[$term->tid] = $term->name;
-        /*}*/
       }
       $form['field_company_deparment_target_id']['#options'] = $options;
       $form['field_company_deparment_target_id']['#options']["All"] = t('Any');
     }
-
-}
-
-/**
- * Implements hook_preprocess_views_view().
- */
-function cp_advisor_moderation_preprocess_views_view(&$vars) {
-  $vars['#cache']['contexts'][] = 'route';
-  /*if (isset($vars['view_array']['#name']) && $vars['view_array']['#name'] == 'dashboard_advisor') {
-    $vars['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
-    $vars['#attached']['library'][] = 'core/drupal.dialog.ajax';
-    $vars['#attached']['library'][] = 'views_data_export/views_data_export';
-  }*/
 }
