@@ -1144,7 +1144,18 @@ display:
           admin_label: 'field_account_status: Término de taxonomía'
           plugin_id: standard
           required: false
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: "<a class=\"botton-log_message\" href=\"#\"> Historial Log de auditoría</a>\r\n\r\n<a\r\n  class='use-ajax'\r\n  data-dialog-options='{\"width\":700, \"title\":\"Descargar reporte\", \"dialogClass\":\"generic-modal modal view-no-results show\", \"dialogId\":\"kskas\"}'\r\n  data-dialog-type='modal'\r\n  href='/es/dashboard-advisor/export-controller?route=view.dashboard_advisor.export_info'>Descargar reporte</a>"
+          tokenize: false
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -2157,6 +2168,58 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
+          element_class: edit-link
+          element_label_type: ''
+          element_label_class: edit-link
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: edit-link
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: editar
+          output_url_as_text: false
+          absolute: false
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: Vistas
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<p class="views">259</p>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -2167,10 +2230,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          text: editar
-          output_url_as_text: false
-          absolute: false
+          hide_alter_empty: false
       empty:
         area_text_custom:
           id: area_text_custom
@@ -2643,7 +2703,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: "<a class=\"botton-log_message\" href=\"#\"> Historial Log de auditoría</a>\r\n\r\n<a\r\n  class='use-ajax'\r\n  data-dialog-options='{\"width\":700, \"title\":\"Descargar reporte\", \"dialogClass\":\"generic-modal modal view-no-results show\", \"dialogId\":\"kskas\"}'\r\n  data-dialog-type='modal'\r\n  href='/es/dashboard-advisor/export-controller'>Descargar reporte</a>"
+          content: "<a class=\"botton-log_message\" href=\"#\"> Historial Log de auditoría</a>\r\n\r\n<a\r\n  class='use-ajax'\r\n  data-dialog-options='{\"width\":700, \"title\":\"Descargar reporte\", \"dialogClass\":\"generic-modal modal view-no-results show\", \"dialogId\":\"kskas\"}'\r\n  data-dialog-type='modal'\r\n  href='/es/dashboard-advisor/export-controller?route=view.dashboard_advisor.export_info'>Descargar reporte</a>"
           tokenize: false
       footer:
         result:
@@ -3583,7 +3643,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ''
+          label: Estado
           exclude: false
           alter:
             alter_text: false
@@ -3638,6 +3698,55 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: Vistas
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<p class="views">259</p>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
         edit_user:
           id: edit_user
           table: users
@@ -4139,21 +4248,9 @@ display:
         fields: false
         filters: false
         filter_groups: false
-        header: false
+        header: true
         footer: false
       use_ajax: false
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          empty: false
-          content: "<a class=\"botton-log_message\" href=\"#\"> Historial Log de auditoría</a>\r\n\r\n<a\r\n  class='use-ajax'\r\n  data-dialog-options='{\"width\":700, \"title\":\"Descargar reporte\", \"dialogClass\":\"generic-modal modal view-no-results show\", \"dialogId\":\"kskas\"}'\r\n  data-dialog-type='modal'\r\n  href='/es/dashboard-advisor/export-controller'>Descargar reporte</a>"
-          tokenize: false
       footer:
         result:
           id: result
@@ -5125,7 +5222,7 @@ display:
           tokenize: false
       path: export_info_csv
       filename: '[date:short]-dashboard-advisor.csv'
-      automatic_download: true
+      automatic_download: false
       redirect_path: /
       store_in_public_file_directory: null
       custom_redirect_path: false
