@@ -410,6 +410,102 @@
 		}
 		
 	}
+	&.view-id-products_advisor {
+		> .view-content{
+			border-radius: 0;
+			padding-bottom: 0;
+		}
+		#views-exposed-form-products-advisor-dashboard-table-product .row{
+			grid-template-columns: repeat(3, 1fr);
+			.js-form-wrapper#edit-actions {
+				grid-area: 2 / 3/ 3 / 3 !important;
+				}
+		}
+		.view-header {
+			display: flex;
+			gap: 23px;
+			.view-products-advisor{
+			padding: 0;
+			flex-grow: 1;
+			.view-content{
+				background-color: $button-lighter-gray;
+				max-width: 463px;
+				width: 100%;
+				padding: 9px 13px;
+				box-shadow: none;
+				div{
+					width: 100%;
+					display: flex;
+					align-items: center;
+					gap: 17px;
+					p{
+						margin-bottom: 0 !important;
+						&.title{
+							display: flex;
+							align-items: center;
+							gap: 16px;
+							color: $procol-dark-blue;
+							font-family: $font-bold-Century-Gothic;
+							font-size: $font-size-sm;
+							&::before{
+								display: block;
+								content: '';
+								background-image: url(../images/icons/Libro_abierto_icono_amarillo.svg);
+								background-size: 25px;
+								background-position: center;
+								background-repeat: no-repeat;
+								height: 25px;
+								width: 25px;
+							}
+						}
+						&.name{
+							text-transform: uppercase;
+						}
+					}
+				}
+				}
+			}
+		}
+		.pager-with-count{
+			background-color: $white;
+			box-shadow: 0px 8px 8px #00000029;
+			border-radius: 0px 0px 4px 4px;
+			padding-top: 0;
+			padding-bottom: 0;
+			.view-footer{
+				display: flex;
+				gap: 19px;
+				width: 100%;
+				padding-top: 0;
+				p{
+					flex-grow: 1;
+				}
+				a.use-ajax{
+					display: flex;
+					align-items: center;
+					gap: 7px;
+					background-color: $white;
+					box-shadow: 0px 5px 8px #00000029;
+					color: $procol-dark-blue;
+					font-family: $font-bold-Century-Gothic;
+					padding: 13px 22px;
+					border-radius: 5px;
+					font-size: $font-size-sm;
+					&::before{
+						display: block;
+						content: '';
+						width: 28px;
+						height: 28px;
+						background-image: url(../images/icons/Icono_ElegirArchivos_azul.svg);
+						background-size: cover;
+						background-position: center;
+						background-repeat: no-repeat;
+
+					}
+				}
+			}
+		}
+	}
 }
 .path-dashboard-advisor {
 	.container-fluid, .col-sm-9{
