@@ -311,6 +311,10 @@
 			}
 		}
 		.attachment-after{
+			.view-header,
+			.view-footer{
+				display: none;
+			}
 			#edit-header--2,
 			#edit-actions--5 {
 				display: none !important;
@@ -420,6 +424,38 @@
 			border-radius: 0;
 			padding-bottom: 0;
 		}
+		.after-filters-container{
+			top: 230px;
+		}
+		.views-field-field-states div{
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			font-family: $font-family-Century-Gothic;
+			&::before{
+				display: flex;
+				content: '';
+				background-color: #D8DADD;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+			}
+			&.approved::before{						
+				background-color: #00D320;					
+			}
+			&.incomp_info::before{
+				background: transparent linear-gradient(180deg, #504672 0%, #5F43BE 100%);
+			}
+			&.\#CC3D3D::before{
+				background-color: $procol-red;
+			}
+			&.waiting::before{
+				background-color: $procol-yellow;
+			}
+		}
+		.view-content td.views-field-totalcount{
+			text-align: center;
+		}
 		#views-exposed-form-products-advisor-dashboard-table-product .row{
 			grid-template-columns: repeat(3, 1fr);
 			.js-form-wrapper#edit-actions {
@@ -472,15 +508,18 @@
 			}
 		}
 		.pager-with-count{
+			display: flex;
+			justify-content: space-between;
 			background-color: $white;
 			box-shadow: 0px 8px 8px #00000029;
 			border-radius: 0px 0px 4px 4px;
 			padding-top: 0;
-			padding-bottom: 0;
+			padding-bottom: 15px;
+			
 			.view-footer{
 				display: flex;
 				gap: 19px;
-				width: 100%;
+				flex-grow: 1;
 				padding-top: 0;
 				p{
 					flex-grow: 1;
@@ -496,6 +535,7 @@
 					padding: 13px 22px;
 					border-radius: 5px;
 					font-size: $font-size-sm;
+					height: 42px;
 					&::before{
 						display: block;
 						content: '';
