@@ -9,6 +9,8 @@ use Drupal\views\ViewExecutable;
 use Twig\Node\Expression\Test\NullTest;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\cp_advisor_moderation\Entity\Product;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\user\UserInterface;
 
 function cp_advisor_moderation_entity_bundle_info_alter(array &$bundles): void {
   if (isset($bundles['node']['product'])) {
@@ -127,7 +129,7 @@ function approve_product(&$form, FormStateInterface $form_state) {
 
    //Notification
    $owner = User::load($node->getOwnerID());
-   $custom_replacements = ['{{ product_name }}' => $node->getTitle()];
+   $custom_replacements = ['{{ product_name }}' => $node->label()];
    $key = 'product_seller_approbation_mail';
    $to = $owner->getEmail();
    $from = NULL;
@@ -152,7 +154,7 @@ function reject_product(&$form, FormStateInterface $form_state) {
 
     //Notification
     $owner = User::load($node->getOwnerID());
-    $custom_replacements = ['{{ product_name }}' => $node->getTitle()];
+    $custom_replacements = ['{{ product_name }}' => $node->label()];
     $key = 'product_seller_reject_mail';
     $to = $owner->getEmail();
     $from = NULL;
@@ -179,4 +181,46 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
       $form['field_company_deparment_target_id']['#options'] = $options;
       $form['field_company_deparment_target_id']['#options']["All"] = t('Any');
     }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function cp_advisor_moderation_user_presave(UserInterface $entity) {
+  if (!$entity->isNew()) {
+    $original = $entity->original;
+    if (\Drupal::currentUser()->id() == $entity->field_company_adviser->target_id) {
+      $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+      $approvedTerms = $termStorage->loadByProperties(['vid' => 'account_status', 'uuid' => '7b4ba6ee-ca04-4072-9e70-c2d5106f59e4']);
+      $rejectedTerms = $termStorage->loadByProperties(['vid' => 'account_status', 'uuid' => '0db5395e-4e6f-4d9d-8945-6f5b1748d577']);
+      $mailHelper = \Drupal::service('cp_core.mail_helper');
+      if ($original->field_account_status->target_id != $entity->field_account_status->target_id) {
+        if (!empty($approvedTerms)) {
+          $approvedTerm = reset($approvedTerms);
+          if ($entity->field_account_status->target_id == $approvedTerm->id()) {
+            $custom_replacements = [];
+            $key = 'company_seller_approbation_mail';
+            $to = $entity->getEmail();
+            $from = NULL;
+            $langcode = $entity->getPreferredLangcode();
+            $params = [];
+            $mailHelper->send($key, $to, $from, $langcode, $params, $custom_replacements);
+          }
+        }
+        if (!empty($rejectedTerms)) {
+          $rejectedTerm = reset($rejectedTerms);
+          if ($entity->field_account_status->target_id == $rejectedTerm->id()) {
+            $custom_replacements = [];
+            $key = 'company_seller_reject_mail';
+            $to = $entity->getEmail();
+            $from = NULL;
+            $langcode = $entity->getPreferredLangcode();
+            $params = [];
+            $mailHelper->send($key, $to, $from, $langcode, $params, $custom_replacements);
+          }
+        }
+      }
+    }
+
+  }
 }

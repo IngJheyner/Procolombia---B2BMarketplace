@@ -29,6 +29,9 @@ cp_structured_features.structured_feature.*:
         type: mapping
         label: 'Property'
         mapping:
+          status:
+            type: boolean
+            label: 'Status'
           multiple:
             type: boolean
             label: 'Multiple'
