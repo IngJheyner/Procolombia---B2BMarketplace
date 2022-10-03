@@ -197,7 +197,7 @@ function cp_advisor_moderation_user_presave(UserInterface $entity) {
       if ($original->field_account_status->target_id != $entity->field_account_status->target_id) {
         if (!empty($approvedTerms)) {
           $approvedTerm = reset($approvedTerms);
-          if ($original->field_account_status->target_id == $approvedTerm->id()) {
+          if ($entity->field_account_status->target_id == $approvedTerm->id()) {
             $custom_replacements = [];
             $key = 'company_seller_approbation_mail';
             $to = $entity->getEmail();
@@ -209,7 +209,7 @@ function cp_advisor_moderation_user_presave(UserInterface $entity) {
         }
         if (!empty($rejectedTerms)) {
           $rejectedTerm = reset($rejectedTerms);
-          if ($original->field_account_status->target_id == $rejectedTerm->id()) {
+          if ($entity->field_account_status->target_id == $rejectedTerm->id()) {
             $custom_replacements = [];
             $key = 'company_seller_reject_mail';
             $to = $entity->getEmail();
