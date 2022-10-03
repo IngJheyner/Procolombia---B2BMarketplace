@@ -129,7 +129,7 @@ function approve_product(&$form, FormStateInterface $form_state) {
 
    //Notification
    $owner = User::load($node->getOwnerID());
-   $custom_replacements = ['{{ product_name }}' => $node->getTitle()];
+   $custom_replacements = ['{{ product_name }}' => $node->label()];
    $key = 'product_seller_approbation_mail';
    $to = $owner->getEmail();
    $from = NULL;
@@ -154,7 +154,7 @@ function reject_product(&$form, FormStateInterface $form_state) {
 
     //Notification
     $owner = User::load($node->getOwnerID());
-    $custom_replacements = ['{{ product_name }}' => $node->getTitle()];
+    $custom_replacements = ['{{ product_name }}' => $node->label()];
     $key = 'product_seller_reject_mail';
     $to = $owner->getEmail();
     $from = NULL;
