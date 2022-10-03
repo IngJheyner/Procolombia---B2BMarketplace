@@ -24,12 +24,20 @@
 				font-size: $font-size-sm;
 				max-width: 277px;
 				width: 100%;
+				gap: 16px;
 				@include media-breakpoint-down(lg){
 					height: 56px;
 					max-width: 100%;
 				}
 				&::before{
 					content: '';
+					background-image: url(../images/icons/Libro_abierto_icono.svg);
+					background-size: 25px;
+					background-repeat: no-repeat;
+					background-position: center;
+					width: 25px;
+					height: 25px;
+					margin-right: 0;
 				}
 			}
 			.use-ajax {
@@ -168,6 +176,7 @@
 				@include media-breakpoint-down(lg){
 					width: 29px;
 					height: 29px;
+					margin-top: 0;
 				}
 			}	
 			.table-responsive{
@@ -176,6 +185,44 @@
 					height: 18px;
 					margin-left: 0;
 
+				}
+				td.views-field-nothing-1{
+					position: relative;
+					&::before {
+					content: '';
+					display: flex;
+					justify-content: center;
+					height: 40px;
+					width: 100%;
+					background-image: url(../images/icons/Contrasena_negro.svg);
+					margin: auto;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 30px;
+					}
+					p.views{
+						display: none;
+					}
+					&:hover{
+						&::before{
+							background-image: url(../images/icons/Contrasena.svg);
+						}
+						p.views{
+							@include hover-invalid-tooltip;
+							display: block;
+							right: auto;
+							top: 80%;
+							min-width: 88px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							left: 50%;
+							transform: translateX(-50%);
+							&::before{
+								right: auto;
+							}
+						}
+					}
 				}
 				.views-field-user-bulk-form{
 					input{
@@ -307,6 +354,7 @@
 						display: none;
 						@include media-breakpoint-down(lg){
 							display: block;
+							font-size: $font-size-sm;
 						}
 					}
 					.js-form-type-checkbox{

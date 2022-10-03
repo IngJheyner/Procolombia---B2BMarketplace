@@ -85,6 +85,17 @@
 				font-weight: normal;
 				font-family:  $font-bold-Century-Gothic;
 				font-size: $font-size-sm;
+				gap: 8px;
+				&::before{
+					content: '';
+					display: flex;
+					background-image: url(../images/icons/Filtros_icono.svg);
+					background-size: 20px;
+					background-position: center;
+					background-repeat: no-repeat;
+					width: 25px;
+					height: 25px;
+				}
 				@include media-breakpoint-down(lg){
 					height: 56px;
 				}
@@ -454,6 +465,9 @@
 				width: 100% !important;
 				height: 100% !important;
 				grid-column: 2 span;
+				&#edit-actions{
+					grid-area: 2 / 4 / 3 / 5 !important;
+				}
 				@include media-breakpoint-down(lg){
 					grid-template-columns: 1fr !important;
 				}
