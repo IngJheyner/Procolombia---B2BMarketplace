@@ -8,32 +8,29 @@
             <div class="px-4 pt-4">
               <div class="d-flex align-items-center justify-content-between">
                 <h4 class="mb-3 chat-tittle">Mensajes</h4>
-                <div class="mb-3">hh</div>
+                <div class="mb-3 more-options"><i class='bx bx-dots-horizontal-rounded'></i></div>
               </div>
               <div class="search-box chat-search-box">
                 <div class="mb-3 rounded-lg input-group input-group-lg">
                   <span class="input-group-text text-muted bg-input-chat pe-1 ps-3" id="basic-addon1">
                     <i class='bx bx-search-alt'></i>
                   </span>
-                  <input placeholder="Search messages or users" type="text" class="form-control bg-input-chat form-control"
-                    value="" />
+                  <input placeholder="Buscar mensajes" type="text" class="form-control bg-input-chat" value="" />
                 </div>
               </div>
 
               <div class="mb-4 d-flex flex-row justify-content-between">
-                <input type="checkbox" hidden class="btn-check" id="btn-check" autocomplete="off">
+                <input type="checkbox" hidden checked class="btn-check" id="btn-check" autocomplete="off">
                 <label class="tab-chat me-1 w-100" for="btn-check">Todas</label>
                 <input type="checkbox" hidden class="btn-check" id="btn-check_2" autocomplete="off">
-                <label class="btn btn-primary mx-1 w-100" for="btn-check_2">No leídas</label>
+                <label class="tab-chat me-1 w-100" for="btn-check_2">No leídas</label>
                 <input type="checkbox" hidden class="btn-check" id="btn-check_3" autocomplete="off">
-                <label class="btn btn-primary mx-1" for="btn-check_3">Leídos</label>
+                <label class="tab-chat me-1" for="btn-check_3">Leídos</label>
                 <input type="checkbox" hidden class="btn-check" id="btn-check_4" autocomplete="off">
-                <label class="btn btn-primary ms-1" for="btn-check_4"><i class='bx bx-trash'></i></label>
+                <label class="tab-chat ms-1" for="btn-check_4"><i class='bx bx-trash'></i></label>
               </div>
-
             </div>
             <div class="px-2">
-              <h5 class="mb-3 px-3 6">Recientes</h5>
               <div data-simplebar="init" class="chat-message-list" style="max-height: 100%;">
                 <div class="simplebar-wrapper" style="margin: 0px;">
                   <div class="simplebar-height-auto-observer-wrapper">
@@ -45,7 +42,7 @@
                         style="height: 100%; overflow: hidden scroll;">
                         <div class="simplebar-content" style="padding: 0px;">
                           <ul class="list-unstyled chat-list chat-user-list" id="chat-list">
-                           
+
                           </ul>
                         </div>
                       </div>
@@ -67,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div class="user-chat w-100">
+    <div class="user-chat w-100 user-chat" id="chat-fill" style="display: none;">
       <div class="d-lg-flex">
         <div class="w-100">
           <div class="p-3 border-bottom">
@@ -75,42 +72,65 @@
               <div class="col-8 col-sm-8">
                 <div class="d-flex align-items-center">
                   <div class="d-block d-lg-none me-2 ms-0">
-                    <a class="user-chat-remove text-muted 6 p-2" href="/dashboard"></a>
-
-
+                    <a class="user-chat-remove text-muted 6 p-2" href="/dashboard">ggg</a>
                   </div>
-                  <div class="me-3 ms-0"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Olimpical.png"
-                      class="rounded-circle avatar-sm" alt="chatvia" /></div>
+                  <div class="me-3 ms-0 chat-user-img" id="chat-company-logo"></div>
 
-                  <div class="flex-grow-1 overflow-hidden">
-                    <h5 class="6 mb-0 text-truncate"><a class="text-reset user-profile-show"
-                        href="/dashboard">Olimpica</a>
+                  <div class="flex-grow-1 overflow-hidden user-header">
+                    <h5 class="text-truncate" id="chat-company-name">
                     </h5>
-                    <small class="user-chat-name 6" href="/dashboard">Sebastián Díaz
-                      Fonseca </small>
-                    <p class="user-chat-description">Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit. Mauris turpis arcu, ultrices non mi eu, auctor finibus
-                      felis.</p>
+                    <p class="user-chat-name 6" id="chat-user-name"></p>
+                    <p class="user-chat-description text-truncate id=" chat-user-description"></p>
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-sm-4">
+              <div class="col-4 col-sm-4" style="z-index: 3;">
                 <ul class="list-inline user-chat-nav text-end mb-0">
 
                   <li class="list-inline-item d-none d-lg-inline-block">
-                    <button type="button" class="nav-btn user-profile-show btn btn-none">
-                      <i class='bx bx-exit-fullscreen'></i>
-                    </button>
+                    <div class="toltip_content">
+                      <button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+                        <i class='bx bx-collapse-alt'></i>
+                        <span class="tooltiptext" style="width: 103px;
+                        font-size: 0.8rem;
+                        top: 80%;
+                        left: -124%;
+                        padding: 5px;">
+                          Minimizar chat
+                        </span>
+                      </button>
+                    </div>
+
                   </li>
                   <li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
-                    <button type="button" class="btn nav-btn">
-                      <i class='bx bxs-low-vision'></i>
-                    </button>
+                    <div class="toltip_content">
+                      <button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+                        <i class='bx bxs-low-vision'></i>
+                        <span class="tooltiptext" style="width: 103px;
+                        font-size: 0.8rem;
+                        top: 80%;
+                        left: -124%;
+                        padding: 5px;">
+                          Marcar como no leido
+                        </span>
+                      </button>
+                    </div>
+
                   </li>
-                  <li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
-                    <button type="button" class="btn nav-btn">
-                      <i class='bx bx-trash'></i>
-                    </button>
+                  <li class="list-inline-item d-none d-lg-inline-block">
+                    <div class="toltip_content">
+                      <button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+                        <i class='bx bx-trash'></i>
+                        <span class="tooltiptext" style="width: 103px;
+                        font-size: 0.8rem;
+                        top: 80%;
+                        left: -124%;
+                        padding: 5px;">
+                          Borrar chat
+                        </span>
+                      </button>
+                    </div>
+
                   </li>
                   <li class="list-inline-item">
                     <div class="dropdown">
@@ -140,235 +160,11 @@
               </div>
               <div class="simplebar-mask">
                 <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                  <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content"
-                    style="height: 100%; overflow: hidden scroll;">
+                  <div id="message-content" class="simplebar-content-wrapper" tabindex="0" role="region"
+                    aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
                     <div class="simplebar-content" style="padding: 24px;">
-                      <ul class="list-unstyled mb-0">
-                        <li class="">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Olimpical.png" alt="chatvia" />
-                            </div>
+                      <ul class="list-unstyled mb-0" id="chat-messages">
 
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Olimpica</div>
-                                  <p class="mb-0">Good Morning</p>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">10:00</span>
-                                  </p>
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="right">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://yt3.ggpht.com/ytc/AMLnZu-QP6D4_Shg9biGwvGO9giWzWrodfTym8dSWXS2JQ=s900-c-k-c0x00ffffff-no-rj"
-                                alt="chatvia" /></div>
-
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Nombre Asesor </div>
-                                  <p class="mb-0">Good morning, How are you? What
-                                    about our next meeting?</p>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">10:02</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="chat-day-title"><span class="title">Hoy 12:13</span></div>
-                        </li>
-                        <li class="">
-                          <div class="conversation-list">
-                            <div class="chat-avatar">
-                              <div class="blank-div"></div>
-                            </div>
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <p class="mb-0">Yeah everything is fine</p>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">10:05</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Olimpical.png" alt="chatvia" />
-                            </div>
-
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Olimpica</div>
-                                  <p class="mb-0">&amp; Next meeting tomorrow 10.00AM
-                                  </p>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">10:05</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="right">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://yt3.ggpht.com/ytc/AMLnZu-QP6D4_Shg9biGwvGO9giWzWrodfTym8dSWXS2JQ=s900-c-k-c0x00ffffff-no-rj"
-                                alt="chatvia" /></div>
-
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Nombre Asesor </div>
-                                  <p class="mb-0">Wow that's great</p>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">10:06</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Olimpical.png" alt="chatvia" />
-                            </div>
-
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Olimpica</div>
-                                  <p class="mb-0">images</p>
-                                  <ul class="list-inline message-img mb-0">
-                                    <li class="list-inline-item message-img-list">
-                                      <div>
-                                        <a class="popup-img d-inline-block m-1" title="Project 1" href="/dashboard">
-                                          <img
-                                            src="http://chatvia-light.react.themesbrand.com/static/media/img-4.c7a84ad5058b9382090e.jpg"
-                                            alt="chat" class="rounded border" />
-                                        </a>
-                                      </div>
-
-                                    </li>
-                                    <li class="list-inline-item message-img-list">
-                                      <div>
-                                        <a class="popup-img d-inline-block m-1" title="Project 1" href="/dashboard">
-                                          <img
-                                            src="http://chatvia-light.react.themesbrand.com/static/media/img-7.c1d24290e482cebe87d1.jpg"
-                                            alt="chat" class="rounded border" />
-                                        </a>
-                                      </div>
-
-                                    </li>
-                                  </ul>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">10:30</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="right">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://yt3.ggpht.com/ytc/AMLnZu-QP6D4_Shg9biGwvGO9giWzWrodfTym8dSWXS2JQ=s900-c-k-c0x00ffffff-no-rj"
-                                alt="chatvia" /></div>
-
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Nombre Asesor </div>
-                                  <p class="mb-0">Files</p>
-                                  <div class="p-2 mb-2 card">
-                                    <div class="d-flex align-items-center">
-                                      <div class="avatar-sm me-3 ms-0">
-                                        <div class="avatar-title bg-soft-primary text-primary rounded ">
-                                          <i class='bx bxs-file-archive'></i>
-                                        </div>
-                                      </div>
-                                      <div class="flex-grow-1">
-                                        <div class="text-start">
-                                          <h5 class="4 mb-1">
-                                            admin_v1.0.zip
-                                          </h5>
-                                          <p class="text-muted 3 mb-0">
-                                            12.5 MB
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div class="ms-4">
-                                        <ul class="list-inline mb-0 ">
-                                          <li class="list-inline-item">
-                                            <a class="text-muted" href="/dashboard"><i
-                                                class="ri-download-2-line"></i></a>
-                                          </li>
-                                          <li class="list-inline-item dropdown">
-                                            <a aria-haspopup="true" class="dropdown-toggle text-muted"
-                                              aria-expanded="false"><i class="ri-more-fill"></i></a>
-                                            <div tabindex="-1" role="menu" aria-hidden="true"
-                                              class="dropdown-menu-end dropdown-menu">
-                                              <button type="button" tabindex="0" role="menuitem"
-                                                class="dropdown-item">Share
-                                                <i class="ri-share-line float-end text-muted"></i></button>
-                                              <button type="button" tabindex="0" role="menuitem"
-                                                class="dropdown-item">Delete
-                                                <i class="ri-delete-bin-line float-end text-muted"></i></button>
-                                            </div>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <p class="chat-time mb-0">
-                                    <i class='bx bx-time-five'></i>
-                                    <span class="align-middle">01:30</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="">
-                          <div class="conversation-list">
-                            <div class="chat-avatar"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Olimpical.png" alt="chatvia" />
-                            </div>
-
-                            <div class="user-chat-content">
-                              <div class="ctext-wrap">
-                                <div class="ctext-wrap-content">
-                                  <div class="conversation-name">Olimpica</div>
-                                  <p class="mb-0">
-                                    Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span
-                                        class="dot ms-1"></span><span class="dot ms-1"></span></span>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
                       </ul>
                     </div>
                   </div>
@@ -385,48 +181,82 @@
             </div>
           </div>
           <div class="p-3 border-top mb-0">
-            <form class="">
-              <div class="no-gutters row">
-                <div class="col">
-                  <div><input placeholder="Enter Message..." type="text"
-                      class="form-control form-control-lg bg-input-chat border-light text-send" value="" /></div>
-                </div>
-                <div class="col-auto">
-                  <div class="chat-input-links ms-md-2">
-                    <ul class="list-inline mb-0 ms-0">
-                      <li class="list-inline-item">
-                        <div class="emoji-dropdown dropup btn-group">
-                          <button type="button" id="emoji" aria-haspopup="true" aria-expanded="false"
-                            class="text-decoration-none 6 btn-lg waves-effect btn btn-link">
-                            <i class='bx bx-wink-smile'></i>
-                          </button>
 
-                        </div>
-                      </li>
-                      <li class="list-inline-item input-file">
-                        <label id="files" class="btn btn-link text-decoration-none 6 btn-lg waves-effect">
-                          <i class='bx bx-paperclip'></i><input name="fileInput" size="60" type="file"
-                            class="form-control-file" /> </label>
-                      </li>
-                      <li class="list-inline-item input-file">
-                        <label id="images" class="me-1 btn btn-link text-decoration-none 6 btn-lg waves-effect">
-                          <i class='bx bx-image-add'></i><input accept="image/*" name="fileInput" size="60" type="file"
-                            class="form-control-file" />
-                        </label>
-                      </li>
-                      <li class="list-inline-item">
-                        <button type="submit" class="6 btn-lg chat-send waves-effect waves-light btn btn-primary"><i
-                            class='bx bx-send'></i></button>
-                      </li>
-                    </ul>
-                  </div>
+            <div class="no-gutters row">
+              <div class="col-10">
+                <div><input id="text-message" placeholder="Enter Message..." type="text"
+                    class="form-control form-control-lg bg-input-chat border-light text-send text-message" value="" />
                 </div>
               </div>
-            </form>
+              <div class="col-2">
+                <div class="chat-input-links ms-md-2">
+                  <ul class="list-inline mb-0 ms-0 d-flex align-items-center">
+                    <li class="list-inline-item">
+                      <div class="emoji-dropdown dropup btn-group">
+                        <button type="button" id="emoji" aria-haspopup="true" class="emoji-selector icon-send"
+                          aria-expanded="false" class="text-decoration-none 6 btn-lg waves-effect btn btn-link">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 18 18">
+                            <path id="smile-regular" d="M9,8a9,9,0,1,0,9,9A9,9,0,0,0,9,8ZM9,24.258A7.258,7.258,0,1,1,16.258,17,7.265,7.265,0,0,1,9,24.258ZM6.1,16.419a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,6.1,16.419Zm5.806,0a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,11.9,16.419Zm.145,2.635a3.964,3.964,0,0,1-6.1,0,.871.871,0,0,0-1.339,1.114,5.713,5.713,0,0,0,8.775,0,.871.871,0,0,0-1.339-1.114Z" transform="translate(0 -8)" fill="#6a6d71"/>
+                          </svg>
+                        </button>
+
+                      </div>
+                    </li>
+                    <li class="list-inline-item input-file mx-2">
+                      <div class="dropup btn-group">
+                        <button id="files" class="icon-send">
+                          <svg style="width:17px" xmlns="http://www.w3.org/2000/svg" width="24" height="18"
+                            viewBox="0 0 15.75 18">
+                            <path id="paperclip-solid"
+                              d="M1.521,16.387a5.508,5.508,0,0,1,.049-7.649L8.944,1.195a3.934,3.934,0,0,1,5.649,0,4.092,4.092,0,0,1,0,5.705L8.164,13.469a2.623,2.623,0,0,1-3.8-.035,2.725,2.725,0,0,1,.051-3.76L9.472,4.512a.563.563,0,0,1,.8-.008l.8.787a.562.562,0,0,1,.008.8L6.027,11.247A.475.475,0,0,0,6,11.89a.375.375,0,0,0,.552.006l6.428-6.569a1.841,1.841,0,0,0,0-2.559,1.686,1.686,0,0,0-2.431,0L3.178,10.311a3.256,3.256,0,0,0-.042,4.511,3,3,0,0,0,4.326.01l6.049-6.187a.562.562,0,0,1,.8-.009l.8.786a.562.562,0,0,1,.009.8L9.071,16.4a5.246,5.246,0,0,1-7.55-.017Z"
+                              transform="translate(0 0)" fill="#6a6d71" />
+                          </svg> <input name="fileInput" size="60" type="file" class="form-control-file" />
+                        </button>
+                      </div>
+                    </li>
+                    <li class="list-inline-item input-file">
+                      <div class="dropup btn-group">
+
+                        <button id="images" class="icon-send">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
+                            viewBox="0 0 24 18">
+                            <path id="image-regular"
+                              d="M21.75,64H2.25A2.25,2.25,0,0,0,0,66.25v13.5A2.25,2.25,0,0,0,2.25,82h19.5A2.25,2.25,0,0,0,24,79.75V66.25A2.25,2.25,0,0,0,21.75,64Zm-.281,15.75H2.531a.281.281,0,0,1-.281-.281V66.531a.281.281,0,0,1,.281-.281H21.469a.281.281,0,0,1,.281.281V79.469A.281.281,0,0,1,21.469,79.75ZM6,68.125A1.875,1.875,0,1,0,7.875,70,1.875,1.875,0,0,0,6,68.125ZM4.5,77.5h15V73.75l-4.1-4.1a.563.563,0,0,0-.8,0L9,75.25,7.148,73.4a.563.563,0,0,0-.8,0L4.5,75.25Z"
+                              transform="translate(0 -64)" fill="#6a6d71" />
+                          </svg>
+                          <input accept="image/*" name="fileInput" size="60" type="file" class="form-control-file" />
+                        </button>
+                      </div>
+
+                    </li>
+                    <li class="list-inline-item ms-2">
+                      <button type="submit" id="send"
+                        class="6 btn-lg chat-send waves-effect waves-light btn btn-primary icon-send-end">
+                        <svg style="width:17px" class="me-2" xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                          viewBox="0 0 18.4 18.4" style="enable-background:new 0 0 18.4 18.4;" xml:space="preserve">
+                          <path id="paper-plane-solid" fill="#fff" class="st0"
+                            d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z" />
+                        </svg>
+                        Enviar
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
     </div>
+    <div class="w-100 empty-msg" id="chat-empty">
+      <img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Back.png" alt="" srcset="">
+      <div class="">
+        <div class="desc mt-2">Envía y recibe mensajes</div>
+      </div>
+    </div>
+
   </div>
 </section>

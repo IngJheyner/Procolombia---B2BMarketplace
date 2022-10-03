@@ -1,0 +1,133 @@
+{{ attach_library('cp_chat/cp_chat') }}
+<section id="chat-window-modal" class="cp_contact" style="position: fixed; right: 6px; bottom: 0;display: none; z-index:20">
+	<div id='' style="width: 400px; height: 600px;">
+		<div class="user-chat w-100 user-chat m-0" id="chat-fill">
+			<div class="d-lg-flex" style="background-color:#3177C3">
+				<div class="w-100">
+					<div class="p-0">
+						<div class="align-items-center row">
+							<div class="col-8 col-sm-8">
+								<div class="d-flex align-items-center">
+
+									<div class="me-3 ms-0 chat-user-img" id="chat-company-logo-window"></div>
+									<div class="flex-grow-1 overflow-hidden user-header">
+										<h5 class="text-truncate text-white" id="chat-company-name-window"></h5>
+										<p class="user-chat-name text-white" id="chat-user-name-window">
+											<strong>Nombre del contacto:</strong>
+											Javier Ruíz</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-4 col-sm-4" style="z-index: 3;">
+								<ul class="list-inline user-chat-nav text-end mb-0">
+
+									<li class="list-inline-item d-none d-lg-inline-block">
+										<a href="/messages">
+											<div class="toltip_content">
+												<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+													<i class='bx bx-fullscreen text-white'></i>
+													<span class="tooltiptext" style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
+														Minimizar chat
+													</span>
+												</button>
+											</div>
+										</a>
+									</li>
+									<li id="close-window" class="list-inline-item d-none d-lg-inline-block">
+										<div class="toltip_content">
+											<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+												<i class='bx bx-x text-white'></i>
+												<span class="tooltiptext" style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
+													Salir
+												</span>
+											</button>
+										</div>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div data-simplebar="init" class="chat-conversation p-3 p-lg-4" id="messages" style="max-height: 100%;border-top-left-radius: 13px;border-top-right-radius: 13px;height: 400px">
+						<div class="simplebar-wrapper" style="margin: -24px;">
+							<div class="simplebar-height-auto-observer-wrapper">
+								<div class="simplebar-height-auto-observer"></div>
+							</div>
+							<div class="simplebar-mask">
+								<div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+									<div id="message-content-window" class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+										<div class="simplebar-content" style="padding: 24px;">
+											<ul class="list-unstyled mb-0" id="chat-messages-window"></ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="simplebar-placeholder" style="width: auto; height: 1222px;"></div>
+						</div>
+						<div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+							<div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+						</div>
+						<div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+							<div class="simplebar-scrollbar" style="height: 123px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+						</div>
+					</div>
+					<div class="p-3 border-top mb-0" style="background: #FFFFFF;">
+
+						<div class="no-gutters row">
+							<div class="col-12">
+								<div><input id="text-message-window" placeholder="Enter Message..." type="text" class="form-control form-control-lg bg-input-chat border-light text-send text-message" value=""/>
+								</div>
+							</div>
+							<div class="col-12 d-flex justify-content-between mt-3 align-items-center">
+								<div class="chat-input-links ms-md-2">
+									<ul class="list-inline mb-0 ms-0 d-flex align-items-center">
+										<li class="list-inline-item">
+											<div class="emoji-dropdown dropup btn-group">
+												<button type="button" id="emoji" aria-haspopup="true" class="emoji-selector icon-send" aria-expanded="false" class="text-decoration-none 6 btn-lg waves-effect btn btn-link">
+													<i class='bx bx-smile'></i>
+												</button>
+
+											</div>
+										</li>
+										<li class="list-inline-item input-file mx-2">
+											<div class="dropup btn-group">
+												<button id="files" class="icon-send">
+													<i class='bx bx-paperclip'></i><input name="fileInput" size="60" type="file" class="form-control-file"/>
+												</button>
+											</div>
+										</li>
+										<li class="list-inline-item input-file">
+											<div class="dropup btn-group">
+
+												<button id="images" class="icon-send">
+													<i class='bx bx-image-add'></i><input accept="image/*" name="fileInput" size="60" type="file" class="form-control-file"/>
+												</button>
+											</div>
+
+										</li>
+
+									</ul>
+								</div>
+								<div class="list-inline-item ms-2">
+									<button type="submit" id="send" class="6 btn-lg chat-send waves-effect waves-light btn btn-primary icon-send-end">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewbox="0 0 18.4 18.4" style="enable-background:new 0 0 18.4 18.4;" xml:space="preserve">
+											<style type="text/css">
+												.st0 {
+													fill: #FFFFFF;
+												}
+											</style>
+											<path id="paper-plane-solid" class="st0" d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z"/>
+										</svg>
+										Enviar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>

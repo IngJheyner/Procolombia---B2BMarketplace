@@ -1,0 +1,13 @@
+cp_contact.render:
+  requirements:
+    _permission: "access content"
+
+###index messages
+cp_contact.contact:
+  path: 'contact'
+  defaults:
+    _title: 'Contact'
+    _controller: '\Drupal\cp_contact\Controller\CpContactController::index'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'

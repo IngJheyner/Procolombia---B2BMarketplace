@@ -1,0 +1,13 @@
+cp_layout:
+  version: VERSION
+  css:
+    theme:
+      css/cp_layout.css: {}
+  js:
+    js/cp_message_sidebar.js: {}
+    js/moment.min.js: {}
+    js/socket.io.min.js: {}
+    js/vanillaEmojiPicker2.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
