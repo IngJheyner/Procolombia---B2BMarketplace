@@ -8,6 +8,7 @@ dependencies:
   module:
     - content_translation
     - cp_advisor_moderation
+    - cp_core
     - field_permissions
     - form_mode_control
     - media
@@ -28,6 +29,7 @@ permissions:
   - 'access webform overview'
   - 'cp access advisor dashboard'
   - 'cp core access advisor product dashboard'
+  - 'cp core access dashboard'
   - 'cp_advisor_moderation dashboard'
   - 'cp_advisor_moderation product dashboard'
   - 'create field_iframe'
