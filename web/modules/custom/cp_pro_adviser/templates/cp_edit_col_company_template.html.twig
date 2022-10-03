@@ -560,7 +560,7 @@
     </div>
 
     <div class="description mt-5">
-      <p class="title">INFORMACIÓN DE CLASIFICACIÓN DE PROCOLOMBIA</p>
+      <p class="title">{{ "PROCOLOMBIA'S CLASSIFICATION INFORMATION"|t }}</p>
 
     </div>
     <div class="step_content">
@@ -568,7 +568,7 @@
         <div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
           <form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Estado  <sup>*</sup>
+              <label for="asesor" class="form-label ">{{ "Status"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
@@ -588,7 +588,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Desempeño exportador  <sup>*</sup>
+              <label for="asesor" class="form-label ">{{ "Exporter's performance"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
@@ -608,7 +608,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Activa o Inactiva  <sup>*</sup>
+              <label for="asesor" class="form-label ">{{ "Active or Inactive"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
@@ -628,7 +628,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Tags de clasificación marcas blancas y otras  <sup>*</sup>
+              <label for="asesor" class="form-label ">{{ "Classification tags private labels and others"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
@@ -648,7 +648,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Oferta especializada destacada  <sup>*</sup>
+              <label for="asesor" class="form-label ">{{ "Outstanding specialized offer"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
@@ -668,16 +668,11 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">URL de empresas con e-commerce crossboarder
+              <label for="asesor" class="form-label ">{{ "URL of e-commerce crossboarder companies"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
-                  <select id="production_chain" class="single_select"
-                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
-                    <option value="">{{ 'Enter the keyword or select an option'|t }}
-                    </option>
-
-                  </select>
+                  <input type="text" class="form-control" id="url_crossboader_companies" maxlength="200"/>
                 </div>
 
                 <i id="error_production_chain" class='bx bxs-info-circle toltip_i'>
@@ -688,7 +683,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Tags Oferta especializada (Todos los idiomas)
+              <label for="asesor" class="form-label ">{{ "Tags Specialized offer (All languages)"|t }}
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
@@ -716,11 +711,11 @@
             </div>
             <div class="col-lg-4 continue d-flex justify-content-between">
               <button id="modal_reject_user_exportador" name="reject_user_exportador" aria-label="{{ "Continue registration"|t }}"
-                class="continue rechazar">RECHAZAR</button>
+                class="continue rechazar">{{ 'REJECT'|t }}</button>
               <button id="modal_aproved_user_exportador" name="aproved_user_exportador" aria-label="{{ "Continue registration"|t }}"
-                class="continue aprove">APROBADO</button>
+                class="continue aprove">{{ 'APPROVE'|t }}</button>
               <button id="modal_confirm_save_exportador" name="confirm_save_exportador" aria-label="{{ "Continue registration"|t }}"
-                class="continue">GUARDAR</button>
+                class="continue">{{ 'SAVE'|t }}</button>
               <button style="display:none" class="continue" id="loading_1" type="button" disabled>
                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                 {{ 'Loading...'|t }}
@@ -765,12 +760,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Actualizar Información
+              srcset="">{{ "Update Information"|t}}
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the modified company information."|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -798,12 +793,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Aprobación Empresa Colombiana
+              srcset="">{{ "Approval Colombian Company"|t }}
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the modified company information."|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -831,12 +826,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Rechazo Empresa Colombiana
+              srcset=""> {{ "Rejection Colombian Company"|t }}
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the modified company information."|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>

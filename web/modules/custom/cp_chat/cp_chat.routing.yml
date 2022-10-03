@@ -47,3 +47,12 @@ cp_chat.get_chat_messages:
   methods:  [POST]
   requirements:
     _permission: 'access content'
+
+###Checked messages
+cp_chat.checked_messages:
+  path: 'chat/checked_messages'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::changeChecked'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'

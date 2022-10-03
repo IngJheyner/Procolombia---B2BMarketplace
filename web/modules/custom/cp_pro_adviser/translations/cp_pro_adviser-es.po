@@ -779,3 +779,54 @@ msgstr "Seleccione una categoría"
 
 msgid "Select subcategory"
 msgstr "Seleccione una subcategoría"
+
+msgid "Select Productive chain"
+msgstr "Seleccione la cadena productiva"
+
+msgid "Select Department"
+msgstr "Seleccione el Departamento"
+
+msgid "Select Associate consultant assigned to the company"
+msgstr "Seleccione al asesor asignado a la empresa"
+
+msgid "Active or Inactive"
+msgstr "Activa o Inactiva"
+
+msgid "Outstanding specialized offer"
+msgstr "Oferta especializada destacada"
+
+msgid "Tags Specialized offer (All languages)"
+msgstr "Tags Oferta especializada (Todos los idiomas)"
+
+msgid "Exporter's performance"
+msgstr "Desempeñp de exportador"
+
+msgid "Classification tags private labels and others"
+msgstr "Tags de clasificación marcas blancas y otras"
+
+msgid "URL of e-commerce crossboarder companies"
+msgstr "URL de empresas con e-commerce crossboarder"
+
+msgid "You are about to update the modified company information."
+msgstr "Está a punto actualizar la información modificada de la empresa."
+
+msgid "Update Information"
+msgstr "Actualizar Información"
+
+msgid "PROCOLOMBIA'S CLASSIFICATION INFORMATION"
+msgstr "INFORMACIÓN DE CLASIFICACIÓN DE PROCOLOMBIA"
+
+msgid "REJECT"
+msgstr "RECHAZAR"
+
+msgid "APPROVE"
+msgstr "APROBAR"
+
+msgid "SAVE"
+msgstr "GUARDAR"
+
+msgid "Rejection Colombian Company"
+msgstr "Rechazo Empresa Colombiana"
+
+msgid "Approval Colombian Company"
+msgstr "Aprobación Empresa Colombiana"
