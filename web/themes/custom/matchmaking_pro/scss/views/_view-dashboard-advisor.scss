@@ -410,6 +410,11 @@
 		}
 		
 	}
+	&.view-display-id-dashboard_table{
+		form .js-form-wrapper{
+			grid-area: 2 / 4 / 3 / 5 !important;
+		}
+	}
 	&.view-id-products_advisor {
 		> .view-content{
 			border-radius: 0;
