@@ -195,7 +195,7 @@ msgstr "Información en español"
 msgid "Company Description"
 msgstr "Descripción de la empresa"
 
-msgid "English informatio"
+msgid "English information"
 msgstr "Información en inglés"
 
 msgid "Main production chain"
@@ -937,6 +937,12 @@ msgstr "Si el correo electrónico con el que se encuentra registrada la empresa 
 msgid "Enter your company email below and we will send you a secure link to reset your password."
 msgstr "Introduzca el correo electrónico de su empresa a continuación y le enviaremos un enlace seguro para restablecer su contraseña."
 
+msgid "Please enter your new password below."
+msgstr "Por favor ingrese su nueva contraseña."
+
+msgid "Reset "
+msgstr "Restablecer "
+
 msgid "Check your e-mail, we have sent you the instructions to recover your password."
 msgstr "Revisa tu correo electrónico, te hemos enviado las instrucciones necesarias para recuperar tu contraseña."
 
@@ -1080,3 +1086,36 @@ msgstr "Validación de NIT"
 
 msgid "International buyer"
 msgstr "Comprador Internacional"
+
+msgid "Select Productive chain"
+msgstr "Seleccione la cadena productiva"
+
+msgid "Select Department"
+msgstr "Seleccione el Departamento"
+
+msgid "Select Associate consultant assigned to the company"
+msgstr "Seleccione al asesor asignado a la empresa"
+
+msgid "Active or Inactive"
+msgstr "Activa o Inactiva"
+
+msgid "Outstanding specialized offer"
+msgstr "Oferta especializada destacada"
+
+msgid "Tags Specialized offer (All languages)"
+msgstr "Tags Oferta especializada (Todos los idiomas)"
+
+msgid "Exporter's performance"
+msgstr "Desempeñp de exportador"
+
+msgid "Classification tags private labels and others"
+msgstr "Tags de clasificación marcas blancas y otras"
+
+msgid "URL of e-commerce crossboarder companies"
+msgstr "URL de empresas con e-commerce crossboarder"
+
+msgid "Information in English"
+msgstr "Información en Inglés"
+
+msgid "Information in Spanish"
+msgstr "Información en Español"

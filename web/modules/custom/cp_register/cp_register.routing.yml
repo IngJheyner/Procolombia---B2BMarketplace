@@ -112,7 +112,7 @@ cp_register.update_step_3:
   requirements:
     _permission: "access content"
 
-    
+
 ### get_cities
 cp_register.get_cities:
   path: "get_cities"
@@ -223,7 +223,7 @@ cp_register.create_step_2_buyer:
   methods:  [POST]
   requirements:
     _permission: "access content"
-  
+
 ### create_step_3_buyer
 cp_register.create_step_3_buyer:
   path: "registro/usuario/comprador/create_step_3"

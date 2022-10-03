@@ -27,5 +27,16 @@ function cp_chat_theme($existing, $type, $theme, $path)
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',
     ],
+    // Name of the theme hook. This is used in the controller to trigger the hook.
+    'cp_chat_window_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_chat_window_template',
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
   ];
 }

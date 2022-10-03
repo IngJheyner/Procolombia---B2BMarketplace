@@ -46,6 +46,21 @@
     var x = document.getElementById("right_menu");
     if (x) {
       if (x.style.display === "none") {
+        $('#chat-window-modal').hide();
+        x.style.display = "block";
+        x.style.opacity = "1";
+      } else {
+        x.style.display = "none";
+        x.style.opacity = "0";
+      }
+    }
+  }
+
+  function show_right_messages() {
+    var x = document.getElementById("right_messages");
+    if (x) {
+      if (x.style.display === "none") {
+        $('#chat-window-modal').hide();
         x.style.display = "block";
         x.style.opacity = "1";
       } else {
@@ -656,7 +671,16 @@
 
       //click alert icon
       $("#right_bar", context).click(function () {
+        console.log("right_bar");
         show_right_menu()
+      });
+
+      $("#right_bar_message", context).click(function () {
+        console.log("right_bar_message");
+        //check if path not include message
+        if (!window.location.href.includes("message")) {
+          show_right_messages();
+        }
       });
       //if click outside right_bar, remove css
       $(document).click(function (e) {
@@ -669,6 +693,16 @@
         }
       });
 
+      //if click outside right_messages, remove css
+      $(document).click(function (e) {
+        if ($(e.target).closest("#right_messages").length === 0 && $(e.target).closest("#right_bar_message").length === 0) {
+          var x = document.getElementById("right_messages");
+          if (x) {
+            x.style.display = "none";
+            x.style.opacity = "0";
+          }
+        }
+      });
       //change languages base in path url
       $("#change_language", context).click(function () {
         var url = window.location.pathname + window.location.search;
@@ -852,7 +886,7 @@
 
       //buttons asesor_comercial
       //edit button mobile asesor_comercial
-     //change language button
+      //change language button
       $("#change_language_button_asesor_comercial", context).click(function () {
         //change display
         //check if style display is none

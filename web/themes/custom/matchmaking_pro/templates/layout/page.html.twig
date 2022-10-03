@@ -168,7 +168,7 @@
                 {{ "Alerts"|t }}
               </div>
             </div>
-            <div class="icono">
+            <div class="icono" id="right_bar_message">
               <div class="img_icon py-1">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.422"
                   height="20.219" viewbox="0 0 24.422 20.219">
@@ -192,7 +192,7 @@
                       transform="translate(-0.036 -7.479)" fill-rule="evenodd" fill="url(#gradient-mensaje)" />
                   </g>
                 </svg>
-                <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+                <span id="count-message" style="display:none" class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
                   5
                   <span class="visually-hidden">{{ "Unread messages"|t }}</span>
                 </span>
@@ -527,6 +527,7 @@
             </div>
           </div>
         </div>
+        {{ drupal_block('message_sidebar') }}
         <div class="topnav">
           <div class="d-flex justify-content-end" style="background-color: #fff;padding: 6px 0px; border-radius: 5px;">
             <div>
@@ -856,7 +857,7 @@
                 {{ "Alerts"|t }}
               </div>
             </div>
-            <div class="icono">
+            <div class="icono" id="right_bar_message">
               <div class="img_icon py-1">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.422"
                   height="20.219" viewbox="0 0 24.422 20.219">
@@ -880,7 +881,7 @@
                       transform="translate(-0.036 -7.479)" fill-rule="evenodd" fill="url(#gradient-mensaje)" />
                   </g>
                 </svg>
-                <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+                <span id="count-message" style="display:none" class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
                   5
                   <span class="visually-hidden">{{ "Unread messages"|t }}</span>
                 </span>
@@ -1163,6 +1164,7 @@
             </div>
           </div>
         </div>
+        
         <div class="topnav">
           <div class="d-flex justify-content-end" style="background-color: #fff;padding: 6px 0px; border-radius: 5px;">
             <div>
@@ -1305,7 +1307,7 @@
               </li>
 
               <li class="position-relative">
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/messages">
                   <span class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
                     +30
                     <span class="visually-hidden">{{ "Unread messages"|t }}</span>
@@ -1902,7 +1904,7 @@
               </li>
 
               <li class="position-relative">
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/messages">
                   <span class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
                     +30
                     <span class="visually-hidden">{{ "Unread messages"|t }}</span>
@@ -2048,7 +2050,7 @@
                 {{ "Alerts"|t }}
               </div>
             </div>
-            <div class="icono">
+            <div class="icono" id="right_bar_message">
               <div class="img_icon py-1">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.422"
                   height="20.219" viewbox="0 0 24.422 20.219">
@@ -2072,7 +2074,7 @@
                       transform="translate(-0.036 -7.479)" fill-rule="evenodd" fill="url(#gradient-mensaje)" />
                   </g>
                 </svg>
-                <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+                <span id="count-message" style="display:none" class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
                   5
                   <span class="visually-hidden">{{ "Unread messages"|t }}</span>
                 </span>
@@ -2450,6 +2452,7 @@
             </div>
           </div>
         </div>
+        {{ drupal_block('message_sidebar') }}
         <div class="topnav">
           <div class="d-flex justify-content-end" style="background-color: #fff;padding: 6px 0px; border-radius: 5px;">
             <div>
@@ -2665,7 +2668,7 @@
               </li>
 
               <li class="position-relative">
-                <a class="li_icon_url" href="#">
+                <a class="li_icon_url" href="/messages">
                   <span class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
                     +30
                     <span class="visually-hidden">{{ "Unread messages"|t }}</span>
@@ -3335,6 +3338,7 @@ MODALES DEL SISTEMA
     </div>
   </div>
 </div>
+{{ drupal_block('chat_window') }}
 <div class="modal fade" id="forgot_email_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -3509,8 +3513,8 @@ MODALES DEL SISTEMA
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
       </div>
       <div class="modal-body login_body">
-        <h5 class="title">{{ "Forgot your"|t }} <span style="color: #000;">{{ "Password?"|t }}</span></h5>
-        <p class="desc">{{ "Enter your company email below and we will send you a secure link to reset your password."|t }}</p>
+        <h5 class="title">{{ "Reset "|t }}<span style="color: #000;">{{ "Password"|t }}</span></h5>
+        <p class="desc">{{ "Please enter your new password below."|t }}</p>
         <div class="row mb-4">
           <div class="col-lg-12 p-0">
             <div class="form">

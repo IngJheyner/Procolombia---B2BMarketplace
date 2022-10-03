@@ -480,7 +480,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#class' => 'legal-modal',
           '#autoload' => TRUE,
           '#title' => $this->t('Add product / service'),
-          '#message' => $this->t('All uploaded content must comply with the <a href="/en/information/terms-use" target="_BLANK">publishing policy.</a>'),
+          '#message' => $this->t('All uploaded content must comply with the <a href="/en/node/177" target="_BLANK">publishing policy.</a>'),
           '#button_text' => $this->t('I agree'),
           '#weight' => -11,
         ];

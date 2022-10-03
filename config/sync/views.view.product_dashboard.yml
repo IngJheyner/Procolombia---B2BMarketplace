@@ -1316,8 +1316,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: result
-          empty: true
-          content: 'Total de items <span>@total</span>'
+          empty: false
+          content: 'Se encontraron   @total resultados asociados a tu búsqueda:'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -2616,6 +2616,7 @@ display:
         row: false
         filters: false
         filter_groups: false
+        header: true
       display_extenders:
         metatag_display_extender:
           metatags: {  }

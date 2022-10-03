@@ -1,0 +1,7 @@
+name: Cp Procolombia Layout
+type: module
+description: Custom module for Cp Procolombia Layout
+package: Custom
+core_version_requirement: ^8 || ^9
+dependencies:
+  - block

@@ -814,16 +814,17 @@ strong {
   position: absolute;
   right: 0rem;
   background: #f4f4f4;
-  padding-top: 2rem;
+  padding: 9px !important;
   height: 200vh;
-  width: 500px;
-  z-index: 10011;
+  width: 400px;
+  z-index: 2;
   padding-left: 1.8rem;
   padding-right: 0.5rem;
   padding-bottom: 1.8rem;
   transition: all 0.5s ease-out;
   top: 5.5rem;
   overflow: auto;
+  box-shadow: rgba(9, 30, 66, 0.09) -10px 2px 66px 0px;
 }
 .right_bar .bar_content {
   overflow: auto;
@@ -2154,4 +2155,4 @@ textarea a.li_icon_url svg {
     opacity: 1;
     transform: none;
   }
-}
+}/*# sourceMappingURL=main.css.map */
