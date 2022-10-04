@@ -859,7 +859,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a  class="edit-link" href="/dashboard/product-edit-multistep/{{nid}}">Editar</a>'
+            text: '<a  class="edit-link" href="/dashboard-advisor/product/{{nid}}/edit">Editar</a>'
             make_link: false
             path: ''
             absolute: false
@@ -2236,7 +2236,22 @@ display:
           relationship: uid
           entity_type: user
           plugin_id: user_bulk_form
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       defaults:
+        style: false
+        row: false
         fields: false
       display_extenders:
         metatag_display_extender:
