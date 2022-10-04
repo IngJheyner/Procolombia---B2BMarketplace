@@ -41,6 +41,7 @@ module:
   cp_company_international: 0
   cp_contact: 0
   cp_core: 0
+  cp_incentives: 0
   cp_layout: 0
   cp_mailing_service: 0
   cp_migrate: 0

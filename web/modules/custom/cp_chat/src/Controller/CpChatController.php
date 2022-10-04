@@ -439,4 +439,71 @@ class CpChatController extends ControllerBase {
     }
   }
 
+  /**
+   * Delete chat with messages.
+   */
+  public function deleteChat(Request $request) {
+    // Delete chat with messages.
+    try {
+      $data = $request->request->all();
+      //get id_chat
+      $id_chat = $data['id_chat'];
+      //update delete date
+      $database = \Drupal::database();
+      $query = $database->update('cp_chat');
+      $query->fields([
+        'deleted' => date('Y-m-d H:i:s'),
+      ]);
+      $query->condition('id', $id_chat);
+      $query->execute();
+      //update delete date
+      $query = $database->update('cp_chat_messages');
+      $query->fields([
+        'deleted' => date('Y-m-d H:i:s'),
+      ]);
+      $query->condition('id_chat', $id_chat);
+      $query->execute();
+      return new JsonResponse([
+        'status' => 'ok',
+        'message' => 'Chat deleted',
+      ]);
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
+  }
+
+  /**
+   * Delete message
+   */
+  public function deleteMessage(Request $request) {
+    // Delete message.
+    try {
+      $data = $request->request->all();
+      //get id
+      $id = $data['id'];
+      //update deleted
+      $database = \Drupal::database();
+      $query = $database->update('cp_chat_messages');
+      $query->fields([
+        'deleted' => date('Y-m-d H:i:s'),
+      ]);
+      $query->condition('id', $id);
+      $query->execute();
+      return new JsonResponse([
+        'status' => 'ok',
+        'message' => 'Message deleted',
+      ]);
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
+  }
+
 }
