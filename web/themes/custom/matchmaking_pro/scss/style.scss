@@ -2,45 +2,78 @@
 Theme Name: Bootstrap 4 Sass
 Description: Bootstrap 4 with Sass
 */
-
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
 // import files
 @import "import";
 
 /* GENERAL STYLES
 -------------------------------------------------*/
+* {
+
+	scrollbar-width: auto;
+	scrollbar-color: #6a6d71 #00000000;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    &:hover {
+      width: 7px;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #00000000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-Gris-Claro-2;
+    border-radius: 100px;
+    border: 0px solid #ffffff;
+  }
+}
+
 body {
-    background: $white;
-    //font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 13px/16px var(--unnamed-font-family-century-gothic);
-    //letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-3b3d42);
-    text-align: left;
-    font: normal normal normal 13px/16px 'century_gothicregular';
-    letter-spacing: 0px;
-    color: #3B3D42;
-    opacity: 1;
+  font-family: $font-regular;
+  font-size: $font-size-base;
+  background: $white;
+  //font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 13px/16px var(--unnamed-font-family-century-gothic);
+  //letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-3b3d42);
+  text-align: left;
+  //font: normal normal normal 13px/16px 'century_gothicregular';
+  letter-spacing: 0px;
+  color: #3B3D42;
+  opacity: 1;
+  //font: inherit !important;
+}
+
+p {
+	word-break: break-word;
+}
+
+a {
+	text-decoration: none !important;
+	svg.ext {
+		display: none;
+	}
+}
+
+strong {
+	font-family: $font-bold;
 }
 
 /* ==============================
 TAMANIO DE LOS TITULOS INTERNOS
 DIFERENTES A LOS PRINCIPALES
 ============================== */
-h5,
-h6{
-  font-size: 15px;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	font-family: 'Maven Pro', sans-serif;
+	font-family: $font-regular-maven, sans-serif;
+  font-size: $font-size-base;
 }
 
 .dialog-off-canvas-main-canvas {

@@ -75,22 +75,36 @@ input[type=number] {
 }
 
 input[type=checkbox] {
+
   position: relative;
   cursor: pointer;
+
+  &::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    border: 1px solid $color-cccccc;
+    border-radius: 3px;
+    background-color: white;
+  }
 }
 
-input[type=checkbox]:before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 0;
-  left: 0;
-  border: 1px solid $color-cccccc;
-  border-radius: 3px;
-  background-color: white;
-}
+// input[type=checkbox]:before {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   width: 20px;
+//   height: 20px;
+//   top: 0;
+//   left: 0;
+//   border: 1px solid $color-cccccc;
+//   border-radius: 3px;
+//   background-color: white;
+// }
 
 input[type=checkbox]:checked:after {
   content: "";

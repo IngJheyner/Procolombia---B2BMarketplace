@@ -13,12 +13,25 @@
 @import "./mixins.scss";
 // barrio
 @import "barrio";
-//Estilos formulario Producto o servicio
-@import "multistep-product-form/_multistep-product-form";
-// Estilos listado productos/servicios
-@import "products-services/__products-services";
-
-@import 'views/_views';
 
 @import "layout-main-wrapper";
-@import 'components/block-system-breadcrumb-block';
+
+/* ===== ===== MAIN (Temporal) ===== ===== */
+@import "./main.scss";
+
+/* ===== ===== HEADER ===== ===== */
+@import "./components/header/header.scss";
+
+/* ===== ===== LAYOUT ===== ===== */
+@import "./components/layout/layout.scss";
+
+/* ===== ===== FOOTER ===== ===== */
+@import "./components/footer/footer.scss";
+
+/* ===== ===== CONTENT ===== ===== */
+//Estilos formulario Producto o servicio
+@import "./components/content/product/multistep-product-form/multistep-product-form.scss";
+// Estilos listado productos/servicios
+@import "./components/content/product/products-services/products-services.scss";
+// Estilos de la vista productos
+@import "./components/content/product/views/views.scss";
