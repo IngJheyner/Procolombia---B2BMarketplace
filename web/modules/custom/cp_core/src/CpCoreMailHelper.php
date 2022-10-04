@@ -132,6 +132,7 @@ class CpCoreMailHelper implements CpCoreMailHelperInterface {
       else {
         $params['from'] = $config->get('notifications_email');
       }
+      $params['no_html'] = TRUE;
       $langcode = ($langcode) ?: $this->languageManager->getCurrentLanguage();
       $result = $this->mailManager->mail('cp_core', $key, $to, $langcode, $params, NULL, TRUE);
       if (!$result) {

@@ -20,14 +20,5 @@
  * @ingroup themeable
  */
 #}
-
-<div class="state">
-{% set colorEntity = color_entity(row) %}
- <span class="{{ colorEntity }}">{{ 'Estado'|t}} </span>
-  {% if colorEntity %}
-    <p class="{{ colorEntity }}">{{ output -}}</p>
-  {% else %}
-    {{ output -}}
-  {% endif %}
-</div>
-
+<span class="views-label views-field-user-bulk-form">{{ 'Seleccionar campo'|t }}</span>
+{{ output -}}
