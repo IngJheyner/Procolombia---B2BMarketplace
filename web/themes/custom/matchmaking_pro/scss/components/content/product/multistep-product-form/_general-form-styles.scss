@@ -15,7 +15,7 @@
     grid-template-columns: 210px repeat(2, 1fr);
     grid-template-rows: auto repeat(2, 1fr) auto;
     background-color: $white;
-    font-family:$font-family-Century-Gothic;
+    font-family:"Century Gothic";
     &.step-2,
     &.step_3,
     &.step_4,
@@ -147,7 +147,7 @@
                 label{
                     font-weight: 300;
                     padding-bottom: 0;
-                    font-family: $font-family-Century-Gothic;
+                    font-family: "Century Gothic";
                 }
             }
         }
@@ -162,7 +162,7 @@
         background-position-y: 11px;
         background-size: 12px 12px;
         padding-right: 0;
-        font-family: 'century_gothicregular';
+        font-family: "Century Gothic";
         font-size: 11px;
 
     }

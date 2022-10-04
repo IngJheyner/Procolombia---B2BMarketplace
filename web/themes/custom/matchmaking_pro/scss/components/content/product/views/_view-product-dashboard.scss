@@ -4,6 +4,7 @@
 	&.view-display-id-page_1,
 	&.view-display-id-dashboard_table,
 	&.view-id-products_advisor {
+		font-family: "Century Gothic";
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -59,7 +60,7 @@
 			padding-top: 8px;
 			padding-left: 70px;
 			height: 70px;
-			font-family: 'century_gothicregular';
+			font-family: "Century Gothic";
 			font-size: 18px;
 			line-height: 22px;
 			letter-spacing: 0px;
@@ -295,7 +296,7 @@
 						background-position-y: center;
 						background-position-x: calc(100% - 10px);			
 						span{
-							font-family: $font-family-Century-Gothic;
+							font-family: "Century Gothic";
 							}			
 						border-color: $procol-gray-200;
 						&:hover{
@@ -388,7 +389,7 @@
 					border-radius: 4px;
 					border: 1px solid #A1A5AA;
 					span{						
-					font-family: $font-family-Century-Gothic;
+					font-family: "Century Gothic";
 					}
 					&:hover{
 						border: 2px solid $procol-light-blue;
@@ -431,7 +432,7 @@
 						label{
 							font-weight: 300;
 							padding-bottom: 0;
-							font-family: $font-family-Century-Gothic;             
+							font-family: "Century Gothic";             
 						}
 					}
 				}
@@ -521,7 +522,7 @@
 			justify-content: center;
 			min-width: 40px;
 			height: 31px;
-			font-family: $font-family-Century-Gothic;
+			font-family: "Century Gothic";
 			font-size: 12px;
 			line-height: 15px;
 			color: #0085CA;
@@ -563,7 +564,7 @@
 
 			th,
 			th a {
-				font-family: $font-family-Century-Gothic;
+				font-family: "Century Gothic";
 				font-size: 14px;
 				line-height: 17px;
 				color: #3B3D42;
@@ -705,7 +706,7 @@
 				display: flex;
 				flex-direction: column;
 				font-size: 14px ;
-				font-family: $font-family-Century-Gothic;
+				font-family: "Century Gothic";
 				.views-field {
 					display: flex;
 					justify-content: space-between;
@@ -718,7 +719,7 @@
 					}
 					.field-content{
 						font-size: 13px;
-						font-family: $font-family-Century-Gothic;
+						font-family: "Century Gothic";
 						
 					}
 					&.views-field-title{
@@ -746,7 +747,7 @@
 							align-items: center;
 							border-radius: 4px 4px 0 0;
 							background-color: $button-lighter-gray;
-							font-family: $font-family-Century-Gothic;
+							font-family: "Century Gothic";
 						}
 						.views-label{
 							display: none;

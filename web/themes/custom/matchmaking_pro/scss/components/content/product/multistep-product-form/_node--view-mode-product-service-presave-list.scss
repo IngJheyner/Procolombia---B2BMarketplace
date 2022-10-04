@@ -132,7 +132,7 @@
                     }
                     .field__item{
                         max-width: 300px;
-                        font-family: $font-family-Century-Gothic;
+                        font-family: "Century Gothic";
                         &.field--name-field-body{
                             max-width: 568px;
                             p{
@@ -176,7 +176,7 @@
                         position: relative;
                         bottom: 20px;
                         z-index: 1;
-                        font-family: $font-family-Century-Gothic;
+                        font-family: "Century Gothic";
                         @include blue-btn;
                         background-color: $white;
                         color: $procol-dark-blue;
