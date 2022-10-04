@@ -1280,11 +1280,3 @@ function cp_core_get_company_proccesed_list($items) {
   return $items;
 }
 
-function cp_core_preprocess_field_group_html_element(&$variables) {
-  $element = $variables['element'];
-  if ($element[0]['#id'] === 'edit-field-pr-terms-of-condition-wrapper') {
-    $variables['element'][0]['widget']['#title'] = 'PRUEBA DE TITULO 1';
-    $variables['element'][0]['widget']['value']['#title'] = 'PRUEBA DE TITULO 2';
-  }
-}
-
