@@ -136,6 +136,10 @@ msgstr "Producto"
 msgid "@num items"
 msgstr "@num elementos"
 
+#: cp_core.module:660
+msgid "@num results"
+msgstr "@num resultados"
+
 #: cp_core.module:650
 msgid "Email or NIT"
 msgstr "Correo or NIT"

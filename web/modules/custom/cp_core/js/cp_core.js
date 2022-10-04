@@ -65,5 +65,11 @@
   select_subsector_product();
   clear_drupal_autocomplete_id();
 
+  Drupal.behavior.countriesTrigger = {
+    attach: function(context, settings) {
+      console.log(context);
+    }
+  }
+
 
 }(jQuery, Drupal));
