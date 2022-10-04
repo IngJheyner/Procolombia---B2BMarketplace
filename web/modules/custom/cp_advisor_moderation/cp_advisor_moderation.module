@@ -27,8 +27,35 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
     if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
       $form_object = $form_state->getFormObject();
       if ($form_object instanceof EntityForm) {
-        $bundle = $form_object->getEntity()->bundle();
+        $node = $form_object->getEntity();
+        $bundle = $node->bundle();
         if($bundle === 'product') {
+          $form['advanced']['#attributes']['class'][] = 'visually-hidden';
+          $form['advanced']['#wrapper_attributes']['class'][] = 'visually-hidden';
+
+          foreach ($form as &$item) {
+            if (is_array($item) && isset($item['#group']) && $item['#group'] == 'advanced') {
+              $item['#access'] = FALSE;
+            }
+          }
+          $form['body_class']['#access'] = FALSE;
+
+          $form['edit_advise_modal'] = [
+            '#theme' => 'cp_core_node_multistep_generic_modal',
+            '#class' => 'edit-advise-modal',
+            '#autoload' => TRUE,
+            '#title' => t('Edit product or service'),
+            '#message' => t('You are about to edit the information of the product/service of the company @company', ['@company' => $node->getOwner()->label()]),
+            '#question' => t('Do you wish to continue?'),
+            '#button_text' => t('No'),
+            '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+            '#button_no_text' => t('Yes'),
+            '#button_no_link' => '#',
+          ];
+
+
+
+
           $form['actions']['reject'] = array(
             '#type' => 'submit',
             '#value' => t('Rejects'),
@@ -181,6 +208,12 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
       $form['field_company_deparment_target_id']['#options'] = $options;
       $form['field_company_deparment_target_id']['#options']["All"] = t('Any');
     }
+  if ($view->id() == 'products_advisor') {
+    $form['prefix_title'] = [
+      '#markup' => '<h1 class"product-list-title">' . t('Products / Services') . '</h1>',
+      '#weight' => -99,
+    ];
+  }
 }
 
 /**
