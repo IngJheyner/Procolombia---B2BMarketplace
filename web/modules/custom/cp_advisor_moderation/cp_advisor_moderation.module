@@ -30,12 +30,13 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
         $node = $form_object->getEntity();
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
+          // kint($form['field_categorization']);
           $form['field_categorization']['widget']['#ajax'] = [
             'event' => 'change',
             'callback' => 'formSelectCallback',
-            'wrapper' => 'field-cat-parent',
+            'wrapper' => 'edit-field-categorization-parent-wrapper',
           ];
-          $options = $form['field_categorization']['#options'];
+          $options = $form['field_categorization']['widget']['#options'];
           $options['All'] = t('- Category -');
           // Get all terms lvl 1 Categorization taxonomy.
           $ancestors = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree(
@@ -51,28 +52,13 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           // Get all tids for ancestors.
           $list_tids_ancestors = [];
           foreach ($ancestors as $term) {
-            $list_tids_ancestors[] = (int) $term->tid;
+            $list_tids_ancestors[$term->tid] = $term->name;
           }
-          // Clean options.
-          $items_removed = [];
-          foreach ($options as $index => $option) {
-            $attributes = ['class' => 'first'];
-            $opt = $option->option;
-            if (isset($opt) && count($opt) > 0) {
-              foreach ($opt as $tid => $term) {
-                if (!in_array($tid, $list_tids_ancestors)) {
-                  // Remove term in otions list.
-                  $items_removed[] = $options[$index];
-                  unset($options[$index]);
-                }
-              }
-            }
-          }
-          $form['field_categorization']['widget']['#options'] = $options;
-          kint($ancestors);
-          kint($options);
-          $form['field_categorization_parent']['#prefix'] = '<div id="field-cat-parent">';
-          $form['field_categorization_parent']['#suffix'] = '</div>';
+          $form['field_categorization']['widget']['#options'] = $list_tids_ancestors;
+          // kint($ancestors);
+          // kint($options);
+          $form['field_categorization_parent']['widget']['#prefix'] = '<div id="field-cat-parent">';
+          $form['field_categorization_parent']['widget']['#suffix'] = '</div>';
           $form['advanced']['#attributes']['class'][] = 'visually-hidden';
           $form['advanced']['#wrapper_attributes']['class'][] = 'visually-hidden';
 
@@ -167,10 +153,11 @@ function formSelectCallback(array $form, FormStateInterface $form_state) {
   $response = new AjaxResponse();
 
   $form['field_categorization_parent']['widget']['#options'] = [
-    '' => t('All'),
+    '1' => t('First'),
+    '2' => t('Second'),
   ];
 
-  $response->addCommand(new ReplaceCommand('#field-cat-parent', $form['field_categorization_parent']));
+  $response->addCommand(new ReplaceCommand('#edit-field-categorization-parent-wrapper', $form['field_categorization_parent']));
 
   // $response->addCommand(new ReplaceCommand('#field-day', $form['day']));
 
