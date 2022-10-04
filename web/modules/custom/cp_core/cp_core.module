@@ -652,6 +652,12 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['name']['#title'] = t('Email or NIT');
       break;
 
+    case 'cp_core_multistep_form':
+      $originalTitle = $form['field_pr_terms_of_condition']['widget']['value']['#title'];
+      $terms = '<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_BLANK">' . $originalTitle . '</a>';
+      $form['field_pr_terms_of_condition']['widget']['value']['#title'] = $terms;
+      break;
+
     case 'node_company_edit_form':
       // Field hide.
       $val_old_state = NULL;
@@ -1273,3 +1279,12 @@ function cp_core_get_company_proccesed_list($items) {
   }
   return $items;
 }
+
+function cp_core_preprocess_field_group_html_element(&$variables) {
+  $element = $variables['element'];
+  if ($element[0]['#id'] === 'edit-field-pr-terms-of-condition-wrapper') {
+    $variables['element'][0]['widget']['#title'] = 'PRUEBA DE TITULO 1';
+    $variables['element'][0]['widget']['value']['#title'] = 'PRUEBA DE TITULO 2';
+  }
+}
+
