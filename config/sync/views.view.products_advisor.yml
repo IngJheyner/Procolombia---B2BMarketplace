@@ -1384,7 +1384,7 @@ display:
       row:
         type: fields
         options:
-          default_field_elements: false
+          default_field_elements: true
           inline: {  }
           separator: ''
           hide_empty: false
@@ -1477,6 +1477,31 @@ display:
     display_plugin: attachment
     position: 2
     display_options:
+      defaults:
+        header: false
+      header:
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: view
+          empty: false
+          view_to_insert: 'products_advisor:embed_1'
+          inherit_arguments: false
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: "<a class=\"botton-log_message\" href=\"#\"> Historial Log de auditoría</a>\r\n\r\n<a\r\n  class='use-ajax'\r\n  data-dialog-options='{\"width\":700, \"title\":\"Descargar reporte\", \"dialogClass\":\"generic-modal modal view-no-results show\", \"dialogId\":\"kskas\"}'\r\n  data-dialog-type='modal'\r\n  href='/es/dashboard-advisor/export-controller?route=view.products_advisor.data_export_1&arg_0=[current-page:url:args:last]'>Descargar reporte</a>"
+          tokenize: false
       display_extenders:
         metatag_display_extender:
           metatags: {  }
@@ -1619,31 +1644,8 @@ display:
         row: false
         filters: true
         filter_groups: true
-        header: false
+        header: true
         footer: false
-      header:
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: view
-          empty: false
-          view_to_insert: 'products_advisor:embed_1'
-          inherit_arguments: true
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          empty: true
-          content: "<a class=\"botton-log_message\" href=\"#\"> Historial Log de auditoría</a>\r\n\r\n<a\r\n  class='use-ajax'\r\n  data-dialog-options='{\"width\":700, \"title\":\"Descargar reporte\", \"dialogClass\":\"generic-modal modal view-no-results show\", \"dialogId\":\"kskas\"}'\r\n  data-dialog-type='modal'\r\n  href='/es/dashboard-advisor/export-controller?route=view.products_advisor.data_export_1&arg_0=[current-page:url:args:last]'>Descargar reporte</a>"
-          tokenize: false
       footer:
         area:
           id: area
