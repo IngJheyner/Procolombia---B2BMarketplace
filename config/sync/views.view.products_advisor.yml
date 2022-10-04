@@ -1089,7 +1089,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: 'Nombre Producto'
+            label: 'Nombre Producto / Servicio'
             description: ''
             use_operator: false
             operator: title_op

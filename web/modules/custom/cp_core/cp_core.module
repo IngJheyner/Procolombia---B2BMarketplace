@@ -162,6 +162,12 @@ function cp_core_theme($existing, $type, $theme, $path) {
     'cp_core_node_multistep_header' => [
       'variables' => [],
     ],
+    'edit_product_header' => [
+      'variables' => [
+        'uid' => NULL,
+        'account_name' => NULL,
+      ],
+    ],
     'cp_core_node_multistep_sidebar' => [
       'variables' => [
         'steps' => [ ],
@@ -698,6 +704,17 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       break;
 
     case 'node_product_edit_form':
+      $node = \Drupal::request()->get('node');
+      $usrOwn = User::load($node->getOwnerId());
+      $userAccountName = $usrOwn->getAccountName();
+
+      $form['header'] = [
+        '#theme' => 'edit_product_header',
+        '#uid' => $node->getOwnerId(),
+        '#account_name' => $userAccountName,
+        '#weight' => -99,
+      ];
+
       // Field hide.
       if (isset($form['field_states']['widget']['#default_value'])) {
         $val_old_state = $form['field_states']['widget']['#default_value'][0];
