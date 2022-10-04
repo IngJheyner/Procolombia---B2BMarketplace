@@ -117,3 +117,17 @@ function matchmaking_pro_theme_suggestions_views_view_field_alter(array &$sugges
 
   }
 }
+
+
+function matchmaking_pro_preprocess_image_widget(&$variables, $hook) {
+  $node = \Drupal::request()->attributes->get('node');
+  $bundle = $node->bundle();
+  $path = \Drupal::service('path.current')->getPath();
+
+  if($bundle == 'product' && strpos($path, '/edit')){
+    $variables['data']['product_edition'] = TRUE;
+  }else {
+    $variables['data']['product_edition'] = FALSE;
+  }
+
+}

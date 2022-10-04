@@ -641,6 +641,26 @@ function cp_core_form_views_exposed_form_alter(&$form, FormStateInterface $form_
       }
     }
   }
+
+  $viewId = [
+    'dashboard_advisor',
+    'products_advisor'
+  ];
+
+  $displayId = [
+    'dashboard_table',
+    'dashboard_table_product'
+  ];
+
+  if (in_array($view->id(), $viewId) && in_array($view->current_display, $displayId)) {
+    if (isset($form['items_per_page'])) {
+      $form['items_per_page']['#weight'] = 99;
+      $form['actions']['#weight'] = 98;
+      foreach ($form['items_per_page']['#options'] as &$item) {
+        $item = t('@num results', ['@num' => $item]);
+      }
+    }
+  }
 }
 
 /**

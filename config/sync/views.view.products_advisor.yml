@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_categorization
-    - field.storage.node.field_images
     - field.storage.node.field_pr_type_certifications
     - field.storage.node.field_states
     - field.storage.node.field_tariff_heading
-    - image.style.218_x_218
     - node.type.product
   module:
     - better_exposed_filters
@@ -19,7 +17,6 @@ dependencies:
     - rest
     - serialization
     - statistics
-    - svg_image
     - telephone
     - user
     - views_data_export
@@ -1383,7 +1380,7 @@ display:
         options:
           grouping: {  }
           row_class: ''
-          default_row_class: false
+          default_row_class: true
       row:
         type: fields
         options:
@@ -2271,8 +2268,9 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_categorization'
-        - 'config:field.storage.node.field_images'
+        - 'config:field.storage.node.field_pr_type_certifications'
         - 'config:field.storage.node.field_states'
+        - 'config:field.storage.node.field_tariff_heading'
   dashboard_table_product:
     id: dashboard_table_product
     display_title: Page
