@@ -30,6 +30,15 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
         $node = $form_object->getEntity();
         $bundle = $node->bundle();
         if($bundle === 'product') {
+          $form['advanced']['#attributes']['class'][] = 'visually-hidden';
+          $form['advanced']['#wrapper_attributes']['class'][] = 'visually-hidden';
+
+          foreach ($form as &$item) {
+            if (is_array($item) && isset($item['#group']) && $item['#group'] == 'advanced') {
+              $item['#access'] = FALSE;
+            }
+          }
+          $form['body_class']['#access'] = FALSE;
 
           $form['edit_advise_modal'] = [
             '#theme' => 'cp_core_node_multistep_generic_modal',
@@ -43,6 +52,8 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             '#button_no_text' => t('Yes'),
             '#button_no_link' => '#',
           ];
+
+
 
 
           $form['actions']['reject'] = array(
