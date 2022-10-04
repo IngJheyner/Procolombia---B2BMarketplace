@@ -727,7 +727,8 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['status']['#access'] = FALSE;
       foreach (array_keys($form['actions']) as $action) {
         if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-          $form['actions'][$action]['#submit'][] = 'cp_core_states_product_submit';
+          // Disabled because it depends on company field that not exists.
+          // $form['actions'][$action]['#submit'][] = 'cp_core_states_product_submit';
         }
       }
       break;
