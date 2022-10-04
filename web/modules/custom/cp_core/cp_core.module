@@ -32,8 +32,10 @@ function cp_core_mail($key, &$message, $params) {
   $options = [
     'langcode' => $message['langcode'],
   ];
-  $message['headers']['MIME-Version'] = '1.0';
-  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  if (empty($params['no_html'])) {
+    $message['headers']['MIME-Version'] = '1.0';
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  }
   $message['from'] = isset($params['from']) ? $params['from'] : \Drupal::config('system.site')->get('mail');
   $message['subject'] = $params['title'];
   $message['body'][] = $params['message'];
@@ -159,6 +161,12 @@ function cp_core_theme($existing, $type, $theme, $path) {
     ],
     'cp_core_node_multistep_header' => [
       'variables' => [],
+    ],
+    'edit_product_header' => [
+      'variables' => [
+        'uid' => NULL,
+        'account_name' => NULL,
+      ],
     ],
     'cp_core_node_multistep_sidebar' => [
       'variables' => [
@@ -639,6 +647,26 @@ function cp_core_form_views_exposed_form_alter(&$form, FormStateInterface $form_
       }
     }
   }
+
+  $viewId = [
+    'dashboard_advisor',
+    'products_advisor'
+  ];
+
+  $displayId = [
+    'dashboard_table',
+    'dashboard_table_product'
+  ];
+
+  if (in_array($view->id(), $viewId) && in_array($view->current_display, $displayId)) {
+    if (isset($form['items_per_page'])) {
+      $form['items_per_page']['#weight'] = 99;
+      $form['actions']['#weight'] = 98;
+      foreach ($form['items_per_page']['#options'] as &$item) {
+        $item = t('@num results', ['@num' => $item]);
+      }
+    }
+  }
 }
 
 /**
@@ -648,6 +676,12 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   switch ($form_id) {
     case 'user_login_form':
       $form['name']['#title'] = t('Email or NIT');
+      break;
+
+    case 'cp_core_multistep_form':
+      $originalTitle = $form['field_pr_terms_of_condition']['widget']['value']['#title'];
+      $terms = '<a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_BLANK">' . $originalTitle . '</a>';
+      $form['field_pr_terms_of_condition']['widget']['value']['#title'] = $terms;
       break;
 
     case 'node_company_edit_form':
@@ -670,6 +704,17 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       break;
 
     case 'node_product_edit_form':
+      $node = \Drupal::request()->get('node');
+      $usrOwn = User::load($node->getOwnerId());
+      $userAccountName = $usrOwn->getAccountName();
+
+      $form['header'] = [
+        '#theme' => 'edit_product_header',
+        '#uid' => $node->getOwnerId(),
+        '#account_name' => $userAccountName,
+        '#weight' => -99,
+      ];
+
       // Field hide.
       if (isset($form['field_states']['widget']['#default_value'])) {
         $val_old_state = $form['field_states']['widget']['#default_value'][0];
@@ -682,7 +727,8 @@ function cp_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['status']['#access'] = FALSE;
       foreach (array_keys($form['actions']) as $action) {
         if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-          $form['actions'][$action]['#submit'][] = 'cp_core_states_product_submit';
+          // Disabled because it depends on company field that not exists.
+          // $form['actions'][$action]['#submit'][] = 'cp_core_states_product_submit';
         }
       }
       break;
@@ -986,14 +1032,17 @@ function cp_core_page_attachments(array &$page) {
         break;
     }
 
-    $keywords = str_replace('/', ',', $keywords);
     $metatag = [
       '#tag' => 'meta',
       '#attributes' => [
         'name' => 'description',
-        'content' => $metadescription . ' ' . $keywords[TRUE] . ' ' . $endmetadescription,
       ],
     ];
+
+    $keywords = str_replace('/', ',', $keywords);
+    if (!empty($keywords) && isset($keywords[TRUE])) {
+      $metatag['#attributes']['content'] = $metadescription . ' ' . $keywords[TRUE] . ' ' . $endmetadescription;
+    }
 
     $metadescription = '';
     $title = '';
@@ -1135,3 +1184,137 @@ function cp_core_views_data() {
   ];
   return $data;
 }
+
+/**
+ * Implements hook_cron().
+ */
+function cp_core_cron() {
+  // Send notification mail.
+  $state = \Drupal::state();
+  $config = \Drupal::config('cp_core.notifications');
+  $now = time();
+  $last_execution = $state->get('cp_core_daily_activity_mail_last_execution', 0);
+  $last_execution = 0;
+  $hour_execution = $config->get('daily_activity_mail_hour');
+  $hour_execution = date('H');
+  if ((($now - $last_execution) >= 86400) && date('H') == $hour_execution) {
+    // Initialization.
+    $mailHelper = \Drupal::service('cp_core.mail_helper');
+    $database = \Drupal::database();
+    $entity_type_manager = \Drupal::entityTypeManager();
+    $userStorage = $entity_type_manager->getStorage('user');
+
+    // Set execution time.
+    $state->set('cp_core_daily_activity_mail_last_execution', $now);
+
+    // Get all activated assesors.
+    $asesors = $userStorage->getQuery()
+      ->condition('roles', 'asesor_comercial')
+      ->condition('status', TRUE)
+      ->execute();
+
+    // Changed companies must be an rendered <ul> list.
+    $changed_companies = [];
+    // Changed companies must be an rendered <ul> list.
+    $company_list_opportunity = [];
+    // Changed companies must be an rendered <ul> list.
+    $company_list_achievement = [];
+    foreach ($asesors as $assesor_id) {
+      $assesor = $userStorage->load($assesor_id);
+      $company_list_approval = cp_core_get_company_proccesed_list(cp_core_get_company_list_approval($assesor_id));
+      $company_list_opportunity = cp_core_get_company_proccesed_list(cp_core_get_company_list_opportunity($assesor_id));
+      $company_list_achievement = cp_core_get_company_proccesed_list(cp_core_get_company_list_achievement($assesor_id));
+      $custom_replacements = [
+        '{{ company_list_approval }}' => $company_list_approval,
+        '{{ company_list_opportunity }}' => $company_list_opportunity,
+        '{{ company_list_achievement }}' => $company_list_achievement,
+      ];
+      $key = 'daily_activity_mail';
+      $to = $assesor->getEmail();
+      $from = NULL;
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $params = [];
+      $mailHelper->send($key, $to, $from, $langcode, $params, $custom_replacements);
+    }
+  }
+}
+
+/**
+ * Function to get cp_core_get_company_list_approval().
+ */
+function cp_core_get_company_list_approval($assesor_id) {
+  $items = [];
+  // INICIO - Escribir en el siguiente apartado el código necesario para obtener
+  // la lista de elementos.
+
+  $userStorage = \Drupal::entityTypeManager()->getStorage('user');
+  $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+  $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+  $allCompanies = $userStorage->loadByProperties([
+    'status' => TRUE,
+    'field_company_adviser' => $assesor_id,
+  ]);
+
+  foreach ($allCompanies as $company) {
+    $nodes = $nodeStorage->loadByProperties([
+      'status' => TRUE,
+      'field_states' => 'waiting',
+    ]);
+    if (!empty($nodes)) {
+      $items[$company->id()] = $company->label();
+    }
+  }
+
+  $waitingTerm = $termStorage->loadByProperties(['vid' => 'account_status', 'uuid' => 'a094975e-af73-495c-afa0-34751481d5a3']);
+  if (!empty($waitingTerm)) {
+    $companies = $userStorage->loadByProperties([
+      'status' => TRUE,
+      'field_company_adviser' => $assesor_id,
+      'field_account_status' => reset($waitingTerm)->id(),
+    ]);
+    foreach ($companies as $company) {
+      $items[$company->id()] = $company->label();
+    }
+  }
+
+  // FIN
+  return $items;
+}
+
+/**
+ * Function to get cp_core_get_company_list_approval().
+ */
+function cp_core_get_company_list_opportunity($assesor_id) {
+  $items = [];
+  // INICIO - Escribir en el siguiente apartado el código necesario para obtener
+  // la lista de elementos.
+
+
+  // FIN
+  return $items;
+}
+
+/**
+ * Function to get cp_core_get_company_list_approval().
+ */
+function cp_core_get_company_list_achievement($assesor_id) {
+  $items = [];
+  // INICIO - Escribir en el siguiente apartado el código necesario para obtener
+  // la lista de elementos.
+
+
+  // FIN
+  return $items;
+}
+
+function cp_core_get_company_proccesed_list($items) {
+  if (!empty($items)) {
+    $items = implode("\r\n", $items) . "\r\n";
+  }
+  else {
+    $items = t('No information.') . "\r\n";
+  }
+  return $items;
+}
+
