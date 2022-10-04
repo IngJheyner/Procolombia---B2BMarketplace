@@ -7,14 +7,14 @@ use Drupal\views\ViewExecutable;
 use Twig\Node\Expression\Test\NullTest;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\cp_advisor_moderation\Entity\Product;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
 
 function cp_advisor_moderation_entity_bundle_info_alter(array &$bundles): void {
   if (isset($bundles['node']['product'])) {
     $bundles['node']['product']['class'] = Product::class;
   }
 }
-
-
 
 function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $user = \Drupal::currentUser();
@@ -23,8 +23,52 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
     if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
       $form_object = $form_state->getFormObject();
       if ($form_object instanceof EntityForm) {
+        
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
+          $form['field_categorization']['widget']['#ajax'] = [
+            'event' => 'change',
+            'callback' => 'formSelectCallback',
+            'wrapper' => 'field-cat-parent',
+          ];
+          $options = $form['field_categorization']['#options'];
+          $options['All'] = t('- Category -');
+          // Get all terms lvl 1 Categorization taxonomy.
+          $ancestors = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree(
+          // This is your taxonomy term vocabulary (machine name).
+            'categorization',
+          // This is "tid" of parent. Set "0" to get all.
+            0,
+          // Get only 1st level.
+            1,
+          // Get full load of taxonomy term entity.
+            FALSE
+          );
+          // Get all tids for ancestors.
+          $list_tids_ancestors = [];
+          foreach ($ancestors as $term) {
+            $list_tids_ancestors[] = (int) $term->tid;
+          }
+          // Clean options.
+          $items_removed = [];
+          foreach ($options as $index => $option) {
+            $attributes = ['class' => 'first'];
+            $opt = $option->option;
+            if (isset($opt) && count($opt) > 0) {
+              foreach ($opt as $tid => $term) {
+                if (!in_array($tid, $list_tids_ancestors)) {
+                  // Remove term in otions list.
+                  $items_removed[] = $options[$index];
+                  unset($options[$index]);
+                }
+              }
+            }
+          }
+          $form['field_categorization']['widget']['#options'] = $options;
+          kint($ancestors);
+          kint($options);
+          $form['field_categorization_parent']['#prefix'] = '<div id="field-cat-parent">';
+          $form['field_categorization_parent']['#suffix'] = '</div>';
           $form['actions']['reject'] = array(
             '#type' => 'submit',
             '#value' => t('Rejects'),
@@ -85,6 +129,20 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
       }
     }
   }
+}
+
+function formSelectCallback(array $form, FormStateInterface $form_state) {
+  $response = new AjaxResponse();
+
+  $form['field_categorization_parent']['widget']['#options'] = [
+    '' => t('All'),
+  ];
+
+  $response->addCommand(new ReplaceCommand('#field-cat-parent', $form['field_categorization_parent']));
+
+  // $response->addCommand(new ReplaceCommand('#field-day', $form['day']));
+
+  return $response;
 }
 
 function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
