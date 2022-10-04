@@ -111,7 +111,9 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#idModal' =>  'modal-approve'
           ];
           $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
-          $form['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
+          foreach (array_keys($form['actions']) as $action) {
+            $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
+          }
         }
       }
     }
@@ -122,7 +124,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
  * Implements hook_form_submit().
  */
 function cp_advisor_node_edit_redirect_submit(&$form, FormStateInterface $form_state) {
-  $node = $form_state->getFormObject();
+  $node = $form_state->getFormObject()->getEntity();
   $ownerId = $node->getOwnerId();
   $options = ['query' => ['product-saved' => 1]];
   $url = Url::fromRoute('view.products_advisor.dashboard_table_product', ['arg_0' => $ownerId], $options);
@@ -224,6 +226,8 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
       '#markup' => '<h1 class"product-list-title">' . t('Products / Services') . '</h1>',
       '#weight' => -99,
     ];
+
+    $form['litepicker']['#attributes']['placeholder'] = t('DD/MM/AA');
 
     if (\Drupal::request()->query->get('product-saved')) {
       $userStorage = \Drupal::entityTypeManager()->getStorage('user');
