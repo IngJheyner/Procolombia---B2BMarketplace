@@ -39,7 +39,13 @@
         }
 
         .layout-region-node-main > .field-group-html-element {
-            padding: 35px 36px 40px;
+            gap: 0 96px;
+            padding: 35px 36px 33px;
+
+            @include media-breakpoint-down(lg){
+                padding: 15px 20px 20px !important;
+            }
+
         }
 
     }
@@ -106,7 +112,7 @@
     .js-form-type-textfield {
         
         label {
-            @include label-style;
+            //@include label-style;
         }
 
         .tooltip-is-invalid {
@@ -333,14 +339,19 @@
 
     // Specific styles
 
+    .node-multistep-header {
+        @include media-breakpoint-down(sm){
+            font-size: 15px;
+        }
+    }
+
     .group-left {
-        flex: 0 1 464px;
-        max-width: 464px;
-        margin-right: 96px;
+        width: 100%;
+        flex: 1 1 464px;
     }
 
     .group-right {
-        flex: 1;
+        flex: 1 1 635px;
     }
 
     .group-right + div {
@@ -581,6 +592,12 @@
 
     }
 
+    .field--name-field-states {
+        padding: 8px 16px 20px;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 4px;
+    }
+
     div[class*="field--name-field-pr-image"] {
 
         .form-managed-file {
@@ -593,12 +610,17 @@
             flex: 1 1 100%;
             padding: 0;
             margin-bottom: 5px;
-        
+
             img {
                 flex: 0 1 226px;
                 height: 219px;
                 margin-right: 12px;
                 margin-bottom: 0;
+
+                @include media-breakpoint-down(md){
+                    margin-right: 9px;
+                }
+
             }
 
             button {
@@ -645,16 +667,42 @@
     .field--name-field-pr-structured-features {
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        gap: 0 68px;
+        gap: 25px 68px;
+
+        @include media-breakpoint-down(md){
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        @include media-breakpoint-down(sm){
+            grid-template-columns: 1fr;
+        }
 
         .form-type-textarea {
             grid-column: span 3;
+
+            @include media-breakpoint-down(md){
+                grid-column: initial;
+            }
+
         }
 
     }
 
     #edit-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 35px;
+        padding: 0 36px 40px;
         margin-bottom: 0 !important;
+
+        @include media-breakpoint-down(lg){
+            padding: 0 20px 20px;
+        }
+
+        @include media-breakpoint-down(md){
+            flex-wrap: wrap;
+        }
+
     }
 
     button[data-drupal-selector="edit-btn-modal-reject"],
@@ -663,6 +711,12 @@
         width: 140px;
         height: 37px;
         border-radius: 4px;
+
+        @include media-breakpoint-down(md){
+            width: 100%;
+            height: 56px;
+        }
+
     }
 
     button[data-drupal-selector="edit-btn-modal-reject"]{
