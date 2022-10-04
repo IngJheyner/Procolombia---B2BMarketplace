@@ -1,13 +1,13 @@
 .node-product-edit-form {
-
-    %text-label {
-        margin-bottom: 8px;
-        color: #3B3D42;
-        font-family: 'Gothic-Bold';
-        font-size: 14px;
-        line-height: 17px;
-    }
-
+    max-width: 1270px;
+    padding: 35px 36px 40px;
+    margin: auto;
+    box-shadow: 0px 3px 6px $gray-shadow;
+    margin-bottom: 18px;
+    border-radius: 4px;
+    background-color: $white;
+    font-family:$font-family-Century-Gothic;
+    
     %item-multiple {
         padding: 4px 7px;
         border: none;
@@ -33,9 +33,33 @@
 
     // General styles
 
+    .content {
+        padding: 0;
+
+        > div {
+            padding: 0;
+        }
+
+    }
+
+    .mb-3 {
+        margin-bottom: 0 !important;
+    }
+
+    .form-wrapper {
+        margin-bottom: 25px !important;
+    }
+
     .js-form-item {
+        position: relative;
+        margin: 0;
+
         label {
-            @extend %text-label;
+            margin-bottom: 8px;
+            color: #3B3D42;
+            font-family: 'Gothic-Bold';
+            font-size: 14px;
+            line-height: 17px;
         }
 
         input[type="text"],
@@ -66,6 +90,53 @@
         
     }
 
+    .form-control.is-invalid {
+        position: relative;
+        border: 2px solid #BA0C2F !important;
+        background: none !important;
+        background-image: none;
+    }
+
+    .is-invalid{
+        @include invalid-tooltip;
+    }
+
+    .js-form-type-textfield {
+        
+        label {
+            @include label-style;
+        }
+
+        .tooltip-is-invalid {
+            @include invalid-tooltip;
+            position: static;
+            &::after{
+                height: 12px;
+                width: 12px;
+                top: 30%;
+                right: -4%;
+                left: auto;
+                background-size: 12px 12px;
+                @include media-breakpoint-down(lg){
+                    top: -25px;
+                    right: 5px;
+                }
+            }
+            &:hover p{
+                @include hover-invalid-tooltip;
+                @include media-breakpoint-down(lg){
+                    top: -70px;
+                    right: 0;
+                    &::before {
+                        border-bottom-color: transparent;
+                        border-top-color: #3B3D42;
+                        top: 26px;
+                    }
+                }
+            }
+        }
+    }
+
     .field--type-file {
 
         details {
@@ -75,7 +146,11 @@
         }
 
         summary {
-            @extend %text-label;
+            margin-bottom: 8px;
+            color: #3B3D42;
+            font-family: 'Gothic-Bold';
+            font-size: 14px;
+            line-height: 17px;
             padding: 0;
 
             &::marker {
@@ -110,21 +185,68 @@
 
     }
 
-    input[type="file"]{
-        @include upload-files;
-    }
+    .field--type-video-embed-field {
+        position: relative;
+        padding-top: 30px;
 
-    h3 {
-        margin-bottom: 13px;
-        color: #000000;
-        font-family: 'Gothic-Bold';
-        font-size: 20px;
-        line-height: 24px;
+        .js-form-item {
+            position: initial;
+
+            input {
+                height: 33px;
+            }
+    
+
+        }
+
+        .video-embed-with-preview {
+            display: flex;
+            max-width: 100%;
+            margin-bottom: 0 !important;
+            background-color: #D8DADD;
+        }
+
+       .js-form-item > label:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .remove-remote-video-value {
+            color: transparent;
+            background-image: url(../images/icons/cerrar-gris.svg);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 20px;
+            width: 20px;
+            overflow: hidden;
+            top: 10px;
+            right: 15px;
+        }
+
+        .js-form-submit {
+            position: absolute;
+            top: calc(0% + 30px);
+            right: 0;
+            height: 33px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 97px;
+            background-color: $procol-dark-blue;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+    
     }
 
     .SumoSelect {
         display: block;
         width: 100%;
+        border-radius: 4px;
 
         select {
             display: none;
@@ -140,21 +262,118 @@
             margin-bottom: 0;
         }
 
+        .CaptionCont{
+            height: 35px;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            border: 1px solid #A1A5AA;
+            &:hover{
+                border: 2px solid $procol-dark-blue;
+            }
+            i{
+                background-image: url(../images/icons/Fecha.svg);
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: 32px;
+                width: 32px;
+                right: 10px;
+                left: auto;
+            }
+        }
+
+        .optWrapper{
+            border-radius: 1px;
+            box-shadow: 0 3px 10px $gray-shadow;
+            &.isFloating{
+                position: relative;
+                width: 100%;
+                max-height: none;
+            }
+            .options{
+                li.opt:hover{
+                    background-color: $procol-dark-blue;
+                    color: $white;
+                }
+                li.opt:hover label {
+                    color: $white;
+                }
+
+                label{
+                    font-weight: 300;
+                    padding-bottom: 0;
+                    font-family: $font-family-Century-Gothic;
+                }
+            }
+        }
+
+    }
+
+    input[type="file"]{
+        @include upload-files;
+        height: 33px;
+    }
+
+    h3 {
+        margin-bottom: 13px;
+        color: #000000;
+        font-family: 'Gothic-Bold';
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    details {
+        small {
+            @extend %description-help;
+        }
     }
 
     // Specific styles
 
-    .field--name-field-body {
+    .group-left {
+        flex: 0 1 464px;
+        max-width: 464px;
+        margin-right: 96px;
+    }
 
-        label {
-            display: block;
-            width: max-content;
-            margin: 0;
-            padding: 0 8px 0 6px;
-            background-color: white;
-            transform: translate(15px,8px);
+    .group-right {
+        flex: 1;
+    }
+
+    .group-right + div {
+        position: relative;
+        margin-top: 50px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: calc(0% - 25px);
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #D8DADD;
         }
 
+    }
+
+    .group-left,
+    .group-right,
+    .group-right + div,
+    .row {
+        padding: 0;
+    }
+
+    .field--name-field-product-type {
+        .js-form-item {
+            margin-top: 0;
+        }
+    }
+
+    .field--name-field-body {
+        label {
+            @include label-style;
+        }
     }
 
     // Ficha tecnica (se debe agregar clase) 
@@ -210,12 +429,36 @@
 
     }
 
+    .field--name-field-categorization-parent {
+
+        .chosen-single {
+            position: initial;
+            display: initial;
+            overflow: initial;
+            padding: 0;
+            height: initial;
+            border: none;
+            border-radius: 0;
+            background: initial;
+            box-shadow: none;
+            color: #444;
+            text-decoration: none;
+            white-space: initial;
+            line-height: 1;
+        }
+        
+    }
+
     .field--name-field-pr-type-certifications,
     .field--name-field-pr-target-market,
     .field--name-field-pr-country {
 
         h4 {
-            @extend %text-label;
+            margin-bottom: 8px;
+            color: #3B3D42;
+            font-family: 'Gothic-Bold';
+            font-size: 14px;
+            line-height: 17px;
         }
 
         .select2-selection--multiple{
@@ -359,6 +602,9 @@
             button {
                 @include remove-files;
                 align-self: flex-end;
+                width: 45px;
+                height: 45px;
+                padding: 0;
                 background-position: center;
                 font-size: 0;
             }
@@ -388,10 +634,51 @@
         margin-bottom: 15px;
     }
 
+    .image-widget-data {
+        label {
+            position: initial;
+        }
+    }
+    
+    .field--name-field-pr-structured-features {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 0 68px;
+
+        .form-type-textarea {
+            grid-column: span 3;
+        }
+
+    }
+
+    #edit-actions {
+        margin-bottom: 0 !important;
+    }
+
+    button[data-drupal-selector="edit-btn-modal-reject"],
+    button[data-drupal-selector="edit-submit"],
+    button[data-drupal-selector="edit-btn-modal-approve"]{
+        width: 140px;
+        height: 37px;
+        border-radius: 4px;
+    }
+
+    button[data-drupal-selector="edit-btn-modal-reject"]{
+        background-color:#BA0C2F;
+        color: #fff;
+    }
+
+    button[data-drupal-selector="edit-submit"]{
+        background-color:#005CA4;
+        color: #fff;
+    }
+
+    button[data-drupal-selector="edit-btn-modal-approve"]{
+        background-color:#31D394;
+        color: #fff;
+    }
+
+
 }
 
-// Temporal styles
-
-.page-edit-product-dashboard {
-    background: transparent !important;
-}
+.page-edit-product-dashboard {}
