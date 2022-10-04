@@ -134,6 +134,10 @@
             forceCustomRendering: true,
           });
 
+          $('#edit-field-states').SumoSelect({
+            forceCustomRendering: true,
+          });
+
           const requiredFieldSelect2 = $('.cp-core-multistep-form .form-select.required');
           $(requiredFieldSelect2).filter('.error.is-invalid').each(function(i) {
             $(this).closest('.js-form-type-select').addClass('is-invalid');
