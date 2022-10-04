@@ -486,6 +486,7 @@
 		#views-exposed-form-products-advisor-dashboard-table-product .row{
 			h1{
 				grid-area: 1 / 1 / 2 / 4;
+				border-bottom: 1px solid #D8DADD;
 			}
 			grid-template-columns: repeat(3, 1fr);
 			.js-form-wrapper#edit-actions {
