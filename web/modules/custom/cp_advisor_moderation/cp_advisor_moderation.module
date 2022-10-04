@@ -30,35 +30,33 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
         $node = $form_object->getEntity();
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
-          // kint($form['field_categorization']);
+          $form['#tree'] = TRUE;
+          // kint($form['field_categorization_parent']);
           $form['field_categorization']['widget']['#ajax'] = [
             'event' => 'change',
             'callback' => 'formSelectCallback',
-            'wrapper' => 'edit-field-categorization-parent-wrapper',
+            'wrapper' => 'field-cat-parent',
           ];
           $options = $form['field_categorization']['widget']['#options'];
           $options['All'] = t('- Category -');
-          // Get all terms lvl 1 Categorization taxonomy.
+          // Get all parent taxonomy term.
           $ancestors = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree(
-          // This is your taxonomy term vocabulary (machine name).
             'categorization',
-          // This is "tid" of parent. Set "0" to get all.
             0,
-          // Get only 1st level.
             1,
-          // Get full load of taxonomy term entity.
             FALSE
           );
-          // Get all tids for ancestors.
           $list_tids_ancestors = [];
           foreach ($ancestors as $term) {
             $list_tids_ancestors[$term->tid] = $term->name;
           }
           $form['field_categorization']['widget']['#options'] = $list_tids_ancestors;
-          // kint($ancestors);
-          // kint($options);
-          $form['field_categorization_parent']['widget']['#prefix'] = '<div id="field-cat-parent">';
-          $form['field_categorization_parent']['widget']['#suffix'] = '</div>';
+          $values = $form_state->getValues();
+          $category = $form['field_categorization']['widget']['#default_value'][0];
+          $form['field_categorization_parent']['widget']['#options'] = cp_advisor_get_parent_children($category);
+          $form['field_categorization_parent']['widget']['#attributes']['id'] = ['categorization-parent-wrapper'];
+          $form['field_categorization_parent']['#prefix'] = '<div id="field-cat-parent">';
+          $form['field_categorization_parent']['#suffix'] = '</div>';
           $form['advanced']['#attributes']['class'][] = 'visually-hidden';
           $form['advanced']['#wrapper_attributes']['class'][] = 'visually-hidden';
 
@@ -81,9 +79,6 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             '#button_no_text' => t('Yes'),
             '#button_no_link' => '#',
           ];
-
-
-
 
           $form['actions']['reject'] = array(
             '#type' => 'submit',
@@ -151,17 +146,27 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 
 function formSelectCallback(array $form, FormStateInterface $form_state) {
   $response = new AjaxResponse();
+  $values = $form_state->getValues();
 
-  $form['field_categorization_parent']['widget']['#options'] = [
-    '1' => t('First'),
-    '2' => t('Second'),
-  ];
-
-  $response->addCommand(new ReplaceCommand('#edit-field-categorization-parent-wrapper', $form['field_categorization_parent']));
-
-  // $response->addCommand(new ReplaceCommand('#field-day', $form['day']));
+  $form['field_categorization_parent']['widget']['#attributes']['id'] = ['categorization-parent-wrapper'];
+  $form['field_categorization_parent']['widget']['#prefix'] = '<div id="field-cat-parent">';
+  $form['field_categorization_parent']['widget']['#suffix'] = '</div>';
+  $form['field_categorization_parent']['widget']['#chosen'] = FALSE;
+  $form['field_categorization_parent']['widget']['#options'] = cp_advisor_get_parent_children(implode(',', $values['field_categorization'][0]));
+  $response->addCommand(new ReplaceCommand('#field-cat-parent', $form['field_categorization_parent']['widget']));
 
   return $response;
+}
+
+function cp_advisor_get_parent_children($parent_tid) {
+  $vid = 'categorization';
+  $depth = 1; // 1 to get only immediate children, NULL to load entire tree
+  $load_entities = FALSE; // True will return loaded entities rather than ids
+  $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, $parent_tid, $depth, $load_entities);
+  foreach ($child_terms as $child_term) {
+    $children_options[$child_term->tid] = $child_term->name;
+  }
+  return $children_options;
 }
 
 /**
