@@ -465,9 +465,7 @@
 				width: 100% !important;
 				height: 100% !important;
 				grid-column: 2 span;
-				&#edit-actions{
-					grid-area: 2 / 4 / 3 / 5 !important;
-				}
+				
 				@include media-breakpoint-down(lg){
 					grid-template-columns: 1fr !important;
 				}

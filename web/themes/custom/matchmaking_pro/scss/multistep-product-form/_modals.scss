@@ -269,7 +269,8 @@
     }
 }
 
-.page-view-dashboard-advisor{
+.page-view-dashboard-advisor,
+.page-view-products-advisor{
     .ui-dialog.generic-modal{
         @include modals-basic-style;
         .ui-dialog-titlebar{
