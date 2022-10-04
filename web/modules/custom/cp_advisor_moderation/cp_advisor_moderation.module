@@ -45,7 +45,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             '#class' => 'edit-advise-modal',
             '#autoload' => TRUE,
             '#title' => t('Edit product or service'),
-            '#message' => t('You are about to edit the information of the product/service of the company @company', ['@company' => $node->getOwner()->label()]),
+            '#message' => t('You are about to edit the information of the product/service of the company <strong>"@company"</strong>', ['@company' => $node->getOwner()->label()]),
             '#question' => t('Do you wish to continue?'),
             '#button_text' => t('No'),
             '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
@@ -111,11 +111,22 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#idModal' =>  'modal-approve'
           ];
           $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
-
+          $form['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
         }
       }
     }
   }
+}
+
+/**
+ * Implements hook_form_submit().
+ */
+function cp_advisor_node_edit_redirect_submit(&$form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject();
+  $ownerId = $node->getOwnerId();
+  $options = ['query' => ['product-saved' => 1]];
+  $url = Url::fromRoute('view.products_advisor.dashboard_table_product', ['arg_0' => $ownerId], $options);
+  $form_state->setRedirectUrl($url);
 }
 
 function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
