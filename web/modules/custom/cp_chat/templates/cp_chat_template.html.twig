@@ -80,7 +80,7 @@
                     <h5 class="text-truncate" id="chat-company-name">
                     </h5>
                     <p class="user-chat-name 6" id="chat-user-name"></p>
-                    <p class="user-chat-description text-truncate id=" chat-user-description"></p>
+                    <p class="user-chat-description" text-truncate id=" chat-user-description"></p>
                   </div>
                 </div>
               </div>
@@ -153,6 +153,27 @@
               </div>
             </div>
           </div>
+          <div id="message-file"
+            style="height:calc(100vh - 404px);min-height: 500px !important;position: relative;display: none;"
+            class="flex-column align-items-center justify-content-center">
+            <i id="reset-file" class='bx bx-x position-absolute end-0 top-0 p-4 fs-1'></i>
+
+            <div class="archive-center">
+              <div id="file-icon">
+              </div>
+              <p id="file-name" class="fs-4 fw-bolder tittle"></p>
+              <small class="mt-4"><span id="file-size"></span> - <span id="file-extension"></span></small>
+            </div>
+          </div>
+          <div id="message-image"
+            style="height:calc(100vh - 404px);min-height: 500px !important;position: relative;display: flex;padding: 50px 10px;display: none;"
+            class="flex-column align-items-center justify-content-center">
+            <i id="reset-image" class='bx bx-x position-absolute end-0 top-0 p-4 fs-1'></i>
+
+            <img id="message-src" style="height: 100%;" src="" alt="" srcset="">
+
+          </div>
+
           <div data-simplebar="init" class="chat-conversation p-3 p-lg-4" id="messages" style="max-height: 100%;">
             <div class="simplebar-wrapper" style="margin: -24px;">
               <div class="simplebar-height-auto-observer-wrapper">
@@ -183,12 +204,12 @@
           <div class="p-3 border-top mb-0">
 
             <div class="no-gutters row">
-              <div class="col-10">
+              <div class="col">
                 <div><input id="text-message" placeholder="Enter Message..." type="text"
                     class="form-control form-control-lg bg-input-chat border-light text-send text-message" value="" />
                 </div>
               </div>
-              <div class="col-2">
+              <div class="col-auto">
                 <div class="chat-input-links ms-md-2">
                   <ul class="list-inline mb-0 ms-0 d-flex align-items-center">
                     <li class="list-inline-item">
@@ -196,38 +217,35 @@
                         <button type="button" id="emoji" aria-haspopup="true" class="emoji-selector icon-send"
                           aria-expanded="false" class="text-decoration-none 6 btn-lg waves-effect btn btn-link">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 18 18">
-                            <path id="smile-regular" d="M9,8a9,9,0,1,0,9,9A9,9,0,0,0,9,8ZM9,24.258A7.258,7.258,0,1,1,16.258,17,7.265,7.265,0,0,1,9,24.258ZM6.1,16.419a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,6.1,16.419Zm5.806,0a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,11.9,16.419Zm.145,2.635a3.964,3.964,0,0,1-6.1,0,.871.871,0,0,0-1.339,1.114,5.713,5.713,0,0,0,8.775,0,.871.871,0,0,0-1.339-1.114Z" transform="translate(0 -8)" fill="#6a6d71"/>
+                            <path id="smile-regular"
+                              d="M9,8a9,9,0,1,0,9,9A9,9,0,0,0,9,8ZM9,24.258A7.258,7.258,0,1,1,16.258,17,7.265,7.265,0,0,1,9,24.258ZM6.1,16.419a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,6.1,16.419Zm5.806,0a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,11.9,16.419Zm.145,2.635a3.964,3.964,0,0,1-6.1,0,.871.871,0,0,0-1.339,1.114,5.713,5.713,0,0,0,8.775,0,.871.871,0,0,0-1.339-1.114Z"
+                              transform="translate(0 -8)" fill="#6a6d71" />
                           </svg>
                         </button>
 
                       </div>
                     </li>
                     <li class="list-inline-item input-file mx-2">
-                      <div class="dropup btn-group">
-                        <button id="files" class="icon-send">
-                          <svg style="width:17px" xmlns="http://www.w3.org/2000/svg" width="24" height="18"
-                            viewBox="0 0 15.75 18">
-                            <path id="paperclip-solid"
-                              d="M1.521,16.387a5.508,5.508,0,0,1,.049-7.649L8.944,1.195a3.934,3.934,0,0,1,5.649,0,4.092,4.092,0,0,1,0,5.705L8.164,13.469a2.623,2.623,0,0,1-3.8-.035,2.725,2.725,0,0,1,.051-3.76L9.472,4.512a.563.563,0,0,1,.8-.008l.8.787a.562.562,0,0,1,.008.8L6.027,11.247A.475.475,0,0,0,6,11.89a.375.375,0,0,0,.552.006l6.428-6.569a1.841,1.841,0,0,0,0-2.559,1.686,1.686,0,0,0-2.431,0L3.178,10.311a3.256,3.256,0,0,0-.042,4.511,3,3,0,0,0,4.326.01l6.049-6.187a.562.562,0,0,1,.8-.009l.8.786a.562.562,0,0,1,.009.8L9.071,16.4a5.246,5.246,0,0,1-7.55-.017Z"
-                              transform="translate(0 0)" fill="#6a6d71" />
-                          </svg> <input name="fileInput" size="60" type="file" class="form-control-file" />
-                        </button>
-                      </div>
+                      <label id="files" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
+                        <svg style="width:17px" xmlns="http://www.w3.org/2000/svg" width="24" height="18"
+                          viewBox="0 0 15.75 18">
+                          <path id="paperclip-solid"
+                            d="M1.521,16.387a5.508,5.508,0,0,1,.049-7.649L8.944,1.195a3.934,3.934,0,0,1,5.649,0,4.092,4.092,0,0,1,0,5.705L8.164,13.469a2.623,2.623,0,0,1-3.8-.035,2.725,2.725,0,0,1,.051-3.76L9.472,4.512a.563.563,0,0,1,.8-.008l.8.787a.562.562,0,0,1,.008.8L6.027,11.247A.475.475,0,0,0,6,11.89a.375.375,0,0,0,.552.006l6.428-6.569a1.841,1.841,0,0,0,0-2.559,1.686,1.686,0,0,0-2.431,0L3.178,10.311a3.256,3.256,0,0,0-.042,4.511,3,3,0,0,0,4.326.01l6.049-6.187a.562.562,0,0,1,.8-.009l.8.786a.562.562,0,0,1,.009.8L9.071,16.4a5.246,5.246,0,0,1-7.55-.017Z"
+                            transform="translate(0 0)" fill="#6a6d71" />
+                        </svg>
+                        <input name="fileInput" id="file-message" size="60" type="file" class="form-control-file" />
+                      </label>
                     </li>
                     <li class="list-inline-item input-file">
-                      <div class="dropup btn-group">
+                      <label id="images" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
 
-                        <button id="images" class="icon-send">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
-                            viewBox="0 0 24 18">
-                            <path id="image-regular"
-                              d="M21.75,64H2.25A2.25,2.25,0,0,0,0,66.25v13.5A2.25,2.25,0,0,0,2.25,82h19.5A2.25,2.25,0,0,0,24,79.75V66.25A2.25,2.25,0,0,0,21.75,64Zm-.281,15.75H2.531a.281.281,0,0,1-.281-.281V66.531a.281.281,0,0,1,.281-.281H21.469a.281.281,0,0,1,.281.281V79.469A.281.281,0,0,1,21.469,79.75ZM6,68.125A1.875,1.875,0,1,0,7.875,70,1.875,1.875,0,0,0,6,68.125ZM4.5,77.5h15V73.75l-4.1-4.1a.563.563,0,0,0-.8,0L9,75.25,7.148,73.4a.563.563,0,0,0-.8,0L4.5,75.25Z"
-                              transform="translate(0 -64)" fill="#6a6d71" />
-                          </svg>
-                          <input accept="image/*" name="fileInput" size="60" type="file" class="form-control-file" />
-                        </button>
-                      </div>
-
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 24 18">
+                          <path id="image-regular"
+                            d="M21.75,64H2.25A2.25,2.25,0,0,0,0,66.25v13.5A2.25,2.25,0,0,0,2.25,82h19.5A2.25,2.25,0,0,0,24,79.75V66.25A2.25,2.25,0,0,0,21.75,64Zm-.281,15.75H2.531a.281.281,0,0,1-.281-.281V66.531a.281.281,0,0,1,.281-.281H21.469a.281.281,0,0,1,.281.281V79.469A.281.281,0,0,1,21.469,79.75ZM6,68.125A1.875,1.875,0,1,0,7.875,70,1.875,1.875,0,0,0,6,68.125ZM4.5,77.5h15V73.75l-4.1-4.1a.563.563,0,0,0-.8,0L9,75.25,7.148,73.4a.563.563,0,0,0-.8,0L4.5,75.25Z"
+                            transform="translate(0 -64)" fill="#6a6d71" />
+                        </svg>
+                        <input id="image-message" accept="image/*" name="fileInput" size="60" type="file" class="form-control-file">
+                      </label>
                     </li>
                     <li class="list-inline-item ms-2">
                       <button type="submit" id="send"

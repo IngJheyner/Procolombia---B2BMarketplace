@@ -403,6 +403,65 @@
     }
   });
 
+  //get file message
+  const getFileMessage = () => {
+    //remove image of input
+    $('#image-src').val('');
+    //get file of input
+    let file = $('#file-message').prop('files')[0];
+    //get name of file
+    let name = file.name;
+    $('#message-image').hide();
+    $('#messages').hide();
+    //get file extension
+    let file_extension = name.split('.').pop();
+    console.log("file_extension", file_extension);
+    //set name of file in input
+    $('#file-name').text(name);
+    //set extension of file in input
+    $('#file-extension').text(file_extension);
+    //set size of file in input
+    let sizeInKb = file.size / 1024;
+    $('#file-size').text(sizeInKb.toFixed(2) + " KB");
+    //detect extension if is document, zip and the rest is unknown
+    if (file_extension == 'doc' || file_extension == 'docx' || file_extension == 'pdf' || file_extension == 'xls' || file_extension == 'xlsx' || file_extension == 'ppt' || file_extension == 'pptx' || file_extension == 'txt') {
+      //change icon 
+      $('#file-icon').html('<svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" class="mb-3" viewBox="0 0 24 24"> <defs> <style> .cls-1 { fill: #0085ca; } </style> </defs> <title>document</title> <path class="cls-1" d="M19.41,8.41,13.59,2.59l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08,0,0,0-.05,0-.16-.09A2.22,2.22,0,0,0,12.31,2H6A2,2,0,0,0,4,4V21.08a.92.92,0,0,0,.92.92H18a2,2,0,0,0,2-2V9.83A2,2,0,0,0,19.41,8.41ZM13.5,4.62,17.38,8.5H14a.5.5,0,0,1-.5-.5ZM18.5,20a.5.5,0,0,1-.5.5H5.5V4A.5.5,0,0,1,6,3.5h6V8a2,2,0,0,0,2,2h4.5Z" /> <path class="cls-1" d="M11.75,12.52a.76.76,0,0,0,.75-.75.74.74,0,0,0-.65-.74H7.25a.75.75,0,0,0-.1,1.49h4.6Z" /> <path class="cls-1" d="M15.75,15.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> <path class="cls-1" d="M15.75,18.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> </svg>');
+    } else {
+      if (file_extension == 'zip' || file_extension == 'rar') {
+        $('#file-icon').html('<svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#606266;}</style></defs><title>compressed</title><path class="cls-1" d="M9.49,4.4A2.23,2.23,0,0,0,8.21,4H4.1A2.24,2.24,0,0,0,2,6.25V17.9A2.24,2.24,0,0,0,4.25,20H19.9A2.24,2.24,0,0,0,22,17.75V8.44A2.25,2.25,0,0,0,19.75,6.5H12l-2.37-2Zm4,3.6v2.25a.75.75,0,0,0,.75.75H15v1h-.25a.75.75,0,0,0,0,1.5H15V15h-.25a.75.75,0,0,0,0,1.5H15v2H4.15a.75.75,0,0,1-.65-.74V10.5H8.4A2.31,2.31,0,0,0,9.65,10L12,8Zm3,10h.25a.75.75,0,0,0,0-1.5H16.5V15h.25a.75.75,0,0,0,0-1.5H16.5V11h.75a.76.76,0,0,0,.75-.75V8h1.85a.75.75,0,0,1,.65.74v9.1a.75.75,0,0,1-.74.65H16.5Zm0-10V9.5H15V8ZM4.25,5.5H8.31a.76.76,0,0,1,.38.16l1.89,1.58L8.69,8.83l-.09.06A.77.77,0,0,1,8.21,9H3.5V6.15A.75.75,0,0,1,4.25,5.5Z"/></svg>');
+
+      } else {
+        $('#file-icon').html('<svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#606266;}</style></defs><title>unknown</title><path class="cls-1" d="M20,19.5a.5.5,0,0,1-.5.5H13.77a6.44,6.44,0,0,1-1.08,1.5H19.5a2,2,0,0,0,2-2V9.33a2,2,0,0,0-.59-1.42L15.09,2.09l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08-.05,0,0-.05,0-.16-.09a2.22,2.22,0,0,0-.63-.14H7.5a2,2,0,0,0-2,2V11A6.29,6.29,0,0,1,7,10.58V3.5A.5.5,0,0,1,7.5,3h6V7.5a2,2,0,0,0,2,2H20ZM15,4.12,18.88,8H15.5a.5.5,0,0,1-.5-.5Z"/><path class="cls-1" d="M2.5,17A5.5,5.5,0,1,0,8,11.5,5.5,5.5,0,0,0,2.5,17Zm4.75,3.25A.75.75,0,1,1,8,21,.76.76,0,0,1,7.25,20.25ZM6,15.5a2,2,0,0,1,4,0,2.18,2.18,0,0,1-.75,1.71L9,17.48l-.11.12a1.15,1.15,0,0,0-.37.9.5.5,0,0,1-1,0,2.18,2.18,0,0,1,.75-1.71l.27-.27.11-.12A1.15,1.15,0,0,0,9,15.5a1,1,0,0,0-2,0,.5.5,0,0,1-1,0Z"/></svg>');
+      }
+    }
+    $('#message-file').css('display', 'flex');
+  }
+
+  //get image and show in preview
+  const getImageMessage = () => {
+    //get file of input
+    $('#file-message').val('');
+    let file = $('#image-message').prop('files')[0];
+    console.log("file_extension", URL.createObjectURL(file));
+    $('#messages').hide();
+    $('#message-file').hide();
+    $('#message-src').attr('src', URL.createObjectURL(file));
+    $('#message-image').css('display', 'flex');
+  }
+  //close preview
+  const closePreview = () => {
+    //remove file of input
+    $('#file-message').val('');
+    //remove image of input
+    $('#image-src').val('');
+    $('#message-image').hide();
+    $('#message-file').hide();
+    $('#messages').show();
+  }
+
+
+
   // **********************
   // *** Call functions ***
   // **********************
@@ -670,19 +729,41 @@
         socket.emit('disconnectRoom', { room: chat_selected });
       });
 
-      
+
       //toggle class show of dropdown-list
       window.showDropdownList = function (id) {
         //remove all show class
         $('.dropdown-menu').removeClass('show');
         $(`#dropdown-list-${id}`).toggleClass('show');
       }
-      
+
       //put class show of dropdown-list if click outside or click in other dropdown-list
       $(document).on('click', function (e) {
         if (!$(e.target).closest('.dropdown-list').length) {
           $('.dropdown-menu').removeClass('show');
         }
+      });
+
+      //detect input file 
+      $('#file-message', context).change(function () {
+        //call function to upload file
+        getFileMessage();
+      });
+
+      //detect image file
+      $('#image-message', context).change(function () {
+        //call function to upload image
+        getImageMessage();
+      });
+
+      //close preview
+      $('#reset-file', context).click(function () {
+        closePreview();
+      });
+
+      //close preview
+      $('#reset-image', context).click(function () {
+        closePreview();
       });
     }
   };
