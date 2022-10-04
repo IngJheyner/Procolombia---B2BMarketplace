@@ -427,6 +427,16 @@
 		.after-filters-container{
 			top: 230px;
 		}
+		.botton-log_message{
+			@include media-breakpoint-down(lg){
+				max-width: 95% !important;
+			}
+		}
+		.views-field-user-bulk-form{
+			@include media-breakpoint-down(lg){
+				order: -1;
+			}
+		}
 		.views-field-field-states div{
 			display: flex;
 			align-items: center;
@@ -439,7 +449,11 @@
 				width: 10px;
 				height: 10px;
 				border-radius: 50%;
+				@include media-breakpoint-down(lg){
+					background-color: transparent;
+				}
 			}
+			
 			&.approved::before{						
 				background-color: #00D320;					
 			}
@@ -457,28 +471,44 @@
 			text-align: center;
 		}
 		#views-exposed-form-products-advisor-dashboard-table-product .row{
+			h1{
+				grid-area: 1 / 1 / 2 / 4;
+			}
 			grid-template-columns: repeat(3, 1fr);
 			.js-form-wrapper#edit-actions {
-				grid-area: 2 / 3/ 3 / 3 !important;
+				grid-area: 3 / 3/ 3 / 3 !important;
 				}
 		}
 		.view-header {
 			display: flex;
 			gap: 23px;
+			@include media-breakpoint-down(lg){
+				padding: 0 !important;
+			}
 			.view-products-advisor{
 			padding: 0;
 			flex-grow: 1;
+			@include media-breakpoint-down(lg){
+				width: 100%;
+			}
 			.view-content{
 				background-color: $button-lighter-gray;
 				max-width: 463px;
 				width: 100%;
 				padding: 9px 13px;
 				box-shadow: none;
+				@include media-breakpoint-down(lg){
+					max-width: 100%;
+				}
 				div{
 					width: 100%;
 					display: flex;
 					align-items: center;
+					flex-wrap: wrap;
 					gap: 17px;
+					@include media-breakpoint-down(lg){
+						gap: 15px;
+					}
 					p{
 						margin-bottom: 0 !important;
 						&.title{
@@ -518,6 +548,7 @@
 			
 			.view-footer{
 				display: flex;
+				flex-wrap: wrap;
 				gap: 19px;
 				flex-grow: 1;
 				padding-top: 0;
