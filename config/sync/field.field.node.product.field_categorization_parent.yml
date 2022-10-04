@@ -10,7 +10,7 @@ id: node.product.field_categorization_parent
 field_name: field_categorization_parent
 entity_type: node
 bundle: product
-label: Subcategoria
+label: Subcategoría
 description: ''
 required: true
 translatable: false

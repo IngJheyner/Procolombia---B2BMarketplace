@@ -1,0 +1,41 @@
+/* ==============================
+Overrides framework Boostrap
+============================== */
+/* ===== ===== GRILLAS ===== ===== */
+.container {
+	max-width: 1400px !important;
+}
+
+/* ===== ===== IMG ===== ===== */
+img.me-2 {
+	width: 23px !important;
+}
+
+/* ===== ===== INPUT ===== ===== */
+.form-control {
+	height: 46px !important;
+  &::focus {
+    box-shadow: none !important;
+  }
+}
+
+.bg-danger {
+	background: $color-Pantone-200  !important;
+}
+
+.btn-outline {
+	border: 1px solid $color-Pantone-116-C  !important;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 8px 11px;
+	margin-right: 10px;
+	font-family: $font-bold;
+
+	&:hover {
+		color: $color-White  !important;
+		border-color: $color-Pantone-process-Blue  !important;
+		background-color: $color-Pantone-process-Blue  !important;
+		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	}
+}

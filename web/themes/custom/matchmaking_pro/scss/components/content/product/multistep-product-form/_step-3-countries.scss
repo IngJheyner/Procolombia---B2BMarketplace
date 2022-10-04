@@ -1,0 +1,349 @@
+.cp-core-multistep-form.step_3{
+    .group-top{
+        .step-3-title{
+            h2{
+                width: 50%;
+                padding: 0 50px;
+                border-right: 1px solid #D8DADD;
+                margin-bottom: 0 !important;
+                padding-bottom: 18px; 
+                @include media-breakpoint-down(xl){
+                    padding: 0 25px;
+                }
+                @include media-breakpoint-down(lg){
+                    padding: 0 15px;
+                    width: 100%;
+                    border: none;
+                }
+            }
+        }
+    }
+    .group-left.step-3{
+        display: flex;
+        flex-direction: column;
+        .field--name-field-pr-type-certifications{
+            margin-bottom: 20px !important;
+        }
+    }
+    .group-right.step-3{
+        justify-content: space-between;        
+        .field--name-field-pr-country{
+            flex-grow: 1;
+            margin-top: 5px;
+            position: relative;
+            details{
+                margin-top: 0;
+                border: none;
+                summary{
+                    list-style: none;
+                    font-size: 14px;
+                    font-weight: bold;
+                    padding: 0 7px 10px 0;
+                }
+            }
+            .details{
+                border: none;
+            }
+            .details-wrapper{
+                padding: 0;
+                .js-form-submit,
+                .entity-browser-processed{
+                    background-color: $white;
+                    border: none;
+                }
+                .entity-browser-processed{
+                    width: 100%;
+                    position: relative;
+
+                    &::before{
+                        width: calc(100% - 40px);
+                        height: 35px;
+                        border: 2px solid #A1A5AA;
+                        border-radius: 4px;
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &::after{
+                        background-color: $procol-dark-blue;
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        height: 34px;
+                        width: 34px;
+                        border-radius: 4px;background-image: url(../images/icons/Icono-buscar.svg);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+            }
+            .item-container{
+                background-color: #EFEFEF;
+                border-radius: 4px;
+                height: 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 6px;
+                margin-bottom: 0 !important;
+                margin-left: 0;
+                width: calc(100% - 80px);
+                margin-top: 5px;
+                @include media-breakpoint-down(lg){
+                    width: 100%;
+                    margin-top: 10px;
+                    height: 38px;
+                }
+                &:nth-child(n+4){
+                    display: none;
+                }
+                &.show-item{
+                    display: flex;
+                }
+                .remove-button{
+                    background-color: transparent;
+                    height: 16px;
+                    width: 16px;
+                    color: transparent;
+                    background-image: url(../images/icons/Cerrar-negro.svg);
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    @include media-breakpoint-down(lg){
+                        height: 20px;
+                        width: 20px;
+                        background-size: 20px;
+                    }
+
+                }
+            }
+            p{
+                display: none;
+            }
+
+        }
+        .field--type-multilingual-form-display{
+            display: none;
+        }
+        
+        .field--name-field-pr-sales-channel{
+            .js-form-item{
+               margin-top: 0;
+            }
+        }
+        
+    }
+
+    .group-left.step-3,
+    .group-right.step-3{
+        .field--name-field-pr-country .is-invalid{
+            .entity-browser-processed::before{
+                border: 2px solid $procol-red !important;
+            }
+        }
+        .js-form-type-select.is-invalid{
+            .select2-selection--multiple li.select2-search {
+                border: 2px solid $procol-red !important;
+            }
+        }
+        .is-invalid::after {
+            top: 35px;
+            left: auto;
+            right: -20px;
+            @include media-breakpoint-down (lg){
+                top: 0;
+                right: 0;
+            }
+            }
+     
+        .js-form-item-field-pr-target-market.is-invalid .is-invalid::after {
+                top: 100px;
+                left: auto;
+            }
+
+        .select2-selection--multiple{
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, auto);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            grid-template-rows: 38px 1fr;
+            border: none;
+            flex-direction: column;
+            grid-area: 2 / 1 / 3 / 2;
+            margin-top: 5px;
+            .select2-selection__rendered {
+                box-sizing: border-box;
+                list-style: none;
+                margin: 0;
+                padding: 0 5px;
+                width: 100%;
+                grid-area: 2 / 1 / 3 / 2;
+                padding-top: 10px;
+                @include media-breakpoint-down(lg){
+                    padding-top: 20px;
+                }
+            }
+            li{
+                width: 100%;
+                height: 24px;
+                border-radius: 4px;
+                background-color: #EFEFEF;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 5px;
+                border: none;
+                width: calc(100% - 80px);
+                overflow: hidden;
+                position: relative;
+                padding-right: 0;
+                @include media-breakpoint-down(lg){
+                    width: 100%;
+                    height: 38px;
+                    margin-top: 10px;
+                }
+                
+                .select2-selection__choice__remove {
+                    color: transparent;
+                    background-image: url(../images/icons/Cerrar-negro.svg);
+                    background-size: 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 16px;
+                    width: 30px;
+                    order: 2;
+                    background-color: #EFEFEF;
+                    position: absolute;
+                    right: 0;
+                    margin: 0;
+                    @include media-breakpoint-down(lg){
+                        height: 20px;
+                        width: 40px;
+                        background-size: 20px;
+                    }
+                }
+                &.select2-search{
+                    position:absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 35px;
+                    border-radius: 4px;
+                    border: 1px solid #A1A5AA;
+                    background-color: $white;
+                }
+            }
+        }
+    }
+    .js-form-item-field-pr-type-certifications{
+        min-height: 120px;
+        @include media-breakpoint-down(lg){
+            margin-top: 16px;
+        }
+    }
+    #edit-field-pr-type-certifications-wrapper{
+        @include media-breakpoint-down(lg){
+            margin-bottom: 0 !important;
+        }
+        .select2-selection__choice:nth-child(n+4){
+            display: none;
+            &.show-item{
+                display: flex;
+            }    
+        }
+    }
+    
+    .js-form-type-managed-file {
+        margin-top: 7px;
+        .js-form-managed-file{
+            flex-wrap: wrap;
+            .messages--error{
+                padding-bottom: 10px;
+            }
+
+        }
+    }
+    #edit-field-pr-sales-channel-wrapper,
+    .js-form-item-field-pr-type-certifications,
+    .js-form-item-field-pr-product-availability,
+    #edit-field-pr-certifications-wrapper,
+    #edit-field-pr-type-certifications-wrapper,
+    .field--widget-entity-browser-entity-reference,
+    #edit-field-pr-target-market-wrapper,
+    .js-form-item-field-pr-target-market {
+        margin-bottom: 0 !important;
+        }
+    .show-more-countries,
+    .show-more-cType{
+     color: $procol-light-blue;  
+     cursor: pointer; 
+     position: relative;
+     top: -32px;
+     left: calc(100% - 80px);
+     width: 80px;
+     display: flex;
+     justify-content: flex-end;
+     @include media-breakpoint-down(lg){
+        left: calc(100% - 90px);
+        top: 0;
+     }
+    }
+    .show-more-cType{
+        top: -20px;
+        @include media-breakpoint-down(lg){
+            top: 0;
+        }
+    }
+    .js-form-type-select .tooltip-is-invalid,
+    #edit-field-pr-country-wrapper .tooltip-is-invalid{
+        width: auto;
+        height: 20px;
+        display: flex;
+        position: absolute;
+        top: 35px;
+        right: -25px;
+        z-index: 3;
+        padding-left: 25px;
+        @include media-breakpoint-down(lg){
+            top: 0;
+            right: 0;
+        }
+        &:hover{
+            width: 157px;
+            p{
+                @include hover-invalid-tooltip;
+                top:28px;
+                left: 0;
+                right: auto; 
+                @include media-breakpoint-down(lg){
+                    right: -3px;
+                }
+                &::before{
+                    right: 5px;
+                }
+            }
+        }
+        
+    }
+}
+
+
+.path-dashboard{
+    .select2-selection--single{
+        height: 35px;
+    }
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: $procol-light-blue !important;
+        color:$white;
+    }
+    .select2-container--default .select2-results__option[aria-selected="true"] {
+        background-color: $procol-light-blue !important;
+        color: $white;
+    }
+}

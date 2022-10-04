@@ -10,10 +10,25 @@
         // Custom code here
 
         //Dashboard
-        const productDashboard = $('.view-product-dashboard');
-        const itemsPerPage = $('.form-item-items-per-page');
-        $(context).find('body').once('.form-item-items-per-page').each(function () {
+
+        $(context).find('body').once('.view-product-dashboard').each(function () {
+          const productDashboard = $('.view-product-dashboard');
+          const itemsPerPage = $('.form-item-items-per-page');
           itemsPerPage.appendTo(productDashboard);
+          const noResults = $('#generic-modal-view-no-results');
+          const btnOkNoResults = $('#generic-modal-view-no-results .modal-footer-left');
+          const btncloseNoResults = $('#generic-modal-view-no-results .modal-header span[aria-hidden="true"]');
+
+          if(noResults){
+           $(noResults).addClass('show')
+          }
+          function closeNoResultsModal(btn){
+            btn.click(()=>{
+              noResults.removeClass('show')
+            })
+          }
+          closeNoResultsModal(btnOkNoResults);
+          closeNoResultsModal(btncloseNoResults);
         })
         //Paso 2 mover cambiar posicion contenedor
         let partidaAranTax = $('#edit-field-partida-arancelaria-tax-wrapper');
@@ -31,7 +46,8 @@
          }else{
           $(partidaAranTax).prependTo('.step_2 .group-right');
          }
-      });
+        });
+
         //Ver mas de 3 items funciones variables
         const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
         const showMorecType = $('.show-more-cType');
@@ -42,9 +58,9 @@
         const fieldCountryWrapper = $('#edit-field-pr-country-wrapper');
         showMoreCountrie.appendTo(fieldCountryWrapper);
 
-        function toggleText(text){           
+        function toggleText(text){
           if(text.hasClass('show-less')){
-            text.text(Drupal.t('View less')); 
+            text.text(Drupal.t('View less'));
           }
           else{
            text.text(Drupal.t('View more'))
@@ -52,7 +68,7 @@
          }
         function hideBtnShowMore (item, btn,btnText){
           if(item.length <= 3){
-            btn.hide()       
+            btn.hide()
           }else{
             btn.show();
           }
@@ -66,36 +82,48 @@
         hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
 
         // Agregar clases modales Drupal
-          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal'); 
-          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries')  
-        
-        // //Paso 5                
-        //   if ($('#edit-field-pr-video-0-preview').hasClass('video-embed-preview-empty')) {
-        //     $('#edit-field-pr-video-wrapper button').show();
-        //   } else {
-        //   $('#edit-field-pr-video-wrapper button').hide();
-        //   }
+          $('#entity_browser_iframe_paises').closest('.entity-browser-modal').addClass('countries-modal');
+          $('.countries-modal').siblings('.ui-widget-overlay').addClass('overlay-countries');
 
+         //Tooltips Campos validación campos requeridos
+         $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+         $('.form-select.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+         $('#edit-field-pr-country-wrapper .is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
+
+         $('.lightbulb-tooltip').click(()=>{
+         $( '.lightbulb-tooltip span').toggle();
+         });
         //Sumo select
-          $('#edit-field-product-type').SumoSelect({
+          $('.view-display-id-page_1 .form-select:not(#edit-field-categorization-target-id)').SumoSelect({
             forceCustomRendering: true,
           });
-          $('.js-form-item-field-categorization-parent .form-select').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
-          $('#edit-field-categorization').SumoSelect(
-            {
-              forceCustomRendering: true,
-            }
-          );
+          $('#cp-core-multistep-form .form-select:not(#edit-field-categorization-target-id, #edit-field-partida-arancelaria-tax, #edit-field-pr-type-certifications, #edit-field-pr-target-market, #edit-field-pr-sales-channel)').SumoSelect({
+            forceCustomRendering: true,
+          });
+          $('#edit-field-categorization-target-id').SumoSelect({
+            forceCustomRendering: true,
+            search:true,
+            searchText: Drupal.t('Search'),
+            noMatch: Drupal.t('No matches for "{0}"')
+          });
+
           $('#edit-field-partida-arancelaria-tax').SumoSelect({
             forceCustomRendering: true,
             search:true,
             searchText: Drupal.t('Search'),
             noMatch: Drupal.t('No matches for "{0}"')
           });
+
+          const requiredFieldSelect2 = $('.cp-core-multistep-form .form-select.required');
+          $(requiredFieldSelect2).filter('.error.is-invalid').each(function(i) {
+            $(this).closest('.js-form-type-select').addClass('is-invalid');
+          });
+
+          const imagesStep4 = $('.cp-core-multistep-form.step_4 input.js-form-file');
+          $(imagesStep4).filter('.error.is-invalid').each(function(i) {
+            $(this).closest('.js-form-type-managed-file').addClass('is-invalid');
+          });
+
           if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').length) {
             if ($('.field--name-field-partida-arancelaria-tax .SumoSelect input.search-txt').val().length > 0) {
               $('.field--name-field-partida-arancelaria-tax .SumoSelect .optWrapper ul.options').addClass('filtered');
@@ -129,39 +157,32 @@
         $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
         $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
 
-        //Tooltips interacciones
-        $('.form-control.is-invalid').after('<span class="tooltip-is-invalid"><p>Este campo es requerido</p></span>');
-        $('.lightbulb-tooltip').click(()=>{
-        $( '.lightbulb-tooltip span').toggle();
-        })
 
         //Multistep, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
+
           //Paso 3 ver mas de 3 items
           const certifications = $('#edit-field-pr-type-certifications-wrapper')
           certifications.click(()=>{
             const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            console.log(itemCtype.length);
             hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
           })
           showMorecType.click(()=>{
             const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            console.log(itemCtype.length);
             if (itemCtype.length > 3) {
               itemCtype.slice(3).toggleClass('show-item')
               showMorecTypeText.toggleClass('show-less')
-              toggleText(showMorecTypeText);                           
+              toggleText(showMorecTypeText);
             }else{
               showMorecTypeText.text(Drupal.t('View more'))
             }
           })
-          
+
           showMoreCountrie.click(()=>{
             const itemCountrie = $('.entities-list .item-container');
-            console.log(itemCountrie.length);
             if(itemCountrie.length > 3){
               itemCountrie.slice(3).toggleClass('show-item');
-             showMoreCountrieText.toggleClass('show-less');             
+             showMoreCountrieText.toggleClass('show-less');
              toggleText(showMoreCountrieText);
             }else{
               showMoreCountrieText.text(Drupal.t('View more'))
@@ -208,7 +229,7 @@
             new bootstrap.Modal(modal, {});
             modal.once().show();
           }
-          $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function() {
+          $('.generic-modal:not(.generic-modal-legal-modal) .close').once().click(function(e) {
             $(this).closest('.generic-modal:not(.generic-modal-legal-modal)').addClass('modal-closed').hide();
           });
         }
@@ -248,24 +269,28 @@
 
         if ($('.save-publish-question-modal').length) {
           $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
         else if($('.cancel-confirm-question-modal').length) {
           $('.cancel-confirm-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.cancel-confirm-submit').click();
           });
         }
 
         if ($('.save-publish-question-modal').length) {
           $('.save-publish-question-modal a.btn.btn-ok').once().click(function (e) {
+            e.preventDefault();
             $(this).closest('form').find('button.save-and-publish').click();
           });
         }
 
         // Close drupal default modal.
         if ($('.node--view-mode-product-service-presave-preview .close').length) {
-          $('.node--view-mode-product-service-presave-preview .close').once().click(function () {
+          $('.node--view-mode-product-service-presave-preview .close').once().click(function (e) {
+            e.preventDefault();
             Drupal.dialog($('#drupal-modal').get(0)).close();
           });
         }
@@ -274,7 +299,7 @@
         if ($('form .entity-browser-paises-close').length) {
           $('form .entity-browser-paises-close').once().click(function (e) {
             e.preventDefault();
-            $(".entity-browser-modal .ui-dialog-titlebar-close").click();
+            parent.jQuery(parent.document).find('.entity-browser-modal-iframe').parents('.ui-dialog').eq(0).find('.ui-dialog-titlebar-close').click();
           });
         }
 
@@ -334,7 +359,26 @@
           $('input#edit-field-pr-video-2-0-value').once().change(function(e) {
             if ($(this).val() != "") {
               $(this).trigger('state:empty');
-            }4
+            }
+          });
+        }
+
+        if ($('form.cp-core-multistep-edit-form').length) {
+          var advise = Drupal.t('Also remember to update the information in English.');
+          $('.form-item-title-0-value input').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').insertAfter(this);
+          });
+          $('.form-item-field-body-0-value textarea').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').insertAfter(this);
+          });
+          $('.form-item-field-file-0 input').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').appendTo('.group-left .field--name-field-file.field--widget-cp-core-file-generic ');
+          });
+          $('.form-item-field-aditional-information-0-value textarea').once().change(function() {
+            $('<small class="advise">' + advise + '</small>').insertAfter(this);
+          });
+          $('.field--name-field-pr-video button').once().click(function() {
+            $('<small class="advise">' + advise + '</small>').appendTo('.form-item-field-pr-video-0-value');
           });
         }
 

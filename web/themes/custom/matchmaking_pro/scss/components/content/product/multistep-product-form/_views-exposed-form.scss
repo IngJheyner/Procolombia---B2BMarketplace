@@ -1,0 +1,230 @@
+.entity-browser-modal.countries-modal{
+    background-color: $white !important;
+    border-radius: 10px !important;
+    max-width: 561px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &.ui-dialog .ui-dialog-title {
+        display: block !important;
+      }
+    .ui-dialog-titlebar{
+    background-color: $white !important;
+    border: none;
+    font-size: 22px;
+    border: none;
+    font-weight: bold;
+    padding-left: 75px !important;
+    background-image: url(../images/icons/Icono-Menu-Idioma-azul.svg);
+     background-repeat: no-repeat;
+    background-position: 32px center;
+    background-size: 31px 31px;
+    color: $procol-gray-400;
+    padding: 26px;
+    padding-bottom: 26px;
+    padding-left: 26px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid $button-lighter-gray;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 16px;
+    .ui-dialog-titlebar-close {
+        background-color: transparent;
+        border: none;
+        background-image:  url(../images/icons/Cerrar-negro.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 26px;
+        right: 26px;
+    }
+    }
+    .ui-dialog .ui-dialog-content {
+    height: 550px !important;
+}
+
+
+    .ui-dialog-content{
+        height: 100% !important;
+        background-color: white !important;
+        border-radius: 10px !important;
+        padding-top: 0;
+        align-self: center;
+        width: 100% !important;
+        padding: 0 23px;
+        .ajax-progress-throbber{
+            display: none;
+        }
+        #entity_browser_iframe_paises {
+            height: 511px;
+            border-radius: 10px;
+            padding-bottom: 21px !important;
+            a.entity-browser-paises-close {
+                @include media-breakpoint-down(lg){
+                    height: 56px;
+                    order: 3;
+                }
+            }
+            @include media-breakpoint-down(lg){
+                height: 605px;
+                
+            }
+        }
+    }
+    .ui-widget-overlay{
+        background-color: rgba($color: #000000, $alpha: 0.5) !important;
+    }
+} 
+
+.entity-browser-paises-form{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 508px;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    background-color: $white;
+    .view-paises {
+        width: 100%;
+        background-color: #F7F8F8;
+        border-radius: 10px;
+        padding-bottom: 2;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        #views-exposed-form-paises-entity-browser-1 {
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            background-color: transparent;
+            padding-bottom: 25px;
+            .row{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 !important;
+                gap: 13px;
+                @media screen and (max-device-width: 992px) {                            
+                    gap: 0;
+                }              
+                .js-form-type-textfield{
+                    max-width: 425px;
+                    width: 100%;
+                    padding: 0;
+                    height: 34px;
+                    margin-bottom: 0 !important;
+                    max-width: calc(100% - 47px);
+                    input{
+                        height: 34px;
+                        border: none;
+                        gap: 4px;
+                        @media screen and (max-device-width: 992px) {                            
+                            border-radius: 4px 0 0 4px;
+                        }
+                    }
+                    @media screen and (max-device-width: 992px){
+                        max-width: calc(100% - 34px);
+                        margin-right: 0;
+                    }
+                }
+                .form-actions{
+                    width: auto;
+                    padding: 0;
+                    margin-top: 0;
+                    margin-bottom: 0 !important;
+                    button{
+                        @include blue-btn;
+                        width: 34px;
+                        height: 34px;
+                        overflow: hidden;
+                        color: transparent;
+                        padding: 0;
+                        background-image: url(../images/icons/Icono-buscar.svg);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+            }
+            .table-striped tbody tr:nth-of-type(odd) {
+                background-color: $white !important;
+              }
+          }
+        
+        .view-content{
+            height: 318px;
+            margin: 0;
+            overflow-y:scroll ;
+            background-color: $white;
+            border-radius: 5px;
+            padding-bottom: 24px;
+        }
+      }
+    
+      #edit-actions--2{
+        order: 2;
+        flex-grow: 1;
+        display: flex;  
+        align-items: baseline;
+        height: 37px;
+        justify-content: flex-end;
+        @media screen and (max-device-width: 992px) {
+            height: 56px;
+            margin-top: 19px;
+            order: 2;
+        }
+        button{
+            @include blue-btn;
+            font-weight: lighter;
+            height: 37px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 213px;
+            width: 100%;
+            text-transform: uppercase;
+            @media screen and (max-device-width: 992px) {
+                height: 56px;
+                max-width: 100%;
+            }
+        }
+      }
+      .table-responsive{
+        tr{
+            background-color: $white;
+            border-bottom: #F7F8F8;
+        }
+        td{
+            div{
+                margin-bottom: 0 !important;
+                .form-check-input[type="checkbox"]{
+                    border-radius: 50px;
+                }
+            }
+        }
+      }
+      a.entity-browser-paises-close {
+        align-self: flex-start;
+        display: flex;
+        text-transform: uppercase;
+        @include gray-btn;
+        height: 37px;
+        justify-content: center;
+        align-items: center;
+        max-width: 213px;
+        width: 100%;
+        @media screen and (max-device-width: 992px) {
+            height: 56px;
+            max-width: 100%;
+            order: 3;
+        }
+       } 
+       
+}
+
+.ui-widget-overlay.ui-front.overlay-countries{
+    background-color: $procol-gray-400 !important;
+    opacity: 0.5;
+} 

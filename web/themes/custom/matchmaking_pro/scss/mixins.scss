@@ -110,7 +110,7 @@
     background-color: $procol-yellow;
     border-radius: 50px;
     padding: 5px;
-    background-position: 5px 4px;
+    background-position: 4px center;
     span{
         display: none;
         position: absolute;
@@ -181,7 +181,7 @@
     color: $white;
     border-radius: 4px;
     &::before{
-           position: absolute;
+        position: absolute;
         content: '';
         border:solid 8px transparent;
         border-bottom-color: $procol-gray-400 ;

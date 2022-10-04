@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.product.field_pr_ref_company
     - field.field.node.product.field_pr_sales_channel
     - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_structured_features
     - field.field.node.product.field_pr_target_market
     - field.field.node.product.field_pr_terms_of_condition
     - field.field.node.product.field_pr_type_certifications
@@ -211,6 +212,7 @@ content:
     region: main
 hidden:
   cp_core_close_modal: true
+  cp_core_edit_product: true
   cp_core_presave_preview: true
   cp_core_title_h2_no_link: true
   entity_print_view_epub: true
@@ -246,6 +248,7 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
+  field_pr_structured_features: true
   field_pr_target_market: true
   field_pr_terms_of_condition: true
   field_pr_type_certifications: true

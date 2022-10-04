@@ -1,0 +1,120 @@
+/* ==============================
+LOGIN DRUPAL
+============================== */
+#auth_box {
+	width: 35%;
+
+	#middle_part {
+		padding: 2rem 3rem;
+	}
+
+	input {
+		width: 100% !important;
+	}
+
+	#edit-persistent-login {
+		width: 20px !important;
+		height: 20px !important;
+	}
+}
+
+
+.modal-body {
+
+	padding: 37px 18px;
+
+	p {
+		font-size: 14px;
+		font-family: 'Gothic-Regular';
+		margin: 0px;
+		line-height: 1.2em;
+		font-weight: bold;
+	}
+
+
+
+	h6 {
+		font-size: 1.5rem;
+		font-family: 'Gothic-Bold';
+		padding: 0px 34px !important;
+		margin-bottom: 20px;
+	}
+
+	.password {
+		.input-group-text {
+			background-color: #fff;
+			color: $color-White;
+			border-radius: 4px !important;
+			margin-left: -3px !important;
+			z-index: 2;
+			border-left: 0px;
+			cursor: pointer;
+			border-top-left-radius: 0px !important;
+			border-bottom-left-radius: 0px !important;
+
+			svg {
+				margin-right: 10px;
+
+			}
+		}
+
+		.validation {
+			display: flex;
+			align-items: center;
+
+			.progress {
+				height: 7px;
+				width: 100%;
+
+				.progress-bar {
+					background-color: $color-Verde-aprobacion;
+				}
+			}
+
+			.mensaje {
+				margin-bottom: 0;
+				margin-left: 24px;
+				margin-right: 6px;
+			}
+
+		}
+	}
+
+	.rihgt {
+		.input-group-text {
+			margin-left: -3px !important;
+		}
+
+		.input-group-text.eliminar {
+			background-color: $color-Pantone-200  !important;
+			font-family: $font-regular  !important;
+		}
+	}
+}
+
+.modal-header {
+
+	h5 {
+		font-size: 22px;
+		color: $color-Gris-Oscuro;
+		font-family: $font-bold;
+		border-color: #00000033;
+	}
+}
+
+.modal-title {
+	img {
+		margin-right: 10px;
+	}
+}
+
+@media (max-width: 600px) {
+	#auth_box {
+		width: 95%;
+
+		#middle_part {
+			padding: 2rem 3rem;
+		}
+
+	}
+}

@@ -1,0 +1,82 @@
+.cp-core-multistep-form.step_4{
+    .js-form-wrapper.field--widget-cp-core-image-multi-widget{
+        .js-form-wrapper{
+            padding-top: 20px;
+        }
+    }
+    @include media-breakpoint-down(lg){
+        .form-wrapper.step-title{
+            padding: 0;
+        }
+        .group-row{
+            padding: 20px;
+            padding-bottom: 0;
+        }
+    }
+    #edit-field-images{
+        padding-top: 20px;
+        .messages--error{
+            padding-bottom: 10px;
+        }
+        @include media-breakpoint-down(lg){
+            padding-top: 0;
+        }
+    }
+    .js-form-type-managed-file{
+        position: relative;
+        &::after{
+            top: 30px;
+            right: 25px;
+            left: auto;
+            @include media-breakpoint-down(lg){
+                top: 0;
+                right: 0;
+            }
+        }
+        &.is-invalid{
+            .tooltip-is-invalid{
+                width: auto;
+                height: 20px;
+                display: flex;
+                position: absolute;
+                top: 30px;
+                right: 21px;
+                z-index: 3;
+                padding-left: 25px;
+                @include media-breakpoint-down(lg){
+                    top: 0;
+                    right: 0;
+                }
+                &:hover{
+                    width: 157px;
+                    p{
+                        @include hover-invalid-tooltip;
+                        top: 28px;
+                        left: 0;
+                        right: auto; 
+                        @include media-breakpoint-down(lg){
+                            right: -3px;
+                        }
+                        &::before{
+                            right: 5px;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+    .js-form-type-managed-file:nth-child(-n+3) {
+        border-right: 1px solid #D8DADD;
+        margin: 0 !important;
+        padding-right: 50px;
+        padding-bottom: 15px;
+        @include media-breakpoint-down(lg){
+            border-right: none;
+            padding-right: 0;
+        }
+    }
+    .field--type-multilingual-form-display{
+        display: none;
+    }
+    
+}
