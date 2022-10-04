@@ -27,8 +27,24 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
     if(\Drupal::currentUser()->hasPermission('cp_advisor_moderation dashboard')){
       $form_object = $form_state->getFormObject();
       if ($form_object instanceof EntityForm) {
-        $bundle = $form_object->getEntity()->bundle();
+        $node = $form_object->getEntity();
+        $bundle = $node->bundle();
         if($bundle === 'product') {
+
+          $form['edit_advise_modal'] = [
+            '#theme' => 'cp_core_node_multistep_generic_modal',
+            '#class' => 'edit-advise-modal',
+            '#autoload' => TRUE,
+            '#title' => t('Edit product or service'),
+            '#message' => t('You are about to edit the information of the product/service of the company @company', ['@company' => $node->getOwner()->label()]),
+            '#question' => t('Do you wish to continue?'),
+            '#button_text' => t('No'),
+            '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+            '#button_no_text' => t('Yes'),
+            '#button_no_link' => '#',
+          ];
+
+
           $form['actions']['reject'] = array(
             '#type' => 'submit',
             '#value' => t('Rejects'),
