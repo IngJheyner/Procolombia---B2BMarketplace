@@ -1,0 +1,162 @@
+.cp-core-node-multistep-sidebar{
+    grid-area: 2 / 1 / 5 / 2;
+    @include media-breakpoint-down(md) {
+        grid-area: 2 / 1 / 3 / 4;
+    }
+    ol{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+        margin-left: 22px;
+        margin-right: 22px;
+        position: relative;
+        counter-reset: headings;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+        @include media-breakpoint-down(md){
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            gap: 5px;
+            margin: 0;
+            margin-bottom: 15px;
+            li{
+                width: 30px;
+                height: 30px;
+                color: transparent;
+                padding-left: 26px;
+                width: 1px;
+                &::marker{
+                    position: relative;
+                }
+                &.current::after{
+                    content: '';
+                    border: 1px solid #D8DADD;
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    left: -0;
+                    transform: rotate(45deg);
+                    border-bottom: transparent;
+                    border-right: transparent;
+                    top: 0;
+                    top: 115%;
+                    background-color: $white;
+                }
+            }
+        }
+        &::before{
+            position: absolute;
+            top: 0;
+            left: 15px;
+            content: '';
+            background-color: $procol-gray-200;
+            width: 1px;
+            height: 95%;
+            z-index: -1;
+            margin-left: auto;
+            z-index: 2;
+            @include media-breakpoint-down(md){
+                height: 0px;
+                background-color: transparent;
+            }
+        }
+        >li{ 
+            position: relative;
+            font-size: $font-size-sm;
+            max-width: 182px;
+            padding-left: 38px;
+            font-family: "Century Gothic";
+            font-size: 12px;
+            width: 100%;
+            padding-right: 10px;
+            @include media-breakpoint-down(md){
+                max-width: 26px;
+            }
+            @include media-breakpoint-down(sm){
+                padding-left: 1px;
+            }
+
+            &::marker{
+                color: $white;
+                opacity: 1;
+            }
+            &::before{
+                position: absolute;
+                counter-increment: headings;
+                content: counter(headings, decimal) ".";
+                color: $white;
+                background-color: $procol-dark-blue;
+                top: -8%;
+                right: 95%;
+                height: 26px;
+                width: 26px;
+                border-radius: 50%;
+                z-index: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                left: 0;
+                top: 0;
+            }
+            &.current{
+                span{
+                    width: 100%;
+                    position: static;
+                    font-family: $font-bold-Century-Gothic;
+                    @include media-breakpoint-down(md){
+                        background-color: transparent;
+                    }
+                }
+                &::before{
+                    background-color: $procol-gray-400;
+                    
+                }
+            }  
+            &.completed{
+                &::marker{
+                    opacity: 0;
+                }
+                &::before{
+                    background-color: $procol-light-green;
+                    @include check-step;
+                }
+            }
+            &:hover::before,
+            &.current:hover:before{
+                background-color: $procol-dark-blue;
+                @include check-step;
+              }
+                &::marker{
+                    opacity: 0;
+                }
+            
+        }
+        span{
+            max-width: 126px;
+            width: 100%;
+            display: flex;
+        }
+    }
+    >li.current{
+        display: none;
+        @include media-breakpoint-down(md){
+            display: flex;
+            position: static;
+            z-index: -1;
+            padding: 10px 20px;
+            background-color: $white;
+            font-size: 16px;
+            font-weight: bold;
+            border-top: 1px solid $procol-gray-200;
+            color: $procol-gray-300;
+
+        }
+       }
+       
+}

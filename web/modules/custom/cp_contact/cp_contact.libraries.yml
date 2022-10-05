@@ -1,0 +1,10 @@
+cp_contact:
+  version: 2.8
+  css:
+    theme:
+      css/cp_contact.css: {}
+  js:
+    js/open_chat.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

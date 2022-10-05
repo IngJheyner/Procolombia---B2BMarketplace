@@ -6,15 +6,15 @@
 	</div>
 	<div class="body">
 		<h3 class="body_title">{{ "REGISTER TO HAVE THE COLOMBIAN OFFER JUST A CLICK AWAY"|t }}</h3>
-		<p class="body_description">{{ "Register in the Colombian Export Catalog to expand your offer to Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."|t }}
+		<p class="body_description">{{ "Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."|t }}
 		</p>
 		<div class="row gy-4 form_pre_registre">
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="nombre_del_sitio" class="form-label">{{ "Names"|t }}
-					<span>*</span>
+					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="text" class="form-control" id="name" placeholder="">
+					<input type="text" class="form-control" id="name" placeholder="" maxlength="20">
 					<i id="error_name" class='bx bxs-info-circle toltip_i'>
 						<span id="error_name_message" class="tooltiptext_error">
 							{{ "Required Field"|t }}
@@ -23,11 +23,11 @@
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
-				<label for="nombre_del_sitio" class="form-label">{{ "Surname"|t }}
-					<span>*</span>
+				<label for="nombre_del_sitio" class="form-label">{{ "Last names"|t }}
+					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="text" class="form-control" id="last_name" placeholder="">
+					<input type="text" class="form-control" id="last_name" placeholder="" maxlength="20">
 					<i id="error_last_name" class='bx bxs-info-circle toltip_i'>
 						<span id="error_last_name_message" class="tooltiptext_error">
 							{{ "Required Field"|t }}
@@ -37,10 +37,10 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="business_name" class="form-label">{{ "Company name"|t }}
-					<span>*</span>
+					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input type="text" class="form-control" id="business_name" placeholder="">
+					<input type="text" class="form-control" id="business_name" placeholder="" maxlength="100">
 					<i id="error_business_name" class='bx bxs-info-circle toltip_i'>
 						<span id="error_business_name_message" class="tooltiptext_error">
 							{{ "Required Field"|t }}
@@ -58,14 +58,29 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<label for="sitio" class="form-label">{{ "Cell Phone"|t }}
+					<sup>*</sup>
 				</label>
-				<div class="row p-0" style="justify-content: space-between;">
+				{# <div class="row p-0" style="justify-content: space-between;">
 					<div class="col-lg-3 code-input" style="padding: 0px;">
 						<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
 					</div>
 					<div class="col-lg-9 cel-input" style="padding-right: 0px;padding-left: 0px;">
 						<input class="w-100 form-control" type="tel" name="" id="cellphone">
 					</div>
+				</div> #}
+				<div class="input_error">
+					<div class="col-lg-3 code-input" style="padding: 0px;">
+						<input id="country_code_mobile" class="hidden-input" type="tel" name="phone"/>
+					</div>
+					<div class="col-lg-9 cel-input d-flex align-items-center" style="padding-right: 0px;padding-left: 0px;">
+						<input class="w-100 form-control" type="tel" name="" id="cellphone" maxlength="10">
+						<i id="error_cellphone" class='bx bxs-info-circle toltip_i'>
+						<span id="error_cellphone_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+					</div>
+					
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
@@ -73,7 +88,7 @@
 					<sup>*</sup>
 				</label>
 				<div class="input_error">
-					<input autocomplete="off" type="email" id="email" name="email" placeholder="Example@example.com" title="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." aria-label="Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web." class="form-control">
+					<input autocomplete="off" type="email" id="email" name="email" placeholder="{{ "Example@example.com"|t }}" title="{{ "Enter the institutional e-mail address where correspondence from this web site will be sent."|t }}" aria-label="{{ "Write the corporate email where the mailing from this website will be sent"|t }}" class="form-control">
 					<i id="error_mail" class='bx bxs-info-circle toltip_i'>
 						<span id="error_mail_message" class="tooltiptext_error">
 							{{ "Required Field"|t }}
@@ -90,7 +105,7 @@
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
-				<label for="sitio" class="form-label">{{ "Preferred language"|t }}<span>*</span>
+				<label for="sitio" class="form-label">{{ "Preferred language"|t }}<sup>*</sup>
 				</label>
 				<select id="langcode">
 					<option value="es">{{ "Spanish"|t }}</option>
@@ -100,15 +115,15 @@
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<div class="form-group password">
 					<label for="nit">{{ "Password"|t }}
-						<span>*</span>
+						<sup>*</sup>
 					</label>
 					<div class="input-group mb-3">
-						<input type="password" id="password_buyer" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
-						<span class="input-group-text">
+						<input type="password" id="password_buyer" class="form-control" aria-label="{{ "Recipient's username"|t }}" aria-describedby="basic-addon2">
+						<span id="password_buyer__span" class="input-group-text">
 							<img id="pass_bloq_buyer" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 							<img id="pass_show_buyer" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 						</span>
-						<div class="input_error">
+						<div class="input_error mb-0">
 							<i id="error_password_buyer" class='bx bxs-info-circle toltip_i'>
 								<span id="error_password_buyer_message" class="tooltiptext_error">
 									{{ "Required Field"|t }}
@@ -118,7 +133,7 @@
 					</div>
 					<div class="validation">
 						<div class="progress">
-							<div class="progress-bar" id="progressbar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+							<div class="progress-bar" id="progressbar" role="progressbar" aria-label="{{ "Basic example"|t }}" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 						<p id="error_mensaje_pass" style="word-break: initial;" class="mensaje">{{ "Weak"|t }}</p>
 					</div>
@@ -134,15 +149,15 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-6 ">
 				<div class="form-group password">
-					<label for="nit">{{ "Verify Password"|t }}<span>*</span>
+					<label for="nit">{{ "Verify Password"|t }}<sup>*</sup>
 					</label>
 					<div class="input-group mb-3">
 						<input type="password" id="confirm_password_buyer" class="form-control" aria-describedby="basic-addon2">
-						<span class="input-group-text">
+						<span id="pass_bloq_buyer_confirm__span" class="input-group-text">
 							<img id="pass_bloq_buyer_confirm" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 							<img id="pass_show_buyer_confirm" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
 						</span>
-						<div class="input_error">
+						<div class="input_error mb-0">
 							<i id="error_confirm_password_buyer" class='bx bxs-info-circle toltip_i'>
 								<span id="error_confirm_password_buyer_message" class="tooltiptext_error">
 									{{ "Required Field"|t }}
@@ -154,8 +169,8 @@
 			</div>
 			<div class="col-lg-12 check">
 				<label><input type="checkbox" checked id="conditions">
-					{{ "I have read and accept the"|t }}
-					<a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso" target="_blank" rel="noopener noreferrer">{{ "Terms of use"|t }}
+					{{ "I have read and accept"|t }} {{ "the"|t }}
+					<a href="https://b2bmarketplace.procolombia.co/es/condiciones-de-uso" target="_blank" rel="noopener noreferrer">{{ "Terms and Conditions of Use"|t }}
 						*</a>
 				</label>
 				<label><input type="checkbox" checked id="policy">
@@ -164,19 +179,12 @@
 						*</a>
 				</label>
 				<div style="text-align: center;">
-					<div class="g-recaptcha" data-sitekey="6LeHicwZAAAAAMtiZw22jz7qFL084fFEIHe8lOak" data-callback="onSubmit">
-						<div style="width: 304px; height: 78px;">
-							<div>
-								<iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeHicwZAAAAAMtiZw22jz7qFL084fFEIHe8lOak&amp;co=aHR0cHM6Ly9hemNhcHRjaGEuY29tOjQ0Mw..&amp;hl=es&amp;v=mq0-U1BHZ5YTcoDC-CvsLPNc&amp;size=normal&amp;cb=ke9h20s24mfp" width="304" height="78" role="presentation" name="a-iwinge827y8r" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
-							</div>
-							<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-						</div>
-					</div>
+					<div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
 				</div>
 			</div>
 			<div class="col-lg-12 continue">
 				<button data-bs-toggle="modal" data-bs-target="#cancel_modal" class="cancel">{{ "CANCEL"|t }}</button>
-				<button id="save" name="save" aria-label="Continuar con el registro" class="continue">{{ "CONTINUE"|t }}</button>
+				<button id="save" name="save" aria-label="{{ "Continue registration"|t }}" class="continue">{{ "CONTINUE"|t }}</button>
 			</div>
 		</div>
 	</div>
@@ -187,7 +195,7 @@
 					<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
 						{{ "Request an Appointment"|t }}
 					</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
 				</div>
 				<div class="modal-body">
 					<p>
@@ -223,10 +231,8 @@
 				</a>
 			</p>
 		</div>
-		<div class="modal-footer">
-			<div class="spinner-border my-2 m-auto" role="status" style="color: #0085ca;">
-				<span class="visually-hidden">{{ "Loading..."|t }}</span>
-			</div>
+		<div class="modal-footer text-center">
+			<button type="button" data-bs-dismiss="modal" class="btn cita_btn">{{ "UNDERSTOOD"|t }}</button>
 		</div>
 	</div>
 </div></div><div class="modal fade" id="success" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_2Label" aria-hidden="true">
@@ -244,7 +250,7 @@
 			<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
 				{{ "Existing Account"|t }}
 			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
 		</div>
 		<div class="modal-body">
 			<p>{{ "The consulted company already has a registered user, please"|t }}
@@ -266,7 +272,7 @@
 			<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
 				{{ "Cancel process"|t }}
 			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
 		</div>
 		<div class="modal-body">
 			<p>{{ "The process is about to be cancelled"|t }}
@@ -280,7 +286,7 @@
 				</div>
 				<div class="col-6 btn_options">
 					<button id="reload_form" class="yes">{{ "YES"|t }}</button>
-					<button data-bs-dismiss="modal" aria-label="Close"  class="no">{{ "NO"|t }}</button>
+					<button data-bs-dismiss="modal" aria-label="{{ "Close"|t }}" class="no">{{ "NO"|t }}</button>
 				</div>
 			</div>
 		</div>

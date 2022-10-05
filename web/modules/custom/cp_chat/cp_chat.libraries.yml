@@ -1,0 +1,12 @@
+cp_chat:
+  version: VERSION
+  css:
+    theme:
+      css/cp_chat.css: {}
+  js:
+    js/cp_chat.js: {}
+    js/vanillaEmojiPicker.js: {}
+    js/cp_chat_window.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

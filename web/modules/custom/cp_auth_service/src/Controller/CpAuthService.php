@@ -66,16 +66,16 @@ class CpAuthService extends ControllerBase
                     
                 } else {
                     //return error message
-                    return new JsonResponse(['error' => 'User is not active']);
+                    return new JsonResponse(['error' => 'El usuario no esta activo']);
                 }
                 
             } else {
                 //return error
-                return new JsonResponse(['error' => 'Invalid credentials']);
+                return new JsonResponse(['error' => 'El correo electrónico o la contraseña que ingresaste son incorrectos. Inténtalo de nuevo']);
             }
         } else {
             //return error message
-            return new JsonResponse(['error' => 'Invalid credentials']);
+            return new JsonResponse(['error' => 'El correo electrónico o la contraseña que ingresaste son incorrectos. Inténtalo de nuevo']);
         }
     }
 
@@ -122,7 +122,7 @@ class CpAuthService extends ControllerBase
         //get the username from the request
         $username = $request->request->get('username');
         //load the user by the username
-        $user = user_load_by_name($username);
+        $user = user_load_by_mail($username);
         //if the user exists, send the email, finally, return status 200, if not return 500
         if ($user) {
             // Create a timestamp.

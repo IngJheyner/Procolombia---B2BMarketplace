@@ -33,14 +33,14 @@
                 <div class="row p-0">
                   <div class="col-md-12">
                     <label for="logo" class="form-label">{{ 'Logo'|t }}
-                      <span>*</span>
+                       <sup>*</sup>
                     </label>
                     <div style="display: flex;">
                       <div id="prew" class=" w-100">
                         <img id="logo_img" src="" alt="" srcset="" class="mb-3" style="width: 80px; height: 80px;">
                         <div class="input-group mb-3">
                           <input type="text" id="logo_name" disabled style="background-color: #fff;"
-                            class="form-control" placeholder="https://www.youtube.com" aria-label="Recipient's username"
+                            class="form-control" placeholder="https://www.youtube.com" aria-label="{{ "Recipient's username"|t }}"
                             aria-describedby="basic-addon2">
                           <span id="remove_logo" style="background: #ba0c2f;" class="input-group-text">
                             <svg xmlns="http://www.w3.org/2000/svg" id="Grupo_1443" data-name="Grupo 1443" width="26"
@@ -100,16 +100,14 @@
 
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
-                        <span class="tooltiptext">{{ 'Only png formats with a maximum weight of
-                          2 MB and minimum dimensions of 200x200 px are allowed'|t }}</span>
+                        <span class="tooltiptext">{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}</span>
                       </i>
-                      <span>{{ 'Only png formats with a maximum weight of 2 MB and minimum
-                        dimensions of 200x200 px are allowed'|t }}</span>
+                      <span>{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <label for="business_name" class="form-label">{{ 'Company Name'|t }}
-                      <span>*</span>
+                       <sup>*</sup>
                     </label>
                     <div class="input_error">
                       <input type="text" class="form-control" id="business_name" placeholder="">
@@ -122,19 +120,15 @@
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
                         <span class="tooltiptext">
-                          {{ 'You must register the companys trade name, which is the name by
-                          which your company is recognized; it may or may not be the same
-                          company name.'|t }}
+                          {{ "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."|t }}
                         </span>
                       </i>
-                      <span>{{ 'You must register the companys trade name, which is the name by
-                        which your company is recognized; it may or may not be the same company
-                        name.'|t }}</span>
+                      <span>{{ "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <label for="website" class="form-label">{{ 'Company website'|t }}
-                      <span>*</span>
+                       <sup>*</sup>
                     </label>
                     <div class="input_error">
                       <input type="text" class="form-control" id="website">
@@ -157,12 +151,12 @@
                   </div>
                   <div class="col-md-12">
                     <label for="asesor" class="form-label ">{{ 'Main production chain'|t }}
-                      <span>*</span>
+                       <sup>*</sup>
                     </label>
                     <div class="d-flex align-items-center error_select">
                       <div id="production_chain_contain" class="w-100">
                         <select id="production_chain" class="single_select"
-                          placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                          placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
                           <option value="">{{ 'Enter the keyword or select an option'|t }}
                           </option>
                           {% for production_chain_item in production_chain %}
@@ -184,7 +178,7 @@
                   </div>
                   <div class="col-md-12">
                     <label for="nit">{{ 'NIT'|t }}
-                      <span>*</span>
+                       <sup>*</sup>
                     </label>
                     <input id="nit" class="form-control" type="num" disabled placeholder="830070123">
                   </div>
@@ -193,9 +187,8 @@
               <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="row p-0">
                   <div class="col-md-12">
-                    <label for="principal_code_ciiu" class="form-label">{{ 'Main CIIU code or
-                      economic activity'|t }}
-                      <span>*</span>
+                    <label for="principal_code_ciiu" class="form-label">{{ 'Main CIIU code or economic activity'|t }}
+                       <sup>*</sup>
                     </label>
                     <div class="input_error">
                       <input type="text" class="form-control" id="principal_code_ciiu" placeholder="">
@@ -208,17 +201,14 @@
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
                         <span class="tooltiptext">
-                          {{ 'Indicate the CIIU code or economic activity to which your
-                          company belongs.'|t }}
+                          {{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}
                         </span>
                       </i>
-                      <span>{{ 'Indicate the CIIU code or economic activity to which your company
-                        belongs.'|t }}</span>
+                      <span>{{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <label for="nombre_del_sitio" class="form-label">{{ 'CIIU Code Secondary or
-                      Economic Activity'|t }}</label>
+                    <label for="nombre_del_sitio" class="form-label">{{ 'CIIU Code Secondary or Economic Activity'|t }}</label>
                     <div class="input_error">
                       <input type="text" class="form-control" id="secondary_code_ciiu" placeholder="">
                       <i id="error_secondary_code_ciiu" class='bx bxs-info-circle toltip_i'>
@@ -230,21 +220,19 @@
                     <div class="toltip_content">
                       <i class='bx bxs-info-circle toltip_i'>
                         <span class="tooltiptext">
-                          {{ 'Indicate the CIIU code or economic activity to which your
-                          company belongs.'|t }}
+                          {{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}
                         </span>
                       </i>
-                      <span>{{ 'Indicate the CIIU code or economic activity to which your company
-                        belongs.'|t }}</span>
+                      <span>{{ 'Indicate the CIIU code or economic activity to which your company belongs.'|t }}</span>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <label for="sitio" class="form-label">{{ 'Department'|t }}
-                      <span>*</span>
+                       <sup>*</sup>
                     </label>
                     <div class="d-flex align-items-center error_select">
                       <div id="departament_contain" class="w-100">
-                        <select id="departament" class="single_select" placeholder="Seleccione una opción..."
+                        <select id="departament" class="single_select" placeholder="{{ 'Select an option'|t }}"
                           autocomplete="off">
                           <option value="">{{ 'Select an option'|t }}</option>
                           {% for deparment in deparments %}
@@ -263,11 +251,11 @@
                   </div>
                   <div class="col-md-12">
                     <label for="ciudad" class="form-label">{{ 'City or Municipality'|t
-                      }}<span>*</span>
+                      }} <sup>*</sup>
                     </label>
                     <div class="d-flex align-items-center error_select">
                       <div id="ciudad_contain" class="w-100">
-                        <select id="ciudad" class="single_select" placeholder="Seleccione una opción..."
+                        <select id="ciudad" class="single_select" placeholder="{{ 'Select an option'|t }}"
                           autocomplete="off"></select>
                       </div>
                       <i id="error_ciudad" class='bx bxs-info-circle toltip_i'>
@@ -280,12 +268,12 @@
                   </div>
                   <div class="col-md-12">
                     <label for="modelo_de_negocio" class="form-label">{{ 'Business Model'|t
-                      }}<span>*</span>
+                      }} <sup>*</sup>
                     </label>
                     <div class="d-flex align-items-center error_select">
                       <div id="modelo_de_negocio_contain" class="w-100">
                         <select id="modelo_de_negocio" multiple
-                          placeholder="Ingrese la palabra clave o seleccione varias opciones">
+                          placeholder="{{ 'Enter the keyword or select multiple options'|t }}">
                           <option value="">{{ 'Select an option'|t }}</option>
                           {% for business_model_item in business_model %}
                           <option value="{{business_model_item.ID}}">
@@ -307,7 +295,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6">
               <p class="title_label">{{ 'Spanish Information'|t }}</p>
               <label for="asesor" class="form-label">{{ 'Company Description'|t }}
-                <span>*</span>
+                 <sup>*</sup>
               </label>
               <div style="display:flex">
                 <textarea id="description_business_spanish" rows="4" cols="4"></textarea>
@@ -323,7 +311,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6">
               <p class="title_label">{{ 'English Information'|t }}</p>
               <label for="asesor" class="form-label">{{ 'Company Description'|t }}
-                <span>*</span>
+                 <sup>*</sup>
               </label>
               <div style="display:flex">
                 <textarea id="description_business_english" rows="4" cols="4"></textarea>
@@ -352,7 +340,7 @@
 
 
     <div class="description">
-      <p class="title">INFORMACIÓN DE CONTACTO</p>
+      <p class="title">{{ 'CONTACT INFORMATION'|t }}</p>
 
     </div>
     <div class="step_content">
@@ -361,7 +349,7 @@
           <form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
               <label for="asesor" class="form-label">{{ 'Contact name'|t }}
-                <span>*</span>
+                 <sup>*</sup>
               </label>
               <div style="display:flex">
                 <div class="input-group flex-nowrap">
@@ -389,7 +377,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="name" type="text" class="form-control" aria-label="Username"
+                  <input id="name" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -402,28 +390,27 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_5">
-              <label for="sitio" class="form-label">{{ 'Company landline telephone'|t }}<span>*</span>
+              <label for="sitio" class="form-label">{{ 'Company landline telephone'|t }} <sup>*</sup>
               </label>
-              <div class="row p-0">
-                <div class="col-lg-3" style="padding: 0px;">
+                <div class="row input_error p-0" style="display: flex;justify-content: space-between;">
+                  <div class="col-lg-3 code-input" style="padding: 0px;">
                   <input id="country_code_landline" class="hidden-input" type="tel" name="phone" />
-                </div>
-                <div class="col-lg-9">
-                  <div class="input_error">
-                    <input id="landline" class="w-100 form-control" style="height: 100%;" type="tel" name=""
-                      id="landline">
+                  </div>
+                  <div class="col-lg-9 cel-input d-flex align-items-center">
+                   <input id="landline" class="w-100 form-control" style="height: 100%;" type="tel" name="" id="landline">
                     <i id="error_landline" class='bx bxs-info-circle toltip_i'>
-                      <span id="error_landline_message" class="tooltiptext_error">
+                    <span id="error_landline_message" class="tooltiptext_error">
                         {{ 'Required Field'|t }}
                       </span>
-                    </i>
+                    </i>                
                   </div>
+                  
                 </div>
-              </div>
+            
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_2">
               <label for="asesor" class="form-label">{{ 'Contact last name'|t }}
-                <span>*</span>
+                 <sup>*</sup>
               </label>
               <div style="display:flex">
                 <div class="input-group flex-nowrap">
@@ -451,7 +438,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="last_name" type="text" class="form-control" aria-label="Username"
+                  <input id="last_name" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -465,28 +452,26 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_6">
               <label for="sitio" class="form-label">{{ 'Cell Phone'|t }}
-                <span>*</span>
+                 <sup>*</sup>
               </label>
-              <div class="row p-0">
-                <div class="col-lg-3" style="padding: 0px;">
-                  <input id="country_code_mobile" class="hidden-input" type="tel" name="phone" />
-                </div>
-                <div class="col-lg-9">
-                  <div class="input_error">
-                    <input id="mobile" class="w-100 form-control" style="height: 100%;" type="tel" name=""
-                      id="landline">
+               <div class="row input_error p-0" style="display: flex;justify-content: space-between;">
+                  <div class="col-lg-3 code-input" style="padding: 0px;">
+                    <input id="country_code_mobile" class="hidden-input" type="tel" name="phone" />
+                  </div>
+                  <div class="col-lg-9 cel-input d-flex align-items-center">
+                    <input id="mobile" class="w-100 form-control" style="height: 100%;" type="tel" name="" id="landline" maxlength="10"> 
                     <i id="error_mobile" class='bx bxs-info-circle toltip_i'>
-                      <span id="error_mobile_message" class="tooltiptext_error">
+                    <span id="error_mobile_message" class="tooltiptext_error">
                         {{ 'Required Field'|t }}
                       </span>
-                    </i>
+                    </i>                
                   </div>
+                  
                 </div>
-              </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_3">
               <label for="asesor" class="form-label">{{ 'E-mail address'|t }}
-                <span>*</span>
+                 <sup>*</sup>
               </label>
               <div style="display:flex">
                 <div class="input-group flex-nowrap">
@@ -514,7 +499,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="contact_email" type="text" class="form-control" aria-label="Username"
+                  <input id="contact_email" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -527,8 +512,8 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_4">
-              <label for="asesor" class="form-label">{{ 'Position name'|t }}
-                <span>*</span>
+              <label for="asesor" class="form-label">{{ 'Job title'|t }}
+                 <sup>*</sup>
               </label>
               <div style="display:flex">
                 <div class="input-group flex-nowrap">
@@ -556,7 +541,7 @@
                       </g>
                     </svg>
                   </span>
-                  <input id="position_spanish" type="text" class="form-control" aria-label="Username"
+                  <input id="position_spanish" type="text" class="form-control" aria-label="{{ "Username"|t }}"
                     aria-describedby="addon-wrapping">
                 </div>
                 <div class="input_error">
@@ -575,7 +560,7 @@
     </div>
 
     <div class="description mt-5">
-      <p class="title">INFORMACIÓN DE CLASIFICACIÓN DE PROCOLOMBIA</p>
+      <p class="title">{{ "PROCOLOMBIA'S CLASSIFICATION INFORMATION"|t }}</p>
 
     </div>
     <div class="step_content">
@@ -583,12 +568,12 @@
         <div class="" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
           <form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Estado <span>*</span>
+              <label for="asesor" class="form-label ">{{ "Status"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
                   <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                     <option value="">{{ 'Enter the keyword or select an option'|t }}
                     </option>
 
@@ -603,12 +588,12 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Desempeño exportador <span>*</span>
+              <label for="asesor" class="form-label ">{{ "Exporter's performance"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
                   <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                     <option value="">{{ 'Enter the keyword or select an option'|t }}
                     </option>
 
@@ -623,12 +608,12 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Activa o Inactiva <span>*</span>
+              <label for="asesor" class="form-label ">{{ "Active or Inactive"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
                   <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                     <option value="">{{ 'Enter the keyword or select an option'|t }}
                     </option>
 
@@ -643,12 +628,12 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Tags de clasificación marcas blancas y otras <span>*</span>
+              <label for="asesor" class="form-label ">{{ "Classification tags private labels and others"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
                   <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                     <option value="">{{ 'Enter the keyword or select an option'|t }}
                     </option>
 
@@ -663,12 +648,12 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Oferta especializada destacada <span>*</span>
+              <label for="asesor" class="form-label ">{{ "Outstanding specialized offer"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
                   <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                     <option value="">{{ 'Enter the keyword or select an option'|t }}
                     </option>
 
@@ -683,16 +668,11 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">URL de empresas con e-commerce crossboarder
+              <label for="asesor" class="form-label ">{{ "URL of e-commerce crossboarder companies"|t }}  <sup>*</sup>
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
-                  <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
-                    <option value="">{{ 'Enter the keyword or select an option'|t }}
-                    </option>
-
-                  </select>
+                  <input type="text" class="form-control" id="url_crossboader_companies" maxlength="200"/>
                 </div>
 
                 <i id="error_production_chain" class='bx bxs-info-circle toltip_i'>
@@ -703,12 +683,12 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 order_1">
-              <label for="asesor" class="form-label ">Tags Oferta especializada (Todos los idiomas)
+              <label for="asesor" class="form-label ">{{ "Tags Specialized offer (All languages)"|t }}
               </label>
               <div class="d-flex align-items-center error_select">
                 <div id="production_chain_contain" class="w-100">
                   <select id="production_chain" class="single_select"
-                    placeholder="Ingrese la palabra clave o seleccione una opción..." autocomplete="off">
+                    placeholder="{{ 'Enter the keyword or select an option'|t }}" autocomplete="off">
                     <option value="">{{ 'Enter the keyword or select an option'|t }}
                     </option>
 
@@ -726,16 +706,16 @@
 
           </form>
           <div class="row px-0 mt-2 py-2" style="border-top :1px solid #ccc">
-            <div class="col-lg-8 continue px-0">
-              <button id="confirm_cancel" class="cancel">{{ 'CANCEL'|t }}</button>
+            <div class="col-lg-8 continue">
+              <button id="cancel_process_1" class="cancel">{{ 'CANCEL'|t }}</button>
             </div>
-            <div class="col-lg-4 continue d-flex justify-content-between px-0">
-              <button id="modal_reject_user_exportador" name="reject_user_exportador" aria-label="Continuar con el registro"
-                class="continue rechazar">RECHAZAR</button>
-              <button id="modal_aproved_user_exportador" name="aproved_user_exportador" aria-label="Continuar con el registro"
-                class="continue aprove">APROBADO</button>
-              <button id="modal_confirm_save_exportador" name="confirm_save_exportador" aria-label="Continuar con el registro"
-                class="continue">GUARDAR</button>
+            <div class="col-lg-4 continue d-flex justify-content-between">
+              <button id="modal_reject_user_exportador" name="reject_user_exportador" aria-label="{{ "Continue registration"|t }}"
+                class="continue rechazar">{{ 'REJECT'|t }}</button>
+              <button id="modal_aproved_user_exportador" name="aproved_user_exportador" aria-label="{{ "Continue registration"|t }}"
+                class="continue aprove">{{ 'APPROVE'|t }}</button>
+              <button id="modal_confirm_save_exportador" name="confirm_save_exportador" aria-label="{{ "Continue registration"|t }}"
+                class="continue">{{ 'SAVE'|t }}</button>
               <button style="display:none" class="continue" id="loading_1" type="button" disabled>
                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                 {{ 'Loading...'|t }}
@@ -755,7 +735,7 @@
           <h5 class="modal-title" id="alert_1Label"><img
               src="http://52.201.168.42/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt="" srcset="">{{
             'Edit company profile and contact'|t }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
           <p>{{ 'All uploaded content must comply with the'|t }}
@@ -780,12 +760,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Actualizar Información
+              srcset="">{{ "Update Information"|t}}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the modified company information."|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -796,9 +776,9 @@
               <strong>{{ "Would you like to continue?"|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button data-bs-dismiss="modal" id="confirm_save" aria-label={{ "YES" |t }} class="yes">{{ "YES"|t
-                }}</button>
-              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="Close" aria-label={{ "NO" |t }}
+              <button data-bs-dismiss="modal" id="confirm_save" aria-label="{{ "YES"|t }}" class="yes">"{{ "YES"|t
+                }}"</button>
+              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}" aria-label="{{ "NO"|t }}"
                 class="no">{{ "NO"|t }}</button>
             </div>
           </div>
@@ -813,12 +793,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Aprobación Comprador Internacional
+              srcset="">{{ "Approval Colombian Company"|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the modified company information."|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -829,9 +809,9 @@
               <strong>{{ "Would you like to continue?"|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button data-bs-dismiss="modal" id="aproved_user_exportador" aria-label={{ "YES" |t }} class="yes">{{ "YES"|t
+              <button data-bs-dismiss="modal" id="aproved_user_exportador" aria-label="{{ "YES"|t }}" class="yes">{{ "YES"|t
                 }}</button>
-              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="Close" aria-label={{ "NO" |t }}
+              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}" aria-label="{{ "NO"|t }}"
                 class="no">{{ "NO"|t }}</button>
             </div>
           </div>
@@ -846,12 +826,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="alert_3Label"><img
               src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt=""
-              srcset="">Rechazo Comprador Internacional
+              srcset=""> {{ "Rejection Colombian Company"|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
-          <p>Está a punto actualizar la información modificada de la empresa <strong id="business_name_span"></strong>
+          <p>{{ "You are about to update the modified company information."|t }}<strong id="business_name_span"></strong>
           </p>
           </a>
           </p>
@@ -862,9 +842,9 @@
               <strong>{{ "Would you like to continue?"|t }}</strong>
             </div>
             <div class="col-6 btn_options">
-              <button data-bs-dismiss="modal" id="reject_user_exportador" aria-label={{ "YES" |t }} class="yes">{{ "YES"|t
+              <button data-bs-dismiss="modal" id="reject_user_exportador" aria-label="{{ "YES"|t }}" class="yes">{{ "YES"|t
                 }}</button>
-              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="Close" aria-label={{ "NO" |t }}
+              <button id="cancel_procces" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}" aria-label="{{ "NO"|t }}"
                 class="no">{{ "NO"|t }}</button>
             </div>
           </div>
@@ -882,7 +862,7 @@
               src="http://52.201.168.42/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
             {{ 'Cancel'|t }}
           </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
         </div>
         <div class="modal-body">
           <p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p>
@@ -910,12 +890,11 @@
             'Successful process'|t }}</h5>
         </div>
         <div class="modal-body">
-          <p> <strong>"{{ 'Company profile and contact information'|t }}"</strong> {{ 'has been successfully
-            modified.'|t }}</p>
+          <p> <strong>"{{ 'Company profile and contact information'|t }}"</strong> {{ 'has been successfully modified.'|t }}</p>
         </div>
         <div class="modal-footer">
-          <button id="" type="button" class="btn btn_save" data-bs-dismiss="modal">{{ 'UNDERSTOOD'|t
-            }}</button>
+          <button id="" type="button" class="btn btn_save" data-bs-dismiss="modal">{{ 'UNDERSTOOD'|t }}
+          </button>
         </div>
       </div>
     </div>

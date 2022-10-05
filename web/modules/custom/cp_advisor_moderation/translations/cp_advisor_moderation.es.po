@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-10-04 19:01+0200\n"
-"PO-Revision-Date: 2022-10-04 19:01+0200\n"
+"POT-Creation-Date: 2022-10-05 04:43+0200\n"
+"PO-Revision-Date: 2022-10-05 04:43+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -23,71 +23,85 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cp_advisor_moderation.module:47
+#: cp_advisor_moderation.module:41
+msgid "- Category -"
+msgstr "- Categoría -"
+
+#: cp_advisor_moderation.module:74
 msgid "Edit product or service"
 msgstr "Editar producto o servicio"
 
-#: cp_advisor_moderation.module:48
+#: cp_advisor_moderation.module:75
 msgid "You are about to edit the information of the product/service of the company <strong>\"@company\"</strong>"
-msgstr "Está a punto de editar la información del producto o servicio de la empresa <strong>\"@company\"</strong>"
+msgstr ""
+"Está a punto de editar la información del producto o servicio de la "
+"empresa <strong>\"@company\"</strong>"
 
-#: cp_advisor_moderation.module:49 templates/confirmation_modal.html.twig:14
+#: cp_advisor_moderation.module:76 templates/confirmation_modal.html.twig:14
 msgid "Do you wish to continue?"
 msgstr "¿Desea continuar?"
 
-#: cp_advisor_moderation.module:50
+#: cp_advisor_moderation.module:77
 msgid "No"
 msgstr "No"
 
-#: cp_advisor_moderation.module:52
+#: cp_advisor_moderation.module:79
 msgid "Yes"
 msgstr "Si"
 
-#: cp_advisor_moderation.module:61;71
+#: cp_advisor_moderation.module:85;95
 msgid "Rejects"
 msgstr "Rechazos"
 
-#: cp_advisor_moderation.module:82
+#: cp_advisor_moderation.module:106
 msgid "Reject"
 msgstr "Rechazar"
 
-#: cp_advisor_moderation.module:83
+#: cp_advisor_moderation.module:107
 msgid "You are about to reject the edition of the selected product or service."
-msgstr "Estás a punto de cancelar la edición del producto o servicio seleccionado."
+msgstr ""
+"Estás a punto de cancelar la edición del producto o servicio "
+"seleccionado."
 
-#: cp_advisor_moderation.module:89;98
+#: cp_advisor_moderation.module:113;122
 msgid "Approve"
 msgstr "Aprobar"
 
-#: cp_advisor_moderation.module:110
+#: cp_advisor_moderation.module:134
 msgid "You are about to approve the edition of the selected product or service"
 msgstr "Estás a punto de aprobar la edición del producto o servicio"
 
-#: cp_advisor_moderation.module:155
+#: cp_advisor_moderation.module:217
 msgid "approved product or service"
 msgstr "producto o servicio aprobado"
 
-#: cp_advisor_moderation.module:179
+#: cp_advisor_moderation.module:241
 msgid "rejected product or service"
 msgstr "producto o servicio rechazado"
 
-#: cp_advisor_moderation.module:209
+#: cp_advisor_moderation.module:271
 msgid "Any"
 msgstr "Cualquiera"
 
-#: cp_advisor_moderation.module:213
+#: cp_advisor_moderation.module:275
 msgid "Products / Services"
 msgstr "Productos / Servicios"
 
-#: cp_advisor_moderation.module:224
+#: cp_advisor_moderation.module:279
+msgid "DD/MM/AA"
+msgstr ""
+
+#: cp_advisor_moderation.module:288
 msgid "Successful process"
 msgstr "Proceso exitoso"
 
-#: cp_advisor_moderation.module:225
+#: cp_advisor_moderation.module:289
 msgid "All changes to the company <strong>\"@company\"</strong> have been saved and updated (this translation)."
-msgstr "Se han guardado y actualizado (esta traducción) todos los cambios de la empresa <strong>\"@company\"</strong>."
+msgstr ""
+"Se han guardado y actualizado (esta traducción) todos los cambios de "
+"la empresa <strong>\"@company\"</strong>."
 
-#: cp_advisor_moderation.module:226
+#: cp_advisor_moderation.module:290
 msgid "I got it"
 msgstr "Entendido"
 
@@ -135,3 +149,14 @@ msgstr "SI"
 msgid "NO"
 msgstr "NO"
 
+#: templates/views/views-view--dashboard-table-product.html.twig:91
+msgid "Without results"
+msgstr "Sin resultados"
+
+#: templates/views/views-view--dashboard-table-product.html.twig:95
+msgid "The company does not yet have products or services uploaded to the system."
+msgstr "La empresa aún no tiene productos o servicios subidos al sistema."
+
+#: templates/views/views-view--dashboard-table-product.html.twig:99
+msgid "Agreed"
+msgstr "Entendido"

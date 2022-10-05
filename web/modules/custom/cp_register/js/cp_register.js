@@ -40,7 +40,7 @@
       labelField: 'title',
       searchField: 'title',
       options: [
-        { id: 1, title: 'Seleccione una opción' },
+        { id: 1, title: Drupal.t("Select an option") },
       ],
       sortField: {
         field: "text",
@@ -51,7 +51,6 @@
 
     modelo_de_negocio_select = new TomSelect("#modelo_de_negocio", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -74,7 +73,6 @@
 
     certificacion_de_empresa_select = new TomSelect("#certificacion_de_empresa", {
       plugins: ['remove_button'],
-      create: true,
       create: false,
       onItemAdd: function () {
         this.setTextboxValue('');
@@ -256,7 +254,7 @@
         });
     } else {
       //show video error
-      let message = "the url is not a youtube url";
+      let message = Drupal.t("The url does not belong to a YouTube video");
       $("#video").css("border-color", "#ba0c2f");
       $("#error_video_message").text(message)
       $("#error_video").show();
@@ -332,7 +330,7 @@
     var isValid = true;
     if (logo == undefined) {
       message =
-        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
       $("#logo_input").css("border-color", "#ba0c2f");
       $("#logo_name").css("border-color", "#ba0c2f");
       $("#error_logo_message").text(message)
@@ -346,7 +344,7 @@
       var fileExtension = fileName.split(".").pop();
       if (fileExtension != "png" && fileExtension != "jpg") {
         message =
-          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
         $("#logo_input").css("border-color", "#ba0c2f");
         $("#logo_name").css("border-color", "#ba0c2f");
         $("#error_logo_message").text(message)
@@ -358,7 +356,7 @@
       } else {
         if (fileSize > 2000000) {
           message =
-            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
           $("#logo_input").css("border-color", "#ba0c2f");
           $("#logo_name").css("border-color", "#ba0c2f");
           $("#error_logo_message").text(message)
@@ -370,7 +368,7 @@
         } else {
           if (logo.width > 200 || logo.height > 200) {
             message =
-              Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n");
+              Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
             $("#logo_input").css("border-color", "#ba0c2f");
             $("#logo_name").css("border-color", "#ba0c2f");
             $("#error_logo_message").text(message)
@@ -618,13 +616,13 @@
             $("#home-tab").addClass("complete");
             $("#home-tab-pane").removeClass("show active");
           } else {
-            alert("Error al crear el usuario" + error);
+            alert(Drupal.t("Error While Creating User: ")+ error);
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save_1").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error While Creating User: ")+ error);
         });
     }
   }
@@ -938,29 +936,23 @@
     if (landline == "") {
       message = Drupal.t("Phone line is required");
       $("#landline").css("border-color", "#ba0c2f");
+      $("#error_landline_message").text(message)
       $("#error_landline").show();
-      $("#error_landline")
-
-        ;
       isValid = false;
     } else {
       if (landline.length > 20) {
         message =
           Drupal.t("The phone line must not be longer than 20 characters");
         $("#landline").css("border-color", "#ba0c2f");
+        $("#error_landline_message").text(message)
         $("#error_landline").show();
-        $("#error_landline")
-
-          ;
         isValid = false;
       } else {
         if (!landline.match(/^[0-9]+$/)) {
           message = Drupal.t("The telephone line must not have letters");
           $("#landline").css("border-color", "#ba0c2f");
+          $("#error_landline_message").text(message)
           $("#error_landline").show();
-          $("#error_landline")
-
-            ;
           isValid = false;
         } else {
           $("#error_landline").hide();
@@ -971,10 +963,8 @@
     if (country_code_mobile == "") {
       message = Drupal.t("The country code of the cell phone is required");
       $("#country_code_mobile").css("border-color", "#ba0c2f");
+      $("#error_country_code_mobile_message").text(message)
       $("#error_country_code_mobile").show();
-      $("#error_country_code_mobile")
-
-        ;
       isValid = false;
     } else {
       $("#error_country_code_mobile").hide();
@@ -983,28 +973,22 @@
     if (mobile == "") {
       message = Drupal.t("Cell phone is required");
       $("#mobile").css("border-color", "#ba0c2f");
+      $("#error_mobile_message").text(message)
       $("#error_mobile").show();
-      $("#error_mobile")
-
-        ;
       isValid = false;
     } else {
       if (mobile.length > 10) {
         message = Drupal.t("The cell phone must not be longer than 10 characters");
         $("#mobile").css("border-color", "#ba0c2f");
+        $("#error_mobile_message").text(message)
         $("#error_mobile").show();
-        $("#error_mobile")
-
-          ;
         isValid = false;
       } else {
         if (!mobile.match(/^[0-9]+$/)) {
           message = Drupal.t("The cell phone should not have letters");
           $("#mobile").css("border-color", "#ba0c2f");
+          $("#error_mobile_message").text(message)
           $("#error_mobile").show();
-          $("#error_mobile")
-
-            ;
           isValid = false;
         } else {
           $("#error_mobile").hide();
@@ -1015,8 +999,8 @@
     if (contact_email == "") {
       message = Drupal.t("Email is required");
       $("#contact_email").css("border-color", "#ba0c2f");
+      $("#error_email_message").text(message)
       $("#error_email").show();
-      $("#error_email");
       isValid = false;
     } else {
       if (
@@ -1026,10 +1010,8 @@
       ) {
         message = Drupal.t("The email address is not valid");
         $("#contact_email").css("border-color", "#ba0c2f");
+        $("#error_email_message").text(message)
         $("#error_email").show();
-        $("#error_email")
-
-          ;
         isValid = false;
       } else {
         $("#error_email").hide();

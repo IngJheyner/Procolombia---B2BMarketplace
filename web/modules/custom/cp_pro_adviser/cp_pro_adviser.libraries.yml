@@ -1,5 +1,5 @@
 cp_pro_adviser:
-  version: 1.7
+  version: 2.0
   css:
     theme:
       css/cp_pro_adviser.css: {}
@@ -10,9 +10,10 @@ cp_pro_adviser:
     js/cp_edit_col_company.js: {}
     js/cp_edit_international_company.js: {}
     js/cp_tels.js: {}
-
+    js/moment.min.js: {}
+    js/daterangepicker.min.js: {}
+    
   dependencies:
     - core/jquery
     - core/jquery.once
 
-    

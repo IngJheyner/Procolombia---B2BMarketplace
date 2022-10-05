@@ -29,7 +29,6 @@
     });
     select_model1 = new TomSelect("#company_model", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -45,7 +44,7 @@
       labelField: 'title',
       searchField: 'title',
       options: [
-        { id: 1, title: 'Seleccione una opción' },
+        { id: 1, title: Drupal.t("Select an option") },
       ],
       sortField: {
         field: "text",
@@ -63,7 +62,6 @@
     });
     select_model2 = new TomSelect("#company_model_2", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -79,7 +77,7 @@
       labelField: 'title',
       searchField: 'title',
       options: [
-        { id: 1, title: 'Seleccione una opción' },
+        { id: 1, title: Drupal.t("Select an option") },
       ],
       sortField: {
         field: "text",
@@ -97,7 +95,6 @@
     });
     select_model3 = new TomSelect("#company_model_3", {
       plugins: ['remove_button'],
-      create: true,
       onItemAdd: function () {
         this.setTextboxValue('');
         this.refreshOptions();
@@ -113,7 +110,7 @@
       labelField: 'title',
       searchField: 'title',
       options: [
-        { id: 1, title: 'Seleccione una opción' },
+        { id: 1, title: Drupal.t("Select an option") },
       ],
       sortField: {
         field: "text",
@@ -262,21 +259,22 @@
     var country = $("#country").val();
     var position = $("#position").val();
     var web_site = $("#web_site").val();
+    var advisor = $("#principal_advisor").val();
     let isValid = true;
     let message = ""
     if (country == "") {
-      message = Drupal.t("Por favor seleccione un país");
-      $("#country").css("border-color", "#ba0c2f");
+      message = Drupal.t("Please select a country");
+      $("#country_contain").find("div.ts-control").css("border-color", "#ba0c2f");
       $("#error_country_message").text(message)
       $("#error_country").show();
       isValid = false;
     } else {
-      $("#country").css("border-color", "#ccc");
+      $("#country_contain").find("div.ts-control").css("border-color", "#ccc");
       $("#error_country").hide();
     }
 
     if (position == "") {
-      message = Drupal.t("Por favor seleccione una posición");
+      message = Drupal.t("Please select a position");
       $("#position").css("border-color", "#ba0c2f");
       $("#error_position_message").text(message)
       $("#error_position").show();
@@ -286,9 +284,16 @@
       $("#error_position").hide();
     }
 
-    if (web_site != "") {
+    if (web_site == "") {
+      message = Drupal.t("Please enter a web site");
+      $("#web_site").css("border-color", "#ba0c2f");
+      $("#error_web_site_message").text(message)
+      $("#error_web_site").show();
+      isValid = false;
+    }
+    else if (web_site != "") {
       if (!validateURL(web_site)) {
-        message = Drupal.t("Por favor ingrese una web válida");
+        message = Drupal.t("Please enter a valid website");
         $("#web_site").css("border-color", "#ba0c2f");
         $("#error_web_site_message").text(message)
         $("#error_web_site").show();
@@ -297,6 +302,18 @@
         $("#web_site").css("border-color", "#ccc");
         $("#error_web_site").hide();
       }
+      
+    }
+
+    if (advisor == "") {
+      message = Drupal.t("Select the ProColombia advisor with whom your company has a defined work plan.");
+      $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ba0c2f");
+      $("#error_principal_advisor-ts-control_message").text(message)
+      $("#error_principal_advisor-ts-control").show();
+      isValid = false;
+    } else {
+      $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ccc");
+      $("#error_principal_advisor-ts-control").hide();
     }
 
     return isValid;
@@ -337,13 +354,13 @@
             $("#validate_progresss").css("width", "33%");
             $("#step_2").removeClass("show active");
           } else {
-            alert("Error al crear el usuario" + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_2").hide();
           $("#save_buyer_1").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -362,7 +379,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_1 == "") {
-      message = Drupal.t("Por favor seleccione una categoría");
+      message = Drupal.t("Please select a category");
       $("#cat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_1_message").text(message)
       $("#error_cat_interest_1").show();
@@ -373,7 +390,7 @@
     }
 
     if (subcat_interest_1 == "") {
-      message = Drupal.t("Por favor seleccione una subcategoría");
+      message = Drupal.t("Please select a subcategory");
       $("#subcat_interest_1_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_1_message").text(message)
       $("#error_subcat_interest_1").show();
@@ -384,7 +401,7 @@
     }
 
     if (company_model == "") {
-      message = Drupal.t("Por favor seleccione un modelo de empresa");
+      message = Drupal.t("Please select a business model");
       $("#company_model_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_message").text(message)
       $("#error_company_model").show();
@@ -431,13 +448,13 @@
             $("#validate_progresss").css("width", "53%");
             $("#step_3").removeClass("show active");
           } else {
-            alert("Error al crear el usuario" + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_3").hide();
           $("#save_buyer_2").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -457,7 +474,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_2 == "") {
-      message = Drupal.t("Por favor seleccione una categoría");
+      message = Drupal.t("Please select a category");
       $("#cat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_2_message").text(message)
       $("#error_cat_interest_2").show();
@@ -468,7 +485,7 @@
     }
 
     if (subcat_interest_2 == "") {
-      message = Drupal.t("Por favor seleccione una subcategoría");
+      message = Drupal.t("Please select a subcategory");
       $("#subcat_interest_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_2_message").text(message)
       $("#error_subcat_interest_2").show();
@@ -479,7 +496,7 @@
     }
 
     if (company_model_2 == "") {
-      message = Drupal.t("Por favor seleccione un modelo de empresa");
+      message = Drupal.t("Please select a business model");
       $("#company_model_2_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_2_message").text(message)
       $("#error_company_model_2").show();
@@ -526,13 +543,13 @@
             $("#validate_progresss").css("width", "73%");
             $("#step_4").removeClass("show active");
           } else {
-            alert("Error al crear el usuario" + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_4").hide();
           $("#save_buyer_3").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -552,7 +569,7 @@
     let isValid = true;
     let message = ""
     if (cat_interest_3 == "") {
-      message = Drupal.t("Por favor seleccione una categoría");
+      message = Drupal.t("Please select a category");
       $("#cat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_cat_interest_3_message").text(message)
       $("#error_cat_interest_3").show();
@@ -563,7 +580,7 @@
     }
 
     if (subcat_interest_3 == "") {
-      message = Drupal.t("Por favor seleccione una subcategoría");
+      message = Drupal.t("Please select a subcategory");
       $("#subcat_interest_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_subcat_interest_3_message").text(message)
       $("#error_subcat_interest_3").show();
@@ -574,7 +591,7 @@
     }
 
     if (company_model_3 == "") {
-      message = Drupal.t("Por favor seleccione un modelo de empresa");
+      message = Drupal.t("Please select a business model");
       $("#company_model_3_cont .ts-control").css("border-color", "#ba0c2f");
       $("#error_company_model_3_message").text(message)
       $("#error_company_model_3").show();
@@ -626,13 +643,13 @@
             $("#empresa_popup").text(localStorage.getItem("company_name"));
             localStorage.clear();
           } else {
-            alert("Error al crear el usuario" + error);
+            alert(Drupal.t("Error while creating user. ") + error);
           }
         })
         .catch(function (error) {
           $("#loading_international_5").hide();
           $("#save_buyer_4").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error while creating user. ") + error);
         });
     }
   }
@@ -712,13 +729,13 @@
           localStorage.clear();
           window.location.href = "/pre-registro";
         } else {
-          alert("Error al eliminar el usuario");
+          alert(Drupal.t("Error when deleting user"));
         }
       })
       .catch(function (error) {
         $("#loading_3").hide();
         $("#save_3").show();
-        alert("Error al eliminar el usuario");
+        alert(Drupal.t("Error when deleting user"));
       });
   }
 
@@ -739,6 +756,9 @@
     select_model1.setValue(data.company_model);
     select_model2.setValue(data.company_model_2);
     select_model3.setValue(data.company_model_3);
+    country.setValue(data.country);
+    console.log(data);
+    advisor.setValue(data.adviser);
   }
 
   /*

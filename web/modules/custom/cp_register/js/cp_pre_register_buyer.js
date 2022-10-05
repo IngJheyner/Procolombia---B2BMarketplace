@@ -33,7 +33,7 @@
               window.location.href = '/register/user/buyer';
             }, 3000);
           } else {
-            alert("Token invalid");
+            alert(Drupal.t("Token invalid"));
           }
         }).catch(function (error) {
           console.log('Request failed', error);
@@ -118,18 +118,18 @@
 
     if (progress === 25) {
       $("#progressbar").css("background", "#ba0c2f");
-      $("#error_mensaje_pass").text("Debil");
+      $("#error_mensaje_pass").text(Drupal.t("Weak"));
     } else {
       if (progress === 50) {
         $("#progressbar").css("background", "#fdca00");
-        $("#error_mensaje_pass").text("Normal");
+        $("#error_mensaje_pass").text(Drupal.t("Normal"));
       } else {
         if (progress === 75) {
           $("#progressbar").css("background", "#0085ca");
-          $("#error_mensaje_pass").text("Buena");
+          $("#error_mensaje_pass").text(Drupal.t("Good"));
         } else {
           if (progress === 100) {
-            $("#error_mensaje_pass").text("Fuerte");
+            $("#error_mensaje_pass").text(Drupal.t("Strong"));
             $("#progressbar").css("background", "#31d394");
           }
         }
@@ -168,14 +168,14 @@
     var isValid = true;
 
     if (name === "") {
-      message = Drupal.t("Name is required\n");
+      message = Drupal.t("Name is required");
       $("#name").css("border-color", "#ba0c2f");
       $("#error_name").show();
       $("#error_name_message").text(message)
       isValid = false;
     } else {
       if (name.length > 20) {
-        message = Drupal.t("The name cannot be longer than 20 characters\n");
+        message = Drupal.t("The name cannot be longer than 20 characters");
         $("#name").css("border-color", "#ba0c2f");
         $("#error_name").show();
         $("#error_name_message").text(message)
@@ -186,14 +186,14 @@
       }
     }
     if (last_name === "") {
-      message = Drupal.t("El apellido es requerido\n");
+      message = Drupal.t("Lastname is required");
       $("#last_name").css("border-color", "#ba0c2f");
       $("#error_last_name").show();
       $("#error_last_name_message").text(message)
       isValid = false;
     } else {
       if (last_name.length > 20) {
-        message = Drupal.t("The last name cannot be longer than 20 characters\n");
+        message = Drupal.t("The last name cannot be longer than 20 characters");
         $("#last_name").css("border-color", "#ba0c2f");
         $("#error_last_name").show();
         $("#error_last_name_message").text(message)
@@ -231,7 +231,7 @@
     }
 
     if (cellphone === "") {
-      message = Drupal.t("Cellphone is required\n");
+      message = Drupal.t("Cellphone is required");
       $("#cellphone").css("border-color", "#ba0c2f");
       $("#error_cellphone").show();
       $("#error_cellphone_message").text(message)
@@ -244,7 +244,7 @@
         $("#error_cellphone_message").text(message)
         isValid = false;
       } else {
-        if (cellphone.length > 10) {
+        if (cellphone.length !== 10) {
           message = Drupal.t("The cell phone must not have more than 10 digits");
           $("#cellphone").css("border-color", "#ba0c2f");
           $("#error_cellphone").show();
@@ -258,14 +258,14 @@
     }
 
     if (business_name === "") {
-      message = Drupal.t("Company is required\n");
+      message = Drupal.t("Company is required");
       $("#business_name").css("border-color", "#ba0c2f");
       $("#error_business_name").show();
       $("#error_business_name_message").text(message)
       isValid = false;
     } else {
       if (business_name.length > 100) {
-        message = Drupal.t("The company cannot be longer than 100 characters\n");
+        message = Drupal.t("The company cannot be longer than 100 characters");
         $("#business_name").css("border-color", "#ba0c2f");
         $("#error_business_name").show();
         $("#error_business_name_message").text(message)
@@ -279,6 +279,7 @@
     if (password == "") {
       message = Drupal.t("Password is required");
       $("#password_buyer").css("border-color", "#ba0c2f");
+      $("#password_buyer__span").css("border-color", "#ba0c2f");
       $("#error_password_buyer_message").text(message)
       $("#error_password_buyer").show();
       isValid = false;
@@ -287,6 +288,7 @@
       if (password.length < 8 || password.length > 15) {
         message = Drupal.t("The password must be between 8 and 15 characters long");
         $("#password_buyer").css("border-color", "#ba0c2f");
+        $("#password_buyer__span").css("border-color", "#ba0c2f");
         $("#error_password_buyer_message").text(message)
         $("#error_password_buyer").show();
         isValid = false;
@@ -294,6 +296,7 @@
         if (!password.match(/[A-Z]/)) {
           message = Drupal.t("The password must have at least one capital letter");
           $("#password_buyer").css("border-color", "#ba0c2f");
+          $("#password_buyer__span").css("border-color", "#ba0c2f");
           $("#error_password_buyer_message").text(message)
           $("#error_password_buyer").show();
           isValid = false;
@@ -301,17 +304,15 @@
           if (!password.match(/[0-9]/)) {
             message = Drupal.t("The password must have at least one number");
             $("#password_buyer").css("border-color", "#ba0c2f");
+            $("#password_buyer__span").css("border-color", "#ba0c2f");
             $("#error_password_buyer_message").text(message)
             $("#error_password_buyer").show();
-            $("#error_password_buyer")
-
-              ;
             isValid = false;
           } else {
             if (!password.match(/[^a-zA-Z0-9]/)) {
-              message = Drupal.t(
-                "The password must have at least one special character");
+              message = Drupal.t("The password must have at least one special character");
               $("#password_buyer").css("border-color", "#ba0c2f");
+              $("#password_buyer__span").css("border-color", "#ba0c2f");
               $("#error_password_buyer_message").text(message)
               $("#error_password_buyer").show();
               $("#error_password_buyer")
@@ -321,6 +322,7 @@
             } else {
               $("#error_password_buyer").hide();
               $("#password_buyer").css("border-color", "#cccccc");
+              $("#password_buyer__span").css("border-color", "#cccccc");
             }
           }
         }
@@ -330,6 +332,7 @@
     if (confirm_password_buyer == "") {
       message = Drupal.t("Verify password field is required");
       $("#confirm_password_buyer").css("border-color", "#ba0c2f");
+      $("#pass_bloq_buyer_confirm__span").css("border-color", "#ba0c2f");
       $("#error_confirm_password_buyer_message").text(message)
       $("#error_confirm_password_buyer").show();
       isValid = false;
@@ -337,12 +340,14 @@
       if (password != confirm_password_buyer) {
         message = Drupal.t("The field verify password and Password must be the same");
         $("#confirm_password_buyer").css("border-color", "#ba0c2f");
+        $("#pass_bloq_buyer_confirm__span").css("border-color", "#ba0c2f");
         $("#error_confirm_password_buyer_message").text(message)
         $("#error_confirm_password_buyer").show();
         isValid = false;
       } else {
         $("#error_confirm_password_buyer").hide();
         $("#confirm_password_buyer").css("border-color", "#cccccc");
+        $("#pass_bloq_buyer_confirm__span").css("border-color", "#cccccc");
       }
     }
 
@@ -375,6 +380,18 @@
       $("#error_conditions").hide();
     }
 
+    //validate captcha getResponse and if is empty show error
+    var response = grecaptcha.getResponse();
+    console.log(response);
+    console.log("HI x2")
+    if (response.length == 0) {
+      alert(Drupal.t("Please verify that you are not a robot"));
+      $("#error_captcha").show();
+      isValid = false;
+    } else {
+      $("#error_captcha").hide();
+    }
+
     return isValid;
 
   }
@@ -399,7 +416,7 @@
         company: $("#business_name").val(),
         password: $("#password_buyer").val(),
         langcode: $("#langcode").val(),
-        country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode
+        country_code_mobile: code_mobile_select.getSelectedCountryData().dialCode,
       };
       console.log(data);
       var formData = new FormData();
@@ -439,21 +456,23 @@
                   }, 15000);
                 } else {
                   $("#loader").modal('hide');
-                  alert("Request failed email");
+                  alert(Drupal.t("Email request error"));
                 }
               })
               .catch(function (error) {
                 $("#loader").modal('hide');
-                alert("Request failed email", error);
+                alert(Drupal.t("Email request error"));
               });
           } else {
-            alert("Error: Email ya registrado");
+            alert(Drupal.t("Error: E-mail already has been registered"));
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save").show();
-          alert("Error al crear el usuario" + error);
+          alert(Drupal.t("Error while creating user. ") + error);
+          console.log(Drupal.t("Error while creating user. ") + error);
+          console.log(error);
         });
     }
   }
@@ -468,38 +487,80 @@
       if (context === document && $("#langcode").length > 0) {
         init();
       }
-      //call function passwordToText
-      $("#pass_show_buyer", context).click(function () {
-        passwordToText();
-      });
-      //call function textToPassword
-      $("#pass_bloq_buyer", context).click(function () {
-        textToPassword();
-      });
-      //call function passwordToText
-      $("#pass_show_buyer_confirm", context).click(function () {
-        passwordToText();
-      });
-      //call function textToPassword
-      $("#pass_bloq_buyer_confirm", context).click(function () {
-        textToPassword();
-      });
-      //call function valueProgressBar oninput
-      $("#password_buyer", context).on("input", function () {
-        valueProgressBar();
-      });
-      //call function saveUser
-      $("#save", context).click(function () {
-        saveUser();
-      });
-      //Reload form data
-      $("#reload_form", context).click(function () {
-        window.location.reload()
-      });
+      //get current url
+      var url = window.location.href;
 
-
+      if(url.includes("pre-register/buyer") || url.includes("pre-registro/comprador")){
+        //call function passwordToText
+        $("#pass_show_buyer", context).click(function () {
+          passwordToText();
+        });
+        //call function textToPassword
+        $("#pass_bloq_buyer", context).click(function () {
+          textToPassword();
+        });
+        //call function passwordToText
+        $("#pass_show_buyer_confirm", context).click(function () {
+          passwordToText();
+        });
+        //call function textToPassword
+        $("#pass_bloq_buyer_confirm", context).click(function () {
+          textToPassword();
+        });
+        //call function valueProgressBar oninput
+        $("#password_buyer", context).on("input", function () {
+          valueProgressBar();
+        });
+        //call function saveUser
+        $("#save", context).click(function () {
+          saveUser();
+        });
+        //Reload form data
+        $("#reload_form", context).click(function () {
+          window.location.reload()
+        });
+      
+        //call function saveUser and validate form
+        $("#name", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+            console.log(url);
+          }
+        });
+        //call function saveUser and validate form
+        $("#last_name", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+          }
+        });
+        //call function saveUser and validate form
+        $("#business_name", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+          }
+        });
+        //call function saveUser and validate form
+        $("#email", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+          }
+        });
+        $("#cellphone", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+          }
+        });
+        $("#password_buyer", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+          }
+        });
+        $("#confirm_password_buyer", context).keypress(function (event) {
+          if (event.keyCode == 13) {
+            saveUser();
+          }
+        });
+      }  
     }
   };
-
-
 }(jQuery, Drupal));

@@ -856,7 +856,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a  class="edit-link" href="/dashboard-advisor/product/{{nid}}/edit">Editar</a>'
+            text: '<a  class="edit-link" href="/dashboard/product-edit-multistep/{{nid}}">Editar</a>'
             make_link: false
             path: ''
             absolute: false

@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cp_chat module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function cp_chat_install() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cp_chat_uninstall() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_schema().
+ */
+function cp_chat_schema() {
+  $schema['cp_chat'] = [
+    'description' => 'Table for chat main control.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'entity_id_exportador' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {users}.id of the user exportador who belong to this chat.',
+      ],
+      'entity_id_comprador' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {users}.id of the user comprador who belong to this chat.',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'description' => 'Timestamp when the record was updated.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'description' => 'Timestamp when the record was deleted.',
+      ]
+    ],
+    'primary key' => ['id']
+  ];
+
+  $schema['cp_chat_messages'] = [
+    'description' => 'Table relation chat messages.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'id_chat' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {chat}.id for this chat message.',
+      ],
+      'entity_id_sender' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {users}.id of the sender who belong to this message.',
+      ],
+      'message' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Sender message',
+      ],
+      'files' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Sender files attached to message', 
+      ],
+      'checked' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'status of message for receiver',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'description' => 'Timestamp when the record was updated.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'description' => 'Timestamp when the record was deleted.',
+      ]
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
