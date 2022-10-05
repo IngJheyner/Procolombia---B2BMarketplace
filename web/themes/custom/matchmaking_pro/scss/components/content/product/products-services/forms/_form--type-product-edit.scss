@@ -5,7 +5,7 @@
     margin-bottom: 18px;
     border-radius: 4px;
     background-color: $white;
-    font-family:"Century Gothic";
+    font-family:$font-family-Century-Gothic;
     
     %label-style {
         position: relative;
@@ -322,7 +322,7 @@
                 label{
                     font-weight: 300;
                     padding-bottom: 0;
-                    font-family: "Century Gothic";
+                    font-family: $font-family-Century-Gothic;
                 }
             }
         }
