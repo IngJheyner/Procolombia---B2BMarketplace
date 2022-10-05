@@ -54,10 +54,16 @@
           {% if header %}
             <div class="view-header">
               {{ header }}
-            </div>
+            </div>            
           {% endif %}
           {{ exposed }}
         </div>
+        {% if view.getExposedInput.title is defined %}
+              <div class="items-result">
+                <p>{{ 'Se encontraron'|t }} <strong>{{ view.total_rows }} {{ 'resultados'|t }}</strong> {{ 'asociados a tu búsqueda'|t }}</p>
+                <a href="{{ view.getUrlInfo }}/{{ view.args[0] }}">{{ 'Restablecer filtrado'|t }}</a>
+              </div>
+        {% endif %}
       {% endif %}
       <div class="after-filters-container">
       {% if pager %}
@@ -97,7 +103,7 @@
       <div class="pager-with-count">
         {% if footer %}
           <div class="view-footer">
-            {{ footer }}
+            <p>{{ 'Total ítems:'|t }} <span>{{ view.total_rows }}</span></p>
           </div>
         {% endif %}
         <div class="pager-right">
