@@ -784,5 +784,36 @@
 			
 		}
 	}
+	&.view-display-id-page_1{
+		.items-result{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: $white;
+			order: 3;
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 4px 4px 0 0;
+			padding: 20px;
+			@include media-breakpoint-down(lg){
+				box-shadow: none;
+			}
+			p{
+				color: $procol-dark-blue;
+				margin-bottom: 0 !important;
+				font-size: 18px;
+			}
+			a{
+				padding: 12px 39px;
+				border: 1px solid $procol-light-blue;
+				font-size: $font-size-sm;
+				border-radius: 5px;
+				color: $procol-gray-400;
+				@include media-breakpoint-down(lg){
+					display: none;
+				}
+			}
+		}
+	}
+
 }
 

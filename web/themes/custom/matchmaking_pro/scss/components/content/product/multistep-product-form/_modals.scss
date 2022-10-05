@@ -27,6 +27,12 @@
                 background-repeat: no-repeat;
                 background-color: transparent !important;
                 border: none;
+                .close{
+                    opacity: 1;
+                    width: auto;
+                    position: relative;
+                    height: auto;
+                }
             }
             &::before{
                 content: '';
@@ -182,6 +188,9 @@
         }
     }
     &.legal-modal{
+        top: 0;
+        right: 0;
+        opacity: 1;
         @include media-breakpoint-down(lg){
             .modal-header{
 
@@ -213,6 +222,9 @@
              .modal-footer-left,
              .modal-footer-right{
                 margin: 0;
+                .close{
+                    width: 100%;
+                }
              }
             }
         }
