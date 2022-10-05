@@ -21,6 +21,11 @@
     strong{
         font-family: Maven-Bold;
     }
+    div.close {
+        opacity: 1;
+        position: relative;
+        width: auto;
+        }
     .close a{
         display: flex;
         justify-content: space-between;
