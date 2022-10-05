@@ -23,8 +23,10 @@
     }
     div.close {
         opacity: 1;
-        position: relative;
+        position: static;
         width: auto;
+        margin: 0;
+        height: auto;
         }
     .close a{
         display: flex;
