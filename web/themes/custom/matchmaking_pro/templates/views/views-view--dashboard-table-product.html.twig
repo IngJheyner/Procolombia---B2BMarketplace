@@ -84,12 +84,12 @@
         {% if rows %}
           <div class="view-content row">
           {% if view.total_rows == 0 and view.getExposedInput.title is not defined %}
-            <div class="generic-modal modal view-no-results" id="generic-modal-view-no-results">
+            <div class="generic-modal modal view-no-results no-products" id="generic-modal-view-no-results">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <span class="modal-header-title">{{ 'Without results' | t }}</span>
-                    <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                    <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <span class="modal-top-title">{{ 'The company does not yet have products or services uploaded to the system.' | t }}</span>
