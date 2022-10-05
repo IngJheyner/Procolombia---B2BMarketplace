@@ -210,7 +210,12 @@
 				border-radius: 4px;
 				font-size: 14px;
 				line-height: 17px;
-				padding-left: 40px;				
+				padding-left: 40px;	
+				width: auto;
+				position: static;
+				margin: 0;
+				opacity: 1;
+				padding-left: 10px;			
 				&::before{
 					position: relative;
 					content: '';
@@ -219,7 +224,7 @@
 					background-image: url(../images/icons/back.svg);
 					background-repeat: no-repeat;
 					background-size: 15px;	
-					margin-right: 20px;			
+					margin-right: 5px;			
 					background-position: center;	
 				}
 				@include media-breakpoint-down(lg){
