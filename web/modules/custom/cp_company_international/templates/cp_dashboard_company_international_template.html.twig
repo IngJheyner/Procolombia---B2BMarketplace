@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-lg-12 space-0">
 					<div class="card p-4">
-						Tabla que pertenece a otra Historia de usuario
+						{{ 'Table belonging to another User Story'|t }}
 						<br>
 						<br>
 						<br>
@@ -53,7 +53,7 @@
 		</div>
 		<div class="col-lg-3">
 			<div class="card p-3">
-				<a class="editar" href="/edit/international/user">{{ 'Edit'|t }}</a>
+				<a class="editar" href="/edit/international/user">{{ 'Edit '|t }}</a>
 				<div class="title_card_dashboard">
 					<img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Logo_banner.svg" alt="" srcset="">
 					{{ 'International Buyer Profile'|t }}
@@ -95,7 +95,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Administrator and Contact Information'|t }}</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}" ></button>
 				</div>
 				<div class="modal-body">
 					<div class="row p-0 content px-4">
@@ -120,17 +120,17 @@
 					<div class="row px-4">
 						<div class="col-md-12">
 							<label for="contact_email" class="form-label">{{ 'E-mail address'|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 							<input type="email" class="form-control" id="contact_email" placeholder="">
 						</div>
 						<div class="col-md-12">
 							<div class="form-group password">
 								<label for="nit">{{ 'Password'|t }}
-									<span>*</span>
+									 <sup>*</sup>
 								</label>
 								<div class="input-group mb-3">
-									<input type="password" id="password" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input type="password" id="password" class="form-control" aria-label="{{ "Recipient's username"|t }}"  aria-describedby="basic-addon2">
 									<span class="input-group-text">
 										<img id="pass_bloq" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
 										<img id="pass_show" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
@@ -147,7 +147,7 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group password">
-								<label for="nit">{{ 'Password verification'|t }}<span>*</span>
+								<label for="nit">{{ 'Password verification'|t }} <sup>*</sup>
 								</label>
 								<div class="input-group mb-3">
 									<input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
@@ -170,8 +170,8 @@
 				<div class="modal-footer">
 					<div class="row">
 						<div class="col-lg-12 continue">
-							<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="Close">{{ 'CANCEL'|t }}</button>
-							<button id="save_modal" name="save_modal" aria-label="Continuar con el registro" class="continue">{{ 'CONTINUE'|t }}
+							<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}">{{ 'CANCEL'|t }}</button>
+							<button id="save_modal" name="save_modal" aria-label="{{ 'Continue registration'|t }}" class="continue">{{ 'CONTINUE'|t }}
 							</button>
 							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>

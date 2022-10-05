@@ -51,6 +51,9 @@ msgstr "Mensajes"
 msgid "Edit"
 msgstr "Editar"
 
+msgid "Edit "
+msgstr "Editar "
+
 msgid "Administrator and Contact Information"
 msgstr "Administrador y Datos de contacto"
 
@@ -106,7 +109,7 @@ msgid "Only png formats with a maximum weight of 2 MB and minimum dimensions of 
 msgstr "Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones mínimas de 200x200 px"
 
 msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
-msgstr "Usted debe registrar el nombre comercial de la empresa, el cual es el nombre con el cual su compañía es reconocida; puede ser la misma razón social o no."
+msgstr "Usted debe registrar el nombre de la empresa con la cual su compañía es reconocida. Puede ser la misma razón social."
 
 msgid "Company website"
 msgstr "Sitio Web de la compañía"
@@ -174,6 +177,9 @@ msgstr "Celular"
 msgid "Position name"
 msgstr "Nombre del cargo"
 
+msgid "Job title"
+msgstr "Nombre del cargo"
+
 msgid "Edit company profile and contact"
 msgstr "Editar el perfil de la compañía y contacto"
 
@@ -208,9 +214,7 @@ msgid "Company profile and contact information"
 msgstr "Perfil de la compañía e información de contacto"
 
 msgid "has been successfully modified."
-msgstr "Modificado con exito"
-
-
+msgstr "ha sido modificado con exito"
 
 msgid "Name is required"
 msgstr "El nombre es requerido"
@@ -222,6 +226,9 @@ msgid "Last name is required"
 msgstr "El apellido es requerido"
 
 msgid "The last name cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "The lastname cannot be longer than 20 characters"
 msgstr "El apellido no puede tener mas de 20 caracteres"
 
 msgid "Email is required and must be a valid email address"
@@ -278,6 +285,9 @@ msgstr "Debe aceptar las condiciones de uso"
 msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension"
 msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200"
 
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n"
+msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n"
+
 msgid "Company name is required"
 msgstr "El nombre de la empresa es requerido"
 
@@ -325,3 +335,42 @@ msgstr "El codigo de pais del celular es requerido"
 
 msgid "Cell phone is required"
 msgstr "El celular es requerido"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Recipient's username"
+msgstr "Nombre de usuario del destinatario"
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "Choose files"
+msgstr "Seleccione los archivos"
+
+msgid "Enter the keyword or select multiple options"
+msgstr "Introduzca la palabra clave o seleccione varias opciones"
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Company's name cannot be longer than 100 characters."
+msgstr "El nombre de la empresa no puede tener mas de 100 caracteres."
+
+msgid "Spanish description must be less than 1000 characters."
+msgstr "La descripción en español debe tener menos de 1000 caracteres."
+
+msgid "English description must be less than 1000 characters."
+msgstr "La descripción en inglés debe tener menos de 1000 caracteres."
+
+msgid "The position in Spanish must be less than 1000 characters."
+msgstr "La posición en español debe tener menos de 1000 caracteres."
+
+msgid "Phone line must not be longer than 20 characters."
+msgstr "La linea de telefono no debe tener mas de 20 caracteres."
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"

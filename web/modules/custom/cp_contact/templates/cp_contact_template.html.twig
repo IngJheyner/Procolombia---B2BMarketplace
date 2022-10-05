@@ -1,0 +1,12 @@
+{{ attach_library('cp_contact/cp_contact') }}
+<!-- Make a button to create a new chat -->
+
+<section class="cp-contact" style="height:57vh">
+    <!-- Make a input text to put id of exportador -->
+    <input type="text" id="id_exportador" placeholder="ID EXPORTADOR">
+	<div class="cp-contact__button">
+		<button id="contact-button" class="cp-contact__button__button" data-cp-contact-button>
+			{{ 'Contact us'|t }}
+		</button>
+	</div>
+</section>

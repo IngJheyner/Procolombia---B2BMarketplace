@@ -11,7 +11,7 @@ id: user.user.field_company_model
 field_name: field_company_model
 entity_type: user
 bundle: user
-label: 'Company model'
+label: 'Modelo de negocio'
 description: ''
 required: false
 translatable: false

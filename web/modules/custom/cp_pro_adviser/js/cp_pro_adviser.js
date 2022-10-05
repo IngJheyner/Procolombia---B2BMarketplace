@@ -15,6 +15,45 @@
         * -- This table has paginate with send to endpoint /adviser/get_all_buyer_by_page and the data is in array buyers
         *///
 
+        //init daterangepicker
+        console.log("update_date", $("#update_date"));
+        $('#update_date').daterangepicker({
+            "locale": {
+                "format": "DD/MM/YYYY",
+                "separator": " - ",
+                "applyLabel": "Aplicar",
+                "cancelLabel": "Cancelar",
+                "fromLabel": "Desde",
+                "toLabel": "Hasta",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Do",
+                    "Lu",
+                    "Ma",
+                    "Mi",
+                    "Ju",
+                    "Vi",
+                    "Sa"
+                ],
+                "monthNames": [
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre"
+                ],
+                "firstDay": 1
+            },
+            "opens": "center"
+        });
 
         if ($('#buyers-list').length > 0) {
             tableBuyer = $('#buyers-list').DataTable({
@@ -48,37 +87,37 @@
                     //company name
                     {
                         "data": "company_name",
-                        "title": "Company Name"
+                        "title": Drupal.t("Company name"),
                     },
                     //email
                     {
                         "data": "email",
-                        "title": "Email"
+                        "title": Drupal.t("Email"),
                     },
                     //lang
                     {
                         "data": "lang",
-                        "title": "Language"
+                        "title": Drupal.t("Language"),
                     },
                     //country
                     {
                         "data": "country",
-                        "title": "Country"
+                        "title": Drupal.t("Country"),
                     },
                     //subcategory
                     {
                         "data": "subcategory",
-                        "title": "Subcategory"
+                        "title": Drupal.t("Subcategory"),
                     },
                     //update date
                     {
                         "data": "update_date",
-                        "title": "Update Date"
+                        "title": Drupal.t("Update date")
                     },
                     //status
                     {
                         "data": "status",
-                        "title": "Status"
+                        "title": Drupal.t("Status")
                     },
                     //action
                     {
@@ -86,7 +125,7 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/asesor/editar/internacional?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
-                        "title": "Action",
+                        "title": Drupal.t("Action"),
                         "className": "text-center"
                     }
                 ],
@@ -175,7 +214,7 @@
                 "scrollX": true,
                 "stripe": false,
                 "ajax": {
-                    "url": "/adviser/get_all_exportador_by_page",
+                    "url": "/adviser/get_all_exporters_by_page",
                     "type": "POST",
                     "data": function (d) {
                         if (filterExportadores) {
@@ -201,28 +240,28 @@
                     //NIT Empresa
                     {
                         "data": "nit",
-                        "title": "NIT Empresa",
+                        "title": Drupal.t("Tax ID number"),
                     },
                     //Email empresa hidden
                     {
                         "data": "email",
-                        "title": "Email",
+                        "title": Drupal.t("Email"),
                         "visible": false,
                     },
                     //company_name
                     {
                         "data": "company_name",
-                        "title": "Company Name",
+                        "title": Drupal.t("Company name"),
                     },
                     //lang
                     {
                         "data": "lang",
-                        "title": "Language",
+                        "title": Drupal.t("Language"),
                     },
                     //company_logo is image
                     {
                         "data": "company_logo",
-                        "title": "Company Logo",
+                        "title": Drupal.t("Language"),
                         "render": function (data, type, row, meta) {
                             return '<img src="' + row.company_logo + '" width="100px" height="100px">';
                         }
@@ -230,23 +269,26 @@
                     //company_deparment
                     {
                         "data": "company_deparment",
-                        "title": "Company Department"
+                        "title": Drupal.t("Department"),
+                        "class": "table__td",
                     },
                     //company_city
                     {
                         "data": "company_city",
-                        "title": "Company City"
+                        "title": Drupal.t("City"),
+                        "class": "table__td",
                     },
                     //productive_chain
                     {
                         "data": "productive_chain",
-                        "title": "Productive Chain",
-
+                        "title": Drupal.t("Productive Chain"),
+                        "class": "table__td",
                     },
                     //update_date
                     {
                         "data": "update_date",
-                        "title": "Update Date"
+                        "title": Drupal.t("Update date"),
+                        "class": "table__td",
                     },
                     //add See products as url that have string See products
                     {
@@ -254,12 +296,13 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/adviser/exportador' + row.id + '" class="see_btn">See products</a>';
                         },
-                        "title": "See products"
+                        "title": Drupal.t("View Products and services"),
+                        "class": "table__td",
                     },
                     //published as string
                     {
                         "data": "id",
-                        "title": "Published",
+                        "title": Drupal.t("Published"),
                         "render": function (data, type, row, meta) {
                             return 'Yes';
                         },
@@ -267,12 +310,12 @@
                     //status
                     {
                         "data": "status",
-                        "title": "Status"
+                        "title": Drupal.t("Status"),
                     },
                     //views
                     {
                         "data": "id",
-                        "title": "Views",
+                        "title": Drupal.t("Views"),
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Ojo_gris.svg" alt="" srcset="" class="img-views img-table" /><span class="tooltip-table">180</span></div>';
@@ -281,7 +324,7 @@
                     //incentives
                     {
                         "data": "id",
-                        "title": "Incentives",
+                        "title": Drupal.t("Incentives"),
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/gold.svg" alt="" srcset="" class="img-status" /><span class="tooltip-table">180</span></div>';
@@ -293,7 +336,7 @@
                         "render": function (data, type, row, meta) {
                             return '<a href="/asesor/editar/col?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
-                        "title": "Action",
+                        "title": Drupal.t("Action"),
                         "className": "text-center"
                     }
 
@@ -357,7 +400,7 @@
                             <button class="btn btn_download" id="btn_download_report_exportador"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/carpeta.svg" class="me-2"> Descargar Reporte</button>
                         </div>
                         <div class="text_result">
-                            Se encontraron <span id="filter_total_exportador"></span> resultados asociados a tu búsqueda:
+                        {{ "Found "|t }}<span id="filter_total_exportador"></span> resultados asociados a tu búsqueda:
                         </div>
                     </div>
                 `);
@@ -442,7 +485,7 @@
         }
         //load data with post ajax and insert in data table
         $.ajax({
-            url: '/adviser/get_all_exportador_by_page',
+            url: '/adviser/get_all_exporters_by_page',
             type: 'POST',
             data: formData,
             contentType: false,

@@ -168,7 +168,7 @@
 
 			</ul>
 			<div class="progress validate_buyer">
-				<div class="progress-bar" id="validate_progresss" style="width:13%" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="100"></div>
+				<div class="progress-bar" id="validate_progresss" style="width:13%" role="progressbar" aria-label="{{ "Basic example"|t }}" aria-valuemin="0" aria-valuemax="100"></div>
 			</div>
 			<p class="title_tab" id="home_title" style="display:block">{{ "Company Profile"|t }}</p>
 			<p class="title_tab" id="profile_title">{{ "Economic Activity"|t }}</p>
@@ -178,11 +178,11 @@
 				<div class="tab-pane fade show active" id="step_2" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
 						<div class="col-md-6">
-							<label for="sitio" class="form-label">{{ "Country"|t }}<span>*</span>
+							<label for="sitio" class="form-label">{{ "Country"|t }} <sup>*</sup>
 							</label>
 							<div class="d-flex align-items-center error_select">
-								<div id="departament_contain" class="w-100">
-									<select id="country" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+								<div id="country_contain" class="w-100">
+									<select id="country" class="single_select" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 										<option value="">{{ "Enter the keyword or select an option"|t }}
 										</option>
 										{% for country in tree_countries %}
@@ -200,11 +200,11 @@
 
 						</div>
 						<div class="col-md-6">
-							<label for="position" class="form-label">{{ "Position name"|t }}
-								<span>*</span>
+							<label for="position" class="form-label">{{ "Job title"|t }}
+								 <sup>*</sup>
 							</label>
 							<div class="input_error">
-								<input type="text" class="form-control" id="position" placeholder="">
+								<input type="text" class="form-control" id="position"  maxlength="50" placeholder="">
 								<i id="error_position" class='bx bxs-info-circle toltip_i'>
 									<span id="error_position_message" class="tooltiptext_error">
 										{{ "Required Field"|t }}
@@ -221,7 +221,7 @@
 							</div>
 						</div>
 						{# <div class="col-md-6">
-																			<label for="city" class="form-label">{{ "City"|t }}<span>*</span>
+																			<label for="city" class="form-label">{{ "City"|t }} <sup>*</sup>
 																			</label>
 																			<div class="d-flex align-items-center error_select">
 																				<div id="" class="w-100">
@@ -241,7 +241,6 @@
 																		</div> #}
 						<div class="col-md-6">
 							<label for="web_site" class="form-label">{{ "Company website"|t }}
-								<span>*</span>
 							</label>
 							<div class="input_error">
 								<input type="text" class="form-control" id="web_site">
@@ -252,15 +251,15 @@
 								</i>
 							</div>
 							<div class="toltip_content">
-								<i class='bx bxs-info-circle toltip_i'>
-									<span class="tooltiptext">
+								<i id="error_web_site" class='bx bxs-info-circle toltip_i'>
+									<span id="error_web_site_message" class="tooltiptext">
 										{{ "Please include the complete URL starting with http or https."|t }}
 									</span>
 								</i>
 								<span>{{ "Please include the complete URL starting with http or https."|t }}</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6" id="principal_advisor_contain">
 							<label for="principal_advisor" class="form-label">{{ "ProColombia Senior Advisor"|t }}
 							</label>
 							<select name="principal_advisor" id="principal_advisor">
@@ -271,8 +270,8 @@
 								{% endfor %}
 							</select>
 							<div class="toltip_content">
-								<i class='bx bxs-info-circle toltip_i'>
-									<span class="tooltiptext">
+								<i id="error_principal_advisor-ts-control" class='bx bxs-info-circle toltip_i'>
+									<span id="error_principal_advisor-ts-control_message" class="tooltiptext">
 										{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
 									</span>
 								</i>
@@ -287,7 +286,7 @@
 					<div class="row">
 						<div class="col-lg-12 continue">
 							<button id="cancel_buyer_2" class="cancel">{{ "CANCEL"|t }}</button>
-							<button id="save_buyer_1" name="save_buyer_1" aria-label="Continuar con el registro" class="continue">{{ "CONTINUE"|t }}
+							<button id="save_buyer_1" name="save_buyer_1" aria-label="{{ "Continue registration"|t }}" class="continue">{{ "CONTINUE"|t }}
 							</button>
 							<button style="display:none" class="continue" id="loading_international_2" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -302,11 +301,11 @@
 							<label for="cat_interest_1" class="form-label">
 								{{ "I am interested in..."|t }}
 								(Categoría de interés)
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_1_cont" class="input_error">
-								<select name="cat_interest_1" id="cat_interest_1" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="cat_interest_1" id="cat_interest_1" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 									{% for categorization_item in tree_categorization %}
 										<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
@@ -322,11 +321,11 @@
 						</div>
 						<div class="col-md-6">
 							<label for="company_model" class="form-label">{{ "Business Model"|t }}
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_cont" class="input_error">
-								<select multiple name="company_model" id="company_model" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select multiple name="company_model" id="company_model" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 									{% for company_model_item in tree_business_model %}
 										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
@@ -342,7 +341,7 @@
 						</div>
 						<div class="col-md-6">
 							<label for="subcat_interest_1" class="form-label">{{ "Particularly in..."|t }}
-								(Subcategoría de Interés)<span>*</span>
+								(Subcategoría de Interés) <sup>*</sup>
 							</label>
 							<div id="subcat_interest_1_cont" class="input_error">
 								<select name="subcat_interest_1" id="subcat_interest_1">
@@ -369,12 +368,12 @@
 									</span>
 								</div>
 								<div class="input_error">
-									<select name="principal_advisor" id="principal_advisor">
+									<select>
 										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
-										<option value="Jaime Francisco">Jaime Francisco</option>
-										<option value="Ruth Silvana">Ruth Silvana</option>
-										<option value="Luis Felipe">Luis Felipe</option>
-										<option value="Montserrat Carolina">Montserrat Carolina</option>
+										<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
@@ -399,7 +398,7 @@
 						</div>
 						<div class="col-lg-6 continue">
 							<button id="cancel_buyer_3" class="cancel">{{ "CANCEL"|t }}</button>
-							<button id="save_buyer_2" name="save_buyer_2" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+							<button id="save_buyer_2" name="save_buyer_2" aria-label="{{ "Continue registration"|t }}" class="continue">CONTINUAR</button>
 							<button style="display:none" class="continue" id="loading_international_3" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
 								{{ "Loading..."|t }}
@@ -413,11 +412,11 @@
 							<label for="cat_interest_2" class="form-label">
 								{{ "I am interested in..."|t }}
 								(Categoría de interés) No.2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_2_cont" class="input_error">
-								<select name="cat_interest_2" id="cat_interest_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="cat_interest_2" id="cat_interest_2" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}
 										{% for categorization_item in tree_categorization %}
 											<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
@@ -436,11 +435,11 @@
 							<label for="company_model_2" class="form-label">
 								{{ "Business Model"|t }}
 								No.2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_2_cont" class="input_error">
-								<select name="company_model_2" multiple id="company_model_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="company_model_2" multiple id="company_model_2" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 									{% for company_model_item in tree_business_model %}
 										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
@@ -458,11 +457,11 @@
 							<label for="subcat_interest_2" class="form-label">
 								{{ "Particularly in..."|t }}
 								(Subcategoría de Interés) No.2
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_2_cont" class="input_error">
-								<select name="subcat_interest_2" id="subcat_interest_2" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="subcat_interest_2" id="subcat_interest_2" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 								</select>
 								<i id="error_subcat_interest_2" class='bx bxs-info-circle toltip_i'>
@@ -486,12 +485,12 @@
 									</span>
 								</div>
 								<div class="input_error">
-									<select name="principal_advisor" id="principal_advisor">
+									<select>
 										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
-										<option value="Jaime Francisco">Jaime Francisco</option>
-										<option value="Ruth Silvana">Ruth Silvana</option>
-										<option value="Luis Felipe">Luis Felipe</option>
-										<option value="Montserrat Carolina">Montserrat Carolina</option>
+									<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
@@ -516,7 +515,7 @@
 						</div>
 						<div class="col-lg-6 continue">
 							<button id="cancel_buyer_4" class="cancel">{{ "CANCEL"|t }}</button>
-							<button id="save_buyer_3" name="save_2" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+							<button id="save_buyer_3" name="save_2" aria-label="{{ "Continue registration"|t }}" class="continue">CONTINUAR</button>
 							<button style="display:none" class="continue" id="loading_international_4" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
 								{{ "Loading..."|t }}
@@ -529,11 +528,11 @@
 						<div class="col-md-6">
 							<label for="cat_interest_3" class="form-label">{{ "I am interested in..."|t }}
 								(Categoría de interés) No.3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="cat_interest_3_cont" class="input_error">
-								<select name="cat_interest_3" id="cat_interest_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="cat_interest_3" id="cat_interest_3" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 									{% for categorization_item in tree_categorization %}
 										<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
@@ -550,11 +549,11 @@
 						<div class="col-md-6">
 							<label for="company_model_3" class="form-label">{{ "Business Model"|t }}
 								No.3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="company_model_3_cont" class="input_error">
-								<select name="company_model_3" multiple id="company_model_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="company_model_3" multiple id="company_model_3" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}
 									</option>
 									{% for company_model_item in tree_business_model %}
@@ -572,11 +571,11 @@
 						<div class="col-md-6">
 							<label for="subcat_interest_3" class="form-label">{{ "Particularly in..."|t }}
 								(Subcategoría de Interés) No.3
-								<span>*</span>
+								 <sup>*</sup>
 							</label>
 
 							<div id="subcat_interest_3_cont" class="input_error">
-								<select name="subcat_interest_3" id="subcat_interest_3" placeholder="Ingrese la palabra clave o seleccione una opción" autocomplete="off">
+								<select name="subcat_interest_3" id="subcat_interest_3" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
 									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
 								</select>
 								<i id="error_subcat_interest_3" class='bx bxs-info-circle toltip_i'>
@@ -596,16 +595,16 @@
 									</svg>
 									<span class="tooltiptext_yotube">
 										<p class="note">{{ "NOTE:"|t }}</p>
-										{{ "A fin de asegurar el buen funcionamiento del sistema, sólo presentará los 10 primeros productos coincidentes."|t }}
+										{{ "To ensure the proper functioning of the system, only the first 10 matching products will be presented."|t }}
 									</span>
 								</div>
 								<div class="input_error">
-									<select name="principal_advisor" id="principal_advisor">
+									<select>
 										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
-										<option value="Jaime Francisco">Jaime Francisco</option>
-										<option value="Ruth Silvana">Ruth Silvana</option>
-										<option value="Luis Felipe">Luis Felipe</option>
-										<option value="Montserrat Carolina">Montserrat Carolina</option>
+									    <option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
 									</select>
 									<i id="error_website" class='bx bxs-info-circle toltip_i'>
 										<span id="error_website_message" class="tooltiptext_error">
@@ -615,9 +614,9 @@
 								</div>
 								<div class="toltip_content">
 									<i class='bx bxs-info-circle toltip_i'>
-										<span class="tooltiptext">{{ "Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó."|t }}</span>
+										<span class="tooltiptext">{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}</span>
 									</i>
-									<span>{{ "Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó."|t }}</span>
+									<span>{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}</span>
 								</div>
 							</div>
 						</div>
@@ -628,7 +627,7 @@
 						</div>
 						<div class="col-lg-6 continue">
 							<button id="cancel_buyer_5" class="cancel">{{ "CANCEL"|t }}</button>
-							<button id="save_buyer_4" name="save_buyer_4" aria-label="Continuar con el registro" class="continue">CONTINUAR</button>
+							<button id="save_buyer_4" name="save_buyer_4" aria-label="{{ "Continue registration"|t }}" class="continue">CONTINUAR</button>
 							<button style="display:none" class="continue" id="loading_international_5" type="button" disabled>
 								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
 								{{ "Loading..."|t }}
@@ -647,7 +646,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ "Contact Information"|t }}</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
 				</div>
 				<div class="modal-body">
 					<h6 class="text-danger pb-2">
@@ -689,7 +688,7 @@
 			<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
 				{{ "Profile Settings"|t }}
 			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
 		</div>
 		<div class="modal-body">
 			<p>{{ "Configure your international buyer profile for free."|t }}</p>
@@ -700,7 +699,7 @@
 					<strong>{{ "Do you want to continue?"|t }}</strong>
 				</div>
 				<div class="col-6 btn_options">
-					<button data-bs-dismiss="modal" aria-label="Close" class="yes">{{ "YES"|t }}</button>
+					<button data-bs-dismiss="modal" aria-label="{{ "Close"|t }}" class="yes">{{ "YES"|t }}</button>
 					<button id="reload_form" class="no">{{ "NO"|t }}</button>
 				</div>
 			</div>
@@ -713,7 +712,7 @@
 			<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
 				{{ "Cancel process"|t }}
 			</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ "Close"|t }}"></button>
 		</div>
 		<div class="modal-body">
 			<p>

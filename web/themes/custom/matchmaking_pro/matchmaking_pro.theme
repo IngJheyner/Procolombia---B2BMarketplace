@@ -46,8 +46,11 @@ function matchmaking_pro_preprocess_page(array &$variables) {
 
 
   //force language in all paths
-  $variables['language'] = $language == 'en' ? 'Eng' : 'Esp';
-  $variables['language_2'] = $language != 'en' ? 'Eng' : 'Esp';
+  $variables['language'] = $language == 'en' ? 'EN' : 'ES';
+  $variables['language_2'] = $language != 'en' ? 'EN' : 'ES';
+  //key captcha
+  $site_key = \Drupal::config('recaptcha.settings')->get('site_key');
+  $variables['site_key'] = $site_key;
   //ceck if user is not deleted in drupal
 
   if($user->isActive()){

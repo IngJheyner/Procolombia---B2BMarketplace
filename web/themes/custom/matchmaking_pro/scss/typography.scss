@@ -5,24 +5,24 @@
 //@import url("https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic");
 //@import url("https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900");
 // font families
-$font-lato: 'Lato',
-Arial,
-Verdana,
-sans-serif;
-$font-raleway: 'Raleway',
-Arial,
-Verdana,
-sans-serif;
+// $font-lato: 'Lato',
+// Arial,
+// Verdana,
+// sans-serif;
+// $font-raleway: 'Raleway',
+// Arial,
+// Verdana,
+// sans-serif;
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$font-family-serif: Georgia,
-"Times New Roman",
-Times,
-serif !default;
-$font-family-base: $font-family-sans-serif;
+// $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+// $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+// $font-family-serif: Georgia,
+// "Times New Roman",
+// Times,
+// serif !default;
+// $font-family-base: $font-family-sans-serif;
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25;
 $font-size-sm: $font-size-base * .875;
@@ -38,39 +38,46 @@ $h4-font-size: $font-size-base * 1.5;
 $h5-font-size: $font-size-base * 1.25;
 $h6-font-size: $font-size-base;
 
-
+/* =========================================
+TIPOGRAFIAS Y TAMANIO DE FUENTES PROCOLOMBIA
+============================================ */
+// @font-face {
+//   font-family: 'century_gothicregular';
+//   src: url('../webfonts/gothic-webfont.woff2') format('woff2'),
+//         url('../webfonts/gothic-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
 @font-face {
-    font-family: 'century_gothicregular';
-    src: url('../webfonts/gothic-webfont.woff2') format('woff2'),
-         url('../webfonts/gothic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: Maven-Medium;
+  src: url('../font/MavenPro-Medium.ttf');
+}
+
+@font-face {
+  font-family: Maven-Regular;
+  src: url('../font/MavenPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: Maven-Bold;
+  src: url('../font/MavenPro-Bold.ttf');
+}
+
+@font-face {
+  font-family: Gothic-Regular;
+  src: url('../font/Century-Gothic.otf');
 
 }
 
 @font-face {
-    font-family: Maven-Medium;
-    src: url('../font/MavenPro-Medium.ttf');
-  }
-  
-  @font-face {
-    font-family: Maven-Regular;
-    src: url('../font/MavenPro-Regular.ttf');
-  }
-  
-  @font-face {
-    font-family: Maven-Bold;
-    src: url('../font/MavenPro-Bold.ttf');
-  }
-  
-  @font-face {
-    font-family: Gothic-Regular;
-    src: url('../font/Century-Gothic.otf');
-  
-  }
-  
-  @font-face {
-    font-family: Gothic-Bold;
-    src: url('../font/Century-Gothic-Bold.otf');
-  }
+  font-family: Gothic-Bold;
+  src: url('../font/Century-Gothic-Bold.otf');
+}
+
+$font-regular: Gothic-Regular;
+$font-medium: Maven-Medium;
+$font-bold: Gothic-Bold;
+$font-black: Maven-Black;
+$font-regular-maven: Maven-Regular;
+$font-bold-maven: Maven-Bold;
