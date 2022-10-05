@@ -716,9 +716,9 @@
 
     }
 
-    button[data-drupal-selector="edit-btn-modal-reject"],
-    button[data-drupal-selector="edit-submit"],
-    button[data-drupal-selector="edit-btn-modal-approve"]{
+    button[data-drupal-selector="edit-actions-btn-modal-reject"],
+    button[data-drupal-selector="edit-actions-submit"],
+    button[data-drupal-selector="edit-actions-btn-modal-approve"]{
         width: 140px;
         height: 37px;
         border-radius: 4px;
@@ -730,17 +730,17 @@
 
     }
 
-    button[data-drupal-selector="edit-btn-modal-reject"]{
+    button[data-drupal-selector="edit-actions-btn-modal-reject"]{
         background-color:#BA0C2F;
         color: #fff;
     }
 
-    button[data-drupal-selector="edit-submit"]{
+    button[data-drupal-selector="edit-actions-submit"]{
         background-color:#005CA4;
         color: #fff;
     }
 
-    button[data-drupal-selector="edit-btn-modal-approve"]{
+    button[data-drupal-selector="edit-actions-btn-modal-approve"]{
         background-color:#31D394;
         color: #fff;
     }
