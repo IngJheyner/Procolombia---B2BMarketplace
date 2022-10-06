@@ -987,7 +987,12 @@
         $("#change_language_button").css("display", "none");
       });
 
-
+      //open login for error session
+      $("#open-login-modal", context).click(function () {
+        //change display
+        $("#valid-login-msg").modal('hide');
+        $("#login_modal").modal('show');
+      });
     }
   };
 })(jQuery, Drupal);

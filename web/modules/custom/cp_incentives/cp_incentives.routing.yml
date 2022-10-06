@@ -1,0 +1,7 @@
+cp_incentives.users:
+  path: 'dashboard/col/user/incentives'
+  defaults:
+    _title: 'Incentive plan'
+    _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::index'
+  requirements:
+    _permission: 'access content'
