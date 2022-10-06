@@ -178,28 +178,12 @@ p {
   align-items: center;
   justify-content: center;
 }
-.tab-chat:active {
+.tab-chat.active {
   background-color: #0085ca;
 }
 .tab-chat:hover {
   background-color: #0085ca;
   filter: brightness(0.8);
-}
-
-#btn-check:checked ~ label[for=btn-check] {
-  background-color: #0085ca;
-}
-
-#btn-check_2:checked ~ label[for=btn-check_2] {
-  background-color: #0085ca;
-}
-
-#btn-check_3:checked ~ label[for=btn-check_3] {
-  background-color: #0085ca;
-}
-
-#btn-check_4:checked ~ label[for=btn-check_4] {
-  background-color: #0085ca;
 }
 
 .avatar-xs {
@@ -1291,4 +1275,4 @@ button#send i {
 }
 .profile-user-dropdown.dropup .dropdown-menu.show {
   top: auto !important;
-}
+}/*# sourceMappingURL=cp_layout.css.map */

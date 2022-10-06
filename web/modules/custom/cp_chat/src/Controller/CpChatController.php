@@ -53,6 +53,12 @@ class CpChatController extends ControllerBase {
       $database = \Drupal::database();
       //get logged user id
       $uid = \Drupal::currentUser()->id();
+      //check if uid is not 0
+      if ($uid == 0) {
+        return new JsonResponse(
+          ['status' => 'error', 'message' => 'You are not logged in']
+        );
+      }
       $query = $database->select('cp_chat', 'c');
       $query->fields('c', ['id', 'entity_id_exportador', 'entity_id_comprador', 'deleted']);
       $query->condition('c.entity_id_exportador', $data['entity_id_exportador']);
@@ -128,6 +134,15 @@ class CpChatController extends ControllerBase {
   }
 
   /**
+   * Save file in drupal 9 media library and return file.
+   */
+  public function saveFile($fileToSave, $name, $directory) {
+    \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+    $file = file_save_data($fileToSave, $directory . $name, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+    return $file;
+  }
+
+  /**
    * Create chat message.
    */
   public function createChatMessage(Request $request) {
@@ -139,17 +154,30 @@ class CpChatController extends ControllerBase {
       $id_logged = \Drupal::currentUser()->id();
       // Create row in table.
       $database = \Drupal::database();
-      $database->insert('cp_chat_messages')
-        ->fields([
+      //if data['files'] is not empty save the file and get uri and save in table
+      $file = $request->files->get('files');
+      if (!empty($file)) {
+        $file2 = file_get_contents($file);
+        $file = $this->saveFile($file2, $file->getClientOriginalName(), 'public://matchmaking/chat/');
+        $uri = $file->getFileUri();
+        $database->insert('cp_chat_messages')->fields([
+          'id_chat' => $data['id_chat'],
+          'entity_id_sender' => $id_logged,
+          'message' => $data['message'],
+          'files' => $uri,
+          'created' => $date,
+          'updated' => $date,
+        ])->execute();
+      } else {
+        $database->insert('cp_chat_messages')->fields([
           'id_chat' => $data['id_chat'],
           'entity_id_sender' => $id_logged,
           'message' => $data['message'],
           'files' => $data['files'],
           'created' => $date,
           'updated' => $date,
-        ])
-        ->execute();
-
+        ])->execute();
+      }
       //update chat update date
       $database->update('cp_chat')
         ->fields([
@@ -171,13 +199,19 @@ class CpChatController extends ControllerBase {
         //get user
         $uid = $this->getUid($row->entity_id_sender);
         $user = \Drupal\user\Entity\User::load($uid);
+        //check if row->files is not empty
+        if (!empty($row->files)) {
+          $file_url = file_create_url($row->files);
+        } else {
+          $file_url = '';
+        }
         if ($user->hasRole('exportador')) {
           $data[] = array(
             'id' => $row->id,
             'id_chat' => $row->id_chat,
             'entity_id_sender' => $row->entity_id_sender,
             'message' => $row->message,
-            'files' => $row->files,
+            'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
             'company_name' => $user->get('field_company_name')->value,
@@ -192,7 +226,7 @@ class CpChatController extends ControllerBase {
             'id_chat' => $row->id_chat,
             'entity_id_sender' => $row->entity_id_sender,
             'message' => $row->message,
-            'files' => $row->files,
+            'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
             'company_name' => $user->get('field_company_name')->value,
@@ -251,6 +285,12 @@ class CpChatController extends ControllerBase {
       $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
       //use database
       $database = \Drupal::database();
+      //get filtes all, read, unread, deleted
+      $read = $request->request->get('read');
+      $unread = $request->request->get('unread');
+      $deleted = $request->request->get('deleted');
+      //get filter message
+      $message = $request->request->get('message');
       $query = $database->select('cp_chat', 'c');
       $query->fields('c', ['id', 'entity_id_exportador', 'entity_id_comprador', 'created', 'updated', 'deleted']);
       //get my chats bases in my role
@@ -259,14 +299,42 @@ class CpChatController extends ControllerBase {
       } else {
         $query->condition('c.entity_id_comprador', \Drupal::currentUser()->id());
       }
-      $query->isNull('c.deleted');
+      
+      if ($deleted) {
+        $query->isNotNull('c.deleted');
+      } else {
+        $query->isNull('c.deleted');
+      }
+
+      if ($read || $unread || $message != '') {
+        //join with chat messages 
+        $query->join('cp_chat_messages', 'cm', 'c.id = cm.id_chat and cm.entity_id_sender != :id_logged', [':id_logged' => \Drupal::currentUser()->id()]);
+        if ($read) {
+          //get last message
+          $query->addExpression('MAX(cm.id)', 'last_message');
+          //check if last message is checked is 0
+          $query->having('last_message NOT IN (SELECT id FROM cp_chat_messages WHERE checked = 0)');
+        }
+
+        if ($unread) {
+          //get last message
+          $query->addExpression('MAX(cm.id)', 'last_message');
+          //check if last message is checked is 0
+          $query->having('last_message NOT IN (SELECT id FROM cp_chat_messages WHERE checked = 1)');
+        }
+
+        if ($message != '') {
+          $query->condition('cm.message', '%' . $message . '%', 'LIKE');
+        }
+
+        $query->groupBy('c.id');
+      }
       //paginate
       $query->range($data['offset'], $data['limit']);
       //order by
       $query->orderBy('c.updated', 'DESC');
       //execute query
       $result = $query->execute()->fetchAll();
-
       
       $data = array();
       //get information of exportador and comprador
@@ -360,13 +428,18 @@ class CpChatController extends ControllerBase {
         //get user
         $uid = $this->getUid($row->entity_id_sender);
         $user = \Drupal\user\Entity\User::load($uid);
+        if (!empty($row->files)) {
+          $file_url = file_create_url($row->files);
+        } else {
+          $file_url = '';
+        }
         if ($user->hasRole('exportador')) {
           $data[] = array(
             'id' => $row->id,
             'id_chat' => $row->id_chat,
             'entity_id_sender' => $row->entity_id_sender,
             'message' => $row->message,
-            'files' => $row->files,
+            'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
             'company_name' => $user->get('field_company_name')->value,
@@ -381,7 +454,7 @@ class CpChatController extends ControllerBase {
             'id_chat' => $row->id_chat,
             'entity_id_sender' => $row->entity_id_sender,
             'message' => $row->message,
-            'files' => $row->files,
+            'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
             'company_name' => $user->get('field_company_name')->value,

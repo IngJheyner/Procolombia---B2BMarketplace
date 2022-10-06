@@ -1,0 +1,105 @@
+@font-face {
+  font-family: Maven-Medium;
+  src: url("../font/MavenPro-Medium.ttf");
+}
+@font-face {
+  font-family: Maven-Regular;
+  src: url("../font/MavenPro-Regular.ttf");
+}
+@font-face {
+  font-family: Maven-Bold;
+  src: url("../font/MavenPro-Bold.ttf");
+}
+@font-face {
+  font-family: Gothic-Regular;
+  src: url("../font/Century-Gothic.otf");
+}
+@font-face {
+  font-family: Gothic-Bold;
+  src: url("../font/Century-Gothic-Bold.otf");
+}
+/* Font/text values */
+.search {
+  width: 100%;
+  background-color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.search-input {
+  border: 0;
+  outline: 0;
+  line-height: 20px;
+  height: 41px;
+  transition: width 0.4s linear;
+}
+.search-input:focus ~ a {
+  background-color: #0085CA;
+}
+.search-input:focus ~ a #lupa {
+  fill: white;
+}
+.search-input:not(:focus):valid ~ a {
+  background-color: #fff;
+}
+
+.search-input .search {
+  padding: 0 10px;
+  width: 100%;
+  caret-color: #536bf6;
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+  transition: width 0.4s linear;
+}
+
+a.search-icon {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1019607843);
+  background: #f7f8f8;
+  padding: 10px 11px;
+  border-radius: 4px;
+  margin-left: -11px;
+}
+
+.search-cont {
+  background: #F7F8F8 0% 0% no-repeat padding-box;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 4px;
+}
+.search-cont .tittle {
+  font-size: 1.4rem;
+  font-family: Maven-Bold;
+}
+.search-cont .item {
+  margin: 5px;
+  float: left;
+  width: 32.2333%;
+}
+.search-cont .item .btn-check:checked + .btn {
+  background-color: #0085CA !important;
+  color: #fff;
+}
+.search-cont .item .item-select {
+  width: 100%;
+  background: #FBFBFB;
+  border-radius: 5px;
+  border: none !important;
+  text-align: start;
+  padding: 9px;
+}
+.search-cont .item .item-select:focus {
+  box-shadow: none !important;
+}
+.search-cont .more-option button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  margin: 7px;
+  background: #FBFBFB 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  border: 0px;
+  color: #005ca4;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=cp_temp_share.css.map */

@@ -14,6 +14,7 @@
   var new_messages = 0;
   var offset = 0;
   var length_fetch_message = 0;
+  var filter_type = 0;
 
   function init() {
     getListOfChats(0, 15);
@@ -23,6 +24,24 @@
     var formdata = new FormData();
     formdata.append("offset", offset);
     formdata.append("limit", limit);
+
+    switch (filter_type) {
+      case 1:
+        formdata.append("unread", true);
+        break;
+      case 2:
+        formdata.append("read", true);
+        break;
+      case 3:
+        formdata.append("deleted", true);
+        break;
+    }
+
+    //get val of input search message and append to formdata
+    let search_message = $('#search-message_side_bar').val();
+    if (search_message) {
+      formdata.append("message", search_message);
+    }
 
     var requestOptions = {
       method: 'POST',
@@ -111,7 +130,8 @@
   Drupal.behaviors.cp_messages_sidebar = {
     attach: function (context, settings) {
       //init 
-      if (context == document) {
+      //get path and check if is different to /messages
+      if (context == document && !window.location.pathname.includes('/messages')) {
         console.log("ENTRO")
         init();
         socket = io('ws://44.210.73.93:5055');
@@ -148,7 +168,65 @@
 
       $('#close-sidebar', context).click(function () {
         $('#right_messages').hide();
-    });
+      });
+      //detect click in all
+      $('#all_side_bar', context).click(function () {
+        //call list chats
+        filter_type = 0;
+        getListOfChats(0, 15);
+        //remove class active
+        $('#all_side_bar').addClass('active');
+        $('#unread_side_bar').removeClass('active');
+        $('#read_side_bar').removeClass('active');
+        $('#delete_side_bar').removeClass('active');
+      });
+
+      //detect click in unread
+      $('#unread_side_bar', context).click(function () {
+        //call list chats
+        filter_type = 1;
+        getListOfChats(0, 15);
+        $('#all_side_bar').removeClass('active');
+        $('#unread_side_bar').addClass('active');
+        $('#read_side_bar').removeClass('active');
+        $('#delete_side_bar').removeClass('active');
+      });
+
+      //detect click in read
+      $('#read_side_bar', context).click(function () {
+        //call list chats
+        filter_type = 2;
+        getListOfChats(0, 15);
+        $('#all_side_bar').removeClass('active');
+        $('#unread_side_bar').removeClass('active');
+        $('#read_side_bar').addClass('active');
+        $('#delete_side_bar').removeClass('active');
+      });
+
+      //detect click in deleted
+      $('#delete_side_bar', context).click(function () {
+        //call list chats
+        filter_type = 3;
+        getListOfChats(0, 15);
+        $('#all_side_bar').removeClass('active');
+        $('#unread_side_bar').removeClass('active');
+        $('#read_side_bar').removeClass('active');
+        $('#delete_side_bar').addClass('active');
+      });
+      //check if length of search-message is bigger than 3 and delay 300ms
+      $('#search-message_side_bar', context).on('input', function () {
+        if (this.value.length >= 3) {
+          setTimeout(function () {
+            //call list chats
+            getListOfChats(0, 15);
+          }, 300);
+        } else {
+          if (this.value.length == 0) {
+            //call list chats
+            getListOfChats(0, 15);
+          }
+        }
+      });
     }
   };
 
