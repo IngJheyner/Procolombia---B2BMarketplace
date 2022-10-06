@@ -66,6 +66,7 @@ third_party_settings:
   field_group:
     group_row:
       children:
+        - group_top
         - group_left
         - field_images
         - cp_core_title_h2_no_link
@@ -91,7 +92,7 @@ third_party_settings:
       label: Left
       parent_name: group_row
       region: content
-      weight: 9
+      weight: 16
       format_type: html_element
       format_settings:
         classes: 'group-left col-sm-4'
@@ -116,7 +117,7 @@ third_party_settings:
       label: Right
       parent_name: group_row
       region: content
-      weight: 13
+      weight: 19
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-8'
@@ -137,10 +138,29 @@ third_party_settings:
       label: 'Footer links'
       parent_name: group_right
       region: content
-      weight: 18
+      weight: 19
       format_type: html_element
       format_settings:
         classes: group-footer-links
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_top:
+      children:
+        - flag_favorites
+      label: Top
+      parent_name: group_row
+      region: content
+      weight: 14
+      format_type: html_element
+      format_settings:
+        classes: 'group-top col-sm-12'
         show_empty_fields: false
         id: ''
         element: div
@@ -168,7 +188,7 @@ content:
   cp_core_title_h2_no_link:
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 18
     region: content
   field_body:
     type: basic_string
@@ -190,7 +210,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 15
+    weight: 16
     region: content
   field_categorization_parent:
     type: entity_reference_label
@@ -205,7 +225,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 14
+    weight: 15
     region: content
   field_file:
     type: formatter_suite_general_file_link
@@ -277,7 +297,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 10
+    weight: 17
     region: content
   field_partida_arancelaria_tax:
     type: entity_reference_label
@@ -292,7 +312,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 16
+    weight: 17
     region: content
   field_pr_country:
     type: entity_reference_label
@@ -300,7 +320,12 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 17
+    weight: 18
+    region: content
+  flag_favorites:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
     region: content
 hidden:
   cp_core_presave_preview: true
@@ -345,7 +370,6 @@ hidden:
   field_tag_producto: true
   field_tariff_heading: true
   field_trading_channel: true
-  flag_favorites: true
   langcode: true
   links: true
   search_api_excerpt: true
