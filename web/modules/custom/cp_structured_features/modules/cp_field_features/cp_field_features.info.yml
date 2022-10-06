@@ -2,8 +2,6 @@ name: 'CP Field Features'
 type: module
 description: 'Modules that generates a new field to save structures'
 core_version_requirement: ^8.9 || ^9.0
-interface translation project: cp_field_features
-interface translation server pattern: modules/custom/cp_structured_features/modules/cp_field_features/translations/cp_field_features.%language.po
 package: 'Custom'
 dependencies:
   - cp_structured_features
