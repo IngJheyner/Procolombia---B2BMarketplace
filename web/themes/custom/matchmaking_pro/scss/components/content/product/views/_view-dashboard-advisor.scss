@@ -2,7 +2,15 @@
 .view-products-advisor{
     &.view-display-id-dashboard_table,
 	&.view-id-products_advisor{	
-				
+		input[type="checkbox"]:checked::before {
+			display: none;
+			}
+		input[type="checkbox"]:checked::after {
+		display: none;
+			}
+		input[type="checkbox"]::before {
+		display: none;
+			}	
 		padding: 0 26px;
 		.view-header{
 			display: flex;
@@ -418,15 +426,6 @@
 		
 	}
 	&.view-display-id-dashboard_table{
-		input[type="checkbox"]:checked::before {
-			display: none;
-			}
-		input[type="checkbox"]:checked::after {
-		display: none;
-			}
-		input[type="checkbox"]::before {
-		display: none;
-			}
 		form .js-form-wrapper{
 			grid-area: 2 / 4 / 3 / 5 !important;
 		}
@@ -445,7 +444,7 @@
 			padding-bottom: 0;
 		}
 		.after-filters-container{
-			top: 230px;
+			top: 310px;
 		}
 		.button#edit-reset{
 			box-shadow: none;
