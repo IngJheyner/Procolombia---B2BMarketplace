@@ -24,28 +24,28 @@
 // 	src: url('../font/Century-Gothic-Bold.otf');
 // }
 
-// $color-Azul-Claro: #e3f3ff;
-// $color-Verde-aprobacion: #31d394;
-// $color-Gris-Claro: #f0f0f0;
-// $color-cccccc: #cccccc;
-// $color-Gris-Claro-2: #6a6d71;
-// $color-Gris-Oscuro: #3b3d42;
-// $color-504672: #504672;
-// $color-Pantone-200: #ba0c2f;
-// $color-Pantone-process-Blue: #0085ca;
-// $color-Pantone-116-C: #005ca4;
-// $color-Pantone-Y: #fdca00;
-// $color-Black: #000000;
-// $color-White: #ffffff;
-// $color-5c5c5c: #5C5C5C;
-// $color-f7f8f8: #f7f8f8;
-// /* Font/text values */
-// $font-regular: Gothic-Regular;
-// $font-medium: Maven-Medium;
-// $font-bold: Gothic-Bold;
-// $font-black: Maven-Black;
-// $font-regular-maven: Maven-Regular;
-// $font-bold-maven: Maven-Bold;
+$color-Azul-Claro: #e3f3ff;
+$color-Verde-aprobacion: #31d394;
+$color-Gris-Claro: #f0f0f0;
+$color-cccccc: #cccccc;
+$color-Gris-Claro-2: #6a6d71;
+$color-Gris-Oscuro: #3b3d42;
+$color-504672: #504672;
+$color-Pantone-200: #ba0c2f;
+$color-Pantone-process-Blue: #0085ca;
+$color-Pantone-116-C: #005ca4;
+$color-Pantone-Y: #fdca00;
+$color-Black: #000000;
+$color-White: #ffffff;
+$color-5c5c5c: #5C5C5C;
+$color-f7f8f8: #f7f8f8;
+/* Font/text values */
+$font-regular: Gothic-Regular;
+$font-medium: Maven-Medium;
+$font-bold: Gothic-Bold;
+$font-black: Maven-Black;
+$font-regular-maven: Maven-Regular;
+$font-bold-maven: Maven-Bold;
 
 
 /* ===== Scrollbar CSS ===== */
@@ -455,6 +455,65 @@
 // }
 
 // }
+
+.modal-body {
+	ul {
+	  list-style: none;
+	  padding-left: 0;
+	  padding-top: 10px;
+  
+	  li {
+		font-size: 16px;
+  
+		i {
+		  color: $color-Pantone-116-C;
+		  font-size: 20px;
+  
+		}
+	  }
+	}
+  }
+  
+  .btn_options {
+	display: flex;
+	justify-content: flex-end;
+	align-items: stretch;
+  
+	.yes {
+	  background-color: $color-Pantone-116-C;
+	  color: $color-White;
+	  font-family: $font-bold;
+	  border: none;
+	  border-radius: 4px;
+	  padding: 0.6rem 1rem;
+	  line-height: normal;
+	  height: 100%;
+  
+	  &:hover {
+		color: $color-White;
+		background-color: $color-Pantone-process-Blue;
+		
+	  }
+	}
+  
+	.no {
+	  border-radius: 4px;
+	  padding: 0.4rem 0.6rem;
+	  line-height: normal;
+	  height: 100%;
+	  margin-left: 10px;
+	  font-family: $font-regular;
+	  color: $color-Pantone-116-C;
+	  transition: all 0.4s ease-out;
+	  border: 1px solid $color-Pantone-116-C;
+  
+	  &:hover {
+		color: $color-White;
+		background-color: $color-Pantone-process-Blue;
+		
+	  }
+	}
+  }
 
 
 .toltip_i {
@@ -1228,7 +1287,7 @@ div#page {
 			&:hover {
 				color: $color-White;
 				background-color: $color-Pantone-process-Blue;
-				box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+				
 			}
 		}
 	}

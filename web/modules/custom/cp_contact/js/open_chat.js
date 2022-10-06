@@ -17,12 +17,17 @@
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          if(data.status === 'ok'){
-            let values = data.result_chat;
-            getChatMessagesSideBar(values.id, values.id_other_user, values.first_name+" "+values.last_name, values.description, values.company_name, values.company_logo, values.id_me);
-          }else{
-            let values = data.result_chat;
-            getChatMessagesSideBar(values.id, values.id_other_user, values.first_name+" "+values.last_name, values.description, values.company_name, values.company_logo, values.id_me);
+          if (data.status == 'error') {
+            //open modal
+            $('#valid-login-msg').modal('show');
+          } else {
+            if (data.status === 'ok') {
+              let values = data.result_chat;
+              getChatMessagesSideBar(values.id, values.id_other_user, values.first_name + " " + values.last_name, values.description, values.company_name, values.company_logo, values.id_me);
+            } else {
+              let values = data.result_chat;
+              getChatMessagesSideBar(values.id, values.id_other_user, values.first_name + " " + values.last_name, values.description, values.company_name, values.company_logo, values.id_me);
+            }
           }
         }).catch(error => {
           console.log(error);

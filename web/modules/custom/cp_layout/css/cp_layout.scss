@@ -167,6 +167,7 @@ input[type=checkbox]:checked:before {
 }
 
 
+
 a {
   text-decoration: none;
 }
@@ -214,37 +215,13 @@ p {
   align-items: center;
   justify-content: center;
 
-  &:active {
+  &.active {
     background-color: $color-Pantone-process-Blue;
   }
 
   &:hover {
     background-color: $color-Pantone-process-Blue;
     filter: brightness(0.8);
-  }
-}
-
-#btn-check:checked {
-  &~label[for="btn-check"] {
-    background-color: $color-Pantone-process-Blue;
-  }
-}
-
-#btn-check_2:checked {
-  &~label[for="btn-check_2"] {
-    background-color: $color-Pantone-process-Blue;
-  }
-}
-
-#btn-check_3:checked {
-  &~label[for="btn-check_3"] {
-    background-color: $color-Pantone-process-Blue;
-  }
-}
-
-#btn-check_4:checked {
-  &~label[for="btn-check_4"] {
-    background-color: $color-Pantone-process-Blue;
   }
 }
 
@@ -1009,7 +986,8 @@ button#send {
       position: relative;
       z-index: 1;
     }
-    #new-messages-chat{
+
+    #new-messages-chat {
       background-color: #fff;
       color: #000000;
       font-weight: bold;

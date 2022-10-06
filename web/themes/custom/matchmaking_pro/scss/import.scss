@@ -12,8 +12,9 @@
 // mixins
 @import "./mixins.scss";
 // barrio
-@import "barrio";
-
+//! Genera error a la hora de usar el GULp
+// @import "barrio";
+//!----------------------
 @import "layout-main-wrapper";
 
 /* ===== ===== MAIN (Temporal) ===== ===== */
