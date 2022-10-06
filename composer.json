@@ -219,6 +219,7 @@
     "npm-asset/jquery-ui-touch-punch": "^0.2.3",
     "npm-asset/jquery.easing": "^1.4",
     "npm-asset/link": "^1.5",
+    "npm-asset/litepicker": "^2.0",
     "npm-asset/plupload": "^3.1",
     "npm-asset/slick": "^1.12.2",
     "npm-asset/slick-carousel": "^1.8",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c5c78789db1b41fa0d0f1068c7df0ce",
+    "content-hash": "30626b7d8c922d4c95bd0da2d3eb8ae8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -17742,6 +17742,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/link/-/link-1.5.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/litepicker",
+            "version": "2.0.12",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/litepicker/-/litepicker-2.0.12.tgz"
             },
             "type": "npm-asset",
             "license": [
