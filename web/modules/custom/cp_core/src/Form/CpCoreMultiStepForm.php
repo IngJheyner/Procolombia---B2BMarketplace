@@ -412,6 +412,16 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_video_2']['#attributes'] = ['style' => 'display: none'];
       }
 
+      if (isset($form['field_pr_type_certifications'])) {
+        $form['field_pr_type_certifications']['widget']['#placeholder'] = $this->t('Enter the keyword or select an option');
+      }
+      if (isset($form['field_pr_target_market'])) {
+        $form['field_pr_target_market']['widget']['#placeholder'] = $this->t('Enter the keyword or select an option');
+      }
+      if (isset($form['field_pr_sales_channel'])) {
+        $form['field_pr_sales_channel']['widget']['#placeholder'] = $this->t('Enter the keyword or select an option');
+      }
+
       if (isset($form['field_categorization'])) {
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
           'parent' => 0,

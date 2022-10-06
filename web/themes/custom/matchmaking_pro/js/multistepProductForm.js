@@ -406,6 +406,15 @@
           });
         }
 
+        if ($('.cp-core-multistep-form.step_3 .select2-search--inline')) {
+          $('.cp-core-multistep-form.step_3 select.select2-widget').once().change(function() {
+            let elem = this;
+            setTimeout(function() {
+              $(elem).closest('.js-form-item').find('.select2-search__field').attr('placeholder', Drupal.t('Enter the keyword or select an option'));
+            }, 100, elem);
+          });
+        }
+
       }
     };
   })(jQuery, Drupal);
