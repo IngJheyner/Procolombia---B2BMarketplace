@@ -54,7 +54,7 @@
           {% if header %}
             <div class="view-header">
               {{ header }}
-            </div>            
+            </div>
           {% endif %}
           {{ exposed }}
         </div>
@@ -89,12 +89,11 @@
       {# ============================================
       Esta variables esta dando conflicto en el modal de boostrap
       =============================================== #}
-      {# if attachment_after %}
+      {% if attachment_after %}
         <div class="attachment attachment-after">
           {{ attachment_after }}
         </div>
-      {% endif #}
-      {#{ drupal_dump(attachment_after) }#}
+      {% endif %}
 
       {% if more %}
         {{ more }}
