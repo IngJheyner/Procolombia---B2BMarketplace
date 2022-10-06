@@ -81,7 +81,7 @@
             }
         }
     }
-    &#generic-modal-view-no-results.show {
+    &#generic-modal-view-no-results.show {        
         display: block;
         background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-content{
@@ -131,6 +131,9 @@
                     align-items: center;
                     height: 56px;
                     cursor: pointer;
+                }
+                a{
+                    color: $white;
                 }
                 span{
                     text-transform: uppercase;
