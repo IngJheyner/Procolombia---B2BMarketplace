@@ -2088,6 +2088,27 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: 3
+          id: 0
+          tags:
+            next: Siguiente
+            previous: Anterior
+            first: ''
+            last: ''
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options: '5, 10, 20, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Todo -'
+            offset: false
+            offset_label: Desplazamiento
+          quantity: 9
       defaults:
         fields: false
       display_extenders:
@@ -2098,12 +2119,14 @@ display:
         page_1: page_1
       attachment_position: after
       inherit_exposed_filters: true
+      inherit_pager: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
