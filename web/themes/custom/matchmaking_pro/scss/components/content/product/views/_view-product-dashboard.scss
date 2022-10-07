@@ -783,8 +783,10 @@
 		}
 	}
 	&.view-display-id-page_1{
-		.views-field-field-states{
-			> div{
+		.views-field-field-states,
+		.attachment-after .views-field-field-states{
+			> div,
+			.field-content > div{
 				display: flex;
 				gap: 5px;
 				align-items: center;
