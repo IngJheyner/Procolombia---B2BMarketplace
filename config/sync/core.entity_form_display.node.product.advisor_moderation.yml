@@ -54,7 +54,6 @@ dependencies:
     - node.type.product
   module:
     - cp_core
-    - cp_field_features
     - field_group
     - file
     - shs
@@ -205,8 +204,7 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_bottom:
-      children:
-        - field_pr_structured_features
+      children: {  }
       label: Bottom
       region: content
       parent_name: group_row
@@ -404,13 +402,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_pr_structured_features:
-    type: sf_default
-    weight: 6
-    region: content
-    settings:
-      placeholder_value: ''
-    third_party_settings: {  }
   field_pr_target_market:
     type: entity_reference_autocomplete
     weight: 38
@@ -510,6 +501,7 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
+  field_pr_structured_features: true
   field_pr_terms_of_condition: true
   field_previous_id: true
   field_producto_innovador: true
