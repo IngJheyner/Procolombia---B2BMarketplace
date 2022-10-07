@@ -1,0 +1,9 @@
+structured_feature_form:
+  version: VERSION
+  js:
+    js/structured_feature_form.js: {}
+  css:
+    component:
+      css/structured_feature_form.css: {}
+  dependencies:
+    - core/jquery

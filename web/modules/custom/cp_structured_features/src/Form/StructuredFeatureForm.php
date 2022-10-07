@@ -20,6 +20,7 @@ class StructuredFeatureForm extends EntityForm {
     $form = parent::form($form, $form_state);
 
     $form['#tree'] = TRUE;
+    $form['#attached']['library'][] = 'cp_structured_features/structured_feature_form';
 
     $form['label'] = [
       '#type' => 'textfield',
@@ -79,11 +80,19 @@ class StructuredFeatureForm extends EntityForm {
     $terms = [];
     if (!$references) {
       if ($this->entity->get('references')) {
-        $form_state->set('references', $this->entity->get('references'));
         $references = array_combine($this->entity->get('references'), $this->entity->get('references'));
+        if (!$references) {
+          $references = [];
+        }
+        $references_removed = $form_state->get('references_removed');
+        if (!$references_removed) {
+          $references_removed = [];
+        }
+        $references = array_diff_key($references, $references_removed);
+        $form_state->set('references', $references);
         $query = \Drupal::database()->select('taxonomy_term_data', 't');
-        $query->addField('td', 'tid');
-        $query->condition('td.uuid', $this->entity->get('references'), 'IN');
+        $query->addField('t', 'tid');
+        $query->condition('t.uuid', $this->entity->get('references'), 'IN');
         $elements = $query->execute()->fetchAllKeyed(0, 0);
         $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadMultiple($elements);
       }
@@ -103,36 +112,17 @@ class StructuredFeatureForm extends EntityForm {
       '#prefix' => '<div id="reload-references">',
       '#suffix' => '</div>',
     ];
-    foreach ($terms as $term) {
-      $form['reference_terms'][$term->id()] = [
-        '#type' => 'container',
-        '#attributes' => ['class' => ['container-inline']],
-      ];
-      $form['reference_terms'][$term->id()]['term'] = [
-        '#markup' => '<span>' . $term->label() . '</span> ',
-      ];
-      $form['reference_terms'][$term->id()]['remove'] = [
-        '#type' => 'submit',
-        '#value' => $this->t('Remove'),
-        '#submit' => ['::removeReferenceTerm'],
-        '#limit_validation_errors' => [],
-        '#ajax' => [
-          'callback' => '::reloadReferences',
-          'wrapper' => 'reload-references',
-        ],
-        '#name' => 'reference_terms_remove_' . $term->id(),
-      ];
-    }
     $form['reference_terms']['agregate'] = [
       '#type' => 'container',
-      '#attributes' => ['class' => ['container-inline']],
+      '#attributes' => ['class' => ['container-inline', 'reference-add']],
     ];
     $form['reference_terms']['agregate']['term'] = [
       '#type' => 'entity_autocomplete',
       '#title' => $this->t('References'),
       '#description' => $this->t('Select the tariff items or subcategories that applies this structure'),
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#target_type' => 'taxonomy_term',
+      '#default_value' => '',
       '#tags' => TRUE,
       '#selection_settings' => [
         'target_bundles' => [$vid],
@@ -149,10 +139,43 @@ class StructuredFeatureForm extends EntityForm {
       ],
       '#name' => 'reference_terms_aggregate_add',
     ];
+    $form['reference_terms']['list'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['reference-list']],
+    ];
+    foreach ($terms as $term) {
+      $form['reference_terms']['list'][$term->id()] = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['container-inline']],
+      ];
+      $form['reference_terms']['list'][$term->id()]['term'] = [
+        '#markup' => '<div class="term-label">' . $term->label() . '</div> ',
+      ];
+      $form['reference_terms']['list'][$term->id()]['remove'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Remove'),
+        '#submit' => ['::removeReferenceTerm'],
+        '#limit_validation_errors' => [],
+        '#ajax' => [
+          'callback' => '::reloadReferences',
+          'wrapper' => 'reload-references',
+        ],
+        '#name' => 'reference_terms_remove_' . $term->id(),
+      ];
+    }
 
     $properties = $form_state->get('properties');
     if (!$properties) {
       $properties = $this->entity->get('properties');
+      if (!$properties) {
+        $properties = [];
+      }
+      $properties_removed = $form_state->get('properties_removed');
+      if (!$properties_removed) {
+        $properties_removed = [];
+      }
+      $properties = array_diff_key($properties, $properties_removed);
+      $form_state->set('properties', $properties);
     }
 
     $form['properties_elements'] = [
@@ -163,26 +186,29 @@ class StructuredFeatureForm extends EntityForm {
       '#suffix' => '</div>',
     ];
     $form['properties_elements']['agregate'] = [
-      '#type' => 'details',
-      '#description' => $this->t('You must add the property before save. If you don\'t add it the property will not be saved.'),
-      '#open' => TRUE,
+      '#type' => 'container',
+      '#description' => $this->t("You must add the property before save. If you don't add it the property will not be saved."),
+      '#attributes' => ['class' => ['properties-elements-add']],
+    ];
+    $form['properties_elements']['agregate']['description'] = [
+      '#markup' => $this->t("You must add the property before save. If you don't add it the property will not be saved."),
     ];
     $form['properties_elements']['agregate']['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
     $form['properties_elements']['agregate']['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#options' => [
-        'select' => 'Select',
-        'radios' => 'Radios',
-        'checkbox' => 'Checkbox',
-        'checkboxes' => 'Checkboxes',
-        'textfield' => 'Textfield',
-        'textarea' => 'Textarea',
+        'select' => $this->t('Select'),
+        'radios' => $this->t('Radios'),
+        'checkbox' => $this->t('Checkbox'),
+        'checkboxes' => $this->t('Checkboxes'),
+        'textfield' => $this->t('Textfield'),
+        'textarea' => $this->t('Textarea'),
       ]
     ];
     $form['properties_elements']['agregate']['multiple'] = [
@@ -204,27 +230,31 @@ class StructuredFeatureForm extends EntityForm {
       ],
       '#name' => 'properties_aggregate_add',
     ];
+    $form['properties_elements']['list'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['properties-elements-list']],
+    ];
     foreach ($properties as $property_key => $property) {
-      $form['properties_elements'][$property_key] = [
+      $form['properties_elements']['list'][$property_key] = [
         '#type' => 'container',
         '#attributes' => ['class' => ['container-inline']],
       ];
-      $form['properties_elements'][$property_key]['property'] = [
+      $form['properties_elements']['list'][$property_key]['property'] = [
         '#type' => 'details',
         '#title' => $property['label'],
       ];
-      $form['properties_elements'][$property_key]['property']['type'] = [
+      $form['properties_elements']['list'][$property_key]['property']['type'] = [
         '#markup' => '<strong>Type: </strong>: ' . $property['type'] . '<br />',
       ];
       $multiple = $property['multiple'] ? 'Yes' : 'No';
-      $form['properties_elements'][$property_key]['property']['multiple'] = [
+      $form['properties_elements']['list'][$property_key]['property']['multiple'] = [
         '#markup' => '<strong>Multiple: </strong>: ' . $multiple . '<br />',
       ];
       $required = $property['required'] ? 'Yes' : 'No';
-      $form['properties_elements'][$property_key]['property']['required'] = [
+      $form['properties_elements']['list'][$property_key]['property']['required'] = [
         '#markup' => '<strong>Required: </strong>: ' . $required . '<br />',
       ];
-      $form['properties_elements'][$property_key]['remove'] = [
+      $form['properties_elements']['list'][$property_key]['remove'] = [
         '#type' => 'submit',
         '#value' => $this->t('Remove'),
         '#submit' => ['::removeProperty'],
@@ -248,7 +278,7 @@ class StructuredFeatureForm extends EntityForm {
 
     unset($values['reference_terms']);
     $references = $form_state->get('references');
-    $values['references'] = $references;
+    $values['references'] = array_values($references);
 
     unset($values['properties_elements']);
     $properties = $form_state->get('properties');
@@ -285,8 +315,17 @@ class StructuredFeatureForm extends EntityForm {
    */
   public function addReferenceTerm(&$form, FormStateInterface $form_state) {
     $references = $form_state->get('references');
-    $newReference = $form_state->getValue(['reference_terms','agregate','term', 0, 'target_id']);
+    $newReference = $form_state->getValue([
+      'reference_terms',
+      'agregate',
+      'term',
+      0,
+      'target_id',
+    ]);
     if ($newReference) {
+      $input = $form_state->getUserInput();
+      unset($input['reference_terms']['agregate']['term']);
+      $form_state->setUserInput($input);
       $storage = $this->entityTypeManager->getStorage('taxonomy_term');
       $term = $storage->load($newReference);
       $references[$term->uuid()] = $term->uuid();
@@ -305,6 +344,9 @@ class StructuredFeatureForm extends EntityForm {
       $storage = $this->entityTypeManager->getStorage('taxonomy_term');
       $term = $storage->load($tid);
       $references = $form_state->get('references');
+      $references_removed = $form_state->get('references_removed');
+      $references_removed[$term->uuid()] = $term->uuid();
+      $form_state->set('references_removed', $references_removed);
       unset($references[$term->uuid()]);
       $form_state->set('references', $references);
       $form_state->setRebuild();
@@ -334,6 +376,7 @@ class StructuredFeatureForm extends EntityForm {
     }
   }
 
+
   /**
    * Ajax removeReferenceTerm.
    */
@@ -342,6 +385,9 @@ class StructuredFeatureForm extends EntityForm {
     $id = str_replace('properties_elements_remove_', '', $elementTriggered['#name']);
     if ($id) {
       $properties = $form_state->get('properties');
+      $properties_removed = $form_state->get('properties_removed');
+      $properties_removed[$id] = $id;
+      $form_state->set('properties_removed', $properties_removed);
       unset($properties[$id]);
       $form_state->set('properties', $properties);
       $form_state->setRebuild();

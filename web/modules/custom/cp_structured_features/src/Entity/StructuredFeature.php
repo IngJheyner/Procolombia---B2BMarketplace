@@ -42,7 +42,10 @@ use Drupal\cp_structured_features\StructuredFeatureInterface;
  *   config_export = {
  *     "id",
  *     "label",
- *     "description"
+ *     "description",
+ *     "reference_type",
+ *     "references",
+ *     "properties",
  *   }
  * )
  */
@@ -89,13 +92,13 @@ class StructuredFeature extends ConfigEntityBase implements StructuredFeatureInt
    *
    * @var array
    */
-  protected $references;
+  protected $references = [];
 
   /**
    * The structured_feature properties.
    *
    * @var array
    */
-  protected $properties;
+  protected $properties = [];
 
 }

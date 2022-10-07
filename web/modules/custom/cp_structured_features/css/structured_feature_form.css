@@ -1,0 +1,61 @@
+#reload-references .details-wrapper {
+  display: flex;
+  flex-direction:row;
+}
+
+#reload-references .reference-add {
+  width: 30%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 10px;
+}
+
+#reload-references .reference-list {
+  width: 70%;
+  text-align: left;
+  border: 1px solid grey;
+  background: rgb(228, 228, 228);
+  border-radius: 5px;
+  padding: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#reload-references .reference-list div.term-label {
+  display: inline-block;
+  text-align: left;
+  width: 85%;
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #d4d4d8;
+}
+
+#reload-properties .details-wrapper {
+  display: flex;
+  flex-direction:row;
+}
+
+#reload-properties .properties-elements-add {
+  width: 30%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 10px;
+}
+
+#reload-properties .properties-elements-list {
+  width: 70%;
+  text-align: left;
+  border: 1px solid grey;
+  background: rgb(228, 228, 228);
+  border-radius: 5px;
+  padding: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#reload-properties .properties-elements-list details.form-wrapper {
+  display: inline-block;
+  text-align: left;
+  width: 85%;
+}
