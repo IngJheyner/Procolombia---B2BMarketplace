@@ -1477,6 +1477,27 @@ display:
     display_plugin: attachment
     position: 2
     display_options:
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: 3
+          id: 0
+          tags:
+            next: Siguiente
+            previous: Anterior
+            first: ''
+            last: ''
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Todo -'
+            offset: false
+            offset_label: Desplazamiento
+          quantity: 9
       defaults:
         header: false
       header:
@@ -1510,12 +1531,14 @@ display:
         dashboard_table_product: dashboard_table_product
       attachment_position: after
       inherit_exposed_filters: true
+      inherit_pager: true
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
