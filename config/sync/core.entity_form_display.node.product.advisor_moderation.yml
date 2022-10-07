@@ -98,7 +98,6 @@ third_party_settings:
         - field_partida_arancelaria_tax
         - field_aditional_information
         - field_pr_type_certifications
-        - field_exist_certifications
         - field_file_certifications
         - field_pr_target_market
         - field_pr_country
@@ -129,7 +128,7 @@ third_party_settings:
       label: Right
       region: content
       parent_name: group_row
-      weight: 21
+      weight: 22
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-6'
@@ -213,7 +212,7 @@ third_party_settings:
       label: Bottom
       region: content
       parent_name: group_row
-      weight: 22
+      weight: 23
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-12'
@@ -324,13 +323,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_exist_certifications:
-    type: boolean_checkbox
-    weight: 36
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_file:
     type: file_generic
     weight: 30
@@ -340,7 +332,7 @@ content:
     third_party_settings: {  }
   field_file_certifications:
     type: file_generic
-    weight: 37
+    weight: 36
     region: content
     settings:
       progress_indicator: throbber
@@ -353,7 +345,7 @@ content:
     third_party_settings: {  }
   field_pr_country:
     type: entity_browser_entity_reference
-    weight: 39
+    weight: 38
     region: content
     settings:
       entity_browser: paises
@@ -383,7 +375,7 @@ content:
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 7
+    weight: 8
     region: content
     settings:
       progress_indicator: throbber
@@ -391,7 +383,7 @@ content:
     third_party_settings: {  }
   field_pr_image_4:
     type: image_image
-    weight: 6
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
@@ -399,7 +391,7 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 8
+    weight: 9
     region: content
     settings:
       progress_indicator: throbber
@@ -407,14 +399,14 @@ content:
     third_party_settings: {  }
   field_pr_product_availability:
     type: boolean_checkbox
-    weight: 40
+    weight: 39
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_pr_target_market:
     type: select2_entity_reference
-    weight: 38
+    weight: 37
     region: content
     settings:
       width: 100%
@@ -456,7 +448,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 38
+    weight: 39
     region: content
     settings:
       size: 60
@@ -470,13 +462,13 @@ content:
     third_party_settings: {  }
   field_states:
     type: options_select
-    weight: 42
+    weight: 41
     region: content
     settings: {  }
     third_party_settings: {  }
   field_tag_producto:
     type: options_shs
-    weight: 41
+    weight: 40
     region: content
     settings:
       display_node_count: false
@@ -501,6 +493,7 @@ hidden:
   body_class: true
   created: true
   field_dependent_state: true
+  field_exist_certifications: true
   field_export_markets: true
   field_iframe: true
   field_images: true
