@@ -644,11 +644,6 @@
 					background: transparent linear-gradient(180deg, #005CA4 0%, #008CCE 100%) 0% 0% no-repeat padding-box;
 					box-shadow: 0px 2px 2px $procol-gray-300;
 				}
-
-				&.on {
-					
-				}
-				
 				&.off {
 					&::after {
 						left: auto;
@@ -688,6 +683,9 @@
 		}
 		.attachment-after{
 			order: 3;
+			.form-item-items-per-page{
+				display: none;
+			}
 			.col-sm-9{
 				width: 100%;
 				.form-item-items-per-page{
@@ -785,6 +783,43 @@
 		}
 	}
 	&.view-display-id-page_1{
+		.views-field-field-states{
+			> div{
+				display: flex;
+				gap: 5px;
+				align-items: center;
+				&::before{
+						display: flex;
+						content: '';
+						background-color: #D8DADD;
+						width: 10px;
+						height: 10px;
+						border-radius: 50%;
+						@include media-breakpoint-down(lg){
+							background-color: transparent;
+						}
+					}
+				&.approved::before{						
+					background-color: #00D320;					
+				}
+				&.incomp_info::before{
+					background: transparent linear-gradient(180deg, #504672 0%, #5F43BE 100%);
+				}
+				&.no_resp::before{
+					background-color: $procol-red;
+				}
+				&.waiting{
+					flex-wrap: wrap;
+					&::before{
+					background-color: $procol-yellow;
+					}
+				}
+				&.draft_status::before{
+					background-color: #D8DADD;
+				}
+			}
+			
+		}
 		.items-result{
 			display: flex;
 			justify-content: space-between;
