@@ -55,7 +55,7 @@ class StructuredFeatureForm extends EntityForm {
     $form['reference_type'] = [
       '#type' => 'radios',
       '#title' => $this->t('Choose type'),
-      '#default_value' => $this->entity->get('type'),
+      '#default_value' => $this->entity->get('reference_type'),
       '#required' => TRUE,
       '#options' => ['product' => $this->t('Product'), 'service' => $this->t('Service')],
       '#ajax' => [
@@ -164,6 +164,7 @@ class StructuredFeatureForm extends EntityForm {
     ];
     $form['properties_elements']['agregate'] = [
       '#type' => 'details',
+      '#description' => $this->t('You must add the property before save. If you don\'t add it the property will not be saved.'),
       '#open' => TRUE,
     ];
     $form['properties_elements']['agregate']['label'] = [
@@ -244,24 +245,17 @@ class StructuredFeatureForm extends EntityForm {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $references = [];
-    if (!empty($values['reference_terms']['aggregate']['term'])) {
-      foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
-        $references[] = $reference['target_id'];
-      }
-    }
 
     unset($values['reference_terms']);
+    $references = $form_state->get('references');
     $values['references'] = $references;
 
-    // if (!empty($values['reference_terms']['aggregate']['term'])) {
-    //   foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
-    //     $references[] = $reference['target_id'];
-    //   }
-    // }
-
+    unset($values['properties_elements']);
+    $properties = $form_state->get('properties');
+    $values['properties'] = $properties;
 
     $form_state->setValues($values);
+
     parent::submitForm($form, $form_state);
   }
 
@@ -269,26 +263,6 @@ class StructuredFeatureForm extends EntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    $form_state->cleanValues();
-    $values = $form_state->getValues();
-
-    $this->entity->set('reference_type', $values['reference_type']);
-
-    // $references = [];
-    // if (!empty($values['reference_terms']['aggregate']['term'])) {
-    //   foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
-    //     $references[] = $reference['target_id'];
-    //   }
-    // }
-
-
-    // if (!empty($values['reference_terms']['aggregate']['term'])) {
-    //   foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
-    //     $references[] = $reference['target_id'];
-    //   }
-    // }
-
-
     $result = parent::save($form, $form_state);
     $message_args = ['%label' => $this->entity->label()];
     $message = $result == SAVED_NEW
