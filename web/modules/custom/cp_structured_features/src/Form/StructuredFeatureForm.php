@@ -6,7 +6,7 @@ use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * structured_feature form.
+ * Structure feature form.
  *
  * @property \Drupal\cp_structured_features\StructuredFeatureInterface $entity
  */
@@ -26,7 +26,7 @@ class StructuredFeatureForm extends EntityForm {
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $this->entity->label(),
-      '#description' => $this->t('Label for the structured_feature.'),
+      '#description' => $this->t('Label for the structured feature.'),
       '#required' => TRUE,
     ];
 
@@ -49,18 +49,10 @@ class StructuredFeatureForm extends EntityForm {
       '#type' => 'textarea',
       '#title' => $this->t('Description'),
       '#default_value' => $this->entity->get('description'),
-      '#description' => $this->t('Description of the structured_feature.'),
+      '#description' => $this->t('Description of the structured feature.'),
     ];
 
-    $form['type'] = [
-      '#type' => 'radios',
-      '#title' => $this->t('Choose type'),
-      '#default_value' => $this->entity->get('type'),
-      '#required' => TRUE,
-      '#options' => ['product' => $this->t('Product'), 'service' => $this->t('Service')],
-    ];
-
-    $form['type'] = [
+    $form['reference_type'] = [
       '#type' => 'radios',
       '#title' => $this->t('Choose type'),
       '#default_value' => $this->entity->get('type'),
@@ -250,12 +242,58 @@ class StructuredFeatureForm extends EntityForm {
   /**
    * {@inheritdoc}
    */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $values = $form_state->getValues();
+    $references = [];
+    if (!empty($values['reference_terms']['aggregate']['term'])) {
+      foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
+        $references[] = $reference['target_id'];
+      }
+    }
+
+    unset($values['reference_terms']);
+    $values['references'] = $references;
+
+    // if (!empty($values['reference_terms']['aggregate']['term'])) {
+    //   foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
+    //     $references[] = $reference['target_id'];
+    //   }
+    // }
+
+
+    $form_state->setValues($values);
+    parent::submitForm($form, $form_state);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function save(array $form, FormStateInterface $form_state) {
+    $form_state->cleanValues();
+    $values = $form_state->getValues();
+
+    $this->entity->set('reference_type', $values['reference_type']);
+
+    // $references = [];
+    // if (!empty($values['reference_terms']['aggregate']['term'])) {
+    //   foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
+    //     $references[] = $reference['target_id'];
+    //   }
+    // }
+
+
+    // if (!empty($values['reference_terms']['aggregate']['term'])) {
+    //   foreach ($values['reference_terms']['aggregate']['term'] as $reference) {
+    //     $references[] = $reference['target_id'];
+    //   }
+    // }
+
+
     $result = parent::save($form, $form_state);
     $message_args = ['%label' => $this->entity->label()];
     $message = $result == SAVED_NEW
-      ? $this->t('Created new structured_feature %label.', $message_args)
-      : $this->t('Updated structured_feature %label.', $message_args);
+      ? $this->t('Created new structured feature %label.', $message_args)
+      : $this->t('Updated structured feature %label.', $message_args);
     $this->messenger()->addStatus($message);
     $form_state->setRedirectUrl($this->entity->toUrl('collection'));
     return $result;

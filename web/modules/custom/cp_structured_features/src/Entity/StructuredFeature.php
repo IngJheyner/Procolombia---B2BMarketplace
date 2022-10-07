@@ -82,7 +82,7 @@ class StructuredFeature extends ConfigEntityBase implements StructuredFeatureInt
    *
    * @var string
    */
-  protected $type;
+  protected $reference_type;
 
   /**
    * The structured_feature references.
