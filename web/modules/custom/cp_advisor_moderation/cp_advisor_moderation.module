@@ -13,6 +13,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\UserInterface;
+use Drupal\Component\Serialization\Json;
 
 function cp_advisor_moderation_entity_bundle_info_alter(array &$bundles): void {
   if (isset($bundles['node']['product'])) {
@@ -152,9 +153,22 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#idModal' =>  'modal-approve'
           ];
           $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
+          $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
           foreach (array_keys($form['actions']) as $action) {
-            $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
           }
+          $form['actions']['cp_core_presave_preview'] = [
+            '#type' => 'link',
+            '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $node->id()]),
+            '#title' => t('Preview'),
+            '#weight' => 5,
+            '#attributes' => [
+              'class' => ['use-ajax'],
+              'data-dialog-type' => 'modal',
+              'data-dialog-options' => Json::encode(['width' => '90%']),
+            ],
+            '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+          ];
+          unset($form['actions']['preview']);
         }
       }
     }
@@ -221,7 +235,7 @@ function cp_advisor_get_certification_type_filter($parent_tid) {
   $query->fields('c', ['tid', 'name']);
   $query->fields('cat', ['field_ct_category_target_id']);
   $query->condition('c.vid', 'certification_types');
-  $query->condition('cat.field_ct_category_target_id', 40);
+  $query->condition('cat.field_ct_category_target_id', $parent_tid);
   $result = $query->execute()->fetchAll();
   foreach($result as $key => $term) {
     $certification_type_filter[$term->tid] = $term->name;

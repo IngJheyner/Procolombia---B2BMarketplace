@@ -482,11 +482,11 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: '100'
+      placeholder: ''
     third_party_settings:
       maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js: 100
+        maxlength_js_label: ' '
       advanced_text_formatter:
         show_token_tree: 0
 hidden:
