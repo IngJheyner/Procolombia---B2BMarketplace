@@ -293,7 +293,7 @@ content:
     third_party_settings:
       maxlength:
         maxlength_js: 1000
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_label: ''
         maxlength_js_enforce: true
       advanced_text_formatter:
         show_token_tree: 0
@@ -307,7 +307,7 @@ content:
     third_party_settings:
       maxlength:
         maxlength_js: 160
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_label: ''
         maxlength_js_enforce: true
       advanced_text_formatter:
         show_token_tree: 0
