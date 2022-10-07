@@ -68,8 +68,10 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['field_categorization_parent']['widget']['#attributes']['id'] = ['categorization-parent-wrapper'];
           $form['field_categorization_parent']['#prefix'] = '<div id="field-cat-parent">';
           $form['field_categorization_parent']['#suffix'] = '</div>';
+          $form['field_categorization_parent']['widget']['#chosen'] = FALSE;
           $form['field_pr_type_certifications']['#prefix'] = '<div id="field-certification-type">';
           $form['field_pr_type_certifications']['#suffix'] = '</div>';
+          $form['field_pr_type_certifications']['widget']['#chosen'] = FALSE;
           // $form['field_pr_target_market']['#prefix'] = '<div id="field-target-market">';
           // $form['field_pr_target_market']['#suffix'] = '</div>';
           $form['advanced']['#attributes']['class'][] = 'visually-hidden';
