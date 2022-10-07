@@ -31,7 +31,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
           $form['#tree'] = TRUE;
-          // kint($form['field_categorization_parent']);
+          // kint($form['field_categorization_parent']); field_aditional_information
           $form['field_file_certifications']['widget']['#title'] = t('Certifications');
           $form['field_body']['widget'][0]['value']['#description'] = t('Please include a summary description of the product/service with its main characteristics and/or attributes.');
           $form['field_categorization']['widget']['#ajax'] = [
@@ -52,7 +52,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           foreach ($ancestors as $term) {
             $list_tids_ancestors[$term->tid] = $term->name;
           }
-          // kint($form['field_pr_type_certifications']);
+          // kint($form);
           
           // kint($form['field_pr_type_certifications']);
           $file_certifications = $form['field_file_certifications']['widget'];
