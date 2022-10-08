@@ -1,10 +1,10 @@
-cp_temp_share:
+cp_ia_search:
   version: 1.0
   css:
     theme:
-      css/cp_temp_share.css: {}
+      css/cp_ia_search.css: {}
   js:
-    js/cp_temp_share.js: {}
+    js/cp_ia_search.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

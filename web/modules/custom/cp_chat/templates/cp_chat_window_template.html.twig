@@ -1,5 +1,5 @@
 {{ attach_library('cp_chat/cp_chat') }}
-<section id="chat-window-modal" class="cp_contact" style="position: fixed; right: 6px; bottom: 0;display: none; z-index:20">
+<section id="chat-window-modal" class="cp_contact chat" style="position: fixed; right: 6px; bottom: 0;display: none; z-index:20">
 	<div id='' style="width: 400px; height: 600px;">
 		<div class="user-chat w-100 user-chat m-0" id="chat-fill">
 			<div class="d-lg-flex" style="background-color:#3177C3">
@@ -8,7 +8,6 @@
 						<div class="align-items-center row">
 							<div class="col-8 col-sm-8">
 								<div class="d-flex align-items-center">
-
 									<div class="me-3 ms-0 chat-user-img" id="chat-company-logo-window"></div>
 									<div class="flex-grow-1 overflow-hidden user-header">
 										<h5 class="text-truncate text-white" id="chat-company-name-window"></h5>
@@ -24,7 +23,7 @@
 									<li class="list-inline-item d-none d-lg-inline-block">
 										<a href="/messages">
 											<div class="toltip_content">
-												<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+												<button type="button" id="hide-chat-window" class="nav-btn user-profile-show btn btn-none toltip_i">
 													<i class='bx bx-fullscreen text-white'></i>
 													<span class="tooltiptext" style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
 														Minimizar chat
@@ -35,7 +34,7 @@
 									</li>
 									<li id="close-window" class="list-inline-item d-none d-lg-inline-block">
 										<div class="toltip_content">
-											<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+											<button type="button" class="nav-btn user-profile-show btn btn-none toltip_i">
 												<i class='bx bx-x text-white'></i>
 												<span class="tooltiptext" style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
 													Salir

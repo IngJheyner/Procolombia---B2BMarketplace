@@ -5,12 +5,12 @@ namespace Drupal\cp_layout\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
- * Provides a 'Chat Windows' Block.
+ * Provides a 'Message Windows' Block.
  *
  * @Block(
  *   id = "message_sidebar",
  *   admin_label = @Translation("Message Sidebar"),
- *   category = @Translation("Chat window"),
+ *   category = @Translation("Layout"),
  * )
  */
 class CpMessageSideBarBlock extends BlockBase {

@@ -1,19 +1,19 @@
 <?php
 
-namespace Drupal\cp_temp_share\Controller;
+namespace Drupal\cp_ia_search\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
-class CpTempShareController extends ControllerBase {
+class CpIASearchLogsController extends ControllerBase {
 
-    /**
+  /**
    * Returns a template twig file.
    */
   public function index() {
     // Get site key of module reCaptcha.
     return [
       // Your theme hook name.
-      '#theme' => 'cp_temp_share_template_hook',
+      '#theme' => 'cp_ia_search_logs_template_hook',
     ];
   }
 }
