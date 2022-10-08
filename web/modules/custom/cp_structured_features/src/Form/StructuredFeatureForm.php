@@ -36,6 +36,7 @@ class StructuredFeatureForm extends EntityForm {
       '#default_value' => $this->entity->id(),
       '#machine_name' => [
         'exists' => '\Drupal\cp_structured_features\Entity\StructuredFeature::load',
+        'source' => ['label'],
       ],
       '#disabled' => !$this->entity->isNew(),
     ];
@@ -65,15 +66,19 @@ class StructuredFeatureForm extends EntityForm {
       ],
     ];
 
-    $vid = 'partida_arancelaria';
+    $vid = '';
     // $options = [];
-    if (empty($form_state->getValue('type'))) {
-      if (!empty($this->entity->get('type'))) {
-        $vid = $this->entity->get('type') == 'product' ? 'partida_arancelaria' : 'categorization';
+    if (empty($form_state->getValue('reference_type'))) {
+      if (!empty($this->entity->get('reference_type'))) {
+        $vid = $this->entity->get('reference_type') == 'product' ? 'partida_arancelaria' : 'categorization';
       }
     }
     else {
-      $vid = $this->entity->get('type') == 'product' ? 'partida_arancelaria' : 'categorization';
+      $vid = $this->entity->get('reference_type') == 'product' ? 'partida_arancelaria' : 'categorization';
+      $input = $form_state->getUserInput();
+      unset($input['reference_terms']['agregate']['term']);
+      $form_state->setUserInput($input);
+      $form_state->set('references', NULL);
     }
 
     $references = $form_state->get('references');
@@ -124,8 +129,17 @@ class StructuredFeatureForm extends EntityForm {
       '#target_type' => 'taxonomy_term',
       '#default_value' => '',
       '#tags' => TRUE,
+      // '#selection_settings' => [
+      //   'target_bundles' => [$vid],
+      // ],
+      '#selection_handler' => 'views',
       '#selection_settings' => [
-        'target_bundles' => [$vid],
+        'view' => [
+          'view_name' => 'structured_feature_references',
+          'display_name' => 'entity_reference_1',
+          'arguments' => [$vid]
+        ],
+        'match_operator' => 'CONTAINS'
       ],
     ];
     $form['reference_terms']['agregate']['add'] = [
@@ -178,6 +192,12 @@ class StructuredFeatureForm extends EntityForm {
       $form_state->set('properties', $properties);
     }
 
+    $editProperty = $form_state->get('edit_property');
+    if ($editProperty) {
+      $editDefaults = $properties[$editProperty];
+    }
+
+
     $form['properties_elements'] = [
       '#type' => 'details',
       '#open' => TRUE,
@@ -197,11 +217,28 @@ class StructuredFeatureForm extends EntityForm {
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#required' => FALSE,
+      '#default_value' => isset($editDefaults['label']) ? $editDefaults['label'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['id'] = [
+      '#type' => 'machine_name',
+      '#disabled' => isset($editDefaults['id']),
+      '#default_value' => isset($editDefaults['id']) ? $editDefaults['id'] : NULL,
+      '#machine_name' => [
+        'exists' => '\Drupal\cp_structured_features\Form\StructuredFeatureForm::propertyCheckMachineName',
+        'source' => ['properties_elements', 'agregate', 'label'],
+      ],
+    ];
+
+    $form['properties_elements']['agregate']['status'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Status'),
+      '#default_value' => isset($editDefaults['status']) ? $editDefaults['status'] : NULL,
     ];
     $form['properties_elements']['agregate']['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
-      '#required' => FALSE,
+      '#required' => TRUE,
+      '#default_value' => isset($editDefaults['type']) ? $editDefaults['type'] : NULL,
       '#options' => [
         'select' => $this->t('Select'),
         'radios' => $this->t('Radios'),
@@ -214,14 +251,131 @@ class StructuredFeatureForm extends EntityForm {
     $form['properties_elements']['agregate']['multiple'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Multiple'),
+      '#default_value' => isset($editDefaults['multiple']) ? $editDefaults['multiple'] : NULL,
     ];
     $form['properties_elements']['agregate']['required'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Required'),
+      '#default_value' => isset($editDefaults['required']) ? $editDefaults['required'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['help'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Help'),
+      '#default_value' => isset($editDefaults['help']) ? $editDefaults['help'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['help_lamp'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Light bulb help'),
+      '#default_value' => isset($editDefaults['help_lamp']) ? $editDefaults['help_lamp'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['maxlength'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Maxlength'),
+      '#default_value' => isset($editDefaults['maxlength']) ? $editDefaults['maxlength'] : NULL,
+      '#states' => [
+        'visible' => [
+          ':input[name="properties_elements[agregate][type]"]' => ['value' => 'textfield'],
+        ],
+      ],
+    ];
+    $form['properties_elements']['agregate']['size'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Size'),
+      '#default_value' => isset($editDefaults['size']) ? $editDefaults['size'] : NULL,
+      '#states' => [
+        'visible' => [
+          ':input[name="properties_elements[agregate][type]"]' => ['value' => 'textfield'],
+        ],
+      ],
+    ];
+    $form['properties_elements']['agregate']['placeholder'] = [
+      '#type' => 'textfield',
+      '#title' => 'Placeholder',
+      '#default_value' => isset($editDefaults['placeholder']) ? $editDefaults['placeholder'] : NULL,
+      '#states' => [
+        'visible' => [
+          ':input[name="properties_elements[agregate][type]"]' => [
+            ['value' => 'textfield'],
+            'or',
+            ['value' => 'textarea'],
+          ],
+        ],
+      ],
+    ];
+    $languages = \Drupal::languageManager()->getLanguages();
+    $optLang = ['all' => $this->t('All languages')];
+    foreach ($languages as $language) {
+      $optLang[$language->getId()] = $language->getName();
+    }
+    $form['properties_elements']['agregate']['language'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Language'),
+      '#required' => TRUE,
+      '#options' => $optLang,
+      '#description' => $this->t('If a field is set to a specific language it will be repeated for each language.'),
+      '#default_value' => isset($editDefaults['language']) ? $editDefaults['language'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['options'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Options'),
+      '#description' => $this->t('You must introduce a option for each line. The structure of each option must be key|Label (Spanish)|Label (English), for example: first_key|Primer Elemento|First element'),
+      '#default_value' => isset($editDefaults['options']) ? $editDefaults['options'] : NULL,
+      '#states' => [
+        'visible' => [
+          ':input[name="properties_elements[agregate][type]"]' => [
+            ['value' => 'select'],
+            'or',
+            ['value' => 'radios'],
+            'or',
+            ['value' => 'selcheckboxesect'],
+          ],
+        ],
+        'required' => [
+          ':input[name="properties_elements[agregate][type]"]' => [
+            ['value' => 'select'],
+            'or',
+            ['value' => 'radios'],
+            'or',
+            ['value' => 'selcheckboxesect'],
+          ],
+        ],
+      ],
+    ];
+    $form['properties_elements']['agregate']['default_value'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Default Value'),
+      '#description' => $this->t('For elements with options (select, radios, ...) the default value must be the key instead the label.'),
+      '#default_value' => isset($editDefaults['default_value']) ? $editDefaults['default_value'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['class'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Class'),
+      '#default_value' => isset($editDefaults['class']) ? $editDefaults['class'] : NULL,
+      '#description' => $this->t('Classes can give additional layout properties.')
+    ];
+    $form['properties_elements']['agregate']['position'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Position'),
+      '#required' => TRUE,
+      '#options' => [
+        'top' => $this->t('Top'),
+        'left' => $this->t('Left'),
+        'right' => $this->t('Right'),
+        'bottom' => $this->t('Bottom'),
+      ],
+      '#description' => $this->t('Top and Bottom elements will be displayed full width.'),
+      '#default_value' => isset($editDefaults['position']) ? $editDefaults['position'] : NULL,
+    ];
+    $form['properties_elements']['agregate']['order'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Weight'),
+      '#required' => TRUE,
+      '#default_value' => isset($editDefaults['order']) ? $editDefaults['order'] : 0,
+      '#description' => $this->t('Position of the element in the form, the higher the number, the lower it will appear.'),
     ];
     $form['properties_elements']['agregate']['add'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Add'),
+      '#value' => isset($editDefaults['id']) ? $this->t('Update') : $this->t('Add'),
       '#submit' => ['::addProperty'],
       '#limit_validation_errors' => [['properties_elements']],
       '#ajax' => [
@@ -234,27 +388,97 @@ class StructuredFeatureForm extends EntityForm {
       '#type' => 'container',
       '#attributes' => ['class' => ['properties-elements-list']],
     ];
-    foreach ($properties as $property_key => $property) {
-      $form['properties_elements']['list'][$property_key] = [
+    $form['properties_elements']['list']['top'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['top']],
+    ];
+    $form['properties_elements']['list']['left'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['left']],
+    ];
+    $form['properties_elements']['list']['right'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['right']],
+    ];
+    $form['properties_elements']['list']['bottom'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['bottom']],
+    ];
+    usort($properties, function($a, $b) {
+      $a['order'] = isset($a['order']) ? $a['order'] : 0;
+      $b['order'] = isset($b['order']) ? $b['order'] : 0;
+      if ($a['order'] < $b['order']) {
+        return -1;
+      }
+      elseif ($a['order'] > $b['order']) {
+        return 1;
+      }
+      else {
+        return 0;
+      }
+    });
+    foreach ($properties as $property) {
+      $property_key = $property['id'];
+      $form['properties_elements']['list'][$property['position']][$property_key] = [
         '#type' => 'container',
         '#attributes' => ['class' => ['container-inline']],
       ];
-      $form['properties_elements']['list'][$property_key]['property'] = [
+      $form['properties_elements']['list'][$property['position']][$property_key]['property'] = [
         '#type' => 'details',
-        '#title' => $property['label'],
+        '#title' => $property['label'] . ' (' . $property['id'] . ')',
       ];
-      $form['properties_elements']['list'][$property_key]['property']['type'] = [
-        '#markup' => '<strong>Type: </strong>: ' . $property['type'] . '<br />',
+      foreach ($form['properties_elements']['agregate'] as $pk => $pf) {
+        if (1
+          && strpos($pk, '#') === FALSE
+          && isset($pf['#type'])
+          && isset($form['properties_elements']['agregate'][$pk])
+          && !in_array($pk, ['id', 'label'])
+        ) {
+          switch($pf['#type']) {
+            case 'select':
+              $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+                '#markup' => '<strong>Type: </strong>: ' . $form['properties_elements']['agregate'][$pk]['#options'][$property[$pk]] . '<br />',
+              ];
+              break;
+
+            case 'textfield':
+            case 'number':
+              $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+                '#markup' => '<strong>' . $pf['#title'] . '</strong>: ' . $property[$pk] . '<br />',
+              ];
+              break;
+
+              case 'textarea':
+                $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+                '#markup' => '<strong>' . $pf['#title'] . '</strong>: <br /><pre>' . $property[$pk] . '</pre><br />',
+              ];
+              break;
+
+            case 'checkbox':
+              $showvalue = $property[$pk] ? $this->t('Yes') : $this->t('No');
+              $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+                '#markup' => '<strong>' . $pf['#title'] . '</strong>: ' . $showvalue . '<br />',
+              ];
+              break;
+
+          }
+        }
+      }
+      $form['properties_elements']['list'][$property['position']][$property_key]['property']['actions'] = [
+        '#type' => 'actions',
       ];
-      $multiple = $property['multiple'] ? 'Yes' : 'No';
-      $form['properties_elements']['list'][$property_key]['property']['multiple'] = [
-        '#markup' => '<strong>Multiple: </strong>: ' . $multiple . '<br />',
+      $form['properties_elements']['list'][$property['position']][$property_key]['property']['actions']['edit'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Edit'),
+        '#submit' => ['::editProperty'],
+        '#limit_validation_errors' => [],
+        '#ajax' => [
+          'callback' => '::reloadProperties',
+          'wrapper' => 'reload-properties',
+        ],
+        '#name' => 'properties_elements_edit_' . $property_key,
       ];
-      $required = $property['required'] ? 'Yes' : 'No';
-      $form['properties_elements']['list'][$property_key]['property']['required'] = [
-        '#markup' => '<strong>Required: </strong>: ' . $required . '<br />',
-      ];
-      $form['properties_elements']['list'][$property_key]['remove'] = [
+      $form['properties_elements']['list'][$property['position']][$property_key]['property']['actions']['remove'] = [
         '#type' => 'submit',
         '#value' => $this->t('Remove'),
         '#submit' => ['::removeProperty'],
@@ -266,7 +490,15 @@ class StructuredFeatureForm extends EntityForm {
         '#name' => 'properties_elements_remove_' . $property_key,
       ];
     }
+    return $form;
+  }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $form = parent::buildForm($form, $form_state);
+    $form['actions']['submit']['#limit_validation_errors'] = [['label'], ['status'], ['description'], ['id'], ['reference_type']];
     return $form;
   }
 
@@ -341,6 +573,9 @@ class StructuredFeatureForm extends EntityForm {
     $elementTriggered = $form_state->getTriggeringElement();
     $tid = (int) str_replace('reference_terms_remove_', '', $elementTriggered['#name']);
     if ($tid && is_numeric($tid) && $tid > 0) {
+      $input = $form_state->getUserInput();
+      unset($input['reference_terms']['agregate']['term']);
+      $form_state->setUserInput($input);
       $storage = $this->entityTypeManager->getStorage('taxonomy_term');
       $term = $storage->load($tid);
       $references = $form_state->get('references');
@@ -367,10 +602,12 @@ class StructuredFeatureForm extends EntityForm {
     $properties = $form_state->get('properties');
     $newProperty = $form_state->getValue(['properties_elements','agregate']);
     if ($newProperty) {
+      $input = $form_state->getUserInput();
+      unset($input['properties_elements']['agregate']);
+      $form_state->setUserInput($input);
+      $form_state->set('edit_property', NULL);
       unset($newProperty['add']);
-      $id = str_replace(' ', '_',  strtolower($newProperty['label']));
-      $newProperty['id'] = $id;
-      $properties[$id] = $newProperty;
+      $properties[$newProperty['id']] = $newProperty;
       $form_state->set('properties', $properties);
       $form_state->setRebuild();
     }
@@ -380,10 +617,30 @@ class StructuredFeatureForm extends EntityForm {
   /**
    * Ajax removeReferenceTerm.
    */
+  public function editProperty(&$form, FormStateInterface $form_state) {
+    $elementTriggered = $form_state->getTriggeringElement();
+    $id = str_replace('properties_elements_edit_', '', $elementTriggered['#name']);
+    $editProperty = $form_state->getValue(['properties_elements','agregate']);
+    if ($id) {
+      $input = $form_state->getUserInput();
+      $input['properties_elements']['agregate'] = $editProperty;
+      $form_state->setUserInput($input);
+      $form_state->set('edit_property', $id);
+      $form_state->setRebuild();
+    }
+  }
+
+  /**
+   * Ajax removeReferenceTerm.
+   */
   public function removeProperty(&$form, FormStateInterface $form_state) {
     $elementTriggered = $form_state->getTriggeringElement();
     $id = str_replace('properties_elements_remove_', '', $elementTriggered['#name']);
     if ($id) {
+      $input = $form_state->getUserInput();
+      unset($input['properties_elements']['agregate']);
+      $form_state->setUserInput($input);
+      $form_state->set('edit_property', NULL);
       $properties = $form_state->get('properties');
       $properties_removed = $form_state->get('properties_removed');
       $properties_removed[$id] = $id;
@@ -392,6 +649,15 @@ class StructuredFeatureForm extends EntityForm {
       $form_state->set('properties', $properties);
       $form_state->setRebuild();
     }
+  }
+
+  /**
+   * Check the machine name.
+   */
+  public static function propertyCheckMachineName($value, array $element, FormStateInterface $form_state) {
+    $properties = $form_state->get('properties');
+    $edit_property = $form_state->get('edit_property');
+    return isset($properties[$value]) && $edit_property != $value ? $value : NULL;
   }
 
 }

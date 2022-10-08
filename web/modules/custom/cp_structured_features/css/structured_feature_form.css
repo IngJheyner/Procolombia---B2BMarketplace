@@ -4,14 +4,14 @@
 }
 
 #reload-references .reference-add {
-  width: 30%;
+  width: 40%;
   flex-grow: 0;
   flex-shrink: 0;
   padding: 10px;
 }
 
 #reload-references .reference-list {
-  width: 70%;
+  width: 58%;
   text-align: left;
   border: 1px solid grey;
   background: rgb(228, 228, 228);
@@ -24,11 +24,19 @@
 #reload-references .reference-list div.term-label {
   display: inline-block;
   text-align: left;
-  width: 85%;
   background: #fff;
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #d4d4d8;
+  width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#reload-references .reference-list input {
+  vertical-align: top;
+  margin: 0.15rem 0.75rem 1rem 0;
 }
 
 #reload-properties .details-wrapper {
@@ -36,15 +44,20 @@
   flex-direction:row;
 }
 
+#reload-properties .details-wrapper .details-wrapper {
+  display: block;
+  flex-direction: unset;
+}
+
 #reload-properties .properties-elements-add {
-  width: 30%;
+  width: 40%;
   flex-grow: 0;
   flex-shrink: 0;
   padding: 10px;
 }
 
 #reload-properties .properties-elements-list {
-  width: 70%;
+  width: 58%;
   text-align: left;
   border: 1px solid grey;
   background: rgb(228, 228, 228);
@@ -54,8 +67,33 @@
   flex-shrink: 0;
 }
 
-#reload-properties .properties-elements-list details.form-wrapper {
+#reload-properties .properties-elements-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#reload-properties .properties-elements-list .top,
+#reload-properties .properties-elements-list .bottom {
+  width: 100%;
+}
+
+#reload-properties .properties-elements-list .left,
+#reload-properties .properties-elements-list .right {
+  width: 50%;
+}
+
+#reload-properties .properties-elements-list details.form-wrapper details.form-wrapper {
   display: inline-block;
   text-align: left;
-  width: 85%;
+  width: 100%;
+  vertical-align: top;
+}
+
+#reload-properties .properties-elements-list input {
+  vertical-align: top;
+  margin: 1.25rem 0.75rem 1rem 0;
 }

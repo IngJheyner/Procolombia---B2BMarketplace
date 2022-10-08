@@ -29,21 +29,24 @@ cp_structured_features.structured_feature.*:
         type: mapping
         label: 'Property'
         mapping:
+          id:
+            type: string
+            label: 'ID'
+          label:
+            type: label
+            label: 'Label'
           status:
             type: boolean
             label: 'Status'
+          type:
+            type: string
+            label: 'Type'
           multiple:
             type: boolean
             label: 'Multiple'
           required:
             type: boolean
             label: 'Required'
-          type:
-            type: string
-            label: 'Type'
-          label:
-            type: label
-            label: 'Label'
           help:
             type: text
             label: 'Label'
@@ -59,12 +62,6 @@ cp_structured_features.structured_feature.*:
           placeholder:
             type: label
             label: 'Placeholder'
-          class:
-            type: string
-            label: 'Classes'
-          position:
-            type: string
-            label: 'Position'
           default_value:
             type: string
             label: 'Default value'
@@ -74,3 +71,12 @@ cp_structured_features.structured_feature.*:
           options:
             type: 'text'
             label: 'Options'
+          class:
+            type: string
+            label: 'Classes'
+          position:
+            type: string
+            label: 'Position'
+          order:
+            type: integer
+            label: 'Order'

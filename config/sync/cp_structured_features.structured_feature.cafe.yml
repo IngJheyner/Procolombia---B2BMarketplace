@@ -1,0 +1,341 @@
+uuid: a923f029-9b62-48ad-8288-f2f503798d30
+langcode: es
+status: true
+dependencies: {  }
+id: cafe
+label: Café
+description: ''
+reference_type: product
+references:
+  - 6afa2a30-fcf2-41ee-bb39-8c87ad594c56
+  - 5b4ee9a8-4915-439e-9589-965a82874a89
+  - f31672ca-9997-4813-9f59-f5c007eab8e3
+  - ca64bba8-4d88-4ae7-a332-ba23c64c61a3
+  - c558184c-5197-40df-86ee-1e7a58636b75
+  - f7ddd76a-79fe-4e08-8c68-743d32885bd0
+  - b10b4f83-530b-4b27-9ecf-9f4cf7f5ba6a
+properties:
+  tipo_de_cafe:
+    order: 0
+    status: true
+    multiple: false
+    required: true
+    type: select
+    label: 'Tipo de café'
+    help: 'Ayuda tipo de cafe'
+    help_lamp: 'Bombilla tipo de cafe'
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: top
+    default_value: ''
+    language: all
+    options: 'tipo1|Tipo 1|Type 1'
+    id: tipo_de_cafe
+  organico:
+    order: 0
+    status: true
+    multiple: false
+    required: true
+    type: select
+    label: Orgánico
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: '- Selecciona -'
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: organico
+  clasificacion_cafe_verde:
+    order: 0
+    status: true
+    multiple: false
+    required: true
+    type: select
+    label: 'Clasificación café verde'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: clasificacion_cafe_verde
+  cafe_especial:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: 'Café especial'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: cafe_especial
+  tostion:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: Tostion
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: tostion
+  presentacion_cafe_soluble:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: 'Presentacion cafe soluble'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: presentacion_cafe_soluble
+  origen:
+    order: 0
+    status: false
+    multiple: false
+    required: false
+    type: select
+    label: Origen
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: origen
+  tipo_de_empaque:
+    order: 0
+    status: false
+    multiple: false
+    required: false
+    type: select
+    label: 'Tipo de empaque'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: tipo_de_empaque
+  temporada_de_produccion:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: 'Temporada de producción'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: left
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: temporada_de_produccion
+  descafeinado:
+    order: 0
+    status: false
+    multiple: false
+    required: false
+    type: select
+    label: Descafeinado
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: descafeinado
+  variedad:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: Variedad
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: variedad
+  clasificacion_cafe_convencional:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: 'Clasificación café convencional'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: clasificacion_cafe_convencional
+  presentacion_cafe_tostado:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: 'Presentación café tostado'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: presentacion_cafe_tostado
+  proceso:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: select
+    label: Proceso
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    id: proceso
+  capacidad_de_produccion_anual:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: textfield
+    label: 'Capacidad de producción anual'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: Unidad
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: ''
+    id: capacidad_de_produccion_anual
+  capacidad_de_produccion_anual_medida_:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: textfield
+    label: 'Capacidad de producción anual (medida)'
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: all
+    options: ''
+    id: capacidad_de_produccion_anual_medida_
+  narrativa:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: textarea
+    label: Narrativa
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: bottom
+    default_value: ''
+    language: es
+    options: ''
+    id: narrativa
+  narrative:
+    order: 0
+    status: true
+    multiple: false
+    required: false
+    type: textarea
+    label: Narrative
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    class: ''
+    position: right
+    default_value: ''
+    language: en
+    options: ''
+    id: narrative

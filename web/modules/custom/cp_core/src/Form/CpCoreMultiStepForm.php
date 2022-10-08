@@ -790,14 +790,37 @@ class CpCoreMultiStepForm extends FormBase {
       $this->step_sf = FALSE;
     }
     else {
-      // if ($this->step == 3) {
-      //   $this->step_sf = FALSE; // Enable with SF.
-      //   $this->step = 2;
-      // }
-      // else {
-        $this->step--;
-        $this->step_sf = FALSE;
-      // }
+      $this->step--;
+      $this->step_sf = FALSE;
+      if ($this->step == 2) {
+        $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
+        $sfStorage = $this->entityTypeManager->getStorage('structured_feature');
+        $entity = $form_state->get('entity');
+        if ($entity->field_product_type->value == 'service') {
+          if (!$entity->field_categorization_parent->isEmpty()) {
+            $entity->field_categorization_parent->target_id;
+            $term = $termStorage->load($entity->field_categorization_parent->target_id);
+            $uuid = $term->uuid();
+            $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
+            if (!empty($sfs)) {
+              $this->step_sf = TRUE; // Enable with SF.
+              $this->step = 2;
+            }
+          }
+        }
+        else {
+          if (!$entity->field_partida_arancelaria_tax->isEmpty()) {
+            $entity->field_partida_arancelaria_tax->target_id;
+            $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
+            $uuid = $term->uuid();
+            $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
+            if (!empty($sfs)) {
+              $this->step_sf = TRUE; // Enable with SF.
+              $this->step = 2;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -857,13 +880,36 @@ class CpCoreMultiStepForm extends FormBase {
         $this->step++;
       }
       else {
-        // if ($this->step == 2) {
-        //   $this->step_sf = TRUE; // Enable with SF.
-        // }
-        // else {
-          $this->step_sf = FALSE;
-          $this->step++;
-        // }
+        $this->step_sf = FALSE;
+        $this->step++;
+        if ($this->step == 3) {
+          $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
+          $sfStorage = $this->entityTypeManager->getStorage('structured_feature');
+          if ($entity->field_product_type->value == 'service') {
+            if (!$entity->field_categorization_parent->isEmpty()) {
+              $entity->field_categorization_parent->target_id;
+              $term = $termStorage->load($entity->field_categorization_parent->target_id);
+              $uuid = $term->uuid();
+              $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
+              if (!empty($sfs)) {
+                $this->step_sf = TRUE; // Enable with SF.
+                $this->step = 2;
+              }
+            }
+          }
+          else {
+            if (!$entity->field_partida_arancelaria_tax->isEmpty()) {
+              $entity->field_partida_arancelaria_tax->target_id;
+              $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
+              $uuid = $term->uuid();
+              $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
+              if (!empty($sfs)) {
+                $this->step_sf = TRUE; // Enable with SF.
+                $this->step = 2;
+              }
+            }
+          }
+        }
       }
     }
     else {
