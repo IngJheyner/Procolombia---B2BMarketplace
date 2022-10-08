@@ -42,7 +42,7 @@ cp_structured_features.structured_feature.*:
             type: string
             label: 'Type'
           label:
-            type: plural_label
+            type: label
             label: 'Label'
           help:
             type: text
@@ -72,8 +72,5 @@ cp_structured_features.structured_feature.*:
             type: string
             label: 'Language'
           options:
-            type: 'sequence'
+            type: 'text'
             label: 'Options'
-            sequence:
-              type: 'string'
-              label: 'Option'
