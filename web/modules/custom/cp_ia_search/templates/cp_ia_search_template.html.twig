@@ -1,0 +1,822 @@
+{{ attach_library('cp_ia_search/cp_ia_search') }}
+<!-- Make a button to create a new chat -->
+
+<section class="cp_temp_share">
+    <div class="sub-header">
+        <div class="row">
+            <div class="col-lg-3 p-2 position-relative">
+                <div onclick="show_left_menu()" class="menu-left" id="menu-left">
+                    <div class="menu-content">
+                        <i class='bx bx-menu'></i>
+                        <p>{{ "Products and Services"|t }}</p>
+                    </div>
+                </div>
+                <div class="left_bar" id="left_bar" style="display:none ;opacity: 0;">
+                    <div class="bar_content"></div>
+                </div>
+            </div>
+            <div class="col-lg-8 p-2 position-relative">
+                <form action="" class="position-relative">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="text" class="search-input search"
+                            placeholder="Escribe algo en específico para realizar una búsqueda" name="fname" id="fname"
+                            autocomplete="off">
+
+                        <a href="#" class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="20.837" height="17.588" viewbox="0 0 20.837 17.588">
+                                <defs>
+                                    <linearGradient id="circle_search" x1="0.5" x2="0.5" y2="1"
+                                        gradientunits="objectBoundingBox">
+                                        <stop offset="0" stop-color="#3b3d42" />
+                                        <stop offset="1" stop-color="#a1a5aa" />
+                                    </linearGradient>
+                                    <linearGradient id="circle_search-2" x1="0.5" x2="0.5" y2="1"
+                                        gradientunits="objectBoundingBox">
+                                        <stop offset="0" stop-color="#d88d00" />
+                                        <stop offset="1" stop-color="#edc500" />
+                                    </linearGradient>
+                                </defs>
+                                <g id="Grupo_3613" data-name="Grupo 3613" transform="translate(-890.917 -7.949)">
+                                    <path id="lupa" data-name="Trazado 23"
+                                        d="M15.57,14.062h-.794l-.282-.272a6.546,6.546,0,1,0-.7.7l.272.282v.794l5.028,5.018,1.5-1.5Zm-6.034,0a4.525,4.525,0,1,1,4.525-4.525A4.519,4.519,0,0,1,9.537,14.062Z"
+                                        transform="translate(891.166 4.949)" fill="url(#circle_search)" />
+                                    <path id="Trazado_3506" data-name="Trazado 3506"
+                                        d="M469.118,357.48a1.231,1.231,0,1,1-1.231,1.231,1.232,1.232,0,0,1,1.231-1.231"
+                                        transform="translate(423.03 -348.521)" fill-rule="evenodd"
+                                        fill="url(#circle_search-2)" />
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-2 p-2 position-absolute search-cont start-0 top-100 w-100 py-4 px-3"
+                        style="display: none;">
+                        <p class="tittle">ALIMENTOS</p>
+                        <div class="d-flex justify-content-between align-items-end">
+                            <div class="row">
+                                <div class="col-lg-12 p-0 pt-2">
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Aceite de palma</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Productos Cárnicos</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Cafés Especiales</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Aceites y grasas</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Especias</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Banano</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Bebidas alcohólicas</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Bebidas no alcohólicas</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Azúcar de Caña</label>
+                                    </div>
+                                    <div class="item">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off">
+                                        <label class="btn item-select" for="option1">Cacao</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="more-option">
+                                <button>
+                                    <i class='bx bx-plus'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-lg-1 p-2">
+                <div class="dropdown">
+                    <button id="drop_menu" class="btn btn-secondary dropdown-toggle" type="button">
+                        <img style="width: 26px;"
+                            src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
+                            alt="" srcset="">
+                        <span class="text-truncate">{{language}}</span>
+                    </button>
+                    <ul class="dropdown-menu" id="lenguaje">
+                        <li id="change_language">
+                            <a class="dropdown-item" href="#">
+                                <img style="width: 26px;"
+                                    src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Icono-Menu-Idioma.svg"
+                                    alt="" srcset="">
+                                <span class="text-truncate">{{language_2}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-search container py-5">
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <p class="fs-3 no-result">No se han encontrado resultados para tu búsqueda
+                    <span class="">[“Wtaa”]</span>
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <ul>
+                    <li>Asegúrate de que todas las palabras estén escritas correctamente.</li>
+                    <li>Revisa la ortografía de la palabra.</li>
+                    <li>Utiliza palabras más genéricas o menos palabras.</li>
+                    <li>
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Navega por las categorías</a>
+                        para
+                        encontrar un producto o servicio similar.
+                    </li>
+                </ul>
+            </div>
+            <div class="fs-3 my-5 py-4 px-2 bg-white" style="box-shadow: 0px 3px 6px #00000029;border-radius: 4px;">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="fs-5 no-result">Recomendaciones sugeridas</p>
+                    </div>
+                    <div class="col-lg-6 text-end">
+                        <p class="fs-5 no-result">Recomendaciones sugeridas</p>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">Slide 1</div>
+                                <div class="swiper-slide">Slide 2</div>
+                                <div class="swiper-slide">Slide 3</div>
+                                <div class="swiper-slide">Slide 4</div>
+                                <div class="swiper-slide">Slide 5</div>
+                                <div class="swiper-slide">Slide 6</div>
+                                <div class="swiper-slide">Slide 7</div>
+                                <div class="swiper-slide">Slide 8</div>
+                                <div class="swiper-slide">Slide 9</div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative pt-4">
+                <!-- Slider main container -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <i class='bx bx-heart'></i>
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://d2d21jw8en5l3a.cloudfront.net/vendty2_db_28302_luis2020/imagenes_productos/MOCHILA%20WAYUU%20ZAPOTE%201.jpg"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="empty-search container py-5">
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <p class="fs-3 no-result">No se han encontrado resultados para tu búsqueda
+                    <span class="">[“Wtaa”]</span>
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <ul>
+                    <li>Asegúrate de que todas las palabras estén escritas correctamente.</li>
+                    <li>Revisa la ortografía de la palabra.</li>
+                    <li>Utiliza palabras más genéricas o menos palabras.</li>
+                    <li>
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Navega por las categorías</a>
+                        para
+                        encontrar un producto o servicio similar.
+                    </li>
+                </ul>
+            </div>
+            <p class="fs-3 my-5 tittle-search">Tendencias ProColombia</p>
+            <div class="position-relative pt-4">
+                <!-- Slider main container -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <i class='bx bx-heart'></i>
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://d2d21jw8en5l3a.cloudfront.net/vendty2_db_28302_luis2020/imagenes_productos/MOCHILA%20WAYUU%20ZAPOTE%201.jpg"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="box-header">
+                                    <img src="https://statics-cuidateplus.marca.com/cms/styles/ratio_43/azblob/papaya_0.jpg.webp?itok=bSQ-ahSk"
+                                        alt="rover" />
+                                </div>
+                                <div class="box-body">
+                                    <h4>PAPAYA PEQUEÑA</h4>
+                                    <p>Fruit S.A.S</p>
+                                    <small class="text-muted">Alimentos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="product container">
+        <div class="row">
+            <div class="col-lg-4">
+                <p class="fs-2 title-product">Cafe</p>
+                <p class="result-product">20.414 resultados</p>
+            </div>
+            <div class="col-lg-8 align-items-center col-lg-6 d-flex justify-content-end">
+                <button class="align-items-center border-0 d-flex px-3 py-2"> <i class='bx bx-slider-alt me-2'></i>
+                    Restablecer filtrado</button>
+                <div class="align-items-center bg-white d-flex mx-2 filters-select">
+                    <span>
+                        Ordenar por:
+                    </span>
+                    <select name="" id="">
+                        <option value="">Productos más visitados</option>
+                        <option value="">Orden alfabético</option>
+                        <option value="">Fecha más reciente de actualización</option>
+                    </select>
+                </div>
+                <div class="align-items-center bg-white d-flex mx-2 filters-select">
+                    <select style="width: 140px;" name="" id="">
+                        <option value="">10 resultados</option>
+                        <option value="">20 resultados</option>
+                        <option value="">50 resultados</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="left-bar-filtre">
+                    <div class="opc-search">
+                        <div class="header px-3 py-2 text-white">
+                            Opciones de búsqueda:
+                        </div>
+                        <div class="body px-3 py-2">
+                            <p class="body-search-result">Su búsqueda <strong>“Café”</strong> aparece en:</p>
+                            <strong>11 Categorías</strong>
+                            <p class="body-search-result fst-italic">Seleccione en la que está interesado</p>
+
+                            <div class="lis-cat">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Seleccionar todas
+                                                <input checked type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Agricola (2.090)
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Alimentos (1.854)
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Artesanías (1.354)
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Artesanías (1.354)
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Joyería y bisutería (750)
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-inline d-flex align-items-center py-1">
+                                            <label class="tick">Royal Fields
+                                                <input type="checkbox">
+                                                <span class="check"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="d-flex justify-content-center my-3">
+                                <button class="align-items-center border-0 d-flex px-3 py-2"> <i
+                                        class='bx bx-slider-alt me-2'></i>
+                                    Restablecer filtrado</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                asda
+            </div>
+        </div>
+    </div>
+</section>

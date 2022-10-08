@@ -1,0 +1,19 @@
+###Index route
+cp_ia_search.cp_ia_search:
+  path: "/search/products"
+  defaults:
+    _title: 'Search products'
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_ia_search.cp_ia_search_logs:
+  path: "/search/logs"
+  defaults:
+    _title: 'Search products'
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchLogsController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"

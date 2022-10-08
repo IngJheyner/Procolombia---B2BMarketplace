@@ -44,6 +44,8 @@ module:
   cp_contact: 0
   cp_core: 0
   cp_field_features: 0
+  cp_home: 0
+  cp_ia_search: 0
   cp_incentives: 0
   cp_layout: 0
   cp_mailing_service: 0
@@ -52,7 +54,6 @@ module:
   cp_register: 0
   cp_search: 0
   cp_structured_features: 0
-  cp_temp_share: 0
   cp_wf_contact: 0
   crop: 0
   csv_serialization: 0

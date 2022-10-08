@@ -12,6 +12,7 @@
   var id_other_user = -1;
   var socket;
   var last_date = ''
+  var first_date = '';
   var new_messages = 0;
   var offset = 0;
   var length_fetch_message = 0;
@@ -132,7 +133,7 @@
                   <i class="bx bx-dots-horizontal-rounded"></i>
                   </a>
                   <div tabindex="-1" id="dropdown-list-${chat.id}" role="menu" aria-hidden="false" class="dropdown-menu" style="position: absolute;will-change: transform;top: 16px;min-width: 28px;left: -70px;" x-placement="top-start">
-                    <button type="button" tabindex="0" role="menuitem" class="dropdown-item">Eliminar <i class='bx bx-trash'></i></button>
+                    <button onclick="deleteChat(${chat.id}, '${chat.first_name + " " + chat.last_name}', '${chat.company_name}')"  type="button" tabindex="0" role="menuitem" class="dropdown-item">Eliminar <i class='bx bx-trash'></i></button>
                   </div>
               </div>
             </span>
@@ -170,6 +171,10 @@
       .then((result) => {
         let msgList = result.data;
         length_fetch_message = msgList.length;
+        //get firts date
+        if (msgList.length > 0) {
+          first_date = moment(msgList[0].updated).format('YYYY-MM-DD');
+        }
         CheckMessages(chatId);
         getListOfChats(0, 15);
         if (!refetch) {
@@ -248,7 +253,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -328,7 +333,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -519,7 +524,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -599,7 +604,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -804,12 +809,36 @@
     }
   }
 
+  let stopComplete = false;
   //infitine scroll for list messages in chat
   $('#message-content').scroll(function () {
     if (length_fetch_message > 0) {
       if ($(this).scrollTop() == 0) {
         offset += 30;
         fetchChatMessages(chat_selected, offset, 30, true);
+      }
+      stopComplete = false;
+    } else {
+      if (!stopComplete) {
+        //get text of id chat-company-name
+        let name = $('#chat-company-name').text();
+
+        let html = `
+          <li class="text-center mb-3">
+            <div class="">
+              <div class="user-chat-content">
+                <div class="ctext-wrap">
+                  <div class="ctext-wrap-content">
+                    <p class="mb-0">${first_date}</p>
+                    <p class="mb-0" style="color:#005CA4">Contacto con la empresa ${name}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        `
+        $('#chat-messages').prepend(html);
+        stopComplete = true;
       }
     }
   });
@@ -871,6 +900,36 @@
     $('#messages').show();
   }
 
+  const deleteChatApi = (chat_id) => {
+    //form data
+    let formData = new FormData();
+    formData.append('id_chat', chat_id);
+
+    //fetch
+    fetch('/chat/delete_chat', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.status == 'ok') {
+          //hide modal
+          socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: true }] });
+          $('#chat-fill').hide();
+          $('#chat-empty').show();
+          $('#modal-delete').modal('hide');
+          //fetch chat
+          getListOfChats(0, 15);
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(error => {
+        alert(error);
+      });
+  }
+
 
 
   // **********************
@@ -884,8 +943,8 @@
         //check if path is messages
         if (window.location.pathname.includes('messages')) {
           init();
+          socket = io('ws://44.210.73.93:5055');
         }
-        socket = io('ws://44.210.73.93:5055');
       }
       //create function get chat messages
       window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe) => {
@@ -903,7 +962,7 @@
         $('#chat-company-name').text(companyName);
         $('#chat-user-name').text(fullName);
         $('#chat-user-description').text(description);
-
+        $('#delete-chat-in-message').attr('onclick', `deleteChat(${chatId}, '${fullName}', '${companyName}')`);
         //check if company logo exist
         console.log(companyLogo);
         if (companyLogo) {
@@ -987,15 +1046,15 @@
                      <img
                        src="${msg.company_logo}"
                        class="rounded-circle avatar-xs" alt="" />`
-                     :
-                     `<div class="avatar-xs">
+                  :
+                  `<div class="avatar-xs">
                      <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                     </div>
                     `
-                   }
+                }
                    </div>
-                   ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
-                     `<div class="user-chat-content">
+                   ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
+                  `<div class="user-chat-content">
                      <div class="ctext-wrap">
                          
                      <div class="ctext-wrap-content">
@@ -1019,8 +1078,8 @@
                      </div>
                    </li>
                    `
-                     :
-                     `<div class="user-chat-content">
+                  :
+                  `<div class="user-chat-content">
                      <div class="ctext-wrap">
                          <div class="ctext-wrap-content">
                            <div class="conversation-name">${msg.company_name}</div>
@@ -1068,11 +1127,11 @@
                       src="${msg.company_logo}"
                       class="rounded-circle avatar-xs" alt="" />
                       `
-                    :
-                    `<div class="avatar-xs">
+                  :
+                  `<div class="avatar-xs">
                         <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                       </div>`
-                  }
+                }
                   </div>
       
                   <div class="user-chat-content">
@@ -1148,7 +1207,7 @@
                  `
                 }
                 </div>
-                ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+                ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
                   `<div class="user-chat-content">
                   <div class="ctext-wrap">
                       
@@ -1222,11 +1281,11 @@
                     <img
                       src="${msg.company_logo}"
                       class="rounded-circle avatar-xs" alt="" />`
-                    :
-                    `<div class="avatar-xs">
+                  :
+                  `<div class="avatar-xs">
                     <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                    </div>`
-                  }
+                }
                   </div>
       
                   <div class="user-chat-content">
@@ -1325,10 +1384,16 @@
       //receive refreshChatList
       socket.on('refreshChatList', function (data) {
         let msg = data.message[0];
-        if (msg.entity_id_sender != id_me) {
-          console.log("refreshChatList");
-          console.log(data);
+        if (msg.delete_chat) {
           getListOfChats(0, 15);
+          $('#chat-fill').hide();
+          $('#chat-empty').show();
+        } else {
+          if (msg.entity_id_sender != id_me) {
+            console.log("refreshChatList");
+            console.log(data);
+            getListOfChats(0, 15);
+          }
         }
       });
 
@@ -1440,6 +1505,40 @@
           }
         }
       });
+
+      //function to delete
+      window.deleteChat = function (id, fullName, companyName) {
+        //show modal delete and put onclick function in delete-chat
+        $('#modal-chat-name').text(fullName);
+        $('#modal-chat-empresa').text(companyName);
+        $('#modal-chat-header-empresa').text(companyName);
+        $('#modal-delete').modal('show');
+        $('#delete-chat').attr('onclick', `deleteActionButton(${id})`);
+      };
+
+      window.deleteActionButton = function (id) {
+        deleteChatApi(id);
+      };
+
+      //detect click images inside chat-messages
+      $('#chat-messages', context).click(function (evt) {
+        console.log("click");
+        //check if is image
+        if (evt.target.tagName == 'IMG') {
+          let src = evt.target.src;
+          console.log(src);
+          //add background image to ligtbox
+          $('#lightbox').css('background-image', `url(${src})`);
+          //show lightbox
+          $('#lightbox-cont').show();
+        }
+      });
+
+      //detect if click outside of image in lightbox
+      $('#lightbox-cont', context).click(function (evt) {
+        $('#lightbox-cont').hide();
+      });
+
     }
   };
 

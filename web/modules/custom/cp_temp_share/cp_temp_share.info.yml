@@ -1,9 +1,0 @@
-name: 'CP Temp Share'
-type: module
-description: 'Procolombia temp share module'
-core_version_requirement: ^8.9 || ^9.0
-interface translation project: cp_temp_share
-interface translation server pattern: modules/custom/cp_temp_share/translations/cp_temp_share-es.po
-package: 'Custom'
-dependencies:
-- block
