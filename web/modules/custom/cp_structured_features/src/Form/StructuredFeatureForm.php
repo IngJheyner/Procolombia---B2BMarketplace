@@ -218,6 +218,7 @@ class StructuredFeatureForm extends EntityForm {
       '#title' => $this->t('Label'),
       '#required' => FALSE,
       '#default_value' => isset($editDefaults['label']) ? $editDefaults['label'] : NULL,
+      '#description' => $this->t('If the field is assigned to specific language this value will not be translated. You must fill it in the end language.'),
     ];
     $form['properties_elements']['agregate']['id'] = [
       '#type' => 'machine_name',
@@ -262,11 +263,13 @@ class StructuredFeatureForm extends EntityForm {
       '#type' => 'textarea',
       '#title' => $this->t('Help'),
       '#default_value' => isset($editDefaults['help']) ? $editDefaults['help'] : NULL,
+      '#description' => $this->t('If the field is assigned to specific language this value will not be translated. You must fill it in the end language.'),
     ];
     $form['properties_elements']['agregate']['help_lamp'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Light bulb help'),
       '#default_value' => isset($editDefaults['help_lamp']) ? $editDefaults['help_lamp'] : NULL,
+      '#description' => $this->t('If the field is assigned to specific language this value will not be translated. You must fill it in the end language.'),
     ];
     $form['properties_elements']['agregate']['maxlength'] = [
       '#type' => 'number',
@@ -292,12 +295,15 @@ class StructuredFeatureForm extends EntityForm {
       '#type' => 'textfield',
       '#title' => 'Placeholder',
       '#default_value' => isset($editDefaults['placeholder']) ? $editDefaults['placeholder'] : NULL,
+      '#description' => $this->t('For select fields this is the equivalent to the empty value.') . '<br />' . $this->t('If the field is assigned to specific language this value will not be translated. You must fill it in the end language.'),
       '#states' => [
         'visible' => [
           ':input[name="properties_elements[agregate][type]"]' => [
             ['value' => 'textfield'],
             'or',
             ['value' => 'textarea'],
+            'or',
+            ['value' => 'select'],
           ],
         ],
       ],
@@ -315,10 +321,23 @@ class StructuredFeatureForm extends EntityForm {
       '#description' => $this->t('If a field is set to a specific language it will be repeated for each language.'),
       '#default_value' => isset($editDefaults['language']) ? $editDefaults['language'] : NULL,
     ];
+    $form['properties_elements']['agregate']['apply'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Apply option'),
+      '#default_value' => isset($editDefaults['apply']) ? $editDefaults['apply'] : NULL,
+      '#description' => $this->t('Show a checkbox on the property to enable or disable it if not apply.'),
+      '#states' => [
+        'visible' => [
+          ':input[name="properties_elements[agregate][type]"]' => [
+            ['value' => 'select'],
+          ],
+        ],
+      ],
+    ];
     $form['properties_elements']['agregate']['options'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Options'),
-      '#description' => $this->t('You must introduce a option for each line. The structure of each option must be key|Label, for example: first_key|First element'),
+      '#description' => $this->t('You must introduce a option for each line. The structure of each option must be key|Label, for example: first_key|First element') . '<br />' . $this->t('If the field is assigned to specific language this value will not be translated. You must fill it in the end language.'),
       '#default_value' => isset($editDefaults['options']) ? $editDefaults['options'] : NULL,
       '#states' => [
         'visible' => [
@@ -388,22 +407,79 @@ class StructuredFeatureForm extends EntityForm {
       '#type' => 'container',
       '#attributes' => ['class' => ['properties-elements-list']],
     ];
-    $form['properties_elements']['list']['top'] = [
+    $form['properties_elements']['list']['list_all'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['properties-elements-list-lang-all']],
+    ];
+    $form['properties_elements']['list']['list_all']['lang_title'] = [
+      '#markup' => $this->t('<h2>Fields for both languages</h2>'),
+    ];
+    $form['properties_elements']['list']['list_es'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['properties-elements-list-lang-es']],
+    ];
+    $form['properties_elements']['list']['list_es']['lang_title'] = [
+      '#markup' => $this->t('<h2>Fields for Spanish language</h2>'),
+    ];
+    $form['properties_elements']['list']['list_en'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['properties-elements-list-lang-en']],
+    ];
+    $form['properties_elements']['list']['list_en']['lang_title'] = [
+      '#markup' => $this->t('<h2>Fields for English language</h2>'),
+    ];
+
+    $form['properties_elements']['list']['list_all']['top'] = [
       '#type' => 'container',
       '#attributes' => ['class' => ['top']],
     ];
-    $form['properties_elements']['list']['left'] = [
+    $form['properties_elements']['list']['list_all']['left'] = [
       '#type' => 'container',
       '#attributes' => ['class' => ['left']],
     ];
-    $form['properties_elements']['list']['right'] = [
+    $form['properties_elements']['list']['list_all']['right'] = [
       '#type' => 'container',
       '#attributes' => ['class' => ['right']],
     ];
-    $form['properties_elements']['list']['bottom'] = [
+    $form['properties_elements']['list']['list_all']['bottom'] = [
       '#type' => 'container',
       '#attributes' => ['class' => ['bottom']],
     ];
+
+    $form['properties_elements']['list']['list_es']['top'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['top']],
+    ];
+    $form['properties_elements']['list']['list_es']['left'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['left']],
+    ];
+    $form['properties_elements']['list']['list_es']['right'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['right']],
+    ];
+    $form['properties_elements']['list']['list_es']['bottom'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['bottom']],
+    ];
+
+    $form['properties_elements']['list']['list_en']['top'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['top']],
+    ];
+    $form['properties_elements']['list']['list_en']['left'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['left']],
+    ];
+    $form['properties_elements']['list']['list_en']['right'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['right']],
+    ];
+    $form['properties_elements']['list']['list_en']['bottom'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['bottom']],
+    ];
+
     usort($properties, function($a, $b) {
       $a['order'] = isset($a['order']) ? $a['order'] : 0;
       $b['order'] = isset($b['order']) ? $b['order'] : 0;
@@ -419,11 +495,11 @@ class StructuredFeatureForm extends EntityForm {
     });
     foreach ($properties as $property) {
       $property_key = $property['id'];
-      $form['properties_elements']['list'][$property['position']][$property_key] = [
+      $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key] = [
         '#type' => 'container',
         '#attributes' => ['class' => ['container-inline']],
       ];
-      $form['properties_elements']['list'][$property['position']][$property_key]['property'] = [
+      $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property'] = [
         '#type' => 'details',
         '#title' => $property['label'] . ' (' . $property['id'] . ')',
       ];
@@ -436,27 +512,27 @@ class StructuredFeatureForm extends EntityForm {
         ) {
           switch($pf['#type']) {
             case 'select':
-              $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+              $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property'][$pk] = [
                 '#markup' => '<strong>Type: </strong>: ' . $form['properties_elements']['agregate'][$pk]['#options'][$property[$pk]] . '<br />',
               ];
               break;
 
             case 'textfield':
             case 'number':
-              $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+              $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property'][$pk] = [
                 '#markup' => '<strong>' . $pf['#title'] . '</strong>: ' . $property[$pk] . '<br />',
               ];
               break;
 
               case 'textarea':
-                $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+                $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property'][$pk] = [
                 '#markup' => '<strong>' . $pf['#title'] . '</strong>: <br /><pre>' . $property[$pk] . '</pre><br />',
               ];
               break;
 
             case 'checkbox':
               $showvalue = $property[$pk] ? $this->t('Yes') : $this->t('No');
-              $form['properties_elements']['list'][$property['position']][$property_key]['property'][$pk] = [
+              $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property'][$pk] = [
                 '#markup' => '<strong>' . $pf['#title'] . '</strong>: ' . $showvalue . '<br />',
               ];
               break;
@@ -464,10 +540,10 @@ class StructuredFeatureForm extends EntityForm {
           }
         }
       }
-      $form['properties_elements']['list'][$property['position']][$property_key]['property']['actions'] = [
+      $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property']['actions'] = [
         '#type' => 'actions',
       ];
-      $form['properties_elements']['list'][$property['position']][$property_key]['property']['actions']['edit'] = [
+      $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property']['actions']['edit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Edit'),
         '#submit' => ['::editProperty'],
@@ -478,7 +554,7 @@ class StructuredFeatureForm extends EntityForm {
         ],
         '#name' => 'properties_elements_edit_' . $property_key,
       ];
-      $form['properties_elements']['list'][$property['position']][$property_key]['property']['actions']['remove'] = [
+      $form['properties_elements']['list']['list_' . $property['language']][$property['position']][$property_key]['property']['actions']['remove'] = [
         '#type' => 'submit',
         '#value' => $this->t('Remove'),
         '#submit' => ['::removeProperty'],

@@ -76,6 +76,36 @@
   align-content: flex-start;
 }
 
+#reload-properties .properties-elements-list-lang {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#reload-properties .properties-elements-list-lang-all {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#reload-properties .properties-elements-list-lang-es,
+#reload-properties .properties-elements-list-lang-en {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
 #reload-properties .properties-elements-list .top,
 #reload-properties .properties-elements-list .bottom {
   width: 100%;

@@ -68,6 +68,9 @@ cp_structured_features.structured_feature.*:
           language:
             type: string
             label: 'Language'
+          apply_option:
+            type: boolean
+            label: 'Apply option checkbox'
           options:
             type: 'text'
             label: 'Options'

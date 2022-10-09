@@ -39,9 +39,13 @@ class StructuredFeatureWidget extends WidgetBase {
       ->condition('status', TRUE);
     $ids = $query->execute();
     $all = $sfStorage->loadMultiple($ids);
-    $ok = FALSE;
     foreach ($all as $sf) {
       if (in_array($uuid, $sf->get('references'))) {
+        $languageManager = \Drupal::languageManager();
+        $en = $languageManager->getLanguageConfigOverride('en', 'cp_structured_features.structured_feature.' . $sf->id());
+        $es = $languageManager->getLanguageConfigOverride('es', 'cp_structured_features.structured_feature.' . $sf->id());
+        $sf->en = $en;
+        $sf->es = $es;
         return $sf;
       }
     }
@@ -151,7 +155,7 @@ class StructuredFeatureWidget extends WidgetBase {
       }
 
       $element = [];
-      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $structure);
+      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $structure, $sf);
 
       if ($element) {
         // Input field for the delta (drag-n-drop reordering).
@@ -160,12 +164,9 @@ class StructuredFeatureWidget extends WidgetBase {
           // defined by widget.
           unset($element['_weight']);
         }
-
         $elements[$delta] = $element;
       }
       $delta++;
-
-
     }
 
     if ($elements) {
@@ -197,7 +198,7 @@ class StructuredFeatureWidget extends WidgetBase {
   /**
    * Generates the form element for a single copy of the widget.
    */
-  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
+  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL, $sf = NULL) {
     $element += [
       '#field_parents' => $form['#parents'],
       // Only the first widget should be required.
@@ -206,7 +207,7 @@ class StructuredFeatureWidget extends WidgetBase {
       '#weight' => $delta,
     ];
 
-    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure);
+    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure, $sf);
 
     if ($element) {
       // Allow modules to alter the field widget form element.
@@ -227,71 +228,94 @@ class StructuredFeatureWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL, $sf = NULL) {
     $element['property'] = [
       '#type' => 'hidden',
       '#default_value' => $structure['id'],
     ];
-    switch ($structure['type']) {
-      case 'select':
-      case 'radios':
-      case 'checkboxes':
-        if ($structure['multiple']) {
-          $default_value = !empty($items[$delta]->value) ?
-            array_combine(explode(';', $items[$delta]->value), explode(';', $items[$delta]->value))
-          :
-            array_combine(explode(';', $structure['default_value']), explode(';', $structure['default_value']));
-        }
-        else {
-          $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
-        }
-        $optList = explode(PHP_EOL, $structure['options']);
-        $options = [];
-        foreach ($optList as $opt) {
-          $optVal = explode('|', $opt);
-          if (count($optVal) > 1) {
-            $options[$optVal[0]] = $optVal[1];
+    if ($structure['status']) {
+
+      if ($structure['language'] != 'all') {
+        $structure['label'] = !empty($sf->{$structure['language']}->get('properties')[$structure['id']]['label']) ? $sf->{$structure['language']}->get('properties')[$structure['id']]['label'] : $structure['label'];
+        $structure['placeholder'] = !empty($sf->{$structure['language']}->get('properties')[$structure['id']]['placeholder']) ? $sf->{$structure['language']}->get('properties')[$structure['id']]['placeholder'] : $structure['placeholder'];
+        $structure['options'] = !empty($sf->{$structure['language']}->get('properties')[$structure['id']]['options']) ? $sf->{$structure['language']}->get('properties')[$structure['id']]['options'] : $structure['options'];
+        $structure['help'] = !empty($sf->{$structure['language']}->get('properties')[$structure['id']]['help']) ? $sf->{$structure['language']}->get('properties')[$structure['id']]['help'] : $structure['help'];
+        $structure['help_lamp'] = !empty($sf->{$structure['language']}->get('properties')[$structure['id']]['help_lamp']) ? $sf->{$structure['language']}->get('properties')[$structure['id']]['help_lamp'] : $structure['help_lamp'];
+      }
+
+      switch ($structure['type']) {
+        case 'select':
+        case 'radios':
+        case 'checkboxes':
+          if ($structure['multiple']) {
+            $default_value = !empty($items[$delta]->value) ?
+              array_combine(explode(';', $items[$delta]->value), explode(';', $items[$delta]->value))
+            :
+              array_combine(explode(';', $structure['default_value']), explode(';', $structure['default_value']));
           }
-        }
-        $element['value'] = [
-          '#type' => $structure['type'],
-          '#title' => $structure['label'],
-          '#default_value' => $default_value,
-          '#placeholder' => $structure['placeholder'],
-          '#attributes' => ['class' => [$structure['class']]],
-          '#required' => $structure['required'],
-          '#options' => $options,
-          '#description' => $structure['help'],
-        ];
-        break;
+          else {
+            $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
+          }
+          $optList = explode(PHP_EOL, $structure['options']);
+          $options = [];
+          foreach ($optList as $opt) {
+            $optVal = explode('|', $opt);
+            if (count($optVal) > 1) {
+              $options[$optVal[0]] = $optVal[1];
+            }
+          }
+          $element['value'] = [
+            '#type' => $structure['type'],
+            '#title' => $structure['label'],
+            '#default_value' => $default_value,
+            '#placeholder' => $structure['placeholder'],
+            '#attributes' => ['class' => [$structure['class']]],
+            '#required' => $structure['required'],
+            '#options' => $options,
+            '#description' => $structure['help'],
+            '#empty_value' => $structure['placeholder'],
+          ];
+          break;
 
-      case 'checkbox':
-        $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
-        $element['value'] = [
-          '#type' => $structure['type'],
-          '#title' => $structure['label'],
-          '#default_value' => $default_value,
-          '#attributes' => ['class' => [$structure['class']]],
-          '#required' => $structure['required'],
-          '#description' => $structure['help'],
-        ];
-        break;
+        case 'checkbox':
+          $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
+          $element['value'] = [
+            '#type' => $structure['type'],
+            '#title' => $structure['label'],
+            '#default_value' => $default_value,
+            '#attributes' => ['class' => [$structure['class']]],
+            '#required' => $structure['required'],
+            '#description' => $structure['help'],
+          ];
+          break;
 
-      case 'textfield':
-      case 'textarea':
-        $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
-        $element['value'] = [
-          '#type' => $structure['type'],
-          '#title' => $structure['label'],
-          '#default_value' => $default_value,
-          '#size' => $structure['size'],
-          '#placeholder' => $structure['placeholder'],
-          '#maxlength' => $structure['maxlength'],
-          '#attributes' => ['class' => [$structure['class']]],
-          '#required' => $structure['required'],
-          '#description' => $structure['help'],
-        ];
-        break;
+        case 'textfield':
+        case 'textarea':
+          $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
+          $element['value'] = [
+            '#type' => $structure['type'],
+            '#title' => $structure['label'],
+            '#default_value' => $default_value,
+            '#size' => $structure['size'],
+            '#placeholder' => $structure['placeholder'],
+            '#maxlength' => $structure['maxlength'],
+            '#attributes' => ['class' => [$structure['class']]],
+            '#required' => $structure['required'],
+            '#description' => $structure['help'],
+          ];
+          break;
+      }
+    }
+    else {
+      $element['value'] = [
+        '#type' => 'value',
+        '#value' => $default_value,
+      ];
+    }
+
+    if (!empty($structure['help_lamp'])) {
+      $element['#prefix'] = '<div class="element-withlightbulb"><div class="form-wrapper lightbulb-tooltip" data-drupal-selector="edit-group-tooltip"><span>' . $structure['help_lamp'] . '</span></div>';
+      $element['#suffix'] = '</div>';
     }
 
     $element['#attributes']['class'][] = 'lang-' . $structure['language'];
