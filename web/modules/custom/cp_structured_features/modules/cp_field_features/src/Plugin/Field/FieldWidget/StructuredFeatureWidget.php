@@ -30,6 +30,25 @@ class StructuredFeatureWidget extends WidgetBase {
   }
 
   /**
+   * Check reference uuid.
+   */
+  protected function checkReferenceFeaturedStructure($uuid) {
+    $sfStorage = \Drupal::entityTypeManager()->getStorage('structured_feature');
+    $query = $sfStorage->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('status', TRUE);
+    $ids = $query->execute();
+    $all = $sfStorage->loadMultiple($ids);
+    $ok = FALSE;
+    foreach ($all as $sf) {
+      if (in_array($uuid, $sf->get('references'))) {
+        return $sf;
+      }
+    }
+    return FALSE;
+  }
+
+  /**
    * Special handling to create form elements for multiple values.
    *
    * Handles generic features for multiple fields:
@@ -38,284 +57,30 @@ class StructuredFeatureWidget extends WidgetBase {
    * - table display and drag-n-drop value reordering.
    */
   protected function formMultipleElements(FieldItemListInterface $items, array &$form, FormStateInterface $form_state) {
-    $sf = [];
-    $sf['structure_one'] = [
-      'id' => 'structure_one',
-      'label' => 'Structure one',
-      'uuid' => '....',
-      'description' => '...',
-      'type' => 'product',
-      'references' => ['090111', '090112'],
-      'properties' => [
-        'tipo_de_cafe' => [
-          'multiple' => TRUE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['one' => 'Uno', 'two' => 'Dos'],
-          'label' => 'Tipo de Café',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-          'status' => TRUE,
-        ],
-        'organico' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Orgánico',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'clasificacion_cafe_verde' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Clasificación - Café Verde',
-          'help' => 'Si su producto NO es Café Verde seleccione No Aplica.',
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'cafe_especial' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Café Especial',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'tostion' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Tostión',
-          'help' => 'Si su producto NO es Café Soluble / Instantáneo seleccione No Aplica.',
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'presentacion_cafe_soluble' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Presentación Café Soluble',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'origen' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Origen',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'tipo_de_empaque' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Tipo de empaque',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'temporada_de_produccion' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Temporada de producción',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'left',
-        ],
-        'descafeinado' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Descafeinado',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'variedad' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Variedad',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'clasificacion_cafe_convencional' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Clasificación - Café Convencional',
-          'help' => 'Si su producto NO es Café Convencional seleccione No Aplica.',
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'presentacion_cafe_tostado' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Presentación - Café tostado',
-          'help' => 'Si su producto NO es Café Tostado seleccione No Aplica.',
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'proceso' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Proceso',
-          'help' => 'Si su producto NO es Café Soluble / Instantáneo seleccione No Aplica.',
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'capacidad_de_produccion_anual' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'textfield',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Capacidad de producción anual',
-          'help' => NULL,
-          'maxlength' => 20,
-          'size' => 60,
-          'placeholder' => 'Capacidad de producción',
-          'class' => 'right',
-        ],
-        'capacidad_de_produccion_anual_medida' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'textfield',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Capacidad de produccion anual (medida)',
-          'help' => NULL,
-          'maxlength' => 20,
-          'size' => 60,
-          'placeholder' => '# Unidad de medida',
-          'class' => 'right',
-        ],
-        'canal_de_venta' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Canal de venta',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'modelo_de_negocio' => [
-          'multiple' => FALSE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['third' => 'Tres', 'four' => 'Cuatro'],
-          'label' => 'Modelo de negocio',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => 'right',
-        ],
-        'narrativa' => [
-          'multiple' => TRUE,
-          'required' => TRUE,
-          'type' => 'textarea',
-          'options' => NULL,
-          'label' => 'Narrativa',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => 'Desde el año "X", en la empresa "Y" decidimos incorporar un enfoque de equidad de género/sostenibilidad/postconflicto como un pilar fundamental en la estrategia de generación de valor para la comunidad en el sector cafetero. Este enfoque está dirigido a "Z" familias/mujeres, que representan aproximadamente el X% de la caficultura en Colombia, y gracias a su implementación estamos generando un impacto positivo para la comunidad en la región "ZZ".',
-          'class' => 'full',
-          'language' => NULL,
-        ],
-        'narrativa_en' => [
-          'multiple' => TRUE,
-          'required' => TRUE,
-          'type' => 'textarea',
-          'options' => NULL,
-          'label' => 'Narrativa',
-          'help' => NULL,
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => 'Desde el año "X", en la empresa "Y" decidimos incorporar un enfoque de equidad de género/sostenibilidad/postconflicto como un pilar fundamental en la estrategia de generación de valor para la comunidad en el sector cafetero. Este enfoque está dirigido a "Z" familias/mujeres, que representan aproximadamente el X% de la caficultura en Colombia, y gracias a su implementación estamos generando un impacto positivo para la comunidad en la región "ZZ".',
-          'class' => 'full',
-          'language' => 'en',
-        ],
-      ],
-    ];
-    $sf['structure_two'] = [
-      'id' => 'structure_two',
-      'label' => 'Structure two',
-      'uuid' => '....',
-      'description' => '...',
-      'type' => 'service',
-      'references' => ['123'],
-      'properties' => [
-        'first' => [
-          'multiple' => TRUE,
-          'required' => TRUE,
-          'type' => 'select',
-          'options' => ['one' => 'Uno', 'two' => 'Dos'],
-          'label' => 'Etiqueta 1',
-          'help' => 'Help',
-          'maxlength' => NULL,
-          'size' => NULL,
-          'placeholder' => NULL,
-          'class' => NULL,
-        ],
-      ],
-    ];
+    $entity = $form_state->get('entity');
+    $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    if ($entity->field_product_type->value == 'service') {
+      if (!$entity->field_categorization_parent->isEmpty()) {
+        $entity->field_categorization_parent->target_id;
+        $term = $termStorage->load($entity->field_categorization_parent->target_id);
+        $uuid = $term->uuid();
+        $sf = $this->checkReferenceFeaturedStructure($uuid);
+      }
+    }
+    else {
+      if (!$entity->field_partida_arancelaria_tax->isEmpty()) {
+        $entity->field_partida_arancelaria_tax->target_id;
+        $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
+        $uuid = $term->uuid();
+        $sf = $this->checkReferenceFeaturedStructure($uuid);
+      }
+    }
 
-    $delta = count($sf['structure_one']['properties']);
+    if (!$sf) {
+      return ['#markup' => $this->t("The structured feature can`t be loaded.")];
+    }
+
+    $delta = count($sf->get('properties'));
     $field_name = $this->fieldDefinition->getName();
     $parents = $form['#parents'];
 
@@ -352,13 +117,41 @@ class StructuredFeatureWidget extends WidgetBase {
     $elements = [];
 
     $delta = 0;
-    foreach ($sf['structure_one']['properties'] as $property => $structure) {
+    $properties = $sf->get('properties');
+    usort($properties, function($a, $b) {
+      $a['order'] = isset($a['order']) ? $a['order'] : 0;
+      $b['order'] = isset($b['order']) ? $b['order'] : 0;
+      if ($a['order'] < $b['order']) {
+        return -1;
+      }
+      elseif ($a['order'] > $b['order']) {
+        return 1;
+      }
+      else {
+        return 0;
+      }
+    });
+    $multiLang = FALSE;
+    $espLang = FALSE;
+    $engLang = FALSE;
+    foreach ($properties as $structure) {
       // Add a new empty item if it doesn't exist yet at this delta.
       if (!isset($items[$delta])) {
         $items->appendItem();
       }
+
+      if ($structure['language'] == 'all') {
+        $multiLang = TRUE;
+      }
+      if ($structure['language'] == 'en') {
+        $engLang = TRUE;
+      }
+      if ($structure['language'] == 'es') {
+        $espLang = TRUE;
+      }
+
       $element = [];
-      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $structure, $property);
+      $element = $this->formSingleElement($items, $delta, $element, $form, $form_state, $structure);
 
       if ($element) {
         // Input field for the delta (drag-n-drop reordering).
@@ -371,6 +164,8 @@ class StructuredFeatureWidget extends WidgetBase {
         $elements[$delta] = $element;
       }
       $delta++;
+
+
     }
 
     if ($elements) {
@@ -384,6 +179,15 @@ class StructuredFeatureWidget extends WidgetBase {
         '#description' => $description,
         '#max_delta' => $max,
       ];
+      if ($multiLang) {
+        $elements['#attributes']['class'][] = 'multilang';
+      }
+      if ($engLang) {
+        $elements['#attributes']['class'][] = 'english';
+      }
+      if ($espLang) {
+        $elements['#attributes']['class'][] = 'spanish';
+      }
 
     }
 
@@ -393,7 +197,7 @@ class StructuredFeatureWidget extends WidgetBase {
   /**
    * Generates the form element for a single copy of the widget.
    */
-  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL, string $property = NULL) {
+  protected function formSingleElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
     $element += [
       '#field_parents' => $form['#parents'],
       // Only the first widget should be required.
@@ -402,7 +206,7 @@ class StructuredFeatureWidget extends WidgetBase {
       '#weight' => $delta,
     ];
 
-    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure, $property);
+    $element = $this->formElement($items, $delta, $element, $form, $form_state, $structure);
 
     if ($element) {
       // Allow modules to alter the field widget form element.
@@ -423,10 +227,10 @@ class StructuredFeatureWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL, string $property = NULL) {
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state, array $structure = NULL) {
     $element['property'] = [
       '#type' => 'hidden',
-      '#default_value' => $property,
+      '#default_value' => $structure['id'],
     ];
     switch ($structure['type']) {
       case 'select':
@@ -441,6 +245,14 @@ class StructuredFeatureWidget extends WidgetBase {
         else {
           $default_value = !empty($items[$delta]->value) ? $items[$delta]->value : $structure['default_value'];
         }
+        $optList = explode(PHP_EOL, $structure['options']);
+        $options = [];
+        foreach ($optList as $opt) {
+          $optVal = explode('|', $opt);
+          if (count($optVal) > 1) {
+            $options[$optVal[0]] = $optVal[1];
+          }
+        }
         $element['value'] = [
           '#type' => $structure['type'],
           '#title' => $structure['label'],
@@ -448,7 +260,7 @@ class StructuredFeatureWidget extends WidgetBase {
           '#placeholder' => $structure['placeholder'],
           '#attributes' => ['class' => [$structure['class']]],
           '#required' => $structure['required'],
-          '#options' => $structure['options'],
+          '#options' => $options,
           '#description' => $structure['help'],
         ];
         break;
@@ -481,6 +293,9 @@ class StructuredFeatureWidget extends WidgetBase {
         ];
         break;
     }
+
+    $element['#attributes']['class'][] = 'lang-' . $structure['language'];
+    $element['#attributes']['class'][] = $structure['position'];
 
     return $element;
   }

@@ -318,7 +318,7 @@ class StructuredFeatureForm extends EntityForm {
     $form['properties_elements']['agregate']['options'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Options'),
-      '#description' => $this->t('You must introduce a option for each line. The structure of each option must be key|Label (Spanish)|Label (English), for example: first_key|Primer Elemento|First element'),
+      '#description' => $this->t('You must introduce a option for each line. The structure of each option must be key|Label, for example: first_key|First element'),
       '#default_value' => isset($editDefaults['options']) ? $editDefaults['options'] : NULL,
       '#states' => [
         'visible' => [

@@ -794,15 +794,13 @@ class CpCoreMultiStepForm extends FormBase {
       $this->step_sf = FALSE;
       if ($this->step == 2) {
         $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
-        $sfStorage = $this->entityTypeManager->getStorage('structured_feature');
         $entity = $form_state->get('entity');
         if ($entity->field_product_type->value == 'service') {
           if (!$entity->field_categorization_parent->isEmpty()) {
             $entity->field_categorization_parent->target_id;
             $term = $termStorage->load($entity->field_categorization_parent->target_id);
             $uuid = $term->uuid();
-            $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
-            if (!empty($sfs)) {
+            if ($this->checkReferenceFeaturedStructure($uuid)) {
               $this->step_sf = TRUE; // Enable with SF.
               $this->step = 2;
             }
@@ -813,8 +811,7 @@ class CpCoreMultiStepForm extends FormBase {
             $entity->field_partida_arancelaria_tax->target_id;
             $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
             $uuid = $term->uuid();
-            $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
-            if (!empty($sfs)) {
+            if ($this->checkReferenceFeaturedStructure($uuid)) {
               $this->step_sf = TRUE; // Enable with SF.
               $this->step = 2;
             }
@@ -884,14 +881,12 @@ class CpCoreMultiStepForm extends FormBase {
         $this->step++;
         if ($this->step == 3) {
           $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
-          $sfStorage = $this->entityTypeManager->getStorage('structured_feature');
           if ($entity->field_product_type->value == 'service') {
             if (!$entity->field_categorization_parent->isEmpty()) {
               $entity->field_categorization_parent->target_id;
               $term = $termStorage->load($entity->field_categorization_parent->target_id);
               $uuid = $term->uuid();
-              $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
-              if (!empty($sfs)) {
+              if ($this->checkReferenceFeaturedStructure($uuid)) {
                 $this->step_sf = TRUE; // Enable with SF.
                 $this->step = 2;
               }
@@ -902,8 +897,7 @@ class CpCoreMultiStepForm extends FormBase {
               $entity->field_partida_arancelaria_tax->target_id;
               $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
               $uuid = $term->uuid();
-              $sfs = $sfStorage->loadByProperties(['references' => $uuid]);
-              if (!empty($sfs)) {
+              if ($this->checkReferenceFeaturedStructure($uuid)) {
                 $this->step_sf = TRUE; // Enable with SF.
                 $this->step = 2;
               }
@@ -915,6 +909,25 @@ class CpCoreMultiStepForm extends FormBase {
     else {
       // Show the last step.
     }
+  }
+
+  /**
+   * Check reference uuid.
+   */
+  protected function checkReferenceFeaturedStructure($uuid) {
+    $sfStorage = $this->entityTypeManager->getStorage('structured_feature');
+    $query = $sfStorage->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('status', TRUE);
+    $ids = $query->execute();
+    $all = $sfStorage->loadMultiple($ids);
+    $ok = FALSE;
+    foreach ($all as $sf) {
+      if (in_array($uuid, $sf->get('references'))) {
+        return $sf;
+      }
+    }
+    return FALSE;
   }
 
   /**

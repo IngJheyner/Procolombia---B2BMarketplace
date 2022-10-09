@@ -16,7 +16,6 @@ references:
   - b10b4f83-530b-4b27-9ecf-9f4cf7f5ba6a
 properties:
   tipo_de_cafe:
-    order: 0
     status: true
     multiple: false
     required: true
@@ -32,9 +31,9 @@ properties:
     default_value: ''
     language: all
     options: 'tipo1|Tipo 1|Type 1'
+    order: 0
     id: tipo_de_cafe
   organico:
-    order: 0
     status: true
     multiple: false
     required: true
@@ -50,9 +49,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: organico
   clasificacion_cafe_verde:
-    order: 0
     status: true
     multiple: false
     required: true
@@ -68,9 +67,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: clasificacion_cafe_verde
   cafe_especial:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -86,9 +85,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: cafe_especial
   tostion:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -104,9 +103,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: tostion
   presentacion_cafe_soluble:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -122,9 +121,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: presentacion_cafe_soluble
   origen:
-    order: 0
     status: false
     multiple: false
     required: false
@@ -140,9 +139,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: origen
   tipo_de_empaque:
-    order: 0
     status: false
     multiple: false
     required: false
@@ -158,9 +157,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: tipo_de_empaque
   temporada_de_produccion:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -176,9 +175,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: temporada_de_produccion
   descafeinado:
-    order: 0
     status: false
     multiple: false
     required: false
@@ -194,9 +193,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: descafeinado
   variedad:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -212,9 +211,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: variedad
   clasificacion_cafe_convencional:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -230,9 +229,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: clasificacion_cafe_convencional
   presentacion_cafe_tostado:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -248,9 +247,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: presentacion_cafe_tostado
   proceso:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -266,9 +265,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
+    order: 0
     id: proceso
   capacidad_de_produccion_anual:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -284,9 +283,9 @@ properties:
     default_value: ''
     language: all
     options: ''
+    order: 0
     id: capacidad_de_produccion_anual
   capacidad_de_produccion_anual_medida_:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -302,9 +301,9 @@ properties:
     default_value: ''
     language: all
     options: ''
+    order: 0
     id: capacidad_de_produccion_anual_medida_
   narrativa:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -316,13 +315,13 @@ properties:
     size: null
     placeholder: ''
     class: ''
-    position: bottom
+    position: left
     default_value: ''
     language: es
     options: ''
     id: narrativa
+    order: '0'
   narrative:
-    order: 0
     status: true
     multiple: false
     required: false
@@ -338,4 +337,5 @@ properties:
     default_value: ''
     language: en
     options: ''
+    order: 0
     id: narrative
