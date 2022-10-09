@@ -39,8 +39,8 @@ properties:
     required: true
     type: select
     label: Orgánico
-    help: ''
-    help_lamp: ''
+    help: 'ayuda de orgánico'
+    help_lamp: 'ayuda de bombilla de orgánico'
     maxlength: null
     size: null
     placeholder: '- Selecciona -'
@@ -49,8 +49,9 @@ properties:
     default_value: ''
     language: all
     options: "uno|Uno|One\r\ndos|Dos|Two"
-    order: 0
     id: organico
+    apply: 0
+    order: '0'
   clasificacion_cafe_verde:
     status: true
     multiple: false
@@ -315,11 +316,12 @@ properties:
     size: null
     placeholder: ''
     class: ''
-    position: left
+    position: top
     default_value: ''
     language: es
     options: ''
     id: narrativa
+    apply: 0
     order: '0'
   narrative:
     status: true
@@ -333,9 +335,10 @@ properties:
     size: null
     placeholder: ''
     class: ''
-    position: right
+    position: top
     default_value: ''
     language: en
     options: ''
-    order: 0
     id: narrative
+    apply: 0
+    order: '0'

@@ -78,6 +78,7 @@ class StructuredFeatureFormatter extends FormatterBase {
    */
   public static function defaultSettings() {
     $ret = parent::defaultSettings();
+    $ret['show_as_details'] = FALSE;
     return $ret;
   }
 
@@ -86,7 +87,12 @@ class StructuredFeatureFormatter extends FormatterBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = parent::settingsForm($form, $form_state);
-    return $elements;
+    $elements['show_as_details'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Show as details container'),
+      '#default_value' => $this->getSetting('show_as_details'),
+    ];
+  return $elements;
   }
 
   /**
@@ -94,6 +100,9 @@ class StructuredFeatureFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     $summary = [];
+    if ($this->getSetting('show_as_details')) {
+      $summary[] = $this->t('Show as details');
+    }
     return $summary;
   }
 
@@ -146,10 +155,25 @@ class StructuredFeatureFormatter extends FormatterBase {
       return ['#markup' => $this->t("The structured feature can`t be loaded.")];
     }
 
-    foreach ($items as $delta => $item) {
-      $view_value = $this->viewValue($item, $sf);
-      $elements[$delta] = $view_value;
+    if ($this->getSetting('show_as_details')) {
+      $elements[0] = [
+        '#type' => 'details',
+        '#open' => FALSE,
+        '#collapsible' => TRUE,
+        '#title' => $this->t('View more'),
+      ];
+      foreach ($items as $delta => $item) {
+        $view_value = $this->viewValue($item, $sf);
+        $elements[0][] = $view_value;
+      }
     }
+    else {
+      foreach ($items as $delta => $item) {
+        $view_value = $this->viewValue($item, $sf);
+        $elements[$delta] = $view_value;
+      }
+    }
+
 
     return $elements;
   }
@@ -170,7 +194,7 @@ class StructuredFeatureFormatter extends FormatterBase {
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
     return [
-      '#markup' => '<span class="property-label">' . $config['label'] . ':</span> <span>' . $item->value . '</span>',
+      '#markup' => '<div class="property-wrapper"><span class="property-label">' . $config['label'] . ':</span> <span>' . $item->value . '</span></div>',
     ];
   }
 
