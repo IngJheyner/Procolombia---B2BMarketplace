@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.advisor_moderation
+    - entity_browser.browser.paises
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -55,9 +56,10 @@ dependencies:
   module:
     - cp_core
     - cp_field_features
+    - entity_browser
     - field_group
     - file
-    - shs
+    - select2
     - svg_image
 third_party_settings:
   field_group:
@@ -343,24 +345,28 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_partida_arancelaria_tax:
-    type: entity_reference_autocomplete
+    type: select2_entity_reference
     weight: 33
     region: content
     settings:
+      width: 100%
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_pr_country:
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     weight: 39
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      entity_browser: paises
+      field_widget_display: label
+      field_widget_edit: false
+      field_widget_remove: true
+      field_widget_replace: false
+      open: true
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
     third_party_settings: {  }
   field_pr_image_1:
     type: image_image
@@ -417,20 +423,24 @@ content:
       placeholder_value: ''
     third_party_settings: {  }
   field_pr_target_market:
-    type: entity_reference_autocomplete
+    type: select2_entity_reference
     weight: 38
     region: content
     settings:
+      width: 100%
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_pr_type_certifications:
-    type: options_select
+    type: select2_entity_reference
     weight: 35
     region: content
-    settings: {  }
+    settings:
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
     third_party_settings: {  }
   field_pr_video:
     type: cp_core_video_embed_with_preview
@@ -475,14 +485,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_tag_producto:
-    type: options_shs
+    type: select2_entity_reference
     weight: 41
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
-      force_deepest: false
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
     third_party_settings: {  }
   title:
     type: string_textfield
