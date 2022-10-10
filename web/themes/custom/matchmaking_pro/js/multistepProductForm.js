@@ -201,6 +201,11 @@
             })
           });
 
+          $('#edit-field-pr-target-market').on('select2:unselect', function (e) {            
+            console.log("removing");
+          })
+
+
           $('#edit-field-pr-type-certifications').on('select2:select', function (e) {
             const itemChoice=  $('.js-form-item-field-pr-type-certifications .select2-selection__choice')
             $(itemChoice).once().clone().appendTo('.js-form-item-field-pr-type-certifications');
