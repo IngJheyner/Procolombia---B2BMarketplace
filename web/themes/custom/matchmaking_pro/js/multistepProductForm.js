@@ -186,11 +186,12 @@
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
 
           //Paso 3 Ajustes multiselect
+          // clone items
           $('#edit-field-pr-target-market').on('select2:select', function (e) {
             let itemN = 1;
             const itemChoice=  $('.js-form-item-field-pr-target-market .select2-selection__choice')
-            $(itemChoice).addClass("item-choice-").clone().appendTo('.js-form-item-field-pr-target-market');
-            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market > li')];
+            $(itemChoice).clone().appendTo('.js-form-item-field-pr-target-market .select2-selection');
+            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market .select2-selection .select2-selection__choice.item-choice').classList.add('item-choice')];
             const texts = new Set(tags.map(x => x.innerHTML));
             tags.forEach(tag => {
               if(texts.has(tag.innerHTML)){
@@ -201,12 +202,22 @@
               }
             })
           });
-
+          //remove items target market
           $('#edit-field-pr-target-market').on('select2:unselect', function (e) {
-            const itemChoice=  $('.js-form-item-field-pr-target-market .select2-container .select2-selection__choice')
-            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market > li')];            
-            console.log(itemChoice.length);
+            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market .select2-selection .select2-selection__choice.item-choice')];
             var itemRemoved = e.params.data.text;
+            const texts = new Set(tags.map(x => x.innerHTML));
+            tags.forEach(tag => {
+              if(texts.has(tag.innerHTML) == itemRemoved){
+                texts.delete(tag.innerHTML);
+                console.log("cumple");
+              }
+              else{
+                console.log("no cumple");
+                texts.remove()
+              }
+            })         
+            console.log(itemChoice.length);
             var itemR = e.params.data;
             
           })
