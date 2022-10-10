@@ -183,7 +183,7 @@
                 url = "/dashboard/international/user";
               } else {
                 if (data.role == "asesor_comercial") {
-                  url = "/dashboard-advisor";
+                  url = "/tablero/adviser/usuario/col";
                 } else {
                   if (data.role == "asesor_internacional") {
                     url = "/dashboard/adviser/user/international";

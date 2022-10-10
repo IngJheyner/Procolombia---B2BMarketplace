@@ -1,0 +1,9 @@
+name: 'CP Home'
+type: module
+description: 'Procolombia Home'
+core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_home
+interface translation server pattern: modules/custom/cp_home/translations/cp_home-es.po
+package: 'Custom'
+dependencies:
+- drupal:block

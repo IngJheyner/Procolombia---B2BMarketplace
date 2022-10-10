@@ -17,7 +17,8 @@
 									<span class="input-group-text text-muted bg-input-chat pe-1 ps-3" id="basic-addon1">
 										<i class='bx bx-search-alt'></i>
 									</span>
-									<input id="search-message" placeholder="Buscar mensajes" type="text" class="form-control bg-input-chat" value=""/>
+									<input id="search-message" placeholder="Buscar mensajes" type="text"
+										class="form-control bg-input-chat" value="" />
 								</div>
 							</div>
 
@@ -38,9 +39,12 @@
 									</div>
 									<div class="simplebar-mask">
 										<div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-											<div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+											<div class="simplebar-content-wrapper" tabindex="0" role="region"
+												aria-label="scrollable content"
+												style="height: 100%; overflow: hidden scroll;">
 												<div class="simplebar-content" style="padding: 0px;">
-													<ul class="list-unstyled chat-list chat-user-list" id="chat-list"></ul>
+													<ul class="list-unstyled chat-list chat-user-list" id="chat-list">
+													</ul>
 												</div>
 											</div>
 										</div>
@@ -51,7 +55,9 @@
 									<div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
 								</div>
 								<div class="simplebar-track simplebar-vertical" style="visibility: visible;">
-									<div class="simplebar-scrollbar" style="height: 95px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+									<div class="simplebar-scrollbar"
+										style="height: 95px; transform: translate3d(0px, 0px, 0px); display: block;">
+									</div>
 								</div>
 							</div>
 						</div>
@@ -83,13 +89,11 @@
 
 									<li class="list-inline-item d-none d-lg-inline-block">
 										<div class="toltip_content">
-											<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+											<button type="button" id="hide-chat"
+												class="nav-btn user-profile-show btn btn-none toltip_i">
 												<i class='bx bx-collapse-alt'></i>
-												<span class="tooltiptext" style="width: 103px;
-														                        font-size: 0.8rem;
-														                        top: 80%;
-														                        left: -124%;
-														                        padding: 5px;">
+												<span class="tooltiptext"
+													style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
 													Minimizar chat
 												</span>
 											</button>
@@ -98,13 +102,11 @@
 									</li>
 									<li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
 										<div class="toltip_content">
-											<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+											<button type="button"
+												class="nav-btn user-profile-show btn btn-none toltip_i">
 												<i class='bx bxs-low-vision'></i>
-												<span class="tooltiptext" style="width: 103px;
-														                        font-size: 0.8rem;
-														                        top: 80%;
-														                        left: -124%;
-														                        padding: 5px;">
+												<span class="tooltiptext"
+													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%; padding: 5px;">
 													Marcar como no leido
 												</span>
 											</button>
@@ -113,46 +115,24 @@
 									</li>
 									<li class="list-inline-item d-none d-lg-inline-block">
 										<div class="toltip_content">
-											<button type="button" id="hide-chat" class="nav-btn user-profile-show btn btn-none toltip_i">
+											<button type="button" id="delete-chat-in-message"
+												class="nav-btn user-profile-show btn btn-none toltip_i">
 												<i class='bx bx-trash'></i>
-												<span class="tooltiptext" style="width: 103px;
-														                        font-size: 0.8rem;
-														                        top: 80%;
-														                        left: -124%;
-														                        padding: 5px;">
+												<span class="tooltiptext"
+													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%;padding: 5px;">
 													Borrar chat
 												</span>
 											</button>
 										</div>
 
 									</li>
-									<li class="list-inline-item">
-										<div class="dropdown">
-											<button type="button" aria-haspopup="true" aria-expanded="false" class="btn nav-btn btn btn-none">
-												<i class='bx bx-dots-horizontal-rounded'></i>
-											</button>
-											<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-end dropdown-menu">
-												<button type="button" tabindex="0" role="menuitem" class="d-block d-lg-none user-profile-show dropdown-item">View
-													                          profile
-													<i class="ri-user-2-line float-end text-muted"></i>
-												</button>
-												<button type="button" tabindex="0" role="menuitem" class="dropdown-item">Archive
-													<i class="ri-archive-line float-end text-muted"></i>
-												</button>
-												<button type="button" tabindex="0" role="menuitem" class="dropdown-item">Muted
-													<i class="ri-volume-mute-line float-end text-muted"></i>
-												</button>
-												<button type="button" tabindex="0" role="menuitem" class="dropdown-item">Delete
-													<i class="ri-delete-bin-line float-end text-muted"></i>
-												</button>
-											</div>
-										</div>
-									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
-					<div id="message-file" style="height:calc(100vh - 404px);min-height: 500px !important;position: relative;display: none;" class="flex-column align-items-center justify-content-center">
+					<div id="message-file"
+						style="height:calc(100vh - 404px);min-height: 500px !important;position: relative;display: none;"
+						class="flex-column align-items-center justify-content-center">
 						<i id="reset-file" class='bx bx-x position-absolute end-0 top-0 p-4 fs-1'></i>
 
 						<div class="archive-center">
@@ -165,21 +145,32 @@
 							</small>
 						</div>
 					</div>
-					<div id="message-image" style="height:calc(100vh - 404px);min-height: 500px !important;position: relative;display: flex;padding: 50px 10px;display: none;" class="flex-column align-items-center justify-content-center">
+					<div id="message-image"
+						style="height:calc(100vh - 404px);min-height: 500px !important;position: relative;display: flex;padding: 50px 10px;display: none;"
+						class="flex-column align-items-center justify-content-center">
 						<i id="reset-image" class='bx bx-x position-absolute end-0 top-0 p-4 fs-1'></i>
 
-						<img id="message-src" style="height: 80%;width: 80%;object-fit: contain;" src="" alt="" srcset="">
+						<img id="message-src" style="height: 80%;width: 80%;object-fit: contain;" src="" alt=""
+							srcset="">
 
 					</div>
 
-					<div data-simplebar="init" class="chat-conversation p-3 p-lg-4" id="messages" style="min-height: 498px;">
+					<div data-simplebar="init" class="chat-conversation p-3 p-lg-4" id="messages"
+						style="min-height: 498px;">
+
+						<div href="#" class="lightbox" id="lightbox-cont">
+							<span id="lightbox"></span>
+						  </div>
+
 						<div class="simplebar-wrapper" style="margin: -24px;">
 							<div class="simplebar-height-auto-observer-wrapper">
 								<div class="simplebar-height-auto-observer"></div>
 							</div>
 							<div class="simplebar-mask">
 								<div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-									<div id="message-content" class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+									<div id="message-content" class="simplebar-content-wrapper" tabindex="0"
+										role="region" aria-label="scrollable content"
+										style="height: 100%; overflow: hidden scroll;">
 										<div class="simplebar-content" style="padding: 24px;">
 											<ul class="list-unstyled mb-0" id="chat-messages"></ul>
 										</div>
@@ -192,14 +183,17 @@
 							<div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
 						</div>
 						<div class="simplebar-track simplebar-vertical" style="visibility: visible;">
-							<div class="simplebar-scrollbar" style="height: 123px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+							<div class="simplebar-scrollbar"
+								style="height: 123px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
 						</div>
 					</div>
 					<div class="p-3 border-top mb-0">
 
 						<div class="no-gutters row">
 							<div class="col">
-								<div><input id="text-message" placeholder="Enter Message..." type="text" class="form-control form-control-lg bg-input-chat border-light text-send text-message" value=""/>
+								<div><input id="text-message" placeholder="Enter Message..." type="text"
+										class="form-control form-control-lg bg-input-chat border-light text-send text-message"
+										value="" />
 								</div>
 							</div>
 							<div class="col-auto">
@@ -207,35 +201,55 @@
 									<ul class="list-inline mb-0 ms-0 d-flex align-items-center">
 										<li class="list-inline-item">
 											<div class="emoji-dropdown dropup btn-group">
-												<button type="button" id="emoji" aria-haspopup="true" class="emoji-selector icon-send" aria-expanded="false" class="text-decoration-none 6 btn-lg waves-effect btn btn-link">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewbox="0 0 18 18">
-														<path id="smile-regular" d="M9,8a9,9,0,1,0,9,9A9,9,0,0,0,9,8ZM9,24.258A7.258,7.258,0,1,1,16.258,17,7.265,7.265,0,0,1,9,24.258ZM6.1,16.419a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,6.1,16.419Zm5.806,0a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,11.9,16.419Zm.145,2.635a3.964,3.964,0,0,1-6.1,0,.871.871,0,0,0-1.339,1.114,5.713,5.713,0,0,0,8.775,0,.871.871,0,0,0-1.339-1.114Z" transform="translate(0 -8)" fill="#6a6d71"/>
+												<button type="button" id="emoji" aria-haspopup="true"
+													class="emoji-selector icon-send" aria-expanded="false"
+													class="text-decoration-none 6 btn-lg waves-effect btn btn-link">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18"
+														viewbox="0 0 18 18">
+														<path id="smile-regular"
+															d="M9,8a9,9,0,1,0,9,9A9,9,0,0,0,9,8ZM9,24.258A7.258,7.258,0,1,1,16.258,17,7.265,7.265,0,0,1,9,24.258ZM6.1,16.419a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,6.1,16.419Zm5.806,0a1.161,1.161,0,1,0-1.161-1.161A1.16,1.16,0,0,0,11.9,16.419Zm.145,2.635a3.964,3.964,0,0,1-6.1,0,.871.871,0,0,0-1.339,1.114,5.713,5.713,0,0,0,8.775,0,.871.871,0,0,0-1.339-1.114Z"
+															transform="translate(0 -8)" fill="#6a6d71" />
 													</svg>
 												</button>
 
 											</div>
 										</li>
 										<li class="list-inline-item input-file mx-2">
-											<label id="files" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
-												<svg style="width:17px" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewbox="0 0 15.75 18">
-													<path id="paperclip-solid" d="M1.521,16.387a5.508,5.508,0,0,1,.049-7.649L8.944,1.195a3.934,3.934,0,0,1,5.649,0,4.092,4.092,0,0,1,0,5.705L8.164,13.469a2.623,2.623,0,0,1-3.8-.035,2.725,2.725,0,0,1,.051-3.76L9.472,4.512a.563.563,0,0,1,.8-.008l.8.787a.562.562,0,0,1,.008.8L6.027,11.247A.475.475,0,0,0,6,11.89a.375.375,0,0,0,.552.006l6.428-6.569a1.841,1.841,0,0,0,0-2.559,1.686,1.686,0,0,0-2.431,0L3.178,10.311a3.256,3.256,0,0,0-.042,4.511,3,3,0,0,0,4.326.01l6.049-6.187a.562.562,0,0,1,.8-.009l.8.786a.562.562,0,0,1,.009.8L9.071,16.4a5.246,5.246,0,0,1-7.55-.017Z" transform="translate(0 0)" fill="#6a6d71"/>
+											<label id="files"
+												class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
+												<svg style="width:17px" xmlns="http://www.w3.org/2000/svg" width="24"
+													height="18" viewbox="0 0 15.75 18">
+													<path id="paperclip-solid"
+														d="M1.521,16.387a5.508,5.508,0,0,1,.049-7.649L8.944,1.195a3.934,3.934,0,0,1,5.649,0,4.092,4.092,0,0,1,0,5.705L8.164,13.469a2.623,2.623,0,0,1-3.8-.035,2.725,2.725,0,0,1,.051-3.76L9.472,4.512a.563.563,0,0,1,.8-.008l.8.787a.562.562,0,0,1,.008.8L6.027,11.247A.475.475,0,0,0,6,11.89a.375.375,0,0,0,.552.006l6.428-6.569a1.841,1.841,0,0,0,0-2.559,1.686,1.686,0,0,0-2.431,0L3.178,10.311a3.256,3.256,0,0,0-.042,4.511,3,3,0,0,0,4.326.01l6.049-6.187a.562.562,0,0,1,.8-.009l.8.786a.562.562,0,0,1,.009.8L9.071,16.4a5.246,5.246,0,0,1-7.55-.017Z"
+														transform="translate(0 0)" fill="#6a6d71" />
 												</svg>
-												<input name="fileInput" id="file-message" size="60" type="file" class="form-control-file"/>
+												<input name="fileInput" id="file-message" size="60" type="file"
+													class="form-control-file" />
 											</label>
 										</li>
 										<li class="list-inline-item input-file">
-											<label id="images" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
+											<label id="images"
+												class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
 
-												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewbox="0 0 24 18">
-													<path id="image-regular" d="M21.75,64H2.25A2.25,2.25,0,0,0,0,66.25v13.5A2.25,2.25,0,0,0,2.25,82h19.5A2.25,2.25,0,0,0,24,79.75V66.25A2.25,2.25,0,0,0,21.75,64Zm-.281,15.75H2.531a.281.281,0,0,1-.281-.281V66.531a.281.281,0,0,1,.281-.281H21.469a.281.281,0,0,1,.281.281V79.469A.281.281,0,0,1,21.469,79.75ZM6,68.125A1.875,1.875,0,1,0,7.875,70,1.875,1.875,0,0,0,6,68.125ZM4.5,77.5h15V73.75l-4.1-4.1a.563.563,0,0,0-.8,0L9,75.25,7.148,73.4a.563.563,0,0,0-.8,0L4.5,75.25Z" transform="translate(0 -64)" fill="#6a6d71"/>
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
+													viewbox="0 0 24 18">
+													<path id="image-regular"
+														d="M21.75,64H2.25A2.25,2.25,0,0,0,0,66.25v13.5A2.25,2.25,0,0,0,2.25,82h19.5A2.25,2.25,0,0,0,24,79.75V66.25A2.25,2.25,0,0,0,21.75,64Zm-.281,15.75H2.531a.281.281,0,0,1-.281-.281V66.531a.281.281,0,0,1,.281-.281H21.469a.281.281,0,0,1,.281.281V79.469A.281.281,0,0,1,21.469,79.75ZM6,68.125A1.875,1.875,0,1,0,7.875,70,1.875,1.875,0,0,0,6,68.125ZM4.5,77.5h15V73.75l-4.1-4.1a.563.563,0,0,0-.8,0L9,75.25,7.148,73.4a.563.563,0,0,0-.8,0L4.5,75.25Z"
+														transform="translate(0 -64)" fill="#6a6d71" />
 												</svg>
-												<input id="image-message" accept="image/*" name="fileInput" size="60" type="file" class="form-control-file">
+												<input id="image-message" accept="image/*" name="fileInput" size="60"
+													type="file" class="form-control-file">
 											</label>
 										</li>
 										<li class="list-inline-item ms-2">
-											<button type="submit" id="send" class="6 btn-lg chat-send waves-effect waves-light btn btn-primary icon-send-end">
-												<svg style="width:17px" class="me-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewbox="0 0 18.4 18.4" style="enable-background:new 0 0 18.4 18.4;" xml:space="preserve">
-													<path id="paper-plane-solid" fill="#fff" class="st0" d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z"/>
+											<button type="submit" id="send"
+												class="6 btn-lg chat-send waves-effect waves-light btn btn-primary icon-send-end">
+												<svg style="width:17px" class="me-2" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+													x="0px" y="0px" viewbox="0 0 18.4 18.4"
+													style="enable-background:new 0 0 18.4 18.4;" xml:space="preserve">
+													<path id="paper-plane-solid" fill="#fff" class="st0"
+														d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z" />
 												</svg>
 												Enviar
 											</button>
@@ -257,5 +271,40 @@
 			</div>
 		</div>
 
+	</div>
+
+	<div class="modal fade" id="modal-delete" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_3Label"><img
+							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg"
+							alt="" srcset="">
+						Eliminar chat <span id="modal-chat-header-empresa"></span>
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ " Close"|t
+						}}"></button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Esta a punto de eliminar el chat con la empresa <strong class="text-break"
+							id="modal-chat-empresa"></strong> con contacto
+						<strong class="text-break" id="modal-chat-name"></strong>.
+					</p>
+				</div>
+				<div class="modal-footer ">
+					<div class="row">
+						<div class="col-6 fs-6">
+							<strong>{{ "Do you want to continue?"|t }}</strong>
+						</div>
+						<div class="col-6 btn_options">
+							<button id="delete-chat" class="yes">{{ "YES"|t }}</button>
+							<button data-bs-dismiss="modal" class="no">{{ "NO"|t }}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
