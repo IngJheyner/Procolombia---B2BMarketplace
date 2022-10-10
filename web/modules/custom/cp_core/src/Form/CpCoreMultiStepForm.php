@@ -364,7 +364,7 @@ class CpCoreMultiStepForm extends FormBase {
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'] = 'Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.';
-        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#attributes']['data-maxlength'] = 1000;
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#attributes']['data-maxlength'] = 160;
       }
       if (isset($form['field_file']['widget'])) {
         $form['field_file']['widget']['#title'] = 'Ficha técnica';
