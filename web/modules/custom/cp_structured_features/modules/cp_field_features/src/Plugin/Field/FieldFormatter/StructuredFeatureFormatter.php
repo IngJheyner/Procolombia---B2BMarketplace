@@ -165,6 +165,17 @@ class StructuredFeatureFormatter extends FormatterBase {
       foreach ($items as $delta => $item) {
         $view_value = $this->viewValue($item, $sf);
         $elements[0][] = $view_value;
+        $elements[0]['show_less'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'a',
+          '#value' => $this->t('Show less'),
+          '#attributes' => [
+            'class' => ['sf-structure-formatter-show-less'],
+            'href' => '#',
+          ],
+          '#weight' => 99,
+          '#attached' => ['library' => ['cp_structured_features/sf_structure_formatter']],
+        ];
       }
     }
     else {
