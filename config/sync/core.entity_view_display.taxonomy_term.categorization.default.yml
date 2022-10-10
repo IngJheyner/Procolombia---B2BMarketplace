@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.categorization.field_asesor
+    - field.field.taxonomy_term.categorization.field_cat_product_type
+    - field.field.taxonomy_term.categorization.field_cat_productive_chain
+    - field.field.taxonomy_term.categorization.field_cat_subsector_neo
     - field.field.taxonomy_term.categorization.field_icon
     - field.field.taxonomy_term.categorization.field_image
     - field.field.taxonomy_term.categorization.field_metadescription
@@ -12,6 +15,7 @@ dependencies:
     - field.field.taxonomy_term.categorization.field_uri_search
     - taxonomy.vocabulary.categorization
   module:
+    - options
     - svg_image
     - text
 id: taxonomy_term.categorization.default
@@ -33,6 +37,29 @@ content:
       link: true
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_cat_product_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_cat_productive_chain:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_cat_subsector_neo:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_icon:
     type: image

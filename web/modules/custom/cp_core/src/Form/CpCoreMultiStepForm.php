@@ -423,9 +423,11 @@ class CpCoreMultiStepForm extends FormBase {
       }
 
       if (isset($form['field_categorization'])) {
+        $productType = $this->entity->field_product_type->value;
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
           'parent' => 0,
           'vid' => 'categorization',
+          'field_cat_product_type' => $productType,
         ]);
         $newcategorization_options = [key($form['field_categorization']['widget']['#options']) => reset($form['field_categorization']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {

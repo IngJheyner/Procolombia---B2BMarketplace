@@ -58,6 +58,7 @@
     "drupal/core-recommended": "^9.4",
     "drupal/core_views_facets": "^2.0",
     "drupal/crop": "^2.0-rc1",
+    "drupal/csv_importer": "^1.14",
     "drupal/csv_serialization": "^2.1",
     "drupal/ctools": "^3.0",
     "drupal/custom_body_class": "^1.2",

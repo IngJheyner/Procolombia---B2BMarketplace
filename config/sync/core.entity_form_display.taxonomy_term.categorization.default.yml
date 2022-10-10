@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.categorization.field_asesor
+    - field.field.taxonomy_term.categorization.field_cat_product_type
+    - field.field.taxonomy_term.categorization.field_cat_productive_chain
+    - field.field.taxonomy_term.categorization.field_cat_subsector_neo
     - field.field.taxonomy_term.categorization.field_icon
     - field.field.taxonomy_term.categorization.field_image
     - field.field.taxonomy_term.categorization.field_metadescription
@@ -38,6 +41,28 @@ content:
     settings:
       match_operator: CONTAINS
       match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cat_product_type:
+    type: options_select
+    weight: 101
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cat_productive_chain:
+    type: string_textfield
+    weight: 103
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cat_subsector_neo:
+    type: string_textfield
+    weight: 102
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
