@@ -790,14 +790,14 @@ class CpCoreMultiStepForm extends FormBase {
       $this->step_sf = FALSE;
     }
     else {
-      if ($this->step == 3) {
-        $this->step_sf = TRUE;
-        $this->step = 2;
-      }
-      else {
+      // if ($this->step == 3) {
+      //   $this->step_sf = FALSE; // Enable with SF.
+      //   $this->step = 2;
+      // }
+      // else {
         $this->step--;
         $this->step_sf = FALSE;
-      }
+      // }
     }
   }
 
@@ -857,13 +857,13 @@ class CpCoreMultiStepForm extends FormBase {
         $this->step++;
       }
       else {
-        if ($this->step == 2) {
-          $this->step_sf = TRUE;
-        }
-        else {
+        // if ($this->step == 2) {
+        //   $this->step_sf = TRUE; // Enable with SF.
+        // }
+        // else {
           $this->step_sf = FALSE;
           $this->step++;
-        }
+        // }
       }
     }
     else {
