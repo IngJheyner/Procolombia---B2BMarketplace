@@ -1,0 +1,9 @@
+name: 'CP IA Search'
+type: module
+description: 'Procolombia Search with IA'
+core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_ia_search
+interface translation server pattern: modules/custom/cp_ia_search/translations/cp_ia_search-es.po
+package: 'Custom'
+dependencies:
+- block

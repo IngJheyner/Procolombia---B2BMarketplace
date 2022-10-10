@@ -1,0 +1,34 @@
+{{ attach_library('cp_ia_search/cp_ia_search') }}
+<main class="step_registre">
+	<button class="btn btn_download mb-3" id="back_table">
+		<i class='bx bx-left-arrow-alt'></i>
+		{{ 'Back to process'|t }}</button>
+
+	<div id="not_row" class="form_table row mb-5 gy-4" style="padding:20px 10px !important">
+		<div class="col-lg-12">
+			<p class="tittle-log">Historial de Búsqueda Productos / Servicios</p>
+
+		</div>
+		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+			<label for="state">{{ 'Update date'|t }}</label>
+			<input class="form-control" type="text" name="update_date_log" id="update_date_log">
+		</div>
+		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+			<label for="mail">{{ 'Nombre de la empresa'|t }}</label>
+			<input class="form-control" type="text" name="mail" id="mail">
+		</div>
+		<div class="col-sm-12 col-ms-12  col-lg-3 d-flex flex-column">
+			<label for="nit_search">{{ 'País de Origen'|t }}</label>
+			<input class="form-control" type="text" name="nit_search" id="nit_search">
+		</div>
+		<div class="col-sm-12 col-ms-12 col-lg-3 d-flex flex-row justify-content-between align-items-end">
+			<button id="filter-log" class="filtter_btn btn">
+				<i class='bx bx-slider-alt'></i>
+				{{ 'Apply filter'|t }}</button>
+			<button id="clean-log" class="clear_btn btn">{{ 'Clean filter'|t }}</button>
+		</div>
+	</div>
+	<div class="form_table">
+		<table id="log_auditory" class="display dataTable"></table>
+	</div>
+</main>

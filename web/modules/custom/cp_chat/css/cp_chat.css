@@ -19,6 +19,9 @@
   src: url("../font/Century-Gothic-Bold.otf");
 }
 /* Font/text values */
+.chat {
+  /* Unhide the lightbox when it's the target */
+}
 .chat .layout-main-wrapper {
   background-color: #ffffff !important;
 }
@@ -54,6 +57,34 @@
   border: 1px solid #cccccc;
   border-radius: 3px;
   background-color: white;
+}
+.chat .lightbox {
+  /* Default to hidden */
+  display: none;
+  /* Overlay entire screen */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* A bit of padding around image */
+  padding: 1em;
+  /* Translucent background */
+  background: rgba(0, 0, 0, 0.8);
+}
+.chat .lightbox:target {
+  display: block;
+}
+.chat .lightbox span {
+  /* Full width and height */
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Size and position background image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .chat .archive-center {
   background: #f4f4f4;
@@ -209,9 +240,9 @@
   color: #fff !important;
   display: flex;
   font-weight: 500;
-  height: 50px;
+  height: 100%;
   justify-content: center;
-  width: 50px;
+  width: 100%;
 }
 .chat .custom-accordion .card + .card {
   margin-top: 0.5rem;
@@ -904,6 +935,7 @@
 }
 .chat-conversation .conversation-list .chat-time i {
   margin-right: 4px;
+  margin-bottom: 2px;
 }
 .chat-conversation .conversation-list .message-img {
   border-radius: 0.2rem;
