@@ -264,6 +264,16 @@ class StructuredFeatureWidget extends WidgetBase {
               $options[$optVal[0]] = $optVal[1];
             }
           }
+          if (!empty($structure['apply'])) {
+            $element['apply'] = [
+              '#type' => 'checkbox',
+              '#default_value' => TRUE,
+              '#title' => $this->t('Not apply'),
+              '#attributes' => [
+                'class' => ['sf-select-apply-' . $structure['id']],
+              ],
+            ];
+          }
           $element['value'] = [
             '#type' => $structure['type'],
             '#title' => $structure['label'],
@@ -275,6 +285,16 @@ class StructuredFeatureWidget extends WidgetBase {
             '#description' => $structure['help'],
             '#empty_value' => $structure['placeholder'],
           ];
+          if (!empty($structure['apply'])) {
+            $element['value']['#states'] = [
+              'disabled' => [
+                ':input.sf-select-apply-' . $structure['id'] => [
+                  ['checked' => FALSE],
+                ],
+              ],
+            ];
+          }
+
           break;
 
         case 'checkbox':
@@ -312,11 +332,17 @@ class StructuredFeatureWidget extends WidgetBase {
         '#value' => $default_value,
       ];
     }
-
+    $additional_wrapper_classes = [
+      'sf-property-wrapper',
+    ];
     if (!empty($structure['help_lamp'])) {
-      $element['#prefix'] = '<div class="element-withlightbulb"><div class="form-wrapper lightbulb-tooltip" data-drupal-selector="edit-group-tooltip"><span>' . $structure['help_lamp'] . '</span></div>';
-      $element['#suffix'] = '</div>';
+      $additional_wrapper_classes[] = 'element-withlightbulb';
     }
+    if (!empty($structure['apply'])) {
+      $additional_wrapper_classes[] = 'element-with-apply-checkbox';
+    }
+    $element['#prefix'] = '<div class="' . implode(' ', $additional_wrapper_classes) . '"><div class="form-wrapper lightbulb-tooltip" data-drupal-selector="edit-group-tooltip"><span>' . $structure['help_lamp'] . '</span></div>';
+    $element['#suffix'] = '</div>';
 
     $element['#attributes']['class'][] = 'lang-' . $structure['language'];
     $element['#attributes']['class'][] = $structure['position'];
