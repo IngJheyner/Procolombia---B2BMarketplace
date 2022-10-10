@@ -187,8 +187,9 @@
 
           //Paso 3 Ajustes multiselect
           $('#edit-field-pr-target-market').on('select2:select', function (e) {
+            let itemN = 1;
             const itemChoice=  $('.js-form-item-field-pr-target-market .select2-selection__choice')
-            $(itemChoice).once().clone().appendTo('.js-form-item-field-pr-target-market');
+            $(itemChoice).addClass("item-choice-").clone().appendTo('.js-form-item-field-pr-target-market');
             const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market > li')];
             const texts = new Set(tags.map(x => x.innerHTML));
             tags.forEach(tag => {
@@ -201,8 +202,13 @@
             })
           });
 
-          $('#edit-field-pr-target-market').on('select2:unselect', function (e) {            
-            console.log("removing");
+          $('#edit-field-pr-target-market').on('select2:unselect', function (e) {
+            const itemChoice=  $('.js-form-item-field-pr-target-market .select2-container .select2-selection__choice')
+            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market > li')];            
+            console.log(itemChoice.length);
+            var itemRemoved = e.params.data.text;
+            var itemR = e.params.data;
+            
           })
 
 

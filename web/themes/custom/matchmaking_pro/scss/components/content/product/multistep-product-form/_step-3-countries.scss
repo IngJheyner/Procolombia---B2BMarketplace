@@ -333,6 +333,9 @@
                 max-height: 36px;
                 overflow: hidden;
             }
+            .select2-selection {
+                height: 36px !important;
+              }
             .select2-selection__choice{
                 background-color: #EFEFEF;
                 border: none;
@@ -354,9 +357,6 @@
             &.select2-container--focus{
                 .select2-search.select2-search--inline{
                     z-index: -1;
-                    input{
-                        background-color: antiquewhite !important;
-                    }
                 }
                 
             }
@@ -365,7 +365,6 @@
                     width: 10px;
                     input{
                         width: 50% !important;
-                        background-color: aqua !important;
                         color: transparent;
                     }
                 }
