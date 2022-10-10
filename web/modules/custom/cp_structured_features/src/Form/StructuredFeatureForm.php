@@ -318,7 +318,7 @@ class StructuredFeatureForm extends EntityForm {
       '#title' => $this->t('Language'),
       '#required' => TRUE,
       '#options' => $optLang,
-      '#description' => $this->t('If a field is set to a specific language it will be repeated for each language.'),
+      '#description' => $this->t('If a field applies to a specific language, it will be shown in the group for that language and a field must be created for each language, for example Narrative and Narrative are two different fields, one for each language.'),
       '#default_value' => isset($editDefaults['language']) ? $editDefaults['language'] : NULL,
     ];
     $form['properties_elements']['agregate']['apply'] = [
