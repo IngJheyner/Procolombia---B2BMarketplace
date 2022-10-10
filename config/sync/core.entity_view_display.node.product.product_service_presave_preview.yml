@@ -53,6 +53,7 @@ dependencies:
     - image.style.280x270
     - node.type.product
   module:
+    - cp_field_features
     - ds
     - field_group
     - formatter_suite
@@ -111,6 +112,7 @@ third_party_settings:
         - field_categorization_parent
         - field_categorization
         - field_partida_arancelaria_tax
+        - field_pr_structured_features
         - field_pr_country
         - group_footer_links
       label: Right
@@ -137,7 +139,7 @@ third_party_settings:
       label: 'Footer links'
       parent_name: group_right
       region: content
-      weight: 18
+      weight: 19
       format_type: html_element
       format_settings:
         classes: group-footer-links
@@ -300,6 +302,22 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    weight: 18
+    region: content
+  field_pr_structured_features:
+    type: sf_default
+    label: inline
+    settings:
+      show_as_details: '1'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 17
     region: content
 hidden:
@@ -330,7 +348,6 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
-  field_pr_structured_features: true
   field_pr_target_market: true
   field_pr_terms_of_condition: true
   field_pr_type_certifications: true
