@@ -8,6 +8,7 @@ cp_layout:
     js/moment.min.js: {}
     js/socket.io.min.js: {}
     js/vanillaEmojiPicker2.js: {}
+    js/cp_search_logged.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

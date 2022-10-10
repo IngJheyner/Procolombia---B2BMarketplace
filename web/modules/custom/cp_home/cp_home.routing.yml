@@ -1,0 +1,7 @@
+cp_home.home:
+  path: 'home/index'
+  defaults:
+    _title: 'Procolombia'
+    _controller: '\Drupal\cp_home\Controller\CpHomeController::index'
+  requirements:
+    _permission: 'access content'

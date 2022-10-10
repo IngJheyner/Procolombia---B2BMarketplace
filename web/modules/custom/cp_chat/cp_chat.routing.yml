@@ -56,3 +56,12 @@ cp_chat.checked_messages:
   methods:  [POST]
   requirements:
     _permission: 'access content'
+
+###delete Chat
+cp_chat.delete_chat:
+  path: 'chat/delete_chat'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::deleteChat'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'

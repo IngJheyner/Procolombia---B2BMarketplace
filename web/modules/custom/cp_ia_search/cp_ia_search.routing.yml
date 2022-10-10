@@ -1,0 +1,47 @@
+###Index route
+cp_ia_search.cp_ia_search:
+  path: "/search/products"
+  defaults:
+    _title: 'Search products'
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Get products
+cp_ia_search.cp_ia_search_get_products:
+  path: "/search/products/get"
+  defaults:
+    _title: 'Get products'
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchController::getProducts'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###Index route
+cp_ia_search.cp_ia_search_logs:
+  path: "/search/logs"
+  defaults:
+    _title: 'Search products'
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchLogsController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+###Save log
+cp_ia_search.cp_ia_search_save_logs:
+  path: "/search/logs/save"
+  defaults:
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchLogsController::saveLog'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+###Get logs
+cp_ia_search.cp_ia_search_get_logs:
+  path: "/search/logs/get"
+  defaults:
+    _controller: '\Drupal\cp_ia_search\Controller\CpIASearchLogsController::getLogs'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
