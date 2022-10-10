@@ -131,6 +131,7 @@
     "drupal/openid_connect_windows_aad": "^1.4",
     "drupal/owlcarousel": "^1.0@alpha",
     "drupal/page_manager": "^4.0@beta",
+    "drupal/pager_serializer": "^1.2",
     "drupal/panels": "^4.3",
     "drupal/paragraphs": "^1.5",
     "drupal/paragraphs_previewer": "^1.2",

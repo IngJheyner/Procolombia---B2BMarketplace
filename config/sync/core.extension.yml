@@ -101,8 +101,6 @@ module:
   formatter_suite: 0
   gin_toolbar: 0
   google_analytics: 0
-  graphql: 0
-  graphql_core: 0
   help: 0
   history: 0
   honeypot: 0
@@ -159,6 +157,7 @@ module:
   page_cache: 0
   page_manager: 0
   page_manager_ui: 0
+  pager_serializer: 0
   password_policy_character_types: 0
   password_policy_characters: 0
   password_policy_history: 0
