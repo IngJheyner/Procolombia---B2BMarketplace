@@ -289,6 +289,9 @@
       },
       "drupal/webform":{
         "eprecated function: preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in webform_css_alter()": "https://www.drupal.org/files/issues/2022-05-02/webform-3278191-3.patch"
+      },
+      "drupal/entityreference_filter": {
+        "Undefined array key title entityreference_filter.views.inc": "https://www.drupal.org/files/issues/2022-07-12/3295497_2.patch"
       }
     },
     "drupal-scaffold": {
