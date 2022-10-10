@@ -157,20 +157,6 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
-    group_step_sf_title:
-      children: {  }
-      label: 'Step SF Title'
-      region: content
-      parent_name: group_top
-      weight: 20
-      format_type: cp_core_group_markup
-      format_settings:
-        show_empty_fields: 1
-        id: ''
-        classes: 'form-wrapper step-sf-title'
-        markup:
-          value: '<h2>Fields for both languages</h2>'
-          format: html
 id: node.product.step_sf
 targetEntityType: node
 bundle: product

@@ -1,0 +1,364 @@
+uuid: a923f029-9b62-48ad-8288-f2f503798d30
+langcode: es
+status: true
+dependencies: {  }
+id: cafe
+label: Café
+description: ''
+reference_type: product
+references:
+  - 6afa2a30-fcf2-41ee-bb39-8c87ad594c56
+  - 5b4ee9a8-4915-439e-9589-965a82874a89
+  - f31672ca-9997-4813-9f59-f5c007eab8e3
+  - ca64bba8-4d88-4ae7-a332-ba23c64c61a3
+  - c558184c-5197-40df-86ee-1e7a58636b75
+  - f7ddd76a-79fe-4e08-8c68-743d32885bd0
+  - b10b4f83-530b-4b27-9ecf-9f4cf7f5ba6a
+properties:
+  tipo_de_cafe:
+    id: tipo_de_cafe
+    label: 'Tipo de café'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: 'Ayuda tipo de cafe'
+    help_lamp: 'Bombilla tipo de cafe'
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: 'tipo1|Tipo 1|Type 1'
+    class: ''
+    position: top
+    order: 0
+  organico:
+    id: organico
+    label: Orgánico
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: 'ayuda de orgánico'
+    help_lamp: 'ayuda de bombilla de orgánico'
+    maxlength: null
+    size: null
+    placeholder: '- Selecciona -'
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  clasificacion_cafe_verde:
+    id: clasificacion_cafe_verde
+    label: 'Clasificación café verde'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+  cafe_especial:
+    id: cafe_especial
+    label: 'Café especial'
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+  tostion:
+    id: tostion
+    label: Tostion
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: bottom
+    order: 0
+    apply: 0
+  presentacion_cafe_soluble:
+    id: presentacion_cafe_soluble
+    label: 'Presentacion cafe soluble'
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+  origen:
+    id: origen
+    label: Origen
+    status: false
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+  tipo_de_empaque:
+    id: tipo_de_empaque
+    label: 'Tipo de empaque'
+    status: false
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+  temporada_de_produccion:
+    id: temporada_de_produccion
+    label: 'Temporada de producción'
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: left
+    order: 0
+  descafeinado:
+    id: descafeinado
+    label: Descafeinado
+    status: false
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: right
+    order: 0
+  variedad:
+    id: variedad
+    label: Variedad
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: right
+    order: 0
+  clasificacion_cafe_convencional:
+    id: clasificacion_cafe_convencional
+    label: 'Clasificación café convencional'
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: right
+    order: 0
+  presentacion_cafe_tostado:
+    id: presentacion_cafe_tostado
+    label: 'Presentación café tostado'
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: right
+    order: 0
+  proceso:
+    id: proceso
+    label: Proceso
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno|One\r\ndos|Dos|Two"
+    class: ''
+    position: right
+    order: 0
+  capacidad_de_produccion_anual:
+    id: capacidad_de_produccion_anual
+    label: 'Capacidad de producción anual'
+    status: true
+    type: textfield
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: Unidad
+    default_value: ''
+    language: all
+    options: ''
+    class: ''
+    position: right
+    order: 0
+  capacidad_de_produccion_anual_medida_:
+    id: capacidad_de_produccion_anual_medida_
+    label: 'Capacidad de producción anual (medida)'
+    status: true
+    type: textfield
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: ''
+    class: ''
+    position: right
+    order: 0
+  narrativa:
+    id: narrativa
+    label: Narrativa
+    status: true
+    type: textarea
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: es
+    options: ''
+    class: ''
+    position: top
+    order: 0
+    apply: 0
+  narrative:
+    id: narrative
+    label: Narrative
+    status: true
+    type: textarea
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: en
+    options: ''
+    class: ''
+    position: top
+    order: 0
+    apply: 0
+  ejem_1:
+    id: ejem_1
+    label: 'ejem 1'
+    status: true
+    type: radios
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "uno|Uno\r\ndos|Dos"
+    class: ''
+    position: bottom
+    order: 0
+    apply: 0
