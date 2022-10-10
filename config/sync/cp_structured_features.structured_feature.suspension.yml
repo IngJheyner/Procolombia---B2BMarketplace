@@ -1,0 +1,95 @@
+uuid: 9e85988c-c3f2-4709-85c7-dd078448fed5
+langcode: es
+status: true
+dependencies: {  }
+id: suspension
+label: Suspensión
+description: ''
+reference_type: product
+references:
+  - 3c481632-ced8-482f-8688-9b7d39c20ada
+  - c8d9d14f-04d2-4863-9c21-a32eff74dde7
+  - ff8a913f-9a02-4f7b-8d3e-0130a2b5b445
+  - 74841881-86b6-4551-9c6b-baa39af4bf06
+  - 944ae0f8-69e8-43cc-9bc4-3e5dafc74b2d
+  - 90e87407-c96a-42fc-acd9-d06e79f7c312
+  - 6cd22df2-9c6b-4a10-96c0-3cc965ed062c
+  - 85e42350-b00f-42f5-8924-b36317cc2ddd
+  - 00d0eb3a-440f-4c31-9d76-2b16c26f2a20
+properties:
+  tipos_de_autopartes:
+    id: tipos_de_autopartes
+    label: 'Tipos de autopartes'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Barras de torsión|Barras de torsión\r\nResortes|Resortes\r\nAmortiguadores|\r\nRotulas de suspensión|Rotulas de suspensión\r\nBrazos Oscilantes|Brazos Oscilantes\r\nRines|Rines\r\nLinks estabilizadores|Links estabilizadores"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  tipo_de_vehiculo:
+    id: tipo_de_vehiculo
+    label: 'Tipo de Vehículo'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Camiones|Camiones\r\nBuses|Buses\r\nAutomoviles|Automoviles\r\nMotos|Motos\r\nATV - UTV|ATV - UTV"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  canal_de_venta:
+    id: canal_de_venta
+    label: 'Canal de venta'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "OEM|OEM\r\nTier 1|Tier 1\r\nTier 2|Tier 2\r\nTier 3|Tier 3\r\nAftermarket|Aftermarket\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  certificaciones:
+    id: certificaciones
+    label: Certificaciones
+    status: true
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "ISO 9001|ISO 9001\r\nISO 14001|ISO 14001\r\nIATF 16949|IATF 16949\r\nAS 9100|AS 9100\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
