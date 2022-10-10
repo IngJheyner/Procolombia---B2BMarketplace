@@ -210,7 +210,6 @@ module:
   system: 0
   taxonomy: 0
   taxonomy_access_fix: 0
-  taxonomy_import: 0
   taxonomy_manager: 0
   telephone: 0
   text: 0
