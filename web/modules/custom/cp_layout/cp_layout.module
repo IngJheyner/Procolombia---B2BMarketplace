@@ -11,34 +11,6 @@
 
 function cp_layout_theme($existing, $type, $theme, $path)
 {
-  $uid = \Drupal::currentUser();
-  $user = \Drupal\user\Entity\User::load($uid->id());
-  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  //force language in all paths
-  $variables['language'] = $language == 'en' ? 'EN' : 'ES';
-  $variables['language_2'] = $language != 'en' ? 'EN' : 'ES';
-
-  if($user->isActive()){
-
-    //check if has exporter rol
-    // chek if user is not root
-    if($user->hasRole('exportador')){
-      //is not empty field_company_name
-      if(!empty($user->get('field_company_name')->value)){
-        $variables['business_name'] = $user->get('field_company_name')->value;
-        $variables['company_logo'] = file_create_url($user->get('field_company_logo')->entity->getFileUri());
-      }
-      else{
-        $variables['company_logo'] = '';
-        $variables['business_name'] = '';
-      }
-    }
-  }
-  //is not empty field_company_name
-  $variables['name'] = $user->get('field_company_contact_name')->value;
-  $variables['lastname'] = $user->get('field_company_contact_lastname')->value;
-  //get email
-  $variables['email'] = $user->get('mail')->value;
   return [
     // Name of the theme hook. This is used in the controller to trigger the hook.
     'cp_message_sidebar_template_hook' => [
@@ -58,8 +30,10 @@ function cp_layout_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_header_not_sign_in_template',
       'variables' => [
-        'language' => $variables['language'],
-        'language_2'=> $variables['language_2']
+        'language' => NULL,
+        'language_2'=> NULL,
+        'uid' => NULL,
+        'country' => NULL
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -72,10 +46,12 @@ function cp_layout_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_header_exportador_template',
       'variables' => [
-        'language' => $variables['language'],
-        'language_2'=> $variables['language_2'],
-        'business_name' => $variables['business_name'],
-        'company_logo' => $variables['company_logo']
+        'language' => NULL,
+        'language_2'=> NULL,
+        'business_name' => NULL,
+        'company_logo' => NULL,
+        'uid' => NULL,
+        'country' => NULL
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -88,11 +64,13 @@ function cp_layout_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_header_buyer_template',
       'variables' => [
-        'language' => $variables['language'],
-        'language_2'=> $variables['language_2'],
-        'name' => $variables['name'],
-        'lastname' => $variables['lastname'],
-        'email' => $variables['email']
+        'language' => NULL,
+        'language_2'=> NULL,
+        'name' => NULL,
+        'lastname' => NULL,
+        'email' => NULL,
+        'uid' => NULL,
+        'country' => NULL
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -105,11 +83,13 @@ function cp_layout_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_header_advisor_col_template',
       'variables' => [
-        'language' => $variables['language'],
-        'language_2'=> $variables['language_2'],
-        'name' => $variables['name'],
-        'lastname' => $variables['lastname'],
-        'email' => $variables['email']
+        'language' => NULL,
+        'language_2'=> NULL,
+        'name' => NULL,
+        'lastname' => NULL,
+        'email' => NULL,
+        'uid' => NULL,
+        'country' => NULL
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
@@ -122,11 +102,13 @@ function cp_layout_theme($existing, $type, $theme, $path)
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_header_advisor_international_template',
       'variables' => [
-        'language' => $variables['language'],
-        'language_2'=> $variables['language_2'],
-        'name' => $variables['name'],
-        'lastname' => $variables['lastname'],
-        'email' => $variables['email']
+        'language' => NULL,
+        'language_2'=> NULL,
+        'name' => NULL,
+        'lastname' => NULL,
+        'email' => NULL,
+        'uid' => NULL,
+        'country' => NULL
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

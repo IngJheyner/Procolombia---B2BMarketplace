@@ -23,6 +23,9 @@ function cp_ia_search_theme($existing, $type, $theme, $path)
       // it defaults to the name of the theme hook,
       // ie. module-name-theme-hook.html.twig
       'template' => 'cp_ia_search_template',
+      'variables' => [
+        'uid' => NULL,
+      ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.
       'path' => $path . '/templates',

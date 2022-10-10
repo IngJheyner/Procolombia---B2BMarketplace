@@ -1,10 +1,14 @@
 cp_ia_search:
-  version: 1.0
+  version: VERSION
   css:
     theme:
       css/cp_ia_search.css: {}
   js:
     js/cp_ia_search.js: {}
+    js/cp_ia_logs.js: {}
+    js/dataTables.js: {}
+    js/moment.min.js: {}
+    js/daterangepicker.min.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once

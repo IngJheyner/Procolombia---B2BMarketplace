@@ -4,6 +4,7 @@ cp_incentives:
     theme:
       css/cp_incentives.css: {}
   js:
+    js/dataTables.js: {}
     js/cp_incentives_company_col.js: {}
     js/cp_incentives_modal.js: {}
   dependencies:
