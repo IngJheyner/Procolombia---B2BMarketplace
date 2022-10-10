@@ -85,18 +85,41 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           }
           $form['body_class']['#access'] = FALSE;
 
-          $form['edit_advise_modal'] = [
-            '#theme' => 'cp_core_node_multistep_generic_modal',
-            '#class' => 'edit-advise-modal',
-            '#autoload' => TRUE,
-            '#title' => t('Edit product or service'),
-            '#message' => t('You are about to edit the information of the product/service of the company <strong>"@company"</strong>', ['@company' => $node->getOwner()->label()]),
-            '#question' => t('Do you wish to continue?'),
-            '#button_text' => t('No'),
-            '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
-            '#button_no_text' => t('Yes'),
-            '#button_no_link' => '#',
-          ];
+          $pruduct_status = \Drupal::request()->query->get('product-status');
+          if ($pruduct_status) {
+            $state = 'approved';
+            if ($pruduct_status == 3) {
+              $state = 'rejected';
+            }
+            $userStorage = \Drupal::entityTypeManager()->getStorage('user');
+            $user = $userStorage->load($view->args[0]);
+            $form['modal_product_saved'] = [
+              '#theme' => 'cp_core_node_multistep_generic_modal',
+              '#class' => 'save-product-correct-modal',
+              '#autoload' => TRUE,
+              '#title' => t('Successful process'),
+              '#message' => t('The product has been successfully ' . $state . '.'),
+              '#question' => t('Do you wish to continue?'),
+              '#button_text' => t('No'),
+              '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+              '#button_no_text' => t('Yes'),
+              '#button_no_link' => '#',
+            ];
+          }
+          else {
+            $form['edit_advise_modal'] = [
+              '#theme' => 'cp_core_node_multistep_generic_modal',
+              '#class' => 'edit-advise-modal',
+              '#autoload' => TRUE,
+              '#title' => t('Edit product or service'),
+              '#message' => t('You are about to edit the information of the product/service of the company <strong>"@company"</strong>', ['@company' => $node->getOwner()->label()]),
+              '#question' => t('Do you wish to continue?'),
+              '#button_text' => t('No'),
+              '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+              '#button_no_text' => t('Yes'),
+              '#button_no_link' => '#',
+            ];
+          }
 
           $form['actions']['reject'] = array(
             '#type' => 'submit',
@@ -169,6 +192,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             '#attached' => ['library' => 'core/drupal.dialog.ajax'],
           ];
           unset($form['actions']['preview']);
+          // kint($form);
         }
       }
     }
@@ -285,7 +309,8 @@ function approve_product(&$form, FormStateInterface $form_state) {
     $node = $form_object->getEntity();
     $node->field_states->value = 'approved';
     $node->save();
-    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()]);
+    $options = ['query' => ['product-status' => 2]];
+    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()], $options);
     $form_state->setRedirectUrl($url);
   }
   \Drupal::messenger()->addMessage(t('approved product or service'), 'status', TRUE);
@@ -310,7 +335,8 @@ function reject_product(&$form, FormStateInterface $form_state) {
     $node->field_states->value = 'incomp_info';
     $node->save();
     //Redirect
-    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()]);
+    $options = ['query' => ['product-status' => 3]];
+    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()], $options);
     $form_state->setRedirectUrl($url);
     \Drupal::messenger()->addMessage(t('rejected product or service'), 'status', TRUE);
 
