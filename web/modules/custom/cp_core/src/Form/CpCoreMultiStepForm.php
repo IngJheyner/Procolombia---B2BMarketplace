@@ -496,7 +496,7 @@ class CpCoreMultiStepForm extends FormBase {
           '#autoload' => TRUE,
           '#title' => $this->t('Add product / service'),
           '#message' => $this->t('All uploaded content must comply with the <a href="https://b2bmarketplace.procolombia.co/en/node/177" target="_BLANK">publishing policy.</a>'),
-          '#button_text' => $this->t('Agree'),
+          '#button_text' => $this->t('Agreed'),
           '#weight' => -11,
         ];
       }
