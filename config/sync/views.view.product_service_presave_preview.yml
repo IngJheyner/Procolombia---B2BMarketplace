@@ -89,7 +89,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'view own unpublished content'
+          perm: 'edit any product content'
       cache:
         type: tag
         options: {  }

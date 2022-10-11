@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3997038f5640857bb4d3230f0b31123",
+    "content-hash": "3cfdb10c6ab6bc0e02b81b9d852e4ea1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -147,7 +147,7 @@
             "version": "3.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "3711efedf0ca2e998cd0417324f717f2e0b828ec"
             },
             "dist": {
@@ -6307,8 +6307,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta7+3-dev",
-                    "datestamp": "1665054182",
+                    "version": "8.x-1.0-beta7+4-dev",
+                    "datestamp": "1665379396",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6673,6 +6673,63 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/entityqueue_form_widget",
                 "issues": "https://www.drupal.org/project/issues/entityqueue_form_widget"
+            }
+        },
+        {
+            "name": "drupal/entityreference_filter",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entityreference_filter.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entityreference_filter-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "6492ba68418c42a10fdb560ae6b9891504f0ed50"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1620486711",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Maxim Podorov",
+                    "homepage": "https://www.drupal.org/user/2463262",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Maxim Kashuba",
+                    "homepage": "https://www.drupal.org/user/515310",
+                    "email": "mkashuba85@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides views-based filter for entity reference and entity id fields in views.",
+            "homepage": "http://drupal.org/project/entityreference_filter",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entityreference_filter",
+                "issues": "https://www.drupal.org/project/issues/entityreference_filter"
             }
         },
         {
@@ -10297,6 +10354,54 @@
                 "source": "https://git.drupal.org/project/page_manager.git",
                 "issues": "https://www.drupal.org/project/issues/page_manager",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/pager_serializer",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/pager_serializer.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/pager_serializer-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "71b2b785889a30bc2dc7b130bf53a686d849785f"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1656444579",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bluegeek9",
+                    "homepage": "https://www.drupal.org/user/1286304"
+                }
+            ],
+            "description": "This module is intended to be used with rest and the Rest export View with a decoupled UI.",
+            "homepage": "https://www.drupal.org/project/pager_serializer",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/pager_serializer",
+                "issues": "https://www.drupal.org/project/issues/pager_serializer"
             }
         },
         {
@@ -17685,6 +17790,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/link/-/link-1.5.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/litepicker",
+            "version": "2.0.12",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/litepicker/-/litepicker-2.0.12.tgz"
             },
             "type": "npm-asset",
             "license": [

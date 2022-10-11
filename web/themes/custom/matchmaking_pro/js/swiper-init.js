@@ -5,11 +5,15 @@
 
 			let imagesField = $('.node--type-product.node--view-mode-product-service-presave-preview .field--name-field-images');
 			let prFullImgField = $('.node--type-product.node--view-mode-full .field--name-field-images');
-
-			$(context).find('body').once('.node--type-product').each(function () {
+			
+			$(context).find('.node--view-mode-full').once('.node--type-product').each(function () {
 				addSwipper(prFullImgField);
 			});
-			addSwipper(imagesField);
+			$(context).find('.node--type-product').once('.node--type-product').each(function () {
+
+				addSwipper(imagesField);
+				
+			});
 			function addSwipper(image){
 				image.addClass('swiper-wrapper');
 				image.children('.field__item').addClass('swiper-slide');
@@ -23,7 +27,6 @@
 	
 				$('<div class="swiper-button-prev"></div><div class="swiper-button-next"></div>').insertAfter('.swiper-main');
 			}
-
 			var swiper = new Swiper(".swiper-thumbs", {
 				loop: false,
 				spaceBetween: 5,

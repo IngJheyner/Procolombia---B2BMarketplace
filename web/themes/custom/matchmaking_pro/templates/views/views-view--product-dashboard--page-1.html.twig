@@ -58,6 +58,12 @@
           {% endif %}
           {{ exposed }}
         </div>
+        {% if view.getExposedInput.title is defined %}
+              <div class="items-result">
+                <p>{{ 'Se encontraron'|t }} <strong>{{ view.total_rows }} {{ 'resultados'|t }}</strong> {{ 'asociados a tu búsqueda'|t }}</p>
+                <a href="{{ view.getUrlInfo }}/{{ view.args[0] }}">{{ 'Restablecer filtrado'|t }}</a>
+              </div>
+        {% endif %}
       {% endif %}
       <div class="after-filters-container">
       {% if pager %}
@@ -83,12 +89,11 @@
       {# ============================================
       Esta variables esta dando conflicto en el modal de boostrap
       =============================================== #}
-      {# if attachment_after %}
+      {% if attachment_after %}
         <div class="attachment attachment-after">
           {{ attachment_after }}
         </div>
-      {% endif #}
-      {#{ drupal_dump(attachment_after) }#}
+      {% endif %}
 
       {% if more %}
         {{ more }}
@@ -97,7 +102,7 @@
       <div class="pager-with-count">
         {% if footer %}
           <div class="view-footer">
-            {{ footer }}
+            <p>{{ 'Total ítems:'|t }} <span>{{ view.total_rows }}</span></p>
           </div>
         {% endif %}
         <div class="pager-right">

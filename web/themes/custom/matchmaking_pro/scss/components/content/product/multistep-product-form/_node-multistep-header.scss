@@ -21,6 +21,13 @@
     strong{
         font-family: Maven-Bold;
     }
+    div.close {
+        opacity: 1;
+        position: static;
+        width: auto;
+        margin: 0;
+        height: auto;
+        }
     .close a{
         display: flex;
         justify-content: space-between;

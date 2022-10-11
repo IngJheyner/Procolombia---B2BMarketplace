@@ -116,7 +116,26 @@ function matchmaking_pro_preprocess_views_view_table(&$variables) {
 function matchmaking_pro_theme_suggestions_views_view_field_alter(array &$suggestions, array &$variables, $hook)
 {
   if ($variables['view']->id() && $variables['view']->current_display) {
-    $suggestions[] = $hook . '__' . $variables['view']->id() . '__' . $variables['view']->current_display . '__' . $variables['field']->field;
+    $suggestions[] = $hook . '__' . $variables['view']->id() . '__' . $variables['field']->field;
 
   }
+}
+
+
+function matchmaking_pro_preprocess_image_widget(&$variables, $hook) {
+  $node = \Drupal::request()->attributes->get('node');
+
+  if(isset($node)){
+
+    $bundle = $node->bundle();
+    $path = \Drupal::service('path.current')->getPath();
+  
+    if($bundle == 'product' && strpos($path, '/edit')){
+      $variables['data']['product_edition'] = TRUE;
+    }else {
+      $variables['data']['product_edition'] = FALSE;
+    }
+
+  }
+
 }

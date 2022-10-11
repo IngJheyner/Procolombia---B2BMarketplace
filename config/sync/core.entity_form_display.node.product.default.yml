@@ -221,14 +221,14 @@ content:
     third_party_settings: {  }
   field_pr_certifications:
     type: file_generic
-    weight: 41
+    weight: 36
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_pr_country:
     type: entity_reference_autocomplete
-    weight: 58
+    weight: 50
     region: content
     settings:
       match_operator: CONTAINS
@@ -238,7 +238,7 @@ content:
     third_party_settings: {  }
   field_pr_image_1:
     type: image_image
-    weight: 46
+    weight: 40
     region: content
     settings:
       progress_indicator: throbber
@@ -246,7 +246,7 @@ content:
     third_party_settings: {  }
   field_pr_image_2:
     type: image_image
-    weight: 47
+    weight: 41
     region: content
     settings:
       progress_indicator: throbber
@@ -254,7 +254,7 @@ content:
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 48
+    weight: 42
     region: content
     settings:
       progress_indicator: throbber
@@ -262,7 +262,7 @@ content:
     third_party_settings: {  }
   field_pr_image_4:
     type: image_image
-    weight: 49
+    weight: 43
     region: content
     settings:
       progress_indicator: throbber
@@ -270,7 +270,7 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 50
+    weight: 44
     region: content
     settings:
       progress_indicator: throbber
@@ -278,7 +278,7 @@ content:
     third_party_settings: {  }
   field_pr_product_availability:
     type: boolean_checkbox
-    weight: 59
+    weight: 52
     region: content
     settings:
       display_label: true
@@ -295,7 +295,7 @@ content:
     third_party_settings: {  }
   field_pr_sales_channel:
     type: entity_reference_autocomplete
-    weight: 43
+    weight: 38
     region: content
     settings:
       match_operator: CONTAINS
@@ -305,13 +305,13 @@ content:
     third_party_settings: {  }
   field_pr_status:
     type: options_select
-    weight: 58
+    weight: 51
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pr_target_market:
     type: entity_reference_autocomplete
-    weight: 45
+    weight: 39
     region: content
     settings:
       match_operator: CONTAINS
@@ -321,14 +321,14 @@ content:
     third_party_settings: {  }
   field_pr_terms_of_condition:
     type: boolean_checkbox
-    weight: 55
+    weight: 47
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_pr_type_certifications:
     type: entity_reference_autocomplete
-    weight: 42
+    weight: 37
     region: content
     settings:
       match_operator: CONTAINS
@@ -338,19 +338,19 @@ content:
     third_party_settings: {  }
   field_pr_video:
     type: video_embed_field_textfield
-    weight: 51
+    weight: 45
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pr_video_2:
     type: video_embed_field_textfield
-    weight: 53
+    weight: 46
     region: content
     settings: {  }
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
-    weight: 56
+    weight: 48
     region: content
     settings:
       size: 60
@@ -358,7 +358,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 57
+    weight: 49
     region: content
     settings:
       size: 60

@@ -32,6 +32,7 @@ module:
   conditional_fields: 0
   config: 0
   config_filter: 0
+  config_ignore: 0
   config_translation: 0
   config_update: 0
   contextual: 0
@@ -83,6 +84,7 @@ module:
   entity_print_views: 0
   entity_reference_revisions: 0
   entityqueue: 0
+  entityreference_filter: 0
   facets: 0
   fakeobjects: 0
   field: 0
@@ -101,8 +103,6 @@ module:
   formatter_suite: 0
   gin_toolbar: 0
   google_analytics: 0
-  graphql: 0
-  graphql_core: 0
   help: 0
   history: 0
   honeypot: 0
@@ -159,6 +159,7 @@ module:
   page_cache: 0
   page_manager: 0
   page_manager_ui: 0
+  pager_serializer: 0
   password_policy_character_types: 0
   password_policy_characters: 0
   password_policy_history: 0
@@ -186,7 +187,6 @@ module:
   responsive_preview: 0
   rest: 0
   restui: 0
-  rules: 0
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0
@@ -210,7 +210,6 @@ module:
   system: 0
   taxonomy: 0
   taxonomy_access_fix: 0
-  taxonomy_import: 0
   taxonomy_manager: 0
   telephone: 0
   text: 0

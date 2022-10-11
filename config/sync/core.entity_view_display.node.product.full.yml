@@ -53,6 +53,7 @@ dependencies:
     - image.style.280x270
     - node.type.product
   module:
+    - cp_field_features
     - ds
     - field_group
     - formatter_suite
@@ -112,6 +113,7 @@ third_party_settings:
         - field_categorization
         - field_categorization_parent
         - field_partida_arancelaria_tax
+        - field_pr_structured_features
         - field_pr_country
         - group_footer_links
       label: Right
@@ -134,11 +136,11 @@ third_party_settings:
       children:
         - field_file
         - field_file_certifications
-        - cp_core_close_modal
+        - cp_core_generate_contact
       label: 'Footer links'
       parent_name: group_right
       region: content
-      weight: 9
+      weight: 10
       format_type: html_element
       format_settings:
         classes: group-footer-links
@@ -156,12 +158,12 @@ targetEntityType: node
 bundle: product
 mode: full
 content:
-  cp_core_close_modal:
+  cp_core_edit_product:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
-  cp_core_edit_product:
+  cp_core_generate_contact:
     settings: {  }
     third_party_settings: {  }
     weight: 4
@@ -255,7 +257,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 4
+    weight: 3
     region: content
   field_images:
     type: image
@@ -299,8 +301,32 @@ content:
     type: entity_reference_label
     label: inline
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 9
+    region: content
+  field_pr_structured_features:
+    type: sf_default
+    label: inline
+    settings:
+      show_as_details: '1'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 8
     region: content
   flag_favorites:
@@ -309,6 +335,7 @@ content:
     weight: 2
     region: content
 hidden:
+  cp_core_close_modal: true
   cp_core_presave_preview: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
@@ -336,7 +363,6 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
-  field_pr_structured_features: true
   field_pr_target_market: true
   field_pr_terms_of_condition: true
   field_pr_type_certifications: true

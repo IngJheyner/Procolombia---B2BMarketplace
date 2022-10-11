@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.card_img_small
     - field.field.taxonomy_term.categorization.field_asesor
+    - field.field.taxonomy_term.categorization.field_cat_product_type
+    - field.field.taxonomy_term.categorization.field_cat_productive_chain
+    - field.field.taxonomy_term.categorization.field_cat_subsector_neo
     - field.field.taxonomy_term.categorization.field_icon
     - field.field.taxonomy_term.categorization.field_image
     - field.field.taxonomy_term.categorization.field_metadescription
@@ -49,6 +52,9 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_asesor: true
+  field_cat_product_type: true
+  field_cat_productive_chain: true
+  field_cat_subsector_neo: true
   field_icon: true
   field_metadescription: true
   field_previous_id: true

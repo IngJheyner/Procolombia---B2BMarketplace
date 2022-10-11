@@ -1,7 +1,10 @@
 .view-product-dashboard,
 .view-dashboard-advisor,
 .view-products-advisor {
-	&.view-display-id-page_1 {
+	&.view-display-id-page_1,
+	&.view-display-id-dashboard_table,
+	&.view-id-products_advisor {
+		font-family: "Century Gothic";
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -21,6 +24,10 @@
 				padding-top: 13px;
 				align-items: center;
 				font-size: 18px;
+				p{
+					display: flex;
+					align-items: center;
+				}
 				span{
 					margin-left: 15px;
 					padding: 5px;
@@ -28,11 +35,11 @@
 					background-color: white;
 					border-radius: 5px;
 					font-weight: bold;
-          width: 30px;
-          height: 30px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+					min-width: 30px;
+					height: 30px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 			@include media-breakpoint-down(lg){
@@ -53,7 +60,7 @@
 			padding-top: 8px;
 			padding-left: 70px;
 			height: 70px;
-			font-family: 'century_gothicregular';
+			font-family: "Century Gothic";
 			font-size: 18px;
 			line-height: 22px;
 			letter-spacing: 0px;
@@ -79,9 +86,25 @@
 				font-weight: normal;
 				font-family:  $font-bold-Century-Gothic;
 				font-size: $font-size-sm;
+				gap: 8px;
+				&::before{
+					content: '';
+					display: flex;
+					background-image: url(../images/icons/Filtros_icono.svg);
+					background-size: 20px;
+					background-position: center;
+					background-repeat: no-repeat;
+					width: 25px;
+					height: 25px;
+				}
 				@include media-breakpoint-down(lg){
 					height: 56px;
 				}
+			}
+			&#edit-submit-dashboard-advisor{
+				@include media-breakpoint-down(lg){
+					margin-top: 10px;	
+				} 
 			}
 			&#edit-reset{
 				background-color: $button-lighter-gray;
@@ -182,7 +205,9 @@
 				background-image: url(../images/icons/calendario.svg);
 				background-repeat: no-repeat;
 				background-size: 20px;
-				background-position: 95% center;
+				background-position: center;
+				background-position-x: calc(100% - 10px);
+				padding: 0 10px !important;
 			}
 			.bef-exposed-form .row {
 				.js-form-item-items-per-page {
@@ -192,7 +217,7 @@
 					right: 0 !important;
 					width: 180px !important;
 					z-index: 3;
-					@include media-breakpoint-down(md){
+					@include media-breakpoint-down(lg){
 						top: calc(100% - 8px);
 						left: 0 !important;
 					}
@@ -271,7 +296,7 @@
 						background-position-y: center;
 						background-position-x: calc(100% - 10px);			
 						span{
-							font-family: $font-family-Century-Gothic;
+							font-family: "Century Gothic";
 							}			
 						border-color: $procol-gray-200;
 						&:hover{
@@ -364,7 +389,7 @@
 					border-radius: 4px;
 					border: 1px solid #A1A5AA;
 					span{						
-					font-family: $font-family-Century-Gothic;
+					font-family: "Century Gothic";
 					}
 					&:hover{
 						border: 2px solid $procol-light-blue;
@@ -407,14 +432,18 @@
 						label{
 							font-weight: 300;
 							padding-bottom: 0;
-							font-family: $font-family-Century-Gothic;             
+							font-family: "Century Gothic";             
 						}
 					}
 				}
 			}
 		form {
 			padding-top: 20px;
-
+			&#views-form-dashboard-advisor-dashboard-table-7{
+				@include media-breakpoint-down(lg){
+					padding-top: 0;
+				}
+			}
 			> .row {
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
@@ -439,6 +468,7 @@
 				width: 100% !important;
 				height: 100% !important;
 				grid-column: 2 span;
+				
 				@include media-breakpoint-down(lg){
 					grid-template-columns: 1fr !important;
 				}
@@ -492,7 +522,7 @@
 			justify-content: center;
 			min-width: 40px;
 			height: 31px;
-			font-family: $font-family-Century-Gothic;
+			font-family: "Century Gothic";
 			font-size: 12px;
 			line-height: 15px;
 			color: #0085CA;
@@ -534,7 +564,7 @@
 
 			th,
 			th a {
-				font-family: $font-family-Century-Gothic;
+				font-family: "Century Gothic";
 				font-size: 14px;
 				line-height: 17px;
 				color: #3B3D42;
@@ -614,11 +644,6 @@
 					background: transparent linear-gradient(180deg, #005CA4 0%, #008CCE 100%) 0% 0% no-repeat padding-box;
 					box-shadow: 0px 2px 2px $procol-gray-300;
 				}
-
-				&.on {
-					
-				}
-				
 				&.off {
 					&::after {
 						left: auto;
@@ -658,12 +683,16 @@
 		}
 		.attachment-after{
 			order: 3;
+			.form-item-items-per-page{
+				display: none;
+			}
 			.col-sm-9{
 				width: 100%;
 				.form-item-items-per-page{
 					display: none;
 				}
 			}
+			
 			.view-content{
 				box-shadow: none;
 			}
@@ -675,7 +704,7 @@
 				display: flex;
 				flex-direction: column;
 				font-size: 14px ;
-				font-family: $font-family-Century-Gothic;
+				font-family: "Century Gothic";
 				.views-field {
 					display: flex;
 					justify-content: space-between;
@@ -688,7 +717,7 @@
 					}
 					.field-content{
 						font-size: 13px;
-						font-family: $font-family-Century-Gothic;
+						font-family: "Century Gothic";
 						
 					}
 					&.views-field-title{
@@ -706,7 +735,7 @@
 						padding-bottom: 20px;
 						width: calc(100% - 40px);						
 						align-self: center;
-					
+						width: 100%;					
 						.field-content{
 							width: 100%;
 							height: 56px;
@@ -716,7 +745,7 @@
 							align-items: center;
 							border-radius: 4px 4px 0 0;
 							background-color: $button-lighter-gray;
-							font-family: $font-family-Century-Gothic;
+							font-family: "Century Gothic";
 						}
 						.views-label{
 							display: none;
@@ -753,73 +782,75 @@
 			
 		}
 	}
-	&.view-id-dashboard_advisor,
-	&.view-id-products_advisor{
-		padding: 0 26px;
-		@include media-breakpoint-down(lg){
-			padding: 20px;
-		}
-		.view-filters{
-			min-height: 171px;
-			@include media-breakpoint-down(lg){
-				width: 100%;
-				margin-top: 0;
-			}
-			#edit-reset{
-				background-color: $white;
-			}
-			.js-form-item-items-per-page{
-				top: 100% !important;
-			}
-			.js-form-item-items-per-page{
-				@include media-breakpoint-down(lg){
-					margin: 0 auto !important;
+	&.view-display-id-page_1{
+		.views-field-field-states,
+		.attachment-after .views-field-field-states{
+			> div,
+			.field-content > div{
+				display: flex;
+				gap: 5px;
+				align-items: center;
+				&::before{
+						display: flex;
+						content: '';
+						background-color: #D8DADD;
+						width: 10px;
+						height: 10px;
+						border-radius: 50%;
+						@include media-breakpoint-down(lg){
+							background-color: transparent;
+						}
+					}
+				&.approved::before{						
+					background-color: #00D320;					
 				}
-			}
-		}
-		.view-content{
-			margin-top: 58px;
-			.table-responsive{
-				.views-field.views-field-nothing{
-					width: 100%;
-					a{
-						color: $procol-light-blue;
+				&.incomp_info::before{
+					background: transparent linear-gradient(180deg, #504672 0%, #5F43BE 100%);
+				}
+				&.no_resp::before{
+					background-color: $procol-red;
+				}
+				&.waiting{
+					flex-wrap: wrap;
+					&::before{
+					background-color: $procol-yellow;
 					}
 				}
+				&.draft_status::before{
+					background-color: #D8DADD;
+				}
+			}
+			
+		}
+		.items-result{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: $white;
+			order: 3;
+			box-shadow: 0px 3px 6px #00000029;
+			border-radius: 4px 4px 0 0;
+			padding: 20px;
+			@include media-breakpoint-down(lg){
+				box-shadow: none;
+			}
+			p{
+				color: $procol-dark-blue;
+				margin-bottom: 0 !important;
+				font-size: 18px;
+			}
+			a{
+				padding: 12px 39px;
+				border: 1px solid $procol-light-blue;
+				font-size: $font-size-sm;
+				border-radius: 5px;
+				color: $procol-gray-400;
 				@include media-breakpoint-down(lg){
 					display: none;
 				}
 			}
-			@include media-breakpoint-down(lg){
-				padding: 0;
-				margin: 0;
-			}
-		}
-		.attachment-after{
-			display: none;
-			@include media-breakpoint-down(lg){
-				display: block;
-				width: 100%;
-				box-shadow: 0px 3px 6px #00000029;
-				border-radius: 4px;
-				margin-top: 84px;
-			}
-			.views-row {
-				.views-field-field-tariff-heading{
-					.field-content a{
-						color: $procol-gray-400;
-					}
-				}
-				.views-field.views-field-nothing{
-				width: 100%;
-				}
-			}
-			.view-id-dashboard_advisor,
-			.view-id-products_advisor{
-				@include media-breakpoint-down(lg){
-					padding: 0 0 20px 0;
-				}
-			}
 		}
 	}
+
 }
+

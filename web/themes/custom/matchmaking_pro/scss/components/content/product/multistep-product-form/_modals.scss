@@ -27,6 +27,14 @@
                 background-repeat: no-repeat;
                 background-color: transparent !important;
                 border: none;
+                margin: 0;
+                opacity: 1;
+                .close{
+                    opacity: 1;
+                    width: auto;
+                    position: relative;
+                    height: auto;
+                }
             }
             &::before{
                 content: '';
@@ -73,7 +81,7 @@
             }
         }
     }
-    &#generic-modal-view-no-results.show {
+    &#generic-modal-view-no-results.show {        
         display: block;
         background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-content{
@@ -107,8 +115,9 @@
                 }
             }
             .modal-body{
+                padding-left: 20px;
                 span{
-                    font-family: $font-family-Century-Gothic;
+                    font-family: "Century Gothic";
                 }
                 
             }
@@ -122,6 +131,9 @@
                     align-items: center;
                     height: 56px;
                     cursor: pointer;
+                }
+                a{
+                    color: $white;
                 }
                 span{
                     text-transform: uppercase;
@@ -181,6 +193,9 @@
         }
     }
     &.legal-modal{
+        top: 0;
+        right: 0;
+        opacity: 1;
         @include media-breakpoint-down(lg){
             .modal-header{
 
@@ -212,6 +227,9 @@
              .modal-footer-left,
              .modal-footer-right{
                 margin: 0;
+                .close{
+                    width: 100%;
+                }
              }
             }
         }
@@ -265,5 +283,112 @@
             @include blue-btn;
             text-transform: uppercase;
         }
+    }
+}
+
+.page-view-dashboard-advisor,
+.page-view-products-advisor{
+    .ui-dialog.generic-modal{
+        @include modals-basic-style;
+        .ui-dialog-titlebar{
+            background-color: $white;
+            padding: 15px;
+            border-bottom: 1px solid $procol-gray-200;
+            border-radius: 0;
+            
+            span.ui-dialog-title{
+                display: block;
+                color: $procol-gray-400;
+                font-size: 22px;
+                font-family: $font-bold-Century-Gothic;
+                margin: 0;
+                display: flex;
+                gap: 15px;
+                &::before{
+                    content: '';
+                    background-image: url("../images/icons/Icono_ElegirArchivos_azul.svg");
+                    -webkit-background-size: cover;
+                    background-size: cover;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            button.ui-button{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 25px;
+                height: 25px;
+                .ui-button-icon{
+                    background-image: url(../images/icons/Cerrar-azul.svg);
+                    background-size: 25px;
+                    background-repeat: no-repeat;
+                }
+                .ui-button-icon-space {
+                    display: none;
+                }
+            }
+
+        }
+        #drupal-modal{
+            color: $procol-gray-400;
+            padding: 0;
+            .modal-body {
+                padding: 33px 32px 20px 20px;
+                p{
+                    font-size: 16px;
+                    font-family: "Century Gothic";
+                    color: $procol-gray-400;
+                    line-height: 21px;
+                    text-align: center;                    
+                }
+            }
+            .modal-footer{
+                gap: 15px;
+                @include media-breakpoint-down(lg){
+                    gap: 5px;
+                }
+                a{
+                    height: 37px;
+                    width: 96px;
+                    border: 1px solid #01C161;
+                    border-radius: 4px;
+                    font-size: $font-size-sm;
+                    text-transform: uppercase;
+                    color: $procol-gray-400;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 12px;
+                    @include media-breakpoint-down(lg){
+                        width: 100%;
+                        height: 56px;
+                    }
+                 &::before{
+                    background-image: url(../images/icons/file-csv.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    content: "";
+                    width: 15px;
+                    height: 20px
+                 }   
+                }
+                button#close-button{
+                    @include media-breakpoint-down(lg){
+                        width: 100%;
+                        height: 56px;
+                    }
+                    @include gray-btn;
+                    width: 111px;
+                    height: 41px;
+                    border-radius: 4px;
+                    border: none;
+                    font-size: $font-size-sm;
+                }
+            }
+        }
+    }
+    .ui-widget-overlay{
+        background-color: rgba(59, 61, 66, 0.5) !important;
     }
 }

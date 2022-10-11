@@ -5,3 +5,9 @@ cp_advisor_moderation.edit_form:
   requirements:
     node: \d+
     _entity_access: 'node.update'
+cp_advisor_moderation.export_data:
+  path: '/dashboard-advisor/export-controller'
+  defaults:
+    _controller: '\Drupal\cp_advisor_moderation\Controller\CpAdvisorModerationController::exportView'
+  requirements:
+    _permission: 'cp_advisor_moderation dashboard'
