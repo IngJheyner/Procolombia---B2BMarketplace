@@ -1154,11 +1154,14 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
   }
 
   if ($display->getComponent('cp_core_edit_product')) {
-    $build['cp_core_edit_product'] = [
-      '#type' => 'link',
-      '#url' => Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]),
-      '#title' => t('Edit'),
-    ];
+    $url = Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]);
+    if ($url->access()) {
+      $build['cp_core_edit_product'] = [
+        '#type' => 'link',
+        '#url' => Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]),
+        '#title' => t('Edit'),
+      ];
+    }
   }
 
   if ($display->getComponent('cp_core_generate_contact')) {

@@ -181,7 +181,9 @@ class StructuredFeatureFormatter extends FormatterBase {
     else {
       foreach ($items as $delta => $item) {
         $view_value = $this->viewValue($item, $sf);
-        $elements[$delta] = $view_value;
+        if ($view_value) {
+          $elements[$delta] = $view_value;
+        }
       }
     }
 
@@ -204,9 +206,14 @@ class StructuredFeatureFormatter extends FormatterBase {
     $config = $structure->get('properties')[$item->property];
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
-    return [
-      '#markup' => '<div class="property-wrapper"><span class="property-label">' . $config['label'] . ':</span> <span>' . $item->value . '</span></div>',
-    ];
+    if (!empty($config['label']) && !empty($item->value)) {
+      return [
+        '#markup' => '<div class="property-wrapper"><span class="property-label">' . $config['label'] . ':</span> <span>' . $item->value . '</span></div>',
+      ];
+    }
+    else {
+      return FALSE;
+    }
   }
 
 }
