@@ -163,24 +163,26 @@ class StructuredFeatureFormatter extends FormatterBase {
         '#title' => $this->t('View more'),
       ];
       foreach ($items as $delta => $item) {
-        $view_value = $this->viewValue($item, $sf);
-        $elements[0][] = $view_value;
-        $elements[0]['show_less'] = [
-          '#type' => 'html_tag',
-          '#tag' => 'a',
-          '#value' => $this->t('Show less'),
-          '#attributes' => [
-            'class' => ['sf-structure-formatter-show-less'],
-            'href' => '#',
-          ],
-          '#weight' => 99,
-          '#attached' => ['library' => ['cp_structured_features/sf_structure_formatter']],
-        ];
+        $view_value = $this->viewValue($item, $sf, $langcode);
+        if ($view_value) {
+          $elements[0][] = $view_value;
+        }
       }
+      $elements[0]['show_less'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'a',
+        '#value' => $this->t('Show less'),
+        '#attributes' => [
+          'class' => ['sf-structure-formatter-show-less'],
+          'href' => '#',
+        ],
+        '#weight' => 99,
+        '#attached' => ['library' => ['cp_structured_features/sf_structure_formatter']],
+      ];
     }
     else {
       foreach ($items as $delta => $item) {
-        $view_value = $this->viewValue($item, $sf);
+        $view_value = $this->viewValue($item, $sf, $langcode);
         if ($view_value) {
           $elements[$delta] = $view_value;
         }
@@ -202,11 +204,18 @@ class StructuredFeatureFormatter extends FormatterBase {
    * @return array
    *   The textual output generated as a render array.
    */
-  protected function viewValue(FieldItemInterface $item, StructuredFeatureInterface $structure) {
+  protected function viewValue(FieldItemInterface $item, StructuredFeatureInterface $structure, $langcode) {
     $config = $structure->get('properties')[$item->property];
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
-    if (!empty($config['label']) && !empty($item->value)) {
+    if (1
+        && !empty($config['label'])
+        && !empty($item->value)
+        && (0
+          || $config['language'] == 'all'
+          || $config['language'] == $langcode
+        )
+      ) {
       return [
         '#markup' => '<div class="property-wrapper"><span class="property-label">' . $config['label'] . ':</span> <span>' . $item->value . '</span></div>',
       ];
