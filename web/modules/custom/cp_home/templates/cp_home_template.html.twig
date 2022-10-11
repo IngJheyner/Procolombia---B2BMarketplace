@@ -1,65 +1,93 @@
 {{ attach_library('cp_home/cp_home') }}
 <section class='mainCpIncentivesCompanyCol'>
-    <div class="slider-home h-100">
-        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
-        <!-- start of hero -->
-        <section class="hero-slider hero-style">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image"
-                            data-background="https://images.unsplash.com/photo-1578934191836-ff5f608c2228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80">
-                            <div class="container">
-                                <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>GUITAR CLASSES
-                                        FOR KIDS</h2>
-                                </div>
-                                <div data-swiper-parallax="400" class="slide-text">
-                                    <p>Want to see your kid become more expressive?</p>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn-s2">Register now</a>
-                                    <a href="#" class="theme-btn-s3"><i class="fas fa-chevron-circle-right"></i> Get
-                                        Info</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end slide-inner -->
+    <div class="animated fadeIn">
+        <div class="body-overlay">
+            <div class="">
+                <div class="leftandin animated slider" id="leftandin1"
+                    style="background:url(http://52.201.168.42/sites/default/files/matchmaking/images/internal/baner5.jpg) no-repeat;">
+                    <div class="outer-left">
+                        <h1 class="headline animated fadeInLeft">
+                            BMARKET<br>BPLACE
+                        </h1>
+                        <h3 class="title animated bounceInLeft">The Answer is the Nature</h3>
+                        <p class="description animated fadeInDown delay-06s">Read a national geographic magazine article
+                            about how flowering plants appeared during the Cretaceous period and get information, facts,
+                            and more about the flowers and the prehistoric world.</p>
                     </div>
-                    <!-- end swiper-slide -->
-
-                    <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image"
-                            data-background="https://images.unsplash.com/photo-1579003087287-997fd4d18771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-                            <div class="container">
-                                <div data-swiper-parallax="300" class="slide-title">
-                                    <h2>GUITAR CLASSES
-                                        FOR KIDS</h2>
-                                </div>
-                                <div data-swiper-parallax="400" class="slide-text">
-                                    <p>Want to see your kid become more expressive?</p>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn-s2">Register now</a>
-                                    <a href="#" class="theme-btn-s3"><i class="fas fa-chevron-circle-right"></i>Get
-                                        Info</a>
-                                </div>
-                            </div>
+                    <div class="inner animated fadeIn" id="inner1">
+                        <div class="toggler">
+                            <a class="next-article" href="#leftandin2" onclick="toggleNext();">
+                                <h4 class="article-position">01</h4>
+                                <img src="http://semicorpus.com/yarden/icon-next.png" height="18px" width="18px">
+                            </a>
                         </div>
-                        <!-- end slide-inner -->
                     </div>
-                    <!-- end swiper-slide -->
                 </div>
-                <!-- end swiper-wrapper -->
-
-                <!-- swipper controls -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="leftandin2 displaynone slider fadeIn" id="leftandin2"
+                    style="background:url(http://52.201.168.42/sites/default/files/matchmaking/images/internal/baner.jpg) no-repeat;">
+                    <div class="outer-left">
+                        <h1 class="headline animated fadeInLeft">The Art of<br>Fresher Flowers</h1>
+                        <h3 class="title animated bounceInLeft">The Answer is the Nature</h3>
+                        <p class="description animated fadeInDown delay-06s">Read a national geographic magazine article
+                            about how flowering plants appeared during the Cretaceous period and get information, facts,
+                            and more about the flowers and the prehistoric world.</p>
+                    </div>
+                    <div class="inner animated fadeIn" id="inner2">
+                        <div class="toggler">
+                            <a class="next-article" href="#leftandin1" onclick="toggleNext();">
+                                <h4 class="article-position">02</h4>
+                                <img src="http://semicorpus.com/yarden/icon-next.png" height="18px" width="18px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <!-- end of hero slider -->
+        </div>
+    </div>
+    <div class="search-home">
+        <div class="row p-4">
+            <div class="col-lg-2">
+                i
+                <br>
+                c
+                <br>
+                o
+                <br>
+                n
+                <br>
+                o
+            </div>
+            <div class="col-lg-10">
+                <p class="tittle-search-home mb-5">Bienvenido a nuestro asistente de búsqueda inteligente:</p>
+                <div class="align-items-stretch p-0 row">
+                    <div class="col-lg-4">
+                        <label for="industria">Su industria</label>
+                        <select multiple name="industria" id="industria">
+                            <option value="chrome"> Google Chrome</option>
+                            <option value="ffox"> Mozilla Firefox</option>
+                            <option value="ie"> Internet Explorer</option>
+                        </select>
+                    </div>
+                    <div class="align-items-center col-lg-1 d-flex">
+                        <p class="mt-3 mb-0">- & -</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="intereses">Sus intereses</label>
+                        <select multiple name="intereses" id="intereses">
+                            <option value="chrome"> Google Chrome</option>
+                            <option value="ffox"> Mozilla Firefox</option>
+                            <option value="ie"> Internet Explorer</option>
+                        </select>
+                    </div>
+                    <div class="align-items-center col-lg-3 d-flex flex-column justify-content-center">
+                        <button>asas</button>
+                        <span>Reiniciar la búsqueda</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>

@@ -59,14 +59,11 @@
             });
             //if click outside input search and suggestions hide suggestions
             $(document, context).on('click', function (e) {
-                console.log('exit2');
                 if (!$(e.target).closest('#search-input').length && !$(e.target).closest('#search-recommendations').length) {
-                    console.log('exit');
                     $('#search-recommendations').hide();
                 }
 
                 if (!$(e.target).closest('#search-input').length && !$(e.target).closest('#search-suggestions').length) {
-                    console.log('exit');
                     $('#search-suggestions').hide();
                 }
             });

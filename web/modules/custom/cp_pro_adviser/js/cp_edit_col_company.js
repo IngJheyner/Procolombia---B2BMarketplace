@@ -161,6 +161,7 @@
         var logo = $("#logo").prop("files")[0];
         var business_name = $("#business_name").val();
         var website = $("#website").val();
+        var urlsite = $("#url_crossboader_companies").val();
         var description_business_spanish = $(
             "#description_business_spanish"
         ).val();
@@ -282,6 +283,22 @@
                 $("#website").css("border-color", "#cccccc");
             }
         }
+
+        if (urlsite != "" || urlsite != null) {
+            if (!isUrl(urlsite)) {
+                message = Drupal.t("URL of companies with e-commerce crossboarder is not valid");
+                $("#url_crossboader_companies").css("border-color", "#ba0c2f");
+                $("#error_urlsite_message").text(message)
+                $("#error_urlsite").show();
+                $("#error_urlsite")
+                isValid = false;
+            } else {
+                $("#error_urlsite").hide();
+                $("#urlsite").css("border-color", "#cccccc");
+            }
+        }
+            
+
 
         if (description_business_spanish == "") {
             message = Drupal.t("Description in Spanish is required");

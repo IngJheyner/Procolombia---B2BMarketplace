@@ -70,7 +70,7 @@ class CpChatController extends ControllerBase {
         $other_user = \Drupal\user\Entity\User::load($uid_other_user);
 
         return new JsonResponse([
-          'status' => 'error',
+          'status' => 'success',
           'message' => 'Chat room already exists',
           'result_chat' => array(
             'id' => $result[0]->id,

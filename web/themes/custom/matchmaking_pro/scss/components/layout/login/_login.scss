@@ -18,26 +18,21 @@ LOGIN DRUPAL
 	}
 }
 
-
 .modal-body {
-
 	padding: 37px 18px;
 
 	p {
 		font-size: 14px;
-		font-family: 'Gothic-Regular';
+		font-family: "Gothic-Regular";
 		margin: 0px;
 		line-height: 1.2em;
 		font-weight: bold;
 	}
 
-
-
 	h6 {
-		font-size: 1.5rem;
-		font-family: 'Gothic-Bold';
-		padding: 0px 34px !important;
-		margin-bottom: 20px;
+		font-family: "Gothic-Bold";
+		font-size: 1rem !important;
+		margin-bottom: 1.25rem;
 	}
 
 	.password {
@@ -54,7 +49,6 @@ LOGIN DRUPAL
 
 			svg {
 				margin-right: 10px;
-
 			}
 		}
 
@@ -76,7 +70,6 @@ LOGIN DRUPAL
 				margin-left: 24px;
 				margin-right: 6px;
 			}
-
 		}
 	}
 
@@ -86,14 +79,13 @@ LOGIN DRUPAL
 		}
 
 		.input-group-text.eliminar {
-			background-color: $color-Pantone-200  !important;
-			font-family: $font-regular  !important;
+			background-color: $color-Pantone-200 !important;
+			font-family: $font-regular !important;
 		}
 	}
 }
 
 .modal-header {
-
 	h5 {
 		font-size: 22px;
 		color: $color-Gris-Oscuro;
@@ -115,6 +107,5 @@ LOGIN DRUPAL
 		#middle_part {
 			padding: 2rem 3rem;
 		}
-
 	}
 }
