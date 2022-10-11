@@ -313,14 +313,14 @@ function approve_product(&$form, FormStateInterface $form_state) {
   \Drupal::messenger()->addMessage(t('approved product or service'), 'status', TRUE);
 
    //Notification
-   $owner = User::load($node->getOwnerID());
-   $custom_replacements = ['{{ product_name }}' => $node->label()];
-   $key = 'product_seller_approbation_mail';
-   $to = $owner->getEmail();
-   $from = NULL;
-   $langcode = $owner->getPreferredLangcode();
-   $params = [];
-   \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
+  //  $owner = User::load($node->getOwnerID());
+  //  $custom_replacements = ['{{ product_name }}' => $node->label()];
+  //  $key = 'product_seller_approbation_mail';
+  //  $to = $owner->getEmail();
+  //  $from = NULL;
+  //  $langcode = $owner->getPreferredLangcode();
+  //  $params = [];
+  //  \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
 }
 
 function reject_product(&$form, FormStateInterface $form_state) {
@@ -339,14 +339,14 @@ function reject_product(&$form, FormStateInterface $form_state) {
 
 
     //Notification
-    $owner = User::load($node->getOwnerID());
-    $custom_replacements = ['{{ product_name }}' => $node->label()];
-    $key = 'product_seller_reject_mail';
-    $to = $owner->getEmail();
-    $from = NULL;
-    $langcode = $owner->getPreferredLangcode();
-    $params = [];
-    \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
+    // $owner = User::load($node->getOwnerID());
+    // $custom_replacements = ['{{ product_name }}' => $node->label()];
+    // $key = 'product_seller_reject_mail';
+    // $to = $owner->getEmail();
+    // $from = NULL;
+    // $langcode = $owner->getPreferredLangcode();
+    // $params = [];
+    // \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
   }
 }
 
