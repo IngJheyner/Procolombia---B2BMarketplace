@@ -1,0 +1,163 @@
+uuid: bf21010c-f909-4ec8-80f0-4db4e0ab9f88
+langcode: es
+status: true
+dependencies: {  }
+id: bpo
+label: BPO
+description: ''
+reference_type: service
+references:
+  - 109f52d9-7c29-4588-a30b-aad3c6b64c71
+properties:
+  tipo_de_solucion:
+    id: tipo_de_solucion
+    label: 'Tipo de solución'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Back office|Back office\r\nServicio al cliente|Servicio al cliente\r\nTransformación digital o empresarial|Transformación digital o empresarial"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  idioma:
+    id: idioma
+    label: Idioma
+    status: true
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Inglés|Inglés\r\nEspañol|Español\r\nPortugués|Portugués\r\nFrances|Frances\r\nOtros|Otros"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  modelo_de_negocio:
+    id: modelo_de_negocio
+    label: 'Modelo de negocio'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "En site|En site\r\nTrabajo en casa (WAHA)|Trabajo en casa (WAHA)\r\nMixto|Mixto"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  numero_de_sillas:
+    id: numero_de_sillas
+    label: 'Número de sillas'
+    status: true
+    type: textfield
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: 5
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: ''
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  tipo_de_servicio_back_office_:
+    id: tipo_de_servicio_back_office_
+    label: 'Tipo de Servicio (Back office)'
+    status: true
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Back office|Back office\r\nLogistica|Logistica\r\nSoporte tecnología / Help Desk|Soporte tecnología / Help Desk\r\nFinanzas y contabilidad|Finanzas y contabilidad\r\nRecursos humanos|Recursos humanos"
+    class: ''
+    position: left
+    order: 0
+    apply: 1
+  tipo_de_servicio_servicio_al_cliente_:
+    id: tipo_de_servicio_servicio_al_cliente_
+    label: 'Tipo de servicio (Servicio al cliente)'
+    status: false
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Atención al cliente|Atención al cliente\r\nventas|ventas\r\nCobros|Cobros\r\nCalidad|Calidad\r\nInterpretación y traducción|Interpretación y traducción"
+    class: ''
+    position: left
+    order: 0
+    apply: 1
+  tipo_de_servicio_transformacion_digital_o_empresarial_:
+    id: tipo_de_servicio_transformacion_digital_o_empresarial_
+    label: 'Tipo de servicio (Transformación digital o empresarial)'
+    status: true
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Analítica|Analítica\r\nInvestigación de mercados|Investigación de mercados\r\nAutomatización|Automatización\r\nExperiencia del cliente|Experiencia del cliente\r\n"
+    class: ''
+    position: left
+    order: 0
+    apply: 1
+  canal_de_contacto:
+    id: canal_de_contacto
+    label: 'Canal de contacto'
+    status: true
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Voz|Voz\r\ne-mail|e-mail\r\nChat|Chat\r\nSMS|SMS\r\nRedes sociales|Redes sociales\r\nOtros|Otros\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0

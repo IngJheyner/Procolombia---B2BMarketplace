@@ -1109,6 +1109,13 @@ function cp_core_entity_extra_field_info() {
     'visible' => FALSE,
   ];
 
+  $extra['node']['product']['display']['cp_core_generate_contact'] = [
+    'label' => t('CP Core: Generar contacto'),
+    'description' => t('Generate a contact link for the product'),
+    'weight' => 100,
+    'visible' => FALSE,
+  ];
+
   return $extra;
 }
 
@@ -1147,12 +1154,30 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
   }
 
   if ($display->getComponent('cp_core_edit_product')) {
-    $build['cp_core_edit_product'] = [
-      '#type' => 'link',
-      '#url' => Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]),
-      '#title' => t('Edit'),
+    $url = Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]);
+    if ($url->access()) {
+      $build['cp_core_edit_product'] = [
+        '#type' => 'link',
+        '#url' => Url::fromRoute('cp_core.edit_product_multistep', ['nid' => $entity->id()]),
+        '#title' => t('Edit'),
+      ];
+    }
+  }
+
+  if ($display->getComponent('cp_core_generate_contact')) {
+    $build['cp_core_generate_contact'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'a',
+      '#value' => t('Generate contact'),
+      '#attributes' => [
+        'class' => ['generate-contact-button', 'button', 'btn'],
+        'href' => '#',
+        'onclick' => 'createOrOpenChat(' . $entity->getOwnerId() . ');return false;',
+      ],
     ];
   }
+
+
 }
 
 /**

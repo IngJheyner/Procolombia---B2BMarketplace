@@ -32,6 +32,7 @@ module:
   conditional_fields: 0
   config: 0
   config_filter: 0
+  config_ignore: 0
   config_translation: 0
   config_update: 0
   contextual: 0
@@ -186,7 +187,6 @@ module:
   responsive_preview: 0
   rest: 0
   restui: 0
-  rules: 0
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0
@@ -210,7 +210,6 @@ module:
   system: 0
   taxonomy: 0
   taxonomy_access_fix: 0
-  taxonomy_import: 0
   taxonomy_manager: 0
   telephone: 0
   text: 0

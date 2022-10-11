@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e20379d49d922a32786f3f90ab68908a",
+    "content-hash": "3cfdb10c6ab6bc0e02b81b9d852e4ea1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -147,7 +147,7 @@
             "version": "3.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "3711efedf0ca2e998cd0417324f717f2e0b828ec"
             },
             "dist": {
@@ -17790,6 +17790,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/link/-/link-1.5.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/litepicker",
+            "version": "2.0.12",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/litepicker/-/litepicker-2.0.12.tgz"
             },
             "type": "npm-asset",
             "license": [
