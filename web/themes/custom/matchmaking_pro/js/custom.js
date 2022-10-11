@@ -987,6 +987,29 @@
         $("#change_language_button").css("display", "none");
       });
 
+      $('#modal-reject #btn-modal-reject').click(function(){
+
+        if($('#edit-actions-reject').length){
+
+          $('#edit-actions-reject').click();
+          $('#modal-reject').hide();
+          $('.modal-backdrop ').hide();
+
+        }
+
+      });
+
+      $('#modal-approve #btn-modal-approve').click(function(){
+
+        if($('#edit-actions-approve').length){
+
+          $('#edit-actions-approve').click();
+          $('#modal-approve').hide();
+          $('.modal-backdrop ').hide();
+
+        }
+        
+      });
 
     }
   };
