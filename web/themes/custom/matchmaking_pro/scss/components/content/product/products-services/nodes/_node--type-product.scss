@@ -44,6 +44,7 @@
 		}
 		
 		h2 {
+			grid-area: 1 / 2 / 2 / 3;
 			text-align: left;
 			font-family: $font-bold-Maven;
 			letter-spacing: 0px;
@@ -73,6 +74,7 @@
 		justify-content: space-between;
 		padding-left: 54px;
 		width: 100%;
+		grid-area: 2 / 2 / 3 / 3;
 		> a {
 			position: absolute;
 			top: 0;
