@@ -1169,7 +1169,7 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
       '#attributes' => [
         'class' => ['generate-contact-button', 'button', 'btn'],
         'href' => '#',
-        'onclick' => 'alert("hola");createOrOpenChat(' . $entity->getOwnerId() . ');return false;',
+        'onclick' => 'createOrOpenChat(' . $entity->getOwnerId() . ');return false;',
       ],
     ];
   }
