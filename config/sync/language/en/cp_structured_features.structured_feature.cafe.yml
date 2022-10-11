@@ -5,8 +5,6 @@ properties:
     label: !!binary T3Jnw6FuaWNvAw==
   clasificacion_cafe_verde:
     label: !!binary Q2xhc2lmaWNhY2nDs24gY2Fmw6kgdmVyZGUD
-  cafe_especial:
-    label: !!binary Q2Fmw6kgZXNwZWNpYWwD
   tostion:
     label: !!binary VG9zdGlvbgM=
   presentacion_cafe_soluble:
@@ -15,8 +13,6 @@ properties:
     label: !!binary T3JpZ2VuAw==
   tipo_de_empaque:
     label: !!binary VGlwbyBkZSBlbXBhcXVlAw==
-  temporada_de_produccion:
-    label: !!binary VGVtcG9yYWRhIGRlIHByb2R1Y2Npw7NuAw==
   descafeinado:
     label: !!binary RGVzY2FmZWluYWRvAw==
   variedad:

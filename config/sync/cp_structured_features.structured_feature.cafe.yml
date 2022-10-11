@@ -29,10 +29,11 @@ properties:
     placeholder: ''
     default_value: ''
     language: all
-    options: 'tipo1|Tipo 1|Type 1'
+    options: "Verde|Verde\r\nTostado|Tostado\r\nSoluble / Instantáneo|Soluble / Instantáneo"
     class: ''
-    position: top
+    position: left
     order: 0
+    apply: 0
   organico:
     id: organico
     label: Orgánico
@@ -47,7 +48,7 @@ properties:
     placeholder: '- Selecciona -'
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Orgánico|Orgánico\r\nNo Orgánico|No Orgánico"
     class: ''
     position: left
     order: 0
@@ -59,35 +60,18 @@ properties:
     type: select
     multiple: false
     required: true
-    help: ''
+    help: 'Si su producto NO es Café Verde seleccione No Aplica en el toggle switch.'
     help_lamp: ''
     maxlength: null
     size: null
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Café Convenicional|Café Convenicional\r\nCafé Especial|Café Especial\r\nProducto Colombia|Producto Colombia\r\nNo Aplica|No Aplica\r\n"
     class: ''
     position: left
     order: 0
-  cafe_especial:
-    id: cafe_especial
-    label: 'Café especial'
-    status: true
-    type: select
-    multiple: false
-    required: false
-    help: ''
-    help_lamp: ''
-    maxlength: null
-    size: null
-    placeholder: ''
-    default_value: ''
-    language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
-    class: ''
-    position: left
-    order: 0
+    apply: 1
   tostion:
     id: tostion
     label: Tostion
@@ -95,18 +79,18 @@ properties:
     type: select
     multiple: false
     required: false
-    help: ''
+    help: 'Si su producto NO es Café Soluble/Instantáneo seleccione No Aplica en el toggle switch.'
     help_lamp: ''
     maxlength: null
     size: null
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Alta|Alta\r\nMedia |Media \r\nBaja|Baja\r\nNo Aplica|No Aplica\r\n"
     class: ''
-    position: bottom
+    position: left
     order: 0
-    apply: 0
+    apply: 1
   presentacion_cafe_soluble:
     id: presentacion_cafe_soluble
     label: 'Presentacion cafe soluble'
@@ -114,17 +98,18 @@ properties:
     type: select
     multiple: false
     required: false
-    help: ''
+    help: 'Si su producto NO es Café Soluble/Instantáneo seleccione No Aplica en el toggle switch.'
     help_lamp: ''
     maxlength: null
     size: null
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Atomizado|Atomizado\r\nGranulado|Granulado\r\nLiofilizado|Liofilizado\r\nNo Aplica|No Aplica\r\n"
     class: ''
     position: left
     order: 0
+    apply: 1
   origen:
     id: origen
     label: Origen
@@ -139,10 +124,11 @@ properties:
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Huila|Huila\r\nNariño|Nariño\r\nCauca|Cauca\r\nSantander|Santander\r\nTolima|Tolima\r\nNorte de Santander|Norte de Santander\r\nSierra Nevada (Magdalena)|Sierra Nevada (Magdalena)\r\nQuindio |Quindio \r\nValle del Cauca|Valle del Cauca\r\nAntioch|Antioch\r\nCaldas|Caldas\r\nRisaralda|Risaralda\r\nCundinamarca|Cundinamarca\r\nSingle Estate Coffee|Single Estate Coffee\r\nBlend|Blend"
     class: ''
     position: left
     order: 0
+    apply: 0
   tipo_de_empaque:
     id: tipo_de_empaque
     label: 'Tipo de empaque'
@@ -157,28 +143,11 @@ properties:
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Trilaminado con válvula & Peel Stick|Trilaminado con válvula & Peel Stick\r\nBolsa con válvula desgasificadora|Bolsa con válvula desgasificadora\r\nSaco 70k + Bolsa Grainpro|Saco 70k + Bolsa Grainpro\r\nEcotact|Ecotact\r\nCostal|Costal\r\nOtros|Otros\r\nSaco 70k|Saco 70k\r\nEnvase de vidrio|Envase de vidrio\r\nLatas |Latas \r\nReciclaje / Sostenible|Reciclaje / Sostenible"
     class: ''
     position: left
     order: 0
-  temporada_de_produccion:
-    id: temporada_de_produccion
-    label: 'Temporada de producción'
-    status: true
-    type: select
-    multiple: false
-    required: false
-    help: ''
-    help_lamp: ''
-    maxlength: null
-    size: null
-    placeholder: ''
-    default_value: ''
-    language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
-    class: ''
-    position: left
-    order: 0
+    apply: 0
   descafeinado:
     id: descafeinado
     label: Descafeinado
@@ -193,10 +162,11 @@ properties:
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Si|Si\r\nNo|No\r\n"
     class: ''
     position: right
     order: 0
+    apply: 0
   variedad:
     id: variedad
     label: Variedad
@@ -211,10 +181,11 @@ properties:
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Arabica|Arabica\r\nRobusta|Robusta\r\nGeisha|Geisha\r\nCastilla|Castilla\r\nCaturra|Caturra\r\nColombia|Colombia\r\nTipica|Tipica\r\nMaragoguipe|Maragoguipe\r\nBorbon |Borbon \r\nBorbon Rosado|Borbon Rosado\r\nBorbon Amarillo|Borbon Amarillo\r\nTabi|Tabi\r\nJava|Java\r\nPacamara|Pacamara\r\nWush Wush|Wush Wush\r\nF6|F6\r\nF9|F9\r\nMoca|Moca\r\nUmpala|Umpala\r\nCenicafe 1|Cenicafe 1\r\nBlend|Blend\r\nOtro|Otro"
     class: ''
     position: right
     order: 0
+    apply: 0
   clasificacion_cafe_convencional:
     id: clasificacion_cafe_convencional
     label: 'Clasificación café convencional'
@@ -222,17 +193,18 @@ properties:
     type: select
     multiple: false
     required: false
-    help: ''
+    help: 'Si su producto NO es Café Convencional seleccione No Aplica en el toggle switch.'
     help_lamp: ''
     maxlength: null
     size: null
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Caracol|Caracol\r\nUGQ /Usually Good Quality|UGQ /Usually Good Quality\r\nEP / Europa|EP / Europa\r\nSupremo|Supremo\r\nPremium|Premium\r\nNo Aplica|No Aplica"
     class: ''
     position: right
     order: 0
+    apply: 1
   presentacion_cafe_tostado:
     id: presentacion_cafe_tostado
     label: 'Presentación café tostado'
@@ -240,17 +212,18 @@ properties:
     type: select
     multiple: false
     required: false
-    help: ''
+    help: 'Si su producto NO es Café Tostado seleccione No Aplica en el toggle switch.'
     help_lamp: ''
     maxlength: null
     size: null
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Grano|Grano\r\nMólido|Mólido\r\nCapsulas|Capsulas\r\nNo Aplica|No Aplica"
     class: ''
     position: right
     order: 0
+    apply: 1
   proceso:
     id: proceso
     label: Proceso
@@ -258,17 +231,18 @@ properties:
     type: select
     multiple: false
     required: false
-    help: ''
+    help: 'Si su producto NO es Café Soluble/Instantáneo seleccione No Aplica en el toggle switch.'
     help_lamp: ''
     maxlength: null
     size: null
     placeholder: ''
     default_value: ''
     language: all
-    options: "uno|Uno|One\r\ndos|Dos|Two"
+    options: "Lavado|Lavado\r\nHoney|Honey\r\nNatural|Natural\r\nMaceración Carbónica|Maceración Carbónica\r\nAnaeróbicos|Anaeróbicos\r\nNatural Láctica|Natural Láctica\r\nNo Aplica|No Aplica"
     class: ''
     position: right
     order: 0
+    apply: 1
   capacidad_de_produccion_anual:
     id: capacidad_de_produccion_anual
     label: 'Capacidad de producción anual'
@@ -291,7 +265,7 @@ properties:
     id: capacidad_de_produccion_anual_medida_
     label: 'Capacidad de producción anual (medida)'
     status: true
-    type: textfield
+    type: select
     multiple: false
     required: false
     help: ''
@@ -301,10 +275,11 @@ properties:
     placeholder: ''
     default_value: ''
     language: all
-    options: ''
+    options: "Kilogramos|Kilogramos\r\nMicrolote|Microlote\r\nToneladas|Toneladas\r\nSacos|Sacos\r\nLibras|Libras\r\nUnidades (Bolsa o Frasco)|Unidades (Bolsa o Frasco)\r\nNanolotes|Nanolotes"
     class: ''
     position: right
     order: 0
+    apply: 0
   narrativa:
     id: narrativa
     label: Narrativa
@@ -341,24 +316,5 @@ properties:
     options: ''
     class: ''
     position: top
-    order: 0
-    apply: 0
-  ejem_1:
-    id: ejem_1
-    label: 'ejem 1'
-    status: true
-    type: radios
-    multiple: false
-    required: false
-    help: ''
-    help_lamp: ''
-    maxlength: null
-    size: null
-    placeholder: ''
-    default_value: ''
-    language: all
-    options: "uno|Uno\r\ndos|Dos"
-    class: ''
-    position: bottom
     order: 0
     apply: 0

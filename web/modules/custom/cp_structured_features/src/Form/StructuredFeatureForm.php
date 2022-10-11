@@ -139,7 +139,7 @@ class StructuredFeatureForm extends EntityForm {
           'display_name' => 'entity_reference_1',
           'arguments' => [$vid]
         ],
-        'match_operator' => 'CONTAINS'
+        'match_operator' => 'STARTS_WITH',
       ],
     ];
     $form['reference_terms']['agregate']['add'] = [
