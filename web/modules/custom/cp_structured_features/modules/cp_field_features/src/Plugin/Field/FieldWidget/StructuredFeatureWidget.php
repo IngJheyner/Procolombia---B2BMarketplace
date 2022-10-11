@@ -72,7 +72,7 @@ class StructuredFeatureWidget extends WidgetBase {
       }
     }
     else {
-      if (!$entity->field_partida_arancelaria_tax->isEmpty()) {
+      if (isset($entity->field_partida_arancelaria_tax) && !$entity->field_partida_arancelaria_tax->isEmpty()) {
         $entity->field_partida_arancelaria_tax->target_id;
         $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
         $uuid = $term->uuid();
