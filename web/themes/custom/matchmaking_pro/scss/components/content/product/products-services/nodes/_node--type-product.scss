@@ -392,9 +392,59 @@
 	}
 }
 
+.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
+	.ui-dialog .ui-dialog-content{
+		padding: 0;
+	}
+	border-radius: 4px;
+	max-width: 1286px;
+	background-color: $white;
+	border: none;
+	padding: 0;
+	.ui-dialog-titlebar{
+		background-color: transparent;
+		border: none;
+		padding-bottom: 0;
+	}
+	.ui-dialog-titlebar-close {
+		left: 20px;
+		top: 5px;
+		position: relative;
+		background-color: transparent;
+		border: none;
+		background-image: url(../images/icons/arrow-back-fill.svg);
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		@include media-breakpoint-down(lg){
+			left: calc(100% - 20px);
+			top: 12px;
+			background-size: 25px;
+			background-image: url(../images/icons/Cerrar-negro.svg);
+			background-repeat: no-repeat;
+			background-position: left center;
+			width: 30px;
+		}
+		&::after {
+			content: "Volver";
+			right: 0;
+			margin-left: 20px;
+			color: $procol-gray-400;
+			@include media-breakpoint-down(lg){
+				content: "";
+			}
+			}
+		}
+		
+
+}
 .view-product-service-presave-preview{
 	padding-bottom: 50px;
 	@include media-breakpoint-down(lg){
 		padding-bottom: 0;
 	}
+}
+
+.path-dashboard .ui-widget-overlay{
+	background-color: rgba(59, 61, 66, 0.5) !important;
 }
