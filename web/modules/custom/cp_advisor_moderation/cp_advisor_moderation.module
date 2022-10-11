@@ -32,7 +32,6 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
           $form['#tree'] = TRUE;
-          // kint($form['field_categorization_parent']);
           $form['field_file_certifications']['widget']['#title'] = t('Certifications');
           $form['field_body']['widget'][0]['value']['#description'] = t('Please include a summary description of the product/service with its main characteristics and/or attributes.');
           $form['field_categorization']['widget']['#ajax'] = [
@@ -53,8 +52,8 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           foreach ($ancestors as $term) {
             $list_tids_ancestors[$term->tid] = $term->name;
           }
-          // kint($form['field_pr_type_certifications']);
-          
+          // kint($form);
+
           // kint($form['field_pr_type_certifications']);
           $file_certifications = $form['field_file_certifications']['widget'];
           foreach($file_certifications as $key => $value) {
@@ -209,12 +208,12 @@ function formSelectCallback(array $form, FormStateInterface $form_state) {
   $form['field_categorization_parent']['widget']['#suffix'] = '</div>';
   $form['field_categorization_parent']['widget']['#chosen'] = FALSE;
   $form['field_categorization_parent']['widget']['#options'] = cp_advisor_get_parent_children($field_categorizaction);
-  
+
   $form['field_pr_type_certifications']['widget']['#prefix'] = '<div id="field-certification-type">';
   $form['field_pr_type_certifications']['widget']['#suffix'] = '</div>';
   $form['field_pr_type_certifications']['widget']['#chosen'] = FALSE;
   $form['field_pr_type_certifications']['widget']['#options'] = cp_advisor_get_certification_type_filter($field_categorizaction);
-  
+
   // $form['field_pr_target_market']['widget']['#prefix'] = '<div id="field-target-market">';
   // $form['field_pr_target_market']['widget']['#suffix'] = '</div>';
   // $field_pr_target_market = $form['field_pr_target_market']['widget'];// field-certification-type
