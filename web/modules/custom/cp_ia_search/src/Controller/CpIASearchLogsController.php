@@ -98,7 +98,8 @@ class CpIASearchLogsController extends ControllerBase {
 
     $company_name = $request->request->get('company_name');
     if (!empty($company_name)) {
-      $query->condition('company_name', $company_name, '=');
+      //like
+      $query->condition('al.company_name', '%' . $company_name . '%', 'LIKE');
     }
 
     // Created_at.
@@ -123,7 +124,8 @@ class CpIASearchLogsController extends ControllerBase {
     // Country.
     $country = $request->request->get('country');
     if (!empty($country)) {
-      $query->condition('country', $country, '=');
+      //like
+      $query->condition('al.country', '%' . $country . '%', 'LIKE');
     }
 
     // Sort.
@@ -190,7 +192,8 @@ class CpIASearchLogsController extends ControllerBase {
     ]);
     $company_name = $request->request->get('company_name');
     if (!empty($company_name)) {
-      $query->condition('company_name', $company_name, '=');
+      //like
+      $query->condition('al.company_name', '%' . $company_name . '%', 'LIKE');
     }
 
     // Created_at.
@@ -215,7 +218,8 @@ class CpIASearchLogsController extends ControllerBase {
     // Country.
     $country = $request->request->get('country');
     if (!empty($country)) {
-      $query->condition('country', $country, '=');
+      //like
+      $query->condition('al.country', '%' . $country . '%', 'LIKE');
     }
     $count = $query->countQuery()->execute()->fetchField();
     return new JsonResponse([

@@ -589,7 +589,7 @@ msgid "NOTE:"
 msgstr "NOTA:"
 
 msgid "Edit company profile and contact"
-msgstr "Editar perfil de la empresa & contacto"
+msgstr "Editar Información Empresa Colombiana"
 
 msgid "All uploaded content must comply with the"
 msgstr "Todo contenido subido debe cumplir con la"
@@ -830,3 +830,6 @@ msgstr "Rechazo Empresa Colombiana"
 
 msgid "Approval Colombian Company"
 msgstr "Aprobación Empresa Colombiana"
+
+msgid "URL of companies with e-commerce crossboarder is not valid"
+msgstr "La URL de empresas con e-commerce crossboarder no es válida"

@@ -20,7 +20,7 @@
   }
 
   function goToRegister() {
-    window.location.href = "/pre-register"
+    window.location.href = "/pre-registro"
   }
 
   function goToEditCompanyCol() {
@@ -667,6 +667,14 @@
             $("#menu_drop").removeClass("activ_menu");
           }, 200);
         }
+      });
+
+      //click alert icon
+      $("#right_bar_2", context).click(function () {
+        console.log("right_bar_2");
+        setTimeout(function () {
+          show_right_menu()
+        }, 200);
       });
 
       //click alert icon

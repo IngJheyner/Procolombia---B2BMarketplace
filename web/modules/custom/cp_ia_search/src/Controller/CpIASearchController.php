@@ -54,11 +54,23 @@ class CpIASearchController extends ControllerBase {
         $company = \Drupal\node\Entity\Node::load($node->get('field_pr_ref_company')->target_id);
         $company_name = $company->getTitle();
         if ($type == 'product') {
+          //get firts image of field_images of product
+          $image = $node->get('field_images')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = 'https://clubdelcafe.net/wp-content/uploads/2020/05/Logo-caf%C3%A9-juan-valdez.png';
+          };
+          
           $products[] = [
             'nid' => $nid,
             'title' => $node->getTitle(),
             'description' => $node->get('field_body')->value,
-            'image' => NULL,
+            'image' => $image,
             'category' => $category,
             'company' => $company_name,
           ];

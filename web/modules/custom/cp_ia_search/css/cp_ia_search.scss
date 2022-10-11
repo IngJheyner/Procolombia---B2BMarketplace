@@ -445,6 +445,7 @@ a.search-icon {
           overflow: auto;
           touch-action: pan-x;
           margin: 13px 0px;
+          overflow-x: hidden;
         }
 
         .checkbox label {

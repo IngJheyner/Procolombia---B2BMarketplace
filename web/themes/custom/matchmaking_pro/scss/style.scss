@@ -10,9 +10,8 @@ Description: Bootstrap 4 with Sass
 /* GENERAL STYLES
 -------------------------------------------------*/
 * {
-
-	scrollbar-width: auto;
-	scrollbar-color: #6a6d71 #00000000;
+  scrollbar-width: auto;
+  scrollbar-color: #6a6d71 #00000000;
 
   &::-webkit-scrollbar {
     width: 7px;
@@ -32,6 +31,11 @@ Description: Bootstrap 4 with Sass
   }
 }
 
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 body {
   font-family: $font-regular;
   font-size: $font-size-base;
@@ -42,24 +46,24 @@ body {
   text-align: left;
   //font: normal normal normal 13px/16px 'century_gothicregular';
   letter-spacing: 0px;
-  color: #3B3D42;
+  color: #3b3d42;
   opacity: 1;
   //font: inherit !important;
 }
 
 p {
-	word-break: break-word;
+  word-break: break-word;
 }
 
 a {
-	text-decoration: none !important;
-	svg.ext {
-		display: none;
-	}
+  text-decoration: none !important;
+  svg.ext {
+    display: none;
+  }
 }
 
 strong {
-	font-family: $font-bold;
+  font-family: $font-bold;
 }
 
 /* ==============================
@@ -72,59 +76,69 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $font-regular-maven, sans-serif;
+  font-family: $font-regular-maven, sans-serif;
   font-size: $font-size-base;
 }
 
 .dialog-off-canvas-main-canvas {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 /* COLORS
 --------------------------------------------------*/
 /*******************/
 
-.bg-degradado{
-    background: linear-gradient($colorTop,$colorBottom);
+.bg-degradado {
+  background: linear-gradient($colorTop, $colorBottom);
 }
 a {
-    color: $accent-shade;
+  color: $accent-shade;
 }
 
 .bg-inverse {
-    background: $primary-shade  !important;
+  background: $primary-shade !important;
 }
 
 .site-footer {
-    background: $accent-shade  !important;
+  background: $accent-shade !important;
 }
 
 .menu--main li a {
-    color: $primary-shade;
+  color: $primary-shade;
 }
 
 .menu--account li a {
-    color: $primary-shade;
+  color: $primary-shade;
 }
 
 .site-name-slogan a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .card-group img {
-    margin: 0;
-    width: 100%;
-    height: auto;
+  margin: 0;
+  width: 100%;
+  height: auto;
 }
 
 .card-group .field--type-image {
-    margin: 0
+  margin: 0;
 }
 
 .slick {
-    width: 100%;
+  width: 100%;
 }
 
-.slick>div {
-    margin: 0 15px;
+.slick > div {
+  margin: 0 15px;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.modal-body {
+  padding: 29px 20px;
+  p {
+    font-size: 16px !important;
+  }
 }
