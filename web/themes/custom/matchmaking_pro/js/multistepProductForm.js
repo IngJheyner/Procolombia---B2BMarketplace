@@ -124,8 +124,6 @@
             forceCustomRendering: true,
           });
 
-          console.log('sumoselect!');
-
           $('#edit-field-categorization-wrapper').find('select').SumoSelect({
             forceCustomRendering: true,
           });
@@ -180,7 +178,6 @@
         //Agregar clase a campos obligatorios
         $('.field--name-field-pr-country summary').addClass('js-form-required form-required');
         $('.form-item-field-pr-terms-of-condition-value').addClass('js-form-required form-required');
-
 
         //MultistepForm Context once, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
