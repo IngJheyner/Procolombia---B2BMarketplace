@@ -86,9 +86,9 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 
           $pruduct_status = \Drupal::request()->query->get('product-status');
           if ($pruduct_status) {
-            $state = 'approved';
+            $state = t('The product has been successfully approved.');
             if ($pruduct_status == 3) {
-              $state = 'rejected';
+              $state = t('The product has been successfully rejected.');
             }
             $userStorage = \Drupal::entityTypeManager()->getStorage('user');
             $user = $userStorage->load($view->args[0]);
@@ -97,7 +97,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#class' => 'save-product-correct-modal',
               '#autoload' => TRUE,
               '#title' => t('Successful process'),
-              '#message' => t('The product has been successfully ' . $state . '.'),
+              '#message' => $state,
               '#question' => t('Do you wish to continue?'),
               '#button_text' => t('No'),
               '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),

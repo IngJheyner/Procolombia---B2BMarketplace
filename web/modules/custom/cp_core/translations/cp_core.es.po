@@ -1238,7 +1238,7 @@ msgstr "Confirmar contraseña"
 
 #: templates/edit-product-header.html.twig:3
 msgid "<strong>Edit</strong> company's product or service <strong>**@account_name**</strong>"
-msgstr ""
+msgstr "<strong>Editar</strong> el producto o servicio de la compañía <strong>**@account_name**</strong>"
 
 #: templates/hello_user.html.twig:13
 msgid "Hello"
