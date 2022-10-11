@@ -185,91 +185,22 @@
         //MultistepForm Context once, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
 
-          //Paso 3 Ajustes multiselect
-          // clone items
-          $('#edit-field-pr-target-market').on('select2:select', function (e) {
-            let itemN = 1;
-            const itemChoice=  $('.js-form-item-field-pr-target-market .select2-selection__choice')
-            $(itemChoice).clone().appendTo('.js-form-item-field-pr-target-market .select2-selection');
-            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market .select2-selection .select2-selection__choice.item-choice').classList.add('item-choice')];
-            const texts = new Set(tags.map(x => x.innerHTML));
-            tags.forEach(tag => {
-              if(texts.has(tag.innerHTML)){
-                texts.delete(tag.innerHTML);
-              }
-              else{
-                tag.remove()
-              }
-            })
-          });
-          //remove items target market
-          $('#edit-field-pr-target-market').on('select2:unselect', function (e) {
-            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market .select2-selection .select2-selection__choice.item-choice')];
-            var itemRemoved = e.params.data.text;
-            const texts = new Set(tags.map(x => x.innerHTML));
-            tags.forEach(tag => {
-              if(texts.has(tag.innerHTML) == itemRemoved){
-                texts.delete(tag.innerHTML);
-                console.log("cumple");
-              }
-              else{
-                console.log("no cumple");
-                texts.remove()
-              }
-            })         
-            console.log(itemChoice.length);
-            var itemR = e.params.data;
-            
-          })
-
-
-          $('#edit-field-pr-type-certifications').on('select2:select', function (e) {
-            const itemChoice=  $('.js-form-item-field-pr-type-certifications .select2-selection__choice')
-            $(itemChoice).once().clone().appendTo('.js-form-item-field-pr-type-certifications');
-            const tags = [...document.querySelectorAll('.js-form-item-field-pr-type-certifications > li')];
-            const texts = new Set(tags.map(x => x.innerHTML));
-            tags.forEach(tag => {
-              if(texts.has(tag.innerHTML)){
-                texts.delete(tag.innerHTML);
-              }
-              else{
-                tag.remove()
-              }
-              
-            })
-          });
-
-          $('#edit-field-pr-sales-channel').on('select2:select', function (e) {
-            const itemChoice=  $('.js-form-item-field-pr-sales-channel .select2-selection__choice')
-            $(itemChoice).once().clone().appendTo('.js-form-item-field-pr-sales-channel');
-            const tags = [...document.querySelectorAll('.js-form-item-field-pr-sales-channel > li')];
-            const texts = new Set(tags.map(x => x.innerHTML));
-            tags.forEach(tag => {
-              if(texts.has(tag.innerHTML)){
-                texts.delete(tag.innerHTML);
-              }
-              else{
-                tag.remove()
-              }
-            })
-          });
-
           //Paso 3 ver mas de 3 items
-          // const certifications = $('#edit-field-pr-type-certifications-wrapper')
-          // certifications.click(()=>{
-          //   const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-          //   hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
-          // })
-          // showMorecType.click(()=>{
-          //   const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-          //   if (itemCtype.length > 3) {
-          //     itemCtype.slice(3).toggleClass('show-item')
-          //     showMorecTypeText.toggleClass('show-less')
-          //     toggleText(showMorecTypeText);
-          //   }else{
-          //     showMorecTypeText.text(Drupal.t('View more'))
-          //   }
-          // })
+          const certifications = $('#edit-field-pr-type-certifications-wrapper')
+          certifications.click(()=>{
+            const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
+            hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
+          })
+          showMorecType.click(()=>{
+            const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
+            if (itemCtype.length > 3) {
+              itemCtype.slice(3).toggleClass('show-item')
+              showMorecTypeText.toggleClass('show-less')
+              toggleText(showMorecTypeText);
+            }else{
+              showMorecTypeText.text(Drupal.t('View more'))
+            }
+          })
 
           showMoreCountrie.click(()=>{
             const itemCountrie = $('.entities-list .item-container');

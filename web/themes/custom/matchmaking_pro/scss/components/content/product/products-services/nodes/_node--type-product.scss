@@ -145,6 +145,58 @@
 					}
 				}
 			}
+			&.field--name-field-pr-structured-features{
+				.field__item{
+					width: 100%;
+					details.js-form-wrapper{
+						margin-top: 0;
+						border: none;
+						width: 100%;
+						summary,
+						.sf-structure-formatter-show-less{
+							list-style: none;
+							color: $procol-dark-blue;
+							padding-top: 0;
+							font-family: $font-bold;
+							width: 90px;
+							text-align: center;
+							box-shadow: 0px 3px 6px #00000029;
+							border-radius: 4px;
+							padding: 4px 7px;
+							&[aria-pressed="true"]{
+								visibility: hidden;
+							}
+						}
+						.details-wrapper{
+							.property-wrapper{
+								display: grid;
+								grid-template-columns: 224px auto;
+								padding-bottom: 16px;
+								transform: translateX(-200px);
+								padding-left: 10px;
+								border-left: 1px solid $procol-gray-400;
+								&:last-of-type{
+									padding-bottom: 0;
+									margin-bottom: 16px;
+								}
+								@include media-breakpoint-down(md){
+									transform: translateX(-110px);
+									grid-template-columns: 120px auto;
+									&:first-of-type{
+										margin-top: 16px;
+									}
+								}
+								span{
+									font-family: "Century Gothic";
+									&.property-label{
+										color: $procol-dark-blue;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		.field__label {
 			font-weight: normal;
@@ -168,6 +220,8 @@
 			align-items: flex-end;
 			flex-grow: .3;
 			padding-top: 16px;
+			display: flex;
+			justify-content: flex-end;
 			.field--name-field-file .field__items{
 				width: 100%;
 			}			
@@ -197,7 +251,8 @@
 				}
 			}
 
-			button {
+			button,
+			.generate-contact-button {
 				display: flex;
 				align-items: center;
 				margin-left: auto;
@@ -237,6 +292,9 @@
 				@include media-breakpoint-down(sm){
 					background-position: 10% center;
 				}
+			}
+			.generate-contact-button::before{
+				background-image: url(../images/icons/Menu-Mensajes.svg);
 			}
 		}
 		
@@ -334,59 +392,9 @@
 	}
 }
 
-.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
-	.ui-dialog .ui-dialog-content{
-		padding: 0;
-	}
-	border-radius: 4px;
-	max-width: 1286px;
-	background-color: $white;
-	border: none;
-	padding: 0;
-	.ui-dialog-titlebar{
-		background-color: transparent;
-		border: none;
-		padding-bottom: 0;
-	}
-	.ui-dialog-titlebar-close {
-		left: 20px;
-		top: 5px;
-		position: relative;
-		background-color: transparent;
-		border: none;
-		background-image: url(../images/icons/arrow-back-fill.svg);
-		background-size: 20px;
-		background-repeat: no-repeat;
-		background-position: left center;
-		@include media-breakpoint-down(lg){
-			left: calc(100% - 20px);
-			top: 12px;
-			background-size: 25px;
-			background-image: url(../images/icons/Cerrar-negro.svg);
-			background-repeat: no-repeat;
-			background-position: left center;
-			width: 30px;
-		}
-		&::after {
-			content: "Volver";
-			right: 0;
-			margin-left: 20px;
-			color: $procol-gray-400;
-			@include media-breakpoint-down(lg){
-				content: "";
-			}
-			}
-		}
-		
-
-}
 .view-product-service-presave-preview{
 	padding-bottom: 50px;
 	@include media-breakpoint-down(lg){
 		padding-bottom: 0;
 	}
-}
-
-.path-dashboard .ui-widget-overlay{
-	background-color: rgba(59, 61, 66, 0.5) !important;
 }

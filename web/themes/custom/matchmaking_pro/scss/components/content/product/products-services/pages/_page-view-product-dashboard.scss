@@ -1,4 +1,38 @@
-.page-view-product-dashboard {
+.page-view-product-dashboard,
+.page-view-products-advisor {
+	.contextual-region{
+		position: static;
+	}
+	.ui-dialog .ui-dialog-content{
+		position: relative;
+		padding: 0;
+	}
+	
+	.ui-dialog-titlebar{
+		background-color: transparent;
+		border: none;
+		padding-bottom: 0;
+	}
+	.ui-dialog-titlebar-close {
+		left: 20px;
+		top: 5px;
+		position: relative;
+		background-color: transparent;
+		border: none;
+		background-image: url(../images/icons/arrow-back-fill.svg);
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		@include media-breakpoint-down(lg){
+			left: calc(100% - 20px);
+			top: 12px;
+			background-size: 25px;
+			background-image: url(../images/icons/Cerrar-negro.svg);
+			background-repeat: no-repeat;
+			background-position: left center;
+			width: 30px;
+		}
+	}
 	.ui-dialog {
 		min-height: 544px;
 		max-width: 1286px;
@@ -6,6 +40,7 @@
 
 		.ui-dialog-content {
 			max-height: none !important;
+			position: relative !important;
 			@include media-breakpoint-down(lg){
 				max-height: 100vh !important;
 				overflow-y: scroll;
@@ -13,7 +48,12 @@
 		}
 	}
 	.ui-widget-content{
+		border-radius: 4px !important;
+		padding: 0;
 		border-radius: 4px;
+		max-width: 1286px;
+		background-color: $white;
+		border: none;
 		padding: 0;
 	}
 	.ui-dialog .ui-dialog-titlebar {
