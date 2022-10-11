@@ -13,6 +13,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\UserInterface;
+use Drupal\Component\Serialization\Json;
 
 function cp_advisor_moderation_entity_bundle_info_alter(array &$bundles): void {
   if (isset($bundles['node']['product'])) {
@@ -31,7 +32,8 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
         $bundle = $form_object->getEntity()->bundle();
         if($bundle === 'product') {
           $form['#tree'] = TRUE;
-          // kint($form['field_categorization_parent']);
+          $form['field_file_certifications']['widget']['#title'] = t('Certifications');
+          $form['field_body']['widget'][0]['value']['#description'] = t('Please include a summary description of the product/service with its main characteristics and/or attributes.');
           $form['field_categorization']['widget']['#ajax'] = [
             'event' => 'change',
             'callback' => 'formSelectCallback',
@@ -50,6 +52,15 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           foreach ($ancestors as $term) {
             $list_tids_ancestors[$term->tid] = $term->name;
           }
+          // kint($form);
+
+          // kint($form['field_pr_type_certifications']);
+          $file_certifications = $form['field_file_certifications']['widget'];
+          foreach($file_certifications as $key => $value) {
+            if (is_int($key)) {
+              $form['field_file_certifications']['widget'][$key]['#description_field'] = FALSE;
+            }
+          }
           $form['field_categorization']['widget']['#options'] = $list_tids_ancestors;
           $values = $form_state->getValues();
           $category = $form['field_categorization']['widget']['#default_value'][0];
@@ -57,6 +68,12 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['field_categorization_parent']['widget']['#attributes']['id'] = ['categorization-parent-wrapper'];
           $form['field_categorization_parent']['#prefix'] = '<div id="field-cat-parent">';
           $form['field_categorization_parent']['#suffix'] = '</div>';
+          $form['field_categorization_parent']['widget']['#chosen'] = FALSE;
+          $form['field_pr_type_certifications']['#prefix'] = '<div id="field-certification-type">';
+          $form['field_pr_type_certifications']['#suffix'] = '</div>';
+          $form['field_pr_type_certifications']['widget']['#chosen'] = FALSE;
+          // $form['field_pr_target_market']['#prefix'] = '<div id="field-target-market">';
+          // $form['field_pr_target_market']['#suffix'] = '</div>';
           $form['advanced']['#attributes']['class'][] = 'visually-hidden';
           $form['advanced']['#wrapper_attributes']['class'][] = 'visually-hidden';
 
@@ -67,18 +84,41 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           }
           $form['body_class']['#access'] = FALSE;
 
-          $form['edit_advise_modal'] = [
-            '#theme' => 'cp_core_node_multistep_generic_modal',
-            '#class' => 'edit-advise-modal',
-            '#autoload' => TRUE,
-            '#title' => t('Edit product or service'),
-            '#message' => t('You are about to edit the information of the product/service of the company <strong>"@company"</strong>', ['@company' => $node->getOwner()->label()]),
-            '#question' => t('Do you wish to continue?'),
-            '#button_text' => t('No'),
-            '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
-            '#button_no_text' => t('Yes'),
-            '#button_no_link' => '#',
-          ];
+          $pruduct_status = \Drupal::request()->query->get('product-status');
+          if ($pruduct_status) {
+            $state = 'approved';
+            if ($pruduct_status == 3) {
+              $state = 'rejected';
+            }
+            $userStorage = \Drupal::entityTypeManager()->getStorage('user');
+            $user = $userStorage->load($view->args[0]);
+            $form['modal_product_saved'] = [
+              '#theme' => 'cp_core_node_multistep_generic_modal',
+              '#class' => 'save-product-correct-modal',
+              '#autoload' => TRUE,
+              '#title' => t('Successful process'),
+              '#message' => t('The product has been successfully ' . $state . '.'),
+              '#question' => t('Do you wish to continue?'),
+              '#button_text' => t('No'),
+              '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+              '#button_no_text' => t('Yes'),
+              '#button_no_link' => '#',
+            ];
+          }
+          else {
+            $form['edit_advise_modal'] = [
+              '#theme' => 'cp_core_node_multistep_generic_modal',
+              '#class' => 'edit-advise-modal',
+              '#autoload' => TRUE,
+              '#title' => t('Edit product or service'),
+              '#message' => t('You are about to edit the information of the product/service of the company <strong>"@company"</strong>', ['@company' => $node->getOwner()->label()]),
+              '#question' => t('Do you wish to continue?'),
+              '#button_text' => t('No'),
+              '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+              '#button_no_text' => t('Yes'),
+              '#button_no_link' => '#',
+            ];
+          }
 
           $form['actions']['reject'] = array(
             '#type' => 'submit',
@@ -135,9 +175,23 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#idModal' =>  'modal-approve'
           ];
           $form['#attached']['library'][] = 'cp_advisor_moderation/cp_advisor_moderation';
+          $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
           foreach (array_keys($form['actions']) as $action) {
-            $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
           }
+          $form['actions']['cp_core_presave_preview'] = [
+            '#type' => 'link',
+            '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $node->id()]),
+            '#title' => t('Preview'),
+            '#weight' => 5,
+            '#attributes' => [
+              'class' => ['use-ajax'],
+              'data-dialog-type' => 'modal',
+              'data-dialog-options' => Json::encode(['width' => '90%']),
+            ],
+            '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+          ];
+          unset($form['actions']['preview']);
+          // kint($form);
         }
       }
     }
@@ -147,13 +201,39 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 function formSelectCallback(array $form, FormStateInterface $form_state) {
   $response = new AjaxResponse();
   $values = $form_state->getValues();
+  $field_categorizaction = implode(',',$values['field_categorization'][0]);
 
   $form['field_categorization_parent']['widget']['#attributes']['id'] = ['categorization-parent-wrapper'];
   $form['field_categorization_parent']['widget']['#prefix'] = '<div id="field-cat-parent">';
   $form['field_categorization_parent']['widget']['#suffix'] = '</div>';
   $form['field_categorization_parent']['widget']['#chosen'] = FALSE;
-  $form['field_categorization_parent']['widget']['#options'] = cp_advisor_get_parent_children(implode(',', $values['field_categorization'][0]));
+  $form['field_categorization_parent']['widget']['#options'] = cp_advisor_get_parent_children($field_categorizaction);
+
+  $form['field_pr_type_certifications']['widget']['#prefix'] = '<div id="field-certification-type">';
+  $form['field_pr_type_certifications']['widget']['#suffix'] = '</div>';
+  $form['field_pr_type_certifications']['widget']['#chosen'] = FALSE;
+  $form['field_pr_type_certifications']['widget']['#options'] = cp_advisor_get_certification_type_filter($field_categorizaction);
+
+  // $form['field_pr_target_market']['widget']['#prefix'] = '<div id="field-target-market">';
+  // $form['field_pr_target_market']['widget']['#suffix'] = '</div>';
+  // $field_pr_target_market = $form['field_pr_target_market']['widget'];// field-certification-type
+  // foreach($field_pr_target_market as $key => $value) {
+  //   if (is_int($key)) {
+  //     $form['field_pr_target_market']['widget'][$key]['target_id']['#selection_handler'] = 'views';
+  //     $form['field_pr_target_market']['widget'][$key]['target_id']['#selection_settings'] = [
+  //       'view' => [
+  //         'view_name' => 'cp_core_parent_categories',
+  //         'display_name' => 'target_market_filter',
+  //         'arguments' => [$field_categorizaction],
+  //       ],
+  //       'match_operator' => 'CONTAINS',
+  //       'match_limit' => 10,
+  //     ];
+  //   }
+  // }
   $response->addCommand(new ReplaceCommand('#field-cat-parent', $form['field_categorization_parent']['widget']));
+  $response->addCommand(new ReplaceCommand('#field-certification-type', $form['field_pr_type_certifications']['widget']));
+  // $response->addCommand(new ReplaceCommand('#field-target-market', $form['field_pr_target_market']['widget']));
 
   return $response;
 }
@@ -167,6 +247,23 @@ function cp_advisor_get_parent_children($parent_tid) {
     $children_options[$child_term->tid] = $child_term->name;
   }
   return $children_options;
+}
+
+function cp_advisor_get_certification_type_filter($parent_tid) {
+  $database = \Drupal::database();
+  //get logged user id
+  $uid = \Drupal::currentUser()->id();
+  $query = $database->select('taxonomy_term_field_data', 'c');
+  $query->join('taxonomy_term__field_ct_category', 'cat', 'cat.entity_id = c.tid');
+  $query->fields('c', ['tid', 'name']);
+  $query->fields('cat', ['field_ct_category_target_id']);
+  $query->condition('c.vid', 'certification_types');
+  $query->condition('cat.field_ct_category_target_id', $parent_tid);
+  $result = $query->execute()->fetchAll();
+  foreach($result as $key => $term) {
+    $certification_type_filter[$term->tid] = $term->name;
+  }
+  return $certification_type_filter;
 }
 
 /**
@@ -203,15 +300,14 @@ function cp_advisor_moderation_entity_type_build(array &$entity_types) {
   $entity_types['node']->setFormClass('advisor_moderation', 'Drupal\node\NodeForm');
 }
 
-
-
 function approve_product(&$form, FormStateInterface $form_state) {
   $form_object = $form_state->getFormObject();
   if ($form_object instanceof EntityForm) {
     $node = $form_object->getEntity();
     $node->field_states->value = 'approved';
     $node->save();
-    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()]);
+    $options = ['query' => ['product-status' => 2]];
+    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()], $options);
     $form_state->setRedirectUrl($url);
   }
   \Drupal::messenger()->addMessage(t('approved product or service'), 'status', TRUE);
@@ -236,7 +332,8 @@ function reject_product(&$form, FormStateInterface $form_state) {
     $node->field_states->value = 'incomp_info';
     $node->save();
     //Redirect
-    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()]);
+    $options = ['query' => ['product-status' => 3]];
+    $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()], $options);
     $form_state->setRedirectUrl($url);
     \Drupal::messenger()->addMessage(t('rejected product or service'), 'status', TRUE);
 
@@ -252,9 +349,6 @@ function reject_product(&$form, FormStateInterface $form_state) {
     \Drupal::service('cp_core.mail_helper')->send($key, $to, $from, $langcode, $params, $custom_replacements);
   }
 }
-
-
-
 
 function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   $view = $form_state->get('view');

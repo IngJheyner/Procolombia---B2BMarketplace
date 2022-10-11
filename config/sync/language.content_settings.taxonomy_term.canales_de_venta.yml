@@ -4,8 +4,13 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.canales_de_venta
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
 id: taxonomy_term.canales_de_venta
 target_entity_type_id: taxonomy_term
 target_bundle: canales_de_venta
 default_langcode: site_default
-language_alterable: false
+language_alterable: true

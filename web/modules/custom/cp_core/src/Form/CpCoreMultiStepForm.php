@@ -354,7 +354,7 @@ class CpCoreMultiStepForm extends FormBase {
       if (isset($form['field_body']['widget'][0]['value']['#title'])) {
         $form['field_body']['widget'][0]['value']['#placeholder'] = t('Descripción del producto / Servicio');
         $form['field_body']['widget'][0]['value']['#title'] = 'Descripción';
-        $form['field_body']['widget'][0]['value']['#attributes']['data-maxlength'] = 1000;
+        $form['field_body']['widget'][0]['value']['#attributes']['data-maxlength'] = 160;
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#title'] = 'Description';
@@ -364,7 +364,7 @@ class CpCoreMultiStepForm extends FormBase {
       }
       if (isset($form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'])) {
         $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#description'] = 'Please include a summary description of the product/service with its main features and/or attributes. main features and/or attributes.';
-        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#attributes']['data-maxlength'] = 1000;
+        $form['field_pr_multilingual_step1']['widget'][0]['value']['en']['field_body']['widget'][0]['value']['#attributes']['data-maxlength'] = 160;
       }
       if (isset($form['field_file']['widget'])) {
         $form['field_file']['widget']['#title'] = 'Ficha técnica';
@@ -382,9 +382,12 @@ class CpCoreMultiStepForm extends FormBase {
       }
       if (isset($form['field_aditional_information']['widget'][0]['value']['#title'])) {
         $form['field_aditional_information']['widget'][0]['value']['#title'] = 'Información adicional o complementaria del producto';
+        $form['field_aditional_information']['widget'][0]['value']['#attributes']['data-maxlength'] = 1000;
+
       }
       if (isset($form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'])) {
         $form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#title'] = 'Additional or complementary product information';
+        $form['field_pr_multilingual_step2']['widget'][0]['value']['en']['field_aditional_information']['widget'][0]['value']['#attributes']['data-maxlength'] = 1000;
       }
 
       if (isset($form['field_pr_video_description_1']['widget'][0]['value'])) {
@@ -409,10 +412,22 @@ class CpCoreMultiStepForm extends FormBase {
         $form['field_pr_video_2']['#attributes'] = ['style' => 'display: none'];
       }
 
+      if (isset($form['field_pr_type_certifications'])) {
+        $form['field_pr_type_certifications']['widget']['#placeholder'] = $this->t('Enter the keyword or select an option');
+      }
+      if (isset($form['field_pr_target_market'])) {
+        $form['field_pr_target_market']['widget']['#placeholder'] = $this->t('Enter the keyword or select an option');
+      }
+      if (isset($form['field_pr_sales_channel'])) {
+        $form['field_pr_sales_channel']['widget']['#placeholder'] = $this->t('Enter the keyword or select an option');
+      }
+
       if (isset($form['field_categorization'])) {
+        $productType = $this->entity->field_product_type->value;
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
           'parent' => 0,
           'vid' => 'categorization',
+          'field_cat_product_type' => $productType,
         ]);
         $newcategorization_options = [key($form['field_categorization']['widget']['#options']) => reset($form['field_categorization']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {
@@ -477,14 +492,13 @@ class CpCoreMultiStepForm extends FormBase {
       }
 
       if ($this->step == 1) {
-        $urlTerms = 'https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad';
         $form['legal_terms'] = [
           '#theme' => 'cp_core_node_multistep_generic_modal',
           '#class' => 'legal-modal',
           '#autoload' => TRUE,
           '#title' => $this->t('Add product / service'),
-          '#message' => $this->t('All uploaded content must comply with the <a href="' . $urlTerms . '" target="_BLANK">publishing policy.</a>'),
-          '#button_text' => $this->t('I agree'),
+          '#message' => $this->t('All uploaded content must comply with the <a href="https://b2bmarketplace.procolombia.co/en/node/177" target="_BLANK">publishing policy.</a>'),
+          '#button_text' => $this->t('Agreed'),
           '#weight' => -11,
         ];
       }
@@ -778,13 +792,33 @@ class CpCoreMultiStepForm extends FormBase {
       $this->step_sf = FALSE;
     }
     else {
-      if ($this->step == 3) {
-        $this->step_sf = TRUE;
-        $this->step = 2;
-      }
-      else {
-        $this->step--;
-        $this->step_sf = FALSE;
+      $this->step--;
+      $this->step_sf = FALSE;
+      if ($this->step == 2) {
+        $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
+        $entity = $form_state->get('entity');
+        if ($entity->field_product_type->value == 'service') {
+          if (!$entity->field_categorization_parent->isEmpty()) {
+            $entity->field_categorization_parent->target_id;
+            $term = $termStorage->load($entity->field_categorization_parent->target_id);
+            $uuid = $term->uuid();
+            if ($this->checkReferenceFeaturedStructure($uuid)) {
+              $this->step_sf = TRUE; // Enable with SF.
+              $this->step = 2;
+            }
+          }
+        }
+        else {
+          if (!$entity->field_partida_arancelaria_tax->isEmpty()) {
+            $entity->field_partida_arancelaria_tax->target_id;
+            $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
+            $uuid = $term->uuid();
+            if ($this->checkReferenceFeaturedStructure($uuid)) {
+              $this->step_sf = TRUE; // Enable with SF.
+              $this->step = 2;
+            }
+          }
+        }
       }
     }
   }
@@ -845,18 +879,57 @@ class CpCoreMultiStepForm extends FormBase {
         $this->step++;
       }
       else {
-        if ($this->step == 2) {
-          $this->step_sf = TRUE;
-        }
-        else {
-          $this->step_sf = FALSE;
-          $this->step++;
+        $this->step_sf = FALSE;
+        $this->step++;
+        if ($this->step == 3) {
+          $termStorage = $this->entityTypeManager->getStorage('taxonomy_term');
+          if ($entity->field_product_type->value == 'service') {
+            if (!$entity->field_categorization_parent->isEmpty()) {
+              $entity->field_categorization_parent->target_id;
+              $term = $termStorage->load($entity->field_categorization_parent->target_id);
+              $uuid = $term->uuid();
+              if ($this->checkReferenceFeaturedStructure($uuid)) {
+                $this->step_sf = TRUE; // Enable with SF.
+                $this->step = 2;
+              }
+            }
+          }
+          else {
+            if (!$entity->field_partida_arancelaria_tax->isEmpty()) {
+              $entity->field_partida_arancelaria_tax->target_id;
+              $term = $termStorage->load($entity->field_partida_arancelaria_tax->target_id);
+              $uuid = $term->uuid();
+              if ($this->checkReferenceFeaturedStructure($uuid)) {
+                $this->step_sf = TRUE; // Enable with SF.
+                $this->step = 2;
+              }
+            }
+          }
         }
       }
     }
     else {
       // Show the last step.
     }
+  }
+
+  /**
+   * Check reference uuid.
+   */
+  protected function checkReferenceFeaturedStructure($uuid) {
+    $sfStorage = $this->entityTypeManager->getStorage('structured_feature');
+    $query = $sfStorage->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('status', TRUE);
+    $ids = $query->execute();
+    $all = $sfStorage->loadMultiple($ids);
+    $ok = FALSE;
+    foreach ($all as $sf) {
+      if (in_array($uuid, $sf->get('references'))) {
+        return $sf;
+      }
+    }
+    return FALSE;
   }
 
   /**

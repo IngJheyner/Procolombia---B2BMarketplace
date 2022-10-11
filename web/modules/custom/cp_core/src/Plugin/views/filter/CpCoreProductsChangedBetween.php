@@ -37,7 +37,7 @@ class CpCoreProductsChangedBetween extends StringFilter {
       '#title' => $this->options['expose']['label'],
       '#default_value' => NULL,
       '#required' => FALSE,
-      '#attributes' => ['class' => ['litepicker-date']],
+      '#attributes' => ['class' => ['litepicker-date'], 'placeholder' => 'DD/MM/YY'],
 
     ];
     $form['value']['#title'] = NULL;

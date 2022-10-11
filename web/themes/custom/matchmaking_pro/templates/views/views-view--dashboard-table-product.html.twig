@@ -59,6 +59,12 @@
               <div class="view-header">
                 {{ header }}
               </div>
+            {% if view.getExposedInput.title is defined %}
+              <div class="items-result">
+                <p>{{ 'Se encontraron'|t }} <strong>{{ view.total_rows }} {{ 'resultados'|t }}</strong> {{ 'asociados a tu búsqueda'|t }}</p>
+                <a href="{{ view.getUrlInfo }}/{{ view.args[0] }}">{{ 'Restablecer filtrado'|t }}</a>
+              </div>
+            {% endif %}
             {% endif %}
             </div>
         {% endif %}
@@ -77,7 +83,28 @@
         </div>
         {% if rows %}
           <div class="view-content row">
+          {% if view.total_rows == 0 and view.getExposedInput.title is not defined %}
+            <div class="generic-modal modal view-no-results no-products" id="generic-modal-view-no-results">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <span class="modal-header-title">{{ 'Without results' | t }}</span>
+                    <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <span class="modal-top-title">{{ 'The company does not yet have products or services uploaded to the system.' | t }}</span>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="modal-footer-left">
+                      <a href="/dashboard-advisor" data-dismiss="modal" aria-label="Close">{{ 'Agreed'|t }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% else %}
             {{ rows }}
+          {% endif %}
           </div>
         {% elseif empty %}
           <div class="view-empty">

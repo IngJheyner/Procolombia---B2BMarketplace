@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.advisor_moderation
+    - entity_browser.browser.paises
     - field.field.node.product.field_aditional_information
     - field.field.node.product.field_body
     - field.field.node.product.field_categorization
@@ -53,11 +54,14 @@ dependencies:
     - image.style.thumbnail
     - node.type.product
   module:
+    - advanced_text_formatter
     - cp_core
     - cp_field_features
+    - entity_browser
     - field_group
     - file
-    - shs
+    - select2
+    - maxlength
     - svg_image
 third_party_settings:
   field_group:
@@ -94,7 +98,6 @@ third_party_settings:
         - field_partida_arancelaria_tax
         - field_aditional_information
         - field_pr_type_certifications
-        - field_exist_certifications
         - field_file_certifications
         - field_pr_target_market
         - field_pr_country
@@ -125,7 +128,7 @@ third_party_settings:
       label: Right
       region: content
       parent_name: group_row
-      weight: 21
+      weight: 22
       format_type: html_element
       format_settings:
         classes: 'group-right col-sm-6'
@@ -205,12 +208,11 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_bottom:
-      children:
-        - field_pr_structured_features
+      children: {  }
       label: Bottom
       region: content
       parent_name: group_row
-      weight: 22
+      weight: 23
       format_type: html_element
       format_settings:
         classes: 'col-sm-12 col-md-12'
@@ -286,43 +288,40 @@ content:
     weight: 34
     region: content
     settings:
-      rows: 5
+      rows: 3
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: 1000
+        maxlength_js_label: ' '
+        maxlength_js_enforce: true
+      advanced_text_formatter:
+        show_token_tree: 0
   field_body:
     type: string_textarea
     weight: 29
     region: content
     settings:
-      rows: 7
+      rows: 5
       placeholder: ''
     third_party_settings:
       maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-        maxlength_js_enforce: false
-        maxlength_js_truncate_html: false
+        maxlength_js: 160
+        maxlength_js_label: ' '
+        maxlength_js_enforce: true
       advanced_text_formatter:
         show_token_tree: 0
   field_categorization:
-    type: options_shs
+    type: options_select
     weight: 31
     region: content
-    settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
-      force_deepest: true
+    settings: {  }
     third_party_settings: {  }
   field_categorization_parent:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 32
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_exist_certifications:
     type: boolean_checkbox
@@ -340,30 +339,30 @@ content:
     third_party_settings: {  }
   field_file_certifications:
     type: file_generic
-    weight: 37
+    weight: 36
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_partida_arancelaria_tax:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 33
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_pr_country:
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     weight: 39
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      entity_browser: paises
+      field_widget_display: label
+      field_widget_edit: false
+      field_widget_remove: true
+      field_widget_replace: false
+      open: true
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
     third_party_settings: {  }
   field_pr_image_1:
     type: image_image
@@ -383,7 +382,7 @@ content:
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 7
+    weight: 8
     region: content
     settings:
       progress_indicator: throbber
@@ -391,7 +390,7 @@ content:
     third_party_settings: {  }
   field_pr_image_4:
     type: image_image
-    weight: 6
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
@@ -399,7 +398,7 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 8
+    weight: 9
     region: content
     settings:
       progress_indicator: throbber
@@ -407,37 +406,37 @@ content:
     third_party_settings: {  }
   field_pr_product_availability:
     type: boolean_checkbox
-    weight: 40
+    weight: 39
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_pr_structured_features:
     type: sf_default
-    weight: 6
+    weight: 2
     region: content
     settings:
       placeholder_value: ''
     third_party_settings: {  }
   field_pr_target_market:
-    type: entity_reference_autocomplete
+    type: select2_entity_reference
     weight: 38
     region: content
     settings:
+      width: 100%
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_pr_type_certifications:
-    type: entity_reference_autocomplete
+    type: select2_entity_reference
     weight: 35
     region: content
     settings:
+      width: 100%
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_pr_video:
     type: cp_core_video_embed_with_preview
@@ -463,7 +462,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 38
+    weight: 39
     region: content
     settings:
       size: 60
@@ -477,19 +476,19 @@ content:
     third_party_settings: {  }
   field_states:
     type: options_select
-    weight: 42
+    weight: 41
     region: content
     settings: {  }
     third_party_settings: {  }
   field_tag_producto:
-    type: options_shs
+    type: select2_entity_reference
     weight: 41
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
-      force_deepest: false
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+      match_limit: 10
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -498,11 +497,17 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: 100
+        maxlength_js_label: ' '
+      advanced_text_formatter:
+        show_token_tree: 0
 hidden:
   body_class: true
   created: true
   field_dependent_state: true
+  field_exist_certifications: true
   field_export_markets: true
   field_iframe: true
   field_images: true
@@ -518,6 +523,7 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
+  field_pr_structured_features: true
   field_pr_terms_of_condition: true
   field_previous_id: true
   field_producto_innovador: true
