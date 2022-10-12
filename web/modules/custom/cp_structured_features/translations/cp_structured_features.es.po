@@ -22,8 +22,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-10-10 17:34+0200\n"
-"PO-Revision-Date: 2022-10-10 17:34+0200\n"
+"POT-Creation-Date: 2022-10-11 16:37+0200\n"
+"PO-Revision-Date: 2022-10-11 16:37+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Español <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -189,6 +189,10 @@ msgstr "La característica estructurada no se puede cargar."
 msgid "View more"
 msgstr "Ver más"
 
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:174
+msgid "Show less"
+msgstr "Ver menos"
+
 #: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:15 modules/cp_field_features/src/Plugin/Field/FieldWidget/StructuredFeatureWidget.php:10
 msgid "Default"
 msgstr "Por defecto"
@@ -281,11 +285,15 @@ msgstr "Eliminar"
 
 #: src/Form/StructuredFeatureForm.php:210;214
 msgid "You must add the property before save. If you don't add it the property will not be saved."
-msgstr "Se debe añadir la propiedad antes de guardar. Si no la añades la propiedad no se guardará."
+msgstr ""
+"Se debe añadir la propiedad antes de guardar. Si no la añades la "
+"propiedad no se guardará."
 
 #: src/Form/StructuredFeatureForm.php:221;266;272;298;340
 msgid "If the field is assigned to specific language this value will not be translated. You must fill it in the end language."
-msgstr "Si el campo está asignado a un idioma específico, este valor no se traducirá. Debe completarlo en el idioma final."
+msgstr ""
+"Si el campo está asignado a un idioma específico, este valor no se "
+"traducirá. Debe completarlo en el idioma final."
 
 #: src/Form/StructuredFeatureForm.php:244
 msgid "Select"
@@ -337,7 +345,11 @@ msgstr "Todos los idiomas"
 
 #: src/Form/StructuredFeatureForm.php:321
 msgid "If a field applies to a specific language, it will be shown in the group for that language and a field must be created for each language, for example Narrative and Narrative are two different fields, one for each language."
-msgstr "Si un campo aplica para un idioma específico se mostrará en el grupo de dicho idioma y se deberá crear un campo para cada idioma, por ejemplo Narrativa y Narrative son dos campos diferentes uno por cada idioma."
+msgstr ""
+"Si un campo aplica para un idioma específico se mostrará en el grupo "
+"de dicho idioma y se deberá crear un campo para cada idioma, por "
+"ejemplo Narrativa y Narrative son dos campos diferentes uno por cada "
+"idioma."
 
 #: src/Form/StructuredFeatureForm.php:326
 msgid "Apply option"
@@ -345,11 +357,15 @@ msgstr "Opción para determinar si aplica"
 
 #: src/Form/StructuredFeatureForm.php:328
 msgid "Show a checkbox on the property to enable or disable it if not apply."
-msgstr "Mostrar un checkbox en la propiedad para habilitarlo o no si no aplica."
+msgstr ""
+"Mostrar un checkbox en la propiedad para habilitarlo o no si no "
+"aplica."
 
 #: src/Form/StructuredFeatureForm.php:340
 msgid "You must introduce a option for each line. The structure of each option must be key|Label, for example: first_key|First element"
-msgstr "Debe introducir una opción por cada línea. La estructura de cada opción debe ser key|Etiqueta, por ejemplo: first_key|Primer elemento"
+msgstr ""
+"Debe introducir una opción por cada línea. La estructura de cada "
+"opción debe ser key|Etiqueta, por ejemplo: first_key|Primer elemento"
 
 #: src/Form/StructuredFeatureForm.php:365
 msgid "Default Value"
@@ -357,7 +373,9 @@ msgstr "Valor por defecto"
 
 #: src/Form/StructuredFeatureForm.php:366
 msgid "For elements with options (select, radios, ...) the default value must be the key instead the label."
-msgstr "Para elementos con opciones (select, radios, ...) el valor por defecto debe ser el key en vez de la etiqueta."
+msgstr ""
+"Para elementos con opciones (select, radios, ...) el valor por defecto "
+"debe ser el key en vez de la etiqueta."
 
 #: src/Form/StructuredFeatureForm.php:371
 msgid "Class"
@@ -365,7 +383,9 @@ msgstr "Clase"
 
 #: src/Form/StructuredFeatureForm.php:373
 msgid "Classes can give additional layout properties."
-msgstr "Clases adicionales que se pueden añadir a las propiedades para su disposición."
+msgstr ""
+"Clases adicionales que se pueden añadir a las propiedades para su "
+"disposición."
 
 #: src/Form/StructuredFeatureForm.php:380
 msgid "Top"
@@ -393,7 +413,9 @@ msgstr "Peso"
 
 #: src/Form/StructuredFeatureForm.php:393
 msgid "Position of the element in the form, the higher the number, the lower it will appear."
-msgstr "Posición del elemento en el formulario, a mayor número en una posición más inferior aparecerá."
+msgstr ""
+"Posición del elemento en el formulario, a mayor número en una "
+"posición más inferior aparecerá."
 
 #: src/Form/StructuredFeatureForm.php:397
 msgid "Update"
