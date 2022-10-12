@@ -59,7 +59,6 @@ dependencies:
     - cp_field_features
     - entity_browser
     - field_group
-    - file
     - maxlength
     - select2
     - svg_image
@@ -322,14 +321,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_file:
-    type: file_generic
+    type: cp_core_file_generic
     weight: 30
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_file_certifications:
-    type: file_generic
+    type: cp_core_file_generic
     weight: 36
     region: content
     settings:
