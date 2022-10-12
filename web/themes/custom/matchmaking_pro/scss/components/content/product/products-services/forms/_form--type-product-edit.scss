@@ -108,6 +108,9 @@
 
         small {
             @extend %description-help;
+            &#edit-field-aditional-information-0-value--description {
+                padding: 15px;
+                }
         }
 
         .shs-widget-container {
