@@ -101,9 +101,9 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#message' => $state,
               '#question' => t('Do you wish to continue?'),
               '#button_text' => t('No'),
-              '#button_link' => '#',
+              '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
               '#button_no_text' => t('Yes'),
-              '#button_no_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+              '#button_no_link' => '#',
             ];
           }
           else {
