@@ -177,18 +177,18 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
           foreach (array_keys($form['actions']) as $action) {
           }
-          $form['actions']['cp_core_presave_preview'] = [
-            '#type' => 'link',
-            '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $node->id()]),
-            '#title' => t('Preview'),
-            '#weight' => 5,
-            '#attributes' => [
-              'class' => ['use-ajax'],
-              'data-dialog-type' => 'modal',
-              'data-dialog-options' => Json::encode(['width' => '90%']),
-            ],
-            '#attached' => ['library' => 'core/drupal.dialog.ajax'],
-          ];
+          // $form['actions']['cp_core_presave_preview'] = [
+          //   '#type' => 'link',
+          //   '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $node->id()]),
+          //   '#title' => t('Preview'),
+          //   '#weight' => 5,
+          //   '#attributes' => [
+          //     'class' => ['use-ajax'],
+          //     'data-dialog-type' => 'modal',
+          //     'data-dialog-options' => Json::encode(['width' => '90%']),
+          //   ],
+          //   '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+          // ];
           unset($form['actions']['preview']);
           // kint($form);
         }

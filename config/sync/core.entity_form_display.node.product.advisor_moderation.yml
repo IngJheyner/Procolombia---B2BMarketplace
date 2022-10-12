@@ -395,11 +395,10 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_pr_product_availability:
-    type: boolean_checkbox
+    type: cp_core_boolean_select
     weight: 39
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_pr_structured_features:
     type: sf_default
