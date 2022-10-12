@@ -101,9 +101,9 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#message' => $state,
               '#question' => t('Do you wish to continue?'),
               '#button_text' => t('No'),
-              '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
+              '#button_link' => '#',
               '#button_no_text' => t('Yes'),
-              '#button_no_link' => '#',
+              '#button_no_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
             ];
           }
           else {
@@ -123,7 +123,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 
           $form['actions']['reject'] = array(
             '#type' => 'submit',
-            '#value' => t('Rejects'),
+            '#value' => t('Reject'),
             '#access' => TRUE,
             '#submit' => array('reject_product'),
             '#weight' => -11,
@@ -133,7 +133,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['actions']['btn_modal_reject']=[
             '#type' => 'html_tag',
             '#tag'  => 'button',
-            '#value' => t('Rejects'),
+            '#value' => t('Reject'),
             '#attributes' => [
               'class' => ['btn'],
               'type' =>['button'],

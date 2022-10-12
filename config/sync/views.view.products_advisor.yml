@@ -2533,7 +2533,11 @@ display:
           admin_label: ''
           plugin_id: list_field
           operator: or
-          value: {  }
+          value:
+            waiting: waiting
+            no_resp: no_resp
+            incomp_info: incomp_info
+            approved: approved
           group: 1
           exposed: true
           expose:
@@ -2560,7 +2564,7 @@ display:
               web_services: '0'
               moderador: '0'
               asesor_internacional: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''

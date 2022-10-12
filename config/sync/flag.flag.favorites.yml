@@ -11,10 +11,10 @@ bundles:
   - product
 entity_type: node
 global: false
-flag_short: 'Add to favorites'
+flag_short: 'Marcar como favorito'
 flag_long: ''
 flag_message: ''
-unflag_short: 'Remove of favorites'
+unflag_short: 'Remover de favoritos'
 unflag_long: ''
 unflag_message: ''
 unflag_denied_text: ''
