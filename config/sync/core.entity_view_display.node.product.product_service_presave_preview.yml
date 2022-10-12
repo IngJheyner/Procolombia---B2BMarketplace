@@ -346,6 +346,7 @@ content:
     weight: 15
     region: content
 hidden:
+  cp_core_generate_contact: true
   cp_core_presave_preview: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
