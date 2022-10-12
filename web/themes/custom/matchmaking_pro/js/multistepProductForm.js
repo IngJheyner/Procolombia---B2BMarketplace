@@ -181,6 +181,103 @@
 
         //MultistepForm Context once, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
+          //Paso 3 Ajustes multiselect
+          // clone items
+          $('#edit-field-pr-target-market').on('select2:select', function (e) {
+            let itemN = 1;
+            const itemChoice=  $('.js-form-item-field-pr-target-market .select2-selection__choice')
+            $(itemChoice).clone().appendTo('.js-form-item-field-pr-target-market .select2-selection');
+            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market .select2-selection .select2-selection__choice.item-choice').classList.add('item-choice')];
+            const texts = new Set(tags.map(x => x.innerHTML));
+            tags.forEach(tag => {
+              if(texts.has(tag.innerHTML)){
+                texts.delete(tag.innerHTML);
+              }
+              else{
+                tag.remove()
+              }
+            })
+          });
+          //remove items target market
+          $('#edit-field-pr-target-market').on('select2:unselect', function (e) {
+            console.log("removed" + e.params.data);
+            const tags = [...document.querySelectorAll('.js-form-item-field-pr-target-market .select2-selection .select2-selection__choice.item-choice')];
+            const idSelectRemove = e.params.data.element.dataset.select2Id;
+            const texts = new Set(tags.map(x => x.innerHTML));
+            // const itemChoice=  $('.js-form-item-field-pr-type-certifications .select2-selection__choice')
+            // const itemsDuplicate = $(id).once().clone()
+            // itemsDuplicate.data('select2-id',idSelect);
+            // itemsDuplicate.appendTo('.js-form-item-field-pr-type-certifications');
+            
+          })
+
+          //select
+
+          const cerType = $('.js-form-item-field-pr-type-certifications');
+          if ($(cerType).length) {
+            const containerItems = $(cerType).append("<div class ='container-options'></div>");
+          }
+
+          $('#edit-field-pr-type-certifications').on('select2:select', function (e) {
+            const data = e.params.data;
+            const itemChoice = data.element;
+            const nextItems = $(itemChoice).parent().next()[0];
+            const idSelect = itemChoice.dataset.select2Id;
+            const item = document.createElement('div');
+
+            $(item).addClass('item');
+            $(item).attr("data-select", idSelect);
+            $(item).text($(itemChoice).text())           
+            $('.container-options').append(item);
+
+            $(item).on('click',(function() {
+              console.log("click");
+              const findNextItems = $(nextItems).find('.select2-selection__choice');
+              for (const itemOf of findNextItems) {
+                const text = $(itemOf).text().slice(1);
+                console.log(text);
+                if (text == $(itemChoice).text()) {
+                  
+                  $(itemOf).find('.select2-selection__choice__remove')[0].click();
+                  $(item).remove();
+                }
+        
+              }
+              })
+            )
+
+          });
+
+          $('#edit-field-pr-type-certifications').on('select2:unselect', function (e) {
+            console.log("removing");
+            const data = e.params.data;
+            const itemRemove = data.element;
+
+            const findContainerItems = $('.container-options').find('.item');
+              for (const itemOf of findContainerItems) {
+                const text = $(itemOf).text();
+                console.log($(itemRemove).text());
+                if (text == $(itemRemove).text()) {
+                  $(itemOf).remove();
+                }
+        
+              }
+          })
+          
+          $('#edit-field-pr-sales-channel').on('select2:select', function (e) {
+            const itemChoice=  $('.js-form-item-field-pr-sales-channel .select2-selection__choice')
+            $(itemChoice).once().clone().appendTo('.js-form-item-field-pr-sales-channel');
+            const tags = [...document.querySelectorAll('.js-form-item-field-pr-sales-channel > li')];
+            const texts = new Set(tags.map(x => x.innerHTML));
+            tags.forEach(tag => {
+              if(texts.has(tag.innerHTML)){
+                texts.delete(tag.innerHTML);
+              }
+              else{
+                tag.remove()
+              }
+            })
+          });
 
           //Paso 3 ver mas de 3 items
           const certifications = $('#edit-field-pr-type-certifications-wrapper')
