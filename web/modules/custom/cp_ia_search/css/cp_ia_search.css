@@ -360,6 +360,7 @@ a.search-icon {
   overflow: auto;
   touch-action: pan-x;
   margin: 13px 0px;
+  overflow-x: hidden;
 }
 .product .left-bar-filtre .opc-search .body .checkbox label {
   display: block;
@@ -8152,4 +8153,4 @@ div.dtr-modal div.dtr-modal-background {
   .daterangepicker .drp-calendar.left {
     clear: none !important;
   }
-}/*# sourceMappingURL=cp_ia_search.css.map */
+}

@@ -169,7 +169,7 @@
 				</svg>
 			</div>
 			<div class="titlle">
-				{{ "Help"|t }}
+				{{ "Help "|t }}
 			</div>
 		</div>
 	</div>
@@ -624,8 +624,10 @@
 			</div>
 		</div>
 	</div>
-</div>{{ drupal_block('message_sidebar') }}<div class="topnav">
-	<div class="d-flex justify-content-end" style="background-color: #fff;padding: 6px 0px; border-radius: 5px;">
+</div>
+{{ drupal_block('message_sidebar') }}
+<div class="topnav">
+	<div class="d-flex align-items-center justify-content-end" style="background-color: #fff;padding: 6px 0px; border-radius: 5px;">
 		<div>
 			<button aria-label="{{ " Search"|t }}" class="search_btn_mobile">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.837"
@@ -840,7 +842,7 @@
 			<li class="border-0">
 				<p class="title">{{ "Notifications"|t }}</p>
 			</li>
-			<li>
+			<li id="right_bar_2">
 				<a class="li_icon_url" href="/dashboard/international/user">
 					<svg id="Grupo_1384" data-name="Grupo 1384" xmlns="http://www.w3.org/2000/svg"
 						xmlns:xlink="http://www.w3.org/1999/xlink" width="23.342" height="24.899"
@@ -923,7 +925,7 @@
 							d="M1850.3,0a1.263,1.263,0,1,1-1.263,1.263A1.264,1.264,0,0,1,1850.3,0"
 							transform="translate(-1830.451 0.002)" fill="url(#back_gradient_2)" fill-rule="evenodd" />
 					</svg>
-					<span>{{ "Help"|t }}</span>
+					<span>{{ "Help "|t }}</span>
 				</a>
 			</li>
 			<li id="logout">

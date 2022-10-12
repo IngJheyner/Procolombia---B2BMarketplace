@@ -2,6 +2,7 @@
 
   let page = 1;
   let limit = 10;
+  let query = '';
   const init = () => {
     const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -32,7 +33,22 @@
   };
 
   const getResults = (words, userId, origin, lang) => {
-    fetch(`https://app-back-co1020-dev-search.azurewebsites.net/search/${lang}/${words}/${userId}/${origin}`)
+    /* let data = { "categorias": ["Bienes Inmobiliarios", "Cuero y sus productos"], "ids_productos": [23662, 14869, 14748, 14749, 18474, 14865, 14721, 14747, 14699, 14745], "ids_empresas": [23544, 14664] }
+    console.log(data);
+    $('#loader-product').css('display', 'none');
+    $('#content-products').show();
+    if (typeof data === "string") {
+      //render renderNotFound
+
+
+      renderNotFound(words, userId);
+    } else {
+      renderCategories(data.categorias);
+      $('#category-length').text(data.categorias.length + " categorías");
+      getProducts(data.ids_productos, data.ids_empresas);
+    } */
+
+    fetch(`https://app-back-co1020-dev-search.azurewebsites.net/search/${lang}/${words}/${userId}/${origin}` + query)
       .then(response => response.json())
       .then(data => {
         //check if data is a string
@@ -41,8 +57,6 @@
         console.log(data);
         if (typeof data === "string") {
           //render renderNotFound
-          
-
           renderNotFound(words, userId);
         } else {
           renderCategories(data.categorias);
@@ -51,6 +65,9 @@
         }
       })
       .catch(error => {
+        $('#loader-product').css('display', 'none');
+        $('#content-products').show();
+        renderNotFound(words, userId);
         console.error(error);
       });
 
@@ -144,7 +161,7 @@
       <div class="card-search bg-white p-3">
         <div class="row">
           <div class="col-lg-3">
-            <img class="w-100" src="https://clubdelcafe.net/wp-content/uploads/2020/05/Logo-caf%C3%A9-juan-valdez.png">
+            <img class="w-100" src="${element.image}">
           </div>
         <div class="col-lg-9">
           <p class="fs-3 tittle">${element.title}</p>
@@ -165,13 +182,23 @@
   const renderCategories = (data) => {
     console.log("renderCategories");
     let html = '';
+    html += `
+    <li>
+      <div class="form-inline d-flex align-items-center py-1">
+          <label class="tick">Todas las categorias
+              <input type="checkbox" value="Todas">
+              <span class="check"></span>
+          </label>
+      </div>
+   </li>
+  `
     if (data.length > 0) {
       data.forEach(element => {
         html += `
       <li>
         <div class="form-inline d-flex align-items-center py-1">
             <label class="tick">${element}
-                <input type="checkbox">
+                <input type="checkbox" value="${element}">
                 <span class="check"></span>
             </label>
         </div>
@@ -249,6 +276,72 @@
           getResults(words, userId, origin, lang);
         }
       }
+
+      //clean filter
+      $('#clean-filter').click(function () {
+        window.location.href = window.location.href
+      });
+
+      //get label text of checked values in list-cat-search
+      $('#list-cat-search', context).on('click', 'li', function () {
+        //get input checked inside list-cat-search
+        let todas = false;
+        let checked = $('#list-cat-search input:checked');
+        let text = '';
+        //get label text of checked values
+        checked.each(function (index, element) {
+          text += $(element).val() + '-';
+        });
+
+        checked.each(function (index, element) {
+          if ($(element).val() == "Todas") {
+            console.log(text);
+            console.log(query)
+          }
+          if ($(element).val() === "Todas" && text.includes("Todas") && query !== "" && query !== "?categories=Todas") {
+            checked.each(function (index, element) {
+              $(element).prop('checked', false);
+            });
+            //check "Todas" input
+            $(element).prop('checked', true);
+            todas = true;
+          } else {
+            if ($(element).val() === "Todas" && text !== "Todas-") {
+              $(element).prop('checked', false);
+              //delete "Todas" from text
+              text = text.replace("Todas-", "");
+            }
+          }
+        });
+
+        if (todas) {
+          text = ""
+        } else {
+          //remove last comma
+          todas = false;
+          text = text.slice(0, -1);
+          text = "?categories=" + text;
+        }
+        //show text in words-filter
+        console.log("ERROR");
+        query = text;
+        console.log("query", query);
+      });
+
+      //filter by category
+      $('#filter-cat').click(function () {
+        console.log("filter-cat");
+        console.log(query);
+        //get language of url
+        const lang = window.location.pathname.split('/')[1];
+        //get words, userId and origin from url query params
+        const urlParams = new URLSearchParams(window.location.search);
+        const words = urlParams.get('words');
+        const userId = urlParams.get('userId');
+        const origin = urlParams.get('origin');
+        //get results with query
+        getResults(words, userId, origin, lang);
+      });
     }
   };
 })(jQuery, Drupal);

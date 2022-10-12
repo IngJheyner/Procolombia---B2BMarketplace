@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3cfdb10c6ab6bc0e02b81b9d852e4ea1",
+    "content-hash": "16b9be212333288894bb999acf571f66",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -147,7 +147,7 @@
             "version": "3.6.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "3711efedf0ca2e998cd0417324f717f2e0b828ec"
             },
             "dist": {
@@ -6307,8 +6307,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta7+4-dev",
-                    "datestamp": "1665379396",
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1665471519",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
