@@ -60,8 +60,8 @@ dependencies:
     - entity_browser
     - field_group
     - file
-    - select2
     - maxlength
+    - select2
     - svg_image
 third_party_settings:
   field_group:
@@ -102,8 +102,6 @@ third_party_settings:
         - field_pr_target_market
         - field_pr_country
         - field_pr_product_availability
-        - field_tag_producto
-        - field_states
       label: Left
       region: content
       parent_name: group_row
@@ -323,13 +321,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_exist_certifications:
-    type: boolean_checkbox
-    weight: 36
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_file:
     type: file_generic
     weight: 30
@@ -413,7 +404,7 @@ content:
     third_party_settings: {  }
   field_pr_structured_features:
     type: sf_default
-    weight: 2
+    weight: 1
     region: content
     settings:
       placeholder_value: ''
@@ -474,22 +465,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_states:
-    type: options_select
-    weight: 41
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_tag_producto:
-    type: select2_entity_reference
-    weight: 41
-    region: content
-    settings:
-      width: 100%
-      autocomplete: false
-      match_operator: CONTAINS
-      match_limit: 10
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 28
@@ -523,10 +498,11 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
-  field_pr_structured_features: true
   field_pr_terms_of_condition: true
   field_previous_id: true
   field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
   field_tariff_heading: true
   field_trading_channel: true
   langcode: true
