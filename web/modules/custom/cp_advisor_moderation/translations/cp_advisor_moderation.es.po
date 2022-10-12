@@ -29,9 +29,7 @@ msgstr "Certificaciones"
 
 #: cp_advisor_moderation.module:36
 msgid "Please include a summary description of the product/service with its main characteristics and/or attributes."
-msgstr ""
-"Por favor incluya  un resumen a modo descripción del "
-"producto/servicio con sus características principales y/o atributos."
+msgstr "Por favor incluya una descripción resumen del producto/servicio con sus principales características y/o atributos."
 
 #: cp_advisor_moderation.module:43
 msgid "- Category -"
@@ -67,9 +65,7 @@ msgstr "Editar producto o servicio"
 
 #: cp_advisor_moderation.module:114
 msgid "You are about to edit the information of the product/service of the company <strong>\"@company\"</strong>"
-msgstr ""
-"Está a punto de editar la información del producto o servicio de la "
-"empresa <strong>\"@company\"</strong>"
+msgstr "Está a punto de editar la información del producto o servicio de la empresa <strong>\"@company\"</strong>"
 
 #: cp_advisor_moderation.module:125;135
 msgid "Rejects"
@@ -81,9 +77,7 @@ msgstr "Rechazar"
 
 #: cp_advisor_moderation.module:147
 msgid "You are about to reject the edition of the selected product or service."
-msgstr ""
-"Estás a punto de cancelar la edición del producto o servicio "
-"seleccionado."
+msgstr "Estás a punto de cancelar la edición del producto o servicio seleccionado."
 
 #: cp_advisor_moderation.module:153;162
 msgid "Approve"
@@ -119,9 +113,7 @@ msgstr ""
 
 #: cp_advisor_moderation.module:383
 msgid "All changes to the company <strong>\"@company\"</strong> have been saved and updated (this translation)."
-msgstr ""
-"Se han guardado y actualizado (esta traducción) todos los cambios de "
-"la empresa <strong>\"@company\"</strong>."
+msgstr "Se han guardado y actualizado (esta traducción) todos los cambios de la empresa <strong>\"@company\"</strong>."
 
 #: cp_advisor_moderation.module:384
 msgid "I got it"
@@ -170,4 +162,3 @@ msgstr "SI"
 #: templates/confirmation_modal.html.twig:16
 msgid "NO"
 msgstr "NO"
-

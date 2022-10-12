@@ -34,6 +34,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['#tree'] = TRUE;
           $form['field_file_certifications']['widget']['#title'] = t('Certifications');
           $form['field_body']['widget'][0]['value']['#description'] = t('Please include a summary description of the product/service with its main characteristics and/or attributes.');
+          $form['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
           $form['field_categorization']['widget']['#ajax'] = [
             'event' => 'change',
             'callback' => 'formSelectCallback',
@@ -90,8 +91,6 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             if ($pruduct_status == 3) {
               $state = t('The product has been successfully rejected.');
             }
-            $userStorage = \Drupal::entityTypeManager()->getStorage('user');
-            $user = $userStorage->load($view->args[0]);
             $form['modal_product_saved'] = [
               '#theme' => 'cp_core_node_multistep_generic_modal',
               '#class' => 'save-product-correct-modal',
@@ -122,7 +121,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 
           $form['actions']['reject'] = array(
             '#type' => 'submit',
-            '#value' => t('Rejects'),
+            '#value' => t('Reject'),
             '#access' => TRUE,
             '#submit' => array('reject_product'),
             '#weight' => -11,
@@ -132,7 +131,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['actions']['btn_modal_reject']=[
             '#type' => 'html_tag',
             '#tag'  => 'button',
-            '#value' => t('Rejects'),
+            '#value' => t('Reject'),
             '#attributes' => [
               'class' => ['btn'],
               'type' =>['button'],
