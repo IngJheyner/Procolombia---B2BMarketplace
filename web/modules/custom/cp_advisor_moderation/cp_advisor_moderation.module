@@ -34,6 +34,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['#tree'] = TRUE;
           $form['field_file_certifications']['widget']['#title'] = t('Certifications');
           $form['field_body']['widget'][0]['value']['#description'] = t('Please include a summary description of the product/service with its main characteristics and/or attributes.');
+          $form['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
           $form['field_categorization']['widget']['#ajax'] = [
             'event' => 'change',
             'callback' => 'formSelectCallback',
@@ -86,18 +87,16 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 
           $pruduct_status = \Drupal::request()->query->get('product-status');
           if ($pruduct_status) {
-            $state = 'approved';
+            $state = t('The product has been successfully approved.');
             if ($pruduct_status == 3) {
-              $state = 'rejected';
+              $state = t('The product has been successfully rejected.');
             }
-            $userStorage = \Drupal::entityTypeManager()->getStorage('user');
-            $user = $userStorage->load($view->args[0]);
             $form['modal_product_saved'] = [
               '#theme' => 'cp_core_node_multistep_generic_modal',
               '#class' => 'save-product-correct-modal',
               '#autoload' => TRUE,
               '#title' => t('Successful process'),
-              '#message' => t('The product has been successfully ' . $state . '.'),
+              '#message' => $state,
               '#question' => t('Do you wish to continue?'),
               '#button_text' => t('No'),
               '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
@@ -122,7 +121,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
 
           $form['actions']['reject'] = array(
             '#type' => 'submit',
-            '#value' => t('Rejects'),
+            '#value' => t('Reject'),
             '#access' => TRUE,
             '#submit' => array('reject_product'),
             '#weight' => -11,
@@ -132,7 +131,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['actions']['btn_modal_reject']=[
             '#type' => 'html_tag',
             '#tag'  => 'button',
-            '#value' => t('Rejects'),
+            '#value' => t('Reject'),
             '#attributes' => [
               'class' => ['btn'],
               'type' =>['button'],
@@ -178,18 +177,18 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['actions']['submit']['#submit'][] = 'cp_advisor_node_edit_redirect_submit';
           foreach (array_keys($form['actions']) as $action) {
           }
-          $form['actions']['cp_core_presave_preview'] = [
-            '#type' => 'link',
-            '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $node->id()]),
-            '#title' => t('Preview'),
-            '#weight' => 5,
-            '#attributes' => [
-              'class' => ['use-ajax'],
-              'data-dialog-type' => 'modal',
-              'data-dialog-options' => Json::encode(['width' => '90%']),
-            ],
-            '#attached' => ['library' => 'core/drupal.dialog.ajax'],
-          ];
+          // $form['actions']['cp_core_presave_preview'] = [
+          //   '#type' => 'link',
+          //   '#url' => Url::fromRoute('view.product_service_presave_preview.page_1', ['arg_0' => $node->id()]),
+          //   '#title' => t('Preview'),
+          //   '#weight' => 5,
+          //   '#attributes' => [
+          //     'class' => ['use-ajax'],
+          //     'data-dialog-type' => 'modal',
+          //     'data-dialog-options' => Json::encode(['width' => '90%']),
+          //   ],
+          //   '#attached' => ['library' => 'core/drupal.dialog.ajax'],
+          // ];
           unset($form['actions']['preview']);
           // kint($form);
         }

@@ -1124,6 +1124,147 @@ display:
           error_message: true
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            user_bulk_form: user_bulk_form
+            field_nit: field_nit
+            uid: uid
+            field_company_name: field_company_name
+            langcode: langcode
+            field_company_logo: field_company_logo
+            field_company_deparment: field_company_deparment
+            field_company_city: field_company_city
+            field_productive_chain: field_productive_chain
+            created: created
+            changed: changed
+            nothing: nothing
+            status: status
+            field_status_color: field_status_color
+            field_account_status: field_account_status
+            nothing_1: nothing_1
+            nothing_2: nothing_2
+          default: '-1'
+          info:
+            user_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_nit:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_company_name:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            langcode:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_company_logo:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_company_deparment:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_company_city:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_productive_chain:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_status_color:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_account_status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_1:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_2:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -2182,8 +2323,8 @@ display:
         type: full
         options:
           offset: 0
-          items_per_page: 10
-          total_pages: 3
+          items_per_page: 20
+          total_pages: null
           id: 0
           tags:
             next: Siguiente
@@ -2193,12 +2334,12 @@ display:
           expose:
             items_per_page: true
             items_per_page_label: 'Elementos por página'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '10, 20, 30, 40'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Todo -'
             offset: false
             offset_label: Desplazamiento
-          quantity: 9
+          quantity: 3
       empty:
         area_text_custom:
           id: area_text_custom

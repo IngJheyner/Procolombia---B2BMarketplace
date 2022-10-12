@@ -140,7 +140,7 @@ third_party_settings:
       label: 'Footer links'
       parent_name: group_right
       region: content
-      weight: 19
+      weight: 20
       format_type: html_element
       format_settings:
         classes: group-footer-links
@@ -155,6 +155,7 @@ third_party_settings:
         speed: fast
     group_top:
       children:
+        - group_go_back
         - flag_favorites
       label: Top
       parent_name: group_row
@@ -172,6 +173,20 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
+    group_go_back:
+      children: {  }
+      label: 'Go back'
+      parent_name: group_top
+      region: content
+      weight: 13
+      format_type: cp_core_group_markup
+      format_settings:
+        show_empty_fields: 1
+        id: ''
+        classes: goback-text
+        markup:
+          value: 'Go back'
+          format: html
 id: node.product.product_service_presave_preview
 targetEntityType: node
 bundle: product
@@ -197,7 +212,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_categorization:
     type: entity_reference_label
@@ -322,7 +337,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 18
+    weight: 19
     region: content
   field_pr_structured_features:
     type: sf_default
@@ -338,14 +353,15 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 17
+    weight: 18
     region: content
   flag_favorites:
     settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 14
     region: content
 hidden:
+  cp_core_generate_contact: true
   cp_core_presave_preview: true
   entity_print_view_epub: true
   entity_print_view_pdf: true

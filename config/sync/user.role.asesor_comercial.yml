@@ -9,15 +9,14 @@ dependencies:
     - content_translation
     - cp_advisor_moderation
     - cp_core
+    - entity_browser
     - field_permissions
     - form_mode_control
     - media
     - mfd
     - node
     - statistics
-    - system
     - taxonomy_access_fix
-    - toolbar
     - webform
 id: asesor_comercial
 label: 'Asesor comercial'
@@ -25,7 +24,7 @@ weight: 5
 is_admin: null
 permissions:
   - 'access content overview'
-  - 'access toolbar'
+  - 'access paises entity browser pages'
   - 'access webform overview'
   - 'cp access advisor dashboard'
   - 'cp core access advisor product dashboard'
@@ -63,4 +62,3 @@ permissions:
   - 'view terms in partida_arancelaria'
   - 'view terms in sectors'
   - 'view terms in tags'
-  - 'view the administration theme'

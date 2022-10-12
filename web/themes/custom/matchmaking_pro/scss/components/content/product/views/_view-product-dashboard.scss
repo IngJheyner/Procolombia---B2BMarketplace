@@ -579,6 +579,18 @@
 				a{
 					font-family: $font-bold-Century-Gothic;
 					font-weight: normal;
+					&::after{
+						content: "";
+						display: block;
+						width: 16px;
+						height: 16px;
+						background-image: url(../images/icons/Fecha.svg);
+						-webkit-background-size: cover;
+						background-size: 16px;
+						background-repeat: no-repeat;
+						background-position: center;
+						margin-left: 5px;
+					}
 				}
 			}
 
