@@ -9,8 +9,7 @@
       attach: function(context, settings) {
         // Custom code here
 
-        //Dashboard
-        
+        //Dashboard        
         $(context).find('body').once('.view-product-dashboard').each(function () {
           const productDashboard = $('.view-product-dashboard');
           const itemsPerPage = $('.form-item-items-per-page');
@@ -181,24 +180,114 @@
 
         //MultistepForm Context once, modal paso 1 y ver mas paso 3
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
+          //Paso 3 Ajustes multiselect
+          //Variables Multiselect paso 3
+          const cerType = $('.js-form-item-field-pr-type-certifications');
+          const fieldTargetMarket = $('.js-form-item-field-pr-target-market');
+          const fieldSalesChanel = $('.js-form-item-field-pr-sales-channel');
+      
+          function createContainerItems(parentItem) {
+            if ($(parentItem).length) {
+              const containerItems = $(parentItem).append("<div class ='container-options'></div>");
+              const itemsSelect = $(parentItem).find('.select2-selection__choice')
+              const listChoice = [];
+              if ($(itemsSelect).length) {
+                for (const choice of itemsSelect) {
+                  const idSelect = choice.dataset.select2Id; 
+                  const item = document.createElement('div');
+                  $(item).addClass('item');
+                  $(item).attr("data-select", idSelect);
+                  $(item).text($(choice).text().slice(1));
+                  
+                  $(item).on('click', function() {
+                    const itemRemain = $(parentItem).find('.select2-selection__choice');
+                    for (const itemIteration of itemRemain) {
+                      if($(this).text() == $(itemIteration).text().slice(1)){
+                        $(itemIteration).find('.select2-selection__choice__remove')[0].click();
+                        $(this).remove();
+                      }
+                    }
+                  })
+                  listChoice.push(item);
+                  $(parentItem).find('.container-options').append(...listChoice) 
+                }
+              }
+            }
+          }
+          //Guarda items seleccionado cuando se cambia de paso
+          $( document ).ready(function() {
+            createContainerItems(cerType)
+            createContainerItems(fieldTargetMarket)
+            createContainerItems(fieldSalesChanel)            
+          });
+
+          //agregar elementos seleccionados
+          function addchosenitems(data,containerItems) {
+            const itemChoice = data.element;
+            const nextItems = $(itemChoice).parent().next()[0];
+            const idSelect = itemChoice.dataset.select2Id;            
+            const item = document.createElement('div');
+            $(item).addClass('item');
+            $(item).attr("data-select", idSelect);
+            $(item).text($(itemChoice).text())           
+            $(containerItems).find('.container-options').append(item);
+
+            $(item).on('click',(function() {
+              const findNextItems = $(nextItems).find('.select2-selection__choice');
+              for (const itemOf of findNextItems) {
+                const text = $(itemOf).text().slice(1);
+                if (text == $(itemChoice).text()) {
+                  
+                  $(itemOf).find('.select2-selection__choice__remove')[0].click();
+                  $(item).remove();
+                }
+        
+              }
+              })
+            )
+          }
+          
+          //selecting Options
+          $('#edit-field-pr-target-market').on('select2:select', function (e) {
+            const data = e.params.data;
+            addchosenitems(data, fieldTargetMarket)
+          });       
+          $('#edit-field-pr-type-certifications').on('select2:select', function (e) {
+            const data = e.params.data;
+            addchosenitems(data, cerType)            
+          });
+
+          $('#edit-field-pr-sales-channel').on('select2:select', function (e) {
+            const data = e.params.data;
+            addchosenitems(data, fieldSalesChanel)
+          });
+
+          //Removing select
+          function removeOptions(data) {
+            const itemRemove = data.element;
+            const findContainerItems = $('.container-options').find('.item');
+              for (const itemOf of findContainerItems) {
+                const text = $(itemOf).text();
+                if (text == $(itemRemove).text()) {
+                  $(itemOf).remove();
+                }        
+              }
+          }
+          $('#edit-field-pr-type-certifications').on('select2:unselect', function (e) {
+            const data = e.params.data;
+            removeOptions(data)
+          })
+          $('#edit-field-pr-target-market').on('select2:unselect', function (e) {
+            const data = e.params.data;
+            removeOptions(data)
+             
+          })
+          $('#edit-field-pr-sales-channel').on('select2:unselect', function (e) {
+            const data = e.params.data;
+            removeOptions(data)
+          })
 
           //Paso 3 ver mas de 3 items
-          const certifications = $('#edit-field-pr-type-certifications-wrapper')
-          certifications.click(()=>{
-            const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            hideBtnShowMore(itemCtype,showMorecType,showMorecTypeText);
-          })
-          showMorecType.click(()=>{
-            const itemCtype = $('.js-form-item-field-pr-type-certifications .select2-selection__choice');
-            if (itemCtype.length > 3) {
-              itemCtype.slice(3).toggleClass('show-item')
-              showMorecTypeText.toggleClass('show-less')
-              toggleText(showMorecTypeText);
-            }else{
-              showMorecTypeText.text(Drupal.t('View more'))
-            }
-          })
-
           showMoreCountrie.click(()=>{
             const itemCountrie = $('.entities-list .item-container');
             if(itemCountrie.length > 3){
