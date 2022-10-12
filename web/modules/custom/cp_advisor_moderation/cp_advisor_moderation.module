@@ -34,6 +34,7 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
           $form['#tree'] = TRUE;
           $form['field_file_certifications']['widget']['#title'] = t('Certifications');
           $form['field_body']['widget'][0]['value']['#description'] = t('Please include a summary description of the product/service with its main characteristics and/or attributes.');
+          $form['title']['widget'][0]['value']['#attributes']['maxlength'] = 100;
           $form['field_categorization']['widget']['#ajax'] = [
             'event' => 'change',
             'callback' => 'formSelectCallback',
