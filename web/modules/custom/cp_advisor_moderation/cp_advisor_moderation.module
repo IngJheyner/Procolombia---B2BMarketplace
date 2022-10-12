@@ -91,8 +91,6 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
             if ($pruduct_status == 3) {
               $state = t('The product has been successfully rejected.');
             }
-            // $userStorage = \Drupal::entityTypeManager()->getStorage('user');
-            // $user = $userStorage->load($view->args[0]);
             $form['modal_product_saved'] = [
               '#theme' => 'cp_core_node_multistep_generic_modal',
               '#class' => 'save-product-correct-modal',
