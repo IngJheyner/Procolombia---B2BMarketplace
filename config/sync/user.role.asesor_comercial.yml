@@ -9,6 +9,7 @@ dependencies:
     - content_translation
     - cp_advisor_moderation
     - cp_core
+    - entity_browser
     - field_permissions
     - form_mode_control
     - media
@@ -23,6 +24,7 @@ weight: 5
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access paises entity browser pages'
   - 'access webform overview'
   - 'cp access advisor dashboard'
   - 'cp core access advisor product dashboard'
