@@ -28,15 +28,27 @@ div#block-matchmaking-pro-breadcrumbs {
   /* for Animations : */
   /* for JS : */
 }
-.mainCpIncentivesCompanyCol .ts-wrapper.multi.ts-control > div {
-  cursor: pointer;
-  margin: 0 7px 3px 0;
-  padding: 8px 12px;
-  background: #fff;
-  color: #303030;
-  border: 0px solid #d0d0d0;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
-  border-radius: 5px;
+.mainCpIncentivesCompanyCol .ts-control {
+  border: 2px solid #d0d0d0 !important;
+  border-radius: 6px !important;
+}
+.mainCpIncentivesCompanyCol .ts-control input {
+  font-size: 18px;
+  height: 33px;
+}
+.mainCpIncentivesCompanyCol .ts-wrapper.multi .ts-control > div {
+  background-color: #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 0.6rem 0rem 0.6rem 0.6rem !important;
+  margin: 0 9px 7px 0 !important;
+  font-size: 1rem;
+}
+.mainCpIncentivesCompanyCol .ts-wrapper.plugin-remove_button .item .remove {
+  font-size: 20px;
+  font-family: monospace;
+  color: #ba0c2f;
+  background-color: transparent !important;
 }
 .mainCpIncentivesCompanyCol .leftandin {
   width: 100%;
@@ -108,6 +120,58 @@ div#block-matchmaking-pro-breadcrumbs {
   display: flex !important;
   opacity: 1;
 }
+.mainCpIncentivesCompanyCol .box {
+  overflow: hidden;
+  border-radius: 14px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+}
+.mainCpIncentivesCompanyCol .box i {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+  background: white;
+  border-bottom-left-radius: 5px;
+}
+.mainCpIncentivesCompanyCol .box .box-header {
+  width: 100%;
+  height: 170px;
+  background: #ccc;
+  overflow: hidden;
+}
+.mainCpIncentivesCompanyCol .box .box-header img {
+  width: 100%;
+}
+.mainCpIncentivesCompanyCol .box .box-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 14px 20px;
+}
+.mainCpIncentivesCompanyCol .box .box-body h4 {
+  font-size: 20px;
+  font-family: "Gothic-Bold";
+  color: #3b3d42;
+  word-break: break-all;
+}
+.mainCpIncentivesCompanyCol .box .box-body p {
+  font-size: 14px;
+  margin-bottom: 0px;
+  font-family: "Gothic-bold";
+}
+.mainCpIncentivesCompanyCol .box .box-body button {
+  font-size: 13px;
+  border-radius: 100px;
+  border: none;
+  color: #000;
+  background: #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  padding: 4px 16px;
+}
 .mainCpIncentivesCompanyCol .slider {
   background-size: cover;
   height: 700px;
@@ -122,9 +186,89 @@ div#block-matchmaking-pro-breadcrumbs {
 .mainCpIncentivesCompanyCol .tittle-search-home {
   font-family: Gothic-Bold;
   color: #005ca4;
-  font-size: 1.8rem;
+  font-size: 2.1rem;
+}
+.mainCpIncentivesCompanyCol .first-search label {
+  font-size: 1.3rem;
+  color: #0085ca;
+  font-family: Gothic-Bold;
+}
+.mainCpIncentivesCompanyCol .first-search button {
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #fdca00;
+  font-family: Gothic-Bold;
+  padding: 6px 10px;
+}
+.mainCpIncentivesCompanyCol .first-search span {
+  color: #a2a6aa;
+  font-size: 16px;
+  margin: 4px;
+}
+.mainCpIncentivesCompanyCol .first-search .seaech-buttom button {
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #ffffff;
+  font-family: Gothic-Bold;
+  padding: 7px 48px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  color: #005ca4;
+}
+.mainCpIncentivesCompanyCol .first-search .search-product-contact .ts-control {
+  border: 1px solid transparent !important;
+  border-bottom: 1px solid #0085ca !important;
+  border-radius: 0px !important;
+  background: transparent !important;
+  height: 37px;
+}
+.mainCpIncentivesCompanyCol .first-search .search-product-contact .ts-control .item {
+  font-size: 19px;
+  font-family: "Gothic-Bold";
+}
+.mainCpIncentivesCompanyCol .first-search .search-product-contact .ts-control input {
+  display: none !important;
+}
+.mainCpIncentivesCompanyCol .search-bar .btn-sh {
+  width: 120px;
+  height: 37px;
+  background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  opacity: 1;
+  border: 0px;
+  color: #fff;
+  margin-left: 4px;
+}
+.mainCpIncentivesCompanyCol .tab-home {
+  text-align: center;
+}
+.mainCpIncentivesCompanyCol .tab-home .tittle {
+  font-size: 2.3rem;
+  font-family: Gothic-Bold;
+  color: #005ca4;
+  margin-bottom: 0px;
+}
+.mainCpIncentivesCompanyCol .tab-home .select-order {
+  justify-content: flex-end;
+  align-items: stretch;
+}
+.mainCpIncentivesCompanyCol .tab-home .select-order p {
+  background-color: #ffffff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-bottom: 0px;
+  margin-right: -5px;
+}
+.mainCpIncentivesCompanyCol .tab-home .select-order select {
+  border-color: transparent !important;
+  width: 200px;
 }
 
+/* Animaciones  */
 @-webkit-keyframes bounce {
   0%, 20%, 53%, 80%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);

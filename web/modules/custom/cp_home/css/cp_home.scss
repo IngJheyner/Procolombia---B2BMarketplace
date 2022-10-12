@@ -50,16 +50,27 @@ div#block-matchmaking-pro-breadcrumbs {
   display: none;
 }
 .mainCpIncentivesCompanyCol {
-
-  .ts-wrapper.multi.ts-control > div {
-    cursor: pointer;
-    margin: 0 7px 3px 0;
-    padding: 8px 12px;
-    background: #fff;
-    color: #303030;
-    border: 0px solid #d0d0d0;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 5px;
+  .ts-control {
+    border: 2px solid #d0d0d0 !important;
+    border-radius: 6px !important;
+    input {
+      font-size: 18px;
+      height: 33px;
+    }
+  }
+  .ts-wrapper.multi .ts-control > div {
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+    border-radius: 4px;
+    padding: 0.6rem 0rem 0.6rem 0.6rem !important;
+    margin: 0 9px 7px 0 !important;
+    font-size: 1rem;
+  }
+  .ts-wrapper.plugin-remove_button .item .remove {
+    font-size: 20px;
+    font-family: monospace;
+    color: $color-Pantone-200;
+    background-color: transparent !important;
   }
 
   .leftandin {
@@ -140,6 +151,67 @@ div#block-matchmaking-pro-breadcrumbs {
     display: flex !important;
     opacity: 1;
   }
+  .box {
+    overflow: hidden;
+    border-radius: 14px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: $color-White;
+
+    i {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      padding: 10px;
+      background: white;
+      border-bottom-left-radius: 5px;
+    }
+
+    .box-header {
+      width: 100%;
+      height: 170px;
+      background: #ccc;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .box-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 14px 20px;
+    }
+
+    .box-body {
+      h4 {
+        font-size: 20px;
+        font-family: "Gothic-Bold";
+        color: $color-Gris-Oscuro;
+        word-break: break-all;
+      }
+
+      p {
+        font-size: 14px;
+        margin-bottom: 0px;
+        font-family: "Gothic-bold";
+      }
+      button {
+        font-size: 13px;
+        border-radius: 100px;
+        border: none;
+        color: #000;
+        background: #fff;
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 4px 16px;
+      }
+    }
+  }
+
   .slider {
     background-size: cover;
     height: 700px;
@@ -155,10 +227,98 @@ div#block-matchmaking-pro-breadcrumbs {
   .tittle-search-home {
     font-family: $font-bold;
     color: $color-Pantone-116-C;
-    font-size: 1.8rem;
-  
+    font-size: 2.1rem;
+  }
+  .first-search {
+    label {
+      font-size: 1.3rem;
+      color: $color-Pantone-process-Blue;
+      font-family: $font-bold;
+    }
+    button {
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      background: $color-Pantone-Y;
+      font-family: $font-bold;
+      padding: 6px 10px;
+    }
+    span {
+      color: #a2a6aa;
+      font-size: 16px;
+      margin: 4px;
+    }
+    .seaech-buttom {
+      button {
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        background: $color-White;
+        font-family: $font-bold;
+        padding: 7px 48px;
+        box-shadow: 0px 3px 6px #00000029;
+        color: $color-Pantone-116-C;
+      }
+    }
+    .search-product-contact {
+      .ts-control {
+        border: 1px solid transparent !important;
+        border-bottom: 1px solid $color-Pantone-process-Blue !important;
+        border-radius: 0px !important;
+        background: transparent !important;
+        height: 37px;
+        .item {
+          font-size: 19px;
+          font-family: "Gothic-Bold";
+        }
+        input {
+          display: none !important;
+        }
+      }
+    }
+  }
+  .search-bar {
+    .btn-sh {
+      width: 120px;
+      height: 37px;
+      background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box;
+      border-radius: 4px;
+      opacity: 1;
+      border: 0px;
+      color: #fff;
+      margin-left: 4px;
+    }
+  }
+  .tab-home {
+    text-align: center;
+    .tittle {
+      font-size: 2.3rem;
+      font-family: $font-bold;
+      color: $color-Pantone-116-C;
+      margin-bottom: 0px;
+    }
+    .select-order {
+      justify-content: flex-end;
+      align-items: stretch;
+      p {
+        background-color: $color-White;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        margin-bottom: 0px;
+        margin-right: -5px;
+      }
+      select {
+        border-color: transparent !important;
+        width: 200px;
+      }
+    }
   }
 }
+
+/* Animaciones  */
 
 @-webkit-keyframes bounce {
   0%,

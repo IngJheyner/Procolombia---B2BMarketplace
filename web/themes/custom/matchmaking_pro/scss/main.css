@@ -496,7 +496,7 @@
   padding: 9px !important;
   height: 200vh;
   width: 400px;
-  z-index: 2;
+  z-index: 8;
   padding-left: 1.8rem;
   padding-right: 0.5rem;
   padding-bottom: 1.8rem;
@@ -843,7 +843,7 @@ div#page {
 
 .topnav {
   position: relative;
-  z-index: 44;
+  z-index: 6;
 }
 .topnav .contec {
   display: none;

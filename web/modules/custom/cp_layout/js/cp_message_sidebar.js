@@ -82,9 +82,9 @@
     console.log("renderChatList")
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="bg-white" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+      <li id="conversation0" class="">
         <div class="d-flex" id="chat">
-          <div class="chat-user-img online align-self-center me-3 ms-0">
+          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
           ${chat.company_logo ? `
             <img
               src="${chat.company_logo}"
@@ -96,18 +96,26 @@
             </div>`
         }
           </div>
-          <div class="flex-grow-1 overflow-hidden text-msg">
+          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
             <span class="chat-user-name text-truncate mb-0"><strong>Nombre del contacto:</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
-            <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list_side_bar-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
-            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChatSideBar-${id_other_user}">Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
+            <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
+            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
           </div>
-          <div class="time"><span> ${showDateOrTime(chat.updated)}</span></div>
+          <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
            <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 6px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
-              <i class="bx bx-dots-horizontal-rounded"></i>
+              <div class="align-self-start dropdown show">
+                  <a onclick="showDropdownListSideBar(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
+                  <i class="bx bx-dots-horizontal-rounded"></i>
+                  </a>
+                  <div tabindex="-1" id="dropdown-list-${chat.id}" role="menu" aria-hidden="false" class="dropdown-menu" style="position: absolute;will-change: transform;top: 16px;min-width: 28px;left: -70px;" x-placement="top-start">
+                    <button onclick="deleteChatSideBar(${chat.id}, '${chat.first_name + " " + chat.last_name}', '${chat.company_name}')"  type="button" tabindex="0" role="menuitem" class="dropdown-item">Eliminar <i class='bx bx-trash'></i></button>
+                  </div>
+              </div>
             </span>
+            
            </div>
           </div>
       </li>
@@ -122,6 +130,34 @@
       $('#count-message').hide(countNewMessages);
     }
     $('#chat-list-sidebar').html(html);
+  }
+
+  const deleteChatApi = (chat_id) => {
+    //form data
+    let formData = new FormData();
+    formData.append('id_chat', chat_id);
+
+    //fetch
+    fetch('/chat/delete_chat', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.status == 'ok') {
+          //hide modal
+          socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: true }] });
+          $('#modal-delete-sidebar').modal('hide');
+          //fetch chat
+          getListOfChats(0, 15);
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(error => {
+        alert(error);
+      });
   }
 
   // **********************
@@ -213,6 +249,7 @@
         $('#read_side_bar').removeClass('active');
         $('#delete_side_bar').addClass('active');
       });
+      
       //check if length of search-message is bigger than 3 and delay 300ms
       $('#search-message_side_bar', context).on('input', function () {
         if (this.value.length >= 3) {
@@ -227,6 +264,34 @@
           }
         }
       });
+
+      //toggle class show of dropdown-list
+      window.showDropdownListSideBar = function (id) {
+        //remove all show class
+        $('.dropdown-menu').removeClass('show');
+        $(`#dropdown-list-${id}`).toggleClass('show');
+      }
+
+      //put class show of dropdown-list if click outside or click in other dropdown-list
+      $(document).on('click', function (e) {
+        if (!$(e.target).closest('.dropdown-list').length) {
+          $('.dropdown-menu').removeClass('show');
+        }
+      });
+
+      //function to delete
+      window.deleteChatSideBar = function (id, fullName, companyName) {
+        //show modal delete and put onclick function in delete-chat
+        $('#modal-chat-name-sidebar').text(fullName);
+        $('#modal-chat-empresa-sidebar').text(companyName);
+        $('#modal-chat-header-empresa-sidebar').text(companyName);
+        $('#modal-delete-sidebar').modal('show');
+        $('#delete-chat-sidebar').attr('onclick', `deleteActionButtonSideBar(${id})`);
+      };
+
+      window.deleteActionButtonSideBar = function (id) {
+        deleteChatApi(id);
+      };
     }
   };
 
