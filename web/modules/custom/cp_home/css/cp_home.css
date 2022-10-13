@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: Maven-Medium;
   src: url("../font/MavenPro-Medium.ttf");
@@ -28,6 +29,11 @@ div#block-matchmaking-pro-breadcrumbs {
   /* for Animations : */
   /* for JS : */
 }
+.mainCpIncentivesCompanyCol .col-lg-24 {
+  flex: 0 0 auto;
+  width: 18.66667%;
+  padding: 10px;
+}
 .mainCpIncentivesCompanyCol .ts-control {
   border: 2px solid #d0d0d0 !important;
   border-radius: 6px !important;
@@ -49,6 +55,59 @@ div#block-matchmaking-pro-breadcrumbs {
   font-family: monospace;
   color: #ba0c2f;
   background-color: transparent !important;
+}
+.mainCpIncentivesCompanyCol .more-btn {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  margin: 32px 0px 13px;
+  padding: 9px 19px;
+  font-size: 16px;
+  border: none;
+  background-color: #ffffff;
+  color: #005ca4;
+  font-family: Gothic-Bold;
+}
+.mainCpIncentivesCompanyCol .slider-global:hover .btn-next-icon {
+  right: 1rem;
+}
+.mainCpIncentivesCompanyCol .slider-global:hover .btn-prev-icon {
+  left: 1rem;
+}
+.mainCpIncentivesCompanyCol .btn-next-icon {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  right: -5rem;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.mainCpIncentivesCompanyCol .btn-next-icon i {
+  color: #fff;
+  background: #005ca4;
+  border-radius: 100px;
+  padding: 2px;
+}
+.mainCpIncentivesCompanyCol .btn-prev-icon {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  left: -5rem;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.mainCpIncentivesCompanyCol .btn-prev-icon i {
+  color: #fff;
+  background: #005ca4;
+  border-radius: 100px;
+  padding: 2px;
 }
 .mainCpIncentivesCompanyCol .leftandin {
   width: 100%;
@@ -88,6 +147,16 @@ div#block-matchmaking-pro-breadcrumbs {
   position: relative;
   z-index: 1;
   width: 39em;
+}
+.mainCpIncentivesCompanyCol .slider-tab .swiper-slide {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+.mainCpIncentivesCompanyCol .slider-tab .tab {
+  background: rgba(204, 204, 204, 0.2);
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
 }
 .mainCpIncentivesCompanyCol .outer-left .cta:hover {
   -webkit-backface-visibility: hidden;
@@ -150,7 +219,7 @@ div#block-matchmaking-pro-breadcrumbs {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 14px 20px;
+  padding: 25px 20px;
 }
 .mainCpIncentivesCompanyCol .box .box-body h4 {
   font-size: 20px;
@@ -164,7 +233,7 @@ div#block-matchmaking-pro-breadcrumbs {
   font-family: "Gothic-bold";
 }
 .mainCpIncentivesCompanyCol .box .box-body button {
-  font-size: 13px;
+  font-size: 14px;
   border-radius: 100px;
   border: none;
   color: #000;
@@ -231,8 +300,7 @@ div#block-matchmaking-pro-breadcrumbs {
   display: none !important;
 }
 .mainCpIncentivesCompanyCol .search-bar .btn-sh {
-  width: 120px;
-  height: 37px;
+  padding: 0.3rem 1.7rem;
   background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box;
   border-radius: 4px;
   opacity: 1;
@@ -266,6 +334,359 @@ div#block-matchmaking-pro-breadcrumbs {
 .mainCpIncentivesCompanyCol .tab-home .select-order select {
   border-color: transparent !important;
   width: 200px;
+}
+.mainCpIncentivesCompanyCol .more-item {
+  color: #005ca4;
+}
+.mainCpIncentivesCompanyCol .more-item a {
+  text-decoration: underline !important;
+  font-family: "Gothic-Bold";
+  padding: 1rem 1rem !important;
+}
+.mainCpIncentivesCompanyCol .swiper {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.mainCpIncentivesCompanyCol .icon-noticie {
+  width: 70px;
+  height: 70px;
+  background: #0085ca 0% 0% no-repeat padding-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+}
+.mainCpIncentivesCompanyCol .slider-noticie .swiper {
+  width: 100%;
+  height: 100%;
+}
+.mainCpIncentivesCompanyCol .background-opacity {
+  position: relative;
+}
+.mainCpIncentivesCompanyCol .background-opacity .z-index-2 {
+  z-index: 2;
+}
+.mainCpIncentivesCompanyCol .font-maven {
+  font-family: Maven-Regular, sans-serif;
+}
+.mainCpIncentivesCompanyCol .card-notice {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  margin: 20px 0px;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-img {
+  width: 100%;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  -o-object-position: left;
+     object-position: left;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-img .card-notice-img-tags {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-img .card-notice-img-tags .card-notice-img-tags-text.blue {
+  background-color: #005ca4;
+  color: #ffffff;
+  padding: 9px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-img .card-notice-img-tags .card-notice-img-tags-text.yellow {
+  background-color: #fdca00;
+  color: #3b3d42;
+  padding: 9px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-content {
+  padding: 20px;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-content .card-notice-title h3 {
+  font-size: 20px;
+  font-family: "Gothic-Bold";
+  color: #3b3d42;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-content .card-notice-date {
+  text-align: end;
+  font-size: 13px;
+  font-family: Gothic-Regular;
+  color: #005ca4;
+  margin-bottom: 0px;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-content Ï .card-noticie-categorie p {
+  font-family: Gothic-Regular;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.mainCpIncentivesCompanyCol .card-notice .card-notice-content .card-notice-text p {
+  font-family: Gothic-Regular;
+  font-size: 14px;
+  color: #3b3d42;
+  margin-bottom: 0px;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  opacity: 1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px;
+  height: 245px;
+  position: relative;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .card-notice-glass-date {
+  text-align: end;
+  font-size: 13px;
+  font-family: Gothic-Regular;
+  color: #fdca00;
+  margin-bottom: 0px;
+  font-style: italic;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .card-noticie-glass-autor-img {
+  border-radius: 100px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .card-noticie-glass-autor-img .icon {
+  width: 47px;
+  height: 47px;
+  background-color: #ffffff;
+  border-radius: 100px;
+  padding: 10px;
+  border: 2px solid #005ca4;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .card-noticie-glass-autor-img strong {
+  font-family: Gothic-Bold;
+  font-size: 22px;
+  color: #fdca00;
+  margin-left: 9px;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .card-noticie-glass-description {
+  padding: 11px 0px;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .card-noticie-glass-description p {
+  font-family: Gothic-Regular;
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 0px;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .tag {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .tag .tag-red {
+  background-color: #ba0c2f;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .tag .tag-blue {
+  background-color: #005ca4;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.mainCpIncentivesCompanyCol .card-notice-glass .tag .tag-yellow {
+  background-color: #fdca00;
+  color: #000000;
+  padding: 4px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.mainCpIncentivesCompanyCol .icon-event {
+  width: 70px;
+  height: 70px;
+  background: #0085ca 0% 0% no-repeat padding-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+}
+.mainCpIncentivesCompanyCol .contact-title {
+  height: 235px;
+  width: 575px;
+  padding: 20px;
+  position: relative;
+  z-index: 0;
+}
+.mainCpIncentivesCompanyCol .contact-title::before {
+  content: "";
+  display: block;
+  background: url(http://52.201.168.42/sites/default/files/matchmaking/images/internal/Trazado%203573.png);
+  background-repeat: no-repeat;
+  background-size: 575px 235px;
+  opacity: 0.4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.mainCpIncentivesCompanyCol .contact-title .tittle {
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  font-family: Maven-Regular;
+  color: #ffffff;
+}
+.mainCpIncentivesCompanyCol .contact-title .tittle p {
+  margin-left: 10px;
+}
+.mainCpIncentivesCompanyCol .contact-title button {
+  padding: 0.5rem 1.7rem;
+  background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  opacity: 1;
+  border: 0px;
+  color: #fff;
+  margin-left: 4px;
+}
+.mainCpIncentivesCompanyCol .event-card {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  margin: 20px 0px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-img {
+  width: 38%;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+}
+.mainCpIncentivesCompanyCol .event-card .event-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  -o-object-position: center;
+     object-position: center;
+}
+.mainCpIncentivesCompanyCol .event-card .event-img .card-notice-img-tags {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+.mainCpIncentivesCompanyCol .event-card .event-img .card-notice-img-tags .card-notice-img-tags-text.blue {
+  background-color: #005ca4;
+  color: #ffffff;
+  padding: 9px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-img .card-notice-img-tags .card-notice-img-tags-text.yellow {
+  background-color: #fdca00;
+  color: #3b3d42;
+  padding: 9px 12px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  margin: 0px 5px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content {
+  padding: 20px;
+  width: 60%;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .event-title p {
+  font-size: 20px;
+  font-family: "Gothic-Bold";
+  color: #3b3d42;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .event-categorie {
+  text-align: end;
+  font-size: 13px;
+  font-family: Gothic-Regular;
+  color: #005ca4;
+  margin-bottom: 0px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .event-categorie p {
+  margin-bottom: 4px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content Ï .card-noticie-categorie p {
+  font-family: Gothic-Regular;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .event-desc {
+  margin-top: 3rem;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .item .desc-img {
+  border-right: 1px solid #cccccc;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .item .desc-img svg {
+  width: 23px;
+  height: 23px;
+  margin-right: 10px;
+}
+.mainCpIncentivesCompanyCol .event-card .event-content .item p {
+  font-size: 15px;
+  font-family: Gothic-Regular;
+  color: #3b3d42;
+  margin-bottom: 0px;
+  vertical-align: middle;
+  padding-left: 5px;
 }
 
 /* Animaciones  */

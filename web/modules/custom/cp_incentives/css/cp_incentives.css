@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: Maven-Medium;
   src: url("../font/MavenPro-Medium.ttf");
@@ -20,175 +19,271 @@
   src: url("../font/Century-Gothic-Bold.otf");
 }
 /* Font/text values */
-table.dataTable td {
-  font-family: Gothic-Regular;
-  font-size: 14px;
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
+.input-group {
+  margin: 20px 0px;
 }
-table.dataTable td img {
+.input-group .form-control {
+  border-right: none;
+}
+.input-group .input-group-text {
+  background: #f0f0f0;
+  padding: 0px 30px !important;
+  height: 40px !important;
+}
+
+.card-incentives {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.card-incentives .back-button button {
+  background-color: #0085ca;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-family: Gothic-Regular;
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.card-incentives .back-button button:hover {
+  background-color: #005ca4;
+}
+.card-incentives .back-button button span {
+  margin-left: 0.5rem;
+}
+.card-incentives .incentive-image {
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+.card-incentives .incentive-image svg {
   width: 30px;
   height: 30px;
 }
-table.dataTable td a img {
-  width: 26px;
-  height: 26px;
+.card-incentives .incentive-image p {
+  font-family: Gothic-Bold;
+  font-size: 17px;
+  color: #000000;
+  margin-left: 0.5rem;
+  margin-bottom: 0px;
 }
-table.dataTable th {
-  min-width: 124px !important;
-  font-size: 14px;
+.card-incentives .incentive-description,
+.card-incentives .incentive-status {
+  width: 406px;
+}
+.card-incentives th {
+  font-size: 18px;
+  border-bottom: 1px solid #d8dadd;
   font-family: "Gothic-Bold";
+  color: #005ca4;
+  padding-bottom: 8px;
 }
-table.dataTable th:first-child::before {
-  display: none !important;
+.card-incentives tr:last-child {
+  border-bottom: 1px solid #d8dadd;
 }
-table.dataTable th:first-child::after {
-  display: none !important;
+.card-incentives .button-table {
+  text-align: end;
+  padding: 20px 0px 0px;
 }
-table.dataTable td.dt-control {
+.card-incentives .button-table .btn-satatus {
+  background: #f0f0f0 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-family: Gothic-Bold;
+  margin-right: 10px;
+}
+.card-incentives .button-table .btn-edit {
+  background: #005ca4;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-family: Gothic-Bold;
+  color: #ffffff;
+}
+
+.card-table-incentive {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 4px;
+  background-color: #ffffff;
+  margin: 36px 12px 12px;
+  padding: 2rem;
+}
+.card-table-incentive table .tittle-table {
+  font-family: Gothic-Bold;
+  font-size: 20px;
+  color: #005ca4;
+  margin-bottom: 0px;
+  width: 600px;
+}
+.card-table-incentive table .status {
   text-align: center;
+}
+.card-table-incentive table .status svg {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 7px !important;
+}
+.card-table-incentive table .status p {
+  font-family: Gothic-Bold;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+.card-table-incentive table .status .checkbox label {
+  display: block;
+  font-size: 14px;
   cursor: pointer;
+  margin: 0;
 }
-table.dataTable td.dt-control:before {
-  height: 1em;
-  width: 1em;
-  margin-top: -9px;
-  display: inline-block;
-  color: white;
-  border: 0.15em solid white;
-  border-radius: 1em;
-  box-shadow: 0 0 0.2em #444;
-  box-sizing: content-box;
-  text-align: center;
-  text-indent: 0 !important;
-  font-family: "Courier New", Courier, monospace;
-  line-height: 1em;
-  content: "+";
-  background-color: #31b131;
+.card-table-incentive table .status .options input {
+  opacity: 0;
 }
-table.dataTable tr.dt-hasChild td.dt-control:before {
-  content: "-";
-  background-color: #d33333;
+.card-table-incentive table .status .checkmark {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 50%;
 }
-table.dataTable thead > tr > th.sorting, table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting_asc_disabled, table.dataTable thead > tr > th.sorting_desc_disabled {
-  cursor: pointer;
+.card-table-incentive table .status .options input:checked ~ .checkmark:after {
+  display: block;
+}
+.card-table-incentive table .status .options .checkmark:after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  display: block;
+  background: white;
+  position: absolute;
+  top: 52%;
+  left: 51%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 300ms ease-in-out 0s;
+}
+.card-table-incentive table .status .tick {
+  display: block;
   position: relative;
-  padding-right: 26px;
-}
-table.dataTable thead > tr > td.sorting, table.dataTable thead > tr > td.sorting_asc, table.dataTable thead > tr > td.sorting_desc, table.dataTable thead > tr > td.sorting_asc_disabled, table.dataTable thead > tr > td.sorting_desc_disabled {
+  padding-left: 23px;
   cursor: pointer;
-  position: relative;
-  padding-right: 26px;
+  font-size: 16px;
+  margin: 5px 0px;
 }
-table.dataTable thead > tr > th.sorting:before, table.dataTable thead > tr > th.sorting:after {
+.card-table-incentive table .status .tick input {
   position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
-table.dataTable thead > tr > th.sorting_asc:before, table.dataTable thead > tr > th.sorting_asc:after {
+.card-table-incentive table .status .check {
   position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 1px solid #005ca4;
+  border-radius: 3px;
+  margin: 0 auto;
 }
-table.dataTable thead > tr > th.sorting_desc:before, table.dataTable thead > tr > th.sorting_desc:after {
+.card-table-incentive table .status .tick:hover input ~ .check {
+  background-color: #f3f3f3;
+}
+.card-table-incentive table .status .tick input:checked ~ .check {
+  background-color: #31d394;
+  border-color: #31d394;
+}
+.card-table-incentive table .status .check:after {
+  content: "";
   position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > th.sorting_asc_disabled:before, table.dataTable thead > tr > th.sorting_asc_disabled:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > th.sorting_desc_disabled:before, table.dataTable thead > tr > th.sorting_desc_disabled:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > td.sorting:before, table.dataTable thead > tr > td.sorting:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > td.sorting_asc:before, table.dataTable thead > tr > td.sorting_asc:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > td.sorting_desc:before, table.dataTable thead > tr > td.sorting_desc:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > td.sorting_asc_disabled:before, table.dataTable thead > tr > td.sorting_asc_disabled:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > td.sorting_desc_disabled:before, table.dataTable thead > tr > td.sorting_desc_disabled:after {
-  position: absolute;
-  display: block;
-  opacity: 0.125;
-  right: 10px;
-  line-height: 9px;
-  font-size: 0.9em;
-}
-table.dataTable thead > tr > th.sorting:before, table.dataTable thead > tr > th.sorting_asc:before, table.dataTable thead > tr > th.sorting_desc:before, table.dataTable thead > tr > th.sorting_asc_disabled:before, table.dataTable thead > tr > th.sorting_desc_disabled:before {
-  bottom: 50%;
-  content: "▴";
-}
-table.dataTable thead > tr > td.sorting:before, table.dataTable thead > tr > td.sorting_asc:before, table.dataTable thead > tr > td.sorting_desc:before, table.dataTable thead > tr > td.sorting_asc_disabled:before, table.dataTable thead > tr > td.sorting_desc_disabled:before {
-  bottom: 50%;
-  content: "▴";
-}
-table.dataTable thead > tr > th.sorting:after, table.dataTable thead > tr > th.sorting_asc:after, table.dataTable thead > tr > th.sorting_desc:after, table.dataTable thead > tr > th.sorting_asc_disabled:after, table.dataTable thead > tr > th.sorting_desc_disabled:after {
-  top: 50%;
-  content: "▾";
-}
-table.dataTable thead > tr > td.sorting:after, table.dataTable thead > tr > td.sorting_asc:after, table.dataTable thead > tr > td.sorting_desc:after, table.dataTable thead > tr > td.sorting_asc_disabled:after, table.dataTable thead > tr > td.sorting_desc_disabled:after {
-  top: 50%;
-  content: "▾";
-}
-table.dataTable thead > tr > th.sorting_asc:before, table.dataTable thead > tr > th.sorting_desc:after {
-  opacity: 0.6;
-}
-table.dataTable thead > tr > td.sorting_asc:before, table.dataTable thead > tr > td.sorting_desc:after {
-  opacity: 0.6;
-}
-table.dataTable thead > tr > th.sorting_desc_disabled:after, table.dataTable thead > tr > th.sorting_asc_disabled:before {
   display: none;
 }
-table.dataTable thead > tr > td.sorting_desc_disabled:after, table.dataTable thead > tr > td.sorting_asc_disabled:before {
+.card-table-incentive table .status .tick input:checked ~ .check:after {
+  display: block;
+  transform: rotate(45deg) scale(1);
+}
+.card-table-incentive table .status .tick .check:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg) scale(2);
+}
+.card-table-incentive table .status .swicher input[type=checkbox] {
   display: none;
 }
-table.dataTable thead > tr > th:active,
-table.dataTable thead > tr > td:active {
-  outline: none;
+.card-table-incentive table .status .swicher label {
+  cursor: pointer;
+  height: 0px;
+  position: relative;
+  width: 40px;
+  margin-left: 0.7rem;
+}
+.card-table-incentive table .status .swicher label::before {
+  background: rgb(0, 0, 0);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  content: "";
+  height: 16px;
+  margin-top: -8px;
+  position: absolute;
+  opacity: 0.3;
+  transition: all 0.4s ease-in-out;
+  width: 40px;
+  left: 0;
+}
+.card-table-incentive table .status .swicher label::after {
+  background: #0085ca !important;
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  content: "";
+  height: 24px;
+  left: -4px;
+  margin-top: -8px;
+  position: absolute;
+  top: -4px;
+  transition: all 0.3s ease-in-out;
+  width: 24px;
+}
+.card-table-incentive table .status .swicher input[type=checkbox]:checked + label::before {
+  background: inherit;
+  opacity: 0.5;
+  left: 0;
+}
+.card-table-incentive table .status .swicher input[type=checkbox]:checked + label::after {
+  background: inherit;
+  left: 20px;
+}
+.card-table-incentive table .option {
+  width: 73px;
+  vertical-align: bottom;
+  text-align: center;
+  font-family: Gothic-Bold;
+  font-size: 16px;
+  color: #000;
+  padding-bottom: 7px;
+}
+.card-table-incentive table tbody tr {
+  padding: 10px;
+  border-top: 1px solid #d8dadd;
+  border-bottom: 1px solid #d8dadd;
+  vertical-align: middle;
+}
+.card-table-incentive table tbody tr td {
+  padding: 11px 0px;
+}
+.card-table-incentive table tbody tr td p {
+  margin-bottom: 0px;
 }

@@ -1,0 +1,525 @@
+{{ attach_library('cp_incentives/cp_incentives') }}
+<section class="list-incentive">
+    <p>
+        {{ 'Testing translations 1'|t }}
+    </p>
+    <button id='update-all-status'>
+        UPDATEAR LOS STATUS
+    </button>
+    <div id="list-of-status" class='mainCpIncentivesAdviser'>
+        
+    </div>
+    
+    <div id="list-of-incentives" class='mainCpIncentivesAdviser'>
+        
+    </div>
+    
+    <button id="create-benefit">
+        CREATE BENEFIT
+    </button>
+    
+    <div id="benefit-modal" style="display:none; background-color:yellow;">
+        <p>
+        </p>
+        <label>Benefit description</label>
+        <input id='benefit-description'/>
+        <label>Benefit description in spanish</label>
+        <input id='benefit-description-spanish'/>
+    
+        <button id="save-benefit">
+            SAVE BENEFIT
+        </button>
+    
+    </div>
+    
+    <button id="create-status">
+        CREATE STATUS
+    </button>
+    
+    <button id="update-all-rel-status-benefits">
+        GUARDAR EDICIÓN
+    </button>
+    
+    <div id="form-incentive-status-rel">
+    </div>
+    
+    <div id="status-modal" style="display:none; background-color:pink;">
+        <label>Status name</label>
+        <input id='status-name'/>
+            </br>
+        <label>Status minimum points</label>
+        <input type="number" id='status-min-points'/>
+            </br>
+        <label>Status maximum points</label>
+        <input type="number" id='status-max-points' readonly/>
+            </br>
+        <label>Status image_src</label>
+        <input id='status-image-src'/>
+            </br>
+    
+        <button id="save-status">
+            SAVE STATUS
+        </button>
+    
+    </div>
+    
+    <div id='modalUpdateBenefit'
+        style="display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.75);
+            "
+        >
+        <button id='closeModalUpdateBenefit' type='button'>
+            X TO CLOSE
+        </button>
+        <button id='update-benefit-id' type='button' value=''>
+            
+        </button>
+        <p>DESCRIPTION IN ENGLISH</p>
+        <input id='update-benefit-description' value=''>
+        <p>DESCRIPTION IN SPANISH</p>
+        <input id='update-benefit-description-spanish' value=''>
+        <select id='update-benefit-state'>
+            <option value='0' >
+                {{ 'Inactive'|t }}
+            </option>
+            <option value='1' >
+                {{ 'Active'|t }}
+            </option>
+        </select>
+        <button id='updateBenefit' type='button'>
+            UPDATE
+        </button>
+    </div>
+
+    <div style="padding: 1rem 4rem;">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="card-incentives p-4">
+                    <div class="back-button">
+                        <button>
+                            <i class='bx bx-arrow-back'></i>
+                            <span class="back-text">
+                                {{ 'Back'|t }}
+                            </span>
+                        </button>
+                    </div>
+                    <div class="card-incentives-body">
+                        <div class="table-incentives">
+                            <table class="w-100 mt-5">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Clasificación
+                                        </th>
+                                        <th>
+                                            Puntos mínimos
+                                        </th>
+                                        <th>
+                                            Puntos máximos
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="incentive-image">
+                                                    <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
+                                                        <linearGradient id="gradient_mobile">
+                                                           <stop class="main-stop" offset="0%"/>
+                                                           <stop class="alt-stop" offset="100%"/>
+                                                        </linearGradient>
+                                                        <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient_mobile)"/>
+                                                     </svg>
+                                                     <p>STATUS GOLD</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="incentive-description">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="incentive-status">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="incentive-image">
+                                                    <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
+                                                        <linearGradient id="silver">
+                                                           <stop style="stop-color: #F4F4F4;" offset="0%"/>
+                                                           <stop style="stop-color: #A1A5AA;" offset="100%"/>
+                                                        </linearGradient>
+                                                        <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#silver)"/>
+                                                     </svg>
+                                                     <p>STATUS SILVER</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="incentive-description">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="incentive-status">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="incentive-image">
+                                                    <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
+                                                        <linearGradient id="bronze">
+                                                            <stop style="stop-color: #CD7F32;" offset="0%"/>
+                                                            <stop style="stop-color: #8E402A;" offset="100%"/>
+                                                        </linearGradient>
+                                                        <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#bronze)"/>
+                                                     </svg>
+                                                     <p>STATUS BRONZE</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="incentive-description">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="incentive-status">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="button-table">
+                            <button type="button" class="btn-satatus">Crear nuevo status</button>
+                            <button type="button" class="btn-edit">Guardar edición</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+        <div class="card-table-incentive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 60%;">
+                        <p class="tittle-table">
+                            BENEFICIOS SEGÚN LA CLASIFICACIÓN DE STATUS ALIADO PROCOLOMBIA
+                        </p>
+                    </th>
+                    <th class="status" style="width: 200px"> 
+                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
+                            <linearGradient id="bronze">
+                                <stop style="stop-color: #CD7F32;" offset="0%"/>
+                                <stop style="stop-color: #8E402A;" offset="100%"/>
+                            </linearGradient>
+                            <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#bronze)"/>
+                         </svg>
+                         <p>STATUS BRONZE</p>
+                    </th>
+                    <th class="status" style="width: 200px"> 
+                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
+                            <linearGradient id="silver">
+                               <stop style="stop-color: #F4F4F4;" offset="0%"/>
+                               <stop style="stop-color: #A1A5AA;" offset="100%"/>
+                            </linearGradient>
+                            <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#silver)"/>
+                         </svg>
+                         <p>STATUS SILVER</p>
+                    </th>
+                    <th class="status" style="width: 200px"> 
+                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
+                            <linearGradient id="gradient_mobile">
+                               <stop class="main-stop" offset="0%"/>
+                               <stop class="alt-stop" offset="100%"/>
+                            </linearGradient>
+                            <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient_mobile)"/>
+                         </svg>
+                         <p>STATUS GOLD</p>
+                    </th>
+                    <th class="option">
+                        Estado
+                    </th>
+                    <th class="option">
+                        Editar
+                    </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>
+                                Participación en Macrorruedas ProColombia.
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                          <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Acceso a alianza logísticas de transporte
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                           <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Acceso al Portal de Formación Exportadores
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                           <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Participación en seminarios y capacitaciones
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                           <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Capacitaciones ProColombia
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                           <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Se aliado Gold, el máximo nivel, y disfruta de beneficios únicos
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                           <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Se aliado Gold, el máximo nivel, y disfruta de beneficios únicos
+                            </p>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                            <label class="tick">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </td>
+                        <td class="status">
+                           <div class="swicher">
+                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
+						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          </div>
+                        </td>
+                        <td class="status">
+                            <img src="" alt="" srcset="">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

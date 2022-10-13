@@ -17,3 +17,283 @@ msgstr "Probando traducciones 1"
 
 msgid "Testing translations 2"
 msgstr "Probando traducciones 2"
+
+msgid "Incentive plan points administration"
+msgstr "Administración de puntos para el plan de incentivos"
+
+msgid "Parameterization Incentive Plan"
+msgstr "Parametrización Pan de incentivos"
+
+msgid "Variables / Characteristics"
+msgstr "Variables / Características"
+
+msgid "Business rule description"
+msgstr "Descripción de la regla de negocio"
+
+msgid "Business rule"
+msgstr "Regla de negocio"
+
+msgid "Instruction"
+msgstr "Instrucción"
+
+msgid "Points distribution"
+msgstr "Distribución de puntos"
+
+msgid "Total points"
+msgstr "Puntos totales"
+
+msgid "Expiration time"
+msgstr "Tiempo de expiración"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Response time in chat"
+msgstr "Tiempo de respuesta en el chat"
+
+msgid "Business rule must be parameterizable, based on the response time in chat."
+msgstr "Debe ser parametrizable la regla de negocio, con base en el tiempo de respuesta en el chat."
+
+msgid "International buyer's qualification"
+msgstr "Calificación del comprador internacional"
+
+msgid "Business rule must be parameterizable, with the star rating given by the international buyer (average rating)."
+msgstr "Debe ser parametrizable la regla de negocio, con la calificación por estrellas dada por el comprador internacional (calificación promedio)."
+
+msgid "View's of product or service"
+msgstr "Número de visualizaciones de producto o servicio"
+
+msgid "Business rule must be parameterizable, according to the number of views of the product or service uploaded on the platform."
+msgstr "Debe ser parametrizable la regla de negocio, de acuerdo con el número de visualizaciones que tenga el producto o servicio cargado en la plataforma"
+
+msgid "Achievement report"
+msgstr "Reporte de logros"
+
+msgid 'You will accumulate points for each achievement reported and verified in CRM-Neo with the Status "Certified"'
+msgstr 'Acumulará puntos por cada logro reportado y verificado en el CRM-Neo con el Estado "Certificado".'
+
+msgid "Updating products or services"
+msgstr "Actualización productos o servicios"
+
+msgid "You will accumulate points for each product or service update in the system."
+msgstr "Acumulará puntos por cada actualización en el sistema de los productos o servicios."
+
+msgid "Company profile update"
+msgstr "Actualización perfil de empresa"
+
+msgid "You will accumulate points for each update in the company's profile."
+msgstr "Acumulará puntos por cada actualización en el perfil de la empresa."
+
+msgid "Referrals"
+msgstr "Referidos"
+
+msgid "You will accumulate points per referral on the platform, with the referral code."
+msgstr "Acumulará puntos por referido en la plataforma, con el código de referidos."
+
+msgid "Meeting Report"
+msgstr "Reporte de reunión"
+
+msgid "You will accumulate points per meeting reported on the platform in the dashboard of companies with interaction."
+msgstr "Acumulará puntos por reunión reportada en la plataforma en el dashboard de empresas con interacción."
+
+msgid "Sample shipment report"
+msgstr "Reporte de envío de muestra"
+
+msgid "You will accumulate points for reporting a sample shipment on the platform in the dashboard of companies with interaction."
+msgstr "Acumulará puntos por reportar un envío de muestra en la plataforma en el dashboard de empresas con interacción."
+
+msgid "Exportation Report"
+msgstr "Reporte de exportación"
+
+msgid "You will accumulate points for reporting an exportation on the platform in the dashboard of companies with interaction."
+msgstr "Acumulará puntos por reportar una exportación en la plataforma en el dashboard de empresas con interacción."
+
+msgid "Hours"
+msgstr "Horas"
+
+msgid "Points"
+msgstr "Puntos"
+
+msgid "Days"
+msgstr "Días"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Inactive"
+msgstr "Inactivo"
+
+msgid "Total items"
+msgstr "Total de ítems"
+
+msgid "Criteria edition"
+msgstr "Edición de criterio"
+
+msgid "Business Rule Description"
+msgstr "Descripción Regla de Negocio"
+
+msgid "Maximum of points"
+msgstr "Máximo de puntos"
+
+msgid "Business Rules"
+msgstr "Reglas de negocio"
+
+msgid "Minimum time"
+msgstr "Tiempo mínimo"
+
+msgid "Maximum time"
+msgstr "Tiempo máximo"
+
+msgid "Enter the number of points"
+msgstr "Ingrese el número de puntos"
+
+msgid "Points validity time"
+msgstr "Tiempo de vigencia de puntos"
+
+msgid "Time in days"
+msgstr "Tiempo en Días"
+
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+msgid "SAVE CHANGES"
+msgstr "GUARDAR CAMBIOS"
+
+msgid "Visualizations"
+msgstr "Visualizaciones"
+
+msgid "Stars"
+msgstr "Estrellas"
+
+msgid "Back to site"
+msgstr "Regresar al sitio"
+
+msgid "Classification"
+msgstr "Clasificación"
+
+msgid "Minimum points"
+msgstr "Puntos mínimos"
+
+msgid "Maximum points"
+msgstr "Puntos máximos"
+
+msgid "Create new status"
+msgstr "Crear nuevo status"
+
+msgid "Save edition"
+msgstr "Guardar edición"
+
+msgid "BENEFITS ACCORDING TO PROCOLOMBIA AFILIATE'S STATUS CLASSIFICATION"
+msgstr "BENEFICIOS SEGÚN LA CLASIFICACIÓN DE STATUS ALIADO PROCOLOMBIA"
+
+msgid "Participation in Macrorruedas ProColombia."
+msgstr "Participación en Macrorruedas ProColombia."
+
+msgid "Access to transportation logistics alliances."
+msgstr "Acceso a alianzas logísticas de transporte."
+
+msgid "Access to the Exporters Training Portal."
+msgstr "Acceso al Portal de Formación Exportadores."
+
+msgid "Participation in seminars and trainings."
+msgstr "Participación en seminarios y capacitaciones."
+
+msgid "ProColombia Training."
+msgstr "Capacitaciones ProColombia."
+
+msgid "Become a"
+msgstr "Se aliado"
+
+msgid "ally, the highest level, and enjoy unique benefits."
+msgstr ",el máximo nivel, y disfruta de beneficios únicos."
+
+msgid "Create new benefit"
+msgstr "Crear nuevo beneficio"
+
+msgid "Enter the description of the benefit, stipulate the type of status to which it applies and determine if it's active."
+msgstr "Ingrese la descripción del beneficio, estipule el tipo de status al cual aplica y determine si esttá en estado activo"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "to"
+msgstr "a"
+
+msgid "points"
+msgstr "puntos"
+
+msgid "Greater than"
+msgstr "Mayor a"
+
+msgid "LEARN HOW TO LEVEL UP"
+msgstr "CONOCE CÓMO SUBIR DE NIVEL"
+
+msgid "FEATURED PRODUCTS / SERVICES"
+msgstr "PRODUCTOS / SERVICIOS DESTACADOS"
+
+msgid "ProColombia recognizes you as a"
+msgstr "ProColombia lo reconoce en el"
+
+msgid " "
+msgstr "Nivel de aliado"
+
+msgid "ally"
+msgstr "."
+
+msgid "Here you can view your products / services at the platform."
+msgstr "Aquí podrá visualizar sus productos / servicios destacados en la plataforma."
+
+msgid "Invite other companys to participate in B2B ProColombia"
+msgstr "Invite a participar en el B2B ProColombia"
+
+msgid "Your reference code"
+msgstr "Su código de referencia"
+
+msgid "How it works?"
+msgstr "¿Cómo funciona?"
+
+
+msgid "Send your reference code to your contacts"
+msgstr "Envíe su código a otros contactos"
+
+msgid "Share your reference code. Your contacts will use it to register in the platform."
+msgstr "Comparta su código de referencia. Sus contactos utilizarán el link en el proceso de registro."
+
+msgid "Be rewared"
+msgstr "Sea premiado"
+
+msgid "When your contacts use your reference code, you will be rewarded and acknowledge with points to be a"
+msgstr "Cuando sus contactos utilicen su código de refierencia, usted será reconocido y beneficiado por medio de puntos para alcanzar el"
+
+msgid "Gold ally."
+msgstr "Nivel Aliado Gold."
+
+msgid "UNDERSTOOD"
+msgstr "ENTENDIDO"
+
+msgid "How to upgrade to ProColombia Ally Status?"
+msgstr "¿Cómo subir de nivel Status Aliado ProColombia?"
+
+msgid "Number of Points"
+msgstr "Número de Puntos"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "CREATE REFERENCE CODE"
+msgstr "CREAR CÓDIGO DE REFERIDO"
+
+msgid "The measurement must not be empty and have a higher value than 0"
+msgstr "La medida no puede estar vacía y debe tener un valor mayor a 0"
+
+msgid "The maximum points must have a higher value than the minimum points"
+msgstr "El puntaje máximo debe tener un valor mayor al puntaje mínimo"
+
+msgid "Testing translations 1"
+msgstr "Prueba de traducción 1"
+
+msgid "Save"
+msgstr "Guardar"

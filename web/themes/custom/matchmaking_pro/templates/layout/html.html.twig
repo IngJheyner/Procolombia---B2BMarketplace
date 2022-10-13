@@ -34,27 +34,26 @@ db_offline ? 'db-offline',
 %}
 <!DOCTYPE html>
 <html{{html_attributes}}>
-<head>
-   <head-placeholder token="{{ placeholder_token|raw }}">
-   <title>{{ head_title|safe_join(' | ') }}</title>
-   <css-placeholder token="{{ placeholder_token|raw }}">
-   <js-placeholder token="{{ placeholder_token|raw }}">
-   <!-- Boxicons CSS -->
-   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-   <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.1.0/dist/css/tom-select.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.1.0/dist/js/tom-select.complete.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <meta name="theme-color" content="#005CA4" />
-</head>
-<body{{attributes.addClass(body_classes)}}>
-<a href="#main-content" class="visually-hidden focusable skip-link">
-{{ 'Skip to main content'|t }}
-</a>
-{{ page_top }}
-{{ page }}
-{{ page_bottom }}
-<js-bottom-placeholder token="{{ placeholder_token|raw }}">
-
-</body>
-</html>
+	<head>
+		<head-placeholder token="{{ placeholder_token|raw }}">
+			<title>{{ head_title|safe_join(' | ') }}</title>
+			<css-placeholder token="{{ placeholder_token|raw }}">
+				<js-placeholder
+					token="{{ placeholder_token|raw }}">
+					<!-- Boxicons CSS -->
+					<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+					<script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+					<link href="https://cdn.jsdelivr.net/npm/tom-select@2.1.0/dist/css/tom-select.css" rel="stylesheet">
+					<script src="https://cdn.jsdelivr.net/npm/tom-select@2.1.0/dist/js/tom-select.complete.min.js"></script>
+					<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+					<meta name="theme-color" content="#005CA4"/>
+				</head>
+				<body{{attributes.addClass(body_classes)}}>
+					<a href="#main-content" class="visually-hidden focusable skip-link">
+						{{ 'Skip to main content'|t }}
+					</a>
+					{{ page_top }}
+					{{ page }}
+					{{ page_bottom }}
+					<js-bottom-placeholder token="{{ placeholder_token|raw }}"></body>
+				</html>
