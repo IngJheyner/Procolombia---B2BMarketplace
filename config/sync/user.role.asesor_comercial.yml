@@ -64,3 +64,4 @@ permissions:
   - 'view terms in partida_arancelaria'
   - 'view terms in sectors'
   - 'view terms in tags'
+  - 'view user email addresses'
