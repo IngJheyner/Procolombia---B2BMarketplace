@@ -155,6 +155,7 @@
             right: 0;
         }
     }
+    
     .js-form-item-field-categorization-parent.js-form-type-select.is-invalid{
         select{
             position: absolute;
@@ -169,7 +170,11 @@
             }    
         }
     }
-    
+    #edit-field-categorization {
+        height: 1px;
+        border: none;
+        visibility: hidden;
+    }
     #edit-field-partida-arancelaria-tax-wrapper{
         @include media-breakpoint-down(lg){
             position: relative;

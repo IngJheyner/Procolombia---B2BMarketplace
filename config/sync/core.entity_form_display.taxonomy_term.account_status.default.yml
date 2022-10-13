@@ -3,6 +3,7 @@ langcode: es
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.account_status.field_state_tag
     - field.field.taxonomy_term.account_status.field_status_color
     - taxonomy.vocabulary.account_status
   module:
@@ -17,6 +18,14 @@ content:
   description:
     type: text_textfield
     weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_state_tag:
+    type: string_textfield
+    weight: 102
     region: content
     settings:
       size: 60
