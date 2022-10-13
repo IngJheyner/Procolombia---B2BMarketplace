@@ -3935,9 +3935,9 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/asesor/editar/col?email={{ mail }}">Editar</a>'
-            make_link: false
-            path: ''
+            text: Editar
+            make_link: true
+            path: '/asesor/editar/col?email={{ mail }}'
             absolute: false
             external: false
             replace_spaces: false

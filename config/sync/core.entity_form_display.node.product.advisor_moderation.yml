@@ -163,6 +163,7 @@ third_party_settings:
         required_fields: true
     group_left_images:
       children:
+        - field_images
         - field_pr_image_1
         - field_pr_image_3
         - field_pr_image_5
@@ -334,6 +335,14 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  field_images:
+    type: image_image
+    weight: 9
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_partida_arancelaria_tax:
     type: options_select
     weight: 33
@@ -356,7 +365,7 @@ content:
     third_party_settings: {  }
   field_pr_image_1:
     type: image_image
-    weight: 6
+    weight: 10
     region: content
     settings:
       progress_indicator: throbber
@@ -372,7 +381,7 @@ content:
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 8
+    weight: 11
     region: content
     settings:
       progress_indicator: throbber
@@ -388,7 +397,7 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 9
+    weight: 12
     region: content
     settings:
       progress_indicator: throbber
@@ -436,14 +445,14 @@ content:
     third_party_settings: {  }
   field_pr_video_2:
     type: cp_core_video_embed_with_preview
-    weight: 37
+    weight: 38
     region: content
     settings:
       show_preview: '1'
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
-    weight: 36
+    weight: 37
     region: content
     settings:
       size: 60
@@ -483,7 +492,6 @@ hidden:
   field_exist_certifications: true
   field_export_markets: true
   field_iframe: true
-  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
