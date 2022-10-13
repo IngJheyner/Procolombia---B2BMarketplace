@@ -80,8 +80,10 @@
              }
             span{
                 font-size: 14px;
-
+                strong{
+                    font-weight: normal;
                 }
+            }
         }
         .modal-footer{
             justify-content: space-between;
@@ -211,6 +213,9 @@
                 padding-left: 20px;
                 span{
                     font-family: "Century Gothic";
+                    strong{
+                        font-weight: normal;
+                    }
                 }
                 
             }
@@ -365,6 +370,28 @@
                     width: 100%;
                 }
              }
+            }
+        }
+    }
+
+    &.edit-advise-modal{
+        .modal-content .modal-footer .modal-footer-right{
+            
+            .btn-ok{
+                @include gray-btn;
+                color: $procol-gray-400;
+                font-weight: normal;
+                border: 1px solid $procol-gray-400;
+                @include media-breakpoint-down(lg){
+                    border: none;
+                }
+            }
+            .btn-cancel{
+                order: -1;
+                @include blue-btn;
+                @include media-breakpoint-down(lg){
+                    height: 56px;                    
+                }
             }
         }
     }

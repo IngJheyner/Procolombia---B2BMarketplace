@@ -30,8 +30,8 @@
         .required-fields {
             padding: 0;
             h2{
+                font-family: $font-bold;
                 font-size: 20px;
-                font-weight: bold;
             }
         }
     }
@@ -137,6 +137,7 @@
                         &.field--name-field-body{
                             max-width: 568px;
                             p{
+                                font-family: "Century Gothic", $font-regular;
                                 padding: 10px 20px 0 0;
                             }
                         }
