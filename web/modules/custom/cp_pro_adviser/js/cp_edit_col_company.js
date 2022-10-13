@@ -283,21 +283,19 @@
                 $("#website").css("border-color", "#cccccc");
             }
         }
-
-        if (urlsite != "" || urlsite != null) {
-            if (!isUrl(urlsite)) {
-                message = Drupal.t("URL of companies with e-commerce crossboarder is not valid");
-                $("#url_crossboader_companies").css("border-color", "#ba0c2f");
-                $("#error_urlsite_message").text(message)
-                $("#error_urlsite").show();
-                $("#error_urlsite")
-                isValid = false;
-            } else {
-                $("#error_urlsite").hide();
-                $("#urlsite").css("border-color", "#cccccc");
-            }
+        if (!isUrl(urlsite)) {
+            message = Drupal.t("URL of companies with e-commerce crossboarder is not valid");
+            $("#url_crossboader_companies").css("border-color", "#ba0c2f");
+            $("#error_urlsite_message").text(message)
+            $("#error_urlsite").show();
+            $("#error_urlsite")
+            isValid = false;
+        } else {
+            $("#error_urlsite").hide();
+            $("#urlsite").css("border-color", "#cccccc");
         }
-            
+
+
 
 
         if (description_business_spanish == "") {
@@ -453,13 +451,13 @@
 
                 } else {
                     $("#question_modal").modal("hide");
-                    alert(Drupal.t("Error While Creating User: ")+ error);
+                    alert(Drupal.t("Error While Creating User: ") + error);
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
-                alert(Drupal.t("Error While Creating User: ")+ error);
+                alert(Drupal.t("Error While Creating User: ") + error);
             });
     }
 
@@ -631,8 +629,8 @@
         return isValid;
     }
 
-     //rejectUserExportador
-     function rejectUserExportador() {
+    //rejectUserExportador
+    function rejectUserExportador() {
         $("#loading_2").show();
         $("#reject").hide();
         var urlParams = new URLSearchParams(window.location.search);
@@ -704,12 +702,12 @@
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/col';
             } else {
-                alert(Drupal-t("Error approving user"));
+                alert(Drupal - t("Error approving user"));
             }
         }).catch(function (error) {
             $("#loading_3").hide();
             $("#modal_aproved_user_exportador").show();
-            alert(Drupal-t("Error approving user"));
+            alert(Drupal - t("Error approving user"));
         });
     }
 
@@ -756,7 +754,7 @@
                 }
             })
             .catch(function (error) {
-                alert("Error al obtener los datos"+ error);
+                alert("Error al obtener los datos" + error);
                 console.log(error);
             });
     }

@@ -1,7 +1,197 @@
+### TEMPLATE - DASHBOARD OF INCENTIVES FOR ADMINISTRATOR.
+cp_incentives.dashboard:
+  path: 'adviser/incentives/dashboard'
+  defaults:
+    _title: 'Incentives'
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::index'
+  requirements:
+    _permission: 'access content'
+
+### TEMPLATE - LIST OF ALL INCENTIVES - STATUS AND THEIR RELATIONSHIP.
+cp_incentives.incentives:
+  path: 'adviser/incentives/list'
+  defaults:
+    _title: 'Incentives list'
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::list'
+  requirements:
+    _permission: 'access content'
+
+### TEMPLATE - INCENTIVES FOR USER.
 cp_incentives.users:
   path: 'dashboard/col/user/incentives'
   defaults:
     _title: 'Incentive plan'
     _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::index'
+  requirements:
+    _permission: 'access content'
+
+### GET INCENTIVES.
+cp_incentives.get_incentives:
+  path: 'incentives/get_incentives'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getIncentives'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET STATUS.
+cp_incentives.get_status:
+  path: 'status/get_status'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getStatus'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET BENEFITS.
+cp_incentives.get_benefits:
+  path: 'benefits/get_benefits'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getBenefits'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+    
+### GET BENEFITS FOR USER.
+cp_incentives.get_incentive_plan:
+  path: 'user/get_benefits'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::getBenefitPlan'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### CREATE NEW INCENTIVE.
+cp_incentives.create_benefit:
+  path: 'adviser/incentives/create-benefit'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::createBenefit'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### CREATE NEW STATUS.
+cp_incentives.create_status:
+  path: 'adviser/incentives/create-status'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::createStatus'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+## UPDATE STATUS.
+cp_incentives.update_status:
+  path: 'adviser/incentives/update-all-status'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateAllStatus'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### UPDATE BENEFIT.
+cp_incentives.update_benefit:
+  path: 'adviser/incentives/update-benefit'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateBenefit'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### UPDATE BENEFIT - only status -.
+cp_incentives.update_benefit_status:
+  path: 'adviser/incentives/update-benefit-status'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateBenefitStatus'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET ALL CRIETRIAS.
+cp_incentives.get_criterias:
+  path: 'adviser/incentives/get-criterias'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getCriterias'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### UPDATE CRIETRIAS.
+cp_incentives.update_criteria:
+  path: 'adviser/incentives/update-criteria'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateCriteria'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET BUSINESS RULES.
+cp_incentives.get_business_rules:
+  path: 'adviser/incentives/get-business-rules'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getBusinessRules'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### UPDATE BUSINESS RULES.
+cp_incentives.update_business_rules_type1:
+  path: 'adviser/incentives/update-business-rules-type1'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateBusinessRulesType1'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+## UPDATE BUSINESS RULES.
+cp_incentives.update_business_rules_type1or2:
+  path: 'adviser/incentives/update-business-rules-type2'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateBusinessRulesType2'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### CREATE POINTS.
+cp_incentives.create_points:
+  path: 'functions/create-points'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpFunctionsController::createPoints'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET RELATION STATUS BENEFIT.
+cp_incentives.get_rel_status_benefit:
+  path: 'rel_status_benefits/get_rel_status_benefits'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getRelStatusBenefits'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### UPDATE RELATION STATUS BENEFIT.
+cp_incentives.update_rel_status_benefit:
+  path: 'adviser/incentives/update-rel-status-benefits'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateRelStatusBenefits'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### CREATE REFERENCE CODE.
+cp_incentives.create_reference_code:
+  path: 'user/create-reference-code'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::createReferenceCode'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET REFERENCE CODE.
+cp_incentives.get_reference_code:
+  path: 'user/get-reference-code'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::getReferenceCode'
+  methods:  [POST]
   requirements:
     _permission: 'access content'

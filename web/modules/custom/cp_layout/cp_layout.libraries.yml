@@ -1,5 +1,5 @@
 cp_layout:
-  version: VERSION
+  version: 5.0
   css:
     theme:
       css/cp_layout.css: {}

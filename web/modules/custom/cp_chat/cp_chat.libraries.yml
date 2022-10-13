@@ -1,5 +1,5 @@
 cp_chat:
-  version: VERSION
+  version: 4.5
   css:
     theme:
       css/cp_chat.css: {}
