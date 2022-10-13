@@ -1,14 +1,15 @@
 .generic-modal.modal,
 #modal-approve,
-#modal-reject {
-        top: 0;
-        right: 0;
-        opacity: 1;
-        p{
+#modal-reject,
+#generic-modal-edit-advise-modal {
+    top: 0;
+    right: 0;
+    opacity: 1;
+    p{
             font-family:"Century Gothic", $font-regular; 
             font-weight: normal;    
-        }
-        .modal-dialog{
+    }
+    .modal-dialog{
             display: flex;
             height: 100vh;
             margin-top: 0;
@@ -16,23 +17,33 @@
             .modal-content{
                 margin-top: auto;
             }
-        }
+    }
     .modal-content{
         @include modals-basic-style;
         .modal-header{
             padding: 20px;
             padding-left: 25px;
             position: relative;
-            .modal-header-title{
+            .modal-header-title,
+            #modal-approveLabel,
+            #modal-rejectLabel {
                 margin: auto;
                 font-size: 22px;
                 font-family: $font-bold-Century-Gothic;
                 padding-right: 20px;
                 @include media-breakpoint-down(sm) {
                     font-size: 18px;
-                 }
-            }
-            .modal-header-close{
+                 }                 
+            }   
+
+            #modal-approveLabel,
+            #modal-rejectLabel,
+            .modal-header-title{
+                margin-left: 15px;
+            }      
+
+            .modal-header-close,
+            .btn-close{
                 position: absolute;
                 color: transparent;
                 right: 14px;
@@ -73,6 +84,51 @@
                 }
         }
         .modal-footer{
+            justify-content: space-between;
+            padding-left: 25px;
+            background-color: $white;
+            .modal-footer-left,
+            p:nth-child(1){
+                font-weight: bold;
+                font-size: 14px;
+            }
+            .modal-footer-right{
+                display: flex;
+                gap: 20px;
+                @include media-breakpoint-down(lg){
+                    flex-direction: column;
+                }
+                .button.btn-cancel,
+                .btn-secondary{
+                    order: 2;
+                    background: $button-lighter-gray;
+                    color: $procol-gray-400;
+                    border: 1px solid $procol-gray-300;
+                    font-weight: 100;
+                    text-transform: uppercase;
+                    @include media-breakpoint-down(lg){
+                        border: none
+                    }
+                }
+                .button.btn-ok,
+                #btn-modal-approve,
+                #btn-modal-reject,
+                .btn-primary,
+                #btn-modal-reject{
+                    @include blue-btn;
+                    order: 1;
+                    padding: 10px 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 62px;
+                    text-transform: uppercase;
+                    @include media-breakpoint-down(lg){
+                        height: 56px;
+                    }
+                }
+            }
+
             @include media-breakpoint-down(sm) {
                 padding: 16px 12px;
             }
@@ -80,7 +136,8 @@
                 @include media-breakpoint-down(lg){
                     width: 100%;
                 }
-                a.button, button{
+                a.button, button,
+                a.btn-ok{
                     font-size: 14px;
                     line-height: 17px;
                     margin: 0;
@@ -99,8 +156,10 @@
             }
         }
     }
+      
+
     &#generic-modal-view-no-results.show,
-    &.view-no-results.ui-dialog.generic-modal {        
+    &.view-no-results.ui-dialog.generic-modal{        
         display: block;
         background-color: rgba(59, 61, 66, 0.5) !important;
         #drupal-modal{
@@ -155,7 +214,9 @@
                 }
                 
             }
-            .modal-footer-left{
+            .modal-footer{
+                justify-content: flex-end;
+                .modal-footer-left{
                 cursor: pointer;
                 @include blue-btn;
                 @include media-breakpoint-down(lg){
@@ -176,6 +237,7 @@
                     font-size: $font-size-sm;
                     text-transform: uppercase;
                 }
+                }
             }
             
             @include media-breakpoint-down(lg){
@@ -195,6 +257,7 @@
             position: relative;
             visibility: visible;
             border-radius: 5px 5px 0 0;
+            border: none;
             button.ui-button{
                 right: 0;
                 left: auto;
@@ -203,6 +266,8 @@
                 top: 15px;
                 right: 5px;
                 background-position: center;
+                border: none;
+                background-color: transparent;
             }
             span.ui-dialog-title{
                 font-weight: normal;
@@ -212,7 +277,7 @@
     //Estilos modal Header mensaje rojo
     &.cancel-confirm-question-modal,
     &.add-other-question-modal,
-    &#modal-reject{
+    &[aria-labelledby="modal-rejectLabel"]{
         background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-header{
             padding: 19px;
@@ -237,7 +302,10 @@
         
     }
     //Estilos modal Header mensaje azul
-    &.save-publish-question-modal{
+    &.save-publish-question-modal,
+    &#generic-modal-save-product-correct-modal,
+    &.edit-advise-modal,
+    &[aria-labelledby="modal-approveLabel"] {
         background-color:  rgba(59, 61, 66, 0.5);
         .modal-header{
             padding: 19px;
@@ -249,6 +317,7 @@
             }
         }
     }
+    
     &.legal-modal{
         top: 0;
         right: 0;
@@ -264,7 +333,6 @@
         }
         @include media-breakpoint-down(lg){
             .modal-header{
-
                 .modal-header-close{
                     height: 25px;
                     width: 25px;
@@ -300,57 +368,7 @@
             }
         }
     }
-    //Estilos modal footer
-    &.save-publish-question-modal,
-    &.cancel-confirm-question-modal,
-    &.add-other-question-modal,
-    &.save-publish-correct-modal,
-    &#modal-approve{
-        background-color: rgba(59, 61, 66, 0.5) !important;
-        .modal-footer{
-            justify-content: space-between;
-            padding-left: 25px;
-            background-color: $white;
-            .modal-footer-left{
-                font-weight: bold;
-                font-size: 14px;
-            }
-            .modal-footer-right,
-            p{
-                display: flex;
-                gap: 20px;
-                @include media-breakpoint-down(lg){
-                    flex-direction: column;
-                }
-                .button.btn-cancel,
-                .btn-secondary{
-                    order: 2;
-                    background: $button-lighter-gray;
-                    color: $procol-gray-400;
-                    border: 1px solid $procol-gray-300;
-                    font-weight: 100;
-                    text-transform: uppercase;
-                    @include media-breakpoint-down(lg){
-                        border: none
-                    }
-                }
-                .button.btn-ok,
-                #btn-modal-approve,
-                #btn-modal-reject,
-                .btn-primary{
-                    @include blue-btn;
-                    order: 1;
-                    padding: 10px 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 62px;
-                    text-transform: uppercase
-                }
-            }
-            
-        }
-    }
+
     &.save-publish-correct-modal{
         .modal-footer .modal-footer-right .button.btn-ok{
             @include blue-btn;
@@ -362,12 +380,14 @@
 .page-view-dashboard-advisor,
 .page-view-products-advisor{
     .ui-dialog.generic-modal{
+        border: none;
         @include modals-basic-style;
         .ui-dialog-titlebar{
             background-color: $white;
             padding: 15px;
             border-bottom: 1px solid $procol-gray-200;
             border-radius: 0;
+            border: none;
             
             span.ui-dialog-title{
                 display: block;
@@ -392,6 +412,8 @@
                 right: 10px;
                 width: 25px;
                 height: 25px;
+                background-color: none;
+                border: none;
                 .ui-button-icon{
                     background-image: url(../images/icons/Cerrar-azul.svg);
                     background-size: 25px;
@@ -433,10 +455,11 @@
                     justify-content: center;
                     align-items: center;
                     gap: 12px;
+                    
                     @include media-breakpoint-down(lg){
                         width: 100%;
                         height: 56px;
-                    }
+                    }     
                  &::before{
                     background-image: url(../images/icons/file-csv.svg);
                     background-size: cover;
@@ -444,7 +467,14 @@
                     content: "";
                     width: 15px;
                     height: 20px
-                 }   
+                 }
+                 
+                }
+                a.pdf{
+                    border-color: $procol-red;
+                    &::before{
+                        background-image: url(../images/icons/file-pdf.svg);
+                    }
                 }
                 button#close-button{
                     @include media-breakpoint-down(lg){
