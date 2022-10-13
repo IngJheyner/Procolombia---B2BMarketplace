@@ -163,7 +163,7 @@ third_party_settings:
         required_fields: true
     group_left_images:
       children:
-        - field_pr_image_1
+        - field_images
         - field_pr_image_3
         - field_pr_image_5
       label: 'Left images'
@@ -334,6 +334,17 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  field_images:
+    type: cp_core_image_multi_widget
+    weight: 9
+    region: content
+    settings:
+      delta_limit: '1'
+      custom_title: ''
+      first_title: ''
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_partida_arancelaria_tax:
     type: options_select
     weight: 33
@@ -354,14 +365,6 @@ content:
       field_widget_display_settings: {  }
       selection_mode: selection_append
     third_party_settings: {  }
-  field_pr_image_1:
-    type: image_image
-    weight: 6
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
   field_pr_image_2:
     type: image_image
     weight: 4
@@ -372,7 +375,7 @@ content:
     third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 8
+    weight: 11
     region: content
     settings:
       progress_indicator: throbber
@@ -388,7 +391,7 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 9
+    weight: 12
     region: content
     settings:
       progress_indicator: throbber
@@ -451,7 +454,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 39
+    weight: 38
     region: content
     settings:
       size: 60
@@ -483,11 +486,11 @@ hidden:
   field_exist_certifications: true
   field_export_markets: true
   field_iframe: true
-  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_pr_certifications: true
+  field_pr_image_1: true
   field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
