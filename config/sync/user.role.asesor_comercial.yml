@@ -45,6 +45,7 @@ permissions:
   - 'translate product node'
   - 'use  The form mode advisor_moderation linked to  node entity( product )'
   - 'view any unpublished content'
+  - 'view any unpublished product content'
   - 'view any webform submission'
   - 'view field_iframe'
   - 'view field_tags'
