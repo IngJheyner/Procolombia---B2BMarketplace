@@ -164,7 +164,6 @@ third_party_settings:
     group_left_images:
       children:
         - field_images
-        - field_pr_image_1
         - field_pr_image_3
         - field_pr_image_5
       label: 'Left images'
@@ -336,12 +335,15 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_images:
-    type: image_image
+    type: cp_core_image_multi_widget
     weight: 9
     region: content
     settings:
-      progress_indicator: throbber
+      delta_limit: '1'
+      custom_title: ''
+      first_title: ''
       preview_image_style: thumbnail
+      progress_indicator: throbber
     third_party_settings: {  }
   field_partida_arancelaria_tax:
     type: options_select
@@ -362,14 +364,6 @@ content:
       open: true
       field_widget_display_settings: {  }
       selection_mode: selection_append
-    third_party_settings: {  }
-  field_pr_image_1:
-    type: image_image
-    weight: 10
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
   field_pr_image_2:
     type: image_image
@@ -445,14 +439,14 @@ content:
     third_party_settings: {  }
   field_pr_video_2:
     type: cp_core_video_embed_with_preview
-    weight: 38
+    weight: 37
     region: content
     settings:
       show_preview: '1'
     third_party_settings: {  }
   field_pr_video_description_1:
     type: string_textfield
-    weight: 37
+    weight: 36
     region: content
     settings:
       size: 60
@@ -460,7 +454,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 39
+    weight: 38
     region: content
     settings:
       size: 60
@@ -496,6 +490,7 @@ hidden:
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_pr_certifications: true
+  field_pr_image_1: true
   field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
