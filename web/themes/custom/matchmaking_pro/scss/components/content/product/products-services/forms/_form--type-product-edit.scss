@@ -886,6 +886,7 @@
     }
 
     button[data-drupal-selector="edit-actions-submit"]{
+        overflow: hidden;
         background-color:#005CA4;
         color: #fff;
     }
@@ -899,27 +900,62 @@
 }
 
 .page-edit-product-dashboard {
-
-    // Override modales
-    .modal.edit-advise-modal {
-        &::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #3B3D42;
-            opacity: .5;
+    .modal-footer {
+        display: flex;
+        justify-content: space-between;
+        @include media-breakpoint-down(lg){
+            flex-direction: column;
         }
-
-        .modal-header {
-            &::before {
-                width: 31px;
-                height: 27px;
-                background-image: url(../images/icons/Modal-Mensaje-Azul.svg);
-                background-size: contain;
+        
+        > p:nth-child(2){
+            display: flex;
+            gap: 20px;
+            @include media-breakpoint-down(lg){
+                gap: 18px;
+                width: 100%;
+                flex-direction: column;
+            }
+            #btn-modal-approve,
+            #btn-modal-reject{
+                @include blue-btn;
+                @include media-breakpoint-down(lg){
+                    height: 56px;
+                }
+            }
+            #btn-secondar,
+            .btn-secondary{
+                &:hover{
+                    box-shadow: 0px 3px 6px #00000029;
+                }
+                @include media-breakpoint-down(lg){
+                    border: none;
+                }
             }
         }
 
+    }
+
+    .modal-footer button.btn {
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+        }
+
+    }
+
+    .modal-footer button.btn-secondary {
+        border: 1px solid #6A6D71;
+        background-color: #F7F8F8;
+        color: #3B3D42;
+    }
+    // Override modales
+    .modal.edit-advise-modal {
         .modal-footer {
             justify-content: space-between;
         }
@@ -942,140 +978,10 @@
             color: #3B3D42;
         }
 
-    }
-
-    .modal#modal-reject,
-    .modal#modal-approve {
-
-        .btn-close {
-            position: absolute;
-            color: transparent;
-            right: 14px;
-            top: 12px;
-            height: 25px;
-            width: 25px;
-            cursor: pointer;
-            background-image: url(../images/icons/Cerrar-azul.svg);
-            background-size: 25px;
-            background-repeat: no-repeat;
-            background-color: transparent !important;
-            border: none;
-            opacity: 1;
-        }
-
-        .modal-content {
-            max-width: 400px;
-            margin: 0 auto;
-
-            @include media-breakpoint-down(sm) { 
-                max-width: 283px;
-            }
-
-        }
-
-        .modal-header {
-            padding: 20px;
-            padding-left: 25px;
-            position: relative;
-
-            &::before {
-                content: '';
-                width: 31px;
-                height: 27px;
-                margin-right: 15px;
-                background-size: contain;
-
-                @include media-breakpoint-down(sm) { 
-                    margin-right: 10px;
-                }
-
-            }
-        }
-
-        .modal-title {
-            margin: 0 auto 0 0;
-
-            @include media-breakpoint-down(sm) { 
-                font-size: 18px;
-            }
-
-        }
-
-        .modal-body {
-            padding-left: 35px;
-
-            @include media-breakpoint-down(sm) { 
-                padding-left: 25px;
-            }
-
-            p {
-                font-family:"Century Gothic", $font-regular;
-                line-height: 1;
-            }
-
-        }
-
-        .modal-footer {
-            justify-content: space-between;
-
-            @include media-breakpoint-down(lg) { 
-                
-                > p:first-child{
-                    margin-bottom: 12px;
-                }
-
-                > p:nth-child(2){
-                    width: 100%;
-                }
-
-            }
-
-        }
-
-        .modal-footer button.btn {
-
-            @include media-breakpoint-down(lg) {
-
-                &:first-child {
-                    margin-bottom: 18px;
-                }
-
-                width: 100%;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 56px;
-            }
-  
-        }
-
-        .modal-footer button.btn-secondary {
-            border: 1px solid #6A6D71;
-            background-color: #F7F8F8;
-            color: #3B3D42;
-        }
-
-    }
-
-    .modal#modal-reject {
-        .modal-header {
-            &::before {
-                background-image: url(../images/icons/Modal-Mensaje-Azul.svg);
-            }
-        }
-    }
-
-    .modal#modal-approve {
-        .modal-header {
-            &::before {
-                background-image: url(../images/icons/Modal-Mensaje-Azul.svg);
-            }
-        }
-    }
+    }       
 
 }
+
 
 .path-dashboard-advisor.node--type-product{
     .select2-container--default.select2-container--open{
