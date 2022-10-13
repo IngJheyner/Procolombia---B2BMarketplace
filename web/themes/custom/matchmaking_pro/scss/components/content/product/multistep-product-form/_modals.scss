@@ -81,9 +81,102 @@
             }
         }
     }
-    &#generic-modal-view-no-results.show {        
+    // &.view-no-results.ui-dialog.generic-modal{
+    //     background-color: aqua;
+    //     #drupal-modal{
+    //         background-color: $white;
+    //         .ui-dialog .ui-dialog-titlebar{
+    //             position: relative;
+    //             visibility: visible;
+    //         }        
+    //         .modal-content{
+    //             .modal-header{
+    //                 padding: 19px;
+    //                 position: relative;
+    //                 &::before{
+    //                     background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
+    //                     background-size: 100%;
+    //                     height: 35px;
+    //                     width: 40px;
+    //                 }
+    //                 .modal-header-title{
+    //                     font-size: 22px;
+    //                     @include media-breakpoint-down(lg){
+    //                         font-size: 18px;
+    //                     }
+                        
+    //                 }
+    //                 span[aria-hidden="true"]{
+    //                     height: 24px;
+    //                     width: 24px;
+    //                     color: transparent;
+    //                     background-image: url(../images/icons/Cerrar-negro.svg);
+    //                     background-size: cover;
+    //                     background-repeat: no-repeat;
+    //                     cursor: pointer;
+    //                     position: absolute;
+    //                     top: 12px;
+    //                     right: 12px;
+    //                 }
+    //             }
+    //             .modal-body{
+    //                 padding-left: 20px;
+    //                 span{
+    //                     font-family: "Century Gothic";
+    //                 }
+                    
+    //             }
+    //             .modal-footer-left{
+    //                 cursor: pointer;
+    //                 @include blue-btn;
+    //                 @include media-breakpoint-down(lg){
+    //                     width: 100%;
+    //                     display: flex;
+    //                     justify-content: center;
+    //                     align-items: center;
+    //                     height: 56px;
+    //                     cursor: pointer;
+    //                 }
+    //                 a{
+    //                     color: $white;
+    //                 }
+    //                 span{
+    //                     text-transform: uppercase;
+    //                     font-family: $font-bold-Century-Gothic;
+    //                     font-weight: normal;
+    //                     font-size: $font-size-sm;
+    //                     text-transform: uppercase;
+    //                 }
+    //             }
+                
+    //             @include media-breakpoint-down(lg){
+    //                 max-width: 286px;
+    //                 .modal-body{
+    //                     padding: 10px 20px 20px 26px;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //   }
+    &#generic-modal-view-no-results.show,
+    &.view-no-results.ui-dialog.generic-modal {        
         display: block;
         background-color: rgba(59, 61, 66, 0.5) !important;
+        #drupal-modal{
+            background-color: $white;
+            border-radius: 0 0 5px 5px !important;
+            .ui-dialog .ui-dialog-titlebar{
+                position: relative;
+                visibility: visible;
+            }            
+        }
+        .modal-body p{
+            font-weight: normal;
+        }
+        .ui-dialog .ui-dialog-titlebar{
+            position: relative;
+            visibility: visible;
+        }        
         .modal-content{
             .modal-header{
                 padding: 19px;
@@ -150,8 +243,30 @@
                     padding: 10px 20px 20px 26px;
                 }
             }
-        }
-        
+        }        
+    }
+
+    &.view-no-results.ui-dialog.generic-modal{
+        background-color: transparent !important;
+        display: flex;
+        justify-content: center;
+        .ui-dialog-titlebar {
+            position: relative;
+            visibility: visible;
+            border-radius: 5px 5px 0 0;
+            button.ui-button{
+                right: 0;
+                left: auto;
+                background-image: url(../images/icons/Cerrar-azul.svg);
+                background-size: 24px;
+                top: 15px;
+                right: 5px;
+                background-position: center;
+            }
+            span.ui-dialog-title{
+                font-weight: normal;
+            }
+          }
     }
     //Estilos modal Header mensaje rojo
     &.cancel-confirm-question-modal,

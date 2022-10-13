@@ -1,5 +1,6 @@
 .node--type-product.node--view-mode-product-service-presave-preview,
 .node--type-product.node--view-mode-full {
+	
 	.node__content{
 		margin-top: 24px;
 	}
@@ -65,6 +66,37 @@
 
 
 		}
+		.flag {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			top: -35px;
+			right: 0;
+			background-color: $procol-red;
+			border-radius: 4px 4px 0 0;
+			height: 37px;
+			width: 244px;
+			gap: 10px;
+			padding-left: 10px;
+			&::before{
+				display: block;
+				content: '';
+				background-image: url(../images/icons/Favorito-EstadoInactivo.svg);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 24px;
+				width: 26px;
+				height: 26px;
+			}
+			@include media-breakpoint-down(lg){
+				top: -4%;
+			}
+	
+			a{
+				color: $white;
+				font-weight: bold;
+			}
+		}
 	}
 
 	.group-right {
@@ -72,10 +104,11 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding-left: 54px;
+		padding: 0 30px 40px 54px;
 		width: 100%;
 		grid-area: 2 / 2 / 3 / 3;
 		> a {
+			
 			position: absolute;
 			top: 0;
 			right: 38px;
@@ -211,6 +244,8 @@
 		.field--name-field-body {
 			display: block;
 			margin-bottom: 20px;
+			max-height: 85px;
+			overflow: scroll;
 			@include media-breakpoint-down(lg){
 				margin-bottom: 0;
 			}
@@ -224,9 +259,19 @@
 			padding-top: 16px;
 			display: flex;
 			justify-content: flex-end;
-			.field--name-field-file .field__items{
+			flex-wrap: wrap;
+			.field--name-field-file{ 
 				width: 100%;
-			}			
+					.field__items{
+					width: 100%;
+					display: flex;
+					gap: 15px;
+					.field{
+						max-height: 40px;
+					}
+				}
+			}
+
 			@include media-breakpoint-down(lg){
 				flex-direction: column;
 			}
@@ -238,8 +283,8 @@
 			a {
 				display: flex;
 				align-items: center;
-				padding: 0 17px;
-				height: 38px;
+				min-height: 38px;
+				padding: 5px 17px;
 				background: #FFFFFF 0% 0% no-repeat padding-box;
 				box-shadow: 0px 3px 6px #00000029;
 				border-radius: 4px;
@@ -247,6 +292,7 @@
 				text-indent: 0;
 				font-size: 14px;
 				line-height: 17px;
+				width: max-content;
 				@include media-breakpoint-down(lg){
 					justify-content: center;					
 					height: 56px;
@@ -303,7 +349,17 @@
 		.field--name-field-file-certifications {
 			display: flex;
 			flex-direction: column;
-			text-indent: -9999px;
+			gap: 15px;
+			.field__items{
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 15px;
+			}
+			.field{
+				max-height: 40px;
+			}
+
 		}
 		.field--name-field-file,
 		.field--name-field-file-certifications{
@@ -344,32 +400,8 @@
 		width: 100%;
 		box-shadow: 0px 3px 6px #00000029;
 		border-radius: 4px;
-		padding: 53px 40px 60px 40px;
+		padding: 53px 0 0;
 		position: relative;
-		.flag {
-			position: absolute;
-			top: -7%;
-			right: 0;
-			background-color: $procol-red;
-			border-radius: 4px 4px 0 0;
-			height: 37px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 244px;
-			background-image: url(../images/icons/Favorito-EstadoInactivo.svg);
-			background-repeat: no-repeat;
-			background-position: 27px 24px;
-			background-position: 15px center;
-			@include media-breakpoint-down(lg){
-				top: -4%;
-			}
-
-			a{
-				color: $white;
-				font-weight: bold;
-			}
-			}
 		@include media-breakpoint-down(lg){
 			padding: 20px;
 			padding-right: 20px !important;
@@ -393,16 +425,50 @@
 		}
 	}
 }
-
-.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
-	.ui-dialog .ui-dialog-content{
-		padding: 0;
+.node--view-mode-product-service-presave-preview {
+	position: relative;
+	padding-top: 30px;
+	background-color: white;
+	border-radius: 5px;
+	.group-row{
+		padding-top: 60px;
 	}
+	.goback-text {
+		margin-top: 20px;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		font-family:"Century Gothic", $font-regular;
+		cursor: pointer;
+		&::before{
+			display: block;
+			width: 20px;
+			height: 20px;
+			content: '';
+			background-color: transparent;
+			background-image: url(../images/icons/arrow-back-fill.svg);
+			background-size: 20px;
+			background-repeat: no-repeat;
+			background-position: left center;
+		}
+	}
+	.group-right > a{
+		margin-top: 20px;
+	}
+	
+}
+.path-dashboard .ui-dialog[aria-describedby="drupal-modal"]{
 	border-radius: 4px;
 	max-width: 1286px;
-	background-color: $white;
+	background-color: transparent;
 	border: none;
 	padding: 0;
+	.ui-dialog .ui-dialog-content{
+		padding: 0;
+		visibility: hidden;
+		}
 	.ui-dialog-titlebar{
 		background-color: transparent;
 		border: none;
@@ -442,6 +508,7 @@
 }
 .view-product-service-presave-preview{
 	padding-bottom: 50px;
+	
 	@include media-breakpoint-down(lg){
 		padding-bottom: 0;
 	}
