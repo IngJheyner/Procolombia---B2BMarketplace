@@ -14,6 +14,7 @@ dependencies:
     - image.style.logo_70x70_
     - taxonomy.vocabulary.account_status
     - taxonomy.vocabulary.cadena_productiva_principal
+    - taxonomy.vocabulary.categories_flow_semaphore
     - taxonomy.vocabulary.locations
     - user.role.asesor_comercial
     - user.role.exportador
@@ -4231,7 +4232,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: cadena_productiva_principal
+          vid: categories_flow_semaphore
           type: select
           hierarchy: false
           limit: true
