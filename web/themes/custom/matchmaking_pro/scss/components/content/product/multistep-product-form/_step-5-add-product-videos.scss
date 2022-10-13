@@ -1,4 +1,7 @@
 .cp-core-multistep-form.step_5{
+    .form-wrapper.step-title{
+        padding-bottom: 20px;
+    }
     .step-title {
         @include media-breakpoint-down(xl){
             padding: 0 25px !important;

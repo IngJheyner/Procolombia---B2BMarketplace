@@ -45,296 +45,299 @@ $font-bold: Gothic-Bold;
 $font-black: Maven-Black;
 $font-regular-maven: Maven-Regular;
 $font-bold-maven: Maven-Bold;
+.input-group {
+    margin: 20px 0px;
+    .form-control {
+        border-right: none;
+    }
+    .input-group-text {
+        background: #f0f0f0;
+        padding: 0px 30px !important;
+        height: 40px !important;
+    }
+}
 
-
-table.dataTable {
-    td {
-        font-family: $font-regular;
-        font-size: 14px;
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
-
-        img {
+.card-incentives {
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    background-color: $color-White;
+    .back-button {
+        button {
+            background-color: $color-Pantone-process-Blue;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            font-family: $font-regular;
+            font-size: 20px;
+            color: $color-White;
+            display: flex;
+            align-items: center;
+            &:hover {
+                background-color: $color-Pantone-116-C;
+            }
+            span {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+    .incentive-image {
+        display: flex;
+        align-items: center;
+        width: 200px;
+        svg {
             width: 30px;
             height: 30px;
         }
-
-        a {
-            img {
-                width: 26px;
-                height: 26px;
-            }
+        p {
+            font-family: $font-bold;
+            font-size: 17px;
+            color: $color-Black;
+            margin-left: 0.5rem;
+            margin-bottom: 0px;
         }
     }
-
+    .incentive-description,
+    .incentive-status {
+        width: 406px;
+    }
     th {
-        min-width: 124px !important;
-        font-size: 14px;
+        font-size: 18px;
+        border-bottom: 1px solid #d8dadd;
         font-family: "Gothic-Bold";
-
-        &:first-child {
-            &::before {
-                display: none !important;
-            }
-
-            &::after {
-                display: none !important;
-            }
+        color: $color-Pantone-116-C;
+        padding-bottom: 8px;
+    }
+    tr {
+        &:last-child {
+            border-bottom: 1px solid #d8dadd;
         }
     }
-
-    td.dt-control {
-        text-align: center;
-        cursor: pointer;
-
-        &:before {
-            height: 1em;
-            width: 1em;
-            margin-top: -9px;
-            display: inline-block;
-            color: white;
-            border: 0.15em solid white;
-            border-radius: 1em;
-            box-shadow: 0 0 0.2em #444;
-            box-sizing: content-box;
+    .button-table {
+        text-align: end;
+        padding: 20px 0px 0px;
+        .btn-satatus {
+            background: #f0f0f0 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 20px;
+            font-family: $font-bold;
+            margin-right: 10px;
+        }
+        .btn-edit {
+            background: $color-Pantone-116-C;
+            box-shadow: 0px 3px 6px #00000029;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 20px;
+            font-family: $font-bold;
+            color: $color-White;
+        }
+    }
+}
+.card-table-incentive {
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    background-color: $color-White;
+    margin: 36px 12px 12px;
+    padding: 2rem;
+    table {
+        .tittle-table {
+            font-family: $font-bold;
+            font-size: 20px;
+            color: $color-Pantone-116-C;
+            margin-bottom: 0px;
+            width: 600px;
+        }
+        .status {
             text-align: center;
-            text-indent: 0 !important;
-            font-family: "Courier New", Courier, monospace;
-            line-height: 1em;
-            content: "+";
-            background-color: #31b131;
-        }
-    }
-
-    tr.dt-hasChild td.dt-control:before {
-        content: "-";
-        background-color: #d33333;
-    }
-
-    thead > tr > {
-        th {
-            &.sorting,
-            &.sorting_asc,
-            &.sorting_desc,
-            &.sorting_asc_disabled,
-            &.sorting_desc_disabled {
+            svg {
+                width: 25px;
+                height: 25px;
+                margin-bottom: 7px !important;
+            }
+            p {
+                font-family: $font-bold;
+                font-size: 16px;
+                color: $color-Black;
+                margin-bottom: 0px;
+            }
+            .checkbox label {
+                display: block;
+                font-size: 14px;
                 cursor: pointer;
-                position: relative;
-                padding-right: 26px;
+                margin: 0;
             }
-        }
 
-        td {
-            &.sorting,
-            &.sorting_asc,
-            &.sorting_desc,
-            &.sorting_asc_disabled,
-            &.sorting_desc_disabled {
+            .options input {
+                opacity: 0;
+            }
+
+            .checkmark {
+                position: absolute;
+                top: 0px;
+                left: 0;
+                height: 20px;
+                width: 20px;
+                background-color: #f8f8f8;
+                border: 1px solid #ddd;
+                border-radius: 50%;
+            }
+
+            .options input:checked ~ .checkmark:after {
+                display: block;
+            }
+
+            .options .checkmark:after {
+                content: "";
+                width: 9px;
+                height: 9px;
+                display: block;
+                background: white;
+                position: absolute;
+                top: 52%;
+                left: 51%;
+                border-radius: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                transition: 300ms ease-in-out 0s;
+            }
+
+            .tick {
+                display: block;
+                position: relative;
+                padding-left: 23px;
                 cursor: pointer;
-                position: relative;
-                padding-right: 26px;
-            }
-        }
-
-        th {
-            &.sorting {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
+                font-size: 16px;
+                margin: 5px 0px;
             }
 
-            &.sorting_asc {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
+            .tick input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
             }
 
-            &.sorting_desc {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
+            .check {
+                position: absolute;
+                bottom: -6px;
+                left: 0;
+                right: 0;
+                height: 20px;
+                width: 20px;
+                background-color: #fff;
+                border: 1px solid #005ca4;
+                border-radius: 3px;
+                margin: 0 auto;
             }
 
-            &.sorting_asc_disabled {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
+            .tick:hover input ~ .check {
+                background-color: #f3f3f3;
             }
 
-            &.sorting_desc_disabled {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
-            }
-        }
-
-        td {
-            &.sorting {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
+            .tick input:checked ~ .check {
+                background-color: $color-Verde-aprobacion;
+                border-color: $color-Verde-aprobacion;
             }
 
-            &.sorting_asc {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
-            }
-
-            &.sorting_desc {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
-            }
-
-            &.sorting_asc_disabled {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
-            }
-
-            &.sorting_desc_disabled {
-                &:before,
-                &:after {
-                    position: absolute;
-                    display: block;
-                    opacity: 0.125;
-                    right: 10px;
-                    line-height: 9px;
-                    font-size: 0.9em;
-                }
-            }
-        }
-
-        th {
-            &.sorting:before,
-            &.sorting_asc:before,
-            &.sorting_desc:before,
-            &.sorting_asc_disabled:before,
-            &.sorting_desc_disabled:before {
-                bottom: 50%;
-                content: "▴";
-            }
-        }
-
-        td {
-            &.sorting:before,
-            &.sorting_asc:before,
-            &.sorting_desc:before,
-            &.sorting_asc_disabled:before,
-            &.sorting_desc_disabled:before {
-                bottom: 50%;
-                content: "▴";
-            }
-        }
-
-        th {
-            &.sorting:after,
-            &.sorting_asc:after,
-            &.sorting_desc:after,
-            &.sorting_asc_disabled:after,
-            &.sorting_desc_disabled:after {
-                top: 50%;
-                content: "▾";
-            }
-        }
-
-        td {
-            &.sorting:after,
-            &.sorting_asc:after,
-            &.sorting_desc:after,
-            &.sorting_asc_disabled:after,
-            &.sorting_desc_disabled:after {
-                top: 50%;
-                content: "▾";
-            }
-        }
-
-        th {
-            &.sorting_asc:before,
-            &.sorting_desc:after {
-                opacity: 0.6;
-            }
-        }
-
-        td {
-            &.sorting_asc:before,
-            &.sorting_desc:after {
-                opacity: 0.6;
-            }
-        }
-
-        th {
-            &.sorting_desc_disabled:after,
-            &.sorting_asc_disabled:before {
+            .check:after {
+                content: "";
+                position: absolute;
                 display: none;
             }
-        }
 
-        td {
-            &.sorting_desc_disabled:after,
-            &.sorting_asc_disabled:before {
-                display: none;
+            .tick input:checked ~ .check:after {
+                display: block;
+                transform: rotate(45deg) scale(1);
+            }
+
+            .tick .check:after {
+                left: 6px;
+                top: 2px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                transform: rotate(45deg) scale(2);
+            }
+            .swicher{
+                input[type="checkbox"] {
+                    display: none;
+                  }
+              
+                  label {
+                    cursor: pointer;
+                    height: 0px;
+                    position: relative;
+                    width: 40px;
+                    margin-left: 0.7rem;
+              
+                    &::before {
+                      background: rgb(0, 0, 0);
+                      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+                      border-radius: 8px;
+                      content: '';
+                      height: 16px;
+                      margin-top: -8px;
+                      position: absolute;
+                      opacity: 0.3;
+                      transition: all 0.4s ease-in-out;
+                      width: 40px;
+                      left:0;
+                    }
+              
+                    &::after {
+                      background: $color-Pantone-process-Blue  !important;
+                      border-radius: 16px;
+                      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+                      content: '';
+                      height: 24px;
+                      left: -4px;
+                      margin-top: -8px;
+                      position: absolute;
+                      top: -4px;
+                      transition: all 0.3s ease-in-out;
+                      width: 24px;
+                    }
+                  }
+              
+                  input[type="checkbox"]:checked+label {
+                    &::before {
+                      background: inherit;
+                      opacity: 0.5;
+                      left: 0;
+                    }
+              
+                    &::after {
+                      background: inherit;
+                      left: 20px;
+                    }
+                }
             }
         }
-
-        th:active,
-        td:active {
-            outline: none;
+        .option {
+            width: 73px;
+            vertical-align: bottom;
+            text-align: center;
+            font-family: $font-bold;
+            font-size: 16px;
+            color: #000;
+            padding-bottom: 7px;
+        }
+        tbody {
+            tr {
+                padding: 10px;
+                border-top: 1px solid #d8dadd;
+                border-bottom: 1px solid #d8dadd;
+                vertical-align: middle;
+                td {
+                    padding: 11px 0px;
+                    p {
+                        margin-bottom: 0px;
+                    }
+                }
+            }
         }
     }
 }

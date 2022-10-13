@@ -11,6 +11,7 @@
   var id_other_user = -1;
   var socket;
   var last_date = ''
+  var first_date = '';
   var new_messages = 0;
   var offset = 0;
   var length_fetch_message = 0;
@@ -42,6 +43,10 @@
       .then((result) => {
         let msgList = result.data;
         length_fetch_message = msgList.length;
+        //get firts date
+        if (msgList.length > 0) {
+          first_date = moment(msgList[0].updated).format('YYYY-MM-DD');
+        }
         CheckMessages(chatId);
         callGetListOfChats(0, 15);
         if (!refetch) {
@@ -120,7 +125,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -200,7 +205,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -391,7 +396,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -471,7 +476,7 @@
              `
             }
             </div>
-            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+            ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
               `<div class="user-chat-content">
               <div class="ctext-wrap">
                   
@@ -627,13 +632,37 @@
       scrollTop: $("#last-render-window").offset().top - 250
     }, 0);
   }
-
+  
+  let stopComplete = false;
   //infitine scroll for list messages in chat
   $('#message-content-window').scroll(function () {
     if (length_fetch_message > 0) {
       if ($(this).scrollTop() == 0) {
         offset += 30;
         fetchChatMessages(chat_selected, offset, 30, true);
+        stopComplete = false;
+      } else {
+        if (!stopComplete) {
+          //get text of id chat-company-name
+          let name = $('#chat-company-name-window').text();
+          console.log("NAME", name);
+          let html = `
+            <li class="text-center mb-3">
+              <div class="">
+                <div class="user-chat-content">
+                  <div class="ctext-wrap">
+                    <div class="ctext-wrap-content">
+                      <p class="mb-0">${first_date}</p>
+                      <p class="mb-0" style="color:#005CA4">Contacto con la empresa ${name}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          `
+          $('#chat-messages-window').prepend(html);
+          stopComplete = true;
+        }
       }
     }
   });
@@ -656,7 +685,7 @@
           formdata.append("files", []);
         }
       }
-      
+
       var requestOptions = {
         method: 'POST',
         body: formdata,
@@ -864,15 +893,15 @@
                      <img
                        src="${msg.company_logo}"
                        class="rounded-circle avatar-xs" alt="" />`
-                     :
-                     `<div class="avatar-xs">
+                  :
+                  `<div class="avatar-xs">
                      <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                     </div>
                     `
-                   }
+                }
                    </div>
-                   ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
-                     `<div class="user-chat-content">
+                   ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
+                  `<div class="user-chat-content">
                      <div class="ctext-wrap">
                          
                      <div class="ctext-wrap-content w-100">
@@ -896,8 +925,8 @@
                      </div>
                    </li>
                    `
-                     :
-                     `<div class="user-chat-content">
+                  :
+                  `<div class="user-chat-content">
                      <div class="ctext-wrap">
                          <div class="ctext-wrap-content w-100">
                            <div class="conversation-name">${msg.company_name}</div>
@@ -945,11 +974,11 @@
                       src="${msg.company_logo}"
                       class="rounded-circle avatar-xs" alt="" />
                       `
-                    :
-                    `<div class="avatar-xs">
+                  :
+                  `<div class="avatar-xs">
                         <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                       </div>`
-                  }
+                }
                   </div>
       
                   <div class="user-chat-content">
@@ -1025,7 +1054,7 @@
                  `
                 }
                 </div>
-                ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' ?
+                ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
                   `<div class="user-chat-content">
                   <div class="ctext-wrap">
                       
@@ -1099,11 +1128,11 @@
                     <img
                       src="${msg.company_logo}"
                       class="rounded-circle avatar-xs" alt="" />`
-                    :
-                    `<div class="avatar-xs">
+                  :
+                  `<div class="avatar-xs">
                     <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                    </div>`
-                  }
+                }
                   </div>
       
                   <div class="user-chat-content">
@@ -1211,6 +1240,26 @@
       $('#reset-image-window', context).click(function () {
         closePreview();
       });
+
+      //detect click images inside chat-messages
+      $('#chat-messages-window', context).click(function (evt) {
+        console.log("click");
+        //check if is image
+        if (evt.target.tagName == 'IMG') {
+          let src = evt.target.src;
+          console.log(src);
+          //add background image to ligtbox
+          $('#lightbox-window').css('background-image', `url(${src})`);
+          //show lightbox
+          $('#lightbox-cont-window').show();
+        }
+      });
+
+      //detect if click outside of image in lightbox
+      $('#lightbox-cont-window', context).click(function (evt) {
+        $('#lightbox-cont-window').hide();
+      });
+
     }
   };
 
