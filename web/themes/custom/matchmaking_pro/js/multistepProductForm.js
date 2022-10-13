@@ -182,6 +182,7 @@
         $(context).find('body').once('.cp-core-multistep-form').each(function () {
           //Paso 3 Ajustes multiselect
           //Variables Multiselect paso 3
+          $('#drupal-modal').css("background-color","red");
           const cerType = $('.js-form-item-field-pr-type-certifications');
           const fieldTargetMarket = $('.js-form-item-field-pr-target-market');
           const fieldSalesChanel = $('.js-form-item-field-pr-sales-channel');
@@ -404,7 +405,13 @@
             Drupal.dialog($('#drupal-modal').get(0)).close();
           });
         }
-
+        if ($('.node--view-mode-product-service-presave-preview .goback-text').length) {
+          $('.node--view-mode-product-service-presave-preview .goback-text').once().click(function (e) {
+            e.preventDefault();
+            Drupal.dialog($('#drupal-modal').get(0)).close();
+          });
+        }
+        
         // Close the Contries entity browser in modal.
         if ($('form .entity-browser-paises-close').length) {
           $('form .entity-browser-paises-close').once().click(function (e) {

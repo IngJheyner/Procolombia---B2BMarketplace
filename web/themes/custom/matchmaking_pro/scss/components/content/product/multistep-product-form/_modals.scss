@@ -1,4 +1,22 @@
-.generic-modal.modal {
+.generic-modal.modal,
+#modal-approve,
+#modal-reject {
+        top: 0;
+        right: 0;
+        opacity: 1;
+        p{
+            font-family:"Century Gothic", $font-regular; 
+            font-weight: normal;    
+        }
+        .modal-dialog{
+            display: flex;
+            height: 100vh;
+            margin-top: 0;
+            margin-bottom: 0;
+            .modal-content{
+                margin-top: auto;
+            }
+        }
     .modal-content{
         @include modals-basic-style;
         .modal-header{
@@ -81,9 +99,25 @@
             }
         }
     }
-    &#generic-modal-view-no-results.show {        
+    &#generic-modal-view-no-results.show,
+    &.view-no-results.ui-dialog.generic-modal {        
         display: block;
         background-color: rgba(59, 61, 66, 0.5) !important;
+        #drupal-modal{
+            background-color: $white;
+            border-radius: 0 0 5px 5px !important;
+            .ui-dialog .ui-dialog-titlebar{
+                position: relative;
+                visibility: visible;
+            }            
+        }
+        .modal-body p{
+            font-weight: normal;
+        }
+        .ui-dialog .ui-dialog-titlebar{
+            position: relative;
+            visibility: visible;
+        }        
         .modal-content{
             .modal-header{
                 padding: 19px;
@@ -150,12 +184,35 @@
                     padding: 10px 20px 20px 26px;
                 }
             }
-        }
-        
+        }        
+    }
+
+    &.view-no-results.ui-dialog.generic-modal{
+        background-color: transparent !important;
+        display: flex;
+        justify-content: center;
+        .ui-dialog-titlebar {
+            position: relative;
+            visibility: visible;
+            border-radius: 5px 5px 0 0;
+            button.ui-button{
+                right: 0;
+                left: auto;
+                background-image: url(../images/icons/Cerrar-azul.svg);
+                background-size: 24px;
+                top: 15px;
+                right: 5px;
+                background-position: center;
+            }
+            span.ui-dialog-title{
+                font-weight: normal;
+            }
+          }
     }
     //Estilos modal Header mensaje rojo
     &.cancel-confirm-question-modal,
-    &.add-other-question-modal{
+    &.add-other-question-modal,
+    &#modal-reject{
         background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-header{
             padding: 19px;
@@ -181,7 +238,7 @@
     }
     //Estilos modal Header mensaje azul
     &.save-publish-question-modal{
-        background-color: rgba(0,0,0,0.5);
+        background-color:  rgba(59, 61, 66, 0.5);
         .modal-header{
             padding: 19px;
             &::before{
@@ -196,6 +253,15 @@
         top: 0;
         right: 0;
         opacity: 1;
+        .modal-dialog{
+            display: flex;
+            height: 100vh;
+            margin-top: 0;
+            margin-bottom: 0;
+            .modal-content{
+                margin-top: auto;
+            }
+        }
         @include media-breakpoint-down(lg){
             .modal-header{
 
@@ -219,7 +285,7 @@
             .modal-body {
                     padding: 37px 18px;
                     padding: 8px 12px;
-                      padding-left: 12px;
+                    padding-left: 12px;
                     padding-left: 14px;
             }
             .modal-footer{
@@ -238,7 +304,8 @@
     &.save-publish-question-modal,
     &.cancel-confirm-question-modal,
     &.add-other-question-modal,
-    &.save-publish-correct-modal{
+    &.save-publish-correct-modal,
+    &#modal-approve{
         background-color: rgba(59, 61, 66, 0.5) !important;
         .modal-footer{
             justify-content: space-between;
@@ -248,13 +315,15 @@
                 font-weight: bold;
                 font-size: 14px;
             }
-            .modal-footer-right{
+            .modal-footer-right,
+            p{
                 display: flex;
                 gap: 20px;
                 @include media-breakpoint-down(lg){
                     flex-direction: column;
                 }
-                .button.btn-cancel{
+                .button.btn-cancel,
+                .btn-secondary{
                     order: 2;
                     background: $button-lighter-gray;
                     color: $procol-gray-400;
@@ -265,7 +334,10 @@
                         border: none
                     }
                 }
-                .button.btn-ok{
+                .button.btn-ok,
+                #btn-modal-approve,
+                #btn-modal-reject,
+                .btn-primary{
                     @include blue-btn;
                     order: 1;
                     padding: 10px 20px;
@@ -276,6 +348,7 @@
                     text-transform: uppercase
                 }
             }
+            
         }
     }
     &.save-publish-correct-modal{
@@ -392,3 +465,7 @@
         background-color: rgba(59, 61, 66, 0.5) !important;
     }
 }
+
+.modal-backdrop {
+    background-color: rgba(59, 61, 66, 0.5);
+    }
