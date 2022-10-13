@@ -104,7 +104,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding: 0 30px 40px 54px;
+		padding: 0 30px 0 54px;
 		width: 100%;
 		grid-area: 2 / 2 / 3 / 3;
 		> a {
@@ -394,6 +394,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 40px;
 	.group-row{
 		background-color: $white;
 		max-width: 1286px;
@@ -402,6 +403,7 @@
 		border-radius: 4px;
 		padding: 53px 0 0;
 		position: relative;
+		padding-bottom: 60px;
 		@include media-breakpoint-down(lg){
 			padding: 20px;
 			padding-right: 20px !important;
@@ -432,6 +434,7 @@
 	border-radius: 5px;
 	.group-row{
 		padding-top: 60px;
+		padding-bottom: 40px;
 	}
 	.goback-text {
 		margin-top: 20px;
@@ -454,6 +457,9 @@
 			background-position: left center;
 		}
 	}
+	.group-right{
+		padding-bottom: 0;
+	}
 	.group-right > a{
 		margin-top: 20px;
 	}
@@ -473,6 +479,7 @@
 		background-color: transparent;
 		border: none;
 		padding-bottom: 0;
+		visibility: hidden;
 	}
 	.ui-dialog-titlebar-close {
 		left: 20px;
