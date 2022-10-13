@@ -3045,16 +3045,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_company_name:
-          id: field_company_name
-          table: user__field_company_name
-          field: field_company_name
+        mail:
+          id: mail
+          table: users_field_data
+          field: mail
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: user
+          entity_field: mail
           plugin_id: field
-          label: 'Nombre de la empresa'
-          exclude: false
+          label: 'Correo electrónico'
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -3095,9 +3097,135 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
+          type: email_mailto
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_status_color:
+          id: field_status_color
+          table: taxonomy_term__field_status_color
+          field: field_status_color
+          relationship: field_account_status
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: status_color
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: color
+          type: color_field_formatter_text
+          settings:
+            format: rgb
+            opacity: false
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_company_name:
+          id: field_company_name
+          table: user__field_company_name
+          field: field_company_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Nombre de la empresa'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: '/asesor/editar/col?email={{ mail }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -3683,70 +3811,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_status_color:
-          id: field_status_color
-          table: taxonomy_term__field_status_color
-          field: field_status_color
-          relationship: field_account_status
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: status_color
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: color
-          type: color_field_formatter_text
-          settings:
-            format: rgb
-            opacity: false
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_account_status:
           id: field_account_status
           table: user__field_account_status
@@ -3871,7 +3935,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/user/{{ uid }}/edit">Editar</a>'
+            text: '<a href="/asesor/editar/col?email={{ mail }}">Editar</a>'
             make_link: false
             path: ''
             absolute: false
@@ -4604,6 +4668,70 @@ display:
     position: 3
     display_options:
       fields:
+        field_nit:
+          id: field_nit
+          table: user__field_nit
+          field: field_nit
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: NIT
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_company_name:
           id: field_company_name
           table: user__field_company_name
@@ -5193,6 +5321,69 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_account_status:
+          id: field_account_status
+          table: user__field_account_status
+          field: field_account_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Estado de la cuenta'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         uid:
           id: uid
           table: users_field_data
@@ -5346,8 +5537,10 @@ display:
         - user
         - user.permissions
       tags:
+        - 'config:field.storage.user.field_account_status'
         - 'config:field.storage.user.field_company_city'
         - 'config:field.storage.user.field_company_deparment'
         - 'config:field.storage.user.field_company_logo'
         - 'config:field.storage.user.field_company_name'
+        - 'config:field.storage.user.field_nit'
         - 'config:field.storage.user.field_productive_chain'
