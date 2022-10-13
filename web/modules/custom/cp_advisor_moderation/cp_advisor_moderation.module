@@ -302,8 +302,14 @@ function cp_advisor_moderation_entity_type_build(array &$entity_types) {
 function approve_product(&$form, FormStateInterface $form_state) {
   $form_object = $form_state->getFormObject();
   if ($form_object instanceof EntityForm) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadByProperties(['name' => 'Aprobado', 'vid' => 'account_status']);
+    $term = reset($term);
+    $term_id = $term->id();
+
     $node = $form_object->getEntity();
-    $node->field_states->value = 'approved';
+    $node->field_pr_status->target_id = $term_id;
+    // $node->field_states->value = 'approved';
     $node->save();
     $options = ['query' => ['product-status' => 2]];
     $url = Url::fromRoute('cp_advisor_moderation.edit_form', ['node'=>$node->id()], $options);
@@ -325,10 +331,23 @@ function approve_product(&$form, FormStateInterface $form_state) {
 function reject_product(&$form, FormStateInterface $form_state) {
   $form_object = $form_state->getFormObject();
   if ($form_object instanceof EntityForm) {
+    /*$database = \Drupal::database();
+    $query = $database->select('taxonomy_term_field_data', 'c');
+      $query->fields('c', ['tid', 'name']);
+      $query->condition('c.vid', 'account_status');
+      $query->condition('c.name', 'Aprobado');
+      $result = $query->execute()->fetchAll();
+    kint($result);*/
+
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadByProperties(['name' => 'Rechazado', 'vid' => 'account_status']);
+    $term = reset($term);
+    $term_id = $term->id();
 
     //change sate
     $node = $form_object->getEntity();
-    $node->field_states->value = 'incomp_info';
+    $node->field_pr_status->target_id = $term_id;
+    // $node->field_states->value = 'incomp_info';
     $node->save();
     //Redirect
     $options = ['query' => ['product-status' => 3]];
