@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_categorization
+    - field.storage.node.field_pr_status
     - field.storage.node.field_pr_type_certifications
     - field.storage.node.field_states
     - field.storage.node.field_tariff_heading
+    - field.storage.taxonomy_term.field_state_tag
     - node.type.product
+    - taxonomy.vocabulary.account_status
   module:
     - better_exposed_filters
     - cp_core
@@ -17,6 +20,7 @@ dependencies:
     - rest
     - serialization
     - statistics
+    - taxonomy
     - telephone
     - user
     - views_data_export
@@ -2120,6 +2124,132 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_state_tag:
+          id: field_state_tag
+          table: taxonomy_term__field_state_tag
+          field: field_state_tag
+          relationship: field_pr_status
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_pr_status:
+          id: field_pr_status
+          table: node__field_pr_status
+          field: field_pr_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Estado
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"views-field-field-states\">\r\n<div class=\"{{ field_state_tag }}\">\r\n{{ field_pr_status }}\r\n</div>\r\n</div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         cp_core_product_availability_on_off:
           id: cp_core_product_availability_on_off
           table: node
@@ -2578,6 +2708,61 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        field_pr_status_target_id:
+          id: field_pr_status_target_id
+          table: node__field_pr_status
+          field: field_pr_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pr_status_target_id_op
+            label: Estados
+            description: ''
+            use_operator: false
+            operator: field_pr_status_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_pr_status_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              exportador: '0'
+              asesor_comercial: '0'
+              asesor_administrativo: '0'
+              asesor_administrativo_ntc: '0'
+              buyer: '0'
+              web_services: '0'
+              moderador: '0'
+              asesor_internacional: '0'
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: 'Estado del producto (field_pr_status)'
+            description: null
+            identifier: field_pr_status_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: account_status
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
         field_pr_product_availability_value:
           id: field_pr_product_availability_value
           table: node__field_pr_product_availability
@@ -2857,11 +3042,33 @@ display:
       defaults:
         style: false
         row: false
+        relationships: false
         fields: false
         filters: false
         filter_groups: false
         header: false
         footer: false
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: Usuario
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+          required: false
+        field_pr_status:
+          id: field_pr_status
+          table: node__field_pr_status
+          field: field_pr_status
+          relationship: none
+          group_type: group
+          admin_label: 'field_pr_status: Término de taxonomía'
+          plugin_id: standard
+          required: false
       header:
         view:
           id: view
@@ -2911,13 +3118,16 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_categorization'
+        - 'config:field.storage.node.field_pr_status'
         - 'config:field.storage.node.field_pr_type_certifications'
         - 'config:field.storage.node.field_states'
         - 'config:field.storage.node.field_tariff_heading'
+        - 'config:field.storage.taxonomy_term.field_state_tag'
   data_export_1:
     id: data_export_1
     display_title: 'Exportación de datos'

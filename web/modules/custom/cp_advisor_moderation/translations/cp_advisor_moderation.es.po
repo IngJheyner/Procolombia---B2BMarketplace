@@ -35,11 +35,11 @@ msgstr "Por favor incluya una descripción resumen del producto/servicio con sus
 msgid "- Category -"
 msgstr "- Categoría -"
 
-#: cp_advisor_moderation.module:89
+#: cp_advisor_moderation.module:90
 msgid "The product has been successfully approved."
 msgstr "El producto ha sido correctamente aprobado."
 
-#: cp_advisor_moderation.module:91
+#: cp_advisor_moderation.module:92
 msgid "The product has been successfully rejected."
 msgstr "El producto ha sido correctamente rechazado."
 
@@ -75,17 +75,17 @@ msgstr "Rechazos"
 msgid "Reject"
 msgstr "Rechazar"
 
-#: cp_advisor_moderation.module:147
+#: cp_advisor_moderation.module:146
 msgid "You are about to reject the edition of the selected product or service."
-msgstr "Estás a punto de cancelar la edición del producto o servicio seleccionado."
+msgstr "Estás a punto de rechazar la edición del producto o servicio seleccionado."
 
 #: cp_advisor_moderation.module:153;162
 msgid "Approve"
 msgstr "Aprobar"
 
-#: cp_advisor_moderation.module:174
+#: cp_advisor_moderation.module:173
 msgid "You are about to approve the edition of the selected product or service"
-msgstr "Estás a punto de aprobar la edición del producto o servicio"
+msgstr "Estás a punto de aprobar la edición del producto o servicio seleccionado"
 
 #: cp_advisor_moderation.module:184
 msgid "Preview"
