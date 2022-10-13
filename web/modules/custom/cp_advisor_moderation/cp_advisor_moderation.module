@@ -371,7 +371,6 @@ function reject_product(&$form, FormStateInterface $form_state) {
 function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   $view = $form_state->get('view');
   if (($view->id() == 'dashboard_advisor')) {
-
       //Crear un servicio LocationService
       $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', 0, 1, FALSE);
       $options = array();
@@ -381,6 +380,10 @@ function cp_advisor_moderation_form_views_exposed_form_alter(array &$form, FormS
       }
       $form['field_company_deparment_target_id']['#options'] = $options;
       $form['field_company_deparment_target_id']['#options']["All"] = t('Any');
+      $form['field_productive_chain_target_id']['#options']["All"] = t('Any');
+      $form['field_account_status_target_id']['#options']["All"] = t('Any');
+      $form['status_1']['#options']["All"] = t('Any');
+      $form['field_company_adviser_target_id_entityreference_filter']['#options']["All"] = t('Any');
     }
   if ($view->id() == 'products_advisor') {
     $form['prefix_title'] = [
