@@ -830,3 +830,6 @@ msgstr "Rechazo Empresa Colombiana"
 
 msgid "Approval Colombian Company"
 msgstr "Aprobación Empresa Colombiana"
+
+msgid "Go back"
+msgstr "Volver"
