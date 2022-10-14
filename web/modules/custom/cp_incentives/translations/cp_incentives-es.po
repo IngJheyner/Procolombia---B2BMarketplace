@@ -225,7 +225,7 @@ msgstr "a"
 msgid "points"
 msgstr "puntos"
 
-msgid "Greater than"
+msgid "Over"
 msgstr "Mayor a"
 
 msgid "LEARN HOW TO LEVEL UP"
@@ -297,3 +297,9 @@ msgstr "Prueba de traducción 1"
 
 msgid "Save"
 msgstr "Guardar"
+
+msgid "PROCOLOMBIA RECOGNIZES YOU AS A "
+msgstr "PROCOLOMBIA LO RECONOCE EN EL NIVEL DE "
+
+msgid "ALLY"
+msgstr ""

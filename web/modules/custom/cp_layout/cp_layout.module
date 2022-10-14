@@ -51,7 +51,9 @@ function cp_layout_theme($existing, $type, $theme, $path)
         'business_name' => NULL,
         'company_logo' => NULL,
         'uid' => NULL,
-        'country' => NULL
+        'country' => NULL,
+        'total_points' => NULL,
+        'status_incentive' => 0,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

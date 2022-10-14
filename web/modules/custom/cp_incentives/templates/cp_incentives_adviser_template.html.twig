@@ -1,8 +1,216 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
-<main class="dashboard">
-	<div id="bussines_international" class="">
+<section class="dashboard-incentives px-4 pt-5 d-flex flex-wrap justify-content-center">
+	<div class="row align-items-center" style="padding: 0px 50px;">
+		<div class="col-lg-6">
+			<p class="table-title fs-1">Administración de puntos para el plan de incentivos</p>
+		</div>
+		<div class="align-items-center col-lg-6 d-flex justify-content-end text-align-end">
+			<button class="btn-cancel">Parametrización Plan de incentivos</button>
+		</div>
+	</div>
+	<div id="" class="bussines_international">
 		<div class="form_table mt-4">
 			<table id="incentives-list" class="display dataTable"></table>
 		</div>
 	</div>
-</main>
+	<!-- Vertically centered modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	Moodla
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">Edición de criterio “Traer nombre de la Variable/Característica”</h5>
+		  <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>close</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>Variables /Características:</strong>
+						</td>
+						<td>
+							<p>Tiempo de respuesta en el chat</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Descripción Regla de Negocio:</strong>
+						</td>
+						<td>
+							<p>Con base en el tiempo de respuesta en el chat.</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Máximo de puntos
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="text" class="form-control"  aria-describedby="basic-addon2">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								Este campo especifica el número del puntaje máximo para la distribución de puntos.
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Este campo especifica el número del puntaje máximo para la distribución de puntos.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Estado
+					<sup>*</sup>
+				</label>
+				<select name="" id="">
+					<option value="activo">Activo</option>
+					<option value="inaactivo">Inactivo</option>
+				</select>
+
+			</div>
+			<div class="col-lg-12 p-0">
+				<div class="sub-tittle-modal">
+					<p class="fs-5">Reglas de negocio</p>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div>
+					<label for="nombre_del_sitio" class="form-label">Instrucción
+						<sup>*</sup>
+					</label>
+				</div>
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="text" class="form-control" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="text" class="form-control"  aria-describedby="basic-addon2">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								Ingrese la instrucción en tiempo de horas mínima y máxima de respuesta en el chat.
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Ingrese la instrucción en tiempo de horas mínima y máxima de respuesta en el chat.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Distribución de puntos
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="text" class="form-control"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								Ingrese un número de puntos entre el máximo de puntos
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Ingrese un número de puntos entre el máximo de puntos</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="text" class="form-control" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="text" class="form-control"  aria-describedby="basic-addon2">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input-group m-0">
+					<input type="text" class="form-control"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="text" class="form-control" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="text" class="form-control"  aria-describedby="basic-addon2">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input-group m-0">
+					<input type="text" class="form-control"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  <button type="button" class="btn btn-primary">Understood</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+</section>

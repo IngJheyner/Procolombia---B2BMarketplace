@@ -1,11 +1,9 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
-<section class="list-incentive">
+<section class="dashboard-incentives">
     <p>
         {{ 'Testing translations 1'|t }}
     </p>
-    <button id='update-all-status'>
-        UPDATEAR LOS STATUS
-    </button>
+
     <div id="list-of-status" class='mainCpIncentivesAdviser'>
         
     </div>
@@ -32,10 +30,6 @@
     
     </div>
     
-    <button id="create-status">
-        CREATE STATUS
-    </button>
-    
     <button id="update-all-rel-status-benefits">
         GUARDAR EDICIÓN
     </button>
@@ -55,6 +49,12 @@
             </br>
         <label>Status image_src</label>
         <input id='status-image-src'/>
+            </br>
+        <label>Status main color</label>
+        <input id='status-emphasis-main-color' maxlength='7'/>
+            </br>
+        <label>Status secondary color</label>
+        <input id='status-emphasis-secondary-color' maxlength='7'/>
             </br>
     
         <button id="save-status">
@@ -128,7 +128,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id='table-incentives-tbody'>
                                         <tr>
                                             <td>
                                                 <div class="incentive-image">
@@ -223,8 +223,8 @@
                             </table>
                         </div>
                         <div class="button-table">
-                            <button type="button" class="btn-satatus">Crear nuevo status</button>
-                            <button type="button" class="btn-edit">Guardar edición</button>
+                            <button type="button" class="btn-satatus" id='create-status'>{{ "Create new status"|t }}</button>
+                            <button type="button" class="btn-edit" id='update-all-status'>{{ "Save edition"|t }}</button>
                         </div>
                     </div>
                 </div>
@@ -235,13 +235,13 @@
         <div class="card-table-incentive">
             <table>
                 <thead>
-                    <tr>
+                    <tr id='table-incentives-head'>
                         <th style="width: 60%;">
                         <p class="tittle-table">
                             BENEFICIOS SEGÚN LA CLASIFICACIÓN DE STATUS ALIADO PROCOLOMBIA
                         </p>
                     </th>
-                    <th class="status" style="width: 200px"> 
+                    {# <th class="status" style="width: 200px"> 
                         <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
                             <linearGradient id="bronze">
                                 <stop style="stop-color: #CD7F32;" offset="0%"/>
@@ -271,15 +271,15 @@
                          </svg>
                          <p>STATUS GOLD</p>
                     </th>
-                    <th class="option">
+                    {<th class="option">
                         Estado
                     </th>
                     <th class="option">
                         Editar
-                    </th>
+                    </th> #}
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-incentives" class="table-incentives">
                     <tr>
                         <td>
                             <p>
@@ -306,8 +306,8 @@
                         </td>
                         <td class="status">
                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                            <input id="input-1" name="input-1" checked type="checkbox"/>
+						    <label for="input-1" class="label-default"></label>
                           </div>
                         </td>
                         <td class="status">
@@ -340,8 +340,8 @@
                         </td>
                         <td class="status">
                            <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                            <input id="input-2" name="input-2" checked type="checkbox"/>
+						    <label for="input-2" class="label-default"></label>
                           </div>
                         </td>
                         <td class="status">
@@ -373,9 +373,9 @@
                             </label>
                         </td>
                         <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
+                          <div class="swicher">
+                            <input id="input-3" name="input-3" checked type="checkbox"/>
+						    <label for="input-3" class="label-default"></label>
                           </div>
                         </td>
                         <td class="status">

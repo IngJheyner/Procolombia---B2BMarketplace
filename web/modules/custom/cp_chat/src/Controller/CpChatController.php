@@ -142,6 +142,69 @@ class CpChatController extends ControllerBase {
     return $file;
   }
 
+  /*
+  * trigger chat poitns
+  */
+  public function triggerChatPoints($id_logged, $chatId) {
+    //get quantity of messages in chat
+    $database = \Drupal::database();
+    $query = $database->select('cp_chat_messages', 'c');
+    $query->fields('c', ['id']);
+    $query->condition('c.id_chat', $chatId);
+    $query->condition('c.entity_id_sender', $id_logged);
+    $query->isNull('deleted');
+    $result = $query->execute()->fetchAll();
+    $count = count($result);
+    //if message is equal to 1, trigger points
+    if ($count == 1) {
+      //get cp_incentives_business_rules with id_incentives_criteria = 1
+      $database = \Drupal::database();
+      $query = $database->select('cp_incentives_business_rules', 'c');
+      $query->fields('c', ['id', 'min_measure', 'max_measure', 'given_points']);
+      $query->condition('c.id_incentives_criteria', 1);
+      $result = $query->execute()->fetchAll();
+      //get diff in hours of last message and current time
+      $query = $database->select('cp_chat_messages', 'c');
+      $query->fields('c', ['created', 'entity_id_sender', 'message']);
+      $query->condition('c.id_chat', $chatId);
+      //is different of $id_logged
+      $query->condition('c.entity_id_sender', $id_logged, '<>');
+      $query->isNull('deleted');
+      $query->orderBy('c.created', 'DESC');
+      $query->range(0, 1);
+      $result_last_message = $query->execute()->fetchAll();
+      $date1 = new \DateTime($result_last_message[0]->created);
+      $date2 = new \DateTime(date('Y-m-d H:i:s'));
+      $diff = $date2->diff($date1);
+      $hours = $diff->h;
+      $hours = $hours + ($diff->days * 24);
+      //get cp_incentives_criteria expiration_days with id = 1
+      $database = \Drupal::database();
+      $query = $database->select('cp_incentives_criteria', 'c');
+      $query->fields('c', ['expiration_days']);
+      $query->condition('c.id', 1);
+      $result_expiration_days = $query->execute()->fetchAll();
+
+      //check in $result if $hours is between min_measure and max_measure
+      foreach ($result as $key => $value) {
+        if ($hours >= $value->min_measure && $hours <= $value->max_measure) {
+          //save in cp_incentives_points given_points
+          $database = \Drupal::database();
+          $database->insert('cp_incentives_points')
+            ->fields([
+              'id_incentives_criteria' => 1,
+              'entity_id_company_col' => $id_logged,
+              'entity_id_buyer' => $result_last_message[0]->entity_id_sender,
+              'points' => $value->given_points,
+              'created' => date('Y-m-d H:i:s'),
+              'expiration' => date('Y-m-d H:i:s', strtotime('+' . $result_expiration_days[0]->expiration_days . ' days')),
+            ])
+            ->execute();
+        }
+      }
+    }
+  }
+
   /**
    * Create chat message.
    */
@@ -152,6 +215,9 @@ class CpChatController extends ControllerBase {
       //get id logged user
       $date = date('Y-m-d H:i:s');
       $id_logged = \Drupal::currentUser()->id();
+      //check if role of user is exportador
+      $user = \Drupal\user\Entity\User::load($id_logged);
+      $roles = $user->getRoles();
       // Create row in table.
       $database = \Drupal::database();
       //if data['files'] is not empty save the file and get uri and save in table
@@ -177,6 +243,10 @@ class CpChatController extends ControllerBase {
           'created' => $date,
           'updated' => $date,
         ])->execute();
+      }
+      if (in_array('exportador', $roles)) {
+        //check trigger points
+        $this->triggerChatPoints($id_logged, $data['id_chat']);
       }
       //update chat update date
       $database->update('cp_chat')

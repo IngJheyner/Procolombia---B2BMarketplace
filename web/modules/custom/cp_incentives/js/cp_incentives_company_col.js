@@ -34,11 +34,13 @@
                     ${status.image_src}
                   </p>
                   ${status.id == status_list[0].id ? 
-                    `<p>Mayor a ${status.min_points} puntos</p>` 
+                    `<p>${Drupal.t("Over")} ${status.min_points} ${Drupal.t("points")}</p>` 
                     :
                     `<p>${status.min_points} a ${status.max_points} puntos</p>` 
                   }
-                  <div id='status-content-${status.id}'>
+                  <div id='status-content-${status.id}'
+                    style= "background: transparent linear-gradient(180deg, ${status.emphasis_main_color} 0%, ${status.emphasis_secondary_color} 100%) 0% 0% no-repeat padding-box;"
+                  >
                   </div>
                 </div>
             `

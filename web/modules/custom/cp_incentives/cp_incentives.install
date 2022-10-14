@@ -233,6 +233,18 @@ function cp_incentives_schema() {
         'default' => '',
         'description' => 'Source of the image.', 
       ],
+      'emphasis_main_color' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Hexadecimal main color of the status, to use in the template for users.', 
+      ],
+      'emphasis_secondary_color' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Hexadecimal main color of the status, to use in the template for users.', 
+      ],
       'created' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',

@@ -138,6 +138,13 @@ class CpCompanyColController extends ControllerBase {
         ]);
       }
     }
+    else{
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => 'User is not active',
+      ]);
+    }
   }
 
   /**

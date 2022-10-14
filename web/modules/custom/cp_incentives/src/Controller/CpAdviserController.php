@@ -36,6 +36,12 @@ class CpAdviserController extends ControllerBase {
     );
   }
 
+  public function saveFile($fileToSave, $name, $directory) {
+    \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+    $file = file_save_data($fileToSave, $directory . $name, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+    return $file;
+  }
+
   /**
    * Returns a template twig file.
    */
@@ -130,7 +136,15 @@ class CpAdviserController extends ControllerBase {
   public function getStatus() {
     try {
       $query = $this->db->select('cp_incentives_status', 'cis');
-      $query->fields('cis', ['id', 'name', 'min_points', 'max_points', 'image_src']);
+      $query->fields('cis', [
+        'id',
+        'name',
+        'min_points',
+        'max_points',
+        'image_src',
+        'emphasis_main_color',
+        'emphasis_secondary_color',
+      ]);
       $query->orderBy('cis.id', 'DESC');
       $results = $query->execute()->fetchAll();
       $data = [];
@@ -141,6 +155,8 @@ class CpAdviserController extends ControllerBase {
           'min_points' => $result->min_points,
           'max_points' => $result->max_points,
           'image_src' => $result->image_src,
+          'emphasis_main_color' => $result->emphasis_main_color,
+          'emphasis_secondary_color' => $result->emphasis_secondary_color,
         ];
       }
       return new JsonResponse([
@@ -250,7 +266,7 @@ class CpAdviserController extends ControllerBase {
   /**
    * Function to create a new status.
    */
-  public function createStatus (Request $request) {
+  public function createStatus(Request $request) {
     // Request data.
     $data = $request->request->all();
     $max_points = $data['max_points'];
@@ -263,6 +279,8 @@ class CpAdviserController extends ControllerBase {
       'min_points' => (int)$data['min_points'],
       'max_points' => $max_points,
       'image_src' => $data['image_src'],
+      'emphasis_main_color' => $data['emphasis_main_color'],
+      'emphasis_secondary_color' => $data['emphasis_secondary_color'],
       'created' => date('Y-m-d H:i:s'),
     ];
 

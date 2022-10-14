@@ -33,6 +33,15 @@
           /^[a-zA-Z0-9\s\.\,\-\_\(\)\:\;\=\/\|\\\'\"\[\]\{\}]+$/
         );
     };
+    //is valid hex rgb color
+    const isValidHexColor = (color) => {
+      return String(color)
+
+        .match(
+          //REGULAR EXPRESSION TO VALIDATE # PLUS 6 HEXADECIMAL CHARACTERS
+          /^#[0-9a-fA-F]{6}$/
+        );
+    };
 
     
   const getListOfCriterias = () => {
@@ -246,40 +255,82 @@ function getBusinessRules () {
     .then((result) => {
       let status_list = result.data;
       if (status_list.length > 0) {
-        let html2 = '';
-        // console.log(status_list);
-        // console.log(status_list.length);
+        let html_td = '';
+        let html_st = '';
         status_list.forEach((status) =>{
-          html2 += `
-            <form id='edit-form-status-${status.id}'>
-              <div>
-                <p>
-                  ${Drupal.t(status.id)}
-                </p>
-                <p>
-                  ${Drupal.t(status.name)}
-                </p>
-                <input type="number" class='status_min_points' id="status-min-points-${status.id}"
-                  ${status.id == 1 ? ` value=${status.min_points} readonly` : `value=${status.min_points}`}
-                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                  onkeypress="return event.charCode != 190"
-                  onkeypress="return event.charCode != 188"
-                />
-                <input type="number" class='status_max_points' id="status-max-points-${status.id}"
-                  ${status.id == status_list[0].id ? ` value=${status.max_points} readonly` : `value=${status.max_points}`}
-                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                  onkeypress="return event.charCode != 190"
-                  onkeypress="return event.charCode != 188"
-                />
-                <p>
-                  ${status.image_src}
-                </p>
-              </div>
-            </form>
-          `
-          
+          html_td += `
+            <tr>
+              <td>
+                <div class="incentive-image" id='ONLY-TESTING-${status.image_src}'>
+                  <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 512 512">
+                    <linearGradient id="gradient_mobile">
+                      <stop class="main-stop" offset="0%"></stop>
+                      <stop class="alt-stop" offset="100%"></stop>
+                    </linearGradient>
+                    <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient_mobile)"></path>
+                  </svg>
+                  <p>STATUS ${status.name}</p>
+                </div>
+              </td>
+              <td>
+                <div class="incentive-description">
+                  <div class="input-group">
+                        <input type="text" class="form-control status_min_points" aria-label="Recipient's username" aria-describedby="basic-addon2" id="status-min-points-${status.id}"
+                        ${status.id == 1 ? ` value=${status.min_points} readonly` : `value=${status.min_points}`}
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        onkeypress="return event.charCode != 190"W
+                        onkeypress="return event.charCode != 188"
+                      />
+                      <span class="input-group-text" id="status-span-min-${status.id}">${Drupal.t("Points")}</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="incentive-status">
+                  <div class="input-group">
+                    <input type="text" class="form-control status_max_points" aria-label="Recipient's username"         
+                      aria-describedby="basic-addon2" id="status-max-points-${status.id}"
+                      ${status.id == status_list[0].id ? ` value='' readonly` : `value=${status.max_points}`}
+                      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                      onkeypress="return event.charCode != 190"
+                      onkeypress="return event.charCode != 188"
+                    />
+                    <span class="input-group-text status_span_max" id="status-span-max-${status.id}">${Drupal.t("Points")}</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          `;
         });
-        $('#list-of-status').html(html2);
+        $('#table-incentives-tbody').html(html_td);
+        status_list.reverse().forEach((status) =>{
+          html_st = `
+          <th class="status" style="width: 200px"> 
+            <svg id='ONLY-TESTING-${status.image_src}' class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 512 512">
+                <linearGradient id="bronze">
+                  <stop style="stop-color: #CD7F32;" offset="0%"></stop>
+                  <stop style="stop-color: #8E402A;" offset="100%"></stop>
+                </linearGradient>
+                <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#bronze)"></path>
+            </svg>
+            <p>STATUS ${status.name}</p>
+        </th>
+          `;
+          $('#table-incentives-head').append(html_st);
+        });
+
+        
+        // $('#list-of-status').html(html2);
+        $('#table-incentives-head').append(`
+        <th class="option">
+          Estado
+        </th>
+        <th class="option">
+          Editar
+        </th>
+        `);
+        
+        
       }
       return result;
     })
@@ -329,12 +380,22 @@ function getBusinessRules () {
                 if(($('#status-min-points-'+status.id).val()) !== '0'){
                   console.log('For the status ' + status.name + ' the min points must be 0');
                   isValidPoint = false;
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  
                 }
                 else if(parseInt($('#status-min-points-'+status.id).val()) ==
                 parseInt($('#status-max-points-'+status.id).val())){
                   console.log('For the status ' + status.name + ' the max points must be higher to min points');
                   isValidPoint = false; 
-                };
+                  $('#status-max-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-max-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                }else{
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-max-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-max-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                }
               }
 
               //CHECKING THE LAST STATUS - HIGHER
@@ -345,19 +406,38 @@ function getBusinessRules () {
                   && $('#status-image-src').val() == ''
                   && validatingNewStatus == false){
                     console.log('For the status ' + status.name + ' the max points must be null');
+                    $('#status-max-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                    $('#status-span-max-'+status.id).css('border-color', 'rgb(186, 12, 47)');
                     isValidPoint = false; 
+                  }else {
+                    $('#status-max-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                    $('#status-span-max-'+status.id).css('border-color', 'rgb(204, 204, 204)');
                   }
                 };
                 if(parseInt($('#status-min-points-'+status.id).val()) <=
                 parseInt($(('#status-max-points-'+status_list[iterator+1].id)).val())){
                   console.log('For the status ' + status.name + ' the min points must be higher than the last status max points');
-                  isValidPoint = false; 
-                };
+                  isValidPoint = false;
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                } else {
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                }
                 if(parseInt($('#status-min-points-'+status.id).val()) -
                 parseInt($(('#status-max-points-'+status_list[iterator+1].id)).val()) !== 1){
                   console.log('For the status ' + status.name + ' V A L I D A C I O N  DE SECUENCIA');
-                  isValidPoint = false; 
-                };
+                  isValidPoint = false;
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-min-points-'+status_list[iterator+1].id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status_list[iterator+1].id).css('border-color', 'rgb(186, 12, 47)');
+                } else{
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-min-points-'+status_list[iterator+1].id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status_list[iterator+1].id).css('border-color', 'rgb(204, 204, 204)');
+                }
               }
 
               //CHECKING THE STATUS IN THE MIDDLE
@@ -367,20 +447,47 @@ function getBusinessRules () {
                   > parseInt($('#status-max-points-'+status.id).val())){
                   isValidPoint = false;
                   console.log('min points cannot be greater than max points');
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-max-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-max-'+status.id).css('border-color', 'rgb(186, 12, 47)');
                 }else if(parseInt($('#status-min-points-'+status.id).val()) == parseInt($('#status-max-points-'+status.id).val())) {
                   isValidPoint = false;
                   console.log('Min points cannot be equal to max points');
-                };
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-max-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-max-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                }else {
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-max-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-max-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                }
                 if(parseInt($('#status-min-points-'+status.id).val()) <=
                 parseInt($(('#status-max-points-'+status_list[iterator+1].id)).val())){
                   console.log('For the status ' + status.name + ' the min points must be higher than the last status max points');
                   isValidPoint = false; 
-                };
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                }else {
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                }
                 if(parseInt($('#status-min-points-'+status.id).val()) -
                 parseInt($(('#status-max-points-'+status_list[iterator+1].id)).val()) !== 1){
                   console.log('For the status ' + status.name + ' V A L I D A C I O N  DE SECUENCIA');
-                  isValidPoint = false; 
-                };
+                  isValidPoint = false;
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-min-points-'+status_list[iterator+1].id).css('border-color', 'rgb(186, 12, 47)');
+                  $('#status-span-min-'+status_list[iterator+1].id).css('border-color', 'rgb(186, 12, 47)');
+                } else{
+                  $('#status-min-points-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status.id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-min-points-'+status_list[iterator+1].id).css('border-color', 'rgb(204, 204, 204)');
+                  $('#status-span-min-'+status_list[iterator+1].id).css('border-color', 'rgb(204, 204, 204)');
+                }
               }
               iterator++;
             });
@@ -441,9 +548,9 @@ function getBusinessRules () {
     }    
   }
   
-  function getListOfBenefits (t) {
+  function getListOfBenefits () {
     let formdata2 = new FormData();
-      let html2 = '';
+      let html_bf = '';
       let requestOptions2 = {
         method: 'POST',
         body: formdata2,
@@ -457,28 +564,74 @@ function getBusinessRules () {
           // console.log(benefits_list);
           // console.log("La información");
           benefits_list.forEach((benefits) =>{
-            html2 += `
-              <li>
-                <div id='column-benefit-${benefits.id}'>
-                  <p>
-                    ${Drupal.t(benefits.id)}
-                  </p>
+            // html2 += `
+            //   <li>
+            //     <div id='column-benefit-${benefits.id}'>
+            //       <p>
+            //         ${Drupal.t(benefits.id)}
+            //       </p>
+            //       <p>
+            //         ${Drupal.t(benefits.description)}
+            //       </p>
+            //       <p>${Drupal.t("State")}: ${Drupal.t(benefits.state)}</p>
+            //       <input id='benefit-state-${benefits.id}' type="checkbox"
+            //         ${benefits.state == 1 ? `checked` : ``}
+            //       >
+            //       <button id='updateBenefit-${benefits.id}' type='button'>
+            //         EDIT
+            //       </button>
+            //     </div>
+            //   </li>
+            // `;
+            html_bf += `
+              <tr id='row-benefit-${benefits.id}'>
+                <td id='column-benefit-${benefits.id}'>
                   <p>
                     ${Drupal.t(benefits.description)}
                   </p>
-                  <p>${Drupal.t("State")}: ${Drupal.t(benefits.state)}</p>
-                  <input id='benefit-state-${benefits.id}' type="checkbox"
-                    ${benefits.state == 1 ? `checked` : ``}
-                  >
-                  <button id='updateBenefit-${benefits.id}' type='button'>
-                    EDIT
+                </td>
+                <td class="status">
+                  <div class="swicher">
+                    <input id="input-${benefits.id}" name="input-${benefits.id}" checked="" type="checkbox"
+                      ${benefits.state == 1 ? `checked` : ``}
+                    >
+                    <label for="input-${benefits.id}" class="label-default"
+                    ${
+                      //AQUI SE PREGUNTARÁ POR EL ESTADO DEL BENEFICIO Y MODIFICARA EL LABEL
+                      benefits.state == 1 ? `style="background-color: #00b050"` : `style="background-color: #e46c0a"`
+                    }
+
+                    ></label>
+                  </div>
+                </td>
+                <td class="  width-edit" id='updateBenefit-${benefits.id}' type='button'>
+                  <button onclick="openModalEdit(0)">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+                      <defs>
+                          <linearGradient id="pen" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                          <stop offset="0" stop-color="#005ca4"></stop>
+                          <stop offset="1" stop-color="#008cce"></stop>
+                          </linearGradient>
+                          <linearGradient id="box" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                          <stop offset="0" stop-color="#d88d00"></stop>
+                          <stop offset="1" stop-color="#edc500"></stop>
+                          </linearGradient>
+                      </defs>
+                      <g id="Grupo_2425" data-name="Grupo 2425" transform="translate(-2081 -244)">
+                          <rect id="Rectángulo_2984" data-name="Rectángulo 2984" width="32" height="32" transform="translate(2081 244)" fill="none"></rect>
+                          <g id="Grupo_1447" data-name="Grupo 1447" transform="translate(2088 250)">
+                          <path id="Trazado_119" data-name="Trazado 119" d="M619.529,455.877l-.268.268-.005,0a1.263,1.263,0,0,1-1.76.022l-1.63-1.63a.632.632,0,1,1,.894-.894l1.376,1.375h0a.316.316,0,0,0,.447,0s.008,0,.012,0l.038-.038a1.263,1.263,0,0,0,0-1.787l-1.116-1.118a1.265,1.265,0,0,0-1.788,0l-1.45,1.451a2.52,2.52,0,0,1-1.763.717H602.88a1.58,1.58,0,0,0-1.58,1.58v12.007a1.58,1.58,0,0,0,1.58,1.58h12.007a1.581,1.581,0,0,0,1.58-1.58v-8.127a.316.316,0,0,0-.539-.223s0,0,0,0l-3.51,3.51a2.514,2.514,0,0,1-1.344.7,1.279,1.279,0,0,1-.292.037h-.1c-.038,0-.074,0-.113,0h-2.319a1.264,1.264,0,0,1-1.264-1.264v-2.319c0-.038,0-.075,0-.113v-.1a1.279,1.279,0,0,1,.037-.292,2.515,2.515,0,0,1,.7-1.344l1.343-1.342,0,0a.631.631,0,1,1,.855.925l-1.308,1.308a1.257,1.257,0,0,0-.359,1c0,.018-.005.035-.005.053v.948a1.264,1.264,0,0,0,1.264,1.264h.948c.018,0,.035,0,.052-.005a1.256,1.256,0,0,0,1-.359l4.06-4.06a1.226,1.226,0,0,1,.886-.315,1.264,1.264,0,0,1,1.264,1.264v9.163a2.527,2.527,0,0,1-2.528,2.528H602.564a2.528,2.528,0,0,1-2.528-2.528V455.511a2.529,2.529,0,0,1,2.528-2.528h9.953a1.255,1.255,0,0,0,.883-.361l1.438-1.438a2.528,2.528,0,0,1,3.575,0l1.118,1.118a2.528,2.528,0,0,1,0,3.575" transform="translate(-600.036 -450.445)" fill-rule="evenodd" fill="url(#pen)"></path>
+                          <path id="Trazado_120" data-name="Trazado 120" d="M632.984,464.382a.948.948,0,1,1-.948.948.949.949,0,0,1,.948-.948" transform="translate(-621.925 -459.978)" fill-rule="evenodd" fill="url(#box)"></path>
+                          </g>
+                      </g>
+                  </svg>                        
                   </button>
-                </div>
-              </li>
+                </td> 
+              </tr>
             `;
           });
           
-          $('#list-of-incentives').html(html2);
+          $('#table-incentives').html(html_bf);
         }
         return result;
       })
@@ -595,6 +748,7 @@ function getBusinessRules () {
   function getRelationBenefitStatus () {
     let formdata = new FormData();
     let html = '';
+    let html_rel = '';
     let requestOptions = {
       method: 'POST',
       body: formdata,
@@ -605,16 +759,27 @@ function getBusinessRules () {
         let relation = result.data;
         if (relation.length > 0) {
 
-          relation.forEach((rel) =>{
-            html = `
-                <div style="background-color: green; color: white;">
-                  <input id='input-${rel.id}' readonly type="text" value="${rel.id}"/>
-                  <input id='rel-state-${rel.id}' type="checkbox"
+          relation.reverse().forEach((rel) =>{
+            // html = `
+            //     <div style="background-color: green; color: white;">
+            //       <input id='input-${rel.id}' readonly type="text" value="${rel.id}"/>
+            //       <input id='rel-state-${rel.id}' type="checkbox"
+            //         ${rel.state == 1 ? `checked` : ``}
+            //       >
+            //     </div>
+            // `;
+            html_rel = `
+              <td class="status">
+                <label class="tick">
+                  <input type="checkbox" id='rel-state-${rel.id}'
                     ${rel.state == 1 ? `checked` : ``}
                   >
-                </div>
+                  <span class="check"></span>
+                </label>
+              </td>
             `;
-            $('#column-benefit-'+rel.id_benefit).append(html);
+            // $('#column-benefit-'+rel.id_benefit).append(html);
+            $('#column-benefit-'+rel.id_benefit).after(html_rel);
             $('#rel-state-'+rel.id).click(function () {
               updateRelStatusBenefits(rel.id, rel.id_benefit);
             }
@@ -833,73 +998,186 @@ function getBusinessRules () {
     return validateModalCriteria;
   }
 
-  function createStatusValidations () {
+  function createStatusValidations() {
     let isValid = true;
     if ($('#status-name').val() == '' || !isValidTex($('#status-name').val())) {
       $('#status-name').addClass('error');
+      $('#status-name').css('border-color', 'rgb(186, 12, 47)');
+      console.log("El nombre del estado no es válido");
       isValid = false;
     }
     else {
-      $('#status-min-points').removeClass('error');
-    }
+      $('#status-name').removeClass('error');
+      $('#status-name').css('border-color', 'rgb(204, 204, 204)');
+    };
     if ($('#status-min-points').val() == '' || !isValidNumber($('#status-min-points').val())) {
       $('#status-min-points').addClass('error');
       isValid = false;
+      console.log("Los puntos para el nuevo status no son válidos");
+      $('#status-min-points').css('border-color', 'rgb(186, 12, 47)');
     }
     else {
       $('#status-min-points').removeClass('error');
-    }
+      $('#status-min-points').css('border-color', 'rgb(204, 204, 204)');
+    };
+    if(parseInt($('.status_max_points').first().val()) !== parseInt($('#status-min-points').val())-1){
+      $('#status-min-points').addClass('error');
+      $('#status-min-points').css('border-color', 'rgb(186, 12, 47)');
+      console.log("El puntaje del nuevo status debe ser un punto mayor al del status anterior");
+      isValid = false;
+    } else {
+      $('#status-max-points').removeClass('error');
+      $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
+    };
     if ($('#status-max-points').val() != '') {
       $('#status-max-points').addClass('error');
+      $('#status-max-points').css('border-color', 'rgb(186, 12, 47)');
+      console.log("Los puntos máximos para el nuevo status deben estar vacíos");
       isValid = false;
     }
     else {
       $('#status-max-points').removeClass('error');
-    }
+      $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
+    };
     if ($('#status-image-src').val() == '') {
       $('#status-image-src').addClass('error');
+      $('#status-image-src').css('border-color', 'rgb(186, 12, 47)');
+      console.log("La imagen no es válida");
       isValid = false;
     }
     else {
       $('#status-image-src').removeClass('error');
+      $('#status-image-src').css('border-color', 'rgb(204, 204, 204)');
+    };
+    if(!isValidHexColor($('#status-emphasis-main-color').val())){
+      $('#status-emphasis-main-color').addClass('error');
+      $('#status-emphasis-main-color').css('border-color', 'rgb(186, 12, 47)');
+      console.log("El color principal no es válido");
+      isValid = false;
+    } else {
+      $('#status-emphasis-main-color').removeClass('error');
+      $('#status-emphasis-main-color').css('border-color', 'rgb(204, 204, 204)');
+    };
+    if(!isValidHexColor($('#status-emphasis-secondary-color').val())){
+      $('#status-emphasis-secondary-color').addClass('error');
+      $('#status-emphasis-secondary-color').css('border-color', 'rgb(186, 12, 47)');
+      console.log("El color secundario no es válido");
+      isValid = false;
     }
-  
+    else {
+      $('#status-emphasis-secondary-color').removeClass('error');
+      $('#status-emphasis-secondary-color').css('border-color', 'rgb(204, 204, 204)');
+    };
     return isValid;
   }
 
   function showModalCreateStatus () {
-    if ($('#status-modal').css('display') == 'none') {
-        $('#status-modal').show();
-        validatingNewStatus = true;
-    }
-    else {
-      $('#status-modal').hide();
-      validatingNewStatus = false;
-    }
+    // SHOW THE ERROR TO UPDATE THE LAST STATUS MAX POINTS
+    $('.status_max_points').first().css('border-color', 'rgb(186, 12, 47)');
+    $('.status_span_max').first().css('border-color', 'rgb(186, 12, 47)');
+    console.log("Please edit this status to update the max points");
+    //change each .status_min_points to readonly
+    $('.status_min_points').each(function() {
+      $(this).attr('readonly', true);
+    });
+    //change each .status_max_points to readonly except the first one
+    $('.status_max_points').each(function() {
+      $(this).attr('readonly', true);
+    });
+    //DISABLE THE BUTTON update-all-status
+    $('#update-all-status').attr('disabled', true);
+    $('#update-all-status').css('background', 'rgb(204, 204, 204)');
+    //change the highest .status_max_points to writeable
+    $('.status_max_points').first().attr('readonly', false);
+    // function to track the changes in the max points higher status
+    $('.status_max_points').first().on('input', function() {
+      if (parseInt($('.status_max_points').first().val()) == '' || parseInt($('.status_max_points').first().val()) == 0 || parseInt($('.status_max_points').first().val()) == undefined) { 
+        console.log('Please edit the max points for this status');
+        $('.status_max_points').first().css('border-color', 'rgb(186, 12, 47)');
+        $('.status_span_max').first().css('border-color', 'rgb(186, 12, 47)');
+        //change color create-status-button
+        $('#create-status').css('background', '#f0f0f0');
+        $('#create-status').css('color', 'black');
+        //remove to the button create-status the function to create the status on click
+        $('#create-status').off('click');
+
+      };
+      if(parseInt($('.status_min_points').first().val()) == parseInt($('.status_max_points').first().val())) {
+        console.log('Status cannot have the same min and max points');
+        $('.status_max_points').first().css('border-color', 'rgb(186, 12, 47)');
+        $('.status_span_max').first().css('border-color', 'rgb(186, 12, 47)');
+        //change color create-status-button
+        $('#create-status').css('background', '#f0f0f0');
+        $('#create-status').css('color', 'black');
+        $('#create-status').off('click');
+      }
+      else if (parseInt($('.status_min_points').first().val()) > parseInt($('.status_max_points').first().val())) {
+        console.log('Min points cannot be higher than max points');
+        $('.status_max_points').first().css('border-color', 'rgb(186, 12, 47)');
+        $('.status_span_max').first().css('border-color', 'rgb(186, 12, 47)');
+        //change color create-status-button
+        $('#create-status').css('background', '#f0f0f0');
+        $('#create-status').css('color', 'black');
+        $('#create-status').off('click');
+      } else if (parseInt($('.status_min_points').first().val()) < parseInt($('.status_max_points').first().val())){
+        $('.status_max_points').first().css('border-color', 'rgb(204, 204, 204)');
+        $('.status_span_max').first().css('border-color', 'rgb(204, 204, 204)');
+
+        //change color create-status-button
+        $('#create-status').css('background', '#005ca4');
+        $('#create-status').css('color', 'white');
+
+        //add to the button create-status the function to create the status on click
+        $('#create-status').on('click', function() {
+          showModalCreateStatusFinal();
+        });
+      }
+    });
+
 }
 
+function showModalCreateStatusFinal() {
+  if ($('#status-modal').css('display') == 'none') {
+    $('#status-modal').show();
+    validatingNewStatus = true;
+  }
+  else {
+    $('#status-modal').hide();
+    validatingNewStatus = false;
+  }
+}
   function createStatus () {
+    var validationCreateStatus = true;
     $('.status_max_points').first().attr('readonly', false);
-    console.log('Primero edite el maximo de puntos del anterior status');
-      if(createStatusValidations() &&
-      $('.status_max_points').first().val() != '') {
-      var data = {
-        name: $('#status-name').val(),
-        min_points: $('#status-min-points').val(),
-        max_points: $('#status-max-points').val(),
-        image_src: $('#status-image-src').val(),
-      };
-      var formData = new FormData();
-      formData.append("name", data.name);
-      formData.append("min_points", data.min_points);
-      formData.append("max_points", data.max_points);
-      formData.append("image_src", data.image_src);
+    if($('.status_max_points').first().val() == ''){
+      console.log('Primero edite el maximo de puntos del anterior status');
+      $('.status_max_points').first().css('border-color', 'rgb(186, 12, 47)');
+      $('.status_span_max').first().css('border-color', 'rgb(186, 12, 47)');
+    } else {
+      if ($('#status-min-points').val() == '') {
+        createStatusValidations();
+        console.log('Ahora agregue el nuevo puntaje del status');
+        $('#status-min-points').css('border-color', 'rgb(186, 12, 47)');
+      } else {
+        if(createStatusValidations()) {
+          var data = {
+            name: $('#status-name').val(),
+            min_points: $('#status-min-points').val(),
+            max_points: $('#status-max-points').val(),
+            image_src: $('#status-image-src').val(),
+            emphasis_main_color: $('#status-emphasis-main-color').val(),
+            emphasis_secondary_color: $('#status-emphasis-secondary-color').val(),
+          };
+          var formData = new FormData();
+          formData.append("name", data.name);
+          formData.append("min_points", data.min_points);
+          formData.append("max_points", data.max_points);
+          formData.append("image_src", data.image_src);
+          formData.append("emphasis_main_color", data.emphasis_main_color);
+          formData.append("emphasis_secondary_color", data.emphasis_secondary_color);
 
-      if(
-        parseInt($('.status_max_points').first().val()) == parseInt($('#status-min-points').val())-1
-      ) {
-        updateAllStatus();
-        if(finalValidation == true){
+          updateAllStatus();
+          //if(finalValidation == true){
           fetch("/adviser/incentives/create-status", {
             method: "POST",
             body: formData,
@@ -911,20 +1189,26 @@ function getBusinessRules () {
               localStorage.setItem("min_points", formData.min_points);
               localStorage.setItem("max_points", formData.max_points);
               localStorage.setItem("image_src", formData.image_src);
+              localStorage.setItem("emphasis_main_color", formData.emphasis_main_color);
+              localStorage.setItem("emphasis_secondary_color", formData.emphasis_secondary_color);
               return response.json();
             })
             .then(function () {
               location.reload();
+              $('.status_max_points').first().css('border-color', 'rgb(204, 204, 204)');
+              $('.status_span_max').first().css('border-color', 'rgb(204, 204, 204)');
+              $('#status-min-points').css('border-color', 'rgb(204, 204, 204)');
             })
             .catch(function (error) {
               alert(Drupal.t("Error while creating status. ") + error);
               console.log(Drupal.t("Error while creating status. ") + error);
             });
+            // }
+        } else {
+          console.log('LAS VALIDACIONES NO PASARON LA PRUEBA');
         }
-      } else {
-        alert('El maximo de puntos del status anterior debe ser igual al minimo de puntos del nuevo status menos 1');
       }
-      }
+    }
   }
 
   function showModalCreateBenefit () {
@@ -994,7 +1278,7 @@ function getBusinessRules () {
       rel_state = 1;
     }
     var data = {
-        id_rel: $('#input-'+id).val(),
+        id_rel: id,
         rel_state: rel_state,
     };
     var formData = new FormData();
