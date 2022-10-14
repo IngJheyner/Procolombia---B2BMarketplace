@@ -56,6 +56,13 @@ $font-bold-maven: Maven-Bold;
         height: 40px !important;
     }
 }
+th.width-check.sorting_disabled{
+  min-width: 10px !important;
+}
+th.width-description.sorting {
+  min-width: 400px !important;
+}
+
 
 .card-incentives {
     box-shadow: 0px 3px 6px #00000029;

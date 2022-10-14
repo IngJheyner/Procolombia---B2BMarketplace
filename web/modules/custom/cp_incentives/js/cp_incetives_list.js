@@ -6,11 +6,12 @@
 (function ($, Drupal) {
     'use strict';
     //Global variables
-    let incentives_list;
+    let incentives_list = [];
+    let incentives_list_table;
     var filterLog = false;
     function init() {
 
-        incentives_list = $('#incentives-list').DataTable({
+        incentives_list_table = $('#incentives-list').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
@@ -31,7 +32,8 @@
                     "title": '<input type="checkbox" id="check-all-buyer">',
                     "orderable": false,
                     "searchable": false,
-                    "width": "5%"
+                    //important min-width for checkbox column
+                    "className": 'width-check',
                 },
                 {
                     "data": "characteristic",
@@ -42,7 +44,8 @@
                     "render": function (data, type, row, meta) {
                         return '<div class="description">' + row.description + '</div>';
                     },
-                    "title": "Descripción"
+                    "title": "Descripción",
+                    "className": 'width-description',
                 },
                 {
                     "data": "business_rules",
@@ -132,7 +135,8 @@
                     "data": "id",
                     "render": function (data, type, row, meta) {
                         //get array of id business rules
-                        return `<button onclick='openModalEdit(${JSON.stringify(row)})'>Editar</button>`;
+                        incentives_list.push(row);
+                        return `<button onclick="openModalEdit(${incentives_list.length-1})">Editar</button>`;
                     },
                     "title": "Editar"
                 },
@@ -172,14 +176,18 @@
                 init();
             }
 
-            window.openModalEdit = function (row) {
-                console.log(row);
+            window.openModalEdit = function (index) {
+                console.log(index);
+                console.log(incentives_list[index]);
+                let row = incentives_list[index];
                 if (row.business_rules.length == 1) {
                     //no has business rules only update total_points
                     console.log("No tiene reglas de negocio");
+                    $('#modal-edit-no-bussines').modal('show');
                 } else {
                     //more than one business rule
                     console.log("Tiene reglas de negocio");
+                    $('#modal-edit-bussines').modal('show');
                 }
             }
         }

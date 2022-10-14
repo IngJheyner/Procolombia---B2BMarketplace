@@ -126,7 +126,7 @@
                 $('#log_auditory_length').after(`
                     <div>
                         <div class="d-flex justify-content-between align-items-center nav_table">
-                            <button class="btn btn_download" id="btn_download_report_log"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/carpeta.svg" class="me-2"> Descargar Reporte</button>
+                            <button class="btn btn_download" id="btn_download_report_log"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/carpeta.svg" style="width: 24px;" class="me-2"> Descargar Reporte</button>
                         </div>
                     </div>
                 `);
