@@ -283,16 +283,18 @@
                 $("#website").css("border-color", "#cccccc");
             }
         }
-        if (!isUrl(urlsite)) {
-            message = Drupal.t("URL of companies with e-commerce crossboarder is not valid");
-            $("#url_crossboader_companies").css("border-color", "#ba0c2f");
-            $("#error_urlsite_message").text(message)
-            $("#error_urlsite").show();
-            $("#error_urlsite")
-            isValid = false;
-        } else {
-            $("#error_urlsite").hide();
-            $("#urlsite").css("border-color", "#cccccc");
+        if (urlsite) {
+            if (!isUrl(urlsite)) {
+                message = Drupal.t("URL of companies with e-commerce crossboarder is not valid");
+                $("#url_crossboader_companies").css("border-color", "#ba0c2f");
+                $("#error_urlsite_message").text(message)
+                $("#error_urlsite").show();
+                $("#error_urlsite")
+                isValid = false;
+            } else {
+                $("#error_urlsite").hide();
+                $("#urlsite").css("border-color", "#cccccc");
+            }
         }
 
 
