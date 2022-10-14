@@ -453,18 +453,20 @@
             $(this).closest('.generic-modal.modal').hide();
           });
         }
+        
         if ($('a.insert-video.btn').length) {
           if ($('input[name="field_pr_video_2[0][value]"]').val() != '') {
             $('a.insert-video.btn').hide();
             $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
           }
+
           $('a.insert-video.btn').once().click(function (e) {
             e.preventDefault();
             $('input[name="field_pr_video_2[0][value]"]').closest('.form-wrapper').show();
             $(this).hide();
           });
         }
-
+        
         if ($('input#edit-field-pr-video-0-value').length) {
           $('input#edit-field-pr-video-0-value').once().change(function(e) {
             if ($(this).val() != "") {
