@@ -833,3 +833,6 @@ msgstr "Aprobación Empresa Colombiana"
 
 msgid "URL of companies with e-commerce crossboarder is not valid"
 msgstr "La URL de empresas con e-commerce crossboarder no es válida"
+
+msgid "See products"
+msgstr "Ver productos"

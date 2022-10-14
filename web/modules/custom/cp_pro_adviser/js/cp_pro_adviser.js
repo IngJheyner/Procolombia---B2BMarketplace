@@ -82,7 +82,8 @@
                         "render": function (data, type, row, meta) {
                             return '<input id="buyer-checkbox-' + row.id + '" type="checkbox" class="buyer-checkbox" value="' + row.id + '">';
                         },
-                        "title": '<input type="checkbox" id="check-all-buyer">'
+                        "title": '<input type="checkbox" id="check-all-buyer">',
+                        "className": "width-check"
                     },
                     //company name
                     {
@@ -146,15 +147,15 @@
                         "targets": 7,
                         "render": function (data, type, row, meta) {
                             if (row.status == 'Aprobado') {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle approved fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle approved fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             }
                             else if (row.status == 'Rechazado') {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle declined fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle declined fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             }
                             else if (row.status == 'En-Espera') {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle standby fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle standby fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             } else {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle answer fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle answer fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             }
                         }
                     },
@@ -210,6 +211,7 @@
                 "processing": true,
                 "serverSide": true,
                 "responsive": true,
+                "autoWidth": false,
                 //scrolleable in X at the top of rows
                 "scrollX": true,
                 "stripe": false,
@@ -236,81 +238,89 @@
                             return '<input id="exportador-checkbox-' + row.id + '" type="checkbox" class="exportadores-checkbox" value="' + row.id + '">';
                         },
                         "title": '<input type="checkbox" id="check-all-exportadores">',
+                        "className": "width-check"
                     },
                     //NIT Empresa
                     {
                         "data": "nit",
                         "title": Drupal.t("Tax ID number"),
+                        "className": "table-width"
                     },
                     //Email empresa hidden
                     {
                         "data": "email",
                         "title": Drupal.t("Email"),
                         "visible": false,
+                        "className": "table-width"
                     },
                     //company_name
                     {
                         "data": "company_name",
                         "title": Drupal.t("Company name"),
+                        "className": "table-width"
                     },
                     //lang
                     {
                         "data": "lang",
                         "title": Drupal.t("Language"),
+                        "className": "table-width"
                     },
                     //company_logo is image
                     {
                         "data": "company_logo",
-                        "title": Drupal.t("Language"),
+                        "title": Drupal.t("Logo"),
                         "render": function (data, type, row, meta) {
                             return '<img src="' + row.company_logo + '" width="100px" height="100px">';
-                        }
+                        },
+                        "className": "table-width"
                     },
                     //company_deparment
                     {
                         "data": "company_deparment",
                         "title": Drupal.t("Department"),
-                        "class": "table__td",
+                        "className": "table-width"
                     },
                     //company_city
                     {
                         "data": "company_city",
                         "title": Drupal.t("City"),
-                        "class": "table__td",
+                        "className": "table-width"
                     },
                     //productive_chain
                     {
                         "data": "productive_chain",
                         "title": Drupal.t("Productive Chain"),
-                        "class": "table__td",
+                        "className": "table-width"
                     },
                     //update_date
                     {
                         "data": "update_date",
                         "title": Drupal.t("Update date"),
-                        "class": "table__td",
+                        "className": "table-width"
                     },
                     //add See products as url that have string See products
                     {
                         "data": "id",
                         "render": function (data, type, row, meta) {
-                            return '<a href="/adviser/exportador' + row.id + '" class="see_btn">See products</a>';
+                            return '<a href="/dashboard-advisor/products/' + row.id + `" class="see_btn">${Drupal.t("See products")}</a>`;
                         },
                         "title": Drupal.t("View Products and services"),
-                        "class": "table__td",
+                        "className": "table-width"
                     },
                     //published as string
                     {
                         "data": "id",
                         "title": Drupal.t("Published"),
                         "render": function (data, type, row, meta) {
-                            return 'Yes';
+                            return Drupal.t('Yes');
                         },
+                        "className": "table-width"
                     },
                     //status
                     {
                         "data": "status",
                         "title": Drupal.t("Status"),
+                        "className": "table-width"
                     },
                     //views
                     {
@@ -319,7 +329,8 @@
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Ojo_gris.svg" alt="" srcset="" class="img-views img-table" /><span class="tooltip-table">180</span></div>';
-                        }
+                        },
+                        "className": "table-width"
                     },
                     //incentives
                     {
@@ -328,7 +339,8 @@
                         "className": "text-center",
                         "render": function (data, type, row, meta) {
                             return '<div class="toltip_i"><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/gold.svg" alt="" srcset="" class="img-status" /><span class="tooltip-table">180</span></div>';
-                        }
+                        },
+                        "className": "table-width"
                     },
                     //action
                     {
@@ -337,7 +349,7 @@
                             return '<a href="/asesor/editar/col?email=' + row.email + '" class=""><img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Editar.svg"></a>';
                         },
                         "title": Drupal.t("Action"),
-                        "className": "text-center"
+                        "className": "table-width"
                     }
 
                 ],
@@ -360,15 +372,15 @@
                         "targets": 12,
                         "render": function (data, type, row, meta) {
                             if (row.status == 'Aprobado') {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle approved fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle approved fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             }
                             else if (row.status == 'Rechazado') {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle declined fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle declined fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             }
                             else if (row.status == 'En-Espera') {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle standby fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle standby fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             } else {
-                                return '<div class="toltip_i text-center"><i class="bx bxs-circle circle answer fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
+                                return '<div class="toltip_i"><i class="bx bxs-circle circle answer fs-4 py-2"></i><span class="tooltip-table">' + row.status + '</span></div>';
                             }
                         }
                     },

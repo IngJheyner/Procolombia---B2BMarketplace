@@ -22,7 +22,7 @@
 /* Font/text values */
 div#main-wrapper,
 div#main {
-  background: #F7F8F8;
+  background: #f7f8f8;
 }
 
 .ts-wrapper {
@@ -38,7 +38,7 @@ div#main {
   justify-content: center;
   overflow: hidden;
   align-items: center;
-  background: #F7F8F8;
+  background: #f7f8f8;
 }
 .dashboard .card {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
@@ -667,7 +667,7 @@ span {
 }
 
 .yotube {
-  background: #D9DADE;
+  background: #d9dade;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   border-radius: 4px;
 }
@@ -872,8 +872,8 @@ input[type=checkbox]:checked:before {
   font-family: Gothic-Regular;
   margin-top: 19px;
   color: #0085ca;
-  border-top: 1px solid #CCC;
-  padding: 20px 0PX;
+  border-top: 1px solid #ccc;
+  padding: 20px 0px;
 }
 .text_result #filter_total_exportador {
   font-family: "Gothic-Bold";
@@ -938,7 +938,8 @@ input[type=checkbox]:checked:before {
     opacity: 1;
   }
 }
-.dataTables_scrollHeadInner, table {
+.dataTables_scrollHeadInner,
+table {
   width: 100% !important;
 }
 
@@ -1227,7 +1228,7 @@ input[type=checkbox]:checked:before {
   }
 }
 .dataTables_scrollHeadInner th {
-  padding: 30px 10px !important;
+  padding: 10px auto !important;
 }
 
 /* DATA TABLE*/
@@ -1238,12 +1239,36 @@ table.dataTable td {
   padding-bottom: 20px !important;
 }
 table.dataTable td img {
+  width: 55px;
+  height: 55px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+table.dataTable td .toltip_i img {
   width: 30px;
   height: 30px;
 }
 table.dataTable td a img {
   width: 26px;
   height: 26px;
+}
+table.dataTable th.width-check.sorting_disabled,
+table.dataTable td.width-check.sorting_1 {
+  min-width: 20px !important;
+  width: 20px !important;
+  max-width: 20px !important;
+}
+table.dataTable th.width-check.sorting_disabled:first-child,
+table.dataTable td.width-check.sorting_1:first-child {
+  min-width: 20px !important;
+  width: 20px !important;
+  max-width: 20px !important;
+}
+table.dataTable th.table-width.sorting,
+table.dataTable td.table-width {
+  min-width: 150px !important;
+  width: 150px !important;
+  max-width: 150px !important;
 }
 table.dataTable th {
   min-width: 124px !important;
@@ -2176,7 +2201,7 @@ div.dtr-modal div.dtr-modal-background {
   margin: 0 0 0 -1px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   background-color: white;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   white-space: nowrap;
   max-height: 200px;
   overflow-y: scroll;
@@ -2201,7 +2226,7 @@ div.dtr-modal div.dtr-modal-background {
 .iti__divider {
   padding-bottom: 5px;
   margin-bottom: 5px;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
 }
 
 .iti__country {
@@ -2309,7 +2334,7 @@ div.dtr-modal div.dtr-modal-background {
   box-shadow: 0px 0px 1px 0px #888;
   background-image: url("../img/flags.png");
   background-repeat: no-repeat;
-  background-color: #DBDBDB;
+  background-color: #dbdbdb;
   background-position: 20px 0;
 }
 .iti__flag.iti__be {
@@ -3446,13 +3471,15 @@ div.dtr-modal div.dtr-modal-background {
   border-bottom: initial;
   border-top: 6px solid #fff;
 }
-.daterangepicker.single .daterangepicker .ranges, .daterangepicker.single .drp-calendar {
+.daterangepicker.single .daterangepicker .ranges,
+.daterangepicker.single .drp-calendar {
   float: none;
 }
 .daterangepicker.single .drp-selected {
   display: none;
 }
-.daterangepicker.show-calendar .drp-calendar, .daterangepicker.show-calendar .drp-buttons {
+.daterangepicker.show-calendar .drp-calendar,
+.daterangepicker.show-calendar .drp-buttons {
   display: block;
 }
 .daterangepicker.auto-apply .drp-buttons {
@@ -3476,7 +3503,8 @@ div.dtr-modal div.dtr-modal-background {
   border-radius: 4px;
   background-color: #fff;
 }
-.daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span {
+.daterangepicker .calendar-table .next span,
+.daterangepicker .calendar-table .prev span {
   color: #fff;
   border: solid black;
   border-width: 0 2px 2px 0;
@@ -3492,7 +3520,8 @@ div.dtr-modal div.dtr-modal-background {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-.daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
+.daterangepicker .calendar-table th,
+.daterangepicker .calendar-table td {
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
@@ -3512,12 +3541,14 @@ div.dtr-modal div.dtr-modal-background {
   border-spacing: 0;
   border-collapse: collapse;
 }
-.daterangepicker td.available:hover, .daterangepicker th.available:hover {
+.daterangepicker td.available:hover,
+.daterangepicker th.available:hover {
   background-color: #eee;
   border-color: transparent;
   color: inherit;
 }
-.daterangepicker td.week, .daterangepicker th.week {
+.daterangepicker td.week,
+.daterangepicker th.week {
   font-size: 80%;
   color: #ccc;
 }
@@ -3559,7 +3590,8 @@ div.dtr-modal div.dtr-modal-background {
 .daterangepicker th.month {
   width: auto;
 }
-.daterangepicker td.disabled, .daterangepicker option.disabled {
+.daterangepicker td.disabled,
+.daterangepicker option.disabled {
   color: #999;
   cursor: not-allowed;
   text-decoration: line-through;
@@ -3672,7 +3704,8 @@ div.dtr-modal div.dtr-modal-background {
   .daterangepicker.single .drp-calendar.left {
     clear: none;
   }
-  .daterangepicker.single .ranges, .daterangepicker.single .drp-calendar {
+  .daterangepicker.single .ranges,
+.daterangepicker.single .drp-calendar {
     float: left;
   }
   .daterangepicker .drp-calendar.left {
@@ -3695,7 +3728,8 @@ div.dtr-modal div.dtr-modal-background {
   .daterangepicker .drp-calendar.left .calendar-table {
     padding-right: 8px;
   }
-  .daterangepicker .ranges, .daterangepicker .drp-calendar {
+  .daterangepicker .ranges,
+.daterangepicker .drp-calendar {
     float: left;
   }
 }
