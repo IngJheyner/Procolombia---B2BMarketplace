@@ -292,6 +292,7 @@ function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
     'cp_advisor_moderation_export' => [
       'variables' => [
         'url' => NULL,
+        'url_pdf' => NULL,
         'description' => NULL,
       ],
     ]

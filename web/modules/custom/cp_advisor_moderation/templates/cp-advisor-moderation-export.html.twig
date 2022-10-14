@@ -5,6 +5,8 @@
   {% if url %}
     {{ url }}
   {% endif %}
-  <a class="pdf" href="">pdf</a>
+  {% if url_pdf %}
+    {{ url_pdf }}
+  {% endif %}
   <button id="close-button" onclick="jQuery('.ui-dialog-titlebar-close').click()">Cancelar</button>
 </div>

@@ -166,6 +166,7 @@ module:
   path: 0
   path_alias: 0
   pathologic: 0
+  pdf_serialization: 0
   persistent_login: 0
   plupload: 0
   plupload_widget: 0
