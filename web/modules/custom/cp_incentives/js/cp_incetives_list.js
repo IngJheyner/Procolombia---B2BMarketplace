@@ -42,20 +42,20 @@
                     "render": function (data, type, row, meta) {
                         let html = '';
                         row.business_rules.map(function (item) {
-                            if(item.min_measure && item.max_measure){
-                            html += `
+                            if (item.min_measure && item.max_measure) {
+                                html += `
                                 <div class="business-rule">
                                     ${item.min_measure} - ${item.max_measure} ${row.measurement_unit}
                                 </div>
                             `;
-                            }else{
-                                if(item.max_measure){
+                            } else {
+                                if (item.max_measure) {
                                     html += `
                                         <div class="business-rule">
                                             ${item.max_measure} ${row.measurement_unit}
                                         </div>
                                     `;
-                                }else{
+                                } else {
                                     html += `
                                         <div class="business-rule">
                                             N/A
@@ -73,11 +73,14 @@
                     "render": function (data, type, row, meta) {
                         let html = '';
                         row.business_rules.map(function (item) {
-                            html += `
-                                <div class="business-rule">
-                                    ${item.given_points} Puntos
-                                </div>
-                            `;
+                            if (item.min_measure || item.max_measure) {
+                                html += `
+                                    <div class="business-rule">
+                                        ${item.given_points} Puntos
+                                    </div>
+                                `;
+                            }
+
                         });
                         return html;
                     },
@@ -120,7 +123,8 @@
                     //editar
                     "data": "id",
                     "render": function (data, type, row, meta) {
-                        return '<a href="/incentives/edit/' + row.id + '" class="btn btn-primary btn-sm">Editar</a>';
+                        //get array of id business rules
+                        return `<button onclick='openModalEdit(${JSON.stringify(row)})'>Editar</button>`;
                     },
                     "title": "Editar"
                 },
@@ -147,6 +151,8 @@
 
     }
 
+
+
     // **********************
     // *** Call functions ***
     // **********************
@@ -156,6 +162,17 @@
             //init
             if (context == document) {
                 init();
+            }
+
+            window.openModalEdit = function (row) {
+                console.log(row);
+                if (row.business_rules.length == 1) {
+                    //no has business rules only update total_points
+                    console.log("No tiene reglas de negocio");
+                } else {
+                    //more than one business rule
+                    console.log("Tiene reglas de negocio");
+                }
             }
         }
     };
