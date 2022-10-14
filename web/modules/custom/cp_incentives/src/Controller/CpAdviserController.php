@@ -109,8 +109,10 @@ class CpAdviserController extends ControllerBase {
         ];
       }
       return new JsonResponse([
+        'draw' => $request->request->get('draw'),
+        'recordsTotal' => count($data),
+        'recordsFiltered' => count($data),
         'data' => $data,
-        'status' => 'success',
       ]);
     }
     catch (\Exception $e) {
@@ -125,7 +127,7 @@ class CpAdviserController extends ControllerBase {
   /**
    * Function to get all status of the table cp_incentives_status.
    */
-  public function getStatus () {
+  public function getStatus() {
     try {
       $query = $this->db->select('cp_incentives_status', 'cis');
       $query->fields('cis', ['id', 'name', 'min_points', 'max_points', 'image_src']);
@@ -158,7 +160,7 @@ class CpAdviserController extends ControllerBase {
   /**
    * Function to get all benefits of the table cp_incentives_benefits.
    */
-  public function getBenefits () {
+  public function getBenefits() {
     try {
       $query = $this->db->select('cp_incentives_benefits', 'cib');
       $query->fields('cib', ['id', 'description', 'description_spanish', 'state']);
@@ -452,95 +454,64 @@ class CpAdviserController extends ControllerBase {
   }
 
   /**
-   * Update the 1st business rule, related to the hours of response in the chat.
+   * Update incentive
    */
-  public function updateBusinessRulesType1(Request $request) {
+  public function updateIncentive(Request $request) {
     // Request data.
     $data = $request->request->all();
-    $min_measure_1 = $data['min_measure_1'];
-    if ($data['min_measure_1'] == '') {
-      $min_measure_1 = NULL;
+    /*
+    * save in cp_incentives_criteria 
+    * state
+    * expiration_days
+    */
+    try {
+      $values = [
+        'state' => $data['state'],
+        'expiration_days' => $data['expiration_days'],
+        'updated' => date('Y-m-d H:i:s'),
+      ];
+      $this->db->update('cp_incentives_criteria')
+        ->fields($values)
+        ->condition('id', $data['id_criteria'])
+        ->execute();
+      if ($data["has_rule"] === "true") {
+        //update cp_incentives_business_rules
+        //iterate bussines_rules
+        foreach ($data['business_rules'] as $business_rule) {
+          $values = [
+            'min_measure' => $business_rule['min_measure'],
+            'max_measure' => $business_rule['max_measure'],
+            'given_points' => $business_rule['given_points'],
+            'updated' => date('Y-m-d H:i:s'),
+          ];
+          $this->db->update('cp_incentives_business_rules')
+            ->fields($values)
+            ->condition('id', $business_rule['id'])
+            ->execute();
+        }
+        return new JsonResponse([
+          'status' => 200,
+        ]);
+      } else {
+        $values = [
+          'min_measure' => $business_rule['min_measure'],
+          'max_measure' => $business_rule['max_measure'],
+          'given_points' => $business_rule['given_points'],
+          'updated' => date('Y-m-d H:i:s'),
+        ];
+        $this->db->update('cp_incentives_business_rules')
+          ->fields($values)
+          ->condition('id', $business_rule['id'])
+          ->execute();
+      }
+    } catch (\Exception $e) {
+      return new JsonResponse([
+        'status' => 500,
+        'message' => $e->getMessage(),
+      ]);
     }
-    else {
-      $min_measure_1 = $data['min_measure_1'];
-    }
-    $min_measure_2 = $data['min_measure_2'];
-    if ($data['min_measure_2'] == '') {
-      $min_measure_2 = NULL;
-    }
-    else {
-      $min_measure_2 = $data['min_measure_2'];
-    }
-    $min_measure_3 = $data['min_measure_3'];
-    if ($data['min_measure_3'] == '') {
-      $min_measure_3 = NULL;
-    }
-    else {
-      $min_measure_3 = $data['min_measure_3'];
-    }
-    $values1 = [
-      'id' => $data['id_criteria_1'],
-      'min_measure' => $min_measure_1,
-      'max_measure' => $data['max_measure_1'],
-      'given_points' => $data['given_points_1'],
-      'updated' => date('Y-m-d H:i:s'),
-    ];
-
-    $values2 = [
-      'id' => $data['id_criteria_2'],
-      'min_measure' => $min_measure_2,
-      'max_measure' => $data['max_measure_2'],
-      'given_points' => $data['given_points_2'],
-      'updated' => date('Y-m-d H:i:s'),
-    ];
-
-    $values3 = [
-      'id' => $data['id_criteria_3'],
-      'min_measure' => $min_measure_3,
-      'max_measure' => $data['max_measure_3'],
-      'given_points' => $data['given_points_3'],
-      'updated' => date('Y-m-d H:i:s'),
-    ];
-
-    $this->db->update('cp_incentives_business_rules')
-      ->fields($values1)
-      ->condition('id', $data['id_criteria_1'])
-      ->execute();
-    $this->db->update('cp_incentives_business_rules')
-      ->fields($values2)
-      ->condition('id', $data['id_criteria_2'])
-      ->execute();
-    $this->db->update('cp_incentives_business_rules')
-      ->fields($values3)
-      ->condition('id', $data['id_criteria_3'])
-      ->execute();
-    return new JsonResponse([
-      'status' => 200,
-    ]);
-
   }
-
-  /**
-   * Update the 2nd - and 3rd business rules.
-   */
-  public function updateBusinessRulesType2(Request $request) {
-    // Request data.
-    $data = $request->request->all();
-    $values = [
-      'given_points' => $data['points'],
-      'updated' => date('Y-m-d H:i:s'),
-    ];
-
-    $this->db->update('cp_incentives_business_rules')
-      ->fields($values)
-      ->condition('id', $data['id-criteria'])
-      ->execute();
-
-    return new JsonResponse([
-      'status' => 200,
-    ]);
-
-  }
+ 
 
   /**
    * Function to get all  the relations between the status and the benefits.

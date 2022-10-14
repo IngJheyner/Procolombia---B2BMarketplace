@@ -135,18 +135,9 @@ cp_incentives.get_business_rules:
 
 ### UPDATE BUSINESS RULES.
 cp_incentives.update_business_rules_type1:
-  path: 'adviser/incentives/update-business-rules-type1'
+  path: 'adviser/incentives/update'
   defaults:
-    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateBusinessRulesType1'
-  methods:  [POST]
-  requirements:
-    _permission: 'access content'
-
-## UPDATE BUSINESS RULES.
-cp_incentives.update_business_rules_type1or2:
-  path: 'adviser/incentives/update-business-rules-type2'
-  defaults:
-    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateBusinessRulesType2'
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateIncentive'
   methods:  [POST]
   requirements:
     _permission: 'access content'
