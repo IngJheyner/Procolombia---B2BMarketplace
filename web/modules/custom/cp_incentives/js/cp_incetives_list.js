@@ -27,7 +27,10 @@
                     "render": function (data, type, row, meta) {
                         return '<input id="buyer-checkbox-' + row.id + '" type="checkbox" class="buyer-checkbox" value="' + row.id + '">';
                     },
-                    "title": '<input type="checkbox" id="check-all-buyer">'
+                    "title": 'a',
+                    "orderable": false,
+                    "searchable": false,
+                    "width": "1%"
                 },
                 {
                     "data": "characteristic",
@@ -35,6 +38,9 @@
                 },
                 {
                     "data": "description",
+                    "render": function (data, type, row, meta) {
+                        return '<div class="description">' + row.description + '</div>';
+                    },
                     "title": "Descripción"
                 },
                 {
@@ -66,7 +72,8 @@
                         });
                         return html;
                     },
-                    "title": "Instrucción"
+                    //blue background for this title
+                    "title": `<div class="business-rule-title">Reglas de negocio</div>`
                 },
                 {
                     "data": "business_rules",

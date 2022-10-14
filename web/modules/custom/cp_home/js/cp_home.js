@@ -190,25 +190,6 @@
                 lottie.stop();
                 lottie.play();
             });
-
-            //change lotties after 5s
-            setInterval(function () {
-                if (lottieIndex < 8 - 1) {
-                    lottieIndex++;
-                } else {
-                    lottieIndex = 0;
-                }
-                //hide all lotties
-                for (var i = 0; i < 8; i++) {
-                    $('#lottie-' + i).hide();
-                }
-                $('#lottie-' + lottieIndex).fadeIn();
-                //start lottie
-                let lottie = document.getElementById('lottie-' + lottieIndex);
-                //reset lottie
-                lottie.stop();
-                lottie.play();
-            }, 8000);
         }
     };
 }(jQuery, Drupal));
