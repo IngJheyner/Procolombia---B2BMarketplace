@@ -14,6 +14,7 @@
             "processing": true,
             "serverSide": true,
             "responsive": true,
+            "autoWidth": false,
             "scrollX": true,
             "stripe": false,
             "ajax": {
@@ -27,10 +28,10 @@
                     "render": function (data, type, row, meta) {
                         return '<input id="buyer-checkbox-' + row.id + '" type="checkbox" class="buyer-checkbox" value="' + row.id + '">';
                     },
-                    "title": 'a',
+                    "title": '<input type="checkbox" id="check-all-buyer">',
                     "orderable": false,
                     "searchable": false,
-                    "width": "1%"
+                    "width": "5%"
                 },
                 {
                     "data": "characteristic",
