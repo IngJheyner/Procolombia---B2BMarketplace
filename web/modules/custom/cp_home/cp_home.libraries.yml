@@ -1,0 +1,11 @@
+cp_home:
+  version: 1.0
+  css:
+    theme:
+      css/cp_home.css: {}
+  js:
+    js/cp_home.js: {}
+    js/bodymovin.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

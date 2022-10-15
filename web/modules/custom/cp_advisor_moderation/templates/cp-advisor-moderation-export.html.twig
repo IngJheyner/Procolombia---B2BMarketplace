@@ -1,0 +1,12 @@
+<div class="modal-body">
+    <p>{{ description }}</p>
+</div>
+<div class="modal-footer">
+  {% if url %}
+    {{ url }}
+  {% endif %}
+  {% if url_pdf %}
+    {{ url_pdf }}
+  {% endif %}
+  <button id="close-button" onclick="jQuery('.ui-dialog-titlebar-close').click()">Cancelar</button>
+</div>

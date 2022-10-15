@@ -1,0 +1,300 @@
+uuid: 685d019f-00d6-4c82-879a-912e45997f0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_5
+    - field.field.node.product.field_aditional_information
+    - field.field.node.product.field_body
+    - field.field.node.product.field_categorization
+    - field.field.node.product.field_categorization_parent
+    - field.field.node.product.field_dependent_state
+    - field.field.node.product.field_exist_certifications
+    - field.field.node.product.field_export_markets
+    - field.field.node.product.field_file
+    - field.field.node.product.field_file_certifications
+    - field.field.node.product.field_iframe
+    - field.field.node.product.field_images
+    - field.field.node.product.field_key_words
+    - field.field.node.product.field_key_words_backup
+    - field.field.node.product.field_mostrar_en_home
+    - field.field.node.product.field_partida_arancelaria_tax
+    - field.field.node.product.field_pr_certifications
+    - field.field.node.product.field_pr_country
+    - field.field.node.product.field_pr_image_1
+    - field.field.node.product.field_pr_image_2
+    - field.field.node.product.field_pr_image_3
+    - field.field.node.product.field_pr_image_4
+    - field.field.node.product.field_pr_image_5
+    - field.field.node.product.field_pr_multilingual_step1
+    - field.field.node.product.field_pr_multilingual_step2
+    - field.field.node.product.field_pr_multilingual_step3
+    - field.field.node.product.field_pr_multilingual_step4
+    - field.field.node.product.field_pr_multilingual_step5
+    - field.field.node.product.field_pr_product_availability
+    - field.field.node.product.field_pr_ref_company
+    - field.field.node.product.field_pr_sales_channel
+    - field.field.node.product.field_pr_status
+    - field.field.node.product.field_pr_structured_features
+    - field.field.node.product.field_pr_target_market
+    - field.field.node.product.field_pr_terms_of_condition
+    - field.field.node.product.field_pr_type_certifications
+    - field.field.node.product.field_pr_video
+    - field.field.node.product.field_pr_video_2
+    - field.field.node.product.field_pr_video_description_1
+    - field.field.node.product.field_pr_video_description_2
+    - field.field.node.product.field_previous_id
+    - field.field.node.product.field_product_type
+    - field.field.node.product.field_producto_innovador
+    - field.field.node.product.field_states
+    - field.field.node.product.field_tag_producto
+    - field.field.node.product.field_tariff_heading
+    - field.field.node.product.field_trading_channel
+    - node.type.product
+  module:
+    - cp_core
+    - field_group
+third_party_settings:
+  field_group:
+    group_left:
+      children:
+        - group_video_tooltip
+        - field_pr_video
+        - field_pr_video_description_1
+      label: Left
+      region: content
+      parent_name: group_row
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: 'group-left step-5'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_right:
+      children:
+        - field_pr_video_2
+        - field_pr_video_description_2
+        - field_pr_multilingual_step5
+      label: Right
+      region: content
+      parent_name: group_row
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: 'group-right step-5'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_top:
+      children:
+        - group_step_5_title
+      label: Top
+      region: content
+      parent_name: group_row
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'group-top col-sm-12'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_bottom:
+      children:
+        - field_pr_terms_of_condition
+      label: Bottom
+      region: content
+      parent_name: group_row
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: 'group-bottom col-sm-12'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_row:
+      children:
+        - group_top
+        - group_left
+        - group_right
+        - group_bottom
+      label: Row
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'group-row row'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_step_5_title:
+      children: {  }
+      label: 'Step 5 title'
+      region: content
+      parent_name: group_top
+      weight: 0
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: '<h2>Add Product Videos</h2><p>It is recommended to upload real videos of the product in good quality to improve the positioning of your product within the Catalog.</p>'
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper step-title'
+    group_video_tooltip:
+      children: {  }
+      label: 'Video tooltip'
+      region: content
+      parent_name: group_left
+      weight: 20
+      format_type: cp_core_group_markup
+      format_settings:
+        markup:
+          value: '<span>We suggest uploading summary videos that give a cross-sectional tour of the company''s offer. It is important for the international buyer because it quickly, briefly and directly shows the skills, competencies and experience.<br>If they do not have an English video, it is suggested to include subtitles to the video in Spanish.</span>'
+          format: html
+        show_empty_fields: '1'
+        id: ''
+        classes: 'form-wrapper lightbulb-tooltip'
+id: node.product.step_5
+targetEntityType: node
+bundle: product
+mode: step_5
+content:
+  field_pr_multilingual_step5:
+    type: cp_core_multilingual_field_widget
+    weight: 23
+    region: content
+    settings:
+      collapsible_state: '-1'
+      mfd_languages:
+        en: en
+      display_label: 0
+      display_description: 0
+    third_party_settings: {  }
+  field_pr_terms_of_condition:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_pr_video:
+    type: cp_core_video_embed_with_preview
+    weight: 21
+    region: content
+    settings:
+      show_preview: '1'
+    third_party_settings: {  }
+  field_pr_video_2:
+    type: cp_core_video_embed_with_preview
+    weight: 21
+    region: content
+    settings:
+      show_preview: '1'
+    third_party_settings: {  }
+  field_pr_video_description_1:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pr_video_description_2:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body_class: true
+  created: true
+  field_aditional_information: true
+  field_body: true
+  field_categorization: true
+  field_categorization_parent: true
+  field_dependent_state: true
+  field_exist_certifications: true
+  field_export_markets: true
+  field_file: true
+  field_file_certifications: true
+  field_iframe: true
+  field_images: true
+  field_key_words: true
+  field_key_words_backup: true
+  field_mostrar_en_home: true
+  field_partida_arancelaria_tax: true
+  field_pr_certifications: true
+  field_pr_country: true
+  field_pr_image_1: true
+  field_pr_image_2: true
+  field_pr_image_3: true
+  field_pr_image_4: true
+  field_pr_image_5: true
+  field_pr_multilingual_step1: true
+  field_pr_multilingual_step2: true
+  field_pr_multilingual_step3: true
+  field_pr_multilingual_step4: true
+  field_pr_product_availability: true
+  field_pr_ref_company: true
+  field_pr_sales_channel: true
+  field_pr_status: true
+  field_pr_structured_features: true
+  field_pr_target_market: true
+  field_pr_type_certifications: true
+  field_previous_id: true
+  field_product_type: true
+  field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
+  field_tariff_heading: true
+  field_trading_channel: true
+  langcode: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  specific_node_class: true
+  status: true
+  sticky: true
+  title: true
+  translation: true
+  uid: true
+  url_redirects: true

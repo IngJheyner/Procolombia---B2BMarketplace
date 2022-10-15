@@ -1,0 +1,10 @@
+uuid: f42e22f1-6ec0-4b13-b00f-59da84e57889
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_6
+label: 'Terminar el proceso'
+targetEntityType: node
+cache: true

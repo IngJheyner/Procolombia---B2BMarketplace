@@ -1,0 +1,295 @@
+.cp-core-multistep-form.step_6 {
+  grid-template-rows: auto repeat(2, auto) auto;
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    .node-multistep-header {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .cp-core-node-multistep-sidebar {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .required-fields {
+      grid-area: 3 / 1 / 4 / 2 !important;
+    }
+    #edit-product-list {
+      grid-area: 4 / 1 / 5 / 2 !important;
+    }
+    #edit-footer-form {
+      grid-area: 5 / 1 / 6 / 2;
+    }
+  }
+  .field-group-html-element.group-row {
+    grid-area: 2 / 2 / 2 / 4;
+    padding: 0 50px;
+    margin-top: 0;
+    padding-top: 30px;
+    @include media-breakpoint-down(lg) {
+      padding: 20px;
+    }
+    .required-fields {
+      padding: 0;
+      h2 {
+        font-family: $font-bold;
+        font-size: 20px;
+      }
+    }
+  }
+  #edit-product-list {
+    display: flex;
+    padding: 20px 50px;
+    grid-area: 3/ 2 / 4 / 4;
+    border-left: 1px solid #d8dadd;
+    margin-bottom: 0 !important;
+    @include media-breakpoint-down(xl) {
+      padding: 20px 20px;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 20px 10px;
+    }
+    .product-list-links {
+      width: 100%;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      a {
+        text-transform: uppercase;
+        color: $procol-light-blue;
+        @include gray-btn;
+        border-radius: 5px;
+        &:hover {
+          border-radius: 5px;
+          border: 0;
+        }
+      }
+      @include media-breakpoint-down(lg) {
+        flex-direction: column;
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 56px;
+        }
+      }
+    }
+    .js-form-item {
+      border-radius: 5px;
+      box-shadow: 0px 3px 6px $gray-shadow;
+      padding: 20px;
+      .node--view-mode-product-service-presave-list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding-right: 0;
+        @include media-breakpoint-down(lg) {
+          flex-wrap: wrap;
+          justify-content: c;
+        }
+        .bs-region {
+          &.bs-region--left {
+            padding: 0;
+            max-width: 280px;
+            width: 100%;
+            height: 270px;
+            .field--type-image {
+              width: auto;
+            }
+            @include media-breakpoint-down(lg) {
+              width: 100%;
+              justify-content: center;
+              display: flex;
+              align-items: center;
+            }
+          }
+          &.bs-region--right {
+            position: relative;
+            font-weight: normal;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 20px;
+            padding-bottom: 20px;
+            .field--name-field-body {
+              margin-bottom: 0;
+            }
+            .field {
+              width: auto;
+              display: grid;
+              &.field--type-entity-reference {
+                grid-template-columns: 180px 1fr;
+                @include media-breakpoint-down(xl) {
+                  grid-template-columns: 140px 200px;
+                }
+                @include media-breakpoint-down(xl) {
+                  grid-template-columns: 180px 1fr;
+                }
+                @include media-breakpoint-down(md) {
+                  grid-template-columns: 120px 1fr;
+                }
+              }
+            }
+            .field__item {
+              max-width: 300px;
+              font-family: "Century Gothic", $font-regular;
+              &.field--name-field-body {
+                max-width: 568px;
+                p {
+                  font-family: "Century Gothic", $font-regular;
+                  padding: 10px 20px 0 0;
+                }
+              }
+            }
+            @include media-breakpoint-down(lg) {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              align-items: center;
+              flex-direction: column;
+              padding: 20px;
+              max-height: 100%;
+              align-items: baseline;
+            }
+            .field {
+              .field__label {
+                &:after {
+                  content: ": ";
+                  display: inline-block;
+                }
+              }
+            }
+            .field--name-node-title {
+              max-width: 568px;
+              width: 100%;
+              h2 {
+                color: $procol-dark-blue;
+                width: 100%;
+                padding-top: 20px;
+                font-size: 24px !important;
+                font-weight: normal;
+                font-family: $font-bold-Maven;
+                padding-right: 60px;
+              }
+            }
+            a.use-ajax {
+              position: relative;
+              bottom: 20px;
+              z-index: 1;
+              font-family: "Century Gothic", $font-regular;
+              @include blue-btn;
+              background-color: $white;
+              color: $procol-dark-blue;
+              box-shadow: 0px 3px 6px $gray-shadow;
+              align-self: flex-end;
+              height: 38px;
+              min-height: 38px;
+              font-weight: lighter;
+              display: flex;
+              align-items: center;
+              margin: auto 0 0;
+              &::before {
+                content: "";
+                height: 38px;
+                width: 38px;
+                margin-right: 20px;
+                background: url(../images/icons/Contrasena.svg) no-repeat 5px
+                  center;
+                position: relative;
+                top: 0;
+                left: 0;
+              }
+              @include media-breakpoint-down(lg) {
+                position: static;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-position: 35% center;
+                height: 56px;
+              }
+              @include media-breakpoint-down(md) {
+                background-position: 20% center;
+              }
+            }
+          }
+        }
+      }
+    }
+    .js-form-item {
+      max-width: 1160px;
+      position: relative;
+      padding: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: $procol-gray-50;
+      }
+      .form-checkbox {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 1.1rem;
+        z-index: 2;
+        float: none;
+        border: none;
+        height: 18px;
+        width: 18px;
+        border: 1px solid $procol-red;
+      }
+      input[type="checkbox"]:checked {
+        background-color: $procol-light-green;
+        border: none;
+        &:hover {
+          background-color: $procol-dark-blue;
+        }
+      }
+      .form-check-label {
+        position: relative;
+        z-index: 0;
+        display: block;
+        padding: 0;
+      }
+    }
+
+    //   Estilos carrusel paso 6
+    .owl-slider-wrapper.owl-carousel.owl-theme {
+      width: 280px;
+    }
+
+    .owl-pagination {
+      display: none;
+    }
+
+    .owl-buttons {
+      /* -50%: ; */
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      div {
+        font-family: swiper-icons;
+        background-color: $white;
+        color: $procol-dark-blue;
+        height: 31px;
+        width: 31px;
+        opacity: 0.8;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

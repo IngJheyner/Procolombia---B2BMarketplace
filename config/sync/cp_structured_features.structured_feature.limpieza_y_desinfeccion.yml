@@ -1,0 +1,220 @@
+uuid: 2dd9fadf-863d-4555-9a69-b56d0cfc5f11
+langcode: es
+status: true
+dependencies: {  }
+id: limpieza_y_desinfeccion
+label: 'Limpieza y desinfección'
+description: ''
+reference_type: product
+references:
+  - 2b34334c-857e-43fd-bf13-537d345c09d5
+  - 6eb1cd99-8d72-4287-a4e2-9cce31c13e27
+  - a4c87adc-542e-4568-be89-f1ec2f47d0cd
+  - 6d6b4032-427e-4b93-9808-e76eb4cf4473
+  - d7a46c92-2a62-4674-b25c-8c418c07e528
+  - 565dc008-009a-4def-a46f-f8ce9f75c521
+  - c3ff6541-6e34-43c3-af21-3f465e3b5949
+  - 0bd93686-798e-4532-80d2-ddf4ebaf9688
+  - d5cb3aac-64ff-4216-88ca-6730bf4f7a84
+  - 6bd3f364-d7fc-4bfc-b20d-7c5e40d1c76e
+  - f8a7f739-f48c-4e99-8403-baf215bcd8bd
+  - 71a6eeb6-340c-49a4-bdd0-b5e0592c5a99
+  - 724fb0b5-0cc4-42d5-8fec-0fb2aaaa58b8
+  - 91c0afc4-d7d6-483e-bfc4-27cbbb0b3cd7
+  - 2eb5690a-5dfe-47ef-9084-c39353972dfe
+  - 75aab91c-fc56-43a1-9a0b-4ecd0d6def2d
+  - 81579510-14ed-458a-bcc0-381f5e9e2c6e
+  - b197853c-5716-480f-8f06-13bf683f63fe
+  - 811c59b7-d45d-456c-94ad-325ea0d1127f
+  - 05334b44-cbfe-4d9e-88a6-3664932d787f
+  - 1b89b3f5-1a7e-45e9-93d3-f713a95d5798
+  - 8f294b6a-fe9e-4f52-931e-e177817dd1af
+  - 291ccdaf-22cf-4d0a-a535-e9ec1f17ccfe
+  - fcff0cbb-e707-47c6-a1e5-7e7830477d8d
+  - 902e5155-6681-4cb3-9576-02d4a2c0f7c5
+  - a5092a17-0b77-4313-ad7b-39eb38175057
+  - 13ec93b7-8d5c-47d0-9cb0-0bae2fdd10f8
+  - d55db7e4-17f0-485b-98c7-1d0376a3f00f
+  - ded911a4-912b-41f4-aab3-42c716c7ff82
+  - 79c6d0dd-e71c-41cc-9984-5a5b19c6da34
+  - 7fdfd893-77dc-4f65-8a2a-b2ea53e8011b
+  - 5e5b4834-93a7-419b-b25c-f3977ff9c500
+  - d8ff7d16-31b4-4a95-8954-9d270ec43231
+  - b6ed9f52-3b34-4375-a42c-88a482567597
+  - 8bb46cd4-d537-4ad8-8c78-8c476b478ad1
+  - e61fd092-591e-4ebc-9ba0-b771c568fcee
+  - 3dc87b01-e2ea-4182-8893-2d9bc338a7c1
+  - 3eb97873-6ce7-40cd-9566-d5542dcbb9ab
+  - f4b471f0-542a-46b8-a7c7-e23fcce5af1c
+properties:
+  limpieza_y_desinfeccion:
+    id: limpieza_y_desinfeccion
+    label: 'Limpieza y Desinfección'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Cuidado de cocina|Cuidado de cocina\r\nCuidado de la ropa|Cuidado de la ropa\r\nCuidado del baño|Cuidado del baño\r\nCuidado del hogar|Cuidado del hogar\r\nCuidado de superficies y madera|Cuidado de superficies y madera\r\nCuidado de alfombras|Cuidado de alfombras"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  tipo_de_uso:
+    id: tipo_de_uso
+    label: 'Tipo de Uso'
+    status: true
+    type: select
+    multiple: false
+    required: false
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Limpieza|Limpieza\r\nDesinfección|Desinfección\r\nAmbientadores|Ambientadores\r\nLavandería|Lavandería\r\nDesengrasante |Desengrasante \r\n"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  productos:
+    id: productos
+    label: Productos
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Suavizantes|Suavizantes\r\nDetergentes|Detergentes\r\nLavaloza|Lavaloza\r\nLimpiadores multiusos|Limpiadores multiusos\r\nCeras|Ceras\r\nPulidores y cuidado para madera|Pulidores y cuidado para madera\r\nLimpiadores de piso|Limpiadores de piso\r\nDesodorantes y limpiadores de alfombras|Desodorantes y limpiadores de alfombras\r\nLíquidos desinfectantes|Líquidos desinfectantes\r\nLimpiavidrios|Limpiavidrios\r\nDesengrasantes|Desengrasantes\r\nLimpiadores de baño|Limpiadores de baño\r\nQuitamanchas|Quitamanchas\r\nPrelavado|Prelavado\r\nPreplanchado|Preplanchado\r\nBlanqueadores|Blanqueadores\r\nDesinfectantes|Desinfectantes\r\nInsecticida |Insecticida \r\nBio Varsol|Bio Varsol\r\nVarsol|Varsol\r\nAmbientadores|Ambientadores\r\nPulidores y cuidado para metal|Pulidores y cuidado para metal\r\nDestapa caños|Destapa caños\r\nJabones de ropa|Jabones de ropa\r\nLimpieza de alimentos|Limpieza de alimentos\r\nBactericidas|Bactericidas\r\nConservantes|Conservantes\r\n"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  propiedades_atributos:
+    id: propiedades_atributos
+    label: 'Propiedades / Atributos'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Antibacterial|Antibacterial\r\nFácil uso|Fácil uso\r\nBotánico |Botánico \r\nHerbal|Herbal\r\nLibre de toxinas|Libre de toxinas\r\nBiodegradables|Biodegradables\r\nBajo costo|Bajo costo\r\nSin aditivos|Sin aditivos\r\nSin preservantes|Sin preservantes\r\nPH neutral|PH neutral\r\nEnvase ecoamigable|Envase ecoamigable\r\nOrgánico|Orgánico\r\nLibre de fragancias|Libre de fragancias\r\nSostenible|Sostenible\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  aplicacion_y_superficies:
+    id: aplicacion_y_superficies
+    label: 'Aplicación y superficies'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "En seco|En seco\r\nHúmedo|Húmedo\r\nSuperficies planas|Superficies planas\r\nSuperficies convexas|Superficies convexas\r\nSuperficies con agujeros|Superficies con agujeros\r\nSuperficies de madera|Superficies de madera\r\nX|X\r\nSuperficies de cristal|Superficies de cristal\r\nSuperficies de metal|Superficies de metal\r\nSuperficies de Textil|Superficies de Textil\r\nPreplanchado|Preplanchado\r\nPrelavado|Prelavado\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  ingredientes:
+    id: ingredientes
+    label: Ingredientes
+    status: true
+    type: select
+    multiple: true
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Ácidos cítricos|Ácidos cítricos\r\nPeróxidos|Peróxidos\r\nCarbonato de calcio|Carbonato de calcio\r\nBicarbonato de sodio |Bicarbonato de sodio \r\nAmoniáco|Amoniáco\r\nPeróxido de hidrógeno|Peróxido de hidrógeno\r\nEtoxilato de alcohol|Etoxilato de alcohol\r\nLavanda|Lavanda\r\nCitronela|Citronela\r\nLimón|Limón\r\nCoco|Coco\r\nAloe vera|Aloe vera\r\nVinagre|Vinagre\r\nSulfato de amonio|Sulfato de amonio\r\nMetoximetilbutanol|Metoximetilbutanol\r\nCloruro de cetilpiridinio|Cloruro de cetilpiridinio\r\nAgente oxidativo|Agente oxidativo\r\nSodio|Sodio\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  canal_de_venta:
+    id: canal_de_venta
+    label: 'Canal de Venta'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Retail|Retail\r\nE-commerce|E-commerce\r\nB2B|B2B\r\nHard discount|Hard discount\r\nSales by catalog|Sales by catalog\r\nDistributors|Distributors\r\nInstitutional Channel|Institutional Channel\r\nHoreca|Horeca\r\nPublic Procurement|Public Procurement"
+    class: ''
+    position: left
+    order: 0
+    apply: 0
+  modelo_de_negocio:
+    id: modelo_de_negocio
+    label: 'Modelo de negocio'
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Marca propia|Marca propia\r\nMaquila|Maquila\r\n"
+    class: ''
+    position: right
+    order: 0
+    apply: 0
+  tipo_de_presentacion_:
+    id: tipo_de_presentacion_
+    label: 'Tipo de Presentación '
+    status: true
+    type: select
+    multiple: false
+    required: true
+    help: ''
+    help_lamp: ''
+    maxlength: null
+    size: null
+    placeholder: ''
+    default_value: ''
+    language: all
+    options: "Aerosol|Aerosol\r\nToallitas|Toallitas\r\nGel|Gel\r\nLíquido|Líquido\r\nPolvo|Polvo\r\nCrema |Crema \r\nBarra|Barra\r\nTableta|Tableta\r\nEspuma|Espuma\r\nSpray|Spray\r\nPastillas|Pastillas\r\n"
+    class: ''
+    position: left
+    order: 0
+    apply: 0

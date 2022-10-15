@@ -1,61 +1,66 @@
-   <main class="body_login">
-      <div class="row g-5">
-         <div class="col-sm-12 col-md-12 col-lg-6">
-            <a href="/verificacion/usuario">
-               <div class="card">
-                  <div class="card_img">
-                     <img src="/sites/default/files/2022-08/banner_2.jpeg" alt="">
-                  </div>
-                  <div class="card_icon">
-                  <img src="/sites/default/files/2022-08/RegistreseComoEmpresaColombiana.svg"></img>
-                  </div>
-                  <div class="card_text">
-                     <div class="text">
-                        <h3 class="sub_title">
-                           Regístrese como
-                        </h3>
-                        <h4 class="title">
-                           EMPRESA COLOMBIANA
-                        </h4>
-                     </div>
-                  </div>
-                  <div class="card_footer">
-                     <p>Empresa de origen colombiana con oferta exportable de bienes o servicios.</p>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-sm-12 col-md-12 col-lg-6">
-            <div class="card">
-               <div class="card_img">
-                  <img src="/sites/default/files/2022-08/banner_2.jpeg" alt="">
-               </div>
-               <div class="card_icon">
-                <img src="/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"></img>
-               </div>
-               <div class="card_text">
-                  <div class="text">
-                     <h3 class="sub_title">
-                        Regístrese como
-                     </h3>
-                     <h4 class="title">
-                        comprador internacional
-                     </h4>
-                  </div>
-               </div>
-               <div class="card_footer">
-                  <p>Empresa fuera de Colombia con interés en productos o servicios de origen colombiano.</p>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="pt-6"></div>
-      <div class="accoutn text-center pt-3">
-         <span aria-label="¿Tienes una cuenta?">
-            ¿Tienes una cuenta?
-         </span>
-         <button class="ms-2" title="Iniciar Sesión" aria-label="Iniciar Sesión">
-            INICIAR SESIÓN
-         </button>
-      </div>
-   </main>
+{{ attach_library('cp_register/cp_register') }}
+<section class="body_login container">
+	<div class="row g-5">
+		<div class="col-sm-12 col-md-12 col-lg-6">
+			<a href="/verificacion/usuario">
+				<div class="card">
+					<div class="card_img">
+						<img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/RegistroEmpresaCol.jpg" alt="">
+					</div>
+					<div class="card_icon">
+						<img
+							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/RegistreseComoEmpresaColombiana.svg"></img>
+					</div>
+					<div class="card_text">
+						<div class="text">
+							<h3 class="sub_title">
+								{{ 'Register as'|t }}
+							</h3>
+							<h4 class="title">
+								{{ 'COLOMBIAN COMPANY'|t }}
+							</h4>
+						</div>
+					</div>
+					<div class="card_footer">
+						<p>{{ 'Colombian company with an exportable supply of goods or services.'|t }}</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-6">
+			<a href="/pre-register/buyer">
+				<div class="card">
+					<div class="card_img">
+						<img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/RegistroComprador.jpg" alt="">
+					</div>
+					<div class="card_icon">
+						<img
+							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"></img>
+					</div>
+					<div class="card_text">
+						<div class="text">
+							<h3 class="sub_title">
+								{{ 'Register as'|t }}
+							</h3>
+							<h4 class="title">
+								{{ 'international buyer'|t }}
+							</h4>
+						</div>
+					</div>
+					<div class="card_footer">
+						<p>{{ 'Offshore company with interest in colombian products and services.'|t }}</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="pt-6"></div>
+	<div class="accoutn text-center pt-3">
+		<span aria-label={{ 'Do you have an account?'|t }}>
+			{{ 'Do you have an account?'|t }}
+		</span>
+		<button id="go_login" class="ms-2" title="{{ 'Sign In'|t }}" aria-label={{ 'Login'|t }}>
+			{{ 'Login'|t }}
+		</button>
+	</div>
+</section>

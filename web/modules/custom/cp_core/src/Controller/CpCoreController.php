@@ -613,12 +613,20 @@ class CpCoreController extends ControllerBase {
     $currentUser = \Drupal::currentUser();
     if (!$currentUser->isAnonymous()) {
       $currentUserRoles = $currentUser->getRoles();
-      if (in_array("administrator", $currentUserRoles) or in_array("exportador", $currentUserRoles)) {
+      $allowedRoles = [
+        'administrator',
+        'exportador',
+        'asesor_comercial',
+      ];
+      if (count(array_intersect($currentUserRoles, $allowedRoles))) {
         $nodeLoad = \Drupal\node\Entity\Node::load($nid);
         if ($nodeLoad instanceof \Drupal\node\NodeInterface) {
           $uidOwn = $nodeLoad->getOwnerId();
           $currentUid = $currentUser->id();
           if ($currentUid == $uidOwn) {
+            return AccessResult::allowed();
+          }
+          if (in_array('asesor_comercial', $currentUserRoles)) {
             return AccessResult::allowed();
           }
         }

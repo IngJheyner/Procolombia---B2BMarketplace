@@ -1,0 +1,443 @@
+# $Id$
+#
+# Español translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  cp_structured_features.info.yml: n/a
+#  modules/cp_field_features/cp_field_features.info.yml: n/a
+#  cp_structured_features.links.action.yml: n/a
+#  cp_structured_features.links.menu.yml: n/a
+#  config/schema/cp_structured_features.schema.yml: n/a
+#  src/Entity/StructuredFeature.php: n/a
+#  cp_structured_features.permissions.yml: n/a
+#  cp_structured_features.routing.yml: n/a
+#  src/StructuredFeatureListBuilder.php: n/a
+#  src/Form/StructuredFeatureForm.php: n/a
+#  modules/cp_field_features/src/Plugin/Field/FieldType/StructuredFeature.php: n/a
+#  modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php: n/a
+#  modules/cp_field_features/src/Plugin/Field/FieldWidget/StructuredFeatureWidget.php: n/a
+#  modules/cp_field_features/templates/cp-field-features-multiple-value-form.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-10-11 16:37+0200\n"
+"PO-Revision-Date: 2022-10-11 16:37+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Español <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cp_structured_features.info.yml:0
+msgid "CP Structured Features"
+msgstr ""
+
+#: cp_structured_features.info.yml:0
+msgid "Provides a structured_feature configuration entity."
+msgstr "Provee de una entidad de configuración structured_feature"
+
+#: cp_structured_features.info.yml:0 modules/cp_field_features/cp_field_features.info.yml:0
+msgid "Custom"
+msgstr "Personalizado"
+
+#: cp_structured_features.links.action.yml:0
+msgid "Add Structured Feature"
+msgstr "Añadir Característica Estructurada"
+
+#: cp_structured_features.links.menu.yml:0 config/schema/cp_structured_features.schema.yml:0 src/Entity/StructuredFeature.php:8;8
+msgid "Structured Feature"
+msgstr "Característica Estructurada"
+
+#: cp_structured_features.links.menu.yml:0
+msgid "List of Structured Feature to extend site functionality."
+msgstr ""
+"Lista de Características Estructuradas para extender la funcionalidad "
+"del sitio."
+
+#: cp_structured_features.permissions.yml:0
+msgid "Administer Structured Feature"
+msgstr "Administrar las Características Estructuradas"
+
+#: cp_structured_features.routing.yml:0
+msgid "Structured Feature configuration"
+msgstr "Configuración de las Características Estructuradas"
+
+#: cp_structured_features.routing.yml:0
+msgid "Add a Structured Feature"
+msgstr "Añadir una Característica Estructurada"
+
+#: cp_structured_features.routing.yml:0
+msgid "Edit a Structured Feature"
+msgstr "Editar una Característica Estructurada"
+
+#: cp_structured_features.routing.yml:0
+msgid "Delete a Structured Feature"
+msgstr "Eliminar una Característica Estructurada"
+
+#: config/schema/cp_structured_features.schema.yml:0;0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/cp_structured_features.schema.yml:0;0 src/StructuredFeatureListBuilder.php:17 src/Form/StructuredFeatureForm.php:27;218
+msgid "Label"
+msgstr "Etiqueta"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Product or service"
+msgstr "Producto o servicio"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:116;126
+msgid "References"
+msgstr "Referencias"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Reference"
+msgstr "Referencia"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:204
+msgid "Properties"
+msgstr "Propiedades"
+
+#: config/schema/cp_structured_features.schema.yml:0 modules/cp_field_features/src/Plugin/Field/FieldType/StructuredFeature.php:41
+msgid "Property"
+msgstr "Propiedad"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/StructuredFeatureListBuilder.php:19 src/Form/StructuredFeatureForm.php:235
+msgid "Status"
+msgstr "Estado"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:240
+msgid "Type"
+msgstr "Tipo"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:254
+msgid "Multiple"
+msgstr "Múltiple"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:259
+msgid "Required"
+msgstr "Obligatorio"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Label lamp"
+msgstr "Etiqueta bombilla"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Max Length"
+msgstr "Longitud máxima"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Field size"
+msgstr "Tamaño del campo"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Placeholder"
+msgstr "Marcador de posición"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Default value"
+msgstr "Valor predeterminado"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:318
+msgid "Language"
+msgstr "Idioma"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Apply option checkbox"
+msgstr "Checkbox para determinar si aplica"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:339
+msgid "Options"
+msgstr "Opciones"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Classes"
+msgstr "Clases"
+
+#: config/schema/cp_structured_features.schema.yml:0 src/Form/StructuredFeatureForm.php:377
+msgid "Position"
+msgstr "Posición"
+
+#: config/schema/cp_structured_features.schema.yml:0
+msgid "Order"
+msgstr "Pedido"
+
+#: modules/cp_field_features/cp_field_features.info.yml:0
+msgid "CP Field Features"
+msgstr ""
+
+#: modules/cp_field_features/cp_field_features.info.yml:0
+msgid "Modules that generates a new field to save structures"
+msgstr "Módulo que genera un nuevo campo para guardar estructuras."
+
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:92
+msgid "Show as details container"
+msgstr "Mostrar como contenedor desplegable"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:104
+msgid "Show as details"
+msgstr "Mostrar como desplegable"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:155 modules/cp_field_features/src/Plugin/Field/FieldWidget/StructuredFeatureWidget.php:84
+msgid "The structured feature can`t be loaded."
+msgstr "La característica estructurada no se puede cargar."
+
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:163
+msgid "View more"
+msgstr "Ver más"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:174
+msgid "Show less"
+msgstr "Ver menos"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldFormatter/StructuredFeatureFormatter.php:15 modules/cp_field_features/src/Plugin/Field/FieldWidget/StructuredFeatureWidget.php:10
+msgid "Default"
+msgstr "Por defecto"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldType/StructuredFeature.php:38
+msgid "Value"
+msgstr "Valor"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldType/StructuredFeature.php:12
+msgid "Structured feature"
+msgstr "Característica Estructurada"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldType/StructuredFeature.php:12
+msgid "Create a dynamic field with structures."
+msgstr "Crear un campo dinámico con estructuras."
+
+#: modules/cp_field_features/src/Plugin/Field/FieldType/StructuredFeature.php:12
+msgid "General"
+msgstr "General"
+
+#: modules/cp_field_features/src/Plugin/Field/FieldWidget/StructuredFeatureWidget.php:271
+msgid "Not apply"
+msgstr "No aplica"
+
+#: modules/cp_field_features/templates/cp-field-features-multiple-value-form.html.twig:27 src/Form/StructuredFeatureForm.php:415
+msgid "<h2>Fields for both languages</h2>"
+msgstr "<h2>Campos para ambos idiomas</h2>"
+
+#: modules/cp_field_features/templates/cp-field-features-multiple-value-form.html.twig:65 src/Form/StructuredFeatureForm.php:422
+msgid "<h2>Fields for Spanish language</h2>"
+msgstr "<h2>Campos para el idioma Español</h2>"
+
+#: modules/cp_field_features/templates/cp-field-features-multiple-value-form.html.twig:101 src/Form/StructuredFeatureForm.php:429
+msgid "<h2>Fields for English language</h2>"
+msgstr "<h2>Campos para el idioma Inglés</h2>"
+
+#: src/StructuredFeatureListBuilder.php:18
+msgid "Machine name"
+msgstr "Nombre de sistema"
+
+#: src/StructuredFeatureListBuilder.php:30 src/Form/StructuredFeatureForm.php:46
+msgid "Enabled"
+msgstr "Activado"
+
+#: src/StructuredFeatureListBuilder.php:30
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: src/Entity/StructuredFeature.php:8;8
+msgid "Structured Features"
+msgstr "Características Estructuradas"
+
+#: src/Form/StructuredFeatureForm.php:30
+msgid "Label for the structured feature."
+msgstr "Etiqueta para la característica estructurada."
+
+#: src/Form/StructuredFeatureForm.php:52
+msgid "Description"
+msgstr "Descripción"
+
+#: src/Form/StructuredFeatureForm.php:54
+msgid "Description of the structured feature."
+msgstr "Descripción de la característica estructurada."
+
+#: src/Form/StructuredFeatureForm.php:59
+msgid "Choose type"
+msgstr "Elegir tipo"
+
+#: src/Form/StructuredFeatureForm.php:62
+msgid "Product"
+msgstr "Producto"
+
+#: src/Form/StructuredFeatureForm.php:62
+msgid "Service"
+msgstr "Servicio"
+
+#: src/Form/StructuredFeatureForm.php:127
+msgid "Select the tariff items or subcategories that applies this structure"
+msgstr ""
+"Elegir los elementos de partida arancelaria o subcategoría que "
+"aplican a esta estructura"
+
+#: src/Form/StructuredFeatureForm.php:147;397
+msgid "Add"
+msgstr "Agregar"
+
+#: src/Form/StructuredFeatureForm.php:170;559
+msgid "Remove"
+msgstr "Eliminar"
+
+#: src/Form/StructuredFeatureForm.php:210;214
+msgid "You must add the property before save. If you don't add it the property will not be saved."
+msgstr ""
+"Se debe añadir la propiedad antes de guardar. Si no la añades la "
+"propiedad no se guardará."
+
+#: src/Form/StructuredFeatureForm.php:221;266;272;298;340
+msgid "If the field is assigned to specific language this value will not be translated. You must fill it in the end language."
+msgstr ""
+"Si el campo está asignado a un idioma específico, este valor no se "
+"traducirá. Debe completarlo en el idioma final."
+
+#: src/Form/StructuredFeatureForm.php:244
+msgid "Select"
+msgstr "Seleccionar"
+
+#: src/Form/StructuredFeatureForm.php:245
+msgid "Radios"
+msgstr "Radios"
+
+#: src/Form/StructuredFeatureForm.php:246
+msgid "Checkbox"
+msgstr "Casilla de verificación"
+
+#: src/Form/StructuredFeatureForm.php:247
+msgid "Checkboxes"
+msgstr "Casillas de selección"
+
+#: src/Form/StructuredFeatureForm.php:248
+msgid "Textfield"
+msgstr "Campo de texto"
+
+#: src/Form/StructuredFeatureForm.php:249
+msgid "Textarea"
+msgstr "Área de texto"
+
+#: src/Form/StructuredFeatureForm.php:264
+msgid "Help"
+msgstr "Help"
+
+#: src/Form/StructuredFeatureForm.php:270
+msgid "Light bulb help"
+msgstr "Ayuda de bombilla"
+
+#: src/Form/StructuredFeatureForm.php:276
+msgid "Maxlength"
+msgstr "Longitud máxima"
+
+#: src/Form/StructuredFeatureForm.php:286
+msgid "Size"
+msgstr "Tamaño"
+
+#: src/Form/StructuredFeatureForm.php:298
+msgid "For select fields this is the equivalent to the empty value."
+msgstr "Para elementos de tipo select esto es equivalente al valor de vacio."
+
+#: src/Form/StructuredFeatureForm.php:312
+msgid "All languages"
+msgstr "Todos los idiomas"
+
+#: src/Form/StructuredFeatureForm.php:321
+msgid "If a field applies to a specific language, it will be shown in the group for that language and a field must be created for each language, for example Narrative and Narrative are two different fields, one for each language."
+msgstr ""
+"Si un campo aplica para un idioma específico se mostrará en el grupo "
+"de dicho idioma y se deberá crear un campo para cada idioma, por "
+"ejemplo Narrativa y Narrative son dos campos diferentes uno por cada "
+"idioma."
+
+#: src/Form/StructuredFeatureForm.php:326
+msgid "Apply option"
+msgstr "Opción para determinar si aplica"
+
+#: src/Form/StructuredFeatureForm.php:328
+msgid "Show a checkbox on the property to enable or disable it if not apply."
+msgstr ""
+"Mostrar un checkbox en la propiedad para habilitarlo o no si no "
+"aplica."
+
+#: src/Form/StructuredFeatureForm.php:340
+msgid "You must introduce a option for each line. The structure of each option must be key|Label, for example: first_key|First element"
+msgstr ""
+"Debe introducir una opción por cada línea. La estructura de cada "
+"opción debe ser key|Etiqueta, por ejemplo: first_key|Primer elemento"
+
+#: src/Form/StructuredFeatureForm.php:365
+msgid "Default Value"
+msgstr "Valor por defecto"
+
+#: src/Form/StructuredFeatureForm.php:366
+msgid "For elements with options (select, radios, ...) the default value must be the key instead the label."
+msgstr ""
+"Para elementos con opciones (select, radios, ...) el valor por defecto "
+"debe ser el key en vez de la etiqueta."
+
+#: src/Form/StructuredFeatureForm.php:371
+msgid "Class"
+msgstr "Clase"
+
+#: src/Form/StructuredFeatureForm.php:373
+msgid "Classes can give additional layout properties."
+msgstr ""
+"Clases adicionales que se pueden añadir a las propiedades para su "
+"disposición."
+
+#: src/Form/StructuredFeatureForm.php:380
+msgid "Top"
+msgstr "Superior"
+
+#: src/Form/StructuredFeatureForm.php:381
+msgid "Left"
+msgstr "Izquierda"
+
+#: src/Form/StructuredFeatureForm.php:382
+msgid "Right"
+msgstr "Derecha"
+
+#: src/Form/StructuredFeatureForm.php:383
+msgid "Bottom"
+msgstr "Inferior"
+
+#: src/Form/StructuredFeatureForm.php:385
+msgid "Top and Bottom elements will be displayed full width."
+msgstr "Los elementos superior e inferior se mostrarán a todo lo ancho."
+
+#: src/Form/StructuredFeatureForm.php:390
+msgid "Weight"
+msgstr "Peso"
+
+#: src/Form/StructuredFeatureForm.php:393
+msgid "Position of the element in the form, the higher the number, the lower it will appear."
+msgstr ""
+"Posición del elemento en el formulario, a mayor número en una "
+"posición más inferior aparecerá."
+
+#: src/Form/StructuredFeatureForm.php:397
+msgid "Update"
+msgstr "Actualizar"
+
+#: src/Form/StructuredFeatureForm.php:534
+msgid "Yes"
+msgstr "Si"
+
+#: src/Form/StructuredFeatureForm.php:534
+msgid "No"
+msgstr "No"
+
+#: src/Form/StructuredFeatureForm.php:548
+msgid "Edit"
+msgstr "Editar"
+
+#: src/Form/StructuredFeatureForm.php:607
+msgid "Created new structured feature %label."
+msgstr "Creada la característica estructurada %label."
+
+#: src/Form/StructuredFeatureForm.php:608
+msgid "Updated structured feature %label."
+msgstr "Actualizada la característica estructurada %label."
+

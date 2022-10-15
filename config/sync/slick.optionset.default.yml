@@ -10,7 +10,7 @@ _core:
 id: default
 name: default
 weight: -10
-label: Máster
+label: 'Por defecto'
 group: ''
 skin: default
 breakpoints: 0
@@ -34,8 +34,8 @@ options:
     pauseOnFocus: true
     autoplaySpeed: 3000
     arrows: true
-    prevArrow: Previous
-    nextArrow: Next
+    prevArrow: Anterior
+    nextArrow: Continuar
     arrowsPlacement: ''
     downArrow: false
     downArrowTarget: ''

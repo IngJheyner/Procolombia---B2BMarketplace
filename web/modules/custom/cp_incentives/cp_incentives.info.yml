@@ -1,0 +1,9 @@
+name: 'CP Incentives'
+type: module
+description: 'Procolombia incentives module'
+core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_incentives
+interface translation server pattern: modules/custom/cp_incentives/translations/cp_incentives-es.po
+package: 'Custom'
+dependencies:
+- drupal:block

@@ -1,0 +1,7 @@
+name: 'CP Mailing Module'
+type: module
+description: 'Procolombia mailing module'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+- block

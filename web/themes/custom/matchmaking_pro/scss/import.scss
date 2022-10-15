@@ -2,14 +2,38 @@
 
 //@import url(font-awesome.min.css);
 // variables
-@import "variables";
+@import "./variables/variables.scss";
 // typography
-@import "typography";
+@import "./typography.scss";
 //bootstrap
-@import "bootstrap";
+@import "bootstrap.scss";
 //material design bootstrap
 //@import "../node_modules/mdbootstrap/scss/mdb-free.scss";
 // mixins
-@import "mixins";
+@import "./mixins.scss";
 // barrio
-@import "barrio";
+//! Genera error a la hora de usar el GULp
+// @import "barrio";
+//!----------------------
+@import "layout-main-wrapper";
+
+/* ===== ===== MAIN (Temporal) ===== ===== */
+@import "./main.scss";
+
+/* ===== ===== HEADER ===== ===== */
+@import "./components/header/header.scss";
+
+/* ===== ===== LAYOUT ===== ===== */
+@import "./components/layout/layout.scss";
+
+/* ===== ===== FOOTER ===== ===== */
+@import "./components/footer/footer.scss";
+
+/* ===== ===== CONTENT ===== ===== */
+
+//Estilos formulario Producto o servicio
+@import "./components/content/product/multistep-product-form/multistep-product-form.scss";
+// Estilos listado productos/servicios
+@import "./components/content/product/products-services/products-services.scss";
+// Estilos de la vista productos
+@import "./components/content/product/views/views.scss";

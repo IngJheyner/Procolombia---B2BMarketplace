@@ -9,9 +9,9 @@ id: node.product.field_body
 field_name: field_body
 entity_type: node
 bundle: product
-label: Description
+label: 'Descripción del producto / servicio'
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

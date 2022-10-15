@@ -4,3 +4,9 @@ services:
     arguments: []
     tags:
       - {name: event_subscriber}
+  cp_core.mail_helper:
+    class: Drupal\cp_core\CpCoreMailHelper
+    arguments: ['@config.factory', '@module_handler', '@plugin.manager.mail', '@language_manager', '@logger.channel.cp_core', '@token']
+  logger.channel.cp_core:
+    parent: logger.channel_base
+    arguments: ['cp_core']

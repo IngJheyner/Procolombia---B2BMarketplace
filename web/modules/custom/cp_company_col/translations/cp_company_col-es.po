@@ -1,0 +1,376 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-09-01 20:44+0000\n"
+"PO-Revision-Date: 2022-09-01 15:58-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+msgid "Table belonging to another User Story"
+msgstr "Tabla que pertenece a otra Historia de usuario"
+
+msgid "Company profile"
+msgstr "Perfil de la empresa"
+
+msgid "NIT"
+msgstr "NIT"
+
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+msgid "Approval status"
+msgstr "Estado de aprobación"
+
+msgid "Visualizations"
+msgstr "Visualizaciones"
+
+msgid "Published"
+msgstr "Publicado"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "YES"
+msgstr "SI"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "Notifications"
+msgstr "Notificaciones"
+
+msgid "Messages"
+msgstr "Mensajes"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Edit "
+msgstr "Editar "
+
+msgid "Administrator and Contact Information"
+msgstr "Administrador y Datos de contacto"
+
+msgid "Contact name"
+msgstr "Nombre del contacto"
+
+msgid "E-mail address"
+msgstr "Correo electrónico"
+
+msgid "Edit Information"
+msgstr "Editar Información"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Required Field"
+msgstr "Campo obligatorio"
+
+msgid "Password verification"
+msgstr "Verificar contraseña"
+
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "CONTINUE"
+msgstr "CONTINUAR"
+
+msgid "SAVE"
+msgstr "GUARDAR"
+
+msgid "SAVE AND EXIT"
+msgstr "GUARDAR Y SALIR"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "EDIT - Company profile & contact"
+msgstr "EDITAR - Perfil de la compañía y contacto"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Delete"
+msgstr "Elegir archivos"
+
+msgid "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed"
+msgstr "Solo se permiten formatos png con un peso máximo de 2 MB y unas dimensiones mínimas de 200x200 px"
+
+msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
+msgstr "Usted debe registrar el nombre de la empresa con la cual su compañía es reconocida. Puede ser la misma razón social."
+
+msgid "Company website"
+msgstr "Sitio Web de la compañía"
+
+msgid "Please include the complete URL starting with http or https."
+msgstr "Por favor incluir la URL completa iniciando con http o https."
+
+msgid "Main production chain"
+msgstr "Cadena productiva principal"
+
+msgid "Enter the keyword or select an option"
+msgstr "Introduzca la palabra clave o seleccione una opción"
+
+msgid "Main CIIU code or economic activity"
+msgstr "Código CIIU principal o Actividad económica"
+
+msgid "Indicate the CIIU code or economic activity to which your company belongs."
+msgstr "Indique el código CIIU o la actividad económica a la que pertenece su empresa."
+
+msgid "CIIU Code Secondary or Economic Activity"
+msgstr "Código CIIU Secundario o Actividad Económica"
+
+msgid "Select an option"
+msgstr "Seleccione una opción"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "City or Municipality"
+msgstr "Ciudad o Municipio"
+
+msgid "Business Model"
+msgstr "Modelo de negocio"
+
+msgid "Spanish Information"
+msgstr "Información en español"
+
+msgid "Company Description"
+msgstr "Descripción de la empresa"
+
+msgid "English Information"
+msgstr "Información en inglés"
+
+msgid "Also remember to update the information in English."
+msgstr "Recuerda también actualizar la información en inglés."
+
+msgid "Keep the following in mind!"
+msgstr "!Tenga en cuenta lo siguiente!"
+
+msgid "EDIT - Contact Information"
+msgstr "EDITAR - Información de Contacto"
+
+msgid "The information filled out in these fields will be used to send all notifications arising from the Contact Company form."
+msgstr "La información diligenciada en estos campos es la que sera utilizada para enviar todas las notificaciones que surjan del formulario de Contactar Empresa."
+
+msgid "Company landline telephone"
+msgstr "Teléfono fijo de la empresa"
+
+msgid "Contact last name"
+msgstr "Apellido de contacto"
+
+msgid "Cell Phone"
+msgstr "Celular"
+
+msgid "Position name"
+msgstr "Nombre del cargo"
+
+msgid "Job title"
+msgstr "Nombre del cargo"
+
+msgid "Edit company profile and contact"
+msgstr "Editar el perfil de la compañía y contacto"
+
+msgid "All uploaded content must comply with the"
+msgstr "Todos los contenidos cargados deben cumplir con la"
+
+msgid "publication policy."
+msgstr "política de publicación."
+
+msgid "UNDERSTOOD"
+msgstr "ENTENDIDO"
+
+msgid "Save Edit"
+msgstr "Guardar Edición"
+
+msgid "You are about to save the modified fields Do you want to update the information?"
+msgstr "Está a punto de guardar los campos modificados ¿Desea actualizar la información?"
+
+msgid "You are about to delete the changes made."
+msgstr "Está a punto de eliminar los cambios realizados."
+
+msgid "Would you like to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "Successful process"
+msgstr "Proceso exitoso"
+
+msgid "User updated successfully"
+msgstr "Usuario actualizado con exito"
+
+msgid "Company profile and contact information"
+msgstr "Perfil de la compañía e información de contacto"
+
+msgid "has been successfully modified."
+msgstr "ha sido modificado con exito"
+
+msgid "Name is required"
+msgstr "El nombre es requerido"
+
+msgid "The name cannot be longer than 20 characters"
+msgstr "El nombre no puede tener mas de 20 caracteres"
+
+msgid "Last name is required"
+msgstr "El apellido es requerido"
+
+msgid "The last name cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "The lastname cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "Email is required and must be a valid email address"
+msgstr "El email es requerido y debe ser un email válido"
+
+msgid "The email is invalid"
+msgstr "El email no es válido"
+
+msgid "The cell phone must be a number"
+msgstr "El celular debe ser un número"
+
+msgid "The cell phone should not have letters"
+msgstr "El celular no debe tener letras"
+
+msgid "The cell phone must not have more than 10 digits"
+msgstr "El celular no debe tener mas 10 digitos"
+
+msgid "Company is required"
+msgstr "La compañia es requerida"
+
+msgid "The company cannot be longer than 100 characters"
+msgstr "La compañia no puede tener mas de 100 caracteres"
+
+msgid "Password is required"
+msgstr "La contraseña es requerida"
+
+msgid "The password must be between 8 and 15 characters long"
+msgstr "El password debe tener entre 8 y 15 caracteres"
+
+msgid "The password must have at least one capital letter"
+msgstr "El password debe tener al menos una mayúscula"
+
+msgid "The password must have at least one number"
+msgstr "La contraseña debe tener al menos un número"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Verify password field is required"
+msgstr "El campo verificar contraseña es requerido"
+
+msgid "The field verify password and Password must be the same"
+msgstr "El campo verificar contraseña y Contraseña deben ser iguales"
+
+msgid "The language field is required"
+msgstr "El campo lenguaje es requerido"
+
+msgid "You must accept the privacy policy"
+msgstr "Debe aceptar las políticas de privacidad"
+
+msgid "You must accept the terms of use"
+msgstr "Debe aceptar las condiciones de uso"
+
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension"
+msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200"
+
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension\n"
+msgstr "Se requiere que el logotipo sea un archivo de imagen y que sea png y jpg y que tenga un tamaño inferior a 2MB y una dimensión inferior a 200x200\n"
+
+msgid "Company name is required"
+msgstr "El nombre de la empresa es requerido"
+
+msgid "Website is required"
+msgstr "El website es requerido"
+
+msgid "The website is not valid"
+msgstr "El website no es valido"
+
+msgid "Description in Spanish is required"
+msgstr "La descripción en español es requerida"
+
+msgid "Description in English is required"
+msgstr "La descripción en inglés es requerida"
+
+msgid "The production line is required"
+msgstr "La cadena de producción es requerida"
+
+msgid "The main CIIU code is required"
+msgstr "El código CIIU principal es requerido"
+
+msgid "The department is required"
+msgstr "El departamento es requerido"
+
+msgid "The city is required"
+msgstr "La ciudad es requerida"
+
+msgid "The business model is required"
+msgstr "El modelo de negocio es requerido"
+
+msgid "Spanish position is required"
+msgstr "La posición en español es requerida"
+
+msgid "The country code of the phone line is required"
+msgstr "El codigo de pais de la linea de telefono es requerido"
+
+msgid "Phone line is required"
+msgstr "La linea de telefono es requerida"
+
+msgid "The phone line should not have letters"
+msgstr "La linea de telefono no debe tener letras"
+
+msgid "The country code of the cell phone is required"
+msgstr "El codigo de pais del celular es requerido"
+
+msgid "Cell phone is required"
+msgstr "El celular es requerido"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Recipient's username"
+msgstr "Nombre de usuario del destinatario"
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "Choose files"
+msgstr "Seleccione los archivos"
+
+msgid "Enter the keyword or select multiple options"
+msgstr "Introduzca la palabra clave o seleccione varias opciones"
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Company's name cannot be longer than 100 characters."
+msgstr "El nombre de la empresa no puede tener mas de 100 caracteres."
+
+msgid "Spanish description must be less than 1000 characters."
+msgstr "La descripción en español debe tener menos de 1000 caracteres."
+
+msgid "English description must be less than 1000 characters."
+msgstr "La descripción en inglés debe tener menos de 1000 caracteres."
+
+msgid "The position in Spanish must be less than 1000 characters."
+msgstr "La posición en español debe tener menos de 1000 caracteres."
+
+msgid "Phone line must not be longer than 20 characters."
+msgstr "La linea de telefono no debe tener mas de 20 caracteres."
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"

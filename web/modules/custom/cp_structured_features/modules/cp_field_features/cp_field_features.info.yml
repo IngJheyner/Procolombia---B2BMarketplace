@@ -1,0 +1,7 @@
+name: 'CP Field Features'
+type: module
+description: 'Modules that generates a new field to save structures'
+core_version_requirement: ^8.9 || ^9.0
+package: 'Custom'
+dependencies:
+  - cp_structured_features

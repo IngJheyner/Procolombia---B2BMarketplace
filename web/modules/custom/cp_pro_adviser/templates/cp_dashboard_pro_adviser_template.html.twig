@@ -1,0 +1,68 @@
+{{ attach_library('cp_pro_adviser/cp_pro_adviser') }}
+<main class="dashboard">
+	<div id="bussines_national" class="">
+		<div id="not_row" class="form_table row mb-5 gy-4" style="padding:1.1rem !important">
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="nit_search">{{ "Company NIT"|t }}</label>
+				<input class="form-control" type="text" name="nit_search" id="nit_search">
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="company_name">{{ "Company name"|t }}</label>
+				<input class="form-control" type="text" name="company_name" id="company_name">
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="status">{{ "Status"|t }}</label>
+				<select name="status" id="status">
+					<option value="">{{ "Select Status"|t }}</option>
+					{% for status in tree_account_status %}
+						<option value="{{status.ID}}">{{status.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="published">{{ "Published"|t }}</label>
+				<select name="published" id="published">
+					<option value="">{{ "Select Status"|t }}</option>
+					<option value="1">{{ "Active"|t }}</option>
+					<option value="0">{{ "Inactive"|t }}</option>
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="productive_chain">{{ "Productive chain"|t }}</label>
+				<select name="productive_chain" id="productive_chain">
+					<option value="">{{ "Select Productive chain"|t }}</option>
+					{% for production in tree_production_chain %}
+						<option value="{{production.ID}}">{{production.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="deparment">{{ "Department"|t }}</label>
+				<select name="deparment" id="deparment">
+					<option value="">{{ "Select Department"|t }}</option>
+					{% for deparment in tree_deparment %}
+						<option value="{{deparment.ID}}">{{deparment.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-column mt-2">
+				<label for="advisor">{{ "Associate consultant assigned to the company"|t }}</label>
+				<select name="advisor" id="advisor">
+					<option value="">{{ "Select Associate consultant assigned to the company"|t }}</option>
+					{% for advisor in tree_users %}
+						<option value="{{advisor.ID}}">{{advisor.Name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-sm-12 col-md-12  col-lg-3 d-flex flex-sm-column flex-md-column mt-2 d-flex flex-lg-row justify-content-between align-items-end">
+				<button id="filter-exportador" class="filtter_btn btn">
+					<i class='bx bx-slider-alt'></i>
+					{{ "Apply filter"|t }}</button>
+				<button id="clean-exportador" class="clear_btn btn">{{ "Clean filter"|t }}</button>
+			</div>
+		</div>
+		<div class="form_table">
+			<table id="exportadores-list" class="display dataTable"></table>
+		</div>
+	</div>
+</main>

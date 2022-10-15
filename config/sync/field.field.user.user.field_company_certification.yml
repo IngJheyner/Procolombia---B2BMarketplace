@@ -1,0 +1,30 @@
+uuid: beb7d23a-aa6c-4692-9ef4-04a188f2b517
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_certification
+    - taxonomy.vocabulary.certificacion_de_empresa
+  module:
+    - user
+id: user.user.field_company_certification
+field_name: field_company_certification
+entity_type: user
+bundle: user
+label: 'Certificado de la compañía'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      certificacion_de_empresa: certificacion_de_empresa
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

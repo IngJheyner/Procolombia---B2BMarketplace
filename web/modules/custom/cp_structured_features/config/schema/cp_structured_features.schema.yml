@@ -1,0 +1,85 @@
+cp_structured_features.structured_feature.*:
+  type: config_entity
+  label: 'Structured Feature'
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: text
+      label: Label
+    reference_type:
+      type: string
+      label: 'Product or service'
+    references:
+      type: sequence
+      label: 'References'
+      sequence:
+        type: uuid
+        label: 'Reference'
+    properties:
+      type: sequence
+      label: 'Properties'
+      sequence:
+        type: mapping
+        label: 'Property'
+        mapping:
+          id:
+            type: string
+            label: 'ID'
+          label:
+            type: label
+            label: 'Label'
+          status:
+            type: boolean
+            label: 'Status'
+          type:
+            type: string
+            label: 'Type'
+          multiple:
+            type: boolean
+            label: 'Multiple'
+          required:
+            type: boolean
+            label: 'Required'
+          help:
+            type: text
+            label: 'Label'
+          help_lamp:
+            type: text
+            label: 'Label lamp'
+          maxlength:
+            type: integer
+            label: 'Max Length'
+          size:
+            type: integer
+            label: 'Field size'
+          placeholder:
+            type: label
+            label: 'Placeholder'
+          default_value:
+            type: string
+            label: 'Default value'
+          language:
+            type: string
+            label: 'Language'
+          apply_option:
+            type: boolean
+            label: 'Apply option checkbox'
+          options:
+            type: 'text'
+            label: 'Options'
+          class:
+            type: string
+            label: 'Classes'
+          position:
+            type: string
+            label: 'Position'
+          order:
+            type: integer
+            label: 'Order'

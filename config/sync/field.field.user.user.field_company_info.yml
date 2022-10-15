@@ -1,0 +1,20 @@
+uuid: 680bf7d3-1ccd-4d6e-ade6-285b64346706
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_info
+  module:
+    - user
+id: user.user.field_company_info
+field_name: field_company_info
+entity_type: user
+bundle: user
+label: 'Información de la empresa'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

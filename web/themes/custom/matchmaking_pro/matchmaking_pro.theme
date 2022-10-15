@@ -30,3 +30,112 @@ function matchmaking_pro_form_system_theme_settings_alter(&$form, FormStateInter
     'bg-transparent' => t('Transparent'),
   );
 }
+
+function matchmaking_pro_page_attachments(&$variables) {
+  $variables['#attached']['library'][] = 'matchmaking_pro/bootstrap';
+  $variables['#attached']['library'][] = 'matchmaking_pro/bootstrap_cdn';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function matchmaking_pro_preprocess_page(array &$variables) {
+  $uid = \Drupal::currentUser();
+  $user = \Drupal\user\Entity\User::load($uid->id());
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+
+  //force language in all paths
+  $variables['language'] = $language == 'en' ? 'EN' : 'ES';
+  $variables['language_2'] = $language != 'en' ? 'EN' : 'ES';
+  //key captcha
+  $site_key = \Drupal::config('recaptcha.settings')->get('site_key');
+  $variables['site_key'] = $site_key;
+  //ceck if user is not deleted in drupal
+
+  if($user->isActive()){
+
+    //check if has exporter rol
+    // chek if user is not root
+    if($user->hasRole('exportador')){
+      //is not empty field_company_name
+      if(!empty($user->get('field_company_name')->value)){
+        $variables['business_name'] = $user->get('field_company_name')->value;
+        $variables['company_logo'] = file_create_url($user->get('field_company_logo')->entity->getFileUri());
+      }
+      else{
+        $variables['company_logo'] = '';
+        $variables['business_name'] = '';
+      }
+    }
+
+    if($user->hasRole('buyer')){
+      //is not empty field_company_name
+      $variables['name'] = $user->get('field_company_contact_name')->value;
+      $variables['lastname'] = $user->get('field_company_contact_lastname')->value;
+      //get email
+      $variables['email'] = $user->get('mail')->value;
+    }
+
+    if($user->hasRole('asesor_comercial')){
+      //is not empty field_company_name
+      $variables['name'] = $user->get('field_company_contact_name')->value;
+      $variables['lastname'] = $user->get('field_company_contact_lastname')->value;
+      //get email
+      $variables['email'] = $user->get('mail')->value;
+    }
+
+    if($user->hasRole('asesor_internacional')){
+      //is not empty field_company_name
+      $variables['name'] = $user->get('field_company_contact_name')->value;
+      $variables['lastname'] = $user->get('field_company_contact_lastname')->value;
+      //get email
+      $variables['email'] = $user->get('mail')->value;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param [type] $variables
+ * @return void
+ */
+function matchmaking_pro_preprocess_views_view_table(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'paises') {
+    $variables['table_class'] = '';
+  }
+}
+
+/**
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ */
+function matchmaking_pro_theme_suggestions_views_view_field_alter(array &$suggestions, array &$variables, $hook)
+{
+  if ($variables['view']->id() && $variables['view']->current_display) {
+    $suggestions[] = $hook . '__' . $variables['view']->id() . '__' . $variables['field']->field;
+
+  }
+}
+
+
+function matchmaking_pro_preprocess_image_widget(&$variables, $hook) {
+  $node = \Drupal::request()->attributes->get('node');
+
+  if(isset($node)){
+
+    $bundle = $node->bundle();
+    $path = \Drupal::service('path.current')->getPath();
+  
+    if($bundle == 'product' && strpos($path, '/edit')){
+      $variables['data']['product_edition'] = TRUE;
+    }else {
+      $variables['data']['product_edition'] = FALSE;
+    }
+
+  }
+
+}

@@ -1,0 +1,20 @@
+uuid: 945dfa2e-4c29-42dd-b6c3-467c4d237d97
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_contact_name
+  module:
+    - user
+id: user.user.field_company_contact_name
+field_name: field_company_contact_name
+entity_type: user
+bundle: user
+label: 'Nombre de contacto de la empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

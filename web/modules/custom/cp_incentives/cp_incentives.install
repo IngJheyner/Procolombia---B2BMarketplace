@@ -1,0 +1,411 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cp_chat module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function cp_incentives_install() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cp_incentives_uninstall() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_schema().
+ */
+function cp_incentives_schema() {
+  $schema['cp_incentives_criteria'] = [
+    'description' => 'Table for Colombian Company Points main control.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'characteristic' => [
+        'type' => 'varchar',
+        'length' => 250,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The charasteristic of the incentive.',
+      ],
+      'description' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The description of the incentive. It specifies the rules.',
+      ],
+      'measurement_unit' => [
+        'type' => 'varchar',
+        'length' => 30,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'Measurement unit of the rule.',
+      ],
+      'state' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The state of the criteria - 0 equals inactive, 1 equals active - .',
+      ],
+      'expiration_days' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Amount days of expiration of the criteria.',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+    ],
+    'primary key' => ['id']
+  ];
+
+  $schema['cp_incentives_business_rules'] = [
+    'description' => 'Business rules to apply in the criterias.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'id_incentives_criteria' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Foreign key of cp_incentives_criteria.id.',
+      ],
+      'min_measure' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'length' => 4,
+        'default' => 0,
+        'description' => 'The maximum points of the rule.',
+      ],
+      'max_measure' => [
+        'type' => 'int',
+        'not null' => FALSE,
+        'unsigned' => TRUE,
+        'length' => 4,
+        'default' => 0,
+        'description' => 'The minimum points of the rule',
+      ],
+      'given_points' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'length' => 4,
+        'default' => 0,
+        'description' => 'The minimum points of the rule',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['cp_incentives_points'] = [
+    'description' => 'Table for Colombian Company Points main control.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'id_incentives_criteria' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Foreign key of cp_incentives_criteria.id.',
+      ],
+      'entity_id_company_col' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The {users}.id of the colombian company who belong to this chat.',
+      ],
+      'entity_id_buyer' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'description' => 'The {users}.id of the international buyer who belong to this chat.',
+      ],
+      'points' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'length' => 4,
+        'description' => 'Number of points given to the colombian company.',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'expiration' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the points are going to expire.',
+      ]
+    ],
+    'primary key' => ['id']
+  ];
+
+  $schema['cp_incentives_status'] = [
+    'description' => 'Table relation chat messages.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The status name for incentive plans.',
+      ],
+      'min_points' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'length' => 4,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The maximum points of the status.',
+      ],
+      'max_points' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'length' => 4,
+        'not null' => FALSE,
+        'default' => 0,
+        'description' => 'The minimum points of the status',
+      ],
+      'image_src' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Source of the image.', 
+      ],
+      'emphasis_main_color' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Hexadecimal main color of the status, to use in the template for users.', 
+      ],
+      'emphasis_secondary_color' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Hexadecimal main color of the status, to use in the template for users.', 
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['cp_incentives_benefits'] = [
+    'description' => 'Table relation chat messages.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'description' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The status name for incentive plans.',
+      ],
+      'description_spanish' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The translation of the description in spanish.',
+      ],
+      'state' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The state of the benefict - 0 equals inactive, 1 equals active - .',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['cp_incentives_rel_status_benefit'] = [
+    'description' => 'Relationship between status and benefits.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'id_status' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Foreign key of cp_incentives_status.id.',
+      ],
+      'id_benefit' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Foreign key of cp_incentives_benefits.id.',
+      ],
+      'state' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The state of the relationship between status and benefits - 0 equals inactive, 1 equals active - .',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['cp_incentives_reference_code'] = [
+    'description' => 'Reference code related to Colombian Companys.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'entity_id_company_col' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The {users}.id of the colombian company who belong to this code.',
+      ],
+      'reference_code' => [
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 8,
+        'default' => '',
+        'description' => 'The reference code of the colombian company.',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'updated' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+      'deleted' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+        'description' => 'Timestamp when the record was created.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

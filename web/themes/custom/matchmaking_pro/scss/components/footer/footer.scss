@@ -1,0 +1,197 @@
+.site-footer {
+
+	background-color: #fff !important;
+	padding: 0px !important;
+
+	.top_footer {
+		padding: 1rem 0.1rem;
+		background-color: #F2F2F2;
+
+		.logo_footer {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			img {
+				width: 450px;
+			}
+		}
+
+		.logo_footer_2 {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			img {
+				width: 250px;
+			}
+		}
+	}
+
+	.footer {
+		background-color: $color-Pantone-116-C;
+
+		.bg_gris {
+			background-color: $color-Gris-Oscuro;
+		}
+	}
+
+	.anuncio {
+		margin: 14px 21px;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		transition: all 0.3s ease-out;
+
+		&:hover {
+			transform: scale(1.03);
+		}
+
+		.img {
+			width: 20px;
+			height: 20px;
+			margin-right: 9px;
+		}
+
+		.description {
+			.title {
+				color: $color-Pantone-Y;
+				font-size: 12px;
+				font-family: 'Gothic-Regular';
+			}
+
+			.text {
+				color: $color-White;
+				font-size: 13px;
+			}
+		}
+	}
+
+	h6 {
+		font-size: 18px;
+		color: $color-White;
+		margin-bottom: 16px;
+		font-family: $font-bold;
+		margin-left: 5px;
+	}
+
+	.social-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: -10px;
+
+		&__button {
+			margin: 10px 5px 0;
+		}
+	}
+
+	.bottom_footer {
+		display: flex;
+		justify-content: center;
+		background-color: #D8DADD;
+
+		.link {
+			font-size: 15px;
+			padding: 3px 31px;
+			font-family: $font-regular;
+			margin: 5px;
+
+			a {
+				color: $color-Black;
+			}
+		}
+
+		.link.center {
+			border-right: 1px solid #fff;
+			border-left: 1px solid #fff;
+
+			a {
+				color: $color-Black;
+			}
+		}
+	}
+
+	$social-button-size: 35px;
+	$social-button-icon-size: 0.8;
+	$social-button-background: $color-Pantone-process-Blue;
+	$social-button-active-color: #fff;
+	$social-button-transition-time: 0.3s;
+
+	$social-button-colors: (
+		'mail': #0072c6,
+		'facebook': #3b5999,
+		'linkedin': #0077b5,
+		'instagram': #6e5494,
+		'codepen': #212121,
+		'steam': #7da10e,
+		'snapchat': #eec900,
+		'twitter': #55acee,
+		'youtube': #c12127,
+	);
+
+  .social-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  width: $social-button-size;
+  height: $social-button-size;
+  text-decoration: none;
+  border-radius: 4px;
+  background: $social-button-background;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 4px;
+    transition: $social-button-transition-time;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  &:focus,
+  &:hover {
+    color: $social-button-active-color;
+
+    &::after {
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      margin-left: calc(-50% - 1px);
+    }
+  }
+
+  i,
+  svg {
+    position: relative;
+    z-index: 1;
+    transition: $social-button-transition-time;
+  }
+
+  i {
+    font-size: $social-button-size * $social-button-icon-size;
+    color: #fff;
+  }
+
+  svg {
+    height: percentage($social-button-icon-size);
+    width: percentage($social-button-icon-size);
+  }
+
+  @each $name,
+  $color in $social-button-colors {
+    &--#{$name} {
+      color: $color;
+
+      &::after {
+        background: $color;
+      }
+    }
+  }
+  }
+}

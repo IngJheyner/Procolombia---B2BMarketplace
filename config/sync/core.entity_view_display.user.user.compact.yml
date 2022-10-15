@@ -4,17 +4,46 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_account_status
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
+    - field.field.user.user.field_ciiu_principal
+    - field.field.user.user.field_ciiu_secundario
+    - field.field.user.user.field_ciiu_terciario
     - field.field.user.user.field_company
+    - field.field.user.user.field_company_adviser
+    - field.field.user.user.field_company_certification
+    - field.field.user.user.field_company_certification_file
+    - field.field.user.user.field_company_city
+    - field.field.user.user.field_company_contact_cell_phone
+    - field.field.user.user.field_company_contact_email
+    - field.field.user.user.field_company_contact_lastname
+    - field.field.user.user.field_company_contact_name
+    - field.field.user.user.field_company_contact_phone
+    - field.field.user.user.field_company_contact_position
+    - field.field.user.user.field_company_contact_position_e
+    - field.field.user.user.field_company_deparment
+    - field.field.user.user.field_company_info
+    - field.field.user.user.field_company_info_english
+    - field.field.user.user.field_company_logo
+    - field.field.user.user.field_company_model
+    - field.field.user.user.field_company_model_2
+    - field.field.user.user.field_company_model_3
     - field.field.user.user.field_company_name
+    - field.field.user.user.field_company_video_youtube
+    - field.field.user.user.field_company_web_site
     - field.field.user.user.field_complete_name
     - field.field.user.user.field_country
+    - field.field.user.user.field_country_code_landline
+    - field.field.user.user.field_country_code_mobile
     - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_nit
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
+    - field.field.user.user.field_productive_chain
+    - field.field.user.user.field_step
     - field.field.user.user.field_subcat_interest_1
     - field.field.user.user.field_subcat_interest_2
     - field.field.user.user.field_subcat_interest_3
@@ -59,17 +88,46 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  field_account_status: true
   field_cat_interest_1: true
   field_cat_interest_2: true
   field_cat_interest_3: true
+  field_ciiu_principal: true
+  field_ciiu_secundario: true
+  field_ciiu_terciario: true
   field_company: true
+  field_company_adviser: true
+  field_company_certification: true
+  field_company_certification_file: true
+  field_company_city: true
+  field_company_contact_cell_phone: true
+  field_company_contact_email: true
+  field_company_contact_lastname: true
+  field_company_contact_name: true
+  field_company_contact_phone: true
+  field_company_contact_position: true
+  field_company_contact_position_e: true
+  field_company_deparment: true
+  field_company_info: true
+  field_company_info_english: true
+  field_company_logo: true
+  field_company_model: true
+  field_company_model_2: true
+  field_company_model_3: true
   field_company_name: true
+  field_company_video_youtube: true
+  field_company_web_site: true
   field_complete_name: true
   field_country: true
+  field_country_code_landline: true
+  field_country_code_mobile: true
   field_last_password_reset: true
+  field_nit: true
   field_password_expiration: true
   field_pending_expire_sent: true
   field_previous_id: true
+  field_productive_chain: true
+  field_step: true
   field_subcat_interest_1: true
   field_subcat_interest_2: true
   field_subcat_interest_3: true

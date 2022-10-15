@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cp_ia_search module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function cp_ia_search_install() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cp_ia_search_uninstall() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_schema().
+ */
+function cp_ia_search_schema() {
+  $schema['cp_search_logs'] = array(
+    'description' => 'Tabla de logs de busqueda insatisfecha',
+      'fields' => array(
+        'id' => array(
+          'description' => '', 
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),  
+        'query' => [
+          'type' => 'text',
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Sender message',
+        ],
+        'company_name' => array(
+          'description' => 'Nombre de la compañia',
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '', 
+        ), 
+        'created_at' => array(
+          'description' => 'Fecha de modificación',
+          'type' => 'varchar',
+          'mysql_type' => 'datetime',
+          'not null' => TRUE,
+        ), 
+        'country' => array(
+          'description' => 'Pais de origen',
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '', 
+        ), 
+      ),  
+      'primary key' => array('id'),
+    );  
+
+  return $schema;
+}

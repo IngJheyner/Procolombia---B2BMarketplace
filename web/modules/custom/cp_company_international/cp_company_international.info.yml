@@ -1,0 +1,9 @@
+name: 'CP Company International'
+type: module
+description: 'Procolombia company international module'
+core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_company_international
+interface translation server pattern: modules/custom/cp_company_international/translations/cp_company_international-es.po
+package: 'Custom'
+dependencies:
+- block

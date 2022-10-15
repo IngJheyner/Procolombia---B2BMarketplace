@@ -8,7 +8,7 @@ slogan: 'Goods and services of Colombian Origin'
 page:
   403: ''
   404: ''
-  front: /inicio
+  front: /home/index
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: es

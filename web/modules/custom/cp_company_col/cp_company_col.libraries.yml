@@ -1,0 +1,15 @@
+cp_company_col:
+  version: 1.9
+  css:
+    theme:
+      css/cp_company_col.css: {}
+  js:
+    js/cp_company_col.js: {}
+    js/edit_company_col.js: {}
+    js/edit_modal_company_col.js: {}
+    js/cp_tels.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+
+    

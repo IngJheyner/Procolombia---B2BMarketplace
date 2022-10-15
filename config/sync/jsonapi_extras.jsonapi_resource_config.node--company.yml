@@ -1,0 +1,293 @@
+uuid: 9760b2a7-0fb3-4588-ad97-9c7ab8c1c1ab
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.company
+id: node--company
+disabled: false
+path: company
+resourceType: node--company
+resourceFields:
+  nid:
+    disabled: false
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  vid:
+    disabled: false
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  revision_timestamp:
+    disabled: false
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: false
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: false
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  uid:
+    disabled: false
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  title:
+    disabled: false
+    fieldName: title
+    publicName: nombre
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: false
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  promote:
+    disabled: false
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  sticky:
+    disabled: false
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  body_class:
+    disabled: false
+    fieldName: body_class
+    publicName: body_class
+    enhancer:
+      id: ''
+  specific_node_class:
+    disabled: false
+    fieldName: specific_node_class
+    publicName: specific_node_class
+    enhancer:
+      id: ''
+  metatag:
+    disabled: false
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: false
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  content_translation_source:
+    disabled: false
+    fieldName: content_translation_source
+    publicName: content_translation_source
+    enhancer:
+      id: ''
+  content_translation_outdated:
+    disabled: false
+    fieldName: content_translation_outdated
+    publicName: content_translation_outdated
+    enhancer:
+      id: ''
+  field_body:
+    disabled: false
+    fieldName: field_body
+    publicName: field_body
+    enhancer:
+      id: ''
+  field_cellphone:
+    disabled: false
+    fieldName: field_cellphone
+    publicName: field_cellphone
+    enhancer:
+      id: ''
+  field_charge:
+    disabled: false
+    fieldName: field_charge
+    publicName: field_charge
+    enhancer:
+      id: ''
+  field_ciiu_code:
+    disabled: false
+    fieldName: field_ciiu_code
+    publicName: field_ciiu_code
+    enhancer:
+      id: ''
+  field_contact_name:
+    disabled: false
+    fieldName: field_contact_name
+    publicName: field_contact_name
+    enhancer:
+      id: ''
+  field_email:
+    disabled: false
+    fieldName: field_email
+    publicName: field_email
+    enhancer:
+      id: ''
+  field_ext:
+    disabled: false
+    fieldName: field_ext
+    publicName: field_ext
+    enhancer:
+      id: ''
+  field_json_ld:
+    disabled: false
+    fieldName: field_json_ld
+    publicName: field_json_ld
+    enhancer:
+      id: ''
+  field_logo:
+    disabled: false
+    fieldName: field_logo
+    publicName: field_logo
+    enhancer:
+      id: ''
+  field_nit:
+    disabled: false
+    fieldName: field_nit
+    publicName: field_nit
+    enhancer:
+      id: ''
+  field_phone:
+    disabled: false
+    fieldName: field_phone
+    publicName: field_phone
+    enhancer:
+      id: ''
+  field_previous_id:
+    disabled: false
+    fieldName: field_previous_id
+    publicName: field_previous_id
+    enhancer:
+      id: ''
+  field_product_categories_list:
+    disabled: false
+    fieldName: field_product_categories_list
+    publicName: field_product_categories_list
+    enhancer:
+      id: ''
+  field_semaphore_category:
+    disabled: false
+    fieldName: field_semaphore_category
+    publicName: field_semaphore_category
+    enhancer:
+      id: ''
+  field_states:
+    disabled: false
+    fieldName: field_states
+    publicName: field_states
+    enhancer:
+      id: ''
+  field_tags:
+    disabled: false
+    fieldName: field_tags
+    publicName: field_tags
+    enhancer:
+      id: ''
+  field_tags_destacados:
+    disabled: false
+    fieldName: field_tags_destacados
+    publicName: field_tags_destacados
+    enhancer:
+      id: ''
+  field_tags_oferta_especializada:
+    disabled: false
+    fieldName: field_tags_oferta_especializada
+    publicName: field_tags_oferta_especializada
+    enhancer:
+      id: ''
+  field_ubication_city:
+    disabled: false
+    fieldName: field_ubication_city
+    publicName: field_ubication_city
+    enhancer:
+      id: ''
+  field_ubication_state:
+    disabled: false
+    fieldName: field_ubication_state
+    publicName: field_ubication_state
+    enhancer:
+      id: ''
+  field_url_ecommerce:
+    disabled: false
+    fieldName: field_url_ecommerce
+    publicName: field_url_ecommerce
+    enhancer:
+      id: ''
+  field_web:
+    disabled: false
+    fieldName: field_web
+    publicName: field_web
+    enhancer:
+      id: ''

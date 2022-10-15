@@ -1,0 +1,21 @@
+uuid: d1e7ff95-cddd-421b-a12d-c33287ac3b64
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_contact_cell_phone
+  module:
+    - telephone
+    - user
+id: user.user.field_company_contact_cell_phone
+field_name: field_company_contact_cell_phone
+entity_type: user
+bundle: user
+label: 'Teléfono celular de contacto de la empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

@@ -1,0 +1,22 @@
+uuid: 4acc4e2b-400e-40eb-a5f9-65bd5dfa33d3
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_status_color
+    - taxonomy.vocabulary.account_status
+  module:
+    - color_field
+id: taxonomy_term.account_status.field_status_color
+field_name: field_status_color
+entity_type: taxonomy_term
+bundle: account_status
+label: status_color
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

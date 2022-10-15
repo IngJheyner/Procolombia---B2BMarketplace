@@ -1,0 +1,20 @@
+uuid: 4d952488-440b-4af9-94fe-33e1c1635d88
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_info_english
+  module:
+    - user
+id: user.user.field_company_info_english
+field_name: field_company_info_english
+entity_type: user
+bundle: user
+label: 'Información de la empresa en inglés'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

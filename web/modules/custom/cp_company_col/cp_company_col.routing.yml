@@ -1,0 +1,81 @@
+cp_company_col.render:
+  requirements:
+    _role: 'exportador'
+
+# pre_register routes
+
+###Index route
+cp_company_col.dashboard:
+  path: "dashboard/col/user"
+  defaults:
+    _title: 'Dashboard'
+    _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _role: 'exportador'
+
+###Index route
+cp_company_col.tablero:
+  path: "tablero/col/usuario"
+  defaults:
+    _title: 'Tablero'
+    _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _role: 'exportador'
+
+###edit_email_password
+cp_company_col.edit_email_password:
+  path: "dashboard/col/edit_email_password"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpDashboardCompanyColController::editEmailPassword'
+  methods:  [POST]
+  requirements:
+    _role: 'exportador'
+
+###Index route
+cp_company_col.edit:
+  path: "edit/col/user"
+  defaults:
+    _title: 'Edit user'
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _role: 'exportador'
+
+###Index route
+cp_company_col.editar:
+  path: "editar/col/usuario"
+  defaults:
+    _title: 'Editar usuario'
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::index'
+  methods:  [GET]
+  requirements:
+    _role: 'exportador'
+
+###get logged user
+cp_company_col.get_logged_user:
+  path: "editar/get_logged_user"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::getLoggedUser'
+  methods:  [GET]
+  requirements:
+    _role: 'exportador'
+
+###update_form1
+cp_company_col.update_form1:
+  path: "editar/update_form1"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::updateForm1'
+  methods:  [POST]
+  requirements:
+    _role: 'exportador'
+
+###update_form2
+cp_company_col.update_form2:
+  path: "editar/update_form2"
+  defaults:
+    _controller: '\Drupal\cp_company_col\Controller\CpEditCompanyColController::updateForm2'
+  methods:  [POST]
+  requirements:
+    _role: 'exportador'

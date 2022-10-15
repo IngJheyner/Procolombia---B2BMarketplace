@@ -1,0 +1,15 @@
+cp_layout:
+  version: 5.0
+  css:
+    theme:
+      css/cp_layout.css: {}
+  js:
+    js/cp_message_sidebar.js: {}
+    js/moment.min.js: {}
+    js/socket.io.min.js: {}
+    js/vanillaEmojiPicker2.js: {}
+    js/cp_search_logged.js: {}
+    js/cp_global_functions.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

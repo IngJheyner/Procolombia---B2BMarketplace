@@ -1,0 +1,737 @@
+{{ attach_library('cp_register/cp_register') }}
+<section class="step_registre container">
+	<div class="steps_buyer">
+		<div class="step_tittle">{{ "Configure your buyer profile for free"|t }}</div>
+		<div class="step_content">
+			<ul class="nav justify-content-center" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="home-tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-="true">
+						<svg id="datos_tab" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<defs>
+								<style>
+									.cls-1 {
+										fill: #5ab88e;
+									}
+
+									.cls-2 {
+										fill: #fff;
+									}
+								</style>
+							</defs>
+							<title>icono_1</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="cls-1" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<polygon class="cls-2" points="74.09 115.66 49.91 91.99 55.5 86.27 74.13 104.5 121.17 59.1 126.72 64.86 74.09 115.66"/>
+								</g>
+							</g>
+						</svg>
+						{{ "Personal Data Registration"|t }}
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="step_2_tab" data-bs-target="#step_2_tab" type="button" role="tab" aria-controls="profile-tab-pane" aria-="false">
+						<svg id="step_2_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="back" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<path class="num" d="M82.27,78.93h-9.6q.39-8.36,5.26-13.16A17,17,0,0,1,90.42,61a16.9,16.9,0,0,1,8.32,2,15.89,15.89,0,0,1,7.93,13.34A22.51,22.51,0,0,1,104,86.21q-2.61,5.31-9.58,12.55l-5.8,6.12h18.43V114H71.26v-4.71L87.26,93q5.8-5.86,7.72-9.44a14,14,0,0,0,1.91-6.45,6.65,6.65,0,0,0-2-4.94,7,7,0,0,0-5.12-1.95,6.74,6.74,0,0,0-5.27,2.36A9.72,9.72,0,0,0,82.27,78.93Z"/>
+								</g>
+							</g>
+						</svg>
+						<svg id="check_step_2" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<defs>
+								<style>
+									.cls-1 {
+										fill: #5ab88e;
+									}
+
+									.cls-2 {
+										fill: #fff;
+									}
+								</style>
+							</defs>
+							<title>icono_1</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="cls-1" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<polygon class="cls-2" points="74.09 115.66 49.91 91.99 55.5 86.27 74.13 104.5 121.17 59.1 126.72 64.86 74.09 115.66"/>
+								</g>
+							</g>
+						</svg>
+						{{ "Profile Settings"|t }}
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="step_3_tab" data-bs-target="#step_3_tab" type="button" role="tab" aria-controls="interes_1-tab-pane" aria-="false">
+						<svg id="step_3_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="back" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<path class="num" d="M82.87,74.38H73.41a15.66,15.66,0,0,1,4.11-9.21,15.84,15.84,0,0,1,11.85-4.85,15,15,0,0,1,10.67,4,12.75,12.75,0,0,1,4.31,9.6,11.13,11.13,0,0,1-1.89,6.29A13.38,13.38,0,0,1,97,84.86a14,14,0,0,1,7.36,4.9A13.25,13.25,0,0,1,107,98a15.55,15.55,0,0,1-5.14,11.79,18.31,18.31,0,0,1-13.07,4.83q-7.53,0-12.27-4.55T71.33,97.69h9.74a9.81,9.81,0,0,0,2.8,6,8.55,8.55,0,0,0,11.18-.27A7.26,7.26,0,0,0,97.31,98a7.36,7.36,0,0,0-3-5.94q-3.06-2.43-8.83-2.5V81.1A15.94,15.94,0,0,0,90.72,80a6.54,6.54,0,0,0,2.71-2.27,5.43,5.43,0,0,0,1-3.06,4.64,4.64,0,0,0-1.48-3.5,5.42,5.42,0,0,0-3.87-1.38,6.24,6.24,0,0,0-3.83,1.28A6.36,6.36,0,0,0,82.87,74.38Z"/>
+								</g>
+							</g>
+						</svg>
+						<svg id="check_step_3" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<defs>
+								<style>
+									.cls-1 {
+										fill: #5ab88e;
+									}
+
+									.cls-2 {
+										fill: #fff;
+									}
+								</style>
+							</defs>
+							<title>icono_1</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="cls-1" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<polygon class="cls-2" points="74.09 115.66 49.91 91.99 55.5 86.27 74.13 104.5 121.17 59.1 126.72 64.86 74.09 115.66"/>
+								</g>
+							</g>
+						</svg>
+						{{ "Products of interest #1"|t }}
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="step_4_tab" data-bs-target="#step_3_tab" type="button" role="tab" aria-controls="interes_2-tab-pane" aria-="false">
+						<svg id="step_4_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.92">
+
+							<title>step_4</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="back" d="M0,88.84c-.23-6.67,2.56-12.52,7.3-17.37,7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.32,31.25,57.88,21.89c5-4.88,9.94-9.82,14.95-14.69a26.27,26.27,0,0,1,36.32.17q18.09,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.22,20.22,0,0,1-4.85,8q-14.34,14.25-28.75,28.4l-1.4,1.4c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.46,153.75,48.26,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.51,24.51,0,0,1,0,88.84Z"/>
+									<path class="num" d="M93.22,60.59h10V94.34h4.67v9.23h-4.67v10.77H93.4V103.57H70.52V94.34Zm.18,33.75V76.77l-12,17.57Z"/>
+								</g>
+							</g>
+						</svg>
+						<svg id="check_step_4" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<defs>
+								<style>
+									.cls-1 {
+										fill: #5ab88e;
+									}
+
+									.cls-2 {
+										fill: #fff;
+									}
+								</style>
+							</defs>
+							<title>icono_1</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="cls-1" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<polygon class="cls-2" points="74.09 115.66 49.91 91.99 55.5 86.27 74.13 104.5 121.17 59.1 126.72 64.86 74.09 115.66"/>
+								</g>
+							</g>
+						</svg>
+						{{ "Products of interest #2"|t }}
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="step_5_tab" data-bs-target="#step_5_tab" type="button" role="tab" aria-controls="interes_3-tab-pane" aria-="false">
+
+						<svg is="step_4_svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.92">
+							<title>step_5</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="back" d="M0,88.84c-.23-6.67,2.56-12.52,7.3-17.37,7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.32,31.25,57.88,21.89c5-4.88,9.94-9.82,14.95-14.69a26.27,26.27,0,0,1,36.32.17q18.09,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.22,20.22,0,0,1-4.85,8q-14.34,14.25-28.75,28.4l-1.4,1.4c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.46,153.75,48.26,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.51,24.51,0,0,1,0,88.84Z"/>
+									<path class="num" d="M81.78,60.59h24.56v9.23H89.23l-2.14,9.51A14.4,14.4,0,0,1,88.84,79a11.74,11.74,0,0,1,1.64-.12,15.84,15.84,0,0,1,11.85,4.86,17.14,17.14,0,0,1,4.72,12.46,17.62,17.62,0,0,1-5.22,12.92,17.22,17.22,0,0,1-12.71,5.26A17.57,17.57,0,0,1,71.3,100.08H81.78A9.07,9.07,0,0,0,85,103.81a8,8,0,0,0,4.37,1.26A7.57,7.57,0,0,0,95,102.68a9.33,9.33,0,0,0,.16-12.1,6.84,6.84,0,0,0-5.22-2.33,6.92,6.92,0,0,0-3.23.82,11.38,11.38,0,0,0-3.12,2.46l-8.12-1.82Z"/>
+								</g>
+							</g>
+						</svg>
+						<svg id="check_step_5" style="display:none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 178.35 174.95">
+							<defs>
+								<style>
+									.cls-1 {
+										fill: #5ab88e;
+									}
+
+									.cls-2 {
+										fill: #fff;
+									}
+								</style>
+							</defs>
+							<title>icono_1</title>
+							<g id="Capa_2" data-name="Capa 2">
+								<g id="Capa_1-2" data-name="Capa 1">
+									<path class="cls-1" d="M0,88.84C-.23,82.17,2.56,76.32,7.3,71.47c7.15-7.3,14.4-14.53,21.87-21.5C39,40.83,48.31,31.25,57.87,21.89c5-4.88,9.94-9.82,14.95-14.69a26.28,26.28,0,0,1,36.32.17q18.08,17.91,36.21,35.76c8.43,8.26,17.14,16.23,25.39,24.65,7.28,7.44,9.44,16.4,6,26.42a20.33,20.33,0,0,1-4.85,8q-14.34,14.25-28.75,28.4L141.74,132c-10,9.88-19.83,19.93-30.07,29.55-4.48,4.21-8.46,9.1-14.51,11.55-9.13,3.71-20.77,1.67-27.79-5.3S55.45,153.75,48.25,147c-13.67-12.88-26.9-26.22-40.36-39.32A24.49,24.49,0,0,1,0,88.84Z"/>
+									<polygon class="cls-2" points="74.09 115.66 49.91 91.99 55.5 86.27 74.13 104.5 121.17 59.1 126.72 64.86 74.09 115.66"/>
+								</g>
+							</g>
+						</svg>
+						{{ "Products of interest #3"|t }}
+					</a>
+				</li>
+
+			</ul>
+			<div class="progress validate_buyer">
+				<div class="progress-bar" id="validate_progresss" style="width:13%" role="progressbar" aria-label="{{ "Basic example"|t }}" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+			<p class="title_tab" id="home_title" style="display:block">{{ "Company Profile"|t }}</p>
+			<p class="title_tab" id="profile_title">{{ "Economic Activity"|t }}</p>
+			<p class="title_tab" id="contact_title">{{ "Contact Information"|t }}</p>
+
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="step_2" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+					<form class="row g-4 gx-5 pb-4" style="padding: 1.5rem 0.5rem;">
+						<div class="col-md-6">
+							<label for="sitio" class="form-label">{{ "Country"|t }}
+								<sup>*</sup>
+							</label>
+							<div class="d-flex align-items-center error_select">
+								<div id="country_contain" class="w-100">
+									<select id="country" class="single_select" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+										<option value="">{{ "Enter the keyword or select an option"|t }}
+										</option>
+										{% for country in tree_countries %}
+											<option value="{{country.ID}}">{{country.Name}}</option>
+										{% endfor %}
+									</select>
+								</div>
+
+								<i id="error_country" class='bx bxs-info-circle toltip_i'>
+									<span id="error_country_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="position" class="form-label">{{ "Job title"|t }}
+								<sup>*</sup>
+							</label>
+							<div class="input_error">
+								<input type="text" class="form-control" id="position" maxlength="50" placeholder="">
+								<i id="error_position" class='bx bxs-info-circle toltip_i'>
+									<span id="error_position_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+							<div class="toltip_content">
+								<i class='bx bxs-info-circle toltip_i'>
+									<span class="tooltiptext">
+										{{ "Please include the name of your position within the company."|t }}
+									</span>
+								</i>
+								<span>{{ "Please include the name of your position within the company."|t }}</span>
+							</div>
+						</div>
+						{# <div class="col-md-6">
+																															<label for="city" class="form-label">{{ "City"|t }} <sup>*</sup>
+																															</label>
+																															<div class="d-flex align-items-center error_select">
+																																<div id="" class="w-100">
+																																	<select id="city" class="single_select" placeholder="Seleccione una opción..." autocomplete="off">
+																																		<option value="">{{ "Select an option"|t }}</option>
+																																		<option value="usa">{{ "United States"|t }}</option>
+																																	</select>
+																																</div>
+																								
+																																<i id="error_city" class='bx bxs-info-circle toltip_i'>
+																																	<span id="error_city_message" class="tooltiptext_error">
+																																		{{ "Required Field"|t }}
+																																	</span>
+																																</i>
+																															</div>
+																								
+																														</div> #}
+						<div class="col-md-6">
+							<label for="web_site" class="form-label">{{ "Company website"|t }}
+							</label>
+							<div class="input_error">
+								<input type="text" class="form-control" id="web_site">
+								<i id="error_web_site" class='bx bxs-info-circle toltip_i'>
+									<span id="error_web_site_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+							<div class="toltip_content">
+								<i id="error_web_site" class='bx bxs-info-circle toltip_i'>
+									<span id="error_web_site_message" class="tooltiptext">
+										{{ "Please include the complete URL starting with http or https."|t }}
+									</span>
+								</i>
+								<span>{{ "Please include the complete URL starting with http or https."|t }}</span>
+							</div>
+						</div>
+						<div class="col-md-6" id="principal_advisor_contain">
+							<label for="principal_advisor" class="form-label">{{ "ProColombia Senior Advisor"|t }}
+							</label>
+							<select name="principal_advisor" id="principal_advisor">
+								<option value="">{{ "Enter the keyword or select an option"|t }}
+								</option>
+								{% for advisor_user in tree_advisor %}
+									<option value="{{advisor_user.ID}}">{{advisor_user.Name}}</option>
+								{% endfor %}
+							</select>
+							<div class="toltip_content">
+								<i id="error_principal_advisor-ts-control" class='bx bxs-info-circle toltip_i'>
+									<span id="error_principal_advisor-ts-control_message" class="tooltiptext">
+										{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
+									</span>
+								</i>
+								<span>{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}</span>
+							</div>
+							<div class="input_error">
+								<i id="error_asesor" class='bx bxs-info-circle' data-bs-toggle="tooltip" data-bs-placement="bottom" data-original-title="Campo requerido."></i>
+							</div>
+						</div>
+
+					</form>
+					<div class="row">
+						<div class="col-lg-12 continue">
+							<button id="cancel_buyer_2" class="cancel">{{ "CANCEL"|t }}</button>
+							<button id="save_buyer_1" name="save_buyer_1" aria-label="{{ "Continue registration"|t }}" class="continue">{{ "CONTINUE"|t }}
+							</button>
+							<button style="display:none" class="continue" id="loading_international_2" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								{{ "Loading..."|t }}
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="step_3" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+					<form class="row g-4 gx-5 pb-5" style="padding: 1.5rem 0.5rem;">
+						<div class="col-md-6">
+							<label for="cat_interest_1" class="form-label">
+								{{ "I am interested in..."|t }}
+								(Categoría de interés)
+								<sup>*</sup>
+							</label>
+
+							<div id="cat_interest_1_cont" class="input_error">
+								<select name="cat_interest_1" id="cat_interest_1" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
+									{% for categorization_item in tree_categorization %}
+										<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+									{% endfor %}
+								</select>
+								<i id="error_cat_interest_1" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cat_interest_1_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="company_model" class="form-label">{{ "Business Model"|t }}
+								<sup>*</sup>
+							</label>
+
+							<div id="company_model_cont" class="input_error">
+								<select multiple name="company_model" id="company_model" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
+									{% for company_model_item in tree_business_model %}
+										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+									{% endfor %}
+								</select>
+								<i id="error_company_model" class='bx bxs-info-circle toltip_i'>
+									<span id="error_company_model_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="subcat_interest_1" class="form-label">{{ "Particularly in..."|t }}
+								(Subcategoría de Interés)
+								<sup>*</sup>
+							</label>
+							<div id="subcat_interest_1_cont" class="input_error">
+								<select name="subcat_interest_1" id="subcat_interest_1">
+									<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
+								</select>
+								<i id="error_subcat_interest_1" class='bx bxs-info-circle toltip_i'>
+									<span id="error_subcat_interest_1_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6" style="padding-bottom: 30px;">
+							<div class="form-group rihgt">
+								<label for="nit">{{ "Tariff Item"|t }}</label>
+								<div class="icon_help toltip_i">
+									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
+										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
+									</svg>
+									<span class="tooltiptext_yotube">
+										<p class="note">{{ "NOTE:"|t }}</p>
+										{{ "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."|t }}
+									</span>
+								</div>
+								<div class="input_error">
+									<select>
+										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
+										<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
+									</select>
+									<i id="error_website" class='bx bxs-info-circle toltip_i'>
+										<span id="error_website_message" class="tooltiptext_error">
+											{{ "Required Field"|t }}
+										</span>
+									</i>
+								</div>
+								<div class="toltip_content">
+									<i class='bx bxs-info-circle toltip_i'>
+										<span class="tooltiptext">
+											{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}
+										</span>
+									</i>
+									<span>{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}</span>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-lg-6 back">
+							<button id="goback_buyer_3" class="back_btn">{{ "PREVIOUS"|t }}</button>
+						</div>
+						<div class="col-lg-6 continue">
+							<button id="cancel_buyer_3" class="cancel">{{ "CANCEL"|t }}</button>
+							<button id="save_buyer_2" name="save_buyer_2" aria-label="{{ "Continue registration"|t }}" class="continue">CONTINUAR</button>
+							<button style="display:none" class="continue" id="loading_international_3" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								{{ "Loading..."|t }}
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="step_4" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+					<form class="row g-4 gx-5 pb-5" style="padding: 1.5rem 0.5rem;">
+						<div class="col-md-6">
+							<label for="cat_interest_2" class="form-label">
+								{{ "I am interested in..."|t }}
+								(Categoría de interés) No.2
+								<sup>*</sup>
+							</label>
+
+							<div id="cat_interest_2_cont" class="input_error">
+								<select name="cat_interest_2" id="cat_interest_2" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}
+										{% for categorization_item in tree_categorization %}
+											<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+										{% endfor %}
+									</option>
+								</select>
+								<i id="error_cat_interest_2" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cat_interest_2_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="company_model_2" class="form-label">
+								{{ "Business Model"|t }}
+								No.2
+								<sup>*</sup>
+							</label>
+
+							<div id="company_model_2_cont" class="input_error">
+								<select name="company_model_2" multiple id="company_model_2" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
+									{% for company_model_item in tree_business_model %}
+										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+									{% endfor %}
+								</select>
+								<i id="error_company_model_2" class='bx bxs-info-circle toltip_i'>
+									<span id="error_company_model_2_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="subcat_interest_2" class="form-label">
+								{{ "Particularly in..."|t }}
+								(Subcategoría de Interés) No.2
+								<sup>*</sup>
+							</label>
+
+							<div id="subcat_interest_2_cont" class="input_error">
+								<select name="subcat_interest_2" id="subcat_interest_2" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
+								</select>
+								<i id="error_subcat_interest_2" class='bx bxs-info-circle toltip_i'>
+									<span id="error_subcat_interest_2_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6" style="padding-bottom: 30px;">
+							<div class="form-group rihgt">
+								<label for="nit">{{ "Tariff Item No.2"|t }}</label>
+								<div class="icon_help toltip_i">
+									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
+										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
+									</svg>
+									<span class="tooltiptext_yotube">
+										<p class="note">{{ "NOTE:"|t }}</p>
+										{{ "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."|t }}
+									</span>
+								</div>
+								<div class="input_error">
+									<select>
+										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
+										<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
+									</select>
+									<i id="error_website" class='bx bxs-info-circle toltip_i'>
+										<span id="error_website_message" class="tooltiptext_error">
+											{{ "Required Field"|t }}
+										</span>
+									</i>
+								</div>
+								<div class="toltip_content">
+									<i class='bx bxs-info-circle toltip_i'>
+										<span class="tooltiptext">
+											{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}
+										</span>
+									</i>
+									<span>{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}</span>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-lg-6 back">
+							<button id="goback_buyer_4" class="back_btn">{{ "PREVIOUS"|t }}</button>
+						</div>
+						<div class="col-lg-6 continue">
+							<button id="cancel_buyer_4" class="cancel">{{ "CANCEL"|t }}</button>
+							<button id="save_buyer_3" name="save_2" aria-label="{{ "Continue registration"|t }}" class="continue">CONTINUAR</button>
+							<button style="display:none" class="continue" id="loading_international_4" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								{{ "Loading..."|t }}
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="step_5" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+					<form class="row g-4 gx-5 pb-5" style="padding: 1.5rem 0.5rem;">
+						<div class="col-md-6">
+							<label for="cat_interest_3" class="form-label">{{ "I am interested in..."|t }}
+								(Categoría de interés) No.3
+								<sup>*</sup>
+							</label>
+
+							<div id="cat_interest_3_cont" class="input_error">
+								<select name="cat_interest_3" id="cat_interest_3" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
+									{% for categorization_item in tree_categorization %}
+										<option value="{{categorization_item.ID}}">{{categorization_item.Name}}</option>
+									{% endfor %}
+								</select>
+								<i id="error_cat_interest_3" class='bx bxs-info-circle toltip_i'>
+									<span id="error_cat_interest_3_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="company_model_3" class="form-label">{{ "Business Model"|t }}
+								No.3
+								<sup>*</sup>
+							</label>
+
+							<div id="company_model_3_cont" class="input_error">
+								<select name="company_model_3" multiple id="company_model_3" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}
+									</option>
+									{% for company_model_item in tree_business_model %}
+										<option value="{{company_model_item.ID}}">{{company_model_item.Name}}</option>
+									{% endfor %}
+								</select>
+								<i id="error_company_model_3" class='bx bxs-info-circle toltip_i'>
+									<span id="error_company_model_3_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<label for="subcat_interest_3" class="form-label">{{ "Particularly in..."|t }}
+								(Subcategoría de Interés) No.3
+								<sup>*</sup>
+							</label>
+
+							<div id="subcat_interest_3_cont" class="input_error">
+								<select name="subcat_interest_3" id="subcat_interest_3" placeholder="{{ "Enter the keyword or select an option"|t }}" autocomplete="off">
+									<option value="">{{ "Enter the keyword or select an option"|t }}</option>
+								</select>
+								<i id="error_subcat_interest_3" class='bx bxs-info-circle toltip_i'>
+									<span id="error_subcat_interest_3_message" class="tooltiptext_error">
+										{{ "Required Field"|t }}
+									</span>
+								</i>
+							</div>
+
+						</div>
+						<div class="col-md-6" style="padding-bottom: 30px;">
+							<div class="form-group rihgt">
+								<label for="nit">{{ "Tariff Item No.3"|t }}</label>
+								<div class="icon_help toltip_i">
+									<svg xmlns="http://www.w3.org/2000/svg" width="10.631" height="15.939" viewbox="0 0 10.631 15.939">
+										<path id="Trazado_11" data-name="Trazado 11" d="M164.694,605.959a.516.516,0,0,1-.532-.5,3.094,3.094,0,0,1,3.189-2.988.5.5,0,1,1,0,1,2.063,2.063,0,0,0-2.126,1.992.516.516,0,0,1-.532.5m6.013,3.355a.141.141,0,0,0,.04-.021.5.5,0,0,0-.205.4v.747a2.062,2.062,0,0,1-2.126,1.992h-2.658a.5.5,0,1,0,0,1h2.126a.5.5,0,1,1,0,1h-1.329a.547.547,0,0,1-.112-.012,1.536,1.536,0,0,1-.154.012h-.532a1.5,1.5,0,1,1,0-2.989h2.658a1.031,1.031,0,0,0,1.063-1v-.747a1.453,1.453,0,0,1,.563-1.139.758.758,0,0,1-.145.092,3.9,3.9,0,0,0,1.708-3.187,4.262,4.262,0,0,0-8.505,0,3.9,3.9,0,0,0,1.708,3.187.757.757,0,0,1-.145-.092,1.453,1.453,0,0,1,.563,1.139v.249a.533.533,0,0,1-1.063,0v-.249a.5.5,0,0,0-.205-.4.139.139,0,0,0,.04.021,4.848,4.848,0,0,1-1.96-3.854,5.327,5.327,0,0,1,10.631,0,4.848,4.848,0,0,1-1.961,3.854m-3.887,6.108h1.063a.5.5,0,1,1,0,1H166.82a.5.5,0,1,1,0-1" transform="translate(-162.036 -600.48)" fill-rule="evenodd"/>
+									</svg>
+									<span class="tooltiptext_yotube">
+										<p class="note">{{ "NOTE:"|t }}</p>
+										{{ "To ensure the proper functioning of the system, only the first 10 matching products will be presented."|t }}
+									</span>
+								</div>
+								<div class="input_error">
+									<select>
+										<option disabled hidden>{{ "Enter the keyword or select an option"|t }}</option>
+										<option value="Jaime Francisco">Las demas carnes y despojos comestibles de pato ganso o pintada congelados</option>
+										<option value="Ruth Silvana">Los demas trozos y despojos comestibles de aves incluidos los higados frescos o refrigerados</option>
+										<option value="Luis Felipe">Carnes de pato sin trocear frescas o refrigeradas</option>
+										<option value="Montserrat Carolina">Carnes de pato sin trocear congelados</option>
+									</select>
+									<i id="error_website" class='bx bxs-info-circle toltip_i'>
+										<span id="error_website_message" class="tooltiptext_error">
+											{{ "Required Field"|t }}
+										</span>
+									</i>
+								</div>
+								<div class="toltip_content">
+									<i class='bx bxs-info-circle toltip_i'>
+										<span class="tooltiptext">{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}</span>
+									</i>
+									<span>{{ "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."|t }}</span>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="row">
+						<div class="col-lg-6 back">
+							<button id="goback_buyer_5" class="back_btn">{{ "PREVIOUS"|t }}</button>
+						</div>
+						<div class="col-lg-6 continue">
+							<button id="cancel_buyer_5" class="cancel">{{ "CANCEL"|t }}</button>
+							<button id="save_buyer_4" name="save_buyer_4" aria-label="{{ "Continue registration"|t }}" class="continue">CONTINUAR</button>
+							<button style="display:none" class="continue" id="loading_international_5" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								{{ "Loading..."|t }}
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="check_information" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ "Contact Information"|t }}</h5>
+					<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+				</div>
+				<div class="modal-body">
+					<h6 class="text-danger pb-2">
+						<b>{{ "Keep the following in mind!"|t }}</b>
+					</h6>
+					<p>{{ "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."|t }}</p>
+				</div>
+				<div class="modal-footer">
+					<button id="go_to_step_3" type="button" class="btn cita_btn">{{ "UNDERSTOOD"|t }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Button trigger modal -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="success_modal_international" tabindex="-1" aria-labelledby="alert_2Label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ "Successful process"|t }}</h5>
+				</div>
+				<div class="modal-body">
+					<p>{{ "Your profile as an exporting company of"|t }}
+						<strong id="empresa_popup" class="strong_empresa">traer Nombre de la empresa</strong>
+						{{ "is in pending status for approval by ProColombia. Your advisor will contact you in case there is any observation about the information registered."|t }}
+					</p>
+				</a>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button id="go_to_menu_buyer" type="button" class="btn cita_btn">{{ "UNDERSTOOD"|t }}</button>
+		</div>
+	</div>
+</div></div><!-- Modal --><div class="modal fade" id="info_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+				{{ "Profile Settings"|t }}
+			</h5>
+			<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+		</div>
+		<div class="modal-body">
+			<p>{{ "Configure your international buyer profile for free."|t }}</p>
+		</div>
+		<div class="modal-footer ">
+			<div class="row">
+				<div class="col-6 fs-6">
+					<strong>{{ "Do you want to continue?"|t }}</strong>
+				</div>
+				<div class="col-6 btn_options">
+					<button data-bs-dismiss="modal" aria-label="{{ "Close"|t }}" class="yes">{{ "YES"|t }}</button>
+					<button id="reload_form" class="no">{{ "NO"|t }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div><div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="alert_3Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg" alt="" srcset="">
+				{{ "Cancel process"|t }}
+			</h5>
+			<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+		</div>
+		<div class="modal-body">
+			<p>
+				{{ "The process is about to be cancelled"|t }}
+				<strong>{{ "International Company Registration"|t }}</strong>
+			</p>
+		</div>
+		<div class="modal-footer ">
+			<div class="row">
+				<div class="col-6 fs-6">
+					<strong>{{ "Do you want to continue?"|t }}</strong>
+				</div>
+				<div class="col-6 btn_options">
+					<button id="delete_user_buyer" class="yes">{{ "YES"|t }}</button>
+					<button id="hide_cancel_process_buyer" class="no">{{ "NO"|t }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div></section>

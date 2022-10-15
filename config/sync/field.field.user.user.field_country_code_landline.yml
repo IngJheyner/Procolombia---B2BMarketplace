@@ -1,0 +1,24 @@
+uuid: 8e414365-f9d9-474c-8ddf-2d7db44b2aa2
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_country_code_landline
+  module:
+    - user
+id: user.user.field_country_code_landline
+field_name: field_country_code_landline
+entity_type: user
+bundle: user
+label: 'Prefijo del teléfono fijo en el país'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

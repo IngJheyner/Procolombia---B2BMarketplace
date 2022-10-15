@@ -2,6 +2,8 @@ name: 'CP Core'
 type: module
 description: 'Module with the general features of procolombia catalogo'
 core_version_requirement: ^8.9 || ^9.0
+interface translation project: cp_core
+interface translation server pattern: modules/custom/cp_core/translations/cp_core.%language.po
 package: 'Custom'
 dependencies:
 - block

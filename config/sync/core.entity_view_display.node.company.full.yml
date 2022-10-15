@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.company.field_cellphone
     - field.field.node.company.field_charge
     - field.field.node.company.field_ciiu_code
+    - field.field.node.company.field_com_published
     - field.field.node.company.field_contact_name
     - field.field.node.company.field_email
     - field.field.node.company.field_ext
@@ -227,6 +228,7 @@ hidden:
   field_cellphone: true
   field_charge: true
   field_ciiu_code: true
+  field_com_published: true
   field_contact_name: true
   field_email: true
   field_ext: true

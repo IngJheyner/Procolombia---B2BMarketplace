@@ -1,2 +1,25 @@
 /* TYPOGRAPHY */
-/* Google Fonts *//*# sourceMappingURL=typography.css.map */
+/* Google Fonts */
+/* =========================================
+TIPOGRAFIAS Y TAMANIO DE FUENTES PROCOLOMBIA
+============================================ */
+@font-face {
+  font-family: Maven-Medium;
+  src: url("../font/MavenPro-Medium.ttf");
+}
+@font-face {
+  font-family: Maven-Regular;
+  src: url("../font/MavenPro-Regular.ttf");
+}
+@font-face {
+  font-family: Maven-Bold;
+  src: url("../font/MavenPro-Bold.ttf");
+}
+@font-face {
+  font-family: Gothic-Regular;
+  src: url("../font/Century-Gothic.otf");
+}
+@font-face {
+  font-family: Gothic-Bold;
+  src: url("../font/Century-Gothic-Bold.otf");
+}/*# sourceMappingURL=typography.css.map */

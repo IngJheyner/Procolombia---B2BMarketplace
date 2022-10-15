@@ -1,0 +1,23 @@
+uuid: f85aa286-1e9b-463a-a73f-4b0c2f05f339
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_web_site
+  module:
+    - link
+    - user
+id: user.user.field_company_web_site
+field_name: field_company_web_site
+entity_type: user
+bundle: user
+label: 'Sitio web de la empresa'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

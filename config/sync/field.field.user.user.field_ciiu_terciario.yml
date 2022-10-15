@@ -1,0 +1,20 @@
+uuid: 00e4e426-368b-4b10-844a-9f859849b019
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ciiu_terciario
+  module:
+    - user
+id: user.user.field_ciiu_terciario
+field_name: field_ciiu_terciario
+entity_type: user
+bundle: user
+label: 'CIIU Terciario'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

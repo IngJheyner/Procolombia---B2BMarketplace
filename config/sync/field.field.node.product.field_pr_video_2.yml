@@ -1,0 +1,25 @@
+uuid: 682a9f5f-36b6-449a-9c89-66390cc045f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pr_video_2
+    - node.type.product
+  module:
+    - video_embed_field
+id: node.product.field_pr_video_2
+field_name: field_pr_video_2
+entity_type: node
+bundle: product
+label: 'Video 2'
+description: 'Únicamente es permitido los links de YouTube'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    youtube_playlist: '0'
+    vimeo: '0'
+field_type: video_embed_field

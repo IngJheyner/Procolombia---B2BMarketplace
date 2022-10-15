@@ -1,0 +1,20 @@
+uuid: d43227d9-bac5-47fd-a546-a9e1403c4e43
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ciiu_principal
+  module:
+    - user
+id: user.user.field_ciiu_principal
+field_name: field_ciiu_principal
+entity_type: user
+bundle: user
+label: 'CIIU Principal'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

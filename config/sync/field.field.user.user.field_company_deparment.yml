@@ -1,0 +1,30 @@
+uuid: 5117d370-a19d-45f2-913a-944f4eb3e8f0
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_deparment
+    - taxonomy.vocabulary.locations
+  module:
+    - user
+id: user.user.field_company_deparment
+field_name: field_company_deparment
+entity_type: user
+bundle: user
+label: 'Departamento donde se ubica la empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      locations: locations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

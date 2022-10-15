@@ -1,0 +1,512 @@
+{{ attach_library('cp_incentives/cp_incentives') }}
+<section class="dashboard-incentives px-4 pt-5 d-flex flex-wrap justify-content-center">
+	<div class="row align-items-center" style="padding: 0px 50px;">
+		<div class="col-lg-6">
+			<p class="table-title fs-1">Administración de puntos para el plan de incentivos</p>
+		</div>
+		<div class="align-items-center col-lg-6 d-flex justify-content-end text-align-end">
+			<button class="btn-cancel">Parametrización Plan de incentivos</button>
+		</div>
+	</div>
+	<div id="" class="bussines_international">
+		<div class="form_table mt-4">
+			<table id="incentives-list" class="display dataTable"></table>
+		</div>
+	</div>
+  <div class="modal fade" id="modal_double_rule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="title_1"></h5>
+		  <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>close</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>Variables /Características:</strong>
+						</td>
+						<td>
+							<p id="characteristic_1"></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Descripción Regla de Negocio:</strong>
+						</td>
+						<td>
+							<p id="description_1"></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Máximo de puntos
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="number" disabled style="user-select: none;" id="max_measure_1_1" class="form-control"  aria-describedby="basic-addon2">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								Este campo especifica el número del puntaje máximo para la distribución de puntos.
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Este campo especifica el número del puntaje máximo para la distribución de puntos.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Estado
+					<sup>*</sup>
+				</label>
+				<select id="state_1" name="" id="">
+					<option value="1">Activo</option>
+					<option value="0">Inactivo</option>
+				</select>
+
+			</div>
+			<div class="col-lg-12 p-0">
+				<div class="sub-tittle-modal">
+					<p class="fs-5">Reglas de negocio</p>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div>
+					<label for="nombre_del_sitio" class="form-label">Instrucción
+						<sup>*</sup>
+					</label>
+				</div>
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="min_measure_0" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="max_measure_0" placeholder="Tiempo maximo"  aria-label="Tiempo maximo" aria-describedby="Tiempo maximo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								Ingrese la instrucción en tiempo de horas mínima y máxima de respuesta en el chat.
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Ingrese la instrucción en tiempo de horas mínima y máxima de respuesta en el chat.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Distribución de puntos
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="given_points_0"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								Ingrese un número de puntos entre el máximo de puntos
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Ingrese un número de puntos entre el máximo de puntos</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="min_measure_1" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="max_measure_1"  placeholder="Tiempo maximo" aria-label="Tiempo maximo" aria-describedby="Tiempo maximo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="given_points_1"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="min_measure_2" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" id="max_measure_2" placeholder="Tiempo maximo"  aria-label="Tiempo maximo" aria-describedby="Tiempo maximo" class="form-control" >
+							<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >Horas</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="given_points_2"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Tiempo de vigencia de puntos</label>
+				<div class="input-group m-0">
+					<input type="number" id="expiration_days_1" class="form-control"  aria-describedby="basic-addon2">
+					<span class="input-group-text" id="basic-addon2">Tiempo en Días</span>
+				</div>
+				
+			</div>
+			<input type="hidden" name="regla_0" id="id_rule_0">
+			<input type="hidden" name="regla_1" id="id_rule_1">
+			<input type="hidden" name="regla_2" id="id_rule_2">
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-lg-12 continue p-0">
+					<button id="cancel_process_1" data-bs-dismiss="modal" class="cancel">
+						{{"CANCEL"|t }}
+					</button>
+					<button id="save_criteria_1" name="save_criteria_1" aria-label="{{ "Continue registration"|t }}" class="continue">
+						GUARDAR CAMBIOS
+					</button>
+					<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+						<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+						{{ "Loading..."|t }}
+					</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div class="modal fade" id="modal_simple_rule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="title_2"></h5>
+		  <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>close</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>Variables /Características:</strong>
+						</td>
+						<td>
+							<p id="characteristic_2"></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Descripción Regla de Negocio:</strong>
+						</td>
+						<td>
+							<p id="description_2"></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Máximo de puntos
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="number" disabled style="user-select: none;" id="max_measure_2_1_1" class="form-control"  aria-describedby="basic-addon2">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								Este campo especifica el número del puntaje máximo para la distribución de puntos.
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Este campo especifica el número del puntaje máximo para la distribución de puntos.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Estado
+					<sup>*</sup>
+				</label>
+				<select id="state_2" name="" id="">
+					<option value="1">Activo</option>
+					<option value="0">Inactivo</option>
+				</select>
+
+			</div>
+			<div class="col-lg-12 p-0">
+				<div class="sub-tittle-modal">
+					<p class="fs-5">Reglas de negocio</p>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div>
+					<label for="nombre_del_sitio" class="form-label">Instrucción
+						<sup>*</sup>
+					</label>
+				</div>
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="max_measure_2_0" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >Visualizaciones</span>
+						</div>
+					</div>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								Ingrese la instrucción del número de visualizaciones que posea el producto o servicio cargado.
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Ingrese la instrucción del número de visualizaciones que posea el producto o servicio cargado.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Distribución de puntos
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="given_points_2_0"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								Ingrese un número de puntos entre el máximo de puntos
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">Ingrese un número de puntos entre el máximo de puntos</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="max_measure_2_1" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >Visualizaciones</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="given_points_2_1"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input-group m-0">
+							<input type="number" class="form-control" id="max_measure_2_2" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+							<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >Visualizaciones</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="given_points_2_2"  placeholder="Ingrese el número de puntos" aria-label="Ingrese el número de puntos" aria-describedby="Ingrese el número de puntos">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Tiempo de vigencia de puntos</label>
+				<div class="input-group m-0">
+					<input type="number" id="expiration_days_2" class="form-control"  aria-describedby="basic-addon2">
+					<span class="input-group-text" id="basic-addon2">Tiempo en Días</span>
+				</div>
+				
+			</div>
+			<input type="hidden" name="regla_0" id="id_rule_2_0">
+			<input type="hidden" name="regla_1" id="id_rule_2_1">
+			<input type="hidden" name="regla_2" id="id_rule_2_2">
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-lg-12 continue p-0">
+					<button id="cancel_process_1" data-bs-dismiss="modal" class="cancel">
+						{{"CANCEL"|t }}
+					</button>
+					<button id="save_criteria_2" name="save_criteria_2" aria-label="{{ "Continue registration"|t }}" class="continue">
+						GUARDAR CAMBIOS
+					</button>
+					<button style="display:none" class="continue" id="loading_2" type="button" disabled>
+						<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+						{{ "Loading..."|t }}
+					</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div class="modal fade" id="modal_no_rule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="title_3"></h5>
+		  <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>close</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>Variables /Características:</strong>
+						</td>
+						<td>
+							<p id="characteristic_3"></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Descripción Regla de Negocio:</strong>
+						</td>
+						<td>
+							<p id="description_3"></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Puntos Totales
+					<sup>*</sup>
+				</label>
+				<div class="input-group m-0">
+					<input type="number" id="given_points_3_0" class="form-control"  aria-describedby="basic-addon2">
+					<span class="input-group-text" id="basic-addon2">Puntos</span>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">Estado
+					<sup>*</sup>
+				</label>
+				<select id="state_3" name="" id="">
+					<option value="1">Activo</option>
+					<option value="0">Inactivo</option>
+				</select>
+
+			</div>
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">Tiempo de vigencia de puntos</label>
+				<div class="input-group m-0">
+					<input type="number" class="form-control" id="expiration_days_3" placeholder="Tiempo mínimo"  aria-label="Tiempo mínimo" aria-describedby="Tiempo mínimo">
+					<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >Tiempo en Días</span>
+				</div>
+			</div>
+			<input type="hidden" name="regla_0" id="id_rule_3_0">
+			<input type="hidden" name="regla_1" id="id_rule_3_1">
+			<input type="hidden" name="regla_2" id="id_rule_3_2">
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-lg-12 continue p-0">
+					<button id="cancel_process_1" data-bs-dismiss="modal" class="cancel">
+						{{"CANCEL"|t }}
+					</button>
+					<button id="save_criteria_3" name="save_criteria_3" aria-label="{{ "Continue registration"|t }}" class="continue">
+						GUARDAR CAMBIOS
+					</button>
+					<button style="display:none" class="continue" id="loading_3" type="button" disabled>
+						<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+						{{ "Loading..."|t }}
+					</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</section>

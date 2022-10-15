@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for cp_chat module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+function cp_layout_theme($existing, $type, $theme, $path)
+{
+  return [
+    // Name of the theme hook. This is used in the controller to trigger the hook.
+    'cp_message_sidebar_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_message_sidebar_template',
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+    'cp_header_not_sign_in_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_header_not_sign_in_template',
+      'variables' => [
+        'language' => NULL,
+        'language_2'=> NULL,
+        'uid' => NULL,
+        'country' => NULL
+      ],
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+    'cp_header_exportador_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_header_exportador_template',
+      'variables' => [
+        'language' => NULL,
+        'language_2'=> NULL,
+        'business_name' => NULL,
+        'company_logo' => NULL,
+        'uid' => NULL,
+        'country' => NULL,
+        'total_points' => NULL,
+        'status_incentive' => 0,
+      ],
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+    'cp_header_buyer_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_header_buyer_template',
+      'variables' => [
+        'language' => NULL,
+        'language_2'=> NULL,
+        'name' => NULL,
+        'lastname' => NULL,
+        'email' => NULL,
+        'uid' => NULL,
+        'country' => NULL
+      ],
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+    'cp_header_advisor_col_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_header_advisor_col_template',
+      'variables' => [
+        'language' => NULL,
+        'language_2'=> NULL,
+        'name' => NULL,
+        'lastname' => NULL,
+        'email' => NULL,
+        'uid' => NULL,
+        'country' => NULL
+      ],
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+    'cp_header_advisor_international_template_hook' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'cp_header_advisor_international_template',
+      'variables' => [
+        'language' => NULL,
+        'language_2'=> NULL,
+        'name' => NULL,
+        'lastname' => NULL,
+        'email' => NULL,
+        'uid' => NULL,
+        'country' => NULL
+      ],
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      'path' => $path . '/templates',
+    ],
+  ];
+}

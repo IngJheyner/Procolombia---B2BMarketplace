@@ -1,0 +1,23 @@
+uuid: c94d3c1e-f59a-4d6b-b8c9-9515f265e966
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_video_youtube
+  module:
+    - link
+    - user
+id: user.user.field_company_video_youtube
+field_name: field_company_video_youtube
+entity_type: user
+bundle: user
+label: 'Video de YouTube de la Empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

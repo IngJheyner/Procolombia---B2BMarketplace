@@ -1,0 +1,10 @@
+uuid: 6940f32d-0bc4-431d-9974-19cffa01725b
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_5
+label: ' Agregar video del Producto/Servicio'
+targetEntityType: node
+cache: true

@@ -1,0 +1,33 @@
+properties:
+  tipo_de_cafe:
+    label: !!binary VGlwbyBkZSBjYWbDqQM=
+  organico:
+    label: !!binary T3Jnw6FuaWNvAw==
+  clasificacion_cafe_verde:
+    label: !!binary Q2xhc2lmaWNhY2nDs24gY2Fmw6kgdmVyZGUD
+  tostion:
+    label: !!binary VG9zdGlvbgM=
+  presentacion_cafe_soluble:
+    label: !!binary UHJlc2VudGFjaW9uIGNhZmUgc29sdWJsZQM=
+  origen:
+    label: !!binary T3JpZ2VuAw==
+  tipo_de_empaque:
+    label: !!binary VGlwbyBkZSBlbXBhcXVlAw==
+  descafeinado:
+    label: !!binary RGVzY2FmZWluYWRvAw==
+  variedad:
+    label: !!binary VmFyaWVkYWQD
+  clasificacion_cafe_convencional:
+    label: !!binary Q2xhc2lmaWNhY2nDs24gY2Fmw6kgY29udmVuY2lvbmFsAw==
+  presentacion_cafe_tostado:
+    label: !!binary UHJlc2VudGFjacOzbiBjYWbDqSB0b3N0YWRvAw==
+  proceso:
+    label: !!binary UHJvY2VzbwM=
+  capacidad_de_produccion_anual:
+    label: !!binary Q2FwYWNpZGFkIGRlIHByb2R1Y2Npw7NuIGFudWFsAw==
+  capacidad_de_produccion_anual_medida_:
+    label: !!binary Q2FwYWNpZGFkIGRlIHByb2R1Y2Npw7NuIGFudWFsIChtZWRpZGEpAw==
+  narrativa:
+    label: !!binary TmFycmF0aXZhAw==
+  narrative:
+    label: !!binary TmFycmF0aXZlAw==

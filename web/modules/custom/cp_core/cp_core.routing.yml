@@ -76,6 +76,14 @@ cp_core.addProduct:
     requirements:
         _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
 
+cp_core.add_product_multistep:
+  path: '/dashboard/product-add-multistep'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms::multistepForm'
+    _title: 'Add product multistep'
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessExporterRole'
+
 cp_core.editProduct:
     path: '/dashboard/product-edit/{nid}'
     defaults:
@@ -83,6 +91,14 @@ cp_core.editProduct:
         _title: 'Edit product'
     requirements:
         _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
+
+cp_core.edit_product_multistep:
+  path: '/dashboard/product-edit-multistep/{nid}'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms::multistepForm'
+    _title: 'Edit product multistep'
+  requirements:
+    _custom_access: '\Drupal\cp_core\Controller\CpCoreController::accessOwnerContent'
 
 cp_core.editUser:
   path: 'user-dashboard/edit'
@@ -157,3 +173,37 @@ cp_core.autocomplete_ciiu:
     _format: json
   requirements:
     _access: 'TRUE'
+
+cp_core.product_toggle_availability:
+  path: '/node/{node}/availability-toggle'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggleProductAvailability'
+    _title: 'Change product availability'
+  requirements:
+    _permission: "cp core access dashboard"
+    node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+cp_core.company_toggle_published:
+  path: '/node/{node}/cp-availability-toggle'
+  defaults:
+    _controller: '\Drupal\cp_core\Controller\CpCoreMultiStepForms:toggleCompanyPublished'
+    _title: 'Change company published'
+  requirements:
+    _permission: "cp core access dashboard"
+    node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+cp_core.notifications:
+  path: '/admin/config/people/notifications-settings'
+  defaults:
+    _form: '\Drupal\cp_core\Form\CpCoreNotificationsSettings'
+    _title: 'Notifications'
+  requirements:
+    _permission: 'access content'

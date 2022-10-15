@@ -8,6 +8,7 @@ cp_register.render:
 cp_register.pre_register:
   path: "pre-register"
   defaults:
+    _title: 'Pre-register'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
   methods:  [GET]
   requirements:
@@ -16,6 +17,7 @@ cp_register.pre_register:
 cp_register.pre_registro:
   path: "pre-registro"
   defaults:
+    _title: 'Pre-registro'
     _controller: '\Drupal\cp_register\Controller\CpPreRegisterController::index'
   methods:  [GET]
   requirements:
@@ -27,6 +29,7 @@ cp_register.pre_registro:
 cp_register.verification_user:
   path: "verification/user"
   defaults:
+    _title: 'User verification'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::index'
   methods:  [GET]
   requirements:
@@ -35,6 +38,7 @@ cp_register.verification_user:
 cp_register.verificacion_user:
   path: "verificacion/usuario"
   defaults:
+    _title: 'Verificación de usuario'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::index'
   methods:  [GET]
   requirements:
@@ -44,6 +48,7 @@ cp_register.verificacion_user:
 cp_register.validate_nit:
   path: "verification/validate_nit"
   defaults:
+    _title: 'Tax ID validation'
     _controller: '\Drupal\cp_register\Controller\CpCheckNitController::checkNit'
   methods:  [POST]
   requirements:
@@ -56,6 +61,7 @@ cp_register.validate_nit:
 cp_register.registerUser:
   path: "register/user"
   defaults:
+    _title: 'User registration'
     _controller: '\Drupal\cp_register\Controller\CpRegisterController::index'
   methods:  [GET]
   requirements:
@@ -64,6 +70,7 @@ cp_register.registerUser:
 cp_register.registroUsuario:
   path: "registro/usuario"
   defaults:
+    _title: 'Registro de usuario'
     _controller: '\Drupal\cp_register\Controller\CpRegisterController::index'
   methods:  [GET]
   requirements:
@@ -101,6 +108,145 @@ cp_register.update_step_3:
   path: "registro/update_step_3"
   defaults:
     _controller: '\Drupal\cp_register\Controller\CpRegisterController::updateStep3'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+
+### get_cities
+cp_register.get_cities:
+  path: "get_cities"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::getCity'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### get_user
+cp_register.get_user:
+  path: "get_user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::getDataUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### delete_user
+cp_register.delete_user:
+  path: "delete_user"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterController::deleteUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### index pre_register_buyer
+cp_register.pre_register_buyer:
+  path: "pre-register/buyer"
+  defaults:
+    _title: 'International buyer'
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+cp_register.pre_registro_comprador:
+  path: "pre-registro/comprador"
+  defaults:
+    _title: 'Comprador Internacional'
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### create_step_1_buyer
+cp_register.create_step_1_buyer:
+  path: "pre-register/buyer/create_step_1"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpPreRegisterBuyerController::createStep1'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### index register_buyer
+cp_register.register_buyer:
+  path: "register/user/buyer"
+  defaults:
+    _title: "Registration - International buyer"
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### index registro_comprador
+cp_register.registro_comprador:
+  path: "registro/usuario/comprador"
+  defaults:
+    _title: "Registro - Comprador internacional"
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"
+
+### get user
+cp_register.get_user_buyer:
+  path: "get_user/buyer"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::getDataUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### delete user
+cp_register.delete_user_buyer:
+  path: "delete_user/buyer"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::deleteUser'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### getSubcategories
+cp_register.getSubcategories:
+  path: "get_subcategories"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::getSubcategories'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_2_buyer
+cp_register.create_step_2_buyer:
+  path: "registro/usuario/comprador/create_step_2"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep2'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_3_buyer
+cp_register.create_step_3_buyer:
+  path: "registro/usuario/comprador/create_step_3"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep3'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_4_buyer
+cp_register.create_step_4_buyer:
+  path: "registro/usuario/comprador/create_step_4"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep4'
+  methods:  [POST]
+  requirements:
+    _permission: "access content"
+
+### create_step_5_buyer
+cp_register.create_step_5_buyer:
+  path: "registro/usuario/comprador/create_step_5"
+  defaults:
+    _controller: '\Drupal\cp_register\Controller\CpRegisterBuyerController::createStep5'
   methods:  [POST]
   requirements:
     _permission: "access content"

@@ -1,0 +1,204 @@
+cp_pro_adviser.render:
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+# pre_register routes
+
+###Index route
+cp_pro_adviser.dashboard:
+  path: "dashboard/adviser/user/col"
+  defaults:
+    _title: 'Dashboard'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###Index route
+cp_pro_adviser.tablero:
+  path: "tablero/adviser/usuario/col"
+  defaults:
+    _title: 'Tablero'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###get_all_exporters_by_page route
+cp_pro_adviser.get_all_exporters_by_page:
+  path: "adviser/get_all_exporters_by_page"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::getAllExportersByPage'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###get_all_buyer_by_page route
+cp_pro_adviser.get_all_buyer_by_page:
+  path: "adviser/get_all_buyer_by_page"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::getAllBuyerByPage'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###Index route
+cp_pro_adviser.review:
+  path: "adviser/audit-log"
+  defaults:
+    _title: 'Audit user'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###Index route
+cp_pro_adviser.revisar:
+  path: "revisar/adviser/usuario"
+  defaults:
+    _title: 'Revisar usuario'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###Index edit col company
+cp_pro_adviser.edit_col_company:
+  path: "adviser/edit/col"
+  defaults:
+    _title: 'Edit company'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_comercial"
+
+###Index edit col company
+cp_pro_adviser.editar_col_company:
+  path: "asesor/editar/col"
+  defaults:
+    _title: 'Editar empresa'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_comercial"
+
+###get_col_user route
+cp_pro_adviser.get_col_user:
+  path: "adviser/get_col_user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::getColUser'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial"
+
+###update_form col company route
+cp_pro_adviser.update_form_col_company:
+  path: "adviser/update_form_col_company"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::updateFormColCompany'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###approve_user_col route
+cp_pro_adviser.approve_user_col:
+  path: "adviser/approve_user_col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::approveUserCol'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial"
+
+###reject_user_col route
+cp_pro_adviser.reject_user_col:
+  path: "adviser/reject_user_col"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditColCompany::rejectUserCol'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial"
+
+###Index edit international company
+cp_pro_adviser.edit_international_company:
+  path: "adviser/edit/international"
+  defaults:
+    _title: 'Edit international buyer'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_internacional"
+
+###Index edit international company
+cp_pro_adviser.editar_international_company:
+  path: "asesor/editar/internacional"
+  defaults:
+    _title: 'Editar comprador internacional'
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::index'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_internacional"
+
+###get_international_user route
+cp_pro_adviser.get_international_user:
+  path: "adviser/get_international_user"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::getInternationalUser'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_internacional"
+
+###update_form international company route
+cp_pro_adviser.update_form_international_company:
+  path: "adviser/update/international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::updateFormInternationalCompany'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_internacional"
+  
+###approve_user_international route
+cp_pro_adviser.approve_user_international:
+  path: "adviser/approve_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::approveUserInternational'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_internacional"
+
+###reject_user_international route
+cp_pro_adviser.reject_user_international:
+  path: "adviser/reject_user_international"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpEditInternationalCompany::rejectUserInternational'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_internacional"
+
+###getAdvisorLogs route
+cp_pro_adviser.getAdvisorLogs:
+  path: "adviser/getAdvisorLogs"
+  defaults:
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpReviewProAdviserController::getAdvisorLogs'
+  methods:  [POST]
+  requirements:
+    _role: "asesor_comercial+asesor_internacional"
+
+###Index route
+cp_pro_adviser.dashboard_international:
+  path: "dashboard/adviser/user/international"
+  defaults:
+    _title: "Dashboard International Adviser"
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_internacional"
+
+###Index route
+cp_pro_adviser.tablero_international:
+  path: "tablero/adviser/usuario/international"
+  defaults:
+    _title: "Tablero de Asesor Internacional"
+    _controller: '\Drupal\cp_pro_adviser\Controller\CpDashboardProAdviserController::indexInternational'
+  methods:  [GET]
+  requirements:
+    _role: "asesor_internacional"

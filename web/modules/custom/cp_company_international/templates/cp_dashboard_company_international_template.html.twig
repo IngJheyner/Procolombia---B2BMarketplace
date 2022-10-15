@@ -1,0 +1,186 @@
+{{ attach_library('cp_company_international/cp_company_international') }}
+<section class="dashboard container">
+	<div class="row">
+		<div class="col-lg-9 table_dashboard">
+			<div class="row p-0 gy-3 gx-4">
+				<div class="col-lg-6 space-0">
+					<div class="card p-4" style="display: flex;justify-content: center;height: 100%;">
+						<div class="anuncio_dashboard">
+							<div class="row">
+								<div class="col-lg-4 img_anuncio">
+									<img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Logo_dashboard.svg" alt="" srcset="">
+								</div>
+								<div class="col-lg-8 content_anuncio">
+									<p class="tittle">{{ 'CONNECTED COMPANIES'|t }}</p>
+									<p class="description">{{ 'Here you can find the list of the companies you have contacted.'|t }}</p>
+									<a class="btn_anuncio" href="http://">{{ 'See companies'|t }}
+										<i class='bx bx-chevron-right'></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 space-0">
+					<div class="card p-4">
+						<div class="anuncio_dashboard">
+							<div class="row">
+								<div class="col-lg-4 img_anuncio">
+									<img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Logo_dashboard.svg" alt="" srcset="">
+								</div>
+								<div class="col-lg-8 content_anuncio">
+									<p class="tittle">{{ 'MY INTEREST CATEGORIES'|t }}</p>
+									<p class="description">{{ 'Here you can see the existing products according to your categories of interest.'|t }}</p>
+									<a class="btn_anuncio" href="http://">{{ 'See products'|t }}
+										<i class='bx bx-chevron-right'></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 space-0">
+					<div class="card p-4">
+						{{ 'Table belonging to another User Story'|t }}
+						<br>
+						<br>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-3">
+			<div class="card p-3">
+				<a class="editar" href="/edit/international/user">{{ 'Edit '|t }}</a>
+				<div class="title_card_dashboard">
+					<img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Logo_banner.svg" alt="" srcset="">
+					{{ 'International Buyer Profile'|t }}
+				</div>
+				<div class="title_card_content">
+					<div class="title">
+						<p>{{ 'Full Name'|t }}</p>
+					</div>
+					<div class="contenido">
+						<p>{{data.name}}
+							{{data.lastname}}</p>
+					</div>
+					<div class="title">
+						<p>{{ 'E-mail address'|t }}</p>
+					</div>
+					<div class="contenido">
+						<p>{{data.email}}</p>
+					</div>
+
+					<div class="title">
+						<p>{{ 'Company'|t }}</p>
+					</div>
+					<div class="contenido">
+						<p>{{data.business_name}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- Button trigger modal -->
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">{{ 'Administrator and Contact Information'|t }}</h5>
+					<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+				</div>
+				<div class="modal-body">
+					<div class="row p-0 content px-4">
+						<div class="col-sm-6 col-md-6">
+							<div class="title">
+								<p>{{ 'Contact name'|t }}</p>
+							</div>
+							<div class="contenido">
+								<p>{{data.contact_name}}</p>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-6">
+							<div class="title">
+								<p>{{ 'E-mail address'|t }}</p>
+							</div>
+							<div class="contenido">
+								<p>{{data.contact_email}}</p>
+							</div>
+						</div>
+					</div>
+					<h6 class="px-4">{{ 'Edit Information'|t }}</h6>
+					<div class="row px-4">
+						<div class="col-md-12">
+							<label for="contact_email" class="form-label">{{ 'E-mail address'|t }}
+								 <sup>*</sup>
+							</label>
+							<input type="email" class="form-control" id="contact_email" placeholder="">
+						</div>
+						<div class="col-md-12">
+							<div class="form-group password">
+								<label for="nit">{{ 'Password'|t }}
+									 <sup>*</sup>
+								</label>
+								<div class="input-group mb-3">
+									<input type="password" id="password" class="form-control" aria-label="{{ "Recipient's username"|t }}"  aria-describedby="basic-addon2">
+									<span class="input-group-text">
+										<img id="pass_bloq" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+									</span>
+									<div class="input_error">
+										<i id="error_password" class='bx bxs-info-circle toltip_i'>
+											<span id="error_password_message" class="tooltiptext_error">
+												{{ 'Required Field'|t }}
+											</span>
+										</i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group password">
+								<label for="nit">{{ 'Password verification'|t }} <sup>*</sup>
+								</label>
+								<div class="input-group mb-3">
+									<input type="password" id="confirm_password" class="form-control" aria-describedby="basic-addon2">
+									<span class="input-group-text">
+										<img id="pass_bloq_confirm" style="display:none" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg" alt="" srcset="">
+										<img id="pass_show_confirm" src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg" alt="" srcset="">
+									</span>
+									<div class="input_error">
+										<i id="error_confirm_password" class='bx bxs-info-circle toltip_i'>
+											<span id="error_confirm_password_message" class="tooltiptext_error">
+												{{ 'Required Field'|t }}
+											</span>
+										</i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-lg-12 continue">
+							<button id="cancel_process_1" class="cancel" data-bs-dismiss="modal" aria-label="{{ 'Close'|t }}">{{ 'CANCEL'|t }}</button>
+							<button id="save_modal" name="save_modal" aria-label="{{ 'Continue registration'|t }}" class="continue">{{ 'CONTINUE'|t }}
+							</button>
+							<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+								<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+								{{ 'Loading...'|t }}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

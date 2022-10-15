@@ -1,0 +1,53 @@
+.node-multistep-header {
+  grid-area: 1 / 1 / 2 / 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  background: transparent
+    linear-gradient(180deg, $procol-dark-blue 0%, $procol-light-blue 100%) 0% 0%
+    no-repeat padding-box;
+  box-shadow: 0px 3px 6px $gray-shadow;
+  border-radius: 4px;
+  color: $white;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: Maven-Regular;
+  line-height: 21px;
+  position: relative;
+  z-index: 2;
+  @include media-breakpoint-down(md) {
+    gap: 13px;
+  }
+  strong {
+    font-family: Maven-Bold;
+  }
+  div.close {
+    opacity: 1;
+    position: static;
+    width: auto;
+    margin: 0;
+    height: auto;
+  }
+  .close a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include remove-files;
+    @include blue-btn;
+    padding: 6px 10px 6px 30px;
+    background-size: 17px 17px;
+    background-position: 6px;
+    font-size: 14px;
+    font-weight: lighter;
+    @include media-breakpoint-down(md) {
+      width: 56px;
+      height: 56px;
+      background-size: 38px 38px;
+      overflow: hidden;
+      color: transparent;
+      background-position: center;
+    }
+  }
+}

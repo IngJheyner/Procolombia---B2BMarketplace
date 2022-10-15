@@ -1,0 +1,9 @@
+###Index route
+cp_temp_share.cp_temp_share:
+  path: "temp-share"
+  defaults:
+    _title: 'Temp Share'
+    _controller: '\Drupal\cp_temp_share\Controller\CpTempShareController::index'
+  methods:  [GET]
+  requirements:
+    _permission: "access content"

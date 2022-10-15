@@ -1,0 +1,20 @@
+uuid: d9d4fc6d-b959-4b79-9790-bf7a27c5fd3c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_company_contact_position
+  module:
+    - user
+id: user.user.field_company_contact_position
+field_name: field_company_contact_position
+entity_type: user
+bundle: user
+label: 'Cargo del contacto de la empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,31 @@
+uuid: 34442336-1b4b-4e52-829b-3d2e53fa0d9b
+langcode: es
+status: true
+dependencies:
+  config:
+    - views.view.paises
+  module:
+    - views
+name: paises
+label: Paises
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: Países
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  d6a44a14-62ce-4d06-b965-3ac7d421cc92:
+    id: view
+    uuid: d6a44a14-62ce-4d06-b965-3ac7d421cc92
+    label: Países
+    weight: 1
+    settings:
+      submit_text: 'Seleccionar paises'
+      auto_select: false
+      view: paises
+      view_display: entity_browser_1

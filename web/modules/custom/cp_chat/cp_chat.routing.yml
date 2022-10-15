@@ -1,0 +1,67 @@
+cp_chat.render:
+  requirements:
+    _permission: "access content"
+
+###index messages
+cp_chat.chat:
+  path: 'messages'
+  defaults:
+    _title: 'Mensajes'
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::index'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+
+###Create Chat Room
+cp_chat.create_chat_room:
+  path: 'chat/create_chat_room'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::createChatRoom'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###Get List of Chat Rooms
+cp_chat.get_chat_rooms:
+  path: 'chat/get_chat_rooms'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::getChatsList'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###Create message of Chat
+cp_chat.create_message:
+  path: 'chat/create_message'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::createChatMessage'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###Get chat messages paginate.
+cp_chat.get_chat_messages:
+  path: 'chat/get_chat_messages'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::getChatMessagesPaginate'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###Checked messages
+cp_chat.checked_messages:
+  path: 'chat/checked_messages'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::changeChecked'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###delete Chat
+cp_chat.delete_chat:
+  path: 'chat/delete_chat'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::deleteChat'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'

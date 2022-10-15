@@ -1,0 +1,5 @@
+entity.structured_feature.add_form:
+  route_name: 'entity.structured_feature.add_form'
+  title: 'Add Structured Feature'
+  appears_on:
+    - entity.structured_feature.collection

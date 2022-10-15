@@ -1,0 +1,99 @@
+/* VARIABLES */
+$color-Azul-Claro: #e3f3ff;
+$color-Verde-aprobacion: #31d394;
+$color-Gris-Claro: #f0f0f0;
+$color-cccccc: #cccccc;
+$color-Gris-Claro-2: #6a6d71;
+$color-Gris-Oscuro: #3b3d42;
+$color-504672: #504672;
+$color-Pantone-200: #ba0c2f;
+$color-Pantone-process-Blue: #0085ca;
+$color-Pantone-116-C: #005ca4;
+$color-Pantone-Y: #fdca00;
+$color-Black: #000000;
+$color-White: #ffffff;
+$color-5c5c5c: #5C5C5C;
+$color-f7f8f8: #f7f8f8;
+
+/* Font/text values */
+$font-regular: Gothic-Regular;
+$font-medium: Maven-Medium;
+$font-bold: Gothic-Bold;
+$font-black: Maven-Black;
+$font-regular-maven: Maven-Regular;
+$font-bold-maven: Maven-Bold;
+
+//Variable colors from Mockup
+$procol-light-green: #31D394;
+$procol-gray-50: #eaeaea;
+$procol-gray-100: #F0F0F0;
+$procol-gray-200:#D8DADD;
+$procol-gray-300: #6A6D71;
+$procol-gray-400: #3B3D42;
+$procol-purple: #504672;
+$procol-red: #BA0C2F;
+$procol-light-blue: #0085CA;
+$procol-dark-blue: #005CA4;
+$procol-yellow: #FDCA00;
+$procol-black: #000000;
+$gray-shadow:#00000029;
+//
+$font-family-Maven-Pro: Maven-Pro;
+$font-family-Century-Gothic: 'century_gothicregular';
+$font-regular-Century: Gothic-Regular;
+$font-medium-Maven: Maven-Medium;
+$font-bold-Century-Gothic: Gothic-Bold;
+$font-black-Maven: Maven-Black;
+$font-bold-Maven: Maven-Bold;
+//colors
+$primary-shade: rgb(255, 78, 46);
+$primary-light: lighten($primary-shade, 37%);
+$primary-dark: darken($primary-shade, 12%);
+$accent-shade: #0079C0;
+$accent-light: lighten($accent-shade, 37%);
+$accent-dark: darken($accent-shade, 12%);
+// Reassign color vars to semantic color scheme
+$red: #dc3545;
+$yellow: #ffc107;
+$green: #28a745;
+$cyan: #17a2b8;
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-800: #343a40;
+$theme-colors: ( primary: $accent-shade, secondary: $primary-shade, success: $green, info: $cyan, warning: $yellow, danger: $red, light: $gray-100, dark: $gray-800);
+$brand-primary: $accent-shade;
+//$brand-success: $green;
+//$brand-info: $teal;
+//$brand-warning: $orange;
+//$brand-danger: $red;
+$brand-inverse: $primary-shade;
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: $white;
+$body-color: $gray-800;
+$inverse-bg: $primary-shade;
+$inverse-color: $white;
+// Links
+//
+// Style anchor elements.
+$link-color: $accent-shade;
+$link-decoration: none;
+$link-hover-color: $accent-dark;
+$link-hover-decoration: underline;
+// Comments
+$comment-spacer-x: 1.25em;
+$comment-spacer-y: 1.25em;
+// Responsive font sizes
+$enable-responsive-font-sizes: true;
+$enable-shadows: false;
+$enable-gradients: false;
+// Breadcrumbs (Works only on Bootstrap 5+)
+// $breadcrumb-divider: quote(">");
+$colorTop: #005CA4;
+$colorBottom: #008CCE;
+
+//Buttons
+$button-lighter-gray: #f7f8f8;
+
+

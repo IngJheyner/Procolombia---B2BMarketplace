@@ -4,19 +4,21 @@ status: true
 dependencies:
   config:
     - field.field.node.accessconditioncontent.field_accesconditionnametool
-    - field.field.node.accessconditioncontent.field_accescontent_videotool
     - field.field.node.accessconditioncontent.field_accessconditioncontent_lin
     - field.field.node.accessconditioncontent.field_accesscontent_logo
     - field.field.node.accessconditioncontent.field_accesscontentdescriptionto
     - field.field.node.accessconditioncontent.field_pagina_web_
+    - field.field.node.accessconditioncontent.field_video
+    - field.field.node.accessconditioncontent.field_video_tutorial_ac
     - field.field.node.accessconditioncontent.layout_builder__layout
     - image.style.thumbnail
     - node.type.accessconditioncontent
   module:
     - link
+    - media_library
     - path
     - svg_image
-    - video_embed_field
+    - video
 id: node.accessconditioncontent.default
 targetEntityType: node
 bundle: accessconditioncontent
@@ -41,15 +43,14 @@ content:
     weight: 1
     region: content
     settings:
-      size: 60
+      size: 250
       placeholder: ''
-    third_party_settings: {  }
-  field_accescontent_videotool:
-    type: video_embed_field_textfield
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Contenido limitado en @limit caracteres, quedan: <strong>@remaining</strong>'
+      advanced_text_formatter:
+        show_token_tree: 0
   field_accessconditioncontent_lin:
     type: link_default
     weight: 5
@@ -81,6 +82,23 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_video:
+    type: media_library_widget
+    weight: 27
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_video_tutorial_ac:
+    type: video_embed
+    weight: 26
+    region: content
+    settings:
+      allowed_providers:
+        youtube: youtube
+      file_directory: 'video-thumbnails/[date:custom:Y]-[date:custom:m]'
+      uri_scheme: public
     third_party_settings: {  }
   langcode:
     type: language_select

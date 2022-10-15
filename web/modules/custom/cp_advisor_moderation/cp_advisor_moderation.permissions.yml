@@ -1,0 +1,6 @@
+cp_advisor_moderation dashboard:
+  title: 'Access to advisor dashboard'
+
+cp_advisor_moderation product dashboard:
+  title: 'Access to advisor product dashboard'
+

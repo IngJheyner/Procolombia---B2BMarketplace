@@ -1,0 +1,1121 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-09-01 20:44+0000\n"
+"PO-Revision-Date: 2022-09-01 15:58-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+msgid "REGISTER AS A COLOMBIAN COMPANY"
+msgstr "REGISTRARSE COMO EMPRESA COLOMBIANA"
+
+msgid "REGISTER"
+msgstr "REGISTRO"
+
+msgid "Register in the Colombian Export Catalog to expand your offer to international markets. Remember that you must be a ProColombia account to register."
+msgstr "Regístrese en el Catálogo de exportaciones de Colombia para ampliar su oferta a los mercados internacionales. Recuerde que debe ser una cuenta de ProColombia para poder registrarse."
+
+msgid "Nit"
+msgstr "Nit"
+
+msgid "Write the tax identification number corresponding to your company"
+msgstr "Escriba el número de identificación tributaria correspondiente a su empresa, sin espacios ni caracteres especiales. Intente con y sin el dígito de verificación para confirmar que su empresa es o no una cuenta ProColombia en la actualidad"
+
+msgid "Required Field"
+msgstr "Campo obligatorio"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Write the corporate email where the mailing from this website will be sent"
+msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web"
+
+msgid "I have read and accept to the Terms and Conditions of Use"
+msgstr "He leído y acepto los Términos y Condiciones de uso"
+
+msgid "I have read and accept the Personal data processing policy"
+msgstr "He leído y acepto la Política de Tratamiento de datos personales"
+
+msgid "I have read and accept the"
+msgstr "He leído y acepto la"
+
+msgid "the"
+msgstr "los"
+
+msgid "I have read and accept"
+msgstr "He leído y acepto"
+
+msgid "Personal data processing policy"
+msgstr "Política tratamiento de datos personales"
+
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+msgid "CONTINUE"
+msgstr "CONTINUAR"
+
+msgid "Cancel registration"
+msgstr "Cancelar el registro"
+
+msgid "Continue registration"
+msgstr "Continuar el registro"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Request an Appointment"
+msgstr "Solicitar una cita"
+
+msgid "Your company is not registered as a ProColombia account."
+msgstr "Tu empresa no está registrada como cuenta de ProColombia. Para ser atendido por un asesor debes"
+
+msgid "To be attended by an advisor you must request an appointment online."
+msgstr "Para ser atendido por un asesor debe solicitar una cita en línea."
+
+msgid "In this space, you will be able to solve your foreign trade concerns and learn about ProColombia's different services to take advantage of the opportunities that the international market offers."
+msgstr "En este espacio podrá resolver sus inquietudes de comercio exterior y conocer los diferentes servicios de ProColombia para aprovechar las oportunidades que ofrece el mercado internacional."
+
+msgid "Mail Verification"
+msgstr "Verificación del correo electrónico"
+
+msgid "To continue with the registration process, please validate your e-mail account where you will receive an e-mail with a verification link."
+msgstr "Para continuar con el proceso de registro, valide su cuenta de correo electrónico, donde recibirá un mensaje con un enlace de verificación."
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Successful Verification"
+msgstr "Verificación exitosa"
+
+msgid "Existing Account"
+msgstr "Cuenta existente"
+
+msgid "The consulted company already has a registered user,"
+msgstr "La empresa consultada ya tiene un usuario registrado,"
+
+msgid "please login"
+msgstr "por favor, inicie sesión"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Cancel process."
+msgstr "Cancelar el proceso."
+
+msgid "Cancel process"
+msgstr "Cancelar el proceso"
+
+msgid "English information"
+msgstr "Información en inglés"
+
+msgid "The Colombian Company Registration process"
+msgstr "El proceso de registro de la empresa colombiana"
+
+msgid "is about to be cancelled."
+msgstr "está a punto de ser cancelado."
+
+msgid "Would you like to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "YES"
+msgstr "SI"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "Colombian Company Registration - Information"
+msgstr "Registro de la Empresa Colombiana - Información"
+
+msgid "Company Profile"
+msgstr "Perfil de la empresa"
+
+msgid "Economic Activity"
+msgstr "Actividad Económica"
+
+msgid "Contact Information"
+msgstr "Información del Contacto"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Recipient's username"
+msgstr "Nombre de usuario del destinatario"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Choose files"
+msgstr "Seleccione los archivos"
+
+msgid "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."
+msgstr "Sólo se admiten formatos png con un peso máximo de 2 MB y unas dimensiones mínimas de 200x200 px."
+
+msgid "Company website"
+msgstr "Página web de la empresa"
+
+msgid "Please include the complete URL starting with http or https."
+msgstr "Por favor, incluya la URL completa empezando por http o https."
+
+msgid "Company name"
+msgstr "Nombre de la empresa"
+
+msgid "You must register the company's trade name, which is the name by which your company is recognized; it may or may not be the same company name."
+msgstr "Debe registrar el nombre comercial de la empresa, que es el nombre por el que se reconoce a su empresa; puede ser o no el mismo nombre de la empresa."
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Weak"
+msgstr "Débil"
+
+msgid "Minimum 8 characters. Must contain 1 capital letter, symbol or number."
+msgstr "Mínimo 8 caracteres. Debe contener 1 letra mayúscula, símbolo o número."
+
+msgid "Verify Password"
+msgstr "Verificar contraseña"
+
+msgid "We suggest uploading summary videos that give a cross-cutting overview of the company's offer. It is important for the international buyer because it shows in a quick, brief and direct way the skills, competences and experience."
+msgstr "Sugerimos subir vídeos de resumen que ofrezcan una visión transversal de la oferta de la empresa. Es importante para el comprador internacional porque muestra de forma rápida, breve y directa las habilidades, competencias y experiencia."
+
+msgid "If you do not have a video in English, it is suggested to include subtitles to the video in Spanish."
+msgstr "Si no tiene un vídeo en inglés, se sugiere incluir subtítulos al vídeo en español."
+
+msgid "Add"
+msgstr "Añadir"
+
+msgid "Spanish information"
+msgstr "Información en español"
+
+msgid "Company Description"
+msgstr "Descripción de la empresa"
+
+msgid "English information"
+msgstr "Información en inglés"
+
+msgid "Main production chain"
+msgstr "Principal cadena de producción"
+
+msgid "Enter the keyword or select an option"
+msgstr "Introduzca la palabra clave o seleccione una opción"
+
+msgid "Departments"
+msgstr "Departamentos"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "PREVIOUS"
+msgstr "ANTERIOR"
+
+msgid "Select an option"
+msgstr "Seleccione una opción"
+
+msgid "CIIU Code Main or Economic Activity"
+msgstr "Código CIIU Actividad principal o económica"
+
+msgid "Indicate the CIIU code or economic activity to which your company belongs."
+msgstr "Indique el código CIIU o la actividad económica a la que pertenece su empresa."
+
+msgid "City or Municipality"
+msgstr "Ciudad o municipio"
+
+msgid "CIIU Code Secondary or Economic Activity"
+msgstr "Código CIIU Actividad económica o secundaria"
+
+msgid "Business Model"
+msgstr "Modelo de negocio"
+
+msgid "CIIU Code Tertiary or business activity"
+msgstr "Código CIIU Actividad terciaria o empresarial"
+
+msgid "ProColombia Senior Advisor"
+msgstr "Asesor Principal de ProColombia"
+
+msgid "Select the ProColombia advisor with whom your company has a defined work plan."
+msgstr "Seleccione el asesor de ProColombia con el que su empresa tiene un plan de trabajo definido."
+
+msgid "Company certification"
+msgstr "Certificación de la empresa"
+
+msgid "Only files in pdf format with a maximum weight of 2MB are allowed."
+msgstr "Sólo se admiten archivos en formato pdf con un peso máximo de 2MB."
+
+msgid "Enter the keyword or select several options"
+msgstr "Introduzca la palabra clave o seleccione varias opciones"
+
+msgid "Names"
+msgstr "Nombres"
+
+msgid "Last names"
+msgstr "Apellidos"
+
+msgid "Position name"
+msgstr "Nombre del cargo"
+
+msgid "Job title"
+msgstr "Nombre del cargo"
+
+msgid "This field must be completed in English."
+msgstr "Este campo debe rellenarse en inglés."
+
+msgid "Company landline telephone"
+msgstr "Teléfono fijo de la empresa"
+
+msgid "Cell Phone"
+msgstr "Celular"
+
+msgid "Keep the following in mind!"
+msgstr "!Tenga en cuenta lo siguiente!"
+
+msgid "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."
+msgstr "La información rellenada en estos campos se utilizará para enviar todas las notificaciones que surjan en general de la plataforma y se enviará como contacto comercial a los compradores internacionales interesados en los productos o servicios de la empresa."
+
+msgid "UNDERSTOOD"
+msgstr "ENTENDIDO"
+
+msgid "Successful process"
+msgstr "Proceso exitoso"
+
+msgid "Your profile as an"
+msgstr "Su perfil como"
+
+msgid "exporting company is in pending status for approval by ProColombia. Your advisor will contact you in case there is any observation about the information registered."
+msgstr "empresa exportadora se encuentra en estado pendiente de aprobación por parte de ProColombia. Su asesor se pondrá en contacto con usted en caso de que haya alguna observación sobre la información registrada."
+
+msgid "Register as"
+msgstr "Regístrese como"
+
+msgid "COLOMBIAN COMPANY"
+msgstr "EMPRESA COLOMBIANA"
+
+msgid "Colombian company with an exportable supply of goods or services."
+msgstr "Empresa colombiana con una oferta exportable de bienes o servicios."
+
+msgid "international buyer"
+msgstr "comprador internacional"
+
+msgid "Offshore company with interest in colombian products and services."
+msgstr "Empresa de origen colombiana con oferta exportable de bienes o servicios."
+
+msgid "Do you have an account?"
+msgstr "¿Tiene una cuenta?"
+
+msgid "The NIT is required and must have less than 12 digits"
+msgstr "El NIT es obligatorio y debe tener menos de 12 dígitos"
+
+msgid "Email is required and must be a valid email address."
+msgstr "El correo electrónico es obligatorio y debe ser una dirección de correo electrónico válida."
+
+msgid "Video is not recognized"
+msgstr "No se reconoce el vídeo"
+
+msgid "The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension"
+msgstr "El logotipo debe ser un archivo de imagen y debe ser png y jpg y tener un tamaño inferior a 2MB y una dimensión inferior a 200x200"
+
+msgid "Company name is required"
+msgstr "El nombre de la empresa es obligatorio"
+
+msgid "The company name cannot be longer than 100 characters."
+msgstr "El nombre de la empresa no puede tener más de 100 caracteres."
+
+msgid "Website is required"
+msgstr "El sitio web es obligatorio"
+
+msgid "Website is required"
+msgstr "La página web no es válida"
+
+msgid "The video is required and must be a url"
+msgstr "El vídeo es necesario y debe ser una url"
+
+msgid "Password is required"
+msgstr "La contraseña es obligatoria"
+
+msgid "The password must be between 8 and 15 characters long"
+msgstr "La contraseña debe tener entre 8 y 15 caracteres"
+
+msgid "The password must have at least one capital letter"
+msgstr "La contraseña debe tener al menos una letra mayúscula"
+
+msgid "The password must have at least one number"
+msgstr "La contraseña debe tener al menos un número"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un carácter especial"
+
+msgid "Verify password field is required"
+msgstr "El campo de verificación de la contraseña es obligatorio"
+
+msgid "The field verify password and Password must be the same"
+msgstr "El campo verificar contraseña y Contraseña debe ser el mismo"
+
+msgid "Description in Spanish is required"
+msgstr "Se requiere una descripción en español"
+
+msgid "The Spanish description must be less than 1000 characters"
+msgstr "La descripción en español debe ser inferior a 1000 caracteres"
+
+msgid "English description is required"
+msgstr "Se requiere una descripción en inglés"
+
+msgid "The English description must be less than 1000 characters"
+msgstr "La descripción en inglés debe ser inferior a 1000 caracteres"
+
+msgid "The production chain is required"
+msgstr "Se requiere la cadena de producción"
+
+msgid "Main CIIU code is required"
+msgstr "Se requiere el código CIIU principal"
+
+msgid "Department is required"
+msgstr "Se requiere el departamento"
+
+msgid "City is required"
+msgstr "Se requiere la ciudad"
+
+msgid "Business model is required"
+msgstr "Se requiere el modelo de negocio"
+
+msgid "Certification file is required"
+msgstr "Se requiere un archivo de certificación"
+
+msgid "The certification file must be less than 2mb"
+msgstr "El archivo de certificación debe ser inferior a 2mb"
+
+msgid "The certification file must be a PDF file"
+msgstr "El archivo de certificación debe ser un archivo PDF"
+
+msgid "Name is required"
+msgstr "El nombre es obligatorio"
+
+msgid "Name is required\n"
+msgstr "El nombre es obligatorio\n"
+
+msgid "The name must not be longer than 20 characters"
+msgstr "El nombre no debe tener más de 20 caracteres"
+
+msgid "Last name is required"
+msgstr "El apellido es obligatorio"
+
+msgid "The last name must not be longer than 20 characters"
+msgstr "El apellido no debe tener más de 20 caracteres"
+
+msgid "Spanish position is required"
+msgstr "El cargo en español es obligatorio"
+
+msgid "The position in Spanish must be no longer than 50 characters"
+msgstr "El cargo en español no debe tener más de 50 caracteres"
+
+msgid "English position is required"
+msgstr "El cargo en inglés es obligatorio"
+
+msgid "The position in English must be no longer than 50 characters"
+msgstr "El cargo en inglés no debe tener más de 50 caracteres"
+
+msgid "Phone line is required"
+msgstr "El teléfono fijo de la empresa es obligatorio"
+
+msgid "The phone line must not be longer than 20 characters"
+msgstr "El teléfono fijo no debe tener más de 20 caracteres"
+
+msgid "The telephone line must not have letters"
+msgstr "El teléfono fijo no debe tener letras"
+
+msgid "The country code of the cell phone is required"
+msgstr "Se requiere el código de país del teléfono móvil"
+
+msgid "Cell phone is required"
+msgstr "Se requiere un celular"
+
+msgid "The cell phone must not be longer than 20 characters"
+msgstr "El celular no debe tener más de 20 caracteres"
+
+msgid "The cell phone should not have letters"
+msgstr "El celular no debe tener letras"
+
+msgid "Email is required"
+msgstr "El correo electrónico es obligatorio"
+
+msgid "Email is required"
+msgstr "La dirección de correo electrónico no es válida"
+
+msgid "You must register the trade name of the company, which is the name by which your company is recognized; it may or may not be the same company name."
+msgstr "Debe registrar el nombre comercial de la empresa, que es el nombre por el que se reconoce a su empresa; puede ser o no el mismo nombre de la empresa."
+
+msgid "Enter the institutional e-mail address where correspondence from this web site will be sent."
+msgstr "Escriba el correo electrónico institucional donde se enviará la correspondencia de este sitio web."
+
+msgid "Preferred language"
+msgstr "Idioma de preferencia"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Your company is not registered as a ProColombia account. To be attended by an advisor you must"
+msgstr "Su empresa no se encuentra registrada como cuenta ProColombia. Para ser atendido por un asesor se"
+
+msgid "you must request an appointment online."
+msgstr "debe solicitar cita previa de manera virtual."
+
+msgid "In this space, you will be able to solve your foreign trade concerns and learn about ProColombia's different services to take advantage of the opportunities that the international market offers."
+msgstr "En este espacio, usted podrá solucionar sus inquietudes de comercio exterior y conocer los diferentes servicios de ProColombia para aprovechar las oportunidades que el mercado internacional ofrece."
+
+msgid "Request an Appointment"
+msgstr "Solicitar Cita"
+
+msgid "REQUEST APPOINTMENT"
+msgstr "SOLICITAR CITA"
+
+msgid "To continue with the registration process, please validate your e-mail account where you will receive an e-mail with a verification link."
+msgstr "Para continuar con el proceso de registro, por favor valide su cuenta de correo electrónico donde recibirá un e-mail con un link de verificación"
+
+msgid "The consulted company already has a registered user, please"
+msgstr "La empresa consultada ya cuenta con un usuario registrado, por favor"
+
+msgid "Please login"
+msgstr "Inicie sesión"
+
+msgid "The process is about to be cancelled"
+msgstr "Está a punto de cancelar el proceso"
+
+msgid "Colombian Company Registration"
+msgstr "Registro Empresa Colombiana"
+
+msgid "International Company Registration"
+msgstr "Registro Empresa Internacional"
+
+msgid "Do you want to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "Configure your buyer profile for free"
+msgstr "Configure su perfil de comprador gratuitamente"
+
+msgid "Personal Data Registration"
+msgstr "Registro de Datos Personales"
+
+msgid "Profile Settings"
+msgstr "Configuración del Perfil"
+
+msgid "Products of interest #1"
+msgstr "Productos de interés #1"
+
+msgid "Products of interest #2"
+msgstr "Productos de interés #2"
+
+msgid "Products of interest #3"
+msgstr "Productos de interés #3"
+
+msgid "Country"
+msgstr "País"
+
+msgid "United States"
+msgstr "Estados Unidos"
+
+msgid "Please include the name of your position within the company."
+msgstr "Por favor incluya el nombre del cargo que desempeña dentro de la empresa."
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Company website"
+msgstr "Sitio Web de la empresa"
+
+msgid "Please include the complete URL starting with http or https."
+msgstr "Por favor incluir la URL completa iniciando con http o https."
+
+msgid "Select the ProColombia advisor with whom your company has a defined work plan."
+msgstr "Seleccione el asesor de ProColombia con quien su empresa tiene su plan de trabajo definido."
+
+msgid "I am interested in..."
+msgstr "Estoy interesado en…"
+
+msgid "Particularly in..."
+msgstr "Particularmente en…"
+
+msgid "Tariff Item"
+msgstr "Partida Arancelaria"
+
+msgid "Tariff Item No.2"
+msgstr "Partida Arancelaria No.2"
+
+msgid "Tariff Item No.3"
+msgstr "Partida Arancelaria No.3"
+
+msgid "NOTE:"
+msgstr "NOTA:"
+
+msgid "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."
+msgstr "A fin de asegurar el buen funcionamiento del sistema, solo presentará los 10 primeros productos coincidentes."
+
+msgid "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."
+msgstr "Si el producto que busca no aparece en la lista, por favor escriba una palabra, o el código arancelario a 6 dígitos, que defina su producto. Después del tercer carácter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/la palabra que ingresó."
+
+msgid "Contact Information"
+msgstr "Información de Contacto"
+
+msgid "The information filled out in these fields will be used to send all notifications arising in general from the platform and will be sent as commercial contact to international buyers interested in the company's products or services."
+msgstr "La información diligenciada en estos campos es la que será utilizada para enviar todas las notificaciones que surjan en general de la plataforma y será enviada como contacto comercial a los compradores internacionales interesados en los productos o servicios de la empresa."
+
+msgid "Your profile as an exporting company of"
+msgstr "Su perfil como Empresa exportadora de"
+
+msgid "is in pending status for approval by ProColombia. Your advisor will contact you in case there is any observation about the information registered."
+msgstr "se encuentra en estado pendiente por aprobación por parte de ProColombia. Su asesor se contactará con usted en caso de que exista alguna observación sobre la información registrada."
+
+msgid "Configure your international buyer profile for free."
+msgstr "Configure su perfil de comprador internacional gratuitamente."
+
+msgid "REGISTER AS AN INTERNATIONAL BUYER"
+msgstr "REGISTRARSE COMO COMPRADOR INTERNACIONAL"
+
+msgid "REGISTER TO HAVE THE COLOMBIAN OFFER JUST A CLICK AWAY"
+msgstr "REGÍSTRESE PARA TENER LA OFERTA COLOMBIANA A UN CLIC"
+
+msgid "Find all the products and services of Colombian origin to meet your sourcing needs. Filter and discover products/services and companies by certifications, distribution, availability and more. Easily save search filters and receive notifications of new products added to ProColombia's B2B Marketplace."
+msgstr "Encuentre todos los productos y servicios de origen colombiano para atender su necesidad de proveeduría. Filtre y descubra productos/servicios y empresas por certificaciones, distribución, disponibilidad y más. Guarde fácilmente los filtros de búsqueda y reciba notificaciones de nuevos productos agregados al B2B Marketplace de ProColombia."
+
+
+msgid "Name is required"
+msgstr "El nombre es requerido"
+
+msgid "The name cannot be longer than 20 characters"
+msgstr "El nombre no puede tener mas de 20 caracteres"
+
+msgid "Last name is required"
+msgstr "El apellido es requerido"
+
+msgid "The last name cannot be longer than 20 characters"
+msgstr "El apellido no puede tener mas de 20 caracteres"
+
+msgid "Email is required and must be a valid email address"
+msgstr "El email es requerido y debe ser un email válido"
+
+msgid "The email is invalid"
+msgstr "El email no es válido"
+
+msgid "The cell phone must be a number"
+msgstr "El celular debe ser un número"
+
+msgid "The cell phone must not have more than 10 digits"
+msgstr "El celular no debe tener mas 10 digitos"
+
+msgid "Company is required"
+msgstr "La empresa es requerida"
+
+msgid "The company cannot be longer than 100 characters"
+msgstr "La empresa no puede tener mas de 100 caracteres"
+
+msgid "Password is required"
+msgstr "La contraseña es requerida"
+
+msgid "The password must be between 8 and 15 characters long"
+msgstr "El password debe tener entre 8 y 15 caracteres"
+
+msgid "The password must have at least one capital letter"
+msgstr "El password debe tener al menos una mayúscula"
+
+msgid "The password must have at least one number"
+msgstr "La contraseña debe tener al menos un número"
+
+msgid "The password must have at least one special character"
+msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Verify password field is required"
+msgstr "El campo verificar contraseña es requerido"
+
+msgid "The field verify password and Password must be the same"
+msgstr "El campo verificar contraseña y Contraseña deben ser iguales"
+
+msgid "The language field is required"
+msgstr "El campo lenguaje es requerido"
+
+msgid "You must accept the privacy policy"
+msgstr "Debe aceptar las políticas de privacidad"
+
+msgid "You must accept the terms of use"
+msgstr "Debe aceptar las condiciones de uso"
+
+msgid "Request Appointment"
+msgstr "Solicitar cita"
+
+msgid "To ensure the proper functioning of the system, only the first 10 matching products will be presented."
+msgstr "A fin de asegurar el buen funcionamiento del sistema, solo presentará los 10 primeros productos coincidentes."
+
+msgid "Example@example.com"
+msgstr "Ejemplo@ejemplo.com"
+
+msgid "Basic example"
+msgstr "Ejemplo básico"
+
+msgid "Continue registration"
+msgstr "Continuar con el registro"
+
+msgid "Sign In"
+msgstr "Iniciar Sesión"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Company video"
+msgstr "Video de la empresa"
+
+msgid "Please select a country"
+msgstr "Por favor seleccione un país"
+
+msgid "Please select a category"
+msgstr "Por favor seleccione una categoría"
+
+msgid "Please select a subcategory"
+msgstr "Por favor seleccione una subcategoría"
+
+msgid "Please select a subcategory"
+msgstr "Por favor seleccione una subcategoría"
+
+msgid "Please select a business model"
+msgstr "Por favor seleccione un modelo de empresa"
+
+msgid "NIT"
+msgstr "NIT"
+
+msgid "Welcome to Colombia B2B marketplace, enter your data to start session."
+msgstr "Bienvenido a Colombia B2B marketplace, ingresa tus datos para iniciar sesión."
+
+msgid "Type something specific to perform a search"
+msgstr "Escribe algo en específico para realizar una búsqueda"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Forgot"
+msgstr "¿Olvidó"
+
+msgid "Password?"
+msgstr "su contraseña?"
+
+msgid "E-mail?"
+msgstr "su correo?"
+
+msgid "Forgot Password?"
+msgstr "¿Olvidó su contraseña?"
+
+msgid "Forgot your password?"
+msgstr "¿Olvidó su contraseña?"
+
+msgid "Forgot E-mail?"
+msgstr "¿Olvidó su correo?"
+
+msgid "Forgot your email?"
+msgstr "¿Olvidó su correo?"
+
+msgid "Forgot your"
+msgstr "¿Olvidó su"
+
+msgid "email?"
+msgstr "correo?"
+
+msgid "E-mail"
+msgstr "Correo electrónico"
+
+msgid "E-mail or NIT"
+msgstr "Correo electrónico o NIT"
+
+msgid "Email or Tax ID number (Without hyphen)"
+msgstr "Correo electrónico o NIT"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+msgid "Uploading..."
+msgstr "Cargando..."
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+msgid "Back to page"
+msgstr "Volver a la página" 
+
+msgid "Unread messages"
+msgstr "Mensajes no leídos"
+
+msgid "Promotional activities"
+msgstr "Actividades de promoción"
+
+msgid "Hello, "
+msgstr "Hola, "
+
+msgid "Password recovery"
+msgstr "Recuperación de la contraseña"
+
+msgid "E-mail recovery"
+msgstr "Recuperación del correo"
+
+msgid "Recover E-mail"
+msgstr "Recuperar correo"
+
+msgid "Recover Password"
+msgstr "Recuperar contraseña"
+
+msgid "Password change process was successful"
+msgstr "El cambio de contraseña ha sido exitoso"
+
+msgid "Sign up"
+msgstr "Regístrese"
+
+msgid "Don't have an account?"
+msgstr "¿No tiene una cuenta?"
+
+msgid "You don’t have an account?"
+msgstr "¿No tiene una cuenta?"
+
+msgid "Verification code"
+msgstr "Código de verificación"
+
+msgid "Receive verification link at:"
+msgstr "Recibir el link de verificación en:"
+
+msgid "Profile update"
+msgstr "Actualización del Perfil"
+
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+msgid "General User Profile"
+msgstr "Perfil General de Usuario"
+
+msgid "View general User Profile"
+msgstr "Ver Perfil general de Usuario"
+
+msgid "You must update your Profile information."
+msgstr "Debe actualizar la información de su perfil."
+
+msgid "Since the update of your data took place on"
+msgstr "Dado que la actualización de tus datos fue el día"
+
+msgid "Data update:"
+msgstr "Actualización de los datos:"
+
+msgid "Search history"
+msgstr "Historial de búsquedas"
+
+msgid "Mass communication"
+msgstr "Comunicaciones masivas"
+
+msgid "LOG OUT"
+msgstr "CERRAR SESIÓN"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Products and Services"
+msgstr "Productos y Servicios"
+
+msgid "View Products and services"
+msgstr "Ver Productos y Servicios"
+
+msgid "Your favorite products or services"
+msgstr "Tus productos o servicios favoritos"
+
+msgid "Notifications"
+msgstr "Notificaciones"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Help "
+msgstr "Ayuda"
+
+msgid "Hours of operation"
+msgstr "Horario de atención"
+
+msgid "Monday through Friday 8:30 a.m. - 5:30 p.m."
+msgstr "Lunes a viernes 8:30 a.m. - 5:30 p.m."
+
+msgid "Citizen service"
+msgstr "Servicio al ciudadano"
+
+msgid "Complaints"
+msgstr "Denuncias"
+
+msgid "Work with us"
+msgstr "Trabaje con nosotros"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "Companies with interaction"
+msgstr "Empresas con interacción"
+
+msgid "Terms of access"
+msgstr "Condiciones de acceso"
+
+msgid "Terms and Conditions of Use"
+msgstr "Términos y Condiciones de uso"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Messages"
+msgstr "Mensajes"
+
+msgid "Offer for"
+msgstr "Oferta para"
+
+msgid "View - Colombian Company"
+msgstr "Ver - Empresa Colombiana"
+
+msgid "View - International Buyer"
+msgstr "Ver - Comprador Internacional"
+
+msgid "Manage Surveys"
+msgstr "Gestionar Encuestas"
+
+msgid "Dashboard"
+msgstr "Tablero"
+
+msgid "Recommendations or suggestions"
+msgstr "Recomendaciones o sugerencias"
+
+msgid "Address"
+msgstr "Dirección"
+
+msgid "Phone number"
+msgstr "Número teléfonico"
+
+msgid "Street 28 N° 13A - 15 Floor 35-36"
+msgstr "Calle 28 No 13A - 15 Piso 35-36"
+
+msgid "Frequently Asked Questions (FAQs)"
+msgstr "Preguntas frecuentes"
+
+msgid "Social Networks"
+msgstr "Redes Sociales"
+
+msgid "Sustainability Report"
+msgstr "Informe de sostenibilidad"
+
+msgid "About this website"
+msgstr "Acerca del sitio"
+
+msgid "Privacy and Data Handling Policy"
+msgstr "Política de privacidad y manejo de datos"
+
+msgid "Enter your company's NIT below and we will show you the email address associated with the account."
+msgstr "Ingrese el NIT de su empresa a continuación y le mostraremos su correo asociado a la cuenta."
+
+msgid "If the email that your company has registered at the B2B Marketplace is not active, check with your IT department or contact your ProColombia advisor in case you need to update the email address information in the website."
+msgstr "Si el correo electrónico con el que se encuentra registrada la empresa en el B2B Marketplace no se encuentra activo, verifique con su área de sistemas o comuníquese con su asesor de ProColombia en caso de que requiera actualizar la información de correo electrónico."
+
+msgid "Enter your company email below and we will send you a secure link to reset your password."
+msgstr "Introduzca el correo electrónico de su empresa a continuación y le enviaremos un enlace seguro para restablecer su contraseña."
+
+msgid "Please enter your new password below."
+msgstr "Por favor ingrese su nueva contraseña."
+
+msgid "Reset "
+msgstr "Restablecer "
+
+msgid "Check your e-mail, we have sent you the instructions to recover your password."
+msgstr "Revisa tu correo electrónico, te hemos enviado las instrucciones necesarias para recuperar tu contraseña."
+
+msgid "December 6, 2021"
+msgstr "6 de Diciembre 2021"
+
+msgid "Alarms"
+msgstr "Alarmas"
+
+msgid "points"
+msgstr "puntos"
+
+msgid "Weak"
+msgstr "Débil"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Good"
+msgstr "Buena"
+
+msgid "Strong"
+msgstr "Fuerte"
+
+msgid "Company name is required\n"
+msgstr "El nombre de la empresa es obligatorio\n"
+
+msgid "The name cannot be longer than 20 characters\n"
+msgstr "El nombre no puede tener mas de 20 caracteres\n"
+
+msgid "Lastname is required\n"
+msgstr "El apellido es obligatorio\n"
+
+msgid "Lastname is required"
+msgstr "El apellido es obligatorio"
+
+msgid "Cell phone is required\n"
+msgstr "Se requiere un celular\n"
+
+msgid "Company is required\n"
+msgstr "La empresa es requerida\n"
+
+msgid "The company cannot be longer than 100 characters\n"
+msgstr "La compañia no puede tener mas de 100 caracteres\n"
+
+msgid "Token invalid"
+msgstr "Toke no válido"
+
+msgid "Please verify that you are not a robot"
+msgstr "Por favor verifique que no es un robot"
+
+msgid "Error while creating user. "
+msgstr "Error al crear el usuario"
+
+msgid "Email request error"
+msgstr "Error de solicitud de correo electrónico"
+
+msgid "Error: E-mail already has been registered"
+msgstr "Error: El correo electrónico ya ha sido registrado"
+
+msgid "Please select a position"
+msgstr "Por favor seleccione el cargo"
+
+msgid "Please enter a valid website"
+msgstr "Por favor ingrese un sitio web válido"
+
+msgid "Error when deleting user"
+msgstr "Error al eliminar el usuario"
+
+msgid "E-mail is required."
+msgstr "El correo es requerido."
+
+msgid "E-mail is required"
+msgstr "El correo es requerido"
+
+msgid "E-mail is not valid"
+msgstr "El correo no es válido"
+
+msgid "Please enter a web site"
+msgstr "Por favor ingrese un sitio web"
+
+msgid "Colombian Company Profile"
+msgstr "Perfil Empresa Colombiana"
+
+msgid "The url does not belong to a YouTube video"
+msgstr "La url no pertenece a un vídeo de YouTube"
+
+msgid "You don't have an account?"
+msgstr "¿No tiene una cuenta?"
+
+msgid "Productive Chain"
+msgstr"Cadena productiva"
+
+msgid "Published"
+msgstr"Publicado"
+
+msgid "Views"
+msgstr"Vistas"
+
+msgid "Incentives"
+msgstr"Incentivos"
+
+msgid "Action"
+msgstr"Acción"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Subcategory"
+msgstr "Subcategoría"
+
+msgid "Tax ID number"
+msgstr "NIT"
+
+msgid "Registration International buyer"
+msgstr "Registro comprador internacional"
+
+msgid "Dashboard International Adviser"
+msgstr "Tablero Asesor Internacional"
+
+msgid "Pre-register - Company"
+msgstr "Pre-registro - Empresa"
+
+msgid "Pre-register"
+msgstr "Pre-registro"
+
+msgid "User verification"
+msgstr "Verificación de usuario"
+
+msgid "User registration"
+msgstr "Registro de usuario"
+
+msgid "Pre-registration - International buyer"
+msgstr "Pre-registro - Comprador internacional"
+
+msgid "Registration - International buyer"
+msgstr "Registro - Comprador Internacional"
+
+msgid "Tax ID validation"
+msgstr "Validación de NIT"
+
+msgid "International buyer"
+msgstr "Comprador Internacional"
+
+msgid "Select Productive chain"
+msgstr "Seleccione la cadena productiva"
+
+msgid "Select Department"
+msgstr "Seleccione el Departamento"
+
+msgid "Select Associate consultant assigned to the company"
+msgstr "Seleccione al asesor asignado a la empresa"
+
+msgid "Active or Inactive"
+msgstr "Activa o Inactiva"
+
+msgid "Outstanding specialized offer"
+msgstr "Oferta especializada destacada"
+
+msgid "Tags Specialized offer (All languages)"
+msgstr "Tags Oferta especializada (Todos los idiomas)"
+
+msgid "Exporter's performance"
+msgstr "Desempeñp de exportador"
+
+msgid "Classification tags private labels and others"
+msgstr "Tags de clasificación marcas blancas y otras"
+
+msgid "URL of e-commerce crossboarder companies"
+msgstr "URL de empresas con e-commerce crossboarder"
+
+msgid "Information in English"
+msgstr "Información en Inglés"
+
+msgid "Information in Spanish"
+msgstr "Información en Español"

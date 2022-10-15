@@ -1,0 +1,46 @@
+uuid: adf4c251-f2ce-412c-9e32-5fb020a0e676
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.account_status.field_state_tag
+    - field.field.taxonomy_term.account_status.field_status_color
+    - taxonomy.vocabulary.account_status
+  module:
+    - color_field
+    - text
+id: taxonomy_term.account_status.default
+targetEntityType: taxonomy_term
+bundle: account_status
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_state_tag:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_status_color:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  langcode: true
+  search_api_excerpt: true

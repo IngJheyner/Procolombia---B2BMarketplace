@@ -1,0 +1,16 @@
+structured_feature_form:
+  version: VERSION
+  js:
+    js/structured_feature_form.js: {}
+  css:
+    component:
+      css/structured_feature_form.css: {}
+  dependencies:
+    - core/jquery
+
+sf_structure_formatter:
+  version: VERSION
+  js:
+    js/sf_structure_formatter.js: {}
+  dependencies:
+    - core/jquery
