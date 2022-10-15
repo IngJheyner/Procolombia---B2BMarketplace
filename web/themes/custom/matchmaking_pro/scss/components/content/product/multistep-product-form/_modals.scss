@@ -1,394 +1,523 @@
-.generic-modal.modal {
-    .modal-content{
-        @include modals-basic-style;
-        .modal-header{
-            padding: 20px;
-            padding-left: 25px;
-            position: relative;
-            .modal-header-title{
-                margin: auto;
-                font-size: 22px;
-                font-family: $font-bold-Century-Gothic;
-                padding-right: 20px;
-                @include media-breakpoint-down(sm) {
-                    font-size: 18px;
-                 }
-            }
-            .modal-header-close{
-                position: absolute;
-                color: transparent;
-                right: 14px;
-                top: 12px;
-                height: 25px;
-                width: 25px;
-                cursor: pointer;
-                background-image: url(../images/icons/Cerrar-azul.svg);
-                background-size: 25px;
-                background-repeat: no-repeat;
-                background-color: transparent !important;
-                border: none;
-                margin: 0;
-                opacity: 1;
-                .close{
-                    opacity: 1;
-                    width: auto;
-                    position: relative;
-                    height: auto;
-                }
-            }
-            &::before{
-                content: '';
-                background-image: url(../images/icons/Modal-Recomendacion.svg);
-                background-size: 17px 27px;
-                width: 17px;
-                height: 27px;
-            }
+.generic-modal.modal,
+#modal-approve,
+#modal-reject,
+#generic-modal-edit-advise-modal {
+  top: 0;
+  right: 0;
+  opacity: 1;
+  p {
+    font-family: "Century Gothic", $font-regular;
+    font-weight: normal;
+  }
+  .modal-dialog {
+    display: flex;
+    height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    .modal-content {
+      margin-top: auto;
+    }
+  }
+  .modal-content {
+    @include modals-basic-style;
+    .modal-header {
+      padding: 20px;
+      padding-left: 25px;
+      position: relative;
+      .modal-header-title,
+      #modal-approveLabel,
+      #modal-rejectLabel {
+        margin: auto;
+        font-size: 22px;
+        font-family: $font-bold-Century-Gothic;
+        padding-right: 20px;
+        @include media-breakpoint-down(sm) {
+          font-size: 18px;
         }
-        .modal-body{
-            padding-left: 35px;
-            @include media-breakpoint-down(sm) {
-                padding-left: 25px;
-             }
-            span{
-                font-size: 14px;
+      }
 
-                }
-        }
-        .modal-footer{
-            @include media-breakpoint-down(sm) {
-                padding: 16px 12px;
-            }
-            .modal-footer-right {
-                @include media-breakpoint-down(lg){
-                    width: 100%;
-                }
-                a.button, button{
-                    font-size: 14px;
-                    line-height: 17px;
-                    margin: 0;
-                    text-transform: uppercase;
-                    @include blue-btn;
-                    @include media-breakpoint-down(lg) {
-                        width: 100%;
-                        padding-top: 20px;
-                        padding-bottom: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        height: 56px;
-                     }
-                }
-            }
-        }
-    }
-    &#generic-modal-view-no-results.show {        
-        display: block;
-        background-color: rgba(59, 61, 66, 0.5) !important;
-        .modal-content{
-            .modal-header{
-                padding: 19px;
-                position: relative;
-                &::before{
-                    background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
-                    background-size: 100%;
-                    height: 35px;
-                    width: 40px;
-                }
-                .modal-header-title{
-                    font-size: 22px;
-                    @include media-breakpoint-down(lg){
-                        font-size: 18px;
-                    }
-                    
-                }
-                span[aria-hidden="true"]{
-                    height: 24px;
-                    width: 24px;
-                    color: transparent;
-                    background-image: url(../images/icons/Cerrar-negro.svg);
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    cursor: pointer;
-                    position: absolute;
-                    top: 12px;
-                    right: 12px;
-                }
-            }
-            .modal-body{
-                padding-left: 20px;
-                span{
-                    font-family: "Century Gothic";
-                }
-                
-            }
-            .modal-footer-left{
-                cursor: pointer;
-                @include blue-btn;
-                @include media-breakpoint-down(lg){
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 56px;
-                    cursor: pointer;
-                }
-                a{
-                    color: $white;
-                }
-                span{
-                    text-transform: uppercase;
-                    font-family: $font-bold-Century-Gothic;
-                    font-weight: normal;
-                    font-size: $font-size-sm;
-                    text-transform: uppercase;
-                }
-            }
-            
-            @include media-breakpoint-down(lg){
-                max-width: 286px;
-                .modal-body{
-                    padding: 10px 20px 20px 26px;
-                }
-            }
-        }
-        
-    }
-    //Estilos modal Header mensaje rojo
-    &.cancel-confirm-question-modal,
-    &.add-other-question-modal{
-        background-color: rgba(59, 61, 66, 0.5) !important;
-        .modal-header{
-            padding: 19px;
-            &::before{
-                background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
-                background-size: 100%;
-                height: 35px;
-                width: 40px;
-            }
-            
-            .modal-header-close{ 
-                &.close{
-                    width: auto !important;
-                    span{
-                        width: 20px !important;
-                        display: flex;
-                    }
-                }               
-                background-image: url(../images/icons/Cerrar-negro.svg);
-            }
-        }
-        
-    }
-    //Estilos modal Header mensaje azul
-    &.save-publish-question-modal{
-        background-color: rgba(0,0,0,0.5);
-        .modal-header{
-            padding: 19px;
-            &::before{
-                background-image: url(../images/icons/Modal-Mensaje-Azul.svg);
-                background-size: 100%;
-                height: 35px;
-                width: 40px;
-            }
-        }
-    }
-    &.legal-modal{
-        top: 0;
-        right: 0;
+      #modal-approveLabel,
+      #modal-rejectLabel,
+      .modal-header-title {
+        margin-left: 15px;
+      }
+
+      .modal-header-close,
+      .btn-close {
+        position: absolute;
+        color: transparent;
+        right: 14px;
+        top: 12px;
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
+        background-image: url(../images/icons/Cerrar-azul.svg);
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-color: transparent !important;
+        border: none;
+        margin: 0;
         opacity: 1;
-        @include media-breakpoint-down(lg){
-            .modal-header{
+        .close {
+          opacity: 1;
+          width: auto;
+          position: relative;
+          height: auto;
+        }
+      }
+      &::before {
+        content: "";
+        background-image: url(../images/icons/Modal-Recomendacion.svg);
+        background-size: 17px 27px;
+        width: 17px;
+        height: 27px;
+      }
+    }
+    .modal-body {
+      padding-left: 35px;
+      @include media-breakpoint-down(sm) {
+        padding-left: 25px;
+      }
+      span {
+        font-size: 14px;
+        strong {
+          font-weight: normal;
+        }
+      }
+    }
+    .modal-footer {
+      justify-content: space-between;
+      padding-left: 25px;
+      background-color: $white;
+      .modal-footer-left,
+      p:nth-child(1) {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .modal-footer-right {
+        display: flex;
+        gap: 20px;
+        @include media-breakpoint-down(lg) {
+          flex-direction: column;
+        }
+        .button.btn-cancel,
+        .btn-secondary {
+          order: 2;
+          background: $button-lighter-gray;
+          color: $procol-gray-400;
+          border: 1px solid $procol-gray-300;
+          font-weight: 100;
+          text-transform: uppercase;
+          @include media-breakpoint-down(lg) {
+            border: none;
+          }
+        }
+        .button.btn-ok,
+        #btn-modal-approve,
+        #btn-modal-reject,
+        .btn-primary,
+        #btn-modal-reject {
+          @include blue-btn;
+          order: 1;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-width: 62px;
+          text-transform: uppercase;
+          @include media-breakpoint-down(lg) {
+            height: 56px;
+          }
+        }
+      }
 
-                .modal-header-close{
-                    height: 25px;
-                    width: 25px;
-                    background-size: 25px;
-                    background-image: url(../images/icons/Cerrar-negro.svg);
-                }
-                &::before {
-                    background-size: 17px 27px;
-                    width: 17px;
-                    height: 27px;
-                    background-size: 25px 40px;
-                    width: 35px;
-                    height: 40px;
-                    margin-right: 15px;
-                    background-repeat: no-repeat;
-                    }
-            }
-            .modal-body {
-                    padding: 37px 18px;
-                    padding: 8px 12px;
-                      padding-left: 12px;
-                    padding-left: 14px;
-            }
-            .modal-footer{
-             padding: 12px;
-             .modal-footer-left,
-             .modal-footer-right{
-                margin: 0;
-                .close{
-                    width: 100%;
-                }
-             }
-            }
+      @include media-breakpoint-down(sm) {
+        padding: 16px 12px;
+      }
+      .modal-footer-right {
+        @include media-breakpoint-down(lg) {
+          width: 100%;
         }
-    }
-    //Estilos modal footer
-    &.save-publish-question-modal,
-    &.cancel-confirm-question-modal,
-    &.add-other-question-modal,
-    &.save-publish-correct-modal{
-        background-color: rgba(59, 61, 66, 0.5) !important;
-        .modal-footer{
-            justify-content: space-between;
-            padding-left: 25px;
-            background-color: $white;
-            .modal-footer-left{
-                font-weight: bold;
-                font-size: 14px;
-            }
-            .modal-footer-right{
-                display: flex;
-                gap: 20px;
-                @include media-breakpoint-down(lg){
-                    flex-direction: column;
-                }
-                .button.btn-cancel{
-                    order: 2;
-                    background: $button-lighter-gray;
-                    color: $procol-gray-400;
-                    border: 1px solid $procol-gray-300;
-                    font-weight: 100;
-                    text-transform: uppercase;
-                    @include media-breakpoint-down(lg){
-                        border: none
-                    }
-                }
-                .button.btn-ok{
-                    @include blue-btn;
-                    order: 1;
-                    padding: 10px 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-width: 62px;
-                    text-transform: uppercase
-                }
-            }
+        a.button,
+        button,
+        a.btn-ok {
+          font-size: 14px;
+          line-height: 17px;
+          margin: 0;
+          text-transform: uppercase;
+          @include blue-btn;
+          @include media-breakpoint-down(lg) {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+          }
         }
+      }
     }
-    &.save-publish-correct-modal{
-        .modal-footer .modal-footer-right .button.btn-ok{
-            @include blue-btn;
+  }
+
+  &#generic-modal-view-no-results.show,
+  &.view-no-results.ui-dialog.generic-modal {
+    display: block;
+    background-color: rgba(59, 61, 66, 0.5) !important;
+    #drupal-modal {
+      background-color: $white;
+      border-radius: 0 0 5px 5px !important;
+      .ui-dialog .ui-dialog-titlebar {
+        position: relative;
+        visibility: visible;
+      }
+    }
+    .modal-body p {
+      font-weight: normal;
+    }
+    .ui-dialog .ui-dialog-titlebar {
+      position: relative;
+      visibility: visible;
+    }
+    .modal-content {
+      .modal-header {
+        padding: 19px;
+        position: relative;
+        &::before {
+          background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
+          background-size: 100%;
+          height: 35px;
+          width: 40px;
+        }
+        .modal-header-title {
+          font-size: 22px;
+          @include media-breakpoint-down(lg) {
+            font-size: 18px;
+          }
+        }
+        span[aria-hidden="true"] {
+          height: 24px;
+          width: 24px;
+          color: transparent;
+          background-image: url(../images/icons/Cerrar-negro.svg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          position: absolute;
+          top: 12px;
+          right: 12px;
+        }
+      }
+      .modal-body {
+        padding-left: 20px;
+        span {
+          font-family: "Century Gothic", $font-regular;
+          strong {
+            font-weight: normal;
+          }
+        }
+      }
+      .modal-footer {
+        justify-content: flex-end;
+        .modal-footer-left {
+          cursor: pointer;
+          @include blue-btn;
+          @include media-breakpoint-down(lg) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 56px;
+            cursor: pointer;
+          }
+          a {
+            color: $white;
+          }
+          span {
             text-transform: uppercase;
+            font-family: $font-bold-Century-Gothic;
+            font-weight: normal;
+            font-size: $font-size-sm;
+            text-transform: uppercase;
+          }
         }
+      }
+
+      @include media-breakpoint-down(lg) {
+        max-width: 286px;
+        .modal-body {
+          padding: 10px 20px 20px 26px;
+        }
+      }
     }
+  }
+
+  &.view-no-results.ui-dialog.generic-modal {
+    background-color: transparent !important;
+    display: flex;
+    justify-content: center;
+    .ui-dialog-titlebar {
+      position: relative;
+      visibility: visible;
+      border-radius: 5px 5px 0 0;
+      border: none;
+      button.ui-button {
+        right: 0;
+        left: auto;
+        background-image: url(../images/icons/Cerrar-azul.svg);
+        background-size: 24px;
+        top: 15px;
+        right: 5px;
+        background-position: center;
+        border: none;
+        background-color: transparent;
+      }
+      span.ui-dialog-title {
+        font-weight: normal;
+      }
+    }
+  }
+  //Estilos modal Header mensaje rojo
+  &.cancel-confirm-question-modal,
+  &.add-other-question-modal,
+  &[aria-labelledby="modal-rejectLabel"] {
+    background-color: rgba(59, 61, 66, 0.5) !important;
+    .modal-header {
+      padding: 19px;
+      &::before {
+        background-image: url(../images/icons/Modal-Mensaje_Rojo.svg);
+        background-size: 100%;
+        height: 35px;
+        width: 40px;
+      }
+
+      .modal-header-close {
+        &.close {
+          width: auto !important;
+          span {
+            width: 20px !important;
+            display: flex;
+          }
+        }
+        background-image: url(../images/icons/Cerrar-negro.svg);
+      }
+    }
+  }
+  //Estilos modal Header mensaje azul
+  &.save-publish-question-modal,
+  &#generic-modal-save-product-correct-modal,
+  &.edit-advise-modal,
+  &[aria-labelledby="modal-approveLabel"] {
+    background-color: rgba(59, 61, 66, 0.5);
+    .modal-header {
+      padding: 19px;
+      &::before {
+        background-image: url(../images/icons/Modal-Mensaje-Azul.svg);
+        background-size: 100%;
+        height: 35px;
+        width: 40px;
+      }
+    }
+  }
+
+  &.legal-modal {
+    top: 0;
+    right: 0;
+    opacity: 1;
+    .modal-dialog {
+      display: flex;
+      height: 100vh;
+      margin-top: 0;
+      margin-bottom: 0;
+      .modal-content {
+        margin-top: auto;
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      .modal-header {
+        .modal-header-close {
+          height: 25px;
+          width: 25px;
+          background-size: 25px;
+          background-image: url(../images/icons/Cerrar-negro.svg);
+        }
+        &::before {
+          background-size: 17px 27px;
+          width: 17px;
+          height: 27px;
+          background-size: 25px 40px;
+          width: 35px;
+          height: 40px;
+          margin-right: 15px;
+          background-repeat: no-repeat;
+        }
+      }
+      .modal-body {
+        padding: 37px 18px;
+        padding: 8px 12px;
+        padding-left: 12px;
+        padding-left: 14px;
+      }
+      .modal-footer {
+        padding: 12px;
+        .modal-footer-left,
+        .modal-footer-right {
+          margin: 0;
+          .close {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.edit-advise-modal {
+    .modal-content .modal-footer .modal-footer-right {
+      .btn-ok {
+        @include gray-btn;
+        color: $procol-gray-400;
+        font-weight: normal;
+        border: 1px solid $procol-gray-400;
+        @include media-breakpoint-down(lg) {
+          border: none;
+        }
+      }
+      .btn-cancel {
+        order: -1;
+        @include blue-btn;
+        @include media-breakpoint-down(lg) {
+          height: 56px;
+        }
+      }
+    }
+  }
+
+  &.save-publish-correct-modal {
+    background-color: rgba(59, 61, 66, 0.5);
+    .modal-footer .modal-footer-right .button.btn-ok {
+      @include blue-btn;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .page-view-dashboard-advisor,
-.page-view-products-advisor{
-    .ui-dialog.generic-modal{
-        @include modals-basic-style;
-        .ui-dialog-titlebar{
-            background-color: $white;
-            padding: 15px;
-            border-bottom: 1px solid $procol-gray-200;
-            border-radius: 0;
-            
-            span.ui-dialog-title{
-                display: block;
-                color: $procol-gray-400;
-                font-size: 22px;
-                font-family: $font-bold-Century-Gothic;
-                margin: 0;
-                display: flex;
-                gap: 15px;
-                &::before{
-                    content: '';
-                    background-image: url("../images/icons/Icono_ElegirArchivos_azul.svg");
-                    -webkit-background-size: cover;
-                    background-size: cover;
-                    width: 30px;
-                    height: 30px;
-                }
-            }
-            button.ui-button{
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                width: 25px;
-                height: 25px;
-                .ui-button-icon{
-                    background-image: url(../images/icons/Cerrar-azul.svg);
-                    background-size: 25px;
-                    background-repeat: no-repeat;
-                }
-                .ui-button-icon-space {
-                    display: none;
-                }
-            }
+.page-view-products-advisor {
+  .ui-dialog.generic-modal {
+    border: none;
+    @include modals-basic-style;
+    .ui-dialog-titlebar {
+      background-color: $white;
+      padding: 15px;
+      border-bottom: 1px solid $procol-gray-200;
+      border-radius: 0;
+      border: none;
 
+      span.ui-dialog-title {
+        display: block;
+        color: $procol-gray-400;
+        font-size: 22px;
+        font-family: $font-bold-Century-Gothic;
+        margin: 0;
+        display: flex;
+        gap: 15px;
+        &::before {
+          content: "";
+          background-image: url("../images/icons/Icono_ElegirArchivos_azul.svg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 30px;
+          height: 30px;
         }
-        #drupal-modal{
-            color: $procol-gray-400;
-            padding: 0;
-            .modal-body {
-                padding: 33px 32px 20px 20px;
-                p{
-                    font-size: 16px;
-                    font-family: "Century Gothic";
-                    color: $procol-gray-400;
-                    line-height: 21px;
-                    text-align: center;                    
-                }
-            }
-            .modal-footer{
-                gap: 15px;
-                @include media-breakpoint-down(lg){
-                    gap: 5px;
-                }
-                a{
-                    height: 37px;
-                    width: 96px;
-                    border: 1px solid #01C161;
-                    border-radius: 4px;
-                    font-size: $font-size-sm;
-                    text-transform: uppercase;
-                    color: $procol-gray-400;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 12px;
-                    @include media-breakpoint-down(lg){
-                        width: 100%;
-                        height: 56px;
-                    }
-                 &::before{
-                    background-image: url(../images/icons/file-csv.svg);
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    content: "";
-                    width: 15px;
-                    height: 20px
-                 }   
-                }
-                button#close-button{
-                    @include media-breakpoint-down(lg){
-                        width: 100%;
-                        height: 56px;
-                    }
-                    @include gray-btn;
-                    width: 111px;
-                    height: 41px;
-                    border-radius: 4px;
-                    border: none;
-                    font-size: $font-size-sm;
-                }
-            }
+      }
+      button.ui-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+        background-color: none;
+        border: none;
+        .ui-button-icon {
+          background-image: url(../images/icons/Cerrar-azul.svg);
+          background-size: 25px;
+          background-repeat: no-repeat;
         }
+        .ui-button-icon-space {
+          display: none;
+        }
+      }
     }
-    .ui-widget-overlay{
-        background-color: rgba(59, 61, 66, 0.5) !important;
+    #drupal-modal {
+      color: $procol-gray-400;
+      padding: 0;
+      .modal-body {
+        padding: 33px 32px 20px 20px;
+        p {
+          font-size: 16px;
+          font-family: "Century Gothic", $font-regular;
+          color: $procol-gray-400;
+          line-height: 21px;
+          text-align: center;
+        }
+      }
+      .modal-footer {
+        gap: 15px;
+        @include media-breakpoint-down(lg) {
+          gap: 5px;
+        }
+        a {
+          height: 37px;
+          width: 96px;
+          border: 1px solid #01c161;
+          border-radius: 4px;
+          font-size: $font-size-sm;
+          text-transform: uppercase;
+          color: $procol-gray-400;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+
+          @include media-breakpoint-down(lg) {
+            width: 100%;
+            height: 56px;
+          }
+          &::before {
+            background-image: url(../images/icons/file-csv.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            content: "";
+            width: 15px;
+            height: 20px;
+          }
+        }
+        a.pdf {
+          border-color: $procol-red;
+          &::before {
+            background-image: url(../images/icons/file-pdf.svg);
+          }
+        }
+        button#close-button {
+          @include media-breakpoint-down(lg) {
+            width: 100%;
+            height: 56px;
+          }
+          @include gray-btn;
+          width: 111px;
+          height: 41px;
+          border-radius: 4px;
+          border: none;
+          font-size: $font-size-sm;
+        }
+      }
     }
+  }
+  .ui-widget-overlay {
+    background-color: rgba(59, 61, 66, 0.5) !important;
+  }
+}
+
+.modal-backdrop {
+  background-color: rgba(59, 61, 66, 0.5);
 }

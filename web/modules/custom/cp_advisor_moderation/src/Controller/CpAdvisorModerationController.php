@@ -36,6 +36,14 @@ class CpAdvisorModerationController extends ControllerBase {
         '#title' => $this->t('EXCEL'),
         '#url' => $path ? Url::fromRoute($path, $context) : FALSE,
       ],
+      '#url_pdf' => [
+        '#type' => 'link',
+        '#title' => $this->t('PDF'),
+        '#url' => Url::fromRoute('view.products_advisor.data_export_2', $context),
+        '#attributes' => [
+          'class' => ['pdf']
+        ]
+      ],
       '#description' => $this->t('Choose the format in which you want to download the file locally.'),
     ];
   }

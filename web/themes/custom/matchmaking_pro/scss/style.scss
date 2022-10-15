@@ -6,12 +6,12 @@ Description: Bootstrap 4 with Sass
 
 // import files
 @import "import";
-
+ 
 /* GENERAL STYLES
 -------------------------------------------------*/
 * {
   scrollbar-width: auto;
-  scrollbar-color: #6a6d71 #00000000;
+  scrollbar-color: #6a6d71 #00000000; 
 
   &::-webkit-scrollbar {
     width: 7px;

@@ -1,313 +1,315 @@
 .cp-core-multistep-form.step_2,
-.cp-core-multistep-form.step_sf{
-    label{
-        @include media-breakpoint-down(md){
-            padding-bottom: 15px;
-        }
+.cp-core-multistep-form.step_sf {
+  label {
+    @include media-breakpoint-down(md) {
+      padding-bottom: 15px;
     }
-    small{
+  }
+  small {
+    padding-bottom: 0;
+  }
+  .group-top {
+    padding: 0 50px;
+    .step-2-title h2 {
+      color: $procol-black;
+      font-size: 20px;
+      font-family: "Century Gothic", $font-regular;
+      margin-bottom: 0 !important;
+      font-size: 20px;
+      color: $procol-black;
+      font-weight: bold;
+      width: 50%;
+      padding-bottom: 0;
+    }
+    @include media-breakpoint-down(xl) {
+      padding: 0 25px;
+    }
+    @include media-breakpoint-down(lg) {
+      padding: 0px;
+    }
+    .structure-field-wrapper {
+      h2,
+      legend span {
+        color: $procol-black;
+        font-size: 24px;
+        font-family: "Century Gothic", $font-regular;
+        margin-bottom: 0 !important;
+        font-size: 20px;
+        color: $procol-black;
+        font-weight: bold;
+        width: 50%;
         padding-bottom: 0;
-    }
-    .group-top{
-       padding: 0 50px;
-       .step-2-title h2{
-            color: $procol-black;
-            font-size: 20px;
-            font-family: "Century Gothic";
-            margin-bottom: 0!important;
-            font-size: 20px;
-            color: $procol-black;
-            font-weight: bold;
-            width: 50%;
-            padding-bottom: 0;
-       }
-       @include media-breakpoint-down(xl){
-        padding: 0 25px;
-       }
-       @include media-breakpoint-down(lg){
-        padding: 0px;
-       }
-       .structure-field-wrapper{
-           h2, legend span{
-               color: $procol-black;
-               font-size: 24px;
-               font-family: "Century Gothic";
-               margin-bottom: 0!important;
-               font-size: 20px;
-               color: $procol-black;
-               font-weight: bold;
-               width: 50%;
-               padding-bottom: 0;
-               
-               @include media-breakpoint-down(lg){
-                width: 100%;
-                border: none;
-               }
-               @include media-breakpoint-down(md){
-                padding-top: 0;
-                padding-bottom: 20px;
-                font-size:$font-size-lg;
-               }
 
-           }
-       }
-       .structure-field-wrapper-langs{
-            width: 100%;
-            .structure-field-wrapper:first-child{
-                margin-bottom: 32px;
-            }
-            .js-form-item{
-                max-width: 100%;
-                &.js-form-type-textarea{
-                    position: relative;
-                    margin-top: 16px;
-                    label{
-                        position: absolute;
-                        top: -15px;
-                        left: 10px;
-                        background-color: $white;
-                        padding: 5px;                        
-                    }
-                    textarea{
-                        border-radius: 10px;
-                        min-height: 126px;
-                    }
-                }
-            }
-       }
-    }
-
-    .information-title{
-        h2{
-            font-family: "Century Gothic";
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 16px;
-            @include media-breakpoint-down(lg){
-            padding: 0 11px;
-            }
+        @include media-breakpoint-down(lg) {
+          width: 100%;
+          border: none;
         }
-    }
-    .form-type-textarea{
-        margin-top: 0;
-        label{
-            position: static;
-            height: auto;
+        @include media-breakpoint-down(md) {
+          padding-top: 0;
+          padding-bottom: 20px;
+          font-size: $font-size-lg;
         }
-        .counter{
-            display: none;
-        }
-        small{
-            padding-bottom: 20px;
-            &:hover{
-                background-image: url(../images/icons/info-red.svg);
-            }
-        }
-    }
-    .SumoSelect .chosen-container{
-        position: absolute;
-    }
-    .js-form-type-select.is-invalid .SumoSelect .CaptionCont{
-        border: 2px solid $procol-red !important;
-    }
-    .is-invalid::after{
-        top: 70px;
-    }
-    .js-form-type-select .tooltip-is-invalid{
-        width: auto;
-        height: 20px;
-        display: flex;
-        position: absolute;
-        top: 69px;
-        z-index: 3;
-        padding-left: 25px;
-        &:hover{
-            width: 157px;
-            p{
-                @include hover-invalid-tooltip;
-                top: 28px;
-                left: -5px;
-                right: auto; 
-                &::before{
-                    right: auto;
-                }
-            }
-        }
-        
-    }
-    
-    .form-item-field-categorization-parent .tooltip-is-invalid{
-        top: 30px;
-        right: -28px;
-        p{
-            left: auto !important;
-            right: 0 !important;
-            @include media-breakpoint-down(lg){
-                left: 0;
-                right: -3px;
-            }
-            &::before{
-                right: 5px !important;
-            }
-        }
-        @include media-breakpoint-down(lg){
-            top: -30px;
-            right: 0;
-        }
-    }
-    .js-form-item-field-categorization-parent.js-form-type-select.is-invalid{
-        select{
-            position: absolute;
-        }
-        &::after{
-            top: 30px;
-            left: auto;
-            right: -6%;
-            @include media-breakpoint-down(lg){
-                top: 0;
-                right: 0;
-            }    
-        }
-    }
-    
-    #edit-field-partida-arancelaria-tax-wrapper{
-        @include media-breakpoint-down(lg){
-            position: relative;
-            .js-form-item-field-partida-arancelaria-tax{
-                margin-top: 20px;
-            }
-        }
-    }
-    .step-sf-title {
-        padding: 0 50px;
-        h2{
-            font-family: $font-bold-Century-Gothic;
-            font-size: 20px;
-        }
-        @include media-breakpoint-down(xl){
-            padding: 0 25px;
-        }
-        @include media-breakpoint-down(lg){
-            padding: 0 20px;
-        }
-    }
-    
-    #edit-field-pr-structured-features-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        .structure-field-wrapper-common{
-            width: 100%;
-            .js-form-type-radio label{
-                font-family: "Century Gothic";
-                font-weight: normal;
-            }
-            .structure-field-wrapper-columns{
-                display: flex;
-                justify-content: space-between;
-                gap: 82px;
-                @include media-breakpoint-down(lg){
-                    flex-wrap: wrap;
-                    gap: 20px;
-                }
-                .structure-field-wrapper-left,
-                .structure-field-wrapper-right{
-                    max-width: 442px;
-                    width: 100%;
-                    .js-form-item{
-                        min-height: 93px;
-                        &:last-child{
-                            margin-bottom: 0 !important;
-                        }
-                        @include media-breakpoint-down(lg){
-                            min-height: auto;
-                        }
-                    }
-                    @include media-breakpoint-down(lg){
-                        max-width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 10px;
-                    }
-                }
-            }
-        }
-        .structure-field-wrapper-bottom .js-form-item{
-            max-width: 100%;
-        }
-
-        div.js-form-item.js-form-type-select{
-            &:nth-of-type(-n+14){
-                @include media-breakpoint-down(lg){
-                    order: 1;
-                }
-            }
-            &:nth-of-type(n+17){
-                @include media-breakpoint-down(lg){
-                    order: 3;
-                }
-            }
-        }
-        @include media-breakpoint-down(xl){
-            padding: 0 25px;
-            column-gap: 41px;
-        }
-        @include media-breakpoint-down(lg){
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-        .form-control::placeholder {
-            font-size: 14px;
-            }
-        .SumoSelect {
-            select{
-                position: absolute;
-            }
-            &.open{
-                .CaptionCont label i {
-                    background-image: url(../images/icons/icon-expand-select.svg);
-                    background-size: 35px;
-                    right: 10px;
-                  }
-            }
-            .opt{
-                &:hover{
-                    background-color: $procol-light-blue;
-                }
-            }
-        }
-        .is-invalid::after {
-            top: 30px !important;
-            right: -20px !important;
-            left: auto !important;
-            @include media-breakpoint-down(lg){
-                top: 0 !important;
-                right: 0 !important;
-            }
-        }
-        .tooltip-is-invalid{
-            top: 30px;
-            right: -25px;
-            @include media-breakpoint-down(lg){
-                top: 0;
-                right: 0;
-            }
-            p{
-                display: none;
-                
-            }
-            &:hover{
-                width: 152px;
-                p{                    
-                    @include hover-invalid-tooltip;
-                    top: 30px;
-                    right: 0;
-                    &::before{
-                        right: 3px;
-                    }
-                }
-            }
-        }
-
       }
+    }
+    .structure-field-wrapper-langs {
+      width: 100%;
+      .structure-field-wrapper:first-child {
+        margin-bottom: 32px;
+      }
+      .js-form-item {
+        max-width: 100%;
+        &.js-form-type-textarea {
+          position: relative;
+          margin-top: 16px;
+          label {
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            background-color: $white;
+            padding: 5px;
+          }
+          textarea {
+            border-radius: 10px;
+            min-height: 126px;
+          }
+        }
+      }
+    }
+  }
+
+  .information-title {
+    h2 {
+        font-family: "Century Gothic", $font-regular;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      @include media-breakpoint-down(lg) {
+        padding: 0 11px;
+      }
+    }
+  }
+  .form-type-textarea {
+    margin-top: 0;
+    label {
+      position: static;
+      height: auto;
+    }
+    .counter {
+      display: none;
+    }
+    small {
+      padding-bottom: 20px;
+      &:hover {
+        background-image: url(../images/icons/info-red.svg);
+      }
+    }
+  }
+  .SumoSelect .chosen-container {
+    position: absolute;
+  }
+  .js-form-type-select.is-invalid .SumoSelect .CaptionCont {
+    border: 2px solid $procol-red !important;
+  }
+  .is-invalid::after {
+    top: 70px;
+  }
+  .js-form-type-select .tooltip-is-invalid {
+    width: auto;
+    height: 20px;
+    display: flex;
+    position: absolute;
+    top: 69px;
+    z-index: 3;
+    padding-left: 25px;
+    &:hover {
+      width: 157px;
+      p {
+        @include hover-invalid-tooltip;
+        top: 28px;
+        left: -5px;
+        right: auto;
+        &::before {
+          right: auto;
+        }
+      }
+    }
+  }
+
+  .form-item-field-categorization-parent .tooltip-is-invalid {
+    top: 30px;
+    right: -28px;
+    p {
+      left: auto !important;
+      right: 0 !important;
+      @include media-breakpoint-down(lg) {
+        left: 0;
+        right: -3px;
+      }
+      &::before {
+        right: 5px !important;
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      top: -30px;
+      right: 0;
+    }
+  }
+
+  .js-form-item-field-categorization-parent.js-form-type-select.is-invalid {
+    select {
+      position: absolute;
+    }
+    &::after {
+      top: 30px;
+      left: auto;
+      right: -6%;
+      @include media-breakpoint-down(lg) {
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  #edit-field-categorization {
+    height: 1px;
+    border: none;
+    visibility: hidden;
+  }
+  #edit-field-partida-arancelaria-tax-wrapper {
+    @include media-breakpoint-down(lg) {
+      position: relative;
+      .js-form-item-field-partida-arancelaria-tax {
+        margin-top: 20px;
+      }
+    }
+  }
+  .step-sf-title {
+    padding: 0 50px;
+    h2 {
+      font-family: $font-bold-Century-Gothic;
+      font-size: 20px;
+    }
+    @include media-breakpoint-down(xl) {
+      padding: 0 25px;
+    }
+    @include media-breakpoint-down(lg) {
+      padding: 0 20px;
+    }
+  }
+
+  #edit-field-pr-structured-features-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .structure-field-wrapper-common {
+      width: 100%;
+      .js-form-type-radio label {
+        font-family: "Century Gothic", $font-regular;
+        font-weight: normal;
+      }
+      .structure-field-wrapper-columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 82px;
+        @include media-breakpoint-down(lg) {
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+        .structure-field-wrapper-left,
+        .structure-field-wrapper-right {
+          max-width: 442px;
+          width: 100%;
+          .js-form-item {
+            min-height: 93px;
+            &:last-child {
+              margin-bottom: 0 !important;
+            }
+            @include media-breakpoint-down(lg) {
+              min-height: auto;
+            }
+          }
+          @include media-breakpoint-down(lg) {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+      }
+    }
+    .structure-field-wrapper-bottom .js-form-item {
+      max-width: 100%;
+    }
+
+    div.js-form-item.js-form-type-select {
+      &:nth-of-type(-n + 14) {
+        @include media-breakpoint-down(lg) {
+          order: 1;
+        }
+      }
+      &:nth-of-type(n + 17) {
+        @include media-breakpoint-down(lg) {
+          order: 3;
+        }
+      }
+    }
+    @include media-breakpoint-down(xl) {
+      padding: 0 25px;
+      column-gap: 41px;
+    }
+    @include media-breakpoint-down(lg) {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+    .form-control::placeholder {
+      font-size: 14px;
+    }
+    .SumoSelect {
+      select {
+        position: absolute;
+      }
+      &.open {
+        .CaptionCont label i {
+          background-image: url(../images/icons/icon-expand-select.svg);
+          background-size: 35px;
+          right: 10px;
+        }
+      }
+      .opt {
+        &:hover {
+          background-color: $procol-light-blue;
+        }
+      }
+    }
+    .is-invalid::after {
+      top: 30px !important;
+      right: -20px !important;
+      left: auto !important;
+      @include media-breakpoint-down(lg) {
+        top: 0 !important;
+        right: 0 !important;
+      }
+    }
+    .tooltip-is-invalid {
+      top: 30px;
+      right: -25px;
+      @include media-breakpoint-down(lg) {
+        top: 0;
+        right: 0;
+      }
+      p {
+        display: none;
+      }
+      &:hover {
+        width: 152px;
+        p {
+          @include hover-invalid-tooltip;
+          top: 30px;
+          right: 0;
+          &::before {
+            right: 3px;
+          }
+        }
+      }
+    }
+  }
 }

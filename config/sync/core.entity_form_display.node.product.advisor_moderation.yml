@@ -51,6 +51,7 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
+    - image.style.226_x_218
     - image.style.thumbnail
     - node.type.product
   module:
@@ -59,9 +60,8 @@ dependencies:
     - cp_field_features
     - entity_browser
     - field_group
-    - file
-    - select2
     - maxlength
+    - select2
     - svg_image
 third_party_settings:
   field_group:
@@ -102,8 +102,6 @@ third_party_settings:
         - field_pr_target_market
         - field_pr_country
         - field_pr_product_availability
-        - field_tag_producto
-        - field_states
       label: Left
       region: content
       parent_name: group_row
@@ -166,7 +164,7 @@ third_party_settings:
         required_fields: true
     group_left_images:
       children:
-        - field_pr_image_1
+        - field_images
         - field_pr_image_3
         - field_pr_image_5
       label: 'Left images'
@@ -323,25 +321,29 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_exist_certifications:
-    type: boolean_checkbox
-    weight: 36
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_file:
-    type: file_generic
+    type: cp_core_file_generic
     weight: 30
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_file_certifications:
-    type: file_generic
+    type: cp_core_file_generic
     weight: 36
     region: content
     settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_images:
+    type: cp_core_image_multi_widget
+    weight: 9
+    region: content
+    settings:
+      delta_limit: '1'
+      custom_title: ''
+      first_title: ''
+      preview_image_style: 226_x_218
       progress_indicator: throbber
     third_party_settings: {  }
   field_partida_arancelaria_tax:
@@ -364,7 +366,7 @@ content:
       field_widget_display_settings: {  }
       selection_mode: selection_append
     third_party_settings: {  }
-  field_pr_image_1:
+  field_pr_image_2:
     type: image_image
     weight: 6
     region: content
@@ -372,17 +374,9 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-  field_pr_image_2:
-    type: image_image
-    weight: 4
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
   field_pr_image_3:
     type: image_image
-    weight: 8
+    weight: 11
     region: content
     settings:
       progress_indicator: throbber
@@ -390,7 +384,7 @@ content:
     third_party_settings: {  }
   field_pr_image_4:
     type: image_image
-    weight: 5
+    weight: 7
     region: content
     settings:
       progress_indicator: throbber
@@ -398,22 +392,21 @@ content:
     third_party_settings: {  }
   field_pr_image_5:
     type: image_image
-    weight: 9
+    weight: 12
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_pr_product_availability:
-    type: boolean_checkbox
+    type: cp_core_boolean_select
     weight: 39
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_pr_structured_features:
     type: sf_default
-    weight: 2
+    weight: 1
     region: content
     settings:
       placeholder_value: ''
@@ -474,22 +467,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_states:
-    type: options_select
-    weight: 41
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_tag_producto:
-    type: select2_entity_reference
-    weight: 41
-    region: content
-    settings:
-      width: 100%
-      autocomplete: false
-      match_operator: CONTAINS
-      match_limit: 10
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 28
@@ -510,11 +487,11 @@ hidden:
   field_exist_certifications: true
   field_export_markets: true
   field_iframe: true
-  field_images: true
   field_key_words: true
   field_key_words_backup: true
   field_mostrar_en_home: true
   field_pr_certifications: true
+  field_pr_image_1: true
   field_pr_multilingual_step1: true
   field_pr_multilingual_step2: true
   field_pr_multilingual_step3: true
@@ -523,10 +500,11 @@ hidden:
   field_pr_ref_company: true
   field_pr_sales_channel: true
   field_pr_status: true
-  field_pr_structured_features: true
   field_pr_terms_of_condition: true
   field_previous_id: true
   field_producto_innovador: true
+  field_states: true
+  field_tag_producto: true
   field_tariff_heading: true
   field_trading_channel: true
   langcode: true

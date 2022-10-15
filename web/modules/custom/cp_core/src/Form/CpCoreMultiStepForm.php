@@ -427,7 +427,7 @@ class CpCoreMultiStepForm extends FormBase {
         $categorization_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
           'parent' => 0,
           'vid' => 'categorization',
-          'field_cat_product_type' => $productType,
+          // 'field_cat_product_type' => $productType,
         ]);
         $newcategorization_options = [key($form['field_categorization']['widget']['#options']) => reset($form['field_categorization']['widget']['#options'])];
         foreach ($categorization_terms as $categorization_term) {
@@ -1070,8 +1070,13 @@ class CpCoreMultiStepForm extends FormBase {
     foreach ($product_list as $nid) {
       if ($nid) {
         // Set wait status.
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+          ->loadByProperties(['vid' => 'account_status', 'field_state_tag' => 'waiting']);
+        $term = reset($term);
+        $term_id = $term->id();
         $node = $nodeStorage->load($nid);
-        $node->field_states = 'waiting';
+        // $node->field_states = 'waiting';
+        $node->field_pr_status->target_id = $term_id;
         $node->setPublished();
         $node->save();
         if ($nid == $edit_nid) {
@@ -1086,7 +1091,8 @@ class CpCoreMultiStepForm extends FormBase {
         foreach ($available_langcodes as $langcode) {
           if ($node->hasTranslation($langcode)) {
             $translation = $node->getTranslation($langcode);
-            $translation->field_states = 'waiting';
+            // $translation->field_states = 'waiting';
+            $translation->field_pr_status->target_id = $term_id;
             $translation->setPublished();
             $translation->save();
           }

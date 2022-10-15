@@ -836,3 +836,5 @@ msgstr "La URL de empresas con e-commerce crossboarder no es válida"
 
 msgid "See products"
 msgstr "Ver productos"
+msgid "Go back"
+msgstr "Volver"
