@@ -29,14 +29,14 @@
                     "render": function (data, type, row, meta) {
                         return `
                         <label class="tick">
-                            <input type="checkbox" value="${row.id}" id="rel-state-6" checked="">
+                            <input type="checkbox" value="${row.id}" id="rel-state-6">
                             <span class="check"></span>
                         </label>
                         `;
                     },
                     "title": `
                     <label class="tick">
-                        <input type="checkbox" id="rel-state-6" checked="">
+                        <input type="checkbox" id="rel-state-6">
                         <span class="check"></span>
                     </label>
                     `,
@@ -108,7 +108,7 @@
                         //get max given_points
                         let max_given_points = 0;
                         row.business_rules.map(function (item) {
-                            if (item.given_points > max_given_points) {
+                            if (parseInt(item.given_points) > max_given_points) {
                                 max_given_points = item.given_points;
                             }
                         }
@@ -121,7 +121,7 @@
                     "data": "expiration_days",
                     "title": "Tiempo de expiración",
                     "render": function (data, type, row, meta) {
-                        return '<div class="">' + row.expiration_days + ' Dia(s) </div>';
+                        return '<div class="">' + (row.expiration_days || 'N/A') + ' Dia(s) </div>';
                     },
                     "className": 'width-expiration-days',
                 },
@@ -131,8 +131,8 @@
                         //checked
                         if (row.state == 1) {
                             return `
-                            <div class="swicher text-align-center mb-2">
-                                <input id="input-${row.id} " name="input-${row.id} " checked type="checkbox"/>
+                            <div onclick="updateStatusRow(${row.id}, ${row.state})" class="swicher text-align-center mb-2">
+                                <input id="input-${row.id}" name="input-${row.id}" checked type="checkbox"/>
                                 <label for="input-${row.id}" class="label-default"></label>
                            </div>
                            <p class="text-na text-align-center m-0" style="color:#A1A5AA">Activo</p>
@@ -141,8 +141,8 @@
                         //unchecked
                         else {
                             return `
-                            <div class="swicher text-align-center mb-2">
-                                <input id="input-${row.id}" name="input-${row.id}" checked type="checkbox"/>
+                            <div onclick="updateStatusRow(${row.id}, ${row.state})" class="swicher text-align-center mb-2">
+                                <input id="input-${row.id}" name="input-${row.id}" type="checkbox"/>
                                 <label for="input-${row.id}" class="label-default"></label>
                            </div>
                            <p class="text-na text-align-center m-0" style="color:#A1A5AA">Inactivo</p>
@@ -158,7 +158,7 @@
                         //get array of id business rules
                         incentives_list.push(row);
                         return `
-                        <button onclick="openModalEdit(${incentives_list.length-1})">
+                        <button onclick="openModalEdit(${incentives_list.length - 1})">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
                             <defs>
                                 <linearGradient id="pen" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
@@ -206,7 +206,559 @@
 
     }
 
+    //update status
+    function updateStatus(id, state) {
+        let formData = new FormData();
+        formData.append('id_criteria', id);
+        if (state == 1) {
+            formData.append('state', 0);
+        } else {
+            formData.append('state', 1);
+        }
 
+        fetch('/adviser/incentives/update/status', {
+            method: 'POST',
+            body: formData
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            if (data.status == 200) {
+                //reload table
+                incentives_list_table.ajax.reload();
+            } else {
+                alert(data.message);
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    const renderDoubleRuleModal = (criteria) => {
+        console.log(criteria);
+        //change text of id
+        $('#title_1').text("Edición de criterio " + criteria.characteristic);
+        $('#characteristic_1').text(criteria.characteristic);
+        $('#description_1').text(criteria.description);
+
+        //update values of inputs
+        $('#state_1').val(criteria.state);
+        $('#expiration_days_1').val(criteria.expiration_days);
+        let max = -1;
+        criteria.business_rules.map((rule, index) => {
+            console.log("rule", rule);
+            console.log("index", index);
+            $('#id_rule_' + index).val(rule.id);
+            $('#min_measure_' + index).val(rule.min_measure);
+            console.log('#max_measure_' + index, rule.max_measure);
+            $('#max_measure_' + index).val(rule.max_measure);
+            $('#given_points_' + index).val(rule.given_points);
+            if (parseInt(rule.given_points) > max) {
+                max = rule.given_points;
+            }
+        });
+        $('#max_measure_1_1').val(max);
+        //change onclick function
+        $('#save_criteria_1').attr('onclick', 'updateRow(' + criteria.id + ', 1)');
+        $('#modal_double_rule').modal('show');
+    }
+
+    const renderSingleRuleModal = (criteria) => {
+        console.log(criteria);
+        //change text of id
+        $('#title_2').text("Edición de criterio " + criteria.characteristic);
+        $('#characteristic_2').text(criteria.characteristic);
+        $('#description_2').text(criteria.description);
+
+
+        //change text of .unit_measure class
+        $('.unit_measure').text(criteria.measurement_unit);
+
+        //update values of inputs
+        $('#state_2').val(criteria.state);
+        $('#expiration_days_2').val(criteria.expiration_days);
+        let max = -1;
+        criteria.business_rules.map((rule, index) => {
+            $('#id_rule_2_' + index).val(rule.id);
+            $('#max_measure_2_' + index).val(rule.max_measure);
+            $('#given_points_2_' + index).val(rule.given_points);
+            if (parseInt(rule.given_points) > max) {
+                max = rule.given_points;
+            }
+        });
+        $('#max_measure_2_1_1').val(max);
+        //change onclick function
+        $('#save_criteria_2').attr('onclick', 'updateRow(' + criteria.id + ', 2)');
+        $('#modal_simple_rule').modal('show');
+    }
+
+    const noRuleModal = (criteria) => {
+        console.log(criteria);
+        //change text of id
+        $('#title_3').text("Edición de criterio " + criteria.characteristic);
+        $('#characteristic_3').text(criteria.characteristic);
+        $('#description_3').text(criteria.description);
+
+
+        //update values of inputs
+        $('#state_3').val(criteria.state);
+        $('#expiration_days_3').val(criteria.expiration_days);
+        criteria.business_rules.map((rule, index) => {
+            $('#id_rule_3_' + index).val(rule.id);
+            $('#given_points_3_' + index).val(rule.given_points);
+        });
+        //change onclick function
+        $('#save_criteria_3').attr('onclick', 'updateRow(' + criteria.id + ', 3)');
+        $('#modal_no_rule').modal('show');
+    }
+
+    //check if is number 
+    function isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    const validateForm = (type) => {
+        var isValid = true;
+        var message = "";
+
+        let state;
+        let expiration_days;
+
+        if (type == 1) {
+            state = $('#state_1').val();
+            expiration_days = $('#expiration_days_1').val();
+        } else {
+            if (type == 2) {
+                state = $('#state_2').val();
+                expiration_days = $('#expiration_days_2').val();
+            } else {
+                state = $('#state_3').val();
+                expiration_days = $('#expiration_days_3').val();
+            }
+        }
+
+        if (state == "") {
+            isValid = false;
+            message = "El estado es requerido";
+            console.log(message);
+            if (type == 1) {
+                $('#state_1').css('border', '1px solid red');
+                $("#error_state_1").show();
+                $("#error_state_1_message").text(message)
+            } else {
+                if (type == 2) {
+                    $('#state_2').css('border', '1px solid red');
+                    $("#error_state_2").show();
+                    $("#error_state_2_message").text(message)
+                }else{
+                    $('#state_3').css('border', '1px solid red');
+                    $("#error_state_3").show();
+                    $("#error_state_3_message").text(message)
+                }
+            }
+        } else {
+            if (type == 1) {
+                $('#state_1').css('border', '1px solid #ced4da');
+                $("#error_state_1").hide();
+            } else {
+                if (type == 2) {
+                    $('#state_2').css('border', '1px solid #ced4da');
+                    $("#error_state_2").hide();
+                }else{
+                    $('#state_3').css('border', '1px solid #ced4da');
+                    $("#error_state_3").hide();
+                }
+            }
+        }
+
+        if (expiration_days == "") {
+            isValid = false;
+            message = "Los días de expiración son requeridos";
+            console.log(message);
+            console.log(type);
+            if (type == 1) {
+                $('#expiration_days_1').css('border', '1px solid red');
+                $("#error_expiration_days_1").show();
+                $("#error_expiration_days_1_message").text(message)
+            } else {
+                if (type == 2) {
+                    $('#expiration_days_2').css('border', '1px solid red');
+                    $("#error_expiration_days_2").show();
+                    $("#error_expiration_days_2_message").text(message)
+                }else{
+                    $('#expiration_days_3').css('border', '1px solid red');
+                    $("#error_expiration_days_3").show();
+                    $("#error_expiration_days_3_message").text(message)
+                }
+            }
+        } else {
+            if (!isNumber(expiration_days)) {
+                isValid = false;
+                message = "Los días de expiración deben ser un número";
+                console.log(message);
+                if (type == 1) {
+                    $('#expiration_days_1').css('border', '1px solid red');
+                    $("#error_expiration_days_1").show();
+                    $("#error_expiration_days_1_message").text(message)
+                } else {
+                    if (type == 2) {
+                        $('#expiration_days_2').css('border', '1px solid red');
+                        $("#error_expiration_days_2").show();
+                        $("#error_expiration_days_2_message").text(message)
+                    }else{
+                        $('#expiration_days_3').css('border', '1px solid red');
+                        $("#error_expiration_days_3").show();
+                        $("#error_expiration_days_3_message").text(message)
+                    }
+                }
+            } else {
+                if (type == 1) {
+                    $('#expiration_days_1').css('border', '1px solid #ced4da');
+                    $("#error_expiration_days_1").hide();
+                } else {
+                    if (type == 2) {
+                        $('#expiration_days_2').css('border', '1px solid #ced4da');
+                        $("#error_expiration_days_2").hide();
+                    }else{
+                        $('#expiration_days_3').css('border', '1px solid #ced4da');
+                        $("#error_expiration_days_3").hide();
+                    }
+                }
+            }
+        }
+
+        if (type == 1) {
+            //get values of inputs
+            let min_measure_arr = [];
+            let max_measure_arr = [];
+            let given_points_arr = [];
+
+            for (let index = 0; index < 3; index++) {
+
+                let min_measure = $('#min_measure_' + index).val();
+                let max_measure = $('#max_measure_' + index).val();
+                let given_points = $('#given_points_' + index).val();
+
+                if (min_measure == "") {
+                    isValid = false;
+                    message = "El valor mínimo es requerido";
+                    $('#min_measure_' + index).css('border', '1px solid red');
+                    $("#error_min_measure_" + index).show();
+                    $("#error_min_measure_" + index + "_message").text(message)
+                } else {
+                    if (!isNumber(min_measure)) {
+                        isValid = false;
+                        message = "El valor mínimo debe ser un número";
+                        $('#min_measure_' + index).css('border', '1px solid red');
+                        $("#error_min_measure_" + index).show();
+                        $("#error_min_measure_" + index + "_message").text(message)
+                    } else {
+                        $("#error_measure_" + index).hide();
+                        $("#min_measure_" + index).css("border-color", "#ced4da");
+                    }
+                }
+
+                if (max_measure == "") {
+                    isValid = false;
+                    message = "El valor máximo es requerido";
+                    console.log(message);
+                    $('#max_measure_' + index).css('border', '1px solid red');
+                    $("#error_max_measure_" + index).show();
+                    $("#error_max_measure_" + index + "_message").text(message)
+                } else {
+                    if (!isNumber(max_measure)) {
+                        isValid = false;
+                        message = "El valor máximo debe ser un número";
+                        console.log(message);
+                        $('#max_measure_' + index).css('border', '1px solid red');
+                        $("#error_max_measure_" + index).show();
+                        $("#error_max_measure_" + index + "_message").text(message)
+                    } else {
+                        $("#error_max_measure_" + index).hide();
+                        $("#max_measure_" + index).css("border-color", "#ced4da");
+                    }
+                }
+
+                if (given_points == "") {
+                    isValid = false;
+                    message = "Los puntos dados son requeridos";
+                    console.log(message);
+                    $('#given_points_' + index).css('border', '1px solid red');
+                    $("#error_given_points_" + index).show();
+                    $("#error_given_points_" + index + "_message").text(message)
+                } else {
+                    if (!isNumber(given_points)) {
+                        isValid = false;
+                        message = "Los puntos dados deben ser un número";
+                        console.log(message);
+                        $('#given_points_' + index).css('border', '1px solid red');
+                        $("#error_given_points_" + index).show();
+                        $("#error_given_points_" + index + "_message").text(message)
+                    } else {
+                        $("#error_given_points_" + index).hide();
+                        $("#given_points_" + index).css("border-color", "#ced4da");
+                    }
+                }
+
+                min_measure_arr.push(min_measure);
+                max_measure_arr.push(max_measure);
+                given_points_arr.push(given_points);
+            }
+
+            //check if array is ascending
+            for (let index = 0; index < min_measure_arr.length; index++) {
+                if (index != 0) {
+                    if (parseInt(min_measure_arr[index]) < parseInt(min_measure_arr[index - 1])) {
+                        isValid = false;
+                        message = "Los valores mínimos deben ser menores al anterior";
+                        console.log(message);
+                        $('#min_measure_' + (index - 1)).css('border', '1px solid red');
+                        $("#error_min_measure_" + (index - 1)).show();
+                        $("#error_min_measure_" + (index - 1) + "_message").text(message)
+                    }
+                }
+            }
+
+            //check if array is ascending
+            for (let index = 0; index < max_measure_arr.length; index++) {
+                if (index != 0) {
+                    if (parseInt(max_measure_arr[index]) < parseInt(max_measure_arr[index - 1])) {
+                        isValid = false;
+                        message = "Los valores máximos deben ser mayores al anterior";
+                        console.log(message);
+                        $('#max_measure_' + (index - 1)).css('border', '1px solid red');
+                        $("#error_max_measure_" + (index - 1)).show();
+                        $("#error_max_measure_" + (index - 1) + "_message").text(message)
+                    }
+                }
+            }
+
+            //check if array is descending
+            console.log(given_points_arr);
+            for (let index = 0; index < given_points_arr.length; index++) {
+                if (index != 0) {
+                    if (parseInt(given_points_arr[index]) > parseInt(given_points_arr[index - 1])) {
+                        isValid = false;
+                        message = "Los puntos dados deben ser menores al anterior";
+                        console.log(message);
+                        $('#given_points_' + (index - 1)).css('border', '1px solid red');
+                        $("#error_given_points_" + (index - 1)).show();
+                        $("#error_given_points_" + (index - 1) + "_message").text(message)
+                    }
+                }
+            }
+        } else if (type == 2) {
+            //get values of inputs
+            let max_measure_arr = [];
+            let given_points_arr = [];
+            for (let index = 0; index < 3; index++) {
+
+                let max_measure = $('#max_measure_2_' + index).val();
+                let given_points = $('#given_points_2_' + index).val();
+
+                if (max_measure == "") {
+                    isValid = false;
+                    message = "El valor máximo es requerido";
+                    console.log(message);
+                    $('#max_measure_2_' + index).css('border', '1px solid red');
+                    $("#error_max_measure_2_" + index).show();
+                    $("#error_max_measure_2_" + index + "_message").text(message)
+                } else {
+                    if (!isNumber(max_measure)) {
+                        isValid = false;
+                        message = "El valor máximo debe ser un número";
+                        console.log(message);
+                        $('#max_measure_2_' + index).css('border', '1px solid red');
+                        $("#error_max_measure_2_" + index).show();
+                        $("#error_max_measure_2_" + index + "_message").text(message)
+                    } else {
+                        $("#error_max_measure_2_" + index).hide();
+                        $("#max_measure_2_" + index).css("border-color", "#ced4da");
+                    }
+                }
+
+                if (given_points == "") {
+                    isValid = false;
+                    message = "Los puntos dados son requeridos";
+                    console.log(message);
+                    $('#given_points_2_' + index).css('border', '1px solid red');
+                    $("#error_given_points_2_" + index).show();
+                    $("#error_given_points_2_" + index + "_message").text(message)
+                } else {
+                    if (!isNumber(given_points)) {
+                        isValid = false;
+                        message = "Los puntos dados deben ser un número";
+                        console.log(message);
+                        $('#given_points_2_' + index).css('border', '1px solid red');
+                        $("#error_given_points_2_" + index).show();
+                        $("#error_given_points_2_" + index + "_message").text(message)
+                    } else {
+                        $("#error_given_points_2_" + index).hide();
+                        $("#given_points_2_" + index).css("border-color", "#ced4da");
+                    }
+                }
+
+                max_measure_arr.push(max_measure);
+                given_points_arr.push(given_points);
+            }
+
+            //check if array is descending
+            for (let index = 0; index < max_measure_arr.length; index++) {
+                if (index != 0) {
+                    if (parseInt(max_measure_arr[index]) > parseInt(max_measure_arr[index - 1])) {
+                        isValid = false;
+                        message = "Los valores máximos deben ser mayores al anterior";
+                        console.log(message);
+                        $('#max_measure_2_' + (index - 1)).css('border', '1px solid red');
+                        $("#error_max_measure_2_" + (index - 1)).show();
+                        $("#error_max_measure_2_" + (index - 1) + "_message").text(message)
+                    }
+                }
+            }
+
+            //check if array is descending
+            for (let index = 0; index < given_points_arr.length; index++) {
+                if (index != 0) {
+                    if (parseInt(given_points_arr[index]) > parseInt(given_points_arr[index - 1])) {
+                        isValid = false;
+                        message = "Los puntos dados deben ser menores al anterior";
+                        console.log(message);
+                        $('#given_points_2_' + (index - 1)).css('border', '1px solid red');
+                        $("#error_given_points_2_" + (index - 1)).show();
+                        $("#error_given_points_2_" + (index - 1) + "_message").text(message)
+                    }
+                }
+            }
+        } else {
+            let given_points = $('#given_points_3_' + 0).val();
+            if (given_points == "") {
+                isValid = false;
+                message = "Los puntos dados son requeridos";
+                console.log(message);
+                $('#given_points_3_' + 0).css('border', '1px solid red');
+                $("#error_given_points_3_" + 0).show();
+                $("#error_given_points_3_" + 0 + "_message").text(message)
+            } else {
+                if (!isNumber(given_points)) {
+                    isValid = false;
+                    message = "Los puntos dados deben ser un número";
+                    console.log(message);
+                    $('#given_points_3_' + 0).css('border', '1px solid red');
+                    $("#error_given_points_3_" + 0).show();
+                    $("#error_given_points_3_" + 0 + "_message").text(message)
+                }else{
+                    $("#error_given_points_3_" + 0).hide();
+                    $("#given_points_3_" + 0).css("border-color", "#ced4da");
+                }
+            }
+        }
+
+        return isValid;
+    }
+
+    const updateCriteria = (id, type) => {
+        if (validateForm(type)) {
+            //get values of inputs
+            if (type == 1) {
+                $('#save_criteria_1').hide();
+                $('#loading_1').show();
+            } else if (type == 2) {
+                $('#save_criteria_2').hide();
+                $('#loading_2').show();
+            } else {
+                $('#save_criteria_3').hide();
+                $('#loading_3').show();
+            }
+            let state;
+            let expiration_days;
+            if (type == 1) {
+                state = $('#state_1').val();
+                expiration_days = $('#expiration_days_1').val();
+            } else {
+                if (type == 2) {
+                    state = $('#state_2').val();
+                    expiration_days = $('#expiration_days_2').val();
+                } else {
+                    state = $('#state_3').val();
+                    expiration_days = $('#expiration_days_3').val();
+                }
+            }
+            let formData = new FormData();
+            formData.append('id_criteria', id);
+            formData.append('state', state);
+            formData.append('expiration_days', expiration_days);
+            formData.append('has_rule', type == 3 ? "false" : "true");
+            let business_rules = [];
+            if (type == 1) {
+                //get values of inputs
+                for (let index = 0; index < 3; index++) {
+                    let rule = {
+                        "id": $('#id_rule_' + index).val(),
+                        'min_measure': $('#min_measure_' + index).val(),
+                        'max_measure': $('#max_measure_' + index).val(),
+                        'given_points': $('#given_points_' + index).val(),
+                    }
+                    business_rules.push(rule);
+                }
+            } else if (type == 2) {
+                //get values of inputs
+                for (let index = 0; index < 3; index++) {
+                    let rule = {
+                        "id": $('#id_rule_2_' + index).val(),
+                        'min_measure': null,
+                        'max_measure': $('#max_measure_2_' + index).val(),
+                        'given_points': $('#given_points_2_' + index).val(),
+                    }
+                    business_rules.push(rule);
+                }
+            } else {
+                business_rules = {
+                    "id": $('#id_rule_3_' + 0).val(),
+                    'min_measure': null,
+                    'max_measure': null,
+                    'given_points': $('#given_points_3_' + 0).val(),
+                }
+            }
+            formData.append('business_rules', JSON.stringify(business_rules));
+            fetch('/adviser/incentives/update', {
+                method: 'POST',
+                body: formData
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                if (data.status == 200) {
+                    //reload table
+                    incentives_list_table.ajax.reload();
+                    $('#modal_double_rule').modal('hide');
+                    $('#modal_simple_rule').modal('hide');
+                    $('#modal_no_rule').modal('hide');
+                } else {
+                    alert(data.message);
+                }
+                if (type == 1) {
+                    $('#save_criteria_1').show();
+                    $('#loading_1').hide();
+                } else if (type == 2) {
+                    $('#save_criteria_2').show();
+                    $('#loading_2').hide();
+                } else {
+                    $('#save_criteria_3').show();
+                    $('#loading_3').hide();
+                }
+            }).catch(function (error) {
+                if (type == 1) {
+                    $('#save_criteria_1').show();
+                    $('#loading_1').hide();
+                } else if (type == 2) {
+                    $('#save_criteria_2').show();
+                    $('#loading_2').hide();
+                } else {
+                    $('#save_criteria_3').show();
+                    $('#loading_3').hide();
+                }
+                console.log(error);
+            });
+        }
+    }
 
     // **********************
     // *** Call functions ***
@@ -226,13 +778,38 @@
                 if (row.business_rules.length == 1) {
                     //no has business rules only update total_points
                     console.log("No tiene reglas de negocio");
-                    $('#modal-edit-no-bussines').modal('show');
+                    noRuleModal(row);
                 } else {
                     //more than one business rule
-                    console.log("Tiene reglas de negocio");
-                    $('#modal-edit-bussines').modal('show');
+                    if (row.business_rules[0].min_measure) {
+                        console.log("Tiene reglas de negocio doble");
+                        renderDoubleRuleModal(row);
+                    } else {
+                        console.log("Tiene reglas de negocio simple");
+                        renderSingleRuleModal(row);
+                    }
                 }
             }
+
+            window.updateStatusRow = function (index, state) {
+                updateStatus(index, state);
+            }
+
+            window.updateRow = function (id, type) {
+                console.log(id);
+                updateCriteria(id, type);
+            }
+
+            //detect given_points_0 change
+            $('#given_points_0').on('input', function () {
+                let value = $(this).val();
+                $('#max_measure_1_1').val(value);
+            });
+
+            $('#given_points_2_0').on('input', function () {
+                let value = $(this).val();
+                $('#max_measure_2_1_1').val(value);
+            });
         }
     };
 

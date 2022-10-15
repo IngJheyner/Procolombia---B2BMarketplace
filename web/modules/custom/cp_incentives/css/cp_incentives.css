@@ -116,28 +116,6 @@
 .dashboard-incentives .card-incentives tr:last-child {
   border-bottom: 1px solid #d8dadd;
 }
-.dashboard-incentives .card-incentives .button-table {
-  text-align: end;
-  padding: 20px 0px 0px;
-}
-.dashboard-incentives .card-incentives .button-table .btn-satatus {
-  background: #f0f0f0 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
-  border-radius: 5px;
-  border: none;
-  padding: 10px 20px;
-  font-family: Gothic-Bold;
-  margin-right: 10px;
-}
-.dashboard-incentives .card-incentives .button-table .btn-edit {
-  background: #005ca4;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
-  border-radius: 5px;
-  border: none;
-  padding: 10px 20px;
-  font-family: Gothic-Bold;
-  color: #ffffff;
-}
 .dashboard-incentives .card-table-incentive {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
   border-radius: 4px;
@@ -191,11 +169,34 @@
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
   border-radius: 11px;
-  padding: 0px 38px 30px;
   margin: 20px 0px 50px;
+  padding: 0px 24px 30px;
+  width: 91%;
 }
 .dashboard-incentives .dataTables_scrollHead {
   width: 100% !important;
+}
+.dashboard-incentives .button-table {
+  text-align: end;
+  padding: 20px 0px 0px;
+}
+.dashboard-incentives .button-table .btn-satatus {
+  background: #f0f0f0 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-family: Gothic-Bold;
+  margin-right: 10px;
+}
+.dashboard-incentives .button-table .btn-edit {
+  background: #005ca4;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-family: Gothic-Bold;
+  color: #ffffff;
 }
 .dashboard-incentives .filtter_btn.btn {
   background: #0085ca;
@@ -379,6 +380,7 @@
   color: #3b3d42;
   font-family: Gothic-Bold;
   border-color: rgba(0, 0, 0, 0.2);
+  width: 91%;
 }
 .dashboard-incentives .modal-title img {
   margin-right: 10px;
@@ -403,6 +405,40 @@
   font-weight: 600;
   width: 100%;
   margin-top: 20px;
+}
+.dashboard-incentives .continue {
+  font-family: Gothic-Regular;
+  text-align: end;
+}
+.dashboard-incentives .continue .cancel {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 7px 20px;
+  margin-right: 10px;
+  font-family: Gothic-Regular;
+  color: #005ca4;
+  transition: all 0.4s ease-out !important;
+}
+.dashboard-incentives .continue .cancel:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+}
+.dashboard-incentives .continue .continue {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 7px 20px;
+  background-color: #005ca4;
+  color: #ffffff;
+  font-family: Gothic-Regular;
+  transition: all 0.4s ease-out !important;
+}
+.dashboard-incentives .continue .continue:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
 }
 .dashboard-incentives #buyers-list_length,
 .dashboard-incentives #exportadores-list_length,
@@ -433,7 +469,7 @@
   left: 0;
 }
 .dashboard-incentives .swicher label::after {
-  background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box !important;
+  background: #fff;
   border-radius: 16px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   content: "";
@@ -451,7 +487,7 @@
   left: 0;
 }
 .dashboard-incentives .swicher input[type=checkbox]:checked + label::after {
-  background: inherit;
+  background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box !important;
   left: 20px;
 }
 .dashboard-incentives .business-num p {
@@ -1468,4 +1504,4 @@
 .dashboard-incentives .dataTables_paginate,
 .dashboard-incentives .dataTables_info {
   margin-top: 20px;
-}
+}/*# sourceMappingURL=cp_incentives.css.map */

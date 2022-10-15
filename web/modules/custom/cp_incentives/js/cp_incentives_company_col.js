@@ -65,18 +65,29 @@
             let html = '';
             let benefit_list = result.data;
             if (benefit_list.length > 0) {
-              console.log(benefit_list);
+              // console.log(benefit_list);
               console.log("La información testing");
               benefit_list.forEach((benefit) =>{
                 console.log(benefit.id_status + ' ESTE ES EL ID ');
 
-
-                html = `
+                //if window.location.pathname.includes('dashboard/col/user/incentives')
+                if (window.location.href.indexOf("/en/") !=  -1) {
+                  html = `
                   <li>
-                    <strong>${benefit.incentives_description}</strong>
+                    <strong>${benefit.incentives_description} </strong>
                   </li>
-                      
                 `;
+                } else if (window.location.href.indexOf("/es/") !=  -1){
+                  html = `
+                  <li>
+                    <strong>${benefit.incentives_description_spanish}</strong>
+                  </li>
+                `;
+                }
+                html += `
+                  <div id= 'benefit-${benefit.id}'>
+                `;
+                
                 $('#status-content-'+benefit.id_status).append(html);
               });
               
@@ -97,49 +108,68 @@ function getHowLevelUp () {
       method: 'POST',
       body: formdata,
     };
-    fetch("/incentives/get_incentives", requestOptions)
+    fetch("/user/incentives/get_incentives", requestOptions)
         .then(response => response.json())
         .then((result) => {
-            let html2 = '';
+          let html2 = '';
           let points = result.data;
+          console.log(points);
           var criterium = '';
             if (points.length > 0) {
                 console.log(points);
                 console.log("La información");
                 
                 points.forEach((points) =>{
-                    if(points.criteria_state >= 1) {
-                        if(points.criteria_characteristic == 'Tiempo de respuesta en el chat') {
+                  console.log(typeof(parseInt(points.id)) + "NNOONO");
+                    if(points.criteria_state == '1') {
+                      
+                        if(points.criteria_characteristic == 'Response time in chat') {
                             if(points.min_measure == 0){
-                                criterium = Drupal.t('Tiempos de respuesta en el chat menor a 1 hora');
+                              criterium = Drupal.t('Response time in chat less than 1 hour');
                             }else if (points.min_measure == 1){
-                                criterium = Drupal.t('Tiempos de respuesta en el chat entre ') +
-                                points.min_measure + Drupal.t(' hora a ') + points.max_measure + Drupal.t(' horas');
+                              criterium = Drupal.t('Response time in chat between ') +
+                                points.min_measure + Drupal.t(' hour and ') + points.max_measure + Drupal.t(' hours.');
                             } else {
-                                criterium = Drupal.t('Tiempos de respuesta en el chat entre ') +
-                                points.min_measure + Drupal.t(' horas a ') + points.max_measure + Drupal.t(' horas');
+                              criterium = Drupal.t('Response time in chat between ') +
+                                points.min_measure + Drupal.t(' hours and ') + points.max_measure + Drupal.t(' hours.');
                             }
                             
-                        } else if (points.criteria_characteristic == 'Calificacion del comprador internacional') {
-                            criterium = Drupal.t('Calificacion del comprador internacional al tener ') + points.max_measure + Drupal.t(' estrellas de apreciación.');
+                        } else if (points.criteria_characteristic == "International buyer's qualification") {
+                          criterium = Drupal.t("International buyer's rating of ") + points.max_measure + Drupal.t('-star appreciation');
                         }
-                        else if (points.criteria_characteristic == 'Numero de visualizaciones de producto o servicio') {
-                            criterium = Drupal.t('Numero de visualizaciones de producto o servicio mayor o igual a ') + points.max_measure + Drupal.t(' vistas.');
+                        else if (points.criteria_characteristic == 'Views of product or service') {
+                          criterium = Drupal.t('Views of product or service') + Drupal.t(' greater than or equal to ') + points.max_measure + Drupal.t(' views.');
                         }
-                        else if (points.criteria_characteristic == 'Reporte de logros') {
-                            criterium = Drupal.t('Acumulará puntos por cada logro reportado y verificado en el CMR-Neo con el estado "Certificado".');
+                        else if (points.criteria_characteristic == 'Achievement report') {
+                          criterium = Drupal.t('You will accumulate points for each achievement reported and verified in CRM-Neo with the Status "Certified"');
                         }
-                        else if (points.criteria_characteristic == 'Actualizacion de productos o servicios') {
-                            criterium = Drupal.t('Acumulará puntos por cada actualización en el sistema de los productos o servicios.');
+                        else if (points.criteria_characteristic == 'Updating products or services') {
+                          criterium = Drupal.t('You will accumulate points for each product or service update in the system.');
                         }
-                        else if (points.criteria_characteristic == 'Actualizacion perfil de empresa') {
-                            criterium = Drupal.t('Acumulará puntos por cada actualización de perfil de su empresa.');
+                        else if (points.criteria_characteristic == 'Company profile update') {
+                          criterium = Drupal.t("You will accumulate points for each update in the company's profile.");
                         }
-                        else if (points.criteria_characteristic == 'Referidos') {
-                            criterium = Drupal.t('Acumulará puntos por cada referido en la plataforma.');
+                        else if (points.criteria_characteristic == 'Referrals') {
+                          criterium = Drupal.t('You will accumulate points for each referral in the platform.');
+                          html2 += `
+                              <li style="color: blue;">
+                                  <p>
+                                      ${Drupal.t('Refer Colombian exporting companies to register on the platform.')}
+                                  </p>
+                                  <p>
+                                      + ${points.given_points} ${Drupal.t('points')}
+                                  </p>
+                              </li>
+                            `;
                         }
-                        else if (points.criteria_characteristic == 'Referidos') {
-                            criterium = Drupal.t('Referidos empresas exportadoras colombianas para que se registren en la plataforma.');
+                        else if (points.criteria_characteristic == 'Meeting Report') {
+                          criterium = Drupal.t('You will accumulate points per meeting reported on the platform in the dashboard of companies with interaction.');
+                        }
+                        else if (points.criteria_characteristic == 'Sample shipment report') {
+                          criterium = Drupal.t('You will accumulate points for reporting a sample shipment on the platform in the dashboard of companies with interaction.');
+                        }
+                        else if (points.criteria_characteristic == 'Exportation Report') {
+                          criterium = Drupal.t('You will accumulate points for reporting an exportation on the platform in the dashboard of companies with interaction.');
                         }
                         else{
                             criterium = points.criteria_characteristic;
@@ -150,18 +180,26 @@ function getHowLevelUp () {
                                 ${criterium}
                             </p>
                             <p>
-                                + ${points.max_measure} puntos
+                                + ${points.given_points} ${Drupal.t('points')}
                             </p>
                         </li>
                         `
-                    } else {}
+                  } else {
+                    html2 += `
+                      <li style="color: red;">
+                          <p>
+                              ${criterium}
+                          </p>
+                          <p>
+                            + ${points.given_points} ${Drupal.t('points')}
+                          </p>
+                      </li>
+                      `
+                  }
                     
                 });
                 $('#how-get-points').html(html2);
             }
-                
-            
-            
             })
             .catch(error => console.log('error', error));
 
@@ -170,9 +208,9 @@ function getHowLevelUp () {
     //function to show how-get-points section
     function showHowGetPoints() {
       if($('#how-get-points').css('display') == 'none'){
-        $('#how-get-points').show();
+        $('#how-get-points').css('display', 'block');
       } else {
-        $('#how-get-points').hide();
+        $('#how-get-points').css('display', 'none');
       }
     }
     function getReferenceCode() {

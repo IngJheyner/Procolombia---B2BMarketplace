@@ -413,24 +413,31 @@ class CpAdviserController extends ControllerBase {
    */
   public function updateCriteria(Request $request) {
     // Request data.
-    $data = $request->request->all();
+    try {
+      $data = $request->request->all();
 
-    $values = [
-      'id' => $data['id'],
-      'state' => $data['state'],
-      'expiration_days' => $data['expiration_days'],
-      'updated' => date('Y-m-d H:i:s'),
-    ];
+      $values = [
+        'id' => $data['id'],
+        'state' => $data['state'],
+        'expiration_days' => $data['expiration_days'],
+        'updated' => date('Y-m-d H:i:s'),
+      ];
 
-    $this->db->update('cp_incentives_criteria')
-      ->fields($values)
-      ->condition('id', $data['id'])
-      ->execute();
+      $this->db->update('cp_incentives_criteria')
+        ->fields($values)
+        ->condition('id', $data['id'])
+        ->execute();
 
-    return new JsonResponse([
-      'status' => 200,
-    ]);
+      return new JsonResponse([
+        'status' => 200,
+      ]);
 
+    } catch (Exception $e) {
+      return new JsonResponse([
+        'status' => 500,
+        'message' => $e->getMessage(),
+      ]);
+    }
   }
 
   /**
@@ -495,7 +502,9 @@ class CpAdviserController extends ControllerBase {
       if ($data["has_rule"] === "true") {
         //update cp_incentives_business_rules
         //iterate bussines_rules
-        foreach ($data['business_rules'] as $business_rule) {
+        //conver $data['business_rules'] to array
+        $business_rules = json_decode($data['business_rules'], TRUE);
+        foreach ($business_rules as $business_rule) {
           $values = [
             'min_measure' => $business_rule['min_measure'],
             'max_measure' => $business_rule['max_measure'],
@@ -511,6 +520,7 @@ class CpAdviserController extends ControllerBase {
           'status' => 200,
         ]);
       } else {
+        $business_rule = json_decode($data['business_rules'], TRUE);
         $values = [
           'min_measure' => $business_rule['min_measure'],
           'max_measure' => $business_rule['max_measure'],
@@ -521,7 +531,41 @@ class CpAdviserController extends ControllerBase {
           ->fields($values)
           ->condition('id', $business_rule['id'])
           ->execute();
+        return new JsonResponse([
+          'status' => 200,
+        ]);
       }
+    } catch (\Exception $e) {
+      return new JsonResponse([
+        'status' => 500,
+        'message' => $e->getMessage(),
+      ]);
+    }
+  }
+
+  /**
+   * Update incentive status
+   */
+  public function updateIncentiveStatus(Request $request) {
+    // Request data.
+    $data = $request->request->all();
+    /*
+    * save in cp_incentives_criteria 
+    * state
+    * expiration_days
+    */
+    try {
+      $values = [
+        'state' => $data['state'],
+        'updated' => date('Y-m-d H:i:s'),
+      ];
+      $this->db->update('cp_incentives_criteria')
+        ->fields($values)
+        ->condition('id', $data['id_criteria'])
+        ->execute();
+      return new JsonResponse([
+        'status' => 200,
+      ]);
     } catch (\Exception $e) {
       return new JsonResponse([
         'status' => 500,

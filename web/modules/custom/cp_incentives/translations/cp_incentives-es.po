@@ -63,7 +63,7 @@ msgstr "Calificación del comprador internacional"
 msgid "Business rule must be parameterizable, with the star rating given by the international buyer (average rating)."
 msgstr "Debe ser parametrizable la regla de negocio, con la calificación por estrellas dada por el comprador internacional (calificación promedio)."
 
-msgid "View's of product or service"
+msgid "Views of product or service"
 msgstr "Número de visualizaciones de producto o servicio"
 
 msgid "Business rule must be parameterizable, according to the number of views of the product or service uploaded on the platform."
@@ -90,8 +90,8 @@ msgstr "Acumulará puntos por cada actualización en el perfil de la empresa."
 msgid "Referrals"
 msgstr "Referidos"
 
-msgid "You will accumulate points per referral on the platform, with the referral code."
-msgstr "Acumulará puntos por referido en la plataforma, con el código de referidos."
+msgid "You will accumulate points for each referral in the platform."
+msgstr "Acumulará puntos por cada referido en la plataforma."
 
 msgid "Meeting Report"
 msgstr "Reporte de reunión"
@@ -231,17 +231,17 @@ msgstr "Mayor a"
 msgid "LEARN HOW TO LEVEL UP"
 msgstr "CONOCE CÓMO SUBIR DE NIVEL"
 
-msgid "FEATURED PRODUCTS / SERVICES"
-msgstr "PRODUCTOS / SERVICIOS DESTACADOS"
+msgid "<strong>FEATURED</strong> PRODUCTS / SERVICES"
+msgstr "PRODUCTOS / SERVICIOS <strong>DESTACADOS</strong>"
 
 msgid "ProColombia recognizes you as a"
-msgstr "ProColombia lo reconoce en el"
+msgstr "ProColombia lo reconoce en el <strong>Nivel de aliado</strong>"
 
 msgid " "
 msgstr "Nivel de aliado"
 
-msgid "ally"
-msgstr "."
+msgid " <strong>ally.</strong>"
+msgstr "<strong>.</strong>"
 
 msgid "Here you can view your products / services at the platform."
 msgstr "Aquí podrá visualizar sus productos / servicios destacados en la plataforma."
@@ -283,7 +283,7 @@ msgstr "Número de Puntos"
 msgid "Description"
 msgstr "Descripción"
 
-msgid "CREATE REFERENCE CODE"
+msgid "CREATE REFERAL CODE"
 msgstr "CREAR CÓDIGO DE REFERIDO"
 
 msgid "The measurement must not be empty and have a higher value than 0"
@@ -303,3 +303,39 @@ msgstr "PROCOLOMBIA LO RECONOCE EN EL NIVEL DE "
 
 msgid "ALLY"
 msgstr ""
+
+msgid "Company's name:"
+msgstr "Nombre de la empresa:"
+
+msgid "Points Earned:"
+msgstr "Puntos Obtenidos:"
+
+msgid "Response time in chat less than 1 hour"
+msgstr "Tiempos de respuesta en el chat menor a una hora"
+
+msgid "Response time in chat between "
+msgstr "Tiempos de respuesta en el chat entre "
+
+msgid " hour and "
+msgstr " hora a "
+
+msgid " hours and "
+msgstr " horas a "
+
+msgid " hours."
+msgstr " horas."
+
+msgid " International buyer's rating of "
+msgstr "Calificacion del comprador internacional al tener "
+
+msgid "-star appreciation"
+msgstr " estrellas de apreciación."
+
+msgid " greater than or equal to "
+msgstr " mayor o igual a "
+
+msgid " views."
+msgstr " vistas."
+
+msgid "Refer Colombian exporting companies to register on the platform."
+msgstr "Referidos empresas exportadoras colombianas para que se registren en la plataforma."

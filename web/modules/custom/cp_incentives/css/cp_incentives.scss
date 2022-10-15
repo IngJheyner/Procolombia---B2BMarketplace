@@ -137,28 +137,6 @@ $font-bold-maven: Maven-Bold;
         border-bottom: 1px solid #d8dadd;
       }
     }
-    .button-table {
-      text-align: end;
-      padding: 20px 0px 0px;
-      .btn-satatus {
-        background: #f0f0f0 0% 0% no-repeat padding-box;
-        box-shadow: 0px 3px 6px #00000029;
-        border-radius: 5px;
-        border: none;
-        padding: 10px 20px;
-        font-family: $font-bold;
-        margin-right: 10px;
-      }
-      .btn-edit {
-        background: $color-Pantone-116-C;
-        box-shadow: 0px 3px 6px #00000029;
-        border-radius: 5px;
-        border: none;
-        padding: 10px 20px;
-        font-family: $font-bold;
-        color: $color-White;
-      }
-    }
   }
   .card-table-incentive {
     box-shadow: 0px 3px 6px #00000029;
@@ -217,11 +195,34 @@ $font-bold-maven: Maven-Bold;
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 11px;
-    padding: 0px 38px 30px;
     margin: 20px 0px 50px;
+    padding: 0px 24px 30px;
+    width: 91%;
   }
   .dataTables_scrollHead {
     width: 100% !important;
+  }
+  .button-table {
+    text-align: end;
+    padding: 20px 0px 0px;
+    .btn-satatus {
+      background: #f0f0f0 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 5px;
+      border: none;
+      padding: 10px 20px;
+      font-family: $font-bold;
+      margin-right: 10px;
+    }
+    .btn-edit {
+      background: $color-Pantone-116-C;
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 5px;
+      border: none;
+      padding: 10px 20px;
+      font-family: $font-bold;
+      color: $color-White;
+    }
   }
 
   .filtter_btn.btn {
@@ -428,6 +429,7 @@ $font-bold-maven: Maven-Bold;
       color: $color-Gris-Oscuro;
       font-family: $font-bold;
       border-color: #00000033;
+      width: 91%;
     }
   }
 
@@ -448,17 +450,55 @@ $font-bold-maven: Maven-Bold;
         color: $color-Pantone-200;
       }
     }
-    select{
+    select {
       height: 40px;
     }
-    .sub-tittle-modal{
-      p{
+    .sub-tittle-modal {
+      p {
         font-size: 20px !important;
         font-family: $font-bold;
         color: $color-Pantone-process-Blue;
         font-weight: 600;
         width: 100%;
         margin-top: 20px;
+      }
+    }
+  }
+  .continue {
+    font-family: $font-regular;
+    text-align: end;
+
+    .cancel {
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      padding: 7px 20px;
+      margin-right: 10px;
+      font-family: $font-regular;
+      color: $color-Pantone-116-C;
+      transition: all 0.4s ease-out !important;
+
+      &:hover {
+        color: $color-White;
+        background-color: $color-Pantone-process-Blue;
+        box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+      }
+    }
+
+    .continue {
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      padding: 7px 20px;
+      background-color: $color-Pantone-116-C;
+      color: $color-White;
+      font-family: $font-regular;
+      transition: all 0.4s ease-out !important;
+
+      &:hover {
+        color: $color-White;
+        background-color: $color-Pantone-process-Blue;
+        box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
       }
     }
   }
@@ -494,7 +534,7 @@ $font-bold-maven: Maven-Bold;
       }
 
       &::after {
-        background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box !important;
+        background: #fff;
         border-radius: 16px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
         content: "";
@@ -516,7 +556,7 @@ $font-bold-maven: Maven-Bold;
       }
 
       &::after {
-        background: inherit;
+        background: transparent linear-gradient(180deg, #005ca4 0%, #008cce 100%) 0% 0% no-repeat padding-box !important;
         left: 20px;
       }
     }

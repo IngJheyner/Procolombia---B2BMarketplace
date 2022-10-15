@@ -34,6 +34,15 @@ cp_incentives.get_incentives:
   requirements:
     _permission: 'access content'
 
+### GET INCENTIVES - FOR USERS
+cp_incentives.get_incentives_user:
+  path: 'user/incentives/get_incentives'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::getIncentives'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
 ### GET STATUS.
 cp_incentives.get_status:
   path: 'status/get_status'
@@ -138,6 +147,14 @@ cp_incentives.update_business_rules_type1:
   path: 'adviser/incentives/update'
   defaults:
     _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateIncentive'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+cp_incentives.update_status_incentives:
+  path: 'adviser/incentives/update/status'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateIncentiveStatus'
   methods:  [POST]
   requirements:
     _permission: 'access content'

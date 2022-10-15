@@ -1,21 +1,24 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
 <button id='create-reference-code' >
-    CREAR CODIGO DE REFERIDOOOOOOOOOOOOO
+    {{ "CREATE REFERAL CODE"|t }}
 </button>
 <input readonly id='reference-code'/>
 <button id='create-points' >
     Crear PUNTOS
 </button>
+<p>
+    {{ "BENEFITS ACCORDING TO PROCOLOMBIA AFILIATE'S STATUS CLASSIFICATION"|t }}
+</p>
 <section>
     <p>{{ "PROCOLOMBIA RECOGNIZES YOU AS A "|t }}<strong>{{ status }}</strong></p>
-    <p><strong>Nombre de la empresa:</strong> {{ company_name }}</p>
-    <p><strong>Puntos obtenidos:</strong> {{ total_points }} puntos</p>
+    <p><strong>{{"Company's name:"|t }}</strong> {{ company_name }}</p>
+    <p><strong>{{ "Points Earned:"|t }}</strong> {{ total_points }} {{ "points"|t }}</p>
 
 </section>
 <section class='mainCpIncentivesCompanyCol'>
     <button id="how-get-points-open">
-            {{ "LEARN HOW TO LEVEL UP"|t }}
-        </button>
+        {{ "LEARN HOW TO LEVEL UP"|t }}
+    </button>
     <p>
         {{ 'Testing translations 2'|t }}
     </p>
@@ -29,4 +32,15 @@
         </button>
     </section>
 
+    <section id="products-services" class='mainCpIncentivesAdviser'>
+        <h1>{{ "<strong>FEATURED</strong> PRODUCTS / SERVICES"|t }}</h1>
+        <p>{{ "ProColombia recognizes you as a"|t }} <strong>{{ status }}</strong>{{ " <strong>ally.</strong>"|t }}</p>
+        <p>{{ "Here you can view your products / services at the platform."|t }}</p>
+    </section>
+</section>
+
+<section class="container">
+    <div>
+        
+    </div>
 </section>
