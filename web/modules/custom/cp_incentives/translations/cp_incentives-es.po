@@ -363,6 +363,12 @@ msgstr "Descripción del beneficio en español"
 msgid "This field must be empty"
 msgstr "Este campo debe estar vacío"
 
+msgid "This field is required"
+msgstr "Este campo es requerido"
+
+msgid "Required Field"
+msgstr "Campo requerido"
+
 msgid "The maximum values must be greater than the previous one"
 msgstr "Los valores máximos deben ser mayores al anterior"
 

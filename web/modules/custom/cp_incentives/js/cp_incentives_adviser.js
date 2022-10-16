@@ -384,10 +384,8 @@
         let status_list = result.data;
         let last_status = status_list[0];
         let first_status = status_list[status_list.length - 1];
-        console.log(first_status.id + ' ESTE ES EL ULTIMO');
-        console.log(typeof (parseInt(first_status.id)));
 
-        // IMPORTANT: WHE HAVE TO PARSE THE VALUE TO INT BECAUSE THE VALUE IS A STRING
+        // IMPORTANT: WHE HAVE TO PARSE THE VALUE TO INT CAUSE THE VALUE IS A STRING
         let iterator = 0;
         status_list.forEach((status) => {
 
@@ -413,6 +411,7 @@
             else if (parseInt($('#status-min-points-' + status.id).val()) ==
               parseInt($('#status-max-points-' + status.id).val())) {
               isValidPoint = false;
+              console.log("PRUEBA DE LOWER");
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               message = Drupal.t('For the status ') + status.name + Drupal.t(' the max points must be higher to min points');
@@ -429,29 +428,32 @@
 
           //CHECKING THE LAST STATUS - HIGHER
           else if (parseInt(status.id) === parseInt(last_status.id)) {
-            if ($('#status-max-points-' + status.id).val() !== '') {
-              if ($('#status-name').val() == ''
-                && $('#status-min-points').val() == ''
-                && $('#status-image-src').val() == ''
-                && validatingNewStatus == false) {
-                console.log('For the status ' + status.name + ' the max points must be null');
-                $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-                $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-                isValidPoint = false;
-              } else {
-                $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-                $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-              }
-            };
+            // if ($('#status-max-points-' + status.id).val() !== '') {
+            //   if ($('#status-name').val() == ''
+            //     && $('#status-min-points').val() == ''
+            //     && $('#status-image-src').val() == ''
+            //     && validatingNewStatus == false) {
+            //     console.log('For the status ' + status.name + ' the max points must be null');
+            //     $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+            //     $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+            //     isValidPoint = false;
+            //   } else {
+            //     $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+            //     $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+            //   }
+            // };
             if (parseInt($('#status-min-points-' + status.id).val()) <=
               parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val())) {
-              console.log('For the status ' + status.name + ' the min points must be higher than the last status max points');
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be higher than the last status max points');
+              $('#error_status-min-points-'+status.id+'_message').text(message);
+              $('#error_status-min-points-'+status.id).show();
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+              $('#error_status-min-points-'+status.id).hide();
             }
             if (parseInt($('#status-min-points-' + status.id).val()) -
               parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val()) !== 1) {
@@ -461,11 +463,16 @@
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-min-points-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be one point higher than the ' + status_list[iterator + 1].name + ' status max points');
+              $('#error_status-min-points-'+status.id+'_message').text(message);
+              $('#error_status-min-points-'+status.id).show();
+              
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-min-points-' + status_list[iterator + 1].id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status_list[iterator + 1].id).css('border-color', 'rgb(204, 204, 204)');
+              $('#error_status-min-points-'+status.id).hide();
             }
           }
 
@@ -475,59 +482,62 @@
             if (parseInt($('#status-min-points-' + status.id).val())
               > parseInt($('#status-max-points-' + status.id).val())) {
               isValidPoint = false;
-              console.log('min points cannot be greater than max points');
-              $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+  
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points cannot be greater than the max points');
+              $('#error_status-max-points-'+status.id+'_message').text(message);
+              $('#error_status-max-points-'+status.id).show();
+
             } else if (parseInt($('#status-min-points-' + status.id).val()) == parseInt($('#status-max-points-' + status.id).val())) {
               isValidPoint = false;
-              console.log('Min points cannot be equal to max points');
-              $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+  
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points cannot be equal to max points');
+              $('#error_status-max-points-'+status.id+'_message').text(message);
+              $('#error_status-max-points-'+status.id).show();
+
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+              $('#error_status-max-points-'+status.id).hide();
             }
             if (parseInt($('#status-min-points-' + status.id).val()) <=
               parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val())) {
-              console.log('For the status ' + status.name + ' the min points must be higher than the last status max points');
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be one point higher than the ' + status_list[iterator + 1].name + ' status max points');
+              $('#error_status-min-points-'+status.id+'_message').text(message);
+              $('#error_status-min-points-'+status.id).show();
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-            }
+            };
             if (parseInt($('#status-min-points-' + status.id).val()) -
               parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val()) !== 1) {
-              console.log('For the status ' + status.name + ' V A L I D A C I O N  DE SECUENCIA');
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-min-points-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be one point higher than the ' + status_list[iterator + 1].name + ' status max points');
+              $('#error_status-min-points-'+status.id+'_message').text(message);
+              $('#error_status-min-points-'+status.id).show();
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-min-points-' + status_list[iterator + 1].id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status_list[iterator + 1].id).css('border-color', 'rgb(204, 204, 204)');
+              $('#error_status-min-points-'+status.id).hide();
             }
           }
           iterator++;
         });
-        //CHECKING WHEN NEW STATUS IS CREATED
-        // if ($('#status-name').val() !== ''
-        //   && $('#status-min-points').val() !== ''
-        //   && $('#status-image-src').val() !== '') {
-        //   if (parseInt($('.status_max_points').first().val()) != parseInt($('#status-min-points').val()) - 1) {
-        //     isValidPoint = false;
-        //   }
-        // };
+
         if (isValidPoint) {
           let formdata = new FormData();
           let status_list = result.data;
@@ -811,91 +821,94 @@
   }
 
   function createStatusValidations() {
+    var message = '';
     let isValid = true;
-    if ($('#status-name').val() == '' || !isValidText($('#status-name').val())) {
+    if ($('#status-name').val() == '') {
       $('#status-name').addClass('error');
       $('#status-name').css('border-color', 'rgb(186, 12, 47)');
-      console.log("El nombre del estado no es válido");
       isValid = false;
+
+      message = Drupal.t("This field is required.");
+      $("#error_status-name").show();
+      $("#error_status-name_message").text(message);
+    }
+    else if (!isValidText($('#status-name').val())) {
+      $('#status-name').addClass('error');
+      $('#status-name').css('border-color', 'rgb(186, 12, 47)');
+      isValid = false;
+
+      message = Drupal.t("The name of the status is not valid.");
+      $("#error_status-name").show();
+      $("#error_status-name_message").text(message);
     }
     else {
       $('#status-name').removeClass('error');
       $('#status-name').css('border-color', 'rgb(204, 204, 204)');
+      $("#error_status-name").hide();
     };
-    if ($('#status-min-points').val() == '' || !isValidNumber($('#status-min-points').val())) {
+    
+    if ($('#status-min-points').val() == '') {
       $('#status-min-points').addClass('error');
       isValid = false;
-      console.log("Los puntos mínimos para el nuevo status no son válidos");
       $('#status-min-points').css('border-color', 'rgb(186, 12, 47)');
       $('#span-status-min-points').css('border-color', 'rgb(186, 12, 47)');
+
+      message = Drupal.t("This field is required.");
+      $("#error_status-min-points").show();
+      $("#error_status-min-points_message").text(message);
+    }
+    else if (!isValidNumber($('#status-min-points').val())) {
+      $('#status-min-points').addClass('error');
+      isValid = false;
+      $('#status-min-points').css('border-color', 'rgb(186, 12, 47)');
+      $('#span-status-min-points').css('border-color', 'rgb(186, 12, 47)');
+
+      message = Drupal.t("Minimum points for new status are not valid.");
+      $("#error_status-min-points").show();
+      $("#error_status-min-points_message").text(message);
     }
     else {
       $('#status-min-points').removeClass('error');
       $('#status-min-points').css('border-color', 'rgb(204, 204, 204)');
       $('#span-status-min-points').css('border-color', 'rgb(204, 204, 204)');
+      $("#error_status-min-points").hide();
     };
-    if($('#status-max-points').val() != ''){
-      if(parseInt$('#status-max-points').val() < parseInt$('#status-min-points').val()){
-        $('#status-max-points').addClass('error');
-        isValid = false;
-        console.log("Los puntos mínimos para el nuevo status deben ser menores al puntaje máximo");
-        $('#status-max-points').css('border-color', 'rgb(186, 12, 47)');
-        $('#span-status-max-points').css('border-color', 'rgb(186, 12, 47)');
-      }
-      else {
-        $('#status-max-points').removeClass('error');
-        $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
-        $('#span-status-max-points').css('border-color', 'rgb(204, 204, 204)');
-      };
+    if($('#status-max-points').val() !== ''){
       if (!isValidNumber($('#status-max-points').val())) {
         $('#status-max-points').addClass('error');
         isValid = false;
         console.log("Los puntos máximos para el nuevo status no son válidos");
         $('#status-max-points').css('border-color', 'rgb(186, 12, 47)');
         $('#span-status-max-points').css('border-color', 'rgb(186, 12, 47)');
+
+        message = Drupal.t("Maximum points for new status are not valid.");
+        $("#error_status-max-points").show();
+        $("#error_status-max-points_message").text(message);
       }
       else {
-        $('#status-max-points').removeClass('error');
-        $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
-        $('#span-status-max-points').css('border-color', 'rgb(204, 204, 204)');
+        if(parseInt($('#status-max-points').val()) <= parseInt($('#status-min-points').val())){
+          console.log("prueba menor");
+          isValid = false;
+          $('#status-max-points').css('border-color', 'rgb(186, 12, 47)');
+          $('#span-status-max-points').css('border-color', 'rgb(186, 12, 47)');
+          message = Drupal.t("Maximum points for new status must be higher than minimum points.");
+          $("#error_status-max-points").show();
+          $("#error_status-max-points_message").text(message);
+        }
+        else {
+          $('#status-max-points').removeClass('error');
+          $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
+          $('#span-status-max-points').css('border-color', 'rgb(204, 204, 204)');
+          $("#error_status-max-points").hide();
+        };
       };
+    }else {
+      $('#status-max-points').removeClass('error');
+          $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
+          $('#span-status-max-points').css('border-color', 'rgb(204, 204, 204)');
+          $("#error_status-max-points").hide();
     }
 
-
-
-    // if (parseInt($('.status_max_points').first().val()) !== parseInt($('#status-min-points').val()) - 1) {
-    //   $('#status-min-points').addClass('error');
-    //   $('#status-min-points').css('border-color', 'rgb(186, 12, 47)');
-    //   $('#span-status-min-points').css('border-color', 'rgb(186, 12, 47)');
-    //   console.log("El puntaje del nuevo status debe ser un punto mayor al del status anterior");
-    //   isValid = false;
-    // } else {
-    //   $('#status-max-points').removeClass('error');
-    //   $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
-    //   $('#span-status-max-points').css('border-color', 'rgb(204, 204, 204)');
-    // };
-    // if ($('#status-max-points').val() != '') {
-    //   $('#status-max-points').addClass('error');
-    //   $('#status-max-points').css('border-color', 'rgb(186, 12, 47)');
-    //   $('#span-status-max-points').css('border-color', 'rgb(186, 12, 47)');
-    //   console.log("Los puntos máximos para el nuevo status deben estar vacíos");
-    //   isValid = false;
-    // }
-    // else {
-    //   $('#status-max-points').removeClass('error');
-    //   $('#status-max-points').css('border-color', 'rgb(204, 204, 204)');
-    //   $('#span-status-max-points').css('border-color', 'rgb(204, 204, 204)');
-    // };
-    if ($('#status-image-src').val() == '') {
-      $('#status-image-src').addClass('error');
-      $('#status-image-src').css('border-color', 'rgb(186, 12, 47)');
-      console.log("La imagen no es válida");
-      isValid = false;
-    }
-    else {
-      $('#status-image-src').removeClass('error');
-      $('#status-image-src').css('border-color', 'rgb(204, 204, 204)');
-    };
     if (!isValidHexColor($('#status-emphasis-main-color').val())) {
       $('#status-emphasis-main-color').addClass('error');
       $('#status-emphasis-main-color').css('border-color', 'rgb(186, 12, 47)');
@@ -918,21 +931,27 @@
     //if id img is empty then the image is not valid
     if ($('#img').val() == '') {
       $('#img-input').addClass('error');
-      $('#img-input').css('border-color', 'rgb(186, 12, 47)');
+      $('#img-input').css('border', '1px solid rgb(186, 12, 47)');
       console.log("Debe subir una imagen para el status");
       isValid = false;
+      message = Drupal.t("You must select an image.");
+      $("#error_img").show();
+      $("#error_img_message").text(message);
     }
     else {
       //if imput img doesnt have the string jpg or png then the image is not valid
       if ($('#img').val().indexOf('.png') == -1) {
         $('#img-input').addClass('error');
-        $('#img-input').css('border-color', 'rgb(186, 12, 47)');
-        console.log("La imagen no es válida, debe ser un archivo formato png");
+        $('#img-input').css('border', '1px solid rgb(186, 12, 47)');
         isValid = false;
+        message = Drupal.t("Image format is not valid, must be .png file.");
+        $("#error_img").show();
+        $("#error_img_message").text(message);
       }
       else {
         $('#img-input').removeClass('error');
-        $('#img-input').css('border-color', 'rgb(204, 204, 204)');
+        $('#img-input').css('border', '1px solid #d8dde1');
+        $("#error_img").hide();
       };
     };
     
@@ -1208,7 +1227,11 @@
         //check if path is messages
         init();
         var url = window.location.href;
-
+        $("#create-new-status").click(function () {
+          $('#img-input').css('border', '1px solid #d8dde1');
+          $('#error_img').hide();
+          $('#text-archive').text('');
+        });
         // if(url.includes("adviser/incentives/list") || url.includes("adviser/incentives/dashboard")){
         $("#edit-criteria-close", context).click(function () {
           closeModalCriteria();
