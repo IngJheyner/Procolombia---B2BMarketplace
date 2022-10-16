@@ -47,6 +47,40 @@ $font-regular-maven: Maven-Regular;
 $font-bold-maven: Maven-Bold;
 
 .dashboard-incentives {
+  .input_error {
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-left: 8px;
+      color: $color-Pantone-200;
+      display: none;
+    }
+    .tooltiptext_error {
+      width: 9.5vw !important;
+      margin-top: 1rem;
+    }
+  }
+  .status_image {
+    width: 30px;
+    height: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .status_image_2 {
+    width: 30px;
+    margin: 0 auto;
+    height: 30px;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   .input-group {
     margin: 20px 0px;
     .form-control {
@@ -87,7 +121,7 @@ $font-bold-maven: Maven-Bold;
     border-radius: 4px;
     background-color: $color-White;
     .back-button {
-      button {
+      a {
         background-color: $color-Pantone-process-Blue;
         border: none;
         border-radius: 4px;
@@ -97,6 +131,7 @@ $font-bold-maven: Maven-Bold;
         color: $color-White;
         display: flex;
         align-items: center;
+        width: 10%;
         &:hover {
           background-color: $color-Pantone-116-C;
         }
@@ -1945,5 +1980,348 @@ $font-bold-maven: Maven-Bold;
   .dataTables_paginate,
   .dataTables_info {
     margin-top: 20px;
+  }
+}
+
+.exportador-incentives {
+  .modal-header {
+    h5 {
+      font-size: 22px;
+      color: $color-Gris-Oscuro;
+      font-family: $font-bold;
+      border-color: #00000033;
+      width: 91%;
+    }
+  }
+
+  .modal-title {
+    img {
+      margin-right: 10px;
+    }
+  }
+  .modal-body {
+    label {
+      font-size: 15px;
+      font-family: $font-bold;
+      color: $color-Black;
+      font-weight: 600;
+      width: 100%;
+
+      sup {
+        color: $color-Pantone-200;
+      }
+    }
+    select {
+      height: 40px;
+    }
+    .sub-tittle-modal {
+      p {
+        font-size: 20px !important;
+        font-family: $font-bold;
+        color: $color-Pantone-process-Blue;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+  .continue {
+    font-family: $font-regular;
+    text-align: end;
+
+    .cancel {
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      padding: 7px 20px;
+      margin-right: 10px;
+      font-family: $font-regular;
+      color: $color-Pantone-116-C;
+      transition: all 0.4s ease-out !important;
+
+      &:hover {
+        color: $color-White;
+        background-color: $color-Pantone-process-Blue;
+        box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+      }
+    }
+
+    .continue {
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      padding: 7px 20px;
+      background-color: $color-Pantone-116-C;
+      color: $color-White;
+      font-family: $font-regular;
+      transition: all 0.4s ease-out !important;
+
+      &:hover {
+        color: $color-White;
+        background-color: $color-Pantone-process-Blue;
+        box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+      }
+    }
+  }
+  .code-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: $color-Pantone-process-Blue;
+    color: $color-White;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: $color-Pantone-116-C;
+    }
+  }
+  .tittle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: $font-bold;
+    color: $color-Pantone-116-C;
+    margin-bottom: 0px;
+  }
+  .incentive-card {
+    border-radius: 4px;
+    background-color: $color-White;
+    height: 100%;
+    .incentive-card__banner {
+      width: 100%;
+      height: 48px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    .incentive-card__header {
+      display: flex;
+      padding: 1rem 1rem 0.4rem;
+      align-items: center;
+      margin-bottom: 0rem;
+      .incentive-card__header__title {
+        p {
+          font-size: 1rem;
+          font-weight: 600;
+          font-family: $font-bold;
+          color: $color-Gris-Oscuro;
+          margin-bottom: 0px;
+          margin-left: 1rem;
+        }
+        .sub-tittle {
+          font-size: 0.8rem;
+          font-weight: 600;
+          font-family: $font-regular;
+          color: $color-Gris-Oscuro;
+          margin-bottom: 0px;
+          margin-left: 1rem;
+        }
+      }
+      .incentive-card__header__icon {
+        font-size: 1.3rem;
+        color: $color-Pantone-116-C;
+        width: 30px;
+        height: 30px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .incentive-card__body {
+      padding: 0.4rem 1rem 1rem;
+      overflow: auto;
+      height: 240px;
+
+      .item-check {
+        display: flex;
+        align-items: center;
+        .item-check__icon {
+          font-size: 1.5rem;
+          color: $color-Pantone-116-C;
+          margin-right: 0.5rem;
+        }
+        .item-check__text {
+          p {
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: $font-regular;
+            color: $color-Gris-Oscuro;
+            margin-bottom: 3px;
+          }
+        }
+      }
+    }
+  }
+  .card-tittle-company {
+    border-radius: 4px;
+    background-color: $color-White;
+    display: flex;
+    align-items: stretch;
+    align-content: center;
+    box-shadow: 0px 3px 6px #00000029;
+    .card-tittle-company__banner {
+      width: 15px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .card-tittle-company__body {
+      padding: 0.5rem 1rem;
+    }
+    .card-tittle-company__body__text {
+      p {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+      .status {
+        display: flex;
+        align-items: center;
+        .img-status {
+          width: 20px;
+          height: 20px;
+          margin-top: -15px;
+          margin-right: 3px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  .card-product-servervice {
+    border-radius: 4px;
+    background-color: $color-White;
+    display: flex;
+    align-items: stretch;
+    align-content: center;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-top: 1rem;
+
+    .card-product-servervice__body {
+      padding: 0.5rem 1rem;
+    }
+    .card-product-servervice__body__title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      .icon_tittle {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      p {
+        font-size: 1rem;
+        margin-bottom: 0px;
+      }
+    }
+    .product-slider {
+    }
+  }
+  .code {
+    .input-group {
+      box-shadow: 0px 3px 6px #00000029;
+      border: 1px solid #cccccc;
+      border-radius: 100px;
+      input {
+        font-size: 18px;
+        font-family: "Gothic-Bold";
+      }
+      i {
+        font-size: 30px;
+        color: #cccccc;
+      }
+    }
+    input,
+    span {
+      border: none;
+      background: #fff !important;
+      box-shadow: none;
+      text-align: center;
+      border-radius: 100px;
+    }
+    .text-code {
+      text-align: center;
+      font-size: 13px !important;
+      font-family: $font-regular;
+      color: $color-Gris-Claro-2;
+      margin-bottom: 0px;
+      padding: 8px 2px;
+    }
+    #success-code {
+      color: $color-Verde-aprobacion;
+    }
+  }
+  .line-text {
+    background-color: #f0f0f0;
+    .text {
+      font-size: 1rem;
+      font-family: $font-regular;
+      color: $color-Gris-Oscuro;
+      padding: 7px 0px;
+    }
+  }
+  .anuncio {
+    display: flex;
+    margin-top: 20px;
+
+    .anuncio-img {
+      display: flex;
+      align-items: center;
+      margin-right: 25px;
+      i {
+        border-radius: 100px;
+        font-size: 2.6rem;
+        border: 1px solid #cccccc;
+        padding: 4px;
+        color: #cccccc;
+      }
+    }
+    .anuncio-body {
+      padding-right: 2rem;
+      .tittle {
+        font-size: 15px !important;
+      }
+      .desc {
+        font-size: 14px !important;
+      }
+    }
+  }
+  .header-list {
+    display: flex;
+    justify-content: space-between;
+    strong {
+      width: 50%;
+      padding: 10px;
+    }
+  }
+  .body-item-list {
+    display: flex;
+    justify-content: space-between;
+    p {
+      width: 50%;
+      padding: 5px 10px;
+    font-size: 16px !important;
+    }
+    .last {
+      padding-right: 30px;
+      text-align: end;
+    }
+  }
+  .list-of-point {
+    height: 300px;
+    overflow: auto;
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-Pantone-116-C;
+      border-radius: 100px;
+      border: 0px solid #ffffff;
+    }
   }
 }

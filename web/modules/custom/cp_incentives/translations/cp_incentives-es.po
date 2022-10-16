@@ -33,6 +33,9 @@ msgstr "Descripción de la regla de negocio"
 msgid "Business rule"
 msgstr "Regla de negocio"
 
+msgid "Business rules"
+msgstr "Reglas de negocio"
+
 msgid "Instruction"
 msgstr "Instrucción"
 
@@ -162,7 +165,7 @@ msgstr "CANCELAR"
 msgid "SAVE CHANGES"
 msgstr "GUARDAR CAMBIOS"
 
-msgid "Visualizations"
+msgid "Views"
 msgstr "Visualizaciones"
 
 msgid "Stars"
@@ -188,6 +191,9 @@ msgstr "Guardar edición"
 
 msgid "BENEFITS ACCORDING TO PROCOLOMBIA AFILIATE'S STATUS CLASSIFICATION"
 msgstr "BENEFICIOS SEGÚN LA CLASIFICACIÓN DE STATUS ALIADO PROCOLOMBIA"
+
+msgid "BENEFITS ACCORDING TO PROCOLOMBIA<br>AFILIATE'S STATUS CLASSIFICATION"
+msgstr "BENEFICIOS SEGÚN LA CLASIFICACIÓN<br>DE STATUS ALIADO PROCOLOMBIA"
 
 msgid "Participation in Macrorruedas ProColombia."
 msgstr "Participación en Macrorruedas ProColombia."
@@ -231,8 +237,8 @@ msgstr "Mayor a"
 msgid "LEARN HOW TO LEVEL UP"
 msgstr "CONOCE CÓMO SUBIR DE NIVEL"
 
-msgid "<strong>FEATURED</strong> PRODUCTS / SERVICES"
-msgstr "PRODUCTOS / SERVICIOS <strong>DESTACADOS</strong>"
+msgid "<strong>FEATURED</strong> <br>PRODUCTS / SERVICES"
+msgstr "PRODUCTOS / SERVICIOS <br><strong>DESTACADOS</strong>"
 
 msgid "ProColombia recognizes you as a"
 msgstr "ProColombia lo reconoce en el <strong>Nivel de aliado</strong>"
@@ -252,9 +258,11 @@ msgstr "Invite a participar en el B2B ProColombia"
 msgid "Your reference code"
 msgstr "Su código de referencia"
 
+msgid "Your referral code was successfully copied"
+msgstr "Su código de referencia fue copiado con éxito"
+
 msgid "How it works?"
 msgstr "¿Cómo funciona?"
-
 
 msgid "Send your reference code to your contacts"
 msgstr "Envíe su código a otros contactos"
@@ -299,10 +307,10 @@ msgid "Save"
 msgstr "Guardar"
 
 msgid "PROCOLOMBIA RECOGNIZES YOU AS A "
-msgstr "PROCOLOMBIA LO RECONOCE EN EL NIVEL DE "
+msgstr "PROCOLOMBIA LO RECONOCE EN EL NIVEL DE <strong>ALIADO</strong> "
 
-msgid "ALLY"
-msgstr ""
+msgid " ALLY."
+msgstr "."
 
 msgid "Company's name:"
 msgstr "Nombre de la empresa:"
@@ -325,7 +333,7 @@ msgstr " horas a "
 msgid " hours."
 msgstr " horas."
 
-msgid " International buyer's rating of "
+msgid "International buyer's rating of "
 msgstr "Calificacion del comprador internacional al tener "
 
 msgid "-star appreciation"
@@ -339,3 +347,90 @@ msgstr " vistas."
 
 msgid "Refer Colombian exporting companies to register on the platform."
 msgstr "Referidos empresas exportadoras colombianas para que se registren en la plataforma."
+
+msgid "Classification's name"
+msgstr "Nombre de la clasificación"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Benefit description"
+msgstr "Descripción del beneficio en inglés"
+
+msgid "Benefit description in spanish"
+msgstr "Descripción del beneficio en español"
+
+msgid "This field must be empty"
+msgstr "Este campo debe estar vacío"
+
+msgid "The maximum values must be greater than the previous one"
+msgstr "Los valores máximos deben ser mayores al anterior"
+
+msgid "State is required"
+msgstr "El estado es requerido"
+
+msgid "Expiration days are required"
+msgstr "Los días de expiración son requeridos"
+
+msgid "Expiration days must be a number"
+msgstr "Los días de expiración deben ser un número"
+
+msgid "Minimum value is required"
+msgstr "El valor mínimo es requerido"
+
+msgid "Minimum value must be a number"
+msgstr "El valor mínimo debe ser un número"
+
+msgid "Maximum value is required"
+msgstr "El valor máximo es requerido"
+
+msgid "Maximum value must be a number"
+msgstr "El valor máximo debe ser un número"
+
+msgid "Given points are required"
+msgstr "Los puntos dados son requeridos"
+
+msgid "Given points must be a number"
+msgstr "Los puntos dados deben ser un número"
+
+msgid "Maximum values must be greater than the previous one"
+msgstr "Los valores máximos deben ser mayores al anterior"
+
+msgid "Minimum values must be greater than the previous one"
+msgstr "Los valores mínimos deben ser mayores al anterior"
+
+msgid "Given points must be less than the previous one"
+msgstr "Los puntos dados deben ser menores al anterior"
+
+msgid "Parameterization Incentives"
+msgstr "Parametrización Incentivos"
+
+msgid "This field specifies the number of the maximum score for the distribution of points."
+msgstr "Este campo especifica el número del puntaje máximo para la distribución de puntos."
+
+msgid "This field specifies the number of the maximum score for the distribution of points."
+msgstr "Este campo especifica el número del puntaje máximo para la distribución de puntos."
+
+msgid "Enter a number of points between the maximum number of points"
+msgstr "Ingrese un número de puntos entre el máximo de puntos"
+
+msgid "Enter the minimum and maximum response time instruction in the chat."
+msgstr "Ingrese la instrucción en tiempo de horas mínima y máxima de respuesta en el chat."
+
+msgid "Enter the instruction for the number of views the uploaded product or service has."
+msgstr "Ingrese la instrucción del número de visualizaciones que posea el producto o servicio cargado."
+
+msgid "Response time in chat"
+msgstr "Tiempo de respuesta en el chat"
+
+msgid "Description in English can't be empty"
+msgstr "La descripción en inglés no puede estar vacía"
+
+msgid "Description can't contain special characters"
+msgstr "La descripción en inglés no puede contener caracteres especiales"
+
+msgid "Description in Spanish can't be empty"
+msgstr "La descripción en español no puede estar vacía"
+
+msgid ""
+msgstr ""

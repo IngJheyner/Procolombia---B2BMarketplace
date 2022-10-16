@@ -1,112 +1,21 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
 <section class="dashboard-incentives">
-    <p>
-        {{ 'Testing translations 1'|t }}
-    </p>
-
-    <div id="list-of-status" class='mainCpIncentivesAdviser'>
-        
-    </div>
-    
-    <div id="list-of-incentives" class='mainCpIncentivesAdviser'>
-        
-    </div>
-    
-    <div id="benefit-modal" style="display:none; background-color:yellow;">
-        <p>
-        </p>
-        <label>Benefit description</label>
-        <input id='benefit-description'/>
-        <label>Benefit description in spanish</label>
-        <input id='benefit-description-spanish'/>
-    
-        <button id="save-benefit">
-            SAVE BENEFIT
-        </button>
-    
-    </div>
-    
-    <button id="update-all-rel-status-benefits">
-        GUARDAR EDICIÓN
-    </button>
-    
-    <div id="form-incentive-status-rel">
-    </div>
-    
-    <div id="status-modal" style="display:none; background-color:pink;">
-        <label>Status name</label>
-        <input id='status-name'/>
-            </br>
-        <label>Status minimum points</label>
-        <input type="number" id='status-min-points'/>
-            </br>
-        <label>Status maximum points</label>
-        <input type="number" id='status-max-points' readonly/>
-            </br>
-        <label>Status image_src</label>
-        <input id='status-image-src'/>
-            </br>
-        <label>Status main color</label>
-        <input id='status-emphasis-main-color' maxlength='7'/>
-            </br>
-        <label>Status secondary color</label>
-        <input id='status-emphasis-secondary-color' maxlength='7'/>
-            </br>
-    
-        <button id="save-status">
-            SAVE STATUS
-        </button>
-    
-    </div>
-    
-    <div id='modalUpdateBenefit'
-        style="display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            align-items: center;
-            justify-content: center;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.75);
-            "
-        >
-        <button id='closeModalUpdateBenefit' type='button'>
-            X TO CLOSE
-        </button>
-        <button id='update-benefit-id' type='button' value=''>
-            
-        </button>
-        <p>DESCRIPTION IN ENGLISH</p>
-        <input id='update-benefit-description' value=''>
-        <p>DESCRIPTION IN SPANISH</p>
-        <input id='update-benefit-description-spanish' value=''>
-        <select id='update-benefit-state'>
-            <option value='0' >
-                {{ 'Inactive'|t }}
-            </option>
-            <option value='1' >
-                {{ 'Active'|t }}
-            </option>
-        </select>
-        <button id='updateBenefit' type='button'>
-            UPDATE
-        </button>
-    </div>
-
+    <div class="row align-items-center" style="padding: 0px 50px;">
+		<div class="col-lg-6">
+			<p class="table-title fs-1">{{ "Parameterization Incentives"|t }}</p>
+		</div>
+	</div>
     <div style="padding: 1rem 4rem;">
         <div class="row">
             <div class="col-lg-9">
                 <div class="card-incentives p-4">
                     <div class="back-button">
-                        <button>
+                        <a href="/dashboard/incentives/admin">
                             <i class='bx bx-arrow-back'></i>
                             <span class="back-text">
                                 {{ 'Back'|t }}
                             </span>
-                        </button>
+                        </a>
                     </div>
                     <div class="card-incentives-body">
                         <div class="table-incentives">
@@ -142,7 +51,7 @@
                                                 <div class="incentive-description">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -150,7 +59,7 @@
                                                 <div class="incentive-status">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -172,7 +81,7 @@
                                                 <div class="incentive-description">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -180,7 +89,7 @@
                                                 <div class="incentive-status">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -202,7 +111,7 @@
                                                 <div class="incentive-description">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -210,7 +119,7 @@
                                                 <div class="incentive-status">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -219,7 +128,7 @@
                             </table>
                         </div>
                         <div class="button-table">
-                            <button type="button" class="btn-satatus" id='create-status'>{{ "Create new status"|t }}</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#create-status-modal" class="btn-satatus">{{ "Create new status"|t }}</button>
                             <button type="button" class="btn-edit" id='update-all-status'>{{ "Save edition"|t }}</button>
                         </div>
                     </div>
@@ -230,13 +139,8 @@
         </div>
         <div class="card-table-incentive">
             <table>
-                <thead>
+                <thead >
                     <tr id='table-incentives-head'>
-                     <th style="width: 60%;">
-                        <p class="tittle-table">
-                            BENEFICIOS SEGÚN LA CLASIFICACIÓN DE STATUS ALIADO PROCOLOMBIA
-                        </p>
-                     </th>
                     </tr>
                 </thead>
                 <tbody id="table-incentives" class="table-incentives">
@@ -244,22 +148,17 @@
                 </tbody>
                 <caption>
                     <div class="button-table">
-                            <button type="button" id="create-benefit" class="btn-satatus" id='create-status'>{{ "Create new status"|t }}</button>
-                            <button type="button" class="btn-edit" id='update-all-status'>{{ "Save edition"|t }}</button>
-                        </div>
+                        <button data-bs-toggle="modal" data-bs-target="#create-benefit-modal" type="button" id="create-benefit" class="btn-satatus">{{ "Create new benefit"|t }}</button>
+                    </div>
                 </caption>
             </table>
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="create-status-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header align-items-baseline">
                         <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
-                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">Crear nuevo status</h5>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Create new status"|t }}</h5>
                         <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30px"
@@ -267,7 +166,7 @@
                         viewbox="0 0 512 512"
                         data-bs-dismiss="modal"
                         >
-                        <title>close</title>
+                        <title>{{ "Close"|t }}</title>
                         <path style="fill: #005CA4;"
                             d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
                         ></path>
@@ -276,29 +175,73 @@
                 <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <label for="nombre_del_sitio" class="form-label">Nombre de la clasificación
+                        <label for="nombre_del_sitio" class="form-label">{{ "Classification's name"|t }}
                             <sup>*</sup>
                         </label>
-                        <input type="text" class="form-control"  aria-describedby="basic-addon2">
+                        <input type="text" class="form-control"  aria-describedby="basic-addon2" id='status-name'>
 
                         <!--  -->
                     </div>
                     <div class="col-lg-6 mt-3">
-                        <label for="nombre_del_sitio" class="form-label">Puntos mínimo
+                        <label for="nombre_del_sitio" class="form-label">{{ "Minimum points"|t }}
                             <sup>*</sup>
                         </label>
                         <div class="input-group m-0">
-                            <input type="text" class="form-control"  aria-describedby="basic-addon2">
-                            <span class="input-group-text" id="basic-addon2">Puntos</span>
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="number"
+                                id='status-min-points'
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            >
+                            <span class="input-group-text" id='span-status-min-points'>{{ "Points"|t }}</span>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-3">
-                        <label for="nombre_del_sitio" class="form-label">Puntos Máximo
+                        <label for="nombre_del_sitio" class="form-label">{{ "Maximum points"|t }}
                             <sup>*</sup>
                         </label>
                         <div class="input-group m-0">
-                            <input type="text" class="form-control"  aria-describedby="basic-addon2">
-                            <span class="input-group-text" id="basic-addon2">Puntos</span>
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="number"
+                                id='status-max-points'
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            >
+                            <span class="input-group-text" id='span-status-max-points'>{{ "Points"|t }}</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Color 1"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input-group m-0">
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="color"
+                                id='status-emphasis-main-color'
+                                readonly
+                                placeholder='{{ "This field must be empty"|t }}'
+                                style="background-color: rgb(204, 204, 204);"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Color 2"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input-group m-0">
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="color"
+                                id='status-emphasis-secondary-color'
+                                readonly
+                                placeholder='{{ "This field must be empty"|t }}'
+                                style="background-color: rgb(204, 204, 204);"
+                            >
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -319,8 +262,9 @@
                                 </svg>
                                 {{ "Choose files"|t }}
                             </label>
-                            <div id="img-input" class="form-control" style="height:40px; border-radius:4px;width: 100%; border: 1px solid #d8dde1 !important;">
+                            <div id="img-input" class="form-control" style="position:relative; height:40px; border-radius:4px;width: 100%; border: 1px solid #d8dde1 !important;">
                                 <input type="file" name="img" id="img" class="w-100" style="opacity:0">
+                                <p id="text-archive" class="text-truncate" style="position: absolute;top: 30%;width: 90%;"></p>
                             </div>
 
                         </div>
@@ -341,10 +285,10 @@
                             <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}" class="cancel">
                                 {{"CANCEL"|t }}
                             </button>
-                            <button id="save_1" name="save_1" aria-label="{{ "Continue registration"|t }}" class="continue">
-                                GUARDAR CAMBIOS
+                            <button id="save-status" name="save-status" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "SAVE CHANGES"|t}}
                             </button>
-                            <button style="display:none" class="continue" id="loading_1" type="button" disabled>
+                            <button style="display:none" class="continue" id="loading_create_status" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                                 {{ "Loading..."|t }}
                             </button>
@@ -354,15 +298,77 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_2">
-         Launch demo modal 2 
-        </button>
-        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" id="exampleModal_2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" id="create-benefit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header align-items-baseline">
                         <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
-                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">Crear nuevo beneficios</h5>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Create new benefit"|t }}</h5>
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30px"
+                        height="30px"
+                        viewbox="0 0 512 512"
+                        data-bs-dismiss="modal"
+                        >
+                        <title>{{ "Close"|t }}</title>
+                        <path style="fill: #005CA4;"
+                            d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+                        ></path>
+                        </svg>
+                    </div>
+                <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 input_error">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Benefit description"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <input type="text" id='benefit-description' class="form-control"  aria-describedby="basic-addon2">
+                        <i id="error_benefit-description" class="bx bxs-info-circle toltip_i" style="display: none;">
+                            <span id="error_benefit-description_message" class="tooltiptext_error">
+                                {{ "Required Field"|t }}
+                            </span>
+                        </i>
+                    </div>
+                    <div class="col-lg-12 mt-3 input_error">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Benefit description in spanish"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <input type="text" id='benefit-description-spanish' class="form-control"  aria-describedby="basic-addon2">
+                        <i id="error_benefit-description-spanish" class="bx bxs-info-circle toltip_i" style="display: none;">
+                            <span id="error_benefit-description-spanish_message" class="tooltiptext_error">
+                                {{ "Required Field"|t }}
+                            </span>
+                        </i>
+					</i>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 continue p-0">
+                            <button  data-bs-dismiss="modal" aria-label="{{ "Cancel registration"|t }}" class="cancel">
+                                {{ "CANCEL"|t }}
+                            </button>
+                            <button id="save-benefit" name="save-benefit" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "SAVE CHANGES"|t }}
+                            </button>
+                            <button style="display:none" class="continue" id="loading_create_benefit" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                {{ "Loading..."|t }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modalUpdateBenefit">
+            <div class="modal-dialog modal-dialog-centered" >
+                <div class="modal-content">
+                    <div class="modal-header align-items-baseline">
+                        <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Edit benefit"|t }}</h5>
                         <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30px"
@@ -378,75 +384,36 @@
                     </div>
                 <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <label for="nombre_del_sitio" class="form-label">Benefit description
-                            <sup>*</sup>
-                        </label>
-                        <input type="text" class="form-control"  aria-describedby="basic-addon2">
-                    </div>
-                    <div class="col-lg-12 mt-3">
-                        <label for="nombre_del_sitio" class="form-label">Benefit description in spanish
-                            <sup>*</sup>
-                        </label>
-                        <input type="text" class="form-control"  aria-describedby="basic-addon2">
-                    </div>
+                <select id='update-benefit-state'>
+                    <option value='0' >
+                        {{ 'Inactive'|t }}
+                    </option>
+                    <option value='1' >
+                        {{ 'Active'|t }}
+                    </option>
+                </select>
+                <div class="col-lg-12 input_error">
+                    <label for="nombre_del_sitio" class="form-label">{{ "Benefit description"|t }}
+                        <sup>*</sup>
+                    </label>
+                    <input id='update-benefit-description' type="text" class="form-control"  aria-describedby="basic-addon2">
+                    <i id="error_update-benefit-description" class="bx bxs-info-circle toltip_i" style="display: none;">
+                        <span id="error_update-benefit-description_message" class="tooltiptext_error">
+                            {{ "Required Field"|t }}
+                        </span>
+                    </i>
                 </div>
+                <div class="col-lg-12 mt-3 input_error">
+                    <label for="nombre_del_sitio" class="form-label">{{ "Benefit description in spanish"|t }}
+                        <sup>*</sup>
+                    </label>
+                    <input type="text" id='update-benefit-description-spanish' class="form-control"  aria-describedby="basic-addon2">
+                    <i id="error_update-benefit-description-spanish" class="bx bxs-info-circle toltip_i" style="display: none;">
+                        <span id="error_update-benefit-description-spanish_message" class="tooltiptext_error">
+                            {{ "Required Field"|t }}
+                        </span>
+                    </i>
                 </div>
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col-lg-12 continue p-0">
-                            <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}" class="cancel">
-                                {{"CANCEL"|t }}
-                            </button>
-                            <button id="save_1" name="save_1" aria-label="{{ "Continue registration"|t }}" class="continue">
-                                GUARDAR CAMBIOS
-                            </button>
-                            <button style="display:none" class="continue" id="loading_1" type="button" disabled>
-                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                {{ "Loading..."|t }}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_3">
-         Launch demo modal 3
-        </button>
-        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" id="exampleModal_3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header align-items-baseline">
-                        <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
-                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">Editar nuevo beneficios</h5>
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="30px"
-                        height="30px"
-                        viewbox="0 0 512 512"
-                        data-bs-dismiss="modal"
-                        >
-                        <title>close</title>
-                        <path style="fill: #005CA4;"
-                            d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
-                        ></path>
-                        </svg>
-                    </div>
-                <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <label for="nombre_del_sitio" class="form-label">Benefit description
-                            <sup>*</sup>
-                        </label>
-                        <input type="text" class="form-control"  aria-describedby="basic-addon2">
-                    </div>
-                    <div class="col-lg-12 mt-3">
-                        <label for="nombre_del_sitio" class="form-label">Benefit description in spanish
-                            <sup>*</sup>
-                        </label>
-                        <input type="text" class="form-control"  aria-describedby="basic-addon2">
-                    </div>
                 </div>
                 </div>
                 <div class="modal-footer">
@@ -455,10 +422,10 @@
                             <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}" class="cancel">
                                 {{"CANCEL"|t }}
                             </button>
-                            <button id="save_1" name="save_1" aria-label="{{ "Continue registration"|t }}" class="continue">
-                                GUARDAR CAMBIOS
+                            <button id="edit_benefit_button" name="save_1" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "SAVE CHANGES"|t }}
                             </button>
-                            <button style="display:none" class="continue" id="loading_1" type="button" disabled>
+                            <button style="display:none" class="continue" id="loading_edit_benefit" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                                 {{ "Loading..."|t }}
                             </button>

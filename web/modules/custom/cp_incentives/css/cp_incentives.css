@@ -29,6 +29,41 @@
          * Control feature layout
          */
 }
+.dashboard-incentives .input_error {
+  display: flex;
+  align-items: center;
+}
+.dashboard-incentives .input_error i {
+  margin-left: 8px;
+  color: #ba0c2f;
+  display: none;
+}
+.dashboard-incentives .input_error .tooltiptext_error {
+  width: 9.5vw !important;
+  margin-top: 1rem;
+}
+.dashboard-incentives .status_image {
+  width: 30px;
+  height: 30px;
+}
+.dashboard-incentives .status_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.dashboard-incentives .status_image_2 {
+  width: 30px;
+  margin: 0 auto;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.dashboard-incentives .status_image_2 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .dashboard-incentives .input-group {
   margin: 20px 0px;
 }
@@ -69,7 +104,7 @@
   border-radius: 4px;
   background-color: #ffffff;
 }
-.dashboard-incentives .card-incentives .back-button button {
+.dashboard-incentives .card-incentives .back-button a {
   background-color: #0085ca;
   border: none;
   border-radius: 4px;
@@ -79,11 +114,12 @@
   color: #ffffff;
   display: flex;
   align-items: center;
+  width: 10%;
 }
-.dashboard-incentives .card-incentives .back-button button:hover {
+.dashboard-incentives .card-incentives .back-button a:hover {
   background-color: #005ca4;
 }
-.dashboard-incentives .card-incentives .back-button button span {
+.dashboard-incentives .card-incentives .back-button a span {
   margin-left: 0.5rem;
 }
 .dashboard-incentives .card-incentives .incentive-image {
@@ -1504,4 +1540,321 @@
 .dashboard-incentives .dataTables_paginate,
 .dashboard-incentives .dataTables_info {
   margin-top: 20px;
+}
+
+.exportador-incentives .modal-header h5 {
+  font-size: 22px;
+  color: #3b3d42;
+  font-family: Gothic-Bold;
+  border-color: rgba(0, 0, 0, 0.2);
+  width: 91%;
+}
+.exportador-incentives .modal-title img {
+  margin-right: 10px;
+}
+.exportador-incentives .modal-body label {
+  font-size: 15px;
+  font-family: Gothic-Bold;
+  color: #000000;
+  font-weight: 600;
+  width: 100%;
+}
+.exportador-incentives .modal-body label sup {
+  color: #ba0c2f;
+}
+.exportador-incentives .modal-body select {
+  height: 40px;
+}
+.exportador-incentives .modal-body .sub-tittle-modal p {
+  font-size: 20px !important;
+  font-family: Gothic-Bold;
+  color: #0085ca;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 20px;
+}
+.exportador-incentives .continue {
+  font-family: Gothic-Regular;
+  text-align: end;
+}
+.exportador-incentives .continue .cancel {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 7px 20px;
+  margin-right: 10px;
+  font-family: Gothic-Regular;
+  color: #005ca4;
+  transition: all 0.4s ease-out !important;
+}
+.exportador-incentives .continue .cancel:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+}
+.exportador-incentives .continue .continue {
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 7px 20px;
+  background-color: #005ca4;
+  color: #ffffff;
+  font-family: Gothic-Regular;
+  transition: all 0.4s ease-out !important;
+}
+.exportador-incentives .continue .continue:hover {
+  color: #ffffff;
+  background-color: #0085ca;
+  box-shadow: rgba(149, 157, 165, 0.403) 0px 8px 24px;
+}
+.exportador-incentives .code-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  background-color: #0085ca;
+  color: #ffffff;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+.exportador-incentives .code-button:hover {
+  background-color: #005ca4;
+}
+.exportador-incentives .tittle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: Gothic-Bold;
+  color: #005ca4;
+  margin-bottom: 0px;
+}
+.exportador-incentives .incentive-card {
+  border-radius: 4px;
+  background-color: #ffffff;
+  height: 100%;
+}
+.exportador-incentives .incentive-card .incentive-card__banner {
+  width: 100%;
+  height: 48px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.exportador-incentives .incentive-card .incentive-card__header {
+  display: flex;
+  padding: 1rem 1rem 0.4rem;
+  align-items: center;
+  margin-bottom: 0rem;
+}
+.exportador-incentives .incentive-card .incentive-card__header .incentive-card__header__title p {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: Gothic-Bold;
+  color: #3b3d42;
+  margin-bottom: 0px;
+  margin-left: 1rem;
+}
+.exportador-incentives .incentive-card .incentive-card__header .incentive-card__header__title .sub-tittle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: Gothic-Regular;
+  color: #3b3d42;
+  margin-bottom: 0px;
+  margin-left: 1rem;
+}
+.exportador-incentives .incentive-card .incentive-card__header .incentive-card__header__icon {
+  font-size: 1.3rem;
+  color: #005ca4;
+  width: 30px;
+  height: 30px;
+}
+.exportador-incentives .incentive-card .incentive-card__header .incentive-card__header__icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.exportador-incentives .incentive-card .incentive-card__body {
+  padding: 0.4rem 1rem 1rem;
+  overflow: auto;
+  height: 240px;
+}
+.exportador-incentives .incentive-card .incentive-card__body .item-check {
+  display: flex;
+  align-items: center;
+}
+.exportador-incentives .incentive-card .incentive-card__body .item-check .item-check__icon {
+  font-size: 1.5rem;
+  color: #005ca4;
+  margin-right: 0.5rem;
+}
+.exportador-incentives .incentive-card .incentive-card__body .item-check .item-check__text p {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: Gothic-Regular;
+  color: #3b3d42;
+  margin-bottom: 3px;
+}
+.exportador-incentives .card-tittle-company {
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: stretch;
+  align-content: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+}
+.exportador-incentives .card-tittle-company .card-tittle-company__banner {
+  width: 15px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.exportador-incentives .card-tittle-company .card-tittle-company__body {
+  padding: 0.5rem 1rem;
+}
+.exportador-incentives .card-tittle-company .card-tittle-company__body__text p {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.exportador-incentives .card-tittle-company .card-tittle-company__body__text .status {
+  display: flex;
+  align-items: center;
+}
+.exportador-incentives .card-tittle-company .card-tittle-company__body__text .status .img-status {
+  width: 20px;
+  height: 20px;
+  margin-top: -15px;
+  margin-right: 3px;
+}
+.exportador-incentives .card-tittle-company .card-tittle-company__body__text .status .img-status img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.exportador-incentives .card-product-servervice {
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: stretch;
+  align-content: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  margin-top: 1rem;
+}
+.exportador-incentives .card-product-servervice .card-product-servervice__body {
+  padding: 0.5rem 1rem;
+}
+.exportador-incentives .card-product-servervice .card-product-servervice__body__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.exportador-incentives .card-product-servervice .card-product-servervice__body__title .icon_tittle {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.exportador-incentives .card-product-servervice .card-product-servervice__body__title .icon_tittle img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.exportador-incentives .card-product-servervice .card-product-servervice__body__title p {
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.exportador-incentives .code .input-group {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border: 1px solid #cccccc;
+  border-radius: 100px;
+}
+.exportador-incentives .code .input-group input {
+  font-size: 18px;
+  font-family: "Gothic-Bold";
+}
+.exportador-incentives .code .input-group i {
+  font-size: 30px;
+  color: #cccccc;
+}
+.exportador-incentives .code input,
+.exportador-incentives .code span {
+  border: none;
+  background: #fff !important;
+  box-shadow: none;
+  text-align: center;
+  border-radius: 100px;
+}
+.exportador-incentives .code .text-code {
+  text-align: center;
+  font-size: 13px !important;
+  font-family: Gothic-Regular;
+  color: #6a6d71;
+  margin-bottom: 0px;
+  padding: 8px 2px;
+}
+.exportador-incentives .code #success-code {
+  color: #31d394;
+}
+.exportador-incentives .line-text {
+  background-color: #f0f0f0;
+}
+.exportador-incentives .line-text .text {
+  font-size: 1rem;
+  font-family: Gothic-Regular;
+  color: #3b3d42;
+  padding: 7px 0px;
+}
+.exportador-incentives .anuncio {
+  display: flex;
+  margin-top: 20px;
+}
+.exportador-incentives .anuncio .anuncio-img {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+.exportador-incentives .anuncio .anuncio-img i {
+  border-radius: 100px;
+  font-size: 2.6rem;
+  border: 1px solid #cccccc;
+  padding: 4px;
+  color: #cccccc;
+}
+.exportador-incentives .anuncio .anuncio-body {
+  padding-right: 2rem;
+}
+.exportador-incentives .anuncio .anuncio-body .tittle {
+  font-size: 15px !important;
+}
+.exportador-incentives .anuncio .anuncio-body .desc {
+  font-size: 14px !important;
+}
+.exportador-incentives .header-list {
+  display: flex;
+  justify-content: space-between;
+}
+.exportador-incentives .header-list strong {
+  width: 50%;
+  padding: 10px;
+}
+.exportador-incentives .body-item-list {
+  display: flex;
+  justify-content: space-between;
+}
+.exportador-incentives .body-item-list p {
+  width: 50%;
+  padding: 5px 10px;
+  font-size: 16px !important;
+}
+.exportador-incentives .body-item-list .last {
+  padding-right: 30px;
+  text-align: end;
+}
+.exportador-incentives .list-of-point {
+  height: 300px;
+  overflow: auto;
+}
+.exportador-incentives .list-of-point::-webkit-scrollbar-thumb {
+  background-color: #005ca4;
+  border-radius: 100px;
+  border: 0px solid #ffffff;
 }/*# sourceMappingURL=cp_incentives.css.map */

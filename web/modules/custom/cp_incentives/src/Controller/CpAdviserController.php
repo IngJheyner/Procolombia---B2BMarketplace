@@ -36,6 +36,9 @@ class CpAdviserController extends ControllerBase {
     );
   }
 
+  /**
+   * save file
+   */
   public function saveFile($fileToSave, $name, $directory) {
     \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
     $file = file_save_data($fileToSave, $directory . $name, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
@@ -145,7 +148,8 @@ class CpAdviserController extends ControllerBase {
         'emphasis_main_color',
         'emphasis_secondary_color',
       ]);
-      $query->orderBy('cis.id', 'DESC');
+      $query->isNull('cis.deleted');
+      $query->orderBy('cis.min_points', 'DESC');
       $results = $query->execute()->fetchAll();
       $data = [];
       foreach ($results as $result) {
@@ -154,7 +158,7 @@ class CpAdviserController extends ControllerBase {
           'name' => $result->name,
           'min_points' => $result->min_points,
           'max_points' => $result->max_points,
-          'image_src' => $result->image_src,
+          'image_src' => file_create_url($result->image_src),
           'emphasis_main_color' => $result->emphasis_main_color,
           'emphasis_secondary_color' => $result->emphasis_secondary_color,
         ];
@@ -180,6 +184,7 @@ class CpAdviserController extends ControllerBase {
     try {
       $query = $this->db->select('cp_incentives_benefits', 'cib');
       $query->fields('cib', ['id', 'description', 'description_spanish', 'state']);
+      $query->isNull('cib.deleted');
       $query->orderBy('cib.id', 'ASC');
       $results = $query->execute()->fetchAll();
       $data = [];
@@ -211,56 +216,64 @@ class CpAdviserController extends ControllerBase {
    */
   public function createBenefit (Request $request) {
     // Request data.
-    $data = $request->request->all();
+    try {
+      $data = $request->request->all();
 
-    $values = [
-      'description' => $data['description'],
-      'description_spanish' => $data['description_spanish'],
-      'state' => $data['state'],
-      'created' => date('Y-m-d H:i:s'),
-    ];
-
-    $this->db->insert('cp_incentives_benefits')
-      ->fields($values)
-      ->execute();
-
-    $query_id = $this->db->select('cp_incentives_benefits', 'cib');
-    $query_id->fields('cib', ['id']);
-    $query_id->orderBy('cib.id', 'DESC');
-    // Condition the last id.
-    $query_id->range(0, 1);
-    $results = $query_id->execute()->fetchAll();
-    $data_benefit = [];
-    foreach ($results as $result) {
-      $data_benefit[] = [
-        'id' => $result->id,
-      ];
-    }
-    $id_benefit = $data_benefit[0]['id'];
-
-    // Get all status of the table cp_incentives_status to create the relationship
-    $query = $this->db->select('cp_incentives_status', 'cis');
-    $query->fields('cis', ['id', 'name']);
-    $query->orderBy('cis.id', 'ASC');
-    $results2 = $query->execute()->fetchAll();
-
-    // DOING THE RELATIONSHIP BETWEEN BENEFITS AND STATUS
-    foreach ($results2 as $result) {
       $values = [
-        'id_benefit' => $id_benefit,
-        'id_status' => $result->id,
-        'state' => 0,
+        'description' => $data['description'],
+        'description_spanish' => $data['description_spanish'],
+        'state' => $data['state'],
         'created' => date('Y-m-d H:i:s'),
       ];
-      $this->db->insert('cp_incentives_rel_status_benefit')
+
+      $this->db->insert('cp_incentives_benefits')
         ->fields($values)
         ->execute();
 
-    }
+      $query_id = $this->db->select('cp_incentives_benefits', 'cib');
+      $query_id->fields('cib', ['id']);
+      $query_id->orderBy('cib.id', 'DESC');
+      // Condition the last id.
+      $query_id->range(0, 1);
+      $results = $query_id->execute()->fetchAll();
+      $data_benefit = [];
+      foreach ($results as $result) {
+        $data_benefit[] = [
+          'id' => $result->id,
+        ];
+      }
+      $id_benefit = $data_benefit[0]['id'];
 
-    return new JsonResponse([
-      'status' => 200,
-    ]);
+      // Get all status of the table cp_incentives_status to create the relationship
+      $query = $this->db->select('cp_incentives_status', 'cis');
+      $query->fields('cis', ['id', 'name']);
+      $query->orderBy('cis.id', 'ASC');
+      $results2 = $query->execute()->fetchAll();
+
+      // DOING THE RELATIONSHIP BETWEEN BENEFITS AND STATUS
+      foreach ($results2 as $result) {
+        $values = [
+          'id_benefit' => $id_benefit,
+          'id_status' => $result->id,
+          'state' => 0,
+          'created' => date('Y-m-d H:i:s'),
+        ];
+        $this->db->insert('cp_incentives_rel_status_benefit')
+          ->fields($values)
+          ->execute();
+
+      }
+      return new JsonResponse([
+        'status' => 200,
+      ]);
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
   }
 
   /**
@@ -268,66 +281,73 @@ class CpAdviserController extends ControllerBase {
    */
   public function createStatus(Request $request) {
     // Request data.
-    $data = $request->request->all();
-    $max_points = $data['max_points'];
-    if (empty($max_points)) {
-      $max_points = NULL;
-    }
+    try {
+      $data = $request->request->all();
 
-    $values = [
-      'name' => $data['name'],
-      'min_points' => (int)$data['min_points'],
-      'max_points' => $max_points,
-      'image_src' => $data['image_src'],
-      'emphasis_main_color' => $data['emphasis_main_color'],
-      'emphasis_secondary_color' => $data['emphasis_secondary_color'],
-      'created' => date('Y-m-d H:i:s'),
-    ];
-
-    $this->db->insert('cp_incentives_status')
-      ->fields($values)
-      ->execute();
-
-    // THEN CREATE THE RELATIONSHIP BETWEEN STATUS AND BENEFITS.
-    // Get all benefits of the table cp_incentives_benefits.
-    $query = $this->db->select('cp_incentives_benefits', 'cib');
-    $query->fields('cib', ['id', 'description']);
-    $query->orderBy('cib.id', 'ASC');
-    $results = $query->execute()->fetchAll();
-
-    // Get the last id of the table cp_incentives_status.
-    $query_id = $this->db->select('cp_incentives_status', 'cis');
-    $query_id->fields('cis', ['id']);
-    $query_id->orderBy('cis.id', 'DESC');
-    // Condition the last id.
-    $query_id->range(0, 1);
-    $results2 = $query_id->execute()->fetchAll();
-    $data_status = [];
-    foreach ($results2 as $result) {
-      $data_status[] = [
-        'id' => $result->id,
-      ];
-    }
-    $id_status = $data_status[0]['id'];
-
-    // DOING THE RELATIONSHIP BETWEEN BENEFITS AND STATUS.
-    foreach ($results as $result) {
+      $file = $request->files->get('image_src');
+      $file2 = file_get_contents($file);
+      $media = $this->saveFile($file2, 'logo-' . $file->getClientOriginalName(), 'public://matchmaking/images/status_logos/');
+      //GET uri
+      $uri = $media->getFileUri();
       $values = [
-        'id_benefit' => $result->id,
-        'id_status' => $id_status,
-        'state' => 0,
+        'name' => $data['name'],
+        'min_points' => (int) $data['min_points'],
+        'max_points' => (int) $data['max_points'],
+        'image_src' => $uri,
+        'emphasis_main_color' => $data['emphasis_main_color'],
+        'emphasis_secondary_color' => $data['emphasis_secondary_color'],
         'created' => date('Y-m-d H:i:s'),
       ];
-      $this->db->insert('cp_incentives_rel_status_benefit')
+
+      $this->db->insert('cp_incentives_status')
         ->fields($values)
         ->execute();
 
+      // THEN CREATE THE RELATIONSHIP BETWEEN STATUS AND BENEFITS.
+      // Get all benefits of the table cp_incentives_benefits.
+      $query = $this->db->select('cp_incentives_benefits', 'cib');
+      $query->fields('cib', ['id', 'description']);
+      $query->orderBy('cib.id', 'ASC');
+      $results = $query->execute()->fetchAll();
+
+      // Get the last id of the table cp_incentives_status.
+      $query_id = $this->db->select('cp_incentives_status', 'cis');
+      $query_id->fields('cis', ['id']);
+      $query_id->orderBy('cis.id', 'DESC');
+      // Condition the last id.
+      $query_id->range(0, 1);
+      $results2 = $query_id->execute()->fetchAll();
+      $data_status = [];
+      foreach ($results2 as $result) {
+        $data_status[] = [
+          'id' => $result->id,
+        ];
+      }
+      $id_status = $data_status[0]['id'];
+
+      // DOING THE RELATIONSHIP BETWEEN BENEFITS AND STATUS.
+      foreach ($results as $result) {
+        $values = [
+          'id_benefit' => $result->id,
+          'id_status' => $id_status,
+          'state' => 0,
+          'created' => date('Y-m-d H:i:s'),
+        ];
+        $this->db->insert('cp_incentives_rel_status_benefit')
+          ->fields($values)
+          ->execute();
+      }
+
+      return new JsonResponse([
+        'status' => 200,
+      ]);
+    } catch (\Exception $e) {
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
     }
-
-    return new JsonResponse([
-      'status' => 200,
-    ]);
-
   }
 
   /**
@@ -365,24 +385,33 @@ class CpAdviserController extends ControllerBase {
    */
   public function updateBenefit(Request $request) {
     // Request data.
-    $data = $request->request->all();
+    try {
+      $data = $request->request->all();
 
-    $values = [
-      'description' => $data['description'],
-      'description_spanish' => $data['description_spanish'],
-      'state' => $data['state'],
-      'updated' => date('Y-m-d H:i:s'),
-    ];
+      $values = [
+        'description' => $data['description'],
+        'description_spanish' => $data['description_spanish'],
+        'state' => $data['state'],
+        'updated' => date('Y-m-d H:i:s'),
+      ];
 
-    $this->db->update('cp_incentives_benefits')
-      ->fields($values)
-      ->condition('id', $data['id'])
-      ->execute();
+      $this->db->update('cp_incentives_benefits')
+        ->fields($values)
+        ->condition('id', $data['id'])
+        ->execute();
 
-    return new JsonResponse([
-      'status' => 200,
-    ]);
+      return new JsonResponse([
+        'status' => 200,
+      ]);
 
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
   }
 
   /**
@@ -585,7 +614,7 @@ class CpAdviserController extends ControllerBase {
       $query->fields('cirsb', ['id', 'id_status', 'id_benefit', 'state']);
       // Condition where id_Status exists in the table cp_incentives_status.
       $query->join('cp_incentives_status', 'cis', 'cirsb.id_status = cis.id');
-
+      $query->isNull('cis.deleted');
       // Condition where id_benefit exists in the table cp_incentives_benefits.
       $query->fields('cis', ['name']);
 

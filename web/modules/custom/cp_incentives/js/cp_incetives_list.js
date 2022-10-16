@@ -47,12 +47,16 @@
                 },
                 {
                     "data": "characteristic",
+                    "render": function (data, type, row, meta) {
+                        //translate with drupal t function
+                        return Drupal.t(row.characteristic);
+                    },
                     "title": "Variables/Características"
                 },
                 {
                     "data": "description",
                     "render": function (data, type, row, meta) {
-                        return '<div class="description">' + row.description + '</div>';
+                        return '<div class="description">' + Drupal.t(row.description) + '</div>';
                     },
                     "title": "Descripción",
                     "className": 'width-description',
@@ -65,7 +69,7 @@
                             if (item.min_measure && item.max_measure) {
                                 html += `
                                 <div class="business-td d-flex justify-content-between">
-                                    <p style="width:50%"> ${item.min_measure} - ${item.max_measure} ${row.measurement_unit}</p>
+                                    <p style="width:50%"> ${item.min_measure} - ${item.max_measure} ${Drupal.t(row.measurement_unit)}</p>
                                     <p style="width:50%"> ${item.given_points} Puntos</p>
                                 </div>
                             `;
@@ -73,7 +77,7 @@
                                 if (item.max_measure) {
                                     html += `
                                         <div class="business-td d-flex justify-content-between">
-                                            <p style="width:50%">${item.max_measure} ${row.measurement_unit}</p>
+                                            <p style="width:50%">${item.max_measure} ${Drupal.t(row.measurement_unit)}</p>
                                             <p style="width:50%">${item.given_points} Puntos</p>
                                         </div>
                                     `;
@@ -113,7 +117,7 @@
                             }
                         }
                         );
-                        return `<div class="business-rule"> ${max_given_points} Puntos</div>`;
+                        return `<div class="business-rule"> ${max_given_points} ${Drupal.t("Points")}</div>`;
                     },
                     "title": "Puntos totales"
                 },
@@ -271,7 +275,7 @@
 
 
         //change text of .unit_measure class
-        $('.unit_measure').text(criteria.measurement_unit);
+        $('.unit_measure').text(Drupal.t(criteria.measurement_unit));
 
         //update values of inputs
         $('#state_2').val(criteria.state);
@@ -313,7 +317,7 @@
 
     //check if is number 
     function isNumber(n) {
-        return !isNaN(parseFloat(n)) && isFinite(n);
+        return !isNaN(parseFloat(n)) && isFinite(n) && n >= 0;;
     }
 
     const validateForm = (type) => {
@@ -338,7 +342,7 @@
 
         if (state == "") {
             isValid = false;
-            message = "El estado es requerido";
+            message = Drupal.t("State is required");
             console.log(message);
             if (type == 1) {
                 $('#state_1').css('border', '1px solid red');
@@ -372,7 +376,7 @@
 
         if (expiration_days == "") {
             isValid = false;
-            message = "Los días de expiración son requeridos";
+            message = Drupal.t("Expiration days are required");
             console.log(message);
             console.log(type);
             if (type == 1) {
@@ -393,7 +397,7 @@
         } else {
             if (!isNumber(expiration_days)) {
                 isValid = false;
-                message = "Los días de expiración deben ser un número";
+                message = Drupal.t("Expiration days must be a number");
                 console.log(message);
                 if (type == 1) {
                     $('#expiration_days_1').css('border', '1px solid red');
@@ -440,26 +444,26 @@
 
                 if (min_measure == "") {
                     isValid = false;
-                    message = "El valor mínimo es requerido";
-                    $('#min_measure_' + index).css('border', '1px solid red');
+                    message = Drupal.t("Minimum value is required");
+                    $("#min_measure_" + index + "_cont").css('border', '1px solid red');
                     $("#error_min_measure_" + index).show();
                     $("#error_min_measure_" + index + "_message").text(message)
                 } else {
                     if (!isNumber(min_measure)) {
                         isValid = false;
-                        message = "El valor mínimo debe ser un número";
-                        $('#min_measure_' + index).css('border', '1px solid red');
+                        message = Drupal.t("Minimum value must be a number");
+                        $('#min_measure_' + index + "_cont").css('border', '1px solid red');
                         $("#error_min_measure_" + index).show();
                         $("#error_min_measure_" + index + "_message").text(message)
                     } else {
                         $("#error_measure_" + index).hide();
-                        $("#min_measure_" + index).css("border-color", "#ced4da");
+                        $('#min_measure_' + index + "_cont").css("border-color", "#ced4da");
                     }
                 }
 
                 if (max_measure == "") {
                     isValid = false;
-                    message = "El valor máximo es requerido";
+                    message = Drupal.t("Maximum value is required");
                     console.log(message);
                     $('#max_measure_' + index).css('border', '1px solid red');
                     $("#error_max_measure_" + index).show();
@@ -467,7 +471,7 @@
                 } else {
                     if (!isNumber(max_measure)) {
                         isValid = false;
-                        message = "El valor máximo debe ser un número";
+                        message = Drupal.t("Maximum value must be a number");
                         console.log(message);
                         $('#max_measure_' + index).css('border', '1px solid red');
                         $("#error_max_measure_" + index).show();
@@ -480,7 +484,7 @@
 
                 if (given_points == "") {
                     isValid = false;
-                    message = "Los puntos dados son requeridos";
+                    message = Drupal.t("Given points are required");
                     console.log(message);
                     $('#given_points_' + index).css('border', '1px solid red');
                     $("#error_given_points_" + index).show();
@@ -488,7 +492,7 @@
                 } else {
                     if (!isNumber(given_points)) {
                         isValid = false;
-                        message = "Los puntos dados deben ser un número";
+                        message = Drupal.t("Given points must be a number");
                         console.log(message);
                         $('#given_points_' + index).css('border', '1px solid red');
                         $("#error_given_points_" + index).show();
@@ -509,7 +513,7 @@
                 if (index != 0) {
                     if (parseInt(min_measure_arr[index]) < parseInt(min_measure_arr[index - 1])) {
                         isValid = false;
-                        message = "Los valores mínimos deben ser menores al anterior";
+                        message = Drupal.t("Minimum values must be greater than the previous one");
                         console.log(message);
                         $('#min_measure_' + (index - 1)).css('border', '1px solid red');
                         $("#error_min_measure_" + (index - 1)).show();
@@ -523,7 +527,7 @@
                 if (index != 0) {
                     if (parseInt(max_measure_arr[index]) < parseInt(max_measure_arr[index - 1])) {
                         isValid = false;
-                        message = "Los valores máximos deben ser mayores al anterior";
+                        message = Drupal.t("Maximum values must be greater than the previous one");
                         console.log(message);
                         $('#max_measure_' + (index - 1)).css('border', '1px solid red');
                         $("#error_max_measure_" + (index - 1)).show();
@@ -538,7 +542,7 @@
                 if (index != 0) {
                     if (parseInt(given_points_arr[index]) > parseInt(given_points_arr[index - 1])) {
                         isValid = false;
-                        message = "Los puntos dados deben ser menores al anterior";
+                        message = Drupal.t("Given points must be less than the previous one");
                         console.log(message);
                         $('#given_points_' + (index - 1)).css('border', '1px solid red');
                         $("#error_given_points_" + (index - 1)).show();
@@ -557,7 +561,7 @@
 
                 if (max_measure == "") {
                     isValid = false;
-                    message = "El valor máximo es requerido";
+                    message = Drupal.t("Maximum value is required");
                     console.log(message);
                     $('#max_measure_2_' + index).css('border', '1px solid red');
                     $("#error_max_measure_2_" + index).show();
@@ -565,7 +569,7 @@
                 } else {
                     if (!isNumber(max_measure)) {
                         isValid = false;
-                        message = "El valor máximo debe ser un número";
+                        message = Drupal.t("Maximum value must be a number");
                         console.log(message);
                         $('#max_measure_2_' + index).css('border', '1px solid red');
                         $("#error_max_measure_2_" + index).show();
@@ -578,7 +582,7 @@
 
                 if (given_points == "") {
                     isValid = false;
-                    message = "Los puntos dados son requeridos";
+                    message = Drupal.t("Given points are required");
                     console.log(message);
                     $('#given_points_2_' + index).css('border', '1px solid red');
                     $("#error_given_points_2_" + index).show();
@@ -586,7 +590,7 @@
                 } else {
                     if (!isNumber(given_points)) {
                         isValid = false;
-                        message = "Los puntos dados deben ser un número";
+                        message = Drupal.t("Given points must be a number");
                         console.log(message);
                         $('#given_points_2_' + index).css('border', '1px solid red');
                         $("#error_given_points_2_" + index).show();
@@ -606,7 +610,7 @@
                 if (index != 0) {
                     if (parseInt(max_measure_arr[index]) > parseInt(max_measure_arr[index - 1])) {
                         isValid = false;
-                        message = "Los valores máximos deben ser mayores al anterior";
+                        message = Drupal.t("The maximum values must be greater than the previous one");
                         console.log(message);
                         $('#max_measure_2_' + (index - 1)).css('border', '1px solid red');
                         $("#error_max_measure_2_" + (index - 1)).show();
@@ -620,7 +624,7 @@
                 if (index != 0) {
                     if (parseInt(given_points_arr[index]) > parseInt(given_points_arr[index - 1])) {
                         isValid = false;
-                        message = "Los puntos dados deben ser menores al anterior";
+                        message = Drupal.t("Given points must be less than the previous one");
                         console.log(message);
                         $('#given_points_2_' + (index - 1)).css('border', '1px solid red');
                         $("#error_given_points_2_" + (index - 1)).show();
@@ -632,7 +636,7 @@
             let given_points = $('#given_points_3_' + 0).val();
             if (given_points == "") {
                 isValid = false;
-                message = "Los puntos dados son requeridos";
+                message = Drupal.t("Given points are required");
                 console.log(message);
                 $('#given_points_3_' + 0).css('border', '1px solid red');
                 $("#error_given_points_3_" + 0).show();
@@ -640,7 +644,7 @@
             } else {
                 if (!isNumber(given_points)) {
                     isValid = false;
-                    message = "Los puntos dados deben ser un número";
+                    message = Drupal.t("Given points must be a number");
                     console.log(message);
                     $('#given_points_3_' + 0).css('border', '1px solid red');
                     $("#error_given_points_3_" + 0).show();

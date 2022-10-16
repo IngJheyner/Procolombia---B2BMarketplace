@@ -1,46 +1,207 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
-<button id='create-reference-code' >
-    {{ "CREATE REFERAL CODE"|t }}
-</button>
-<input readonly id='reference-code'/>
-<button id='create-points' >
-    Crear PUNTOS
-</button>
-<p>
-    {{ "BENEFITS ACCORDING TO PROCOLOMBIA AFILIATE'S STATUS CLASSIFICATION"|t }}
-</p>
-<section>
-    <p>{{ "PROCOLOMBIA RECOGNIZES YOU AS A "|t }}<strong>{{ status }}</strong></p>
-    <p><strong>{{"Company's name:"|t }}</strong> {{ company_name }}</p>
-    <p><strong>{{ "Points Earned:"|t }}</strong> {{ total_points }} {{ "points"|t }}</p>
-
-</section>
-<section class='mainCpIncentivesCompanyCol'>
-    <button id="how-get-points-open">
-        {{ "LEARN HOW TO LEVEL UP"|t }}
-    </button>
-    <p>
-        {{ 'Testing translations 2'|t }}
-    </p>
-    <section id="list-of-incentive-plan" class='mainCpIncentivesAdviser'>
-    
-    </section>
-
-    <section id="how-get-points" class='mainCpIncentivesAdviser' style='display: none;'>
-        <button id="how-get-points-close">
-            CERRAR ESTE BOTON
-        </button>
-    </section>
-
-    <section id="products-services" class='mainCpIncentivesAdviser'>
-        <h1>{{ "<strong>FEATURED</strong> PRODUCTS / SERVICES"|t }}</h1>
-        <p>{{ "ProColombia recognizes you as a"|t }} <strong>{{ status }}</strong>{{ " <strong>ally.</strong>"|t }}</p>
-        <p>{{ "Here you can view your products / services at the platform."|t }}</p>
-    </section>
-</section>
-
-<section class="container">
-    <div>
-        
+<section class="exportador-incentives container">
+    <div class="row">
+        <div class="col-lg-8">
+            <button id="openCodeModal" class="code-button">{{ "CREATE REFERAL CODE"|t }}</button>
+            <p class="tittle">{{ "BENEFITS ACCORDING TO PROCOLOMBIA<br>AFILIATE'S STATUS CLASSIFICATION"|t }}</p>
+            <div class="mt-5" style="position: relative;">
+                <div class="swiper slider-incentives">
+                    <div id="list-of-incentive-plan" style="cursor: grab;"
+                        class="swiper-wrapper">
+                    </div>
+                </div>
+                <div class="swiper-pagination-1"></div>
+            </div>
+            <div class="text-end mt-4">
+                <button id="openCodeModal" data-bs-toggle="modal" data-bs-target="#listModal" class="code-button">{{ "LEARN HOW TO LEVEL UP"|t }}</button>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card-tittle-company">
+                <div class="card-tittle-company__banner" style="background:
+                    transparent linear-gradient(180deg,
+                    {{incentive.emphasis_main_color}} 0%,
+                    {{incentive.emphasis_secondary_color}} 100%) 0% 0% no-repeat
+                    padding-box;">
+                </div>
+                <div class="card-tittle-company__body">
+                    <div class="card-tittle-company__body__title">
+                        <p>{{ "PROCOLOMBIA RECOGNIZES YOU AS A "|t }}<strong>
+                                {{ status }}{{ " ALLY."|t }}</strong></p>
+                    </div>
+                    <div class="card-tittle-company__body__text">
+                        <p><strong>{{"Company's name:"|t }}</strong> {{
+                            company_name }}</p>
+                        <div class="status">
+                            <div class="img-status">
+                                <img src="{{incentive.image_src}}" alt="">
+                            </div>
+                            <p><strong>{{ "Points Earned:"|t }}</strong> {{
+                                total_points }} {{"points"|t }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-product-servervice">
+                <div class="card-product-servervice__body">
+                    <div class="card-product-servervice__body__title">
+                        <div class="icon_tittle">
+                            <img
+                                src="/sites/default/files/matchmaking/images/icon-site/Menú-ActividadesPromocionales.svg"
+                                alt="" srcset="">
+                        </div>
+                        <p>{{ "<strong>FEATURED</strong> <br>PRODUCTS / SERVICES"|t }}</p>
+                    </div>
+                    <div class="card-product-servervice__body__text">
+                        <p>
+                            {{ "ProColombia recognizes you as a"|t }}
+                            <strong> {{ status }}</strong>
+                            {{ " <strong>ally.</strong>"|t }}
+                            {{ "Here you can view your products / services at the platform."|t }}
+                        </p>
+                    </div>
+                    <div class="" style="">
+                        <div class="swiper product-slider-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="product-slider">
+                                        <img
+                                            src="https://supermercadosla80.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM1Z0aEE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f61f65a493f661b74da41d7d9f8501cf3335db94/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9TY21WemFYcGxYM1J2WDJacGRGc0hhUUpZQW1rQ1dBST0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--361554d0b7dd92546ceda39454543fcece989fd5/7701101358542%20JAMON%20PIETRAN%20X%20431.jpeg?locale=es"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-slider">
+                                        <img
+                                            src="https://supermercadosla80.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM1Z0aEE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f61f65a493f661b74da41d7d9f8501cf3335db94/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9TY21WemFYcGxYM1J2WDJacGRGc0hhUUpZQW1rQ1dBST0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--361554d0b7dd92546ceda39454543fcece989fd5/7701101358542%20JAMON%20PIETRAN%20X%20431.jpeg?locale=es"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-slider">
+                                        <img
+                                            src="https://supermercadosla80.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM1Z0aEE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f61f65a493f661b74da41d7d9f8501cf3335db94/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9TY21WemFYcGxYM1J2WDJacGRGc0hhUUpZQW1rQ1dBST0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--361554d0b7dd92546ceda39454543fcece989fd5/7701101358542%20JAMON%20PIETRAN%20X%20431.jpeg?locale=es"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-slider">
+                                        <img
+                                            src="https://supermercadosla80.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM1Z0aEE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f61f65a493f661b74da41d7d9f8501cf3335db94/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9TY21WemFYcGxYM1J2WDJacGRGc0hhUUpZQW1rQ1dBST0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--361554d0b7dd92546ceda39454543fcece989fd5/7701101358542%20JAMON%20PIETRAN%20X%20431.jpeg?locale=es"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-slider">
+                                        <img
+                                            src="https://supermercadosla80.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM1Z0aEE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f61f65a493f661b74da41d7d9f8501cf3335db94/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9TY21WemFYcGxYM1J2WDJacGRGc0hhUUpZQW1rQ1dBST0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--361554d0b7dd92546ceda39454543fcece989fd5/7701101358542%20JAMON%20PIETRAN%20X%20431.jpeg?locale=es"
+                                            alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-items-baseline">
+                    <div class="me-2">
+                        <img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+                    </div>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Invite other companys to participate in B2B ProColombia"|t }}</h5>
+                        <svg xmlns="http://www.w3.org/2000/svg"  width="30px" height="30px" viewbox="0 0 512 512" data-bs-dismiss="modal">
+                            <title>{{ "Close"|t }}</title>
+                            <path style="fill: #005CA4;" d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z">
+                            </path>
+                        </svg>
+                </div>
+                <div class="modal-body px-0">
+                    <div class="code mx-4 mb-4">
+                        <div class="input-group p-1" id="copy-reference-code">
+                            <input type="text" readonly id="reference-code" disabled class="form-control" style="margin-right: -10%;">
+                            <span class="input-group-text"  style="z-index: 2;cursor: pointer;">
+                                <i class='bx bxs-copy'></i>
+                            </span>
+                          </div>
+                          <p class="text-code" id="your-code">{{ "Your reference code"|t }}</p>
+                          <p class="text-code" id="success-code" style="display: none;">{{ "Your referral code was successfully copied"|t }}</p>
+                    </div>
+                    <div class="line-text px-4">
+                        <p class="text">{{ "How it works?"|t }}</p>
+                    </div>
+                    <div class="anuncio mx-4">
+                        <div class="anuncio-img">
+                            <i class='bx bx-envelope' ></i>
+                        </div>
+                        <div class="anuncio-body">
+                            <p class="tittle">{{ "Send your reference code to your contacts"|t }}</p>
+                            <p class="desc">{{ "Share your reference code. Your contacts will use it to register in the platform."|t }}</p>
+                        </div>
+                    </div>
+                    <div class="anuncio mx-4">
+                        <div class="anuncio-img">
+                            <i class='bx bx-gift' ></i>
+                        </div>
+                        <div class="anuncio-body">
+                            <p class="tittle">{{ "Be rewared"|t }}</p>
+                            <p class="desc">{{ "When your contacts use your reference code, you will be rewarded and acknowledge with points to be a"|t }} <strong>{{ "Gold ally."|t }}</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 continue p-0">
+                            <button  data-bs-dismiss="modal" aria-label="{{ "Cancel registration"|t }}" class="cancel">
+                                {{ "CANCEL"|t }}
+                            </button>
+                            <button id="save-benefit" name="save-benefit" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "UNDERSTOOD"|t}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-items-baseline">
+                    <div class="me-2">
+                        <img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset="">
+                    </div>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Invite other companys to participate in B2B ProColombia"|t }}</h5>
+                        <svg xmlns="http://www.w3.org/2000/svg"  width="30px" height="30px" viewbox="0 0 512 512" data-bs-dismiss="modal">
+                            <title>{{ "Close"|t }}</title>
+                            <path style="fill: #005CA4;" d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z">
+                            </path>
+                        </svg>
+                </div>
+                <div class="modal-body">
+                    <div class="header-list">
+                        <strong>{{ "Description"|t }}</strong>
+                        <strong class="text-end">{{ "Number of Points"|t }}</strong>
+                    </div>
+                    <div class="list-of-point" id="how-get-points">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 continue p-0">
+                            <button  data-bs-dismiss="modal" aria-label="{{ "Cancel registration"|t }}" class="cancel">
+                                {{ "CANCEL"|t }}
+                            </button>
+                            <button id="save-benefit" name="save-benefit" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "UNDERSTOOD"|t }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

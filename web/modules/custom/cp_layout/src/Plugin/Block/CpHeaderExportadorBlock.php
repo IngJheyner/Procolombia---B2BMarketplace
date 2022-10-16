@@ -64,7 +64,7 @@ class CpHeaderExportadorBlock extends BlockBase {
     $query->condition('cis.max_points', $result, '>=');
     $result = $query->execute()->fetchAssoc();
     $variables['status_incentive'] = $result;
-
+    $variables['status_incentive']['image_src'] = file_create_url($variables['status_incentive']['image_src']);
 
     //is not empty field_company_name
     $variables['name'] = $user->get('field_company_contact_name')->value;

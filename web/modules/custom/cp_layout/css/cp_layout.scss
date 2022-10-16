@@ -53,6 +53,39 @@ $font-bold-maven: Maven-Bold;
   padding: 8px 10px;
   border-radius: 5px;
 }
+.status_image_tooltip{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.status_image_menu{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-top: -8px;
+  }
+}
+.status_image_mobile{
+  width: 31px;
+  height: 31px;
+  margin-right: 11px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
 
 .search-input {
   border: 0;
@@ -146,7 +179,7 @@ $font-bold-maven: Maven-Bold;
           }
       }
   }
-
+  
   .more-option {
       button {
           display: flex;

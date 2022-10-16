@@ -26,6 +26,47 @@
   border-radius: 5px;
 }
 
+.status_image_tooltip {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.status_image_tooltip img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.status_image_menu {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.status_image_menu img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin-top: -8px;
+}
+
+.status_image_mobile {
+  width: 31px;
+  height: 31px;
+  margin-right: 11px;
+}
+.status_image_mobile img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 .search-input {
   border: 0;
   outline: 0;
