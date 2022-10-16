@@ -402,23 +402,28 @@
           //CHECKING THE FIRST STATUS - LOWER
           if (parseInt(status.id) === parseInt(first_status.id)) {
             if (($('#status-min-points-' + status.id).val()) !== '0') {
-              console.log('For the status ' + status.name + ' the min points must be 0');
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              $('#error_status-max-points-'+status.id+'_message').text(message);
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be 0');
+              $('#error_status-min-points-'+status.id+'_message').text(message);
+              $('#error_status-min-points-'+status.id).show();
+
             }
             else if (parseInt($('#status-min-points-' + status.id).val()) ==
               parseInt($('#status-max-points-' + status.id).val())) {
-              console.log('For the status ' + status.name + ' the max points must be higher to min points');
               isValidPoint = false;
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the max points must be higher to min points');
+              $('#error_status-max-points-'+status.id+'_message').text(message);
+              $('#error_status-max-points-'+status.id).show();
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+              $('#error_status-max-points-'+status.id).hide();
             }
           }
 

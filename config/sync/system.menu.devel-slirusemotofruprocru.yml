@@ -1,0 +1,8 @@
+uuid: ed0cd094-56b2-47ec-8a10-88eb6bc79b3b
+langcode: es
+status: true
+dependencies: {  }
+id: devel-slirusemotofruprocru
+label: 'Uaclas sh'
+description: 'Descripción de Uaclas sh'
+locked: false

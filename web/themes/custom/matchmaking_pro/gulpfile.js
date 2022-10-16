@@ -77,6 +77,7 @@ function js () {
 function serve () {
   browserSync.init({
     proxy: 'https://www.drupal.org',
+    open: false,
   })
 
   gulp.watch([paths.scss.watch, paths.scss.bootstrap], styles).on('change', browserSync.reload)
