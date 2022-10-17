@@ -22,7 +22,7 @@ msgid "Incentive plan points administration"
 msgstr "Administración de puntos para el plan de incentivos"
 
 msgid "Parameterization Incentive Plan"
-msgstr "Parametrización Pan de incentivos"
+msgstr "Parametrización Plan de incentivos"
 
 msgid "Variables / Characteristics"
 msgstr "Variables / Características"
