@@ -114,7 +114,7 @@
               `
           :
           `<div class="avatar-sm">
-              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name.charAt(0)}</span>
+              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name ? chat.company_name.charAt(0) : "Null"}</span>
             </div>`
         }
           </div>
