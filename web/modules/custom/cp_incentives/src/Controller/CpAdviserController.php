@@ -107,10 +107,14 @@ class CpAdviserController extends ControllerBase {
         $query->isNull('br.deleted');
         $query->condition('br.id_incentives_criteria', $result->id);
         $business_rules = $query->execute()->fetchAll();
+
         $data[] = [
           'id' => $result->id,
           'characteristic' => $result->characteristic,
           'description' => $result->description,
+          //TRANSLATIONS
+          'characteristic_spanish' => t($result->characteristic),
+          'description_spanish' => t($result->description),
           'measurement_unit' => $result->measurement_unit,
           'state' => $result->state,
           'expiration_days' => $result->expiration_days,

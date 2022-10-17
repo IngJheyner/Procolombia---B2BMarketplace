@@ -123,6 +123,9 @@ msgstr "Puntos"
 msgid "Days"
 msgstr "Días"
 
+msgid "Day(s)"
+msgstr "Día(s)"
+
 msgid "Active"
 msgstr "Activo"
 
@@ -134,6 +137,8 @@ msgstr "Total de ítems"
 
 msgid "Criteria edition"
 msgstr "Edición de criterio"
+
+
 
 msgid "Business Rule Description"
 msgstr "Descripción Regla de Negocio"
@@ -366,8 +371,17 @@ msgstr "Este campo debe estar vacío"
 msgid "This field is required"
 msgstr "Este campo es requerido"
 
+msgid "This field is required."
+msgstr "Este campo es requerido."
+
 msgid "Required Field"
 msgstr "Campo requerido"
+
+msgid "You must select an image."
+msgstr "Debe seleccionar una imagen"
+
+msgid "Image format is not valid, must be a .png file."
+msgstr "El formato de imagen no es válido, debe ser un archivo en formato .png."
 
 msgid "The maximum values must be greater than the previous one"
 msgstr "Los valores máximos deben ser mayores al anterior"
@@ -435,8 +449,17 @@ msgstr "La descripción en inglés no puede estar vacía"
 msgid "Description can't contain special characters"
 msgstr "La descripción en inglés no puede contener caracteres especiales"
 
+msgid "Description in spanish can't contain special characters"
+msgstr "La descripción en español no puede contener caracteres especiales"
+
 msgid "Description in Spanish can't be empty"
 msgstr "La descripción en español no puede estar vacía"
+
+msgid "Maximum points for new status must be higher than minimum points."
+msgstr "Los puntos máximos para el nuevo estatus deben ser superiores a los puntos mínimos."
+
+msgid "Edit benefit"
+msgstr "Editar beneficio"
 
 msgid ""
 msgstr ""

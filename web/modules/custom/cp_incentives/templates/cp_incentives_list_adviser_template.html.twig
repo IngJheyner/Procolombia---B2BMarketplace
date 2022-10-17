@@ -178,8 +178,8 @@
                         <label for="nombre_del_sitio" class="form-label">{{ "Classification's name"|t }}
                             <sup>*</sup>
                         </label>
-                        <input type="text" class="form-control" aria-describedby="basic-addon2" id='status-name'>
                         <div class="input_error">
+                            <input type="text" class="form-control" aria-describedby="basic-addon2" id='status-name'>
                             <i id="error_status-name" class="bx bxs-info-circle toltip_i" style="display: none;">
                                 <span id="error_status-name_message" class="tooltiptext_error">
                                     {{ "Required Field"|t }}
@@ -202,7 +202,7 @@
                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                             >
                             <span class="input-group-text" id='span-status-min-points'>{{ "Points"|t }}</span>
-                            <i id="error_status-min-points" class="bx bxs-info-circle toltip_i" style="display: none;">
+                            <i id="error_status-min-points" class="bx bxs-info-circle toltip_i" style="display: none; margin-left: 8px;">
                                 <span id="error_status-min-points_message" class="tooltiptext_error">
                                     {{ "Required Field"|t }}
                                 </span>
@@ -223,7 +223,7 @@
                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                             >
                             <span class="input-group-text" id='span-status-max-points'>{{ "Points"|t }}</span>
-                            <i id="error_status-max-points" class="bx bxs-info-circle toltip_i" style="display: none;">
+                            <i id="error_status-max-points" class="bx bxs-info-circle toltip_i" style="display: none; margin-left: 8px;">
                                 <span id="error_status-max-points_message" class="tooltiptext_error">
                                     {{ "Required Field"|t }}
                                 </span>
@@ -239,6 +239,7 @@
                                 class="form-control" 
                                 aria-describedby="basic-addon2"
                                 type="color"
+                                value="#D88D00"
                                 id='status-emphasis-main-color'
                                 readonly
                                 placeholder='{{ "This field must be empty"|t }}'
@@ -255,6 +256,7 @@
                                 class="form-control" 
                                 aria-describedby="basic-addon2"
                                 type="color"
+                                 value="#FDCA00"
                                 id='status-emphasis-secondary-color'
                                 readonly
                                 placeholder='{{ "This field must be empty"|t }}'
@@ -308,7 +310,7 @@
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-lg-12 continue p-0">
-                            <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}" class="cancel">
+                            <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}"  data-bs-dismiss="modal" class="cancel">
                                 {{"CANCEL"|t }}
                             </button>
                             <button id="save-status" name="save-status" aria-label="{{ "Continue registration"|t }}" class="continue">

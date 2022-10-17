@@ -15,10 +15,16 @@
         pagination: {
           el: ".swiper-pagination-1",
           dynamicBullets: true,
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+          clickable: true,
         },
       });
       var new_swiper = new Swiper(".product-slider-swiper", {
-        slidesPerView: 3,
+        slidesPerView: 2,
         spaceBetween: 5,
       });
     }

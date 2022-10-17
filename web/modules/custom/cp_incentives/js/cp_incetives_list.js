@@ -10,7 +10,7 @@
     let incentives_list_table;
     var filterLog = false;
     function init() {
-
+        var msg ="";
         incentives_list_table = $('#incentives-list').DataTable({
             "processing": true,
             "serverSide": true,
@@ -48,17 +48,27 @@
                 {
                     "data": "characteristic",
                     "render": function (data, type, row, meta) {
-                        //translate with drupal t function
-                        return Drupal.t(row.characteristic);
+                        if (window.location.href.indexOf("/en/") > -1) {
+                            return row.characteristic;
+                        } else {
+                            return row.characteristic_spanish;
+                        }
+                        
                     },
-                    "title": "Variables/Características"
+                    "title": Drupal.t("Variables / Characteristics"),
                 },
                 {
                     "data": "description",
                     "render": function (data, type, row, meta) {
-                        return '<div class="description">' + Drupal.t(row.description) + '</div>';
+                        if (window.location.href.indexOf("/en/") > -1) {
+                            return row.description;
+                        } else {
+                            return row.description_spanish;
+                        }
+                        
                     },
-                    "title": "Descripción",
+                    
+                    "title": Drupal.t("Description"),
                     "className": 'width-description',
                 },
                 {
@@ -69,16 +79,35 @@
                             if (item.min_measure && item.max_measure) {
                                 html += `
                                 <div class="business-td d-flex justify-content-between">
-                                    <p style="width:50%"> ${item.min_measure} - ${item.max_measure} ${Drupal.t(row.measurement_unit)}</p>
-                                    <p style="width:50%"> ${item.given_points} Puntos</p>
+                                    <p style="width:50%">
+                                        ${item.min_measure} - ${item.max_measure}
+                                        ${window.location.href.indexOf("/en/") > -1 ?
+                                            row.measurement_unit :
+                                            row.measurement_unit == 'Hours'? 
+                                                'Horas' :
+                                                row.measurement_unit         
+                                        }
+                                    
+                                    </p>
+                                    <p style="width:50%"> ${item.given_points} ${Drupal.t("points")}</p>
                                 </div>
                             `;
                             } else {
                                 if (item.max_measure) {
                                     html += `
                                         <div class="business-td d-flex justify-content-between">
-                                            <p style="width:50%">${item.max_measure} ${Drupal.t(row.measurement_unit)}</p>
-                                            <p style="width:50%">${item.given_points} Puntos</p>
+                                            <p style="width:50%">
+                                            ${item.max_measure}
+                                            ${window.location.href.indexOf("/en/") > -1 ?
+                                                row.measurement_unit :
+                                                row.measurement_unit == 'Views'?
+                                                    'Vistas' :
+                                                    row.measurement_unit == 'Stars'?
+                                                        'Estrellas' :
+                                                        row.measurement_unit
+                                            }
+                                            </p>
+                                            <p style="width:50%">${item.given_points} ${Drupal.t("points")}</p>
                                         </div>
                                     `;
                                 } else {
@@ -96,11 +125,11 @@
                     "title": `
                     <div class="business-rule-title">
                         <div class="business-num text-align-center">
-                            <p>Reglas de negocio</p>
+                            <p>${Drupal.t("Business Rules")}</p>
                         </div>
                         <div class="business-rule-content d-flex justify-content-between">
-                            <p style="width:50%" >Instrucción</p>
-                            <p style="width:50%">Distribución de puntos</p>
+                            <p style="width:50%" >${Drupal.t("Instruction")}</p>
+                            <p style="width:50%">${Drupal.t("Points distribution")}</p>
                         </div>
                     </div>
                     `,
@@ -119,13 +148,13 @@
                         );
                         return `<div class="business-rule"> ${max_given_points} ${Drupal.t("Points")}</div>`;
                     },
-                    "title": "Puntos totales"
+                    "title": Drupal.t("Total points"),
                 },
                 {
                     "data": "expiration_days",
-                    "title": "Tiempo de expiración",
+                    "title": Drupal.t("Expiration time"),
                     "render": function (data, type, row, meta) {
-                        return '<div class="">' + (row.expiration_days || 'N/A') + ' Dia(s) </div>';
+                        return '<div class="">' + (row.expiration_days || 'N/A') + Drupal.t("Day(s)") + '</div>';
                     },
                     "className": 'width-expiration-days',
                 },
@@ -133,13 +162,23 @@
                     "data": "state",
                     "render": function (data, type, row, meta) {
                         //checked
+                        var active = '';
+                        var inactive = '';
+                        if (window.location.href.indexOf("/en/") > -1) {
+                            active = 'Active';
+                            inactive = 'Inactive';
+                        } else {
+                            active = 'Activo';
+                            inactive = 'Inactivo';
+                        }
+
                         if (row.state == 1) {
                             return `
                             <div onclick="updateStatusRow(${row.id}, ${row.state})" class="swicher text-align-center mb-2">
                                 <input id="input-${row.id}" name="input-${row.id}" checked type="checkbox"/>
                                 <label for="input-${row.id}" class="label-default"></label>
                            </div>
-                           <p class="text-na text-align-center m-0" style="color:#A1A5AA">Activo</p>
+                           <p class="text-na text-align-center m-0" style="color:#A1A5AA">${active}</p>
                             `;
                         }
                         //unchecked
@@ -149,11 +188,11 @@
                                 <input id="input-${row.id}" name="input-${row.id}" type="checkbox"/>
                                 <label for="input-${row.id}" class="label-default"></label>
                            </div>
-                           <p class="text-na text-align-center m-0" style="color:#A1A5AA">Inactivo</p>
+                           <p class="text-na text-align-center m-0" style="color:#A1A5AA">${inactive}</p>
                            `;
                         }
                     },
-                    "title": "Estado"
+                    "title": Drupal.t("State"),
                 },
                 {
                     //editar
@@ -184,7 +223,7 @@
                         </svg>                        
                         </button>`;
                     },
-                    "title": "Editar",
+                    "title": Drupal.t("Edit"),
                     "className": 'width-edit',
                 },
             ],
@@ -240,9 +279,17 @@
     const renderDoubleRuleModal = (criteria) => {
         console.log(criteria);
         //change text of id
-        $('#title_1').text("Edición de criterio " + criteria.characteristic);
-        $('#characteristic_1').text(criteria.characteristic);
-        $('#description_1').text(criteria.description);
+        if (window.location.href.indexOf("/en/") > -1) {
+            $('#title_1').text(Drupal.t("Criteria edition") + " " + Drupal.t(criteria.characteristic));
+            $('#characteristic_1').text(Drupal.t(criteria.characteristic));
+            $('#description_1').text(Drupal.t(criteria.description));
+        } else {
+            $('#title_1').text(Drupal.t("Criteria edition") + " " + Drupal.t(criteria.characteristic_spanish));
+            $('#characteristic_1').text(Drupal.t(criteria.characteristic_spanish));
+            $('#description_1').text(Drupal.t(criteria.description_spanish));
+        }
+
+        
 
         //update values of inputs
         $('#state_1').val(criteria.state);
@@ -269,13 +316,34 @@
     const renderSingleRuleModal = (criteria) => {
         console.log(criteria);
         //change text of id
-        $('#title_2').text("Edición de criterio " + criteria.characteristic);
-        $('#characteristic_2').text(criteria.characteristic);
-        $('#description_2').text(criteria.description);
+        if (window.location.href.indexOf("/en/") > -1) {
+            $('#title_2').text(Drupal.t("Criteria edition") + " " + Drupal.t(criteria.characteristic));
+            $('#characteristic_2').text(Drupal.t(criteria.characteristic));
+            $('#description_2').text(Drupal.t(criteria.description));
+        } else {
+            $('#title_2').text(Drupal.t("Criteria edition") + " " + Drupal.t(criteria.characteristic_spanish));
+            $('#characteristic_2').text(Drupal.t(criteria.characteristic_spanish));
+            $('#description_2').text(Drupal.t(criteria.description_spanish));
+        }
+        
 
 
         //change text of .unit_measure class
-        $('.unit_measure').text(Drupal.t(criteria.measurement_unit));
+        if (window.location.href.indexOf("/en/") > -1) {
+            $('.unit_measure').text(Drupal.t(criteria.measurement_unit));
+        } else {
+            if (criteria.measurement_unit == 'Hours') {
+                $('.unit_measure').text('Horas');
+            }
+            else if (criteria.measurement_unit == 'Stars') {
+                $('.unit_measure').text('Estrellas');
+            }
+            else if (criteria.measurement_unit == 'Views') {
+                $('.unit_measure').text('Vistas');
+            } else {
+                $('.unit_measure').text(Drupal.t(criteria.measurement_unit));
+            }
+        };
 
         //update values of inputs
         $('#state_2').val(criteria.state);
@@ -298,10 +366,16 @@
     const noRuleModal = (criteria) => {
         console.log(criteria);
         //change text of id
-        $('#title_3').text("Edición de criterio " + criteria.characteristic);
-        $('#characteristic_3').text(criteria.characteristic);
-        $('#description_3').text(criteria.description);
-
+        
+        if (window.location.href.indexOf("/en/") > -1) {
+            $('#title_3').text(Drupal.t("Criteria edition") + " " + Drupal.t(criteria.characteristic));
+            $('#characteristic_3').text(Drupal.t(criteria.characteristic));
+            $('#description_3').text(Drupal.t(criteria.description));
+        } else {
+            $('#title_3').text(Drupal.t("Criteria edition") + " " + Drupal.t(criteria.characteristic_spanish));
+            $('#characteristic_3').text(Drupal.t(criteria.characteristic_spanish));
+            $('#description_3').text(Drupal.t(criteria.description_spanish));
+        }
 
         //update values of inputs
         $('#state_3').val(criteria.state);

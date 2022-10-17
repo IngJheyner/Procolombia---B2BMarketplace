@@ -61,6 +61,30 @@ $font-bold-maven: Maven-Bold;
       margin-top: 1rem;
     }
   }
+  .text-na {
+    font-size: 13px !important;
+    font-family: $font-regular !important;
+    padding-left: 10px;
+    padding-top: 8px;
+  }
+  .modal {
+    .form-control {
+      height: 40px;
+    }
+
+    input[type=color]{
+      border-radius: 4px;
+      background: none;
+      padding: 0;
+    }
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+    input[type="color"]::-webkit-color-swatch {
+      border: solid 1px #ced4da; /*change color of the swatch border here*/
+      border-radius: 4px;
+    }
+  }
   .status_image {
     width: 30px;
     height: 30px;
@@ -1984,6 +2008,54 @@ $font-bold-maven: Maven-Bold;
 }
 
 .exportador-incentives {
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: -6px;
+    right: auto;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-rtl .swiper-button-next:after {
+    content: "prev";
+    font-size: 26px;
+    line-height: normal;
+    background: white;
+    border-radius: 100px;
+    padding: 10px 18px 8px 15px;
+    color: #005ca4;
+    box-shadow: 0px 3px 6px #00000029;
+    font-weight: bolder;
+  }
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-next {
+    right: -6px;
+    left: auto;
+  }
+
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-next:after {
+    content: "next";
+    font-size: 26px;
+    line-height: normal;
+    background: white;
+    border-radius: 100px;
+    padding: 10px 15px 8px 18px;
+    color: #005ca4;
+    box-shadow: 0px 3px 6px #00000029;
+    font-weight: bolder;
+  }
+  .swiper-pagination-bullets-dynamic {
+    margin: 0 auto !important;
+    transform: inherit !important;
+    margin-top: 20px !important;
+    span {
+      width: 10px;
+      height: 10px;
+    }
+    .swiper-pagination-bullet-active-main {
+      background: #005ca4;
+    }
+  }
   .modal-header {
     h5 {
       font-size: 22px;
@@ -2200,6 +2272,43 @@ $font-bold-maven: Maven-Bold;
     box-shadow: 0px 3px 6px #00000029;
     margin-top: 1rem;
 
+    .swiper {
+      width: 23vw;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      width: 10vw !important;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .card-product-servervice__body {
       padding: 0.5rem 1rem;
     }
@@ -2223,7 +2332,11 @@ $font-bold-maven: Maven-Bold;
       }
     }
     .product-slider {
-    }
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 8px;
+      padding: 3px;
+      margin: 4px;
+  }
   }
   .code {
     .input-group {
@@ -2308,7 +2421,7 @@ $font-bold-maven: Maven-Bold;
     p {
       width: 50%;
       padding: 5px 10px;
-    font-size: 16px !important;
+      font-size: 16px !important;
     }
     .last {
       padding-right: 30px;

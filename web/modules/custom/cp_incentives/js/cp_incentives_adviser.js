@@ -594,6 +594,16 @@
       body: formdata2,
     };
     let ident = 0;
+    var active = '';
+      var inactive = '';
+      if (window.location.href.indexOf("/en/") > -1) {
+          active = 'Active';
+          inactive = 'Inactive';
+      } else {
+          active = 'Activo';
+          inactive = 'Inactivo';
+      }
+
     fetch("/benefits/get_benefits", requestOptions2)
       .then(response => response.json())
       .then((result) => {
@@ -623,19 +633,21 @@
                     ` : `
                       <p>${benefits.description_spanish}</p>
                       `
-              }
+                  }
                 </td>
                 <td class="status">
                   <div class="swicher">
                     <input id="input-${benefits.id}" name="input-${benefits.id}" type="checkbox"
                       ${benefits.state == 1 ? `checked` : ``}
+                      onclick="updateBenefitRow(${benefits.id}, ${benefits.state})"
                     >
-                    <label for="input-${benefits.id}" class="label-default"
-                    ${
-              //AQUI SE PREGUNTARÁ POR EL ESTADO DEL BENEFICIO Y MODIFICARA EL LABEL
-              benefits.state == 1 ? `style="background-color: #00b050"` : `style="background-color: #e46c0a"`
-              }
-                    ></label>
+                    <label for="input-${benefits.id}" class="label-default"></label>
+                      ${
+                        //AQUI SE PREGUNTARÁ POR EL ESTADO DEL BENEFICIO Y MODIFICARA EL LABEL
+                        benefits.state == 1 ? 
+                        `<p class="text-na text-align-center m-0" style="color:#A1A5AA">${active}</p>` :
+                        `<p class="text-na text-align-center m-0" style="color:#A1A5AA">${inactive}</p>`
+                      }
                   </div>
                 </td>
                 <td class="  width-edit" type='button'>
@@ -944,7 +956,7 @@
         $('#img-input').addClass('error');
         $('#img-input').css('border', '1px solid rgb(186, 12, 47)');
         isValid = false;
-        message = Drupal.t("Image format is not valid, must be .png file.");
+        message = Drupal.t("Image format is not valid, must be a .png file.");
         $("#error_img").show();
         $("#error_img_message").text(message);
       }
@@ -1064,7 +1076,7 @@
       $('#benefit-description-spanish').addClass('error');
       isValid = false;
       $('#benefit-description-spanish').css('border-color', 'rgb(186, 12, 47)');
-      message = Drupal.t("Description can't contain special characters");
+      message = Drupal.t("Description in spanish can't contain special characters");
 
       $("#error_benefit-description-spanish").show();
       $("#error_benefit-description-spanish_message").text(message);
@@ -1219,6 +1231,35 @@
     $('#update-benefit-description').css('border-color', 'rgb(204, 204, 204)');
     $('#update-benefit-description-spanish').css('border-color', 'rgb(204, 204, 204)');
   }
+  function updateBenefitRow(id, state) {
+    let formData = new FormData();
+    formData.append('id', id);
+    if (state == 1) {
+        formData.append('state', 0);
+    } else {
+        formData.append('state', 1);
+    }
+
+    fetch('/adviser/incentives/update-benefit-status', {
+        method: 'POST',
+        body: formData
+    }).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        if (data.status == 200) {
+            //reload table
+            
+        } else {
+            alert(data.message);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    }).finally(function () {
+      getListOfBenefits();
+    });
+    
+
+}
 
   Drupal.behaviors.cp_incentives = {
     attach: function (context, settings) {
@@ -1275,6 +1316,9 @@
           console.log(id);
           updateBenefit(id);
         }
+        window.updateBenefitRow = function (index, state) {
+          updateBenefitRow(index, state);
+      }
 
         //check if #img change
         $('#img').change(function () {
