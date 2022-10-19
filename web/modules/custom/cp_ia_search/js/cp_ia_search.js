@@ -222,7 +222,9 @@
     $('#list-cat-search-2').html(html);
 
     //show modal if not show
-    if (showModal && page == 1) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let temp_page = urlParams.get('page') ? urlParams.get('page') : 1;
+    if (showModal && temp_page == 1) {
       console.log("show modal");
       showModal = false;
       $('#category-modal').modal('show');

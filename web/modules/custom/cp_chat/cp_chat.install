@@ -117,6 +117,12 @@ function cp_chat_schema() {
         'default' => 0,
         'description' => 'Status of message for receiver',
       ],
+      'is_automatic' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Question, if this message was automatically generated.',
+      ],
       'created' => [
         'type' => 'varchar',
         'mysql_type' => 'datetime',
