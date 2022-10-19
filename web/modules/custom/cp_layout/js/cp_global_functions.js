@@ -14,6 +14,7 @@
                     if (data.status == 'error') {
                         //open modal
                         $('#valid-login-msg').modal('show');
+                        $('#nombre-empresa-modal-validate').text(data.company_name);
                     } else {
                         if (data.status === 'ok') {
                             let values = data.result_chat;
@@ -37,6 +38,7 @@
             $("#alert-message-layout").hide();
         }, 1000);
      });
+     
     Drupal.behaviors.cp_global_functions = {
         attach: function (context, settings) {
             //global functions

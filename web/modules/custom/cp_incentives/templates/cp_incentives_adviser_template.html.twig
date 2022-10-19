@@ -70,8 +70,9 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							disabled
 							style="user-select: none;"
 							id="max_measure_1_1"
@@ -132,13 +133,14 @@
 						<div class="input_error">
 							<div class="input-group m-0" id="min_measure_0_cont">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="min_measure_0"
-									placeholder="Tiempo mínimo"
-									aria-label="Tiempo mínimo"
-									aria-describedby="Tiempo mínimo"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
@@ -157,13 +159,14 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="max_measure_0"
-									placeholder="Tiempo maximo"
-									aria-label="Tiempo maximo"
-									aria-describedby="Tiempo maximo"
+									placeholder="{{ "Maximum time"|t }}"
+									aria-label="{{ "Maximum time"|t }}"
+									aria-describedby="{{ "Maximum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
@@ -196,13 +199,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="given_points_0"
-							placeholder="Ingrese el número de puntos"
-							aria-label="Ingrese el número de puntos"
-							aria-describedby="Ingrese el número de puntos"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -232,13 +236,14 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="min_measure_1"
-									placeholder="Tiempo mínimo"
-									aria-label="Tiempo mínimo"
-									aria-describedby="Tiempo mínimo"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
@@ -256,13 +261,14 @@
 					<div class="col p-0">
 						<div class="input_error">
 							<div class="input-group m-0">
-								<input type="number"
+								<input type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="max_measure_1"
-									placeholder="Tiempo maximo"
-									aria-label="Tiempo maximo"
-									aria-describedby="Tiempo maximo"
+									placeholder="{{ "Maximum time"|t }}"
+									aria-label="{{ "Maximum time"|t }}"
+									aria-describedby="{{ "Maximum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
@@ -280,13 +286,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="given_points_1"
-							placeholder="Ingrese el número de puntos"
-							aria-label="Ingrese el número de puntos"
-							aria-describedby="Ingrese el número de puntos"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -304,13 +311,14 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="min_measure_2"
-									placeholder="Tiempo mínimo"
-									aria-label="Tiempo mínimo"
-									aria-describedby="Tiempo mínimo"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
@@ -329,12 +337,13 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input 
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									id="max_measure_2"
-									placeholder="Tiempo maximo"
-									aria-label="Tiempo maximo"
-									aria-describedby="Tiempo maximo"
+									placeholder="{{ "Maximum time"|t }}"
+									aria-label="{{ "Maximum time"|t }}"
+									aria-describedby="{{ "Maximum time"|t }}"
 									class="form-control"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
@@ -353,13 +362,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="given_points_2"
-							placeholder="Ingrese el número de puntos"
-							aria-label="Ingrese el número de puntos"
-							aria-describedby="Ingrese el número de puntos"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 							>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -376,8 +386,9 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							id="expiration_days_1"
 							class="form-control"
 							aria-describedby="basic-addon2"
@@ -472,8 +483,9 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							disabled
 							style="user-select: none;"
 							id="max_measure_2_1_1"
@@ -534,13 +546,14 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="max_measure_2_0"
-									placeholder="Tiempo mínimo"
-									aria-label="Tiempo mínimo"
-									aria-describedby="Tiempo mínimo"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Views"|t }}</span>
@@ -573,13 +586,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="given_points_2_0"
-							placeholder="Ingrese el número de puntos"
-							aria-label="Ingrese el número de puntos"
-							aria-describedby="Ingrese el número de puntos"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -609,13 +623,14 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="max_measure_2_1"
-									placeholder="Tiempo mínimo"
-									aria-label="Tiempo mínimo"
-									aria-describedby="Tiempo mínimo"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Views"|t }}</span>
@@ -633,13 +648,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="given_points_2_1"
-							placeholder="Ingrese el número de puntos"
-							aria-label="Ingrese el número de puntos"
-							aria-describedby="Ingrese el número de puntos"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -657,13 +673,14 @@
 						<div class="input_error">
 							<div class="input-group m-0">
 								<input
-									type="number"
+									type="text"
 									min="0"
+									maxlength="5"
 									class="form-control"
 									id="max_measure_2_2"
-									placeholder="Tiempo mínimo"
-									aria-label="Tiempo mínimo"
-									aria-describedby="Tiempo mínimo"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
 									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 								>
 								<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Views"|t }}</span>
@@ -681,13 +698,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="given_points_2_2"
-							placeholder="Ingrese el número de puntos"
-							aria-label="Ingrese el número de puntos"
-							aria-describedby="Ingrese el número de puntos"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -704,8 +722,9 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							id="expiration_days_2"
 							class="form-control"
 							aria-describedby="basic-addon2"
@@ -800,11 +819,14 @@
 				<div class="input_error">
 					<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							id="given_points_3_0"
 							class="form-control"
-							aria-describedby="basic-addon2"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
@@ -837,13 +859,14 @@
 					<div class="input_error">
 						<div class="input-group m-0">
 						<input
-							type="number"
+							type="text"
 							min="0"
+							maxlength="5"
 							class="form-control"
 							id="expiration_days_3"
-							placeholder="Tiempo mínimo"
-							aria-label="Tiempo mínimo"
-							aria-describedby="Tiempo mínimo"
+							placeholder= "{{ "Minimum time"|t }}"
+							aria-label= "{{ "Minimum time"|t }}"
+							aria-describedby= "{{ "Minimum time"|t }}"
 							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
 						>
 						<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Time in days"|t }}</span>

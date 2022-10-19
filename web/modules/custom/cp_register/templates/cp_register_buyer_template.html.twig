@@ -263,13 +263,21 @@
 						<div class="col-md-6" id="principal_advisor_contain">
 							<label for="principal_advisor" class="form-label">{{ "ProColombia Senior Advisor"|t }}
 							</label>
-							<select name="principal_advisor" id="principal_advisor">
-								<option value="">{{ "Enter the keyword or select an option"|t }}
-								</option>
-								{% for advisor_user in tree_advisor %}
-									<option value="{{advisor_user.ID}}">{{advisor_user.Name}}</option>
-								{% endfor %}
-							</select>
+							<div class="input_error">
+								<select name="principal_advisor" id="principal_advisor">
+									<option value="">{{ "Enter the keyword or select an option"|t }}
+									</option>
+									{% for advisor_user in tree_advisor %}
+										<option value="{{advisor_user.ID}}">{{advisor_user.Name}}</option>
+									{% endfor %}
+								</select>
+							
+								<i id="error_principal_advisor" class='bx bxs-info-circle toltip_i'>
+									<span id="error_error_principal_advisor_message" class="tooltiptext_error">
+										{{ "Select the ProColombia advisor with whom your company has a defined work plan."|t }}
+									</span>
+								</i>
+							</div>
 							<div class="toltip_content">
 								<i id="error_principal_advisor-ts-control" class='bx bxs-info-circle toltip_i'>
 									<span id="error_principal_advisor-ts-control_message" class="tooltiptext">

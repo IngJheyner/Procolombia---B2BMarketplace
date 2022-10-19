@@ -55,8 +55,13 @@ class CpChatController extends ControllerBase {
       $uid = \Drupal::currentUser()->id();
       //check if uid is not 0
       if ($uid == 0) {
+        ///get name of company
+        $uid_other_user = $this->getUid($data['entity_id_exportador']);
+        $other_user = \Drupal\user\Entity\User::load($uid_other_user);
+        $company_name = $other_user->get('field_company_name')->value ?? $other_user->get('name')->value;
+        //get company name
         return new JsonResponse(
-          ['status' => 'error', 'message' => 'You are not logged in']
+          ['status' => 'error', 'message' => 'You are not logged in', 'company_name' => $company_name]
         );
       }
       $query = $database->select('cp_chat', 'c');
@@ -69,6 +74,17 @@ class CpChatController extends ControllerBase {
         $uid_other_user = $this->getUid($data['entity_id_exportador']);
         $other_user = \Drupal\user\Entity\User::load($uid_other_user);
 
+        $image = $other_user->get('field_company_logo')->getValue();
+        $image = $image[0]['target_id'];
+        $image = \Drupal\file\Entity\File::load($image);
+        //check if image is not null
+        if ($image != null) {
+          $image = $image->getFileUri();
+          $image = file_create_url($image);
+        } else {
+          $image = NULL;
+        }
+
         return new JsonResponse([
           'status' => 'success',
           'message' => 'Chat room already exists',
@@ -76,13 +92,13 @@ class CpChatController extends ControllerBase {
             'id' => $result[0]->id,
             'id_me' => $result[0]->entity_id_comprador,
             'id_other_user' => $other_user->id(),
-            'company_name' => $other_user->get('field_company_name')->value,
-            'first_name' => $other_user->get('field_company_contact_name')->value,
-            'last_name' => $other_user->get('field_company_contact_lastname')->value,
+            'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+            'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'description' => 'Comprador',
             'updated' => $result[0]->updated,
             'last_message' => $this->getLastMessage($result[0]->id),
-            'company_logo' => file_create_url($other_user->get('field_company_logo')->entity->getFileUri()),
+            'company_logo' => $image,
             'count_checked' => $count,
           ),
         ]);
@@ -107,6 +123,16 @@ class CpChatController extends ControllerBase {
       $uid_other_user = $this->getUid($data['entity_id_exportador']);
       $other_user = \Drupal\user\Entity\User::load($uid_other_user);
 
+      $image = $other_user->get('field_company_logo')->getValue();
+      $image = $image[0]['target_id'];
+      $image = \Drupal\file\Entity\File::load($image);
+      //check if image is not null
+      if ($image != null) {
+        $image = $image->getFileUri();
+        $image = file_create_url($image);
+      } else {
+        $image = NULL;
+      }
       return new JsonResponse([
         'status' => 'success',
         'message' => 'Chat room created',
@@ -114,13 +140,13 @@ class CpChatController extends ControllerBase {
           'id' => $result[0]->id,
           'id_me' => $result[0]->entity_id_comprador,
           'id_other_user' => $other_user->id(),
-          'company_name' => $other_user->get('field_company_name')->value,
-          'first_name' => $other_user->get('field_company_contact_name')->value,
-          'last_name' => $other_user->get('field_company_contact_lastname')->value,
+          'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+          'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+          'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
           'description' => 'Comprador',
           'updated' => $result[0]->updated,
           'last_message' => $this->getLastMessage($result[0]->id),
-          'company_logo' => file_create_url($other_user->get('field_company_logo')->entity->getFileUri()),
+          'company_logo' => $image,
           'count_checked' => $count,
         ),
       ]);
@@ -276,6 +302,16 @@ class CpChatController extends ControllerBase {
           $file_url = '';
         }
         if ($user->hasRole('exportador')) {
+          $image = $user->get('field_company_logo')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = NULL;
+          }
           $data[] = array(
             'id' => $row->id,
             'id_chat' => $row->id_chat,
@@ -284,10 +320,10 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
-            'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+            'company_logo' => $image,
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         } else {
@@ -299,9 +335,9 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         }
@@ -431,26 +467,36 @@ class CpChatController extends ControllerBase {
             'id' => $row->id,
             'id_me' => $row->entity_id_exportador,
             'id_other_user' => $other_user->id(),
-            'company_name' => $other_user->get('field_company_name')->value,
-            'first_name' => $other_user->get('field_company_contact_name')->value,
-            'last_name' => $other_user->get('field_company_contact_lastname')->value,
+            'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+            'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'description' => 'Comprador',
             'updated' => $row->updated,
             'last_message' => $this->getLastMessage($row->id),
             'count_checked' => $count,
           );
         } else {
+          $image = $other_user->get('field_company_logo')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = NULL;
+          }
           $data[] = array(
             'id' => $row->id,
             'id_me' => $row->entity_id_comprador,
             'id_other_user' => $other_user->id(),
-            'company_name' => $other_user->get('field_company_name')->value,
-            'first_name' => $other_user->get('field_company_contact_name')->value,
-            'last_name' => $other_user->get('field_company_contact_lastname')->value,
+            'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+            'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'description' => $other_user->get('field_company_info')->value,
             'updated' => $row->updated,
             'last_message' => $this->getLastMessage($row->id),
-            'company_logo' => file_create_url($other_user->get('field_company_logo')->entity->getFileUri()),
+            'company_logo' => $image,
             'count_checked' => $count,
           );
         }
@@ -504,6 +550,16 @@ class CpChatController extends ControllerBase {
           $file_url = '';
         }
         if ($user->hasRole('exportador')) {
+          $image = $user->get('field_company_logo')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = NULL;
+          }
           $data[] = array(
             'id' => $row->id,
             'id_chat' => $row->id_chat,
@@ -512,10 +568,10 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
-            'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+            'company_logo' => $image,
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         } else {
@@ -527,9 +583,9 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         }

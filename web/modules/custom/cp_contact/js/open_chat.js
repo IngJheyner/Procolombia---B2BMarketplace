@@ -6,6 +6,7 @@
     const createOrOpenChat = () => {
       //check if id_exportador is set
       let id_exportador = $('#id_exportador').val()
+      
       if (id_exportador) {
         let formData = new FormData();
         formData.append('entity_id_exportador', id_exportador);

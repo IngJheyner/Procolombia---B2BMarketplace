@@ -235,12 +235,12 @@
                 "infoEmpty": "No records available",
                 "infoFiltered": "(filtered from _MAX_ total records)",
                 //total records
-                "info": "Total records: <span class='num_table'>_MAX_</span>",
+                "info": `${Drupal.t("Total records: ")}<span class='num_table'>_MAX_</span>`,
                 "paginate": {
                     "first": "First",
                     "last": "Last",
-                    "next": "Next",
-                    "previous": "Previous"
+                    "next": Drupal.t("Next "),
+                    "previous": Drupal.t("Previous")
                 }
             },
             //remove search box
@@ -863,6 +863,8 @@
         $("#given_points_2_0").css("border-color", "#ced4da");
         $("#given_points_2_1").css("border-color", "#ced4da");
         $("#given_points_2_2").css("border-color", "#ced4da");
+        // Hide all <i> tags with error
+        $(".input_error i").hide();
         
     }
     // **********************

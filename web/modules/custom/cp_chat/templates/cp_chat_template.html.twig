@@ -7,7 +7,7 @@
 					<div>
 						<div class="px-4 pt-4">
 							<div class="d-flex align-items-center justify-content-between">
-								<h4 class="mb-3 chat-tittle">Mensajes</h4>
+								<h4 class="mb-3 chat-tittle">{{ "Messages"|t }}</h4>
 								<div class="mb-3 more-options">
 									<i class='bx bx-dots-horizontal-rounded'></i>
 								</div>
@@ -17,14 +17,14 @@
 									<span class="input-group-text text-muted bg-input-chat pe-1 ps-3" id="basic-addon1">
 										<i class='bx bx-search-alt'></i>
 									</span>
-									<input id="search-message" placeholder="Buscar mensajes" type="text"
+									<input id="search-message" placeholder="{{ "Search messages"|t }}" type="text"
 										class="form-control bg-input-chat" value="" />
 								</div>
 							</div>
 
 							<div class="mb-4 d-flex flex-row justify-content-between">
-								<label id="all" class="tab-chat me-1 w-100 active" for="option1">Todas</label>
-								<label id="unread" class="tab-chat me-1 w-100" for="option2">No leídas</label>
+								<label id="all" class="tab-chat me-1 w-100 active" for="option1">{{ "All messages"|t }}</label>
+								<label id="unread" class="tab-chat me-1 w-100" for="option2">{{ "Unread"|t }}</label>
 								<label id="read" class="tab-chat me-1" for="option3">Leídos</label>
 								<label id="deleted-label" class="tab-chat ms-1" for="option4">
 									<i class='bx bx-trash'></i>
@@ -94,7 +94,7 @@
 												<i class='bx bx-collapse-alt'></i>
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
-													Minimizar chat
+													{{ "Minimize chat"|t }}
 												</span>
 											</button>
 										</div>
@@ -107,7 +107,7 @@
 												<i class='bx bxs-low-vision'></i>
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%; padding: 5px;">
-													Marcar como no leido
+													{{ "Mark as unread"|t }}
 												</span>
 											</button>
 										</div>
@@ -120,7 +120,7 @@
 												<i class='bx bx-trash'></i>
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%;padding: 5px;">
-													Borrar chat
+													{{ "Clear chat"|t }}
 												</span>
 											</button>
 										</div>
@@ -191,7 +191,7 @@
 
 						<div class="no-gutters row">
 							<div class="col">
-								<div><input id="text-message" placeholder="Enter Message..." type="text"
+								<div><input id="text-message" placeholder="{{ "Enter Message..."|t }}" type="text"
 										class="form-control form-control-lg bg-input-chat border-light text-send text-message"
 										value="" />
 								</div>
@@ -251,7 +251,7 @@
 													<path id="paper-plane-solid" fill="#fff" class="st0"
 														d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z" />
 												</svg>
-												Enviar
+												{{ "Send"|t }}
 											</button>
 										</li>
 									</ul>
@@ -267,7 +267,7 @@
 		<div class="w-100 empty-msg" id="chat-empty">
 			<img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Back.png" alt="" srcset="">
 			<div class="">
-				<div class="desc mt-2">Envía y recibe mensajes</div>
+				<div class="desc mt-2">{{ "Send and receive messages"|t }}</div>
 			</div>
 		</div>
 
@@ -281,14 +281,14 @@
 					<h5 class="modal-title" id="alert_3Label"><img
 							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg"
 							alt="" srcset="">
-						Eliminar chat <span id="modal-chat-header-empresa"></span>
+						{{ "Delete chat"|t }}<span id="modal-chat-header-empresa"></span>
 					</h5>
 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
 				</div>
 				<div class="modal-body">
 					<p>
-						Esta a punto de eliminar el chat con la empresa <strong class="text-break"
-							id="modal-chat-empresa"></strong> con contacto
+						{{ "You are about to delete the chat with the company "|t }} <strong class="text-break"
+							id="modal-chat-empresa"></strong>{{ " with the contact "|t }}
 						<strong class="text-break" id="modal-chat-name"></strong>.
 					</p>
 				</div>

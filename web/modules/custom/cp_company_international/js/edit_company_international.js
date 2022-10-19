@@ -109,7 +109,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t('Select an option')},
             ],
             sortField: {
                 field: "text",
@@ -142,7 +142,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t('Select an option')},
             ],
             sortField: {
                 field: "text",
@@ -175,7 +175,7 @@
             labelField: 'title',
             searchField: 'title',
             options: [
-                { id: 1, title: 'Seleccione una opción' },
+                { id: 1, title: Drupal.t('Select an option')},
             ],
             sortField: {
                 field: "text",

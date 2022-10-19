@@ -1167,7 +1167,7 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
   if ($display->getComponent('cp_core_generate_contact')) {
     $user = \Drupal::currentUser();
     $userRoles = $user->getRoles(TRUE);
-    if (in_array('buyer', $userRoles)) {
+    if (in_array('buyer', $userRoles) || $user->isAnonymous())  {
       $build['cp_core_generate_contact'] = [
         '#type' => 'html_tag',
         '#tag' => 'a',

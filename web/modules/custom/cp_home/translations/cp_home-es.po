@@ -17,3 +17,162 @@ msgstr "Probando traducciones 1"
 
 msgid "Testing translations 2"
 msgstr "Probando traducciones 2"
+
+msgid "# Tariff Item"
+msgstr "# Partida Arancelaria"
+
+msgid "Reset search"
+msgstr "Reiniciar búsqueda"
+
+msgid " and "
+msgstr " y "
+
+msgid "FIND A GOOD OFFER"
+msgstr "ENCUENTRE UNA BUENA OFERTA"
+
+msgid "PRODUCTS"
+msgstr "PRODUCTOS"
+
+msgid "Products"
+msgstr "Productos"
+
+msgid "SERVICES"
+msgstr "SERVICIOS"
+
+msgid "Services"
+msgstr "Servicios"
+
+msgid "COMPANIES"
+msgstr "EMPRESAS"
+
+msgid "Find here "
+msgstr "Encuentre aquí "
+
+msgid "SEARCH"
+msgstr "BUSCAR"
+
+msgid " according to your needs. Choose an option to start searching: type here what you are looking for or if you know the HS code, and then click on "
+msgstr " según sus necesidades. Elija una opción para empezar a buscar: escriba aquí lo que busca o si conoce el código HS, y luego haga clic en "
+
+msgid "VIEW ALL"
+msgstr "VER TODO"
+
+msgid "Colombia has exporting companies for what your customer needs."
+msgstr "Colombia tiene empresas exportadoras para lo que su cliente necesita."
+
+msgid "Discover unique goods and services of Colombian origin for export, choose the category according to your needs."
+msgstr "Descubra bienes y servicios únicos de origen colombiano para exportar, elija la categoría de acuerdo a sus necesidades."
+
+msgid "Orden by: "
+msgstr "Ordenar por: "
+
+msgid "Products & Services ProColombia"
+msgstr "Productos & Servicios ProColombia"
+
+msgid "View details"
+msgstr "Ver detalles"
+
+msgid "VIEW ALL PRODUCTS & SERVICES"
+msgstr "VER TODOS LOS PRODUCTOS & SERVICIOS"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "CONTACT US"
+msgstr "CONTÁCTANOS"
+
+msgid "Let's Talk!"
+msgstr "¡Hablemos!"
+
+msgid "VIEW ALL EVENTS"
+msgstr "VER TODOS LOS EVENTOS"
+
+msgid "Your industry"
+msgstr "Su industria"
+
+msgid "Your interest"
+msgstr "Sus intereses"
+
+msgid "Welcome to our intelligent search assistant:"
+msgstr "Bienvenido a nuestro asistente de búsqueda inteligente:"
+
+msgid "Select yout industry"
+msgstr "Seleccione su industria"
+
+msgid "Select your interest"
+msgstr "Seleccione sus intereses"
+
+msgid "What are you looking for?"
+msgstr "¿Qué está buscando?"
+
+msgid "VIEW ALL NEWS"
+msgstr "VER TODAS LAS NOTICIAS"
+
+msgid "Events"
+msgstr "Eventos"
+
+msgid "Tag"
+msgstr "Etiqueta"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Investment"
+msgstr "Inversión"
+
+msgid "Tourism"
+msgstr "Turismo"
+
+msgid "Type something specific to perform a search"
+msgstr "Escribe algo en específico para realizar una búsqueda"
+
+msgid "ProColombia's events agenda from "
+msgstr "Agenda de eventos de ProColombia del "
+
+msgid "From "
+msgstr "Del "
+
+msgid " to "
+msgstr " al "
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"

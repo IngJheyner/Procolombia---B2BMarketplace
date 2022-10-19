@@ -294,7 +294,7 @@
 			<form class="position-relative">
 				<div class="d-flex justify-content-center align-items-center">
 					<input type="text" class="search-input search"
-						placeholder="Escribe algo en específico para realizar una búsqueda" name="search-input"
+						placeholder={{ "Type something specific to perform a search"|t }} name="search-input"
 						id="search-input" autocomplete="off">
 					<input type="text" name="uid-input" hidden disabled style="user-select: none;z-index: -20;"
 						id="uid-input" value="{{uid}}">
@@ -330,7 +330,7 @@
 				<div id="search-recommendations"
 					class="mt-2 p-2 position-absolute search-cont start-0 top-100 w-100 py-4 px-3"
 					style="display: none;">
-					<p class="tittle">RECOMENDACIONES</p>
+					<p class="tittle">{{ "RECOMMENDATIONS"|t }}</p>
 					<div class="d-flex justify-content-between align-items-end">
 						<div class="row">
 							<div class="col-lg-12 p-0 pt-2">
@@ -396,7 +396,7 @@
 				<div id="search-suggestions"
 					class="mt-2 p-2 position-absolute search-cont start-0 top-100 w-100 py-4 px-3"
 					style="display: none;">
-					<p class="tittle">SUGERENCIAS</p>
+					<p class="tittle">{{ "SUGGESTIONS"|t }}</p>
 					<div class="d-flex justify-content-between align-items-end">
 						<div class="row">
 							<div class="col-lg-12 p-0 pt-2" id="list-search-suggest">
@@ -582,7 +582,7 @@
                   </div>
                </div>
                <div class="col-8">
-                  <p class="name">Hola,
+                  <p class="name">{{ "Hello, "|t }}
                      <strong>{{ business_name }}</strong>
                   </p>
                   <p class="status">

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_account_status
+    - field.field.user.user.field_automatic_message_chat
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
@@ -42,6 +43,7 @@ dependencies:
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
     - field.field.user.user.field_productive_chain
+    - field.field.user.user.field_range_hours_chat
     - field.field.user.user.field_step
     - field.field.user.user.field_subcat_interest_1
     - field.field.user.user.field_subcat_interest_2
@@ -214,6 +216,14 @@ content:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_automatic_message_chat:
+    type: string_textarea
+    weight: 34
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_cat_interest_1:
@@ -516,6 +526,14 @@ content:
     weight: 19
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_range_hours_chat:
+    type: string_textfield
+    weight: 33
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_step:
     type: number

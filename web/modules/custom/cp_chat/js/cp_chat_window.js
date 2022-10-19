@@ -638,7 +638,7 @@
                   <div class="ctext-wrap">
                     <div class="ctext-wrap-content">
                       <p class="mb-0">${first_date}</p>
-                      <p class="mb-0" style="color:#005CA4">Contacto con la empresa ${name}</p>
+                      <p class="mb-0" style="color:#005CA4">${Drupal.t("Contact with the company")} ${name}</p>
                     </div>
                   </div>
                 </div>
@@ -1001,11 +1001,11 @@
                 console.log(new_messages);
                 if ($('#new-messages-chat-window').length === 0) {
                   $('#chat-messages').append(`
-                <li id="new-message-content-window"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat-window">${new_messages + " Mensaje Nuevo"
+                <li id="new-message-content-window"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat-window">${new_messages + " " + Drupal.t("New Message")
                     }</span></div></li>
                 `);
                 } else {
-                  $('#new-messages-chat-window').text(new_messages + " Mensajes Nuevos");
+                  $('#new-messages-chat-window').text(new_messages + " "+ + Drupal.t("New Messages"));
                 }
               }
               if (msg.files) {
@@ -1175,7 +1175,7 @@
                           <div class="ctext-wrap">
                               <div class="ctext-wrap-content w-100 w-100">
                                   <p class="mb-0">
-                                      Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
+                                      ${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
                                   </p>
                               </div>
                           </div>

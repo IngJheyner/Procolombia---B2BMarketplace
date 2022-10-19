@@ -193,7 +193,7 @@
                 }
               }
             }
-            fetch("auth/userLoginFinalize", {
+            fetch("/auth/userLoginFinalize", {
               method: "POST",
               body: formData,
             }).then((response) => {
@@ -587,6 +587,12 @@
         });
     }
   }
+  // show modal login when click open-login-modal button
+  $("#open-login-modal").click(function () {
+    console.log("CLICK")
+    $("#valid-login-msg").modal('hide');
+    $("#login_modal").modal("show");
+  });
 
   Drupal.behaviors.custom = {
     attach: function (context, settings) {

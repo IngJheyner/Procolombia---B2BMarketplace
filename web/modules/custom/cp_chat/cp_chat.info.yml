@@ -1,6 +1,8 @@
 name: Cp Procolombia Chat
 type: module
 description: Custom module for Procolombia chat messages
+interface translation project: cp_chat
+interface translation server pattern: modules/custom/cp_chat/translations/cp_chat-es.po
 package: Custom
 core_version_requirement: ^8 || ^9
 dependencies:

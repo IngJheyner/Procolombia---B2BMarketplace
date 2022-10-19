@@ -499,3 +499,12 @@ msgstr "El puntaje mínimo del nuevo status no es válido."
 
 msgid "Maximum points for new status are not valid."
 msgstr "El puntaje máximo del nuevo status no es válido."
+
+msgid "Total records: "
+msgstr "Total de registros: "
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next "
+msgstr "Siguiente"

@@ -33,7 +33,7 @@
         } else {
             html = `<div class="item">
                         <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
-                        <label class="btn item-select" for="option1">No hay sugerencias</label>
+                        <label class="btn item-select" for="option1">${Drupal.t("No suggestions")}</label>
                     </div>`;
         }
         $('#list-search-suggest').html(html);

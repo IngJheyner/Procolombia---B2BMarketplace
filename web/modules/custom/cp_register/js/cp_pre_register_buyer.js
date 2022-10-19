@@ -492,7 +492,7 @@
 
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
           $("#alert-message-layout").show();
-          console.log(Drupal.t("Error while creating user. ") + error);
+          console.log(Drupal.t("Error: E-mail already has been registered"));
         });
     }
   }

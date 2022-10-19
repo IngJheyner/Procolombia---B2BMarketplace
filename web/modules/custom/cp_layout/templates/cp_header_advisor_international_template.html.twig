@@ -129,12 +129,10 @@
 						<div class="col-2 py-2 p-0">
 
 							<img style="width: 57px !important;
-																																																								                          height: 57px !important;
-																																																								                          margin-left: -3px !important;"
+								height: 57px !important;
+								margin-left: -3px !important;"
 								src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"
 								alt="" class="image-cover">
-
-
 						</div>
 						<div class="col-10">
 							<p class="name">{{ name }}
@@ -309,7 +307,7 @@
 			<form class="position-relative">
 				<div class="d-flex justify-content-center align-items-center">
 					<input type="text" class="search-input search"
-						placeholder="Escribe algo en específico para realizar una búsqueda" name="search-input"
+						placeholder="{{ "Type something specific to perform a search"|t }}" name="search-input"
 						id="search-input" autocomplete="off">
 					<input type="text" name="uid-input" hidden disabled style="user-select: none;z-index: -20;"
 						id="uid-input" value="{{uid}}">
@@ -600,8 +598,8 @@
 				<div class="row p-1 align-items-center">
 					<div class="col-2 py-2 p-0">
 						<img style="width: 57px !important;
-																																															                        height: 57px !important;
-																																															                        margin-left: -3px !important;"
+							height: 57px !important;
+							margin-left: -3px !important;"
 							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/RegistreseComoEmpresarioInternacional.svg"
 							alt="" class="image-cover">
 					</div>
@@ -620,7 +618,7 @@
 				</div>
 			</li>
 			<li class="border-0">
-				<p class="title">Perfil Asesor ProColombia</p>
+				<p class="title">{{ "ProColombia Advisor Profile"|t }}</p>
 			</li>
 			<li>
 				<a class="li_icon_url" href="/dashboard/adviser/user/international">
@@ -653,7 +651,7 @@
 						</g>
 					</svg>
 					<span>
-						Ver - Comprador Internacional</span>
+						{{ "View - International Buyer"|t }}</span>
 				</a>
 			</li>
 
@@ -668,7 +666,7 @@
 							d="M1850.3,0a1.263,1.263,0,1,1-1.263,1.263A1.264,1.264,0,0,1,1850.3,0"
 							transform="translate(-1846.818 14.692)" fill-rule="evenodd" fill="url(#back_gradient_2)" />
 					</svg>
-					<span>Oferta Para</span>
+					<span>{{ "Offer For"|t }}</span>
 				</a>
 			</li>
 			<li>
@@ -683,13 +681,13 @@
 							transform="translate(-483.484 -13.911)" fill-rule="evenodd" fill="url(#back_gradient_2)" />
 					</svg>
 					<span>
-						Historial de búsquedas
+						{{ "Search history"|t }}
 					</span>
 				</a>
 			</li>
 
 			<li class="border-0">
-				<p class="title">Notificaciones</p>
+				<p class="title">{{ "Notifications"|t }}</p>
 			</li>
 			<li id="right_bar_2">
 				<a class="li_icon_url" href="/dashboard/international/user">
@@ -778,7 +776,7 @@
 							transform="translate(0 -32)" fill="url(#hover_color_2)" />
 					</svg>
 					<span>
-						Gestionar Encuestas</span>
+						{{ "Manage Surveys"|t }}</span>
 				</a>
 			</li>
 			<li class="border-0">
@@ -793,7 +791,7 @@
 							transform="translate(-1967.47 -28.632)" fill-rule="evenodd" fill="url(#back_gradient_2)" />
 					</svg>
 					<span>
-						Comunicaciones masivas</span>
+						{{ "Mass communications"|t }}</span>
 				</a>
 			</li>
 			<li id="logout">

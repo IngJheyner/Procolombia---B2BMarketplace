@@ -98,9 +98,9 @@
           </div>
           <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
-            <span class="chat-user-name text-truncate mb-0"><strong>Nombre del contacto:</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
-            <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
-            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
+            <span class="chat-user-name text-truncate mb-0"><strong>${Drupal.t("Concact name:")}</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
+            <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : `${Drupal.t("New Chat")}`}</p>
+            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
@@ -111,7 +111,7 @@
                   <i class="bx bx-dots-horizontal-rounded"></i>
                   </a>
                   <div tabindex="-1" id="dropdown-list-${chat.id}" role="menu" aria-hidden="false" class="dropdown-menu" style="position: absolute;will-change: transform;top: 16px;min-width: 28px;left: -70px;" x-placement="top-start">
-                    <button onclick="deleteChatSideBar(${chat.id}, '${chat.first_name + " " + chat.last_name}', '${chat.company_name}')"  type="button" tabindex="0" role="menuitem" class="dropdown-item">Eliminar <i class='bx bx-trash'></i></button>
+                    <button onclick="deleteChatSideBar(${chat.id}, '${chat.first_name + " " + chat.last_name}', '${chat.company_name}')"  type="button" tabindex="0" role="menuitem" class="dropdown-item">${Drupal.t("Delete")}<i class='bx bx-trash'></i></button>
                   </div>
               </div>
             </span>

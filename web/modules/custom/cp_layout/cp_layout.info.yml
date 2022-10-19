@@ -1,6 +1,8 @@
 name: Cp Procolombia Layout
 type: module
 description: Custom module for Cp Procolombia Layout
+interface translation project: cp_layout
+interface translation server pattern: modules/custom/cp_layout/translations/cp_layout-es.po
 package: Custom
 core_version_requirement: ^8 || ^9
 dependencies:

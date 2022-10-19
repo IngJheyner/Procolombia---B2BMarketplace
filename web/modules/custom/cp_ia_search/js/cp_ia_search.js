@@ -4,8 +4,7 @@
   let limit = 10;
   let query = '';
   let showModal = true;
-  // cretae varibel showmodallocal in local storage with  value true
-  localStorage.setItem('showModalLocal', true);
+
   const init = () => {
     const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -223,7 +222,7 @@
     $('#list-cat-search-2').html(html);
 
     //show modal if not show
-    if (showModal) {
+    if (showModal && page == 1) {
       console.log("show modal");
       showModal = false;
       $('#category-modal').modal('show');

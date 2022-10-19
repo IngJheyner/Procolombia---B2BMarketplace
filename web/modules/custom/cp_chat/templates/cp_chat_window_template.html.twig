@@ -1,8 +1,8 @@
 {{ attach_library('cp_chat/cp_chat') }}
 <section id="chat-window-modal" class="cp_contact chat" style="position: fixed; right: 6px; bottom: 0;display: none; z-index:20">
 	<div id='' style="width: 400px; height: 600px;">
-		<div class="user-chat w-100 user-chat m-0" id="chat-fill">
-			<div class="d-lg-flex" style="background-color:#3177C3">
+		<div class="user-chat w-100 user-chat m-0" id="chat-fill" style="border-top-left-radius: 13px;border-top-right-radius: 13px;">
+			<div class="d-lg-flex" style="background-color:#3177C3" style="border-top-left-radius: 13px;border-top-right-radius: 13px;">
 				<div class="w-100">
 					<div class="p-0">
 						<div class="align-items-center row">
@@ -12,8 +12,8 @@
 									<div class="flex-grow-1 overflow-hidden user-header">
 										<h5 class="text-truncate text-white" id="chat-company-name-window"></h5>
 										<p class="user-chat-name text-white" id="chat-user-name-window">
-											<strong>Nombre del contacto:</strong>
-											Javier Ruíz</p>
+											<strong>{{ "Concact name:"|t }}</strong>
+											-Example-Javier Ruíz</p>
 									</div>
 								</div>
 							</div>
@@ -26,7 +26,7 @@
 												<button type="button" id="hide-chat-window" class="nav-btn user-profile-show btn btn-none toltip_i">
 													<i class='bx bx-fullscreen text-white'></i>
 													<span class="tooltiptext" style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
-														Minimizar chat
+														{{ "Minimize chat"|t }}
 													</span>
 												</button>
 											</div>
@@ -37,7 +37,7 @@
 											<button type="button" class="nav-btn user-profile-show btn btn-none toltip_i">
 												<i class='bx bx-x text-white'></i>
 												<span class="tooltiptext" style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
-													Salir
+													{{ "Leave"|t }}
 												</span>
 											</button>
 										</div>
@@ -97,7 +97,7 @@
 
 						<div class="no-gutters row">
 							<div class="col-12">
-								<div><input id="text-message-window" placeholder="Enter Message..." type="text" class="form-control form-control-lg bg-input-chat border-light text-send text-message" value=""/>
+								<div><input id="text-message-window" placeholder="{{ "Enter Message..."|t }}" type="text" class="form-control form-control-lg bg-input-chat border-light text-send text-message" value=""/>
 								</div>
 							</div>
 							<div class="col-12 d-flex justify-content-between mt-3 align-items-center">
@@ -140,7 +140,7 @@
 											</style>
 											<path id="paper-plane-solid" class="st0" d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z"/>
 										</svg>
-										Enviar
+										{{ "Send"|t }}
 									</button>
 								</div>
 							</div>

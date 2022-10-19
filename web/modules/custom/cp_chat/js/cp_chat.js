@@ -122,7 +122,7 @@
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
             <span class="chat-user-name text-truncate mb-0"><strong>Nombre del contacto:</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
             <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
-            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
+            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
@@ -215,7 +215,7 @@
     msgList.forEach((msg) => {
       if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
         html += `
-        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
+        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? `${Drupal.t("Today")}` : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
         `
       }
       console.log("msg", msg);
@@ -479,7 +479,7 @@
     msgList.forEach((msg) => {
       if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
         html += `
-        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
+        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? `${Drupal.t("Today")}` : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
         `
       }
       console.log("msg", msg);
@@ -823,7 +823,7 @@
                 <div class="ctext-wrap">
                   <div class="ctext-wrap-content">
                     <p class="mb-0">${first_date}</p>
-                    <p class="mb-0" style="color:#005CA4">Contacto con la empresa ${name}</p>
+                    <p class="mb-0" style="color:#005CA4">${Drupal.t("Contact with the company")} ${name}</p>
                   </div>
                 </div>
               </div>
@@ -1014,7 +1014,7 @@
             last_id_message = data.id;
             if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
               $('#chat-messages').append(`
-            <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")
+            <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? `${Drupal.t("Today")}` : moment(msg.updated).format("DD MMMM YYYY")
                 }</span></div></li>
             `);
               last_date = moment(msg.updated).format("DD MMMM YYYY");
@@ -1160,11 +1160,11 @@
                 console.log(new_messages);
                 if ($('#new-messages-chat').length === 0) {
                   $('#chat-messages').append(`
-                <li id="new-message-content"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat">${new_messages + " Mensaje Nuevo"
+                <li id="new-message-content"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat">${new_messages + " " + Drupal.t("New Message")
                     }</span></div></li>
                 `);
                 } else {
-                  $('#new-messages-chat').text(new_messages + " Mensajes Nuevos");
+                  $('#new-messages-chat').text(new_messages + " " + Drupal.t("New Messages"));
                 }
               }
               if (msg.files) {
@@ -1333,7 +1333,7 @@
                           <div class="ctext-wrap">
                               <div class="ctext-wrap-content">
                                   <p class="mb-0">
-                                      Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
+                                      ${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
                                   </p>
                               </div>
                           </div>

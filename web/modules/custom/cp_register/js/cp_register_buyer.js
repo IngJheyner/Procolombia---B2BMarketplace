@@ -314,12 +314,12 @@
     if (advisor == "") {
       message = Drupal.t("Select the ProColombia advisor with whom your company has a defined work plan.");
       $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ba0c2f");
-      $("#error_principal_advisor-ts-control_message").text(message)
-      $("#error_principal_advisor-ts-control").show();
+      $("#error_principal_advisor_message").text(message)
+      $("#error_principal_advisor").show();
       isValid = false;
     } else {
       $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ccc");
-      $("#error_principal_advisor-ts-control").hide();
+      $("#error_principal_advisor").hide();
     }
 
     return isValid;
