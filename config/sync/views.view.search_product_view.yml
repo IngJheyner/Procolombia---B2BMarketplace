@@ -1,4 +1,4 @@
-uuid: 61cd354f-3ce2-472e-93ed-8ac92ca0226b
+uuid: 0fb78ba2-01c2-4cd0-ba3c-25a3ebb3fc8c
 langcode: es
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
     - node.type.product
   module:
     - node
-    - user
-id: product_service_presave_preview
-label: 'Product / Service Presave Preview'
+id: search_product_view
+label: 'Search Product View'
 module: views
-description: ''
+description: 'Vista de los productos del buscador'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -22,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Previsualización
+      title: 'Search Product View'
       fields:
         title:
           id: title
@@ -75,7 +74,6 @@ display:
         type: none
         options:
           offset: 0
-          items_per_page: 0
       exposed_form:
         type: basic
         options:
@@ -87,9 +85,8 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: perm
-        options:
-          perm: 'edit any product content'
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -173,23 +170,50 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          operator: in
           value:
             product: product
+          group: 1
+          exposed: false
           expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
             operator_limit_selection: false
             operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: html_list
-        options:
-          row_class: ''
-          default_row_class: true
-          uses_fields: false
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
         type: 'entity:node'
         options:
@@ -214,7 +238,6 @@ display:
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
-        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -226,7 +249,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: product-service-presave-preview/%
+      path: search/product-preview/%
     cache_metadata:
       max-age: -1
       contexts:
@@ -234,5 +257,4 @@ display:
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
-        - user.permissions
       tags: {  }
