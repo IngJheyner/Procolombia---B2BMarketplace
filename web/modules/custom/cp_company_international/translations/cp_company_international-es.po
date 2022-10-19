@@ -392,3 +392,21 @@ msgstr "El teléfono es requerido\n"
 
 msgid "Error While Creating User: "
 msgstr "Error al crear el usuario: "
+
+msgid ""Error sending email: "
+msgstr ""Error al enviar el correo: "
+
+msgid "Error while updating User: "
+msgstr "Error al actualizar el usuario: "
+
+msgid "Error while updating User"
+msgstr "Error al actualizar el usuario"
+
+msgid "Error while obtaining user data: "
+msgstr ""Error al obtener los datos del usuario: "
+
+msgid "Error while obtaining user data"
+msgstr "Error al obtener los datos del usuario"
+
+msgid "Error while obtaining subcategories: "
+msgstr "Error al obtener las subcategorías: "

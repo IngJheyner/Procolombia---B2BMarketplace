@@ -28,7 +28,15 @@
                 });
         }
     }
+      // when click on close button change animation 
 
+      $("#close-alert").click(function () {
+        // change css animation name
+        $("#alert-message-layout").css("animation-name", "fadeOutDownBig");
+        setTimeout(() => {
+            $("#alert-message-layout").hide();
+        }, 1000);
+     });
     Drupal.behaviors.cp_global_functions = {
         attach: function (context, settings) {
             //global functions

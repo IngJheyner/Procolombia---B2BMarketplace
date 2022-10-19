@@ -176,7 +176,9 @@
           select_subcategories1.setValue(value);
       })
       .catch((error) => {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while obtaining subcategories: " + error);
       })
   }
 
@@ -210,7 +212,9 @@
           select_subcategories2.setValue(value);
       })
       .catch((error) => {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while obtaining subcategories: " + error);
       })
   }
 
@@ -244,7 +248,9 @@
           select_subcategories3.setValue(value);
       })
       .catch((error) => {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while obtaining subcategories: " + error);
       })
   }
 
@@ -354,13 +360,17 @@
             $("#validate_progresss").css("width", "33%");
             $("#step_2").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error while creating user. ");
           }
         })
         .catch(function (error) {
           $("#loading_international_2").hide();
           $("#save_buyer_1").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while obtaining subcategories: " + error);
         });
     }
   }
@@ -448,13 +458,17 @@
             $("#validate_progresss").css("width", "53%");
             $("#step_3").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error while creating user. ");
           }
         })
         .catch(function (error) {
           $("#loading_international_3").hide();
           $("#save_buyer_2").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while creating user. " + error);
         });
     }
   }
@@ -543,13 +557,17 @@
             $("#validate_progresss").css("width", "73%");
             $("#step_4").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error while creating user. ");
           }
         })
         .catch(function (error) {
           $("#loading_international_4").hide();
           $("#save_buyer_3").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while creating user. " + error);
         });
     }
   }
@@ -636,20 +654,26 @@
                 body: formData,
               }
             ).catch(function (error) {
-              alert(error);
+              $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+              $("#alert-message-layout").show();
+              console.log("Error while creating user. ");
             });
             $("#success_modal_international").modal("show");
             //set name of company empresa_popup
             $("#empresa_popup").text(localStorage.getItem("company_name"));
             localStorage.clear();
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error while creating user. ");
           }
         })
         .catch(function (error) {
           $("#loading_international_5").hide();
           $("#save_buyer_4").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while creating user. " + error);
         });
     }
   }
@@ -682,7 +706,9 @@
         }
       })
       .catch(function (error) {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while creating user. " + error);
       });
   }
 
@@ -729,13 +755,17 @@
           localStorage.clear();
           window.location.href = "/pre-registro";
         } else {
-          alert(Drupal.t("Error when deleting user"));
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while delete user. ");
         }
       })
       .catch(function (error) {
         $("#loading_3").hide();
         $("#save_3").show();
-        alert(Drupal.t("Error when deleting user"));
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while delete user. " + error);
       });
   }
 

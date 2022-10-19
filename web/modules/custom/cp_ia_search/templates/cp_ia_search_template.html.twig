@@ -288,7 +288,7 @@
                     </li>
                 </ul>
             </div>
-            <p class="fs-3 my-5 tittle-search">Tendencias ProColombia</p>
+            <p class="fs-3 my-5 tittle-search">Sugerencias ProColombia</p>
             <div class="position-relative pt-4">
                 <!-- Slider main container -->
                 <div class="swiper mySwiper">
@@ -622,5 +622,29 @@
             </div>
 
         </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="category-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+        <div class="modal-header" style="background: #005CA4">
+            <h5 class="modal-title text-white" style="font-size: 22px !important;" id="exampleModalLabel"><i class='bx bx-slider-alt me-2'></i> Opciones de búsqueda</h5>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewbox="0 0 512 512" data-bs-dismiss="modal">
+                <title>close</title>
+                <path style="fill: #fff;" d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path>
+            </svg>
+        </div>
+        <div class="modal-body">
+           <p class="body-search-result">Su búsqueda <strong style="color: #0085CA;" id="words-filter-2"></strong> aparece en: <strong style="color: #0085CA;" id="category-length-2"></strong></p>
+           <p class="body-search-result fst-italic mb-2">Seleccione en la que está interesado</p>
+           <div class="lis-cat">
+             <ul class="list" id="list-cat-search-2"></ul>
+           </div>
+        </div>
+        <div class="modal-footer continue">
+            <button type="button" id="filter-cat-2" class="btn continue fs-6">Aplicar filtro de búsqueda</button>
+        </div>
+        </div>
+    </div>
     </div>
 </section>

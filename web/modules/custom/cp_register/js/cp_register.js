@@ -122,6 +122,10 @@
 
   // onChangeFile Show Logo and name
   function onChangeLogo() {
+    // var message for tooltips
+    var message = '';
+    // var for logo file
+    var logo = $("#logo").prop("files")[0];
     // get file
     var file = $("#logo")[0].files[0];
     // get file name
@@ -137,6 +141,60 @@
     $("#logo_name").show();
     $("#prew").show();
     $("#logo_sub").hide();
+    // validateForm1();
+    if (logo == undefined) {
+      message =
+        Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
+      $("#logo_input").css("border-color", "#ba0c2f");
+      $("#logo_name").css("border-color", "#ba0c2f");
+      $("#error_logo_message").text(message)
+      $("#error_logo").show();
+      $("#error_logo");
+    } else {
+      var file = logo.type;
+      var fileSize = logo.size;
+      var fileName = logo.name;
+      var fileExtension = fileName.split(".").pop();
+      if (fileExtension != "png" && fileExtension != "jpg") {
+        message =
+          Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
+        $("#logo_input").css("border-color", "#ba0c2f");
+        $("#logo_name").css("border-color", "#ba0c2f");
+        $("#error_logo_message").text(message)
+        $("#error_logo").show();
+        $("#error_logo")
+
+          ;
+      } else {
+        if (fileSize > 2000000) {
+          message =
+            Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
+          $("#logo_input").css("border-color", "#ba0c2f");
+          $("#logo_name").css("border-color", "#ba0c2f");
+          $("#error_logo_message").text(message)
+          $("#error_logo").show();
+          $("#error_logo")
+
+            ;
+        } else {
+          if (logo.width > 200 || logo.height > 200) {
+            message =
+              Drupal.t("The logo is required to be an image file and must be png and jpg and less than 2MB in size and less than 200x200 in dimension");
+            $("#logo_input").css("border-color", "#ba0c2f");
+            $("#logo_name").css("border-color", "#ba0c2f");
+            $("#error_logo_message").text(message)
+            $("#error_logo").show();
+            $("#error_logo")
+
+              ;
+          } else {
+            $("#error_logo").hide();
+            $("#logo_name").css("border-color", "#cccccc");
+            $("#logo_input").css("border-color", "#cccccc");
+          }
+        }
+      }
+    }
   }
 
   // close thumbnail 
@@ -293,7 +351,9 @@
           select_cities.setValue(value);
       })
       .catch((error) => {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while getting cities: " + error);
       })
   }
 
@@ -456,6 +516,7 @@
     if (password == "") {
       message = Drupal.t("Password is required");
       $("#password").css("border-color", "#ba0c2f");
+      $("#span-password").css("border-color", "#ba0c2f");
       $("#error_password_message").text(message)
       $("#error_password").show();
       isValid = false;
@@ -463,12 +524,14 @@
       if (password.length < 8 && password.length > 15) {
         message = Drupal.t("The password must be between 8 and 15 characters long");
         $("#password").css("border-color", "#ba0c2f");
+        $("#span-password").css("border-color", "#ba0c2f");
         $("#error_password_message").text(message)
         $("#error_password").show();
         isValid = false;
       } else {
         if (!password.match(/[A-Z]/)) {
           message = Drupal.t("The password must have at least one capital letter");
+          $("#span-password").css("border-color", "#ba0c2f");
           $("#password").css("border-color", "#ba0c2f");
           $("#error_password_message").text(message)
           $("#error_password").show();
@@ -476,6 +539,7 @@
         } else {
           if (!password.match(/[0-9]/)) {
             message = Drupal.t("The password must have at least one number");
+            $("#span-password").css("border-color", "#ba0c2f");
             $("#password").css("border-color", "#ba0c2f");
             $("#error_password_message").text(message)
             $("#error_password").show();
@@ -488,6 +552,7 @@
               message =
                 Drupal.t("The password must have at least one special character");
               $("#password").css("border-color", "#ba0c2f");
+              $("#span-password").css("border-color", "#ba0c2f");
               $("#error_password_message").text(message)
               $("#error_password").show();
               $("#error_password")
@@ -497,6 +562,7 @@
             } else {
               $("#error_password").hide();
               $("#password").css("border-color", "#cccccc");
+              $("#span-password").css("border-color", "#cccccc");
             }
           }
         }
@@ -506,6 +572,7 @@
     if (confirm_password == "") {
       message = Drupal.t("Verify password field is required");
       $("#confirm_password").css("border-color", "#ba0c2f");
+      $("#span-confirm_password").css("border-color", "#ba0c2f");
       $("#error_confirm_password_message").text(message)
       $("#error_confirm_password").show();
       isValid = false;
@@ -513,12 +580,14 @@
       if (password != confirm_password) {
         message = Drupal.t("The field verify password and Password must be the same");
         $("#confirm_password").css("border-color", "#ba0c2f");
+        $("#span-confirm_password").css("border-color", "#ba0c2f");
         $("#error_confirm_password_message").text(message)
         $("#error_confirm_password").show();
         isValid = false;
       } else {
         $("#error_confirm_password").hide();
         $("#confirm_password").css("border-color", "#cccccc");
+        $("#span-confirm_password").css("border-color", "#cccccc");
       }
     }
 
@@ -616,13 +685,17 @@
             $("#home-tab").addClass("complete");
             $("#home-tab-pane").removeClass("show active");
           } else {
-            alert(Drupal.t("Error While Creating User: ")+ error);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error While Creating User");
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save_1").show();
-          alert(Drupal.t("Error While Creating User: ")+ error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error While Creating User" + error);
         });
     }
   }
@@ -714,6 +787,7 @@
       if (certification_business != "" && !certification_business_file) {
         message = Drupal.t("Certification file is required");
         $("#certificateFile").css("border-color", "#ba0c2f");
+        $("#logo_input2").css("border-color", "#ba0c2f");
         $("#error_certification_business_file").show();
         $("#error_certification_business_file_message").text(message)
         isValid = false;
@@ -721,6 +795,7 @@
         if ((certification_business_file.size / 1024 / 1024) > 2) {
           message = Drupal.t("The certification file must be less than 2mb");
           $("#certificateFile").css("border-color", "#ba0c2f");
+          $("#logo_input2").css("border-color", "#ba0c2f");
           $("#error_certification_business_file").show();
           $("#error_certification_business_file_message").text(message)
           isValid = false;
@@ -729,12 +804,14 @@
           if (certification_business_file.type != "application/pdf") {
             message = Drupal.t("The certification file must be a PDF file");
             $("#certificateFile").css("border-color", "#ba0c2f");
+            $("#logo_input2").css("border-color", "#ba0c2f");
             $("#error_certification_business_file").show();
             $("#error_certification_business_file_message").text(message);
             isValid = false;
           } else {
             $("#error_certification_business_file").hide();
             $("#certificateFile").css("border-color", "#cccccc");
+            $("#logo_input2").css("border-color", "#cccccc");
           }
         }
       }
@@ -788,13 +865,17 @@
             //show alert information
             $("#check_information").modal('show');
           } else {
-            alert("Error al actualizar los datos");
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error while updating data");
           }
         })
         .catch(function (error) {
           $("#loading_2").hide();
           $("#save_2").show();
-          alert("Error al actualizar los datos");
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while updating data");
         });
     }
   }
@@ -991,8 +1072,16 @@
           $("#error_mobile").show();
           isValid = false;
         } else {
-          $("#error_mobile").hide();
-          $("#mobile").css("border-color", "#cccccc");
+          if (mobile.length !== 10 ) {
+            message = Drupal.t("The cell phone must have 10 digits");
+            $("#mobile").css("border-color", "#ba0c2f");
+            $("#error_mobile_message").text(message)
+            $("#error_mobile").show();
+            isValid = false;
+          } else {
+            $("#error_mobile").hide();
+            $("#mobile").css("border-color", "#cccccc");
+          }
         }
       }
     }
@@ -1062,19 +1151,25 @@
                 body: formData,
               }
             ).catch(function (error) {
-              alert(error);
+              $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+              $("#alert-message-layout").show();
+              console.log("Error while updating data" + error);
             });
             $("#success_modal").modal('show');
             //clean local storage
             localStorage.clear();
           } else {
-            alert("Error al actualizar los datos");
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log("Error while updating data");
           }
         })
         .catch(function (error) {
           $("#loading_3").hide();
           $("#save_3").show();
-          alert("Error al actualizar los datos");
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+              $("#alert-message-layout").show();
+              console.log("Error while updating data" + error);
         });
     }
   }
@@ -1156,13 +1251,17 @@
           //redirect to pre-registro
           window.location.href = "/pre-registro";
         } else {
-          alert("Error al eliminar el usuario");
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+              $("#alert-message-layout").show();
+              console.log("Error while deleting user");
         }
       })
       .catch(function (error) {
         $("#loading_3").hide();
         $("#save_3").show();
-        alert("Error al eliminar el usuario");
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while deleting user: " + error);
       });
   }
 
@@ -1202,10 +1301,16 @@
         } else {
           //fill form with data_neo
           fillFormWithDataNeo();
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("Error while getting user data");
+          
         }
       })
       .catch(function (error) {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while getting user data: " + error);
       });
   }
 
@@ -1393,6 +1498,9 @@
       $("#departament", context).on("input", function () {
         getCities();
       });
+      $('#logo_name', context).on("change", function () {
+        validateForm1();
+      })
     }
   };
 

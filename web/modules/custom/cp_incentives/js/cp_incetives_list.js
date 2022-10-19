@@ -269,9 +269,13 @@
                 //reload table
                 incentives_list_table.ajax.reload();
             } else {
-                alert(data.message);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(data.message);
             }
         }).catch(function (error) {
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
             console.log(error);
         });
     }
@@ -419,16 +423,16 @@
             message = Drupal.t("State is required");
             console.log(message);
             if (type == 1) {
-                $('#state_1').css('border', '1px solid red');
+                $('#state_1').css('border', '1px solid rgb(186, 12, 47)');
                 $("#error_state_1").show();
                 $("#error_state_1_message").text(message)
             } else {
                 if (type == 2) {
-                    $('#state_2').css('border', '1px solid red');
+                    $('#state_2').css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_state_2").show();
                     $("#error_state_2_message").text(message)
                 }else{
-                    $('#state_3').css('border', '1px solid red');
+                    $('#state_3').css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_state_3").show();
                     $("#error_state_3_message").text(message)
                 }
@@ -454,16 +458,16 @@
             console.log(message);
             console.log(type);
             if (type == 1) {
-                $('#expiration_days_1').css('border', '1px solid red');
+                $('#expiration_days_1').css('border', '1px solid rgb(186, 12, 47)');
                 $("#error_expiration_days_1").show();
                 $("#error_expiration_days_1_message").text(message)
             } else {
                 if (type == 2) {
-                    $('#expiration_days_2').css('border', '1px solid red');
+                    $('#expiration_days_2').css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_expiration_days_2").show();
                     $("#error_expiration_days_2_message").text(message)
                 }else{
-                    $('#expiration_days_3').css('border', '1px solid red');
+                    $('#expiration_days_3').css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_expiration_days_3").show();
                     $("#error_expiration_days_3_message").text(message)
                 }
@@ -474,16 +478,16 @@
                 message = Drupal.t("Expiration days must be a number");
                 console.log(message);
                 if (type == 1) {
-                    $('#expiration_days_1').css('border', '1px solid red');
+                    $('#expiration_days_1').css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_expiration_days_1").show();
                     $("#error_expiration_days_1_message").text(message)
                 } else {
                     if (type == 2) {
-                        $('#expiration_days_2').css('border', '1px solid red');
+                        $('#expiration_days_2').css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_expiration_days_2").show();
                         $("#error_expiration_days_2_message").text(message)
                     }else{
-                        $('#expiration_days_3').css('border', '1px solid red');
+                        $('#expiration_days_3').css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_expiration_days_3").show();
                         $("#error_expiration_days_3_message").text(message)
                     }
@@ -519,14 +523,14 @@
                 if (min_measure == "") {
                     isValid = false;
                     message = Drupal.t("Minimum value is required");
-                    $("#min_measure_" + index + "_cont").css('border', '1px solid red');
+                    $("#min_measure_" + index + "_cont").css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_min_measure_" + index).show();
                     $("#error_min_measure_" + index + "_message").text(message)
                 } else {
                     if (!isNumber(min_measure)) {
                         isValid = false;
                         message = Drupal.t("Minimum value must be a number");
-                        $('#min_measure_' + index + "_cont").css('border', '1px solid red');
+                        $('#min_measure_' + index + "_cont").css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_min_measure_" + index).show();
                         $("#error_min_measure_" + index + "_message").text(message)
                     } else {
@@ -539,7 +543,7 @@
                     isValid = false;
                     message = Drupal.t("Maximum value is required");
                     console.log(message);
-                    $('#max_measure_' + index).css('border', '1px solid red');
+                    $('#max_measure_' + index).css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_max_measure_" + index).show();
                     $("#error_max_measure_" + index + "_message").text(message)
                 } else {
@@ -547,7 +551,7 @@
                         isValid = false;
                         message = Drupal.t("Maximum value must be a number");
                         console.log(message);
-                        $('#max_measure_' + index).css('border', '1px solid red');
+                        $('#max_measure_' + index).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_max_measure_" + index).show();
                         $("#error_max_measure_" + index + "_message").text(message)
                     } else {
@@ -560,7 +564,7 @@
                     isValid = false;
                     message = Drupal.t("Given points are required");
                     console.log(message);
-                    $('#given_points_' + index).css('border', '1px solid red');
+                    $('#given_points_' + index).css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_given_points_" + index).show();
                     $("#error_given_points_" + index + "_message").text(message)
                 } else {
@@ -568,7 +572,7 @@
                         isValid = false;
                         message = Drupal.t("Given points must be a number");
                         console.log(message);
-                        $('#given_points_' + index).css('border', '1px solid red');
+                        $('#given_points_' + index).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_given_points_" + index).show();
                         $("#error_given_points_" + index + "_message").text(message)
                     } else {
@@ -589,7 +593,7 @@
                         isValid = false;
                         message = Drupal.t("Minimum values must be greater than the previous one");
                         console.log(message);
-                        $('#min_measure_' + (index - 1)).css('border', '1px solid red');
+                        $('#min_measure_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_min_measure_" + (index - 1)).show();
                         $("#error_min_measure_" + (index - 1) + "_message").text(message)
                     }
@@ -603,7 +607,7 @@
                         isValid = false;
                         message = Drupal.t("Maximum values must be greater than the previous one");
                         console.log(message);
-                        $('#max_measure_' + (index - 1)).css('border', '1px solid red');
+                        $('#max_measure_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_max_measure_" + (index - 1)).show();
                         $("#error_max_measure_" + (index - 1) + "_message").text(message)
                     }
@@ -618,7 +622,7 @@
                         isValid = false;
                         message = Drupal.t("Given points must be less than the previous one");
                         console.log(message);
-                        $('#given_points_' + (index - 1)).css('border', '1px solid red');
+                        $('#given_points_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_given_points_" + (index - 1)).show();
                         $("#error_given_points_" + (index - 1) + "_message").text(message)
                     }
@@ -637,7 +641,7 @@
                     isValid = false;
                     message = Drupal.t("Maximum value is required");
                     console.log(message);
-                    $('#max_measure_2_' + index).css('border', '1px solid red');
+                    $('#max_measure_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_max_measure_2_" + index).show();
                     $("#error_max_measure_2_" + index + "_message").text(message)
                 } else {
@@ -645,7 +649,7 @@
                         isValid = false;
                         message = Drupal.t("Maximum value must be a number");
                         console.log(message);
-                        $('#max_measure_2_' + index).css('border', '1px solid red');
+                        $('#max_measure_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_max_measure_2_" + index).show();
                         $("#error_max_measure_2_" + index + "_message").text(message)
                     } else {
@@ -658,7 +662,7 @@
                     isValid = false;
                     message = Drupal.t("Given points are required");
                     console.log(message);
-                    $('#given_points_2_' + index).css('border', '1px solid red');
+                    $('#given_points_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_given_points_2_" + index).show();
                     $("#error_given_points_2_" + index + "_message").text(message)
                 } else {
@@ -666,7 +670,7 @@
                         isValid = false;
                         message = Drupal.t("Given points must be a number");
                         console.log(message);
-                        $('#given_points_2_' + index).css('border', '1px solid red');
+                        $('#given_points_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_given_points_2_" + index).show();
                         $("#error_given_points_2_" + index + "_message").text(message)
                     } else {
@@ -686,7 +690,7 @@
                         isValid = false;
                         message = Drupal.t("The maximum values must be greater than the previous one");
                         console.log(message);
-                        $('#max_measure_2_' + (index - 1)).css('border', '1px solid red');
+                        $('#max_measure_2_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_max_measure_2_" + (index - 1)).show();
                         $("#error_max_measure_2_" + (index - 1) + "_message").text(message)
                     }
@@ -700,7 +704,7 @@
                         isValid = false;
                         message = Drupal.t("Given points must be less than the previous one");
                         console.log(message);
-                        $('#given_points_2_' + (index - 1)).css('border', '1px solid red');
+                        $('#given_points_2_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
                         $("#error_given_points_2_" + (index - 1)).show();
                         $("#error_given_points_2_" + (index - 1) + "_message").text(message)
                     }
@@ -712,7 +716,7 @@
                 isValid = false;
                 message = Drupal.t("Given points are required");
                 console.log(message);
-                $('#given_points_3_' + 0).css('border', '1px solid red');
+                $('#given_points_3_' + 0).css('border', '1px solid rgb(186, 12, 47)');
                 $("#error_given_points_3_" + 0).show();
                 $("#error_given_points_3_" + 0 + "_message").text(message)
             } else {
@@ -720,7 +724,7 @@
                     isValid = false;
                     message = Drupal.t("Given points must be a number");
                     console.log(message);
-                    $('#given_points_3_' + 0).css('border', '1px solid red');
+                    $('#given_points_3_' + 0).css('border', '1px solid rgb(186, 12, 47)');
                     $("#error_given_points_3_" + 0).show();
                     $("#error_given_points_3_" + 0 + "_message").text(message)
                 }else{
@@ -810,7 +814,9 @@
                     $('#modal_simple_rule').modal('hide');
                     $('#modal_no_rule').modal('hide');
                 } else {
-                    alert(data.message);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(data.message);
                 }
                 if (type == 1) {
                     $('#save_criteria_1').show();
@@ -837,7 +843,28 @@
             });
         }
     }
-
+    function cleanInputsRules () {
+        $("#given_points_3_0").css("border-color", "#ced4da");
+        $("#expiration_days_1").css("border-color", "#ced4da");
+        $("#expiration_days_2").css("border-color", "#ced4da");
+        $("#expiration_days_3").css("border-color", "#ced4da");
+        $("#min_measure_0").css("border-color", "#ced4da");
+        $("#max_measure_0").css("border-color", "#ced4da");
+        $("#given_points_0").css("border-color", "#ced4da");
+        $("#min_measure_1").css("border-color", "#ced4da");
+        $("#max_measure_1").css("border-color", "#ced4da");
+        $("#given_points_1").css("border-color", "#ced4da");
+        $("#min_measure_2").css("border-color", "#ced4da");
+        $("#max_measure_2").css("border-color", "#ced4da");
+        $("#given_points_2").css("border-color", "#ced4da");
+        $("#max_measure_2_0").css("border-color", "#ced4da");
+        $("#max_measure_2_1").css("border-color", "#ced4da");
+        $("#max_measure_2_2").css("border-color", "#ced4da");
+        $("#given_points_2_0").css("border-color", "#ced4da");
+        $("#given_points_2_1").css("border-color", "#ced4da");
+        $("#given_points_2_2").css("border-color", "#ced4da");
+        
+    }
     // **********************
     // *** Call functions ***
     // **********************
@@ -884,6 +911,20 @@
                 $('#max_measure_1_1').val(value);
             });
 
+            
+ 
+            $("#close-modal-edit-business-rule").click(function () {
+                cleanInputsRules();
+            });
+            $("#close-modal-edit-business-rule-2").click(function () {
+                cleanInputsRules();
+            });
+            $("#close-modal-edit-business-rule-3").click(function () {
+                cleanInputsRules();
+            });
+            $("#cancel_process_1").click(function () {
+                cleanInputsRules();
+            });
             $('#given_points_2_0').on('input', function () {
                 let value = $(this).val();
                 $('#max_measure_2_1_1').val(value);

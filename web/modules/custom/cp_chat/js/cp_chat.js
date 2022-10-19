@@ -104,7 +104,7 @@
     let countNewMessages = 0;
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="">
+      <li id="conversation0" class="${chat.count_checked > 0 && "active"}">
         <div class="d-flex" id="chat">
           <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
           ${chat.company_logo ? `
@@ -126,7 +126,7 @@
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 6px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownList(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
@@ -427,14 +427,7 @@
                     <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                   </p>
                 </div>
-                <div class="dropdown align-self-start">
-                      <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class='bx bx-dots-vertical-rounded' ></i>
-                      </a>
-                      <div class="dropdown-menu" data-popper-placement="top-start">
-                          <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                      </div>
-                    </div>
+                
               </div>
             </div>
           </div>
@@ -698,14 +691,7 @@
                     <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                   </p>
                 </div>
-                <div class="dropdown align-self-start">
-                      <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class='bx bx-dots-vertical-rounded' ></i>
-                      </a>
-                      <div class="dropdown-menu" data-popper-placement="top-start">
-                          <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                      </div>
-                    </div>
+                
               </div>
             </div>
           </div>
@@ -802,10 +788,17 @@
             new_messages = 0;
             $('#new-message-content').html('');
           } else {
-            alert("Error");
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("ERROR WHILE CREATING MESSAGE")
           }
         })
-        .catch(error => alert('error', error));
+        .catch(error => {
+          console.log('error', error),
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("ERROR WHILE CREATING MESSAGE")
+        });
     }
   }
 
@@ -922,11 +915,16 @@
           //fetch chat
           getListOfChats(0, 15);
         } else {
-          alert(data.message);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log("ERROR WHILE DELETING CHAT");
         }
       })
       .catch(error => {
-        alert(error);
+        console.log('error', error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("ERROR WHILE CREATING MESSAGE");
       });
   }
 
@@ -1145,14 +1143,7 @@
                           <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                         </p>
                       </div>
-                      <div class="dropdown align-self-start">
-                            <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                            </a>
-                            <div class="dropdown-menu" data-popper-placement="top-start">
-                                <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                            </div>
-                          </div>
+                     
                     </div>
                   </div>
                 </div>
@@ -1452,45 +1443,45 @@
         $('#all', context).click(function () {
           //call list chats
           filter_type = 0;
-          getListOfChats(0, 15);
           //remove class active
           $('#all').addClass('active');
           $('#unread').removeClass('active');
           $('#read').removeClass('active');
-          $('#delete').removeClass('active');
+          $('#deleted-label').removeClass('active');
+          getListOfChats(0, 15);
         });
 
         //detect click in unread
         $('#unread', context).click(function () {
           //call list chats
           filter_type = 1;
-          getListOfChats(0, 15);
           $('#all').removeClass('active');
           $('#unread').addClass('active');
           $('#read').removeClass('active');
-          $('#delete').removeClass('active');
+          $('#deleted-label').removeClass('active');
+          getListOfChats(0, 15);
         });
 
         //detect click in read
         $('#read', context).click(function () {
           //call list chats
           filter_type = 2;
-          getListOfChats(0, 15);
           $('#all').removeClass('active');
           $('#unread').removeClass('active');
           $('#read').addClass('active');
-          $('#delete').removeClass('active');
+          $('#deleted-label').removeClass('active');
+          getListOfChats(0, 15);
         });
 
         //detect click in deleted
-        $('#deleted', context).click(function () {
+        $('#deleted-label', context).click(function () {
           //call list chats
           filter_type = 3;
-          getListOfChats(0, 15);
           $('#all').removeClass('active');
           $('#unread').removeClass('active');
           $('#read').removeClass('active');
-          $('#delete').addClass('active');
+          $('#deleted-label').addClass('active');
+          getListOfChats(0, 15);
         });
         //check if length of search-message is bigger than 3 and delay 300ms
         $('#search-message', context).on('input', function () {

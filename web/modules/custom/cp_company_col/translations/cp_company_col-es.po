@@ -374,3 +374,18 @@ msgstr "La linea de telefono no debe tener mas de 20 caracteres."
 
 msgid "The password must have at least one special character"
 msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Cannot send e-mail for data change: "
+msgstr "No se puede enviar el correo electrónico para el cambio de datos: "
+
+msgid "Error while updating data: "
+msgstr "Error al actualizar los datos: "
+
+msgid "Error while updating data"
+msgstr "Error al actualizar los datos"
+
+msgid "Error while obtaining user data: "
+msgstr ""Error al obtener los datos del usuario: "
+
+msgid "Error while obtaining user data"
+msgstr "Error al obtener los datos del usuario"

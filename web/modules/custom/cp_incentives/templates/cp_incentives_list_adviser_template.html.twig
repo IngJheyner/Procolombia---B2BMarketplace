@@ -416,40 +416,42 @@
                     </div>
                 <div class="modal-body">
                 <div class="row">
-                <select id='update-benefit-state'>
-                    <option value='0' >
-                        {{ 'Inactive'|t }}
-                    </option>
-                    <option value='1' >
-                        {{ 'Active'|t }}
-                    </option>
-                </select>
-                <div class="col-lg-12">
-                        <label for="nombre_del_sitio" class="form-label">{{ "Benefit description"|t }}
+                    <div class="col-lg-12">
+                        <select id='update-benefit-state'>
+                            <option value='0' >
+                                {{ 'Inactive'|t }}
+                            </option>
+                            <option value='1' >
+                                {{ 'Active'|t }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                            <label for="nombre_del_sitio" class="form-label">{{ "Benefit description"|t }}
+                                <sup>*</sup>
+                            </label>
+                        <div class="input_error">
+                            <input id='update-benefit-description' type="text" class="form-control"  aria-describedby="basic-addon2">
+                            <i id="error_update-benefit-description" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_update-benefit-description_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Benefit description in spanish"|t }}
                             <sup>*</sup>
                         </label>
-                    <div class="input_error">
-                        <input id='update-benefit-description' type="text" class="form-control"  aria-describedby="basic-addon2">
-                        <i id="error_update-benefit-description" class="bx bxs-info-circle toltip_i" style="display: none;">
-                            <span id="error_update-benefit-description_message" class="tooltiptext_error">
-                                {{ "Required Field"|t }}
-                            </span>
-                        </i>
+                        <div class="input_error">
+                            <input type="text" id='update-benefit-description-spanish' class="form-control"  aria-describedby="basic-addon2">
+                            <i id="error_update-benefit-description-spanish" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_update-benefit-description-spanish_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-12 mt-3">
-                    <label for="nombre_del_sitio" class="form-label">{{ "Benefit description in spanish"|t }}
-                        <sup>*</sup>
-                    </label>
-                    <div class="input_error">
-                        <input type="text" id='update-benefit-description-spanish' class="form-control"  aria-describedby="basic-addon2">
-                        <i id="error_update-benefit-description-spanish" class="bx bxs-info-circle toltip_i" style="display: none;">
-                            <span id="error_update-benefit-description-spanish_message" class="tooltiptext_error">
-                                {{ "Required Field"|t }}
-                            </span>
-                        </i>
-                    </div>
-                </div>
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-lg-12 continue p-0">

@@ -159,13 +159,13 @@
                         //reload page
                         window.location.reload();
                     } else {
-                        alert("Error al actualizar los datos");
+                        console.log("Error al actualizar los datos");
                     }
                 })
                 .catch(function (error) {
                     $("#loading_3").hide();
                     $("#save_3").show();
-                    alert("Error al actualizar los datos");
+                    console.log(error);
                 });
         }
     }

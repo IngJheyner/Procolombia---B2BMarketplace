@@ -303,11 +303,14 @@ $font-bold-maven: Maven-Bold;
   .avatar-xs {
     height: 2.2rem;
     width: 2.2rem;
+    object-fit: cover;
   }
 
   .avatar-sm {
     height: 3rem;
     width: 3rem;
+    object-fit: cover;
+
 
   }
 
@@ -318,16 +321,22 @@ $font-bold-maven: Maven-Bold;
   .avatar-md {
     height: 4.5rem;
     width: 4.5rem;
+    object-fit: cover;
+
   }
 
   .avatar-lg {
     height: 6rem;
     width: 6rem;
+    object-fit: cover;
+
   }
 
   .avatar-xl {
     height: 7.5rem;
     width: 7.5rem;
+    object-fit: cover;
+
   }
 
   .avatar-title {
@@ -822,9 +831,15 @@ $font-bold-maven: Maven-Bold;
     margin-bottom: 1px;
     box-shadow: #0085ca17 0px 1px 0px;
 
-    &.active #chat {
-      background-color: #e6ebf5;
-      border-left: 4px solid #0085CA;
+    li {
+      cursor: pointer;
+      margin-bottom: 1px;
+      box-shadow: #0085ca17 0px 1px 0px;
+
+      &.active #chat {
+        background-color: #e6ebf5;
+        border-left: 4px solid #0085ca;
+      }
     }
 
     #chat {
@@ -1042,6 +1057,7 @@ $font-bold-maven: Maven-Bold;
       border-radius: 50%;
       height: 36px;
       width: 36px;
+      object-fit: cover;
     }
   }
 

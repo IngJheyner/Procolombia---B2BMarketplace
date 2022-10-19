@@ -136,7 +136,9 @@
                     select_cities.setValue(value);
             })
             .catch((error) => {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while getting cities list: ") + error);
             })
     }
 
@@ -453,13 +455,17 @@
 
                 } else {
                     $("#question_modal").modal("hide");
-                    alert(Drupal.t("Error While Creating User: ") + error);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error While Creating User: ") + error);
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
-                alert(Drupal.t("Error While Creating User: ") + error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error While Creating User: ") + error);
             });
     }
 
@@ -658,17 +664,24 @@
                         body: formData,
                     }
                 ).catch(function (error) {
-                    alert(error);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error rejecting user: ") + error);
                 });
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/col';
             } else {
-                alert(Drupal.t("Error rejecting user"));
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error rejecting user: "));
+                
             }
         }).catch(function (error) {
             $("#loading_2").hide();
             $("#reject").show();
-            alert(Drupal.t("Error rejecting user"));
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Error rejecting user: ") + error);
         });
     }
 
@@ -699,17 +712,23 @@
                         body: formData,
                     }
                 ).catch(function (error) {
-                    alert(error);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error approving user: ") + error);
                 });
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/col';
             } else {
-                alert(Drupal - t("Error approving user"));
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error approving user: "));
             }
         }).catch(function (error) {
             $("#loading_3").hide();
             $("#modal_aproved_user_exportador").show();
-            alert(Drupal - t("Error approving user"));
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Error approving user: ") + error);
         });
     }
 
@@ -752,12 +771,15 @@
                     //fill form with data of user
                     fillFormWithDataUser(data.data);
                 } else {
-                    alert(data);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error while getting user data"));
                 }
             })
             .catch(function (error) {
-                alert("Error al obtener los datos" + error);
-                console.log(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while getting user data: ") + error);
             });
     }
 

@@ -40,9 +40,10 @@
 //       localStorage.setItem("expiration_days", expiration_days);
 //       return response.json();
 //       })
-//       .catch(function (error) {
-//       alert(Drupal.t("Error while creating status. ") + error);
-//       console.log(Drupal.t("Error while creating status. ") + error);
+        // .catch(function (error) {
+        // $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // $("#alert-message-layout").show();
+        // console.log(Drupal.t("Error while creating status. ") + error);
 //       });
 //   };
   

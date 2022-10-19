@@ -82,7 +82,7 @@
     console.log("renderChatList")
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="">
+      <li id="conversation0" class="${chat.count_checked > 0 && 'active'}">
         <div class="d-flex" id="chat">
           <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
           ${chat.company_logo ? `
@@ -92,7 +92,7 @@
               `
           :
           `<div class="avatar-sm">
-              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name ? chat.company_name.charAt(0) : "Null" }</span>
+              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name ? chat.company_name.charAt(0) : "Null"}</span>
             </div>`
         }
           </div>
@@ -104,7 +104,7 @@
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 6px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownListSideBar(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
@@ -152,11 +152,15 @@
           //fetch chat
           getListOfChats(0, 15);
         } else {
-          alert(data.message);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log(data.message);
         }
       })
       .catch(error => {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log(error);
       });
   }
 
@@ -173,29 +177,33 @@
         socket = io('ws://44.210.73.93:5055');
       }
 
-      //receive refreshChatList
-      socket.on('refreshChatList', function (data) {
-        let msg = data.message[0];
-        if (msg.entity_id_sender != id_me) {
-          console.log("refreshChatList");
+      if (socket) {
+        //receive refreshChatList
+        socket.on('refreshChatList', function (data) {
+          let msg = data.message[0];
+          if (msg.entity_id_sender != id_me) {
+            console.log("refreshChatList");
+            console.log(data);
+            getListOfChats(0, 15);
+          }
+        });
+      }
+      
+      if (socket) {
+        //receive typingChat
+        socket.on('typingChat', function (data) {
+          console.log("typing socket chat");
           console.log(data);
-          getListOfChats(0, 15);
-        }
-      });
-
-      //receive typingChat
-      socket.on('typingChat', function (data) {
-        console.log("typing socket chat");
-        console.log(data);
-        if (data.typing == true) {
-          console.log(`#last_message_chat_list_side_bar-${data.user_id}`);
-          $(`#typingChatSideBar-${data.user_id}`).show();
-          $(`#last_message_chat_list_side_bar-${data.user_id}`).hide();
-        } else {
-          $(`#typingChatSideBar-${data.user_id}`).hide();
-          $(`#last_message_chat_list_side_bar-${data.user_id}`).show();
-        }
-      });
+          if (data.typing == true) {
+            console.log(`#last_message_chat_list_side_bar-${data.user_id}`);
+            $(`#typingChatSideBar-${data.user_id}`).show();
+            $(`#last_message_chat_list_side_bar-${data.user_id}`).hide();
+          } else {
+            $(`#typingChatSideBar-${data.user_id}`).hide();
+            $(`#last_message_chat_list_side_bar-${data.user_id}`).show();
+          }
+        });
+      }
 
       //function to call getListOfChats
       window.callGetListOfChats = function (offset, limit) {
@@ -249,7 +257,7 @@
         $('#read_side_bar').removeClass('active');
         $('#delete_side_bar').addClass('active');
       });
-      
+
       //check if length of search-message is bigger than 3 and delay 300ms
       $('#search-message_side_bar', context).on('input', function () {
         if (this.value.length >= 3) {

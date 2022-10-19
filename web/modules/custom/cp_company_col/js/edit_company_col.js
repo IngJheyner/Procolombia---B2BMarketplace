@@ -136,7 +136,9 @@
                     select_cities.setValue(value);
             })
             .catch((error) => {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log("error", error);
             })
     }
 
@@ -425,7 +427,9 @@
                     fetch("/mailing/send/change/data/col", {
                         method: "POST",
                     }).catch(function (error) {
-                        alert("No se pudo enviar el correo de cambio de datos");
+                        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                        $("#alert-message-layout").show();
+                        console.log(Drupal.t("Cannot send e-mail for data change: ")+ error);
                     });
                     successProcess();
                     setTimeout(() => {
@@ -439,13 +443,17 @@
 
                 } else {
                     $("#question_modal").modal("hide");
-                    alert(Drupal.t("Error While Creating User: ")+ error);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error While Creating User: ")+ error);
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
-                alert(Drupal.t("Error While Creating User: ")+ error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error While Creating User: ")+ error);
             });
     }
 
@@ -657,7 +665,9 @@
                     fetch("/mailing/send/change/data/col", {
                         method: "POST",
                     }).catch(function (error) {
-                        alert("No se pudo enviar el correo de cambio de datos");
+                        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                        $("#alert-message-layout").show();
+                        console.log(Drupal.t("Cannot send e-mail for data change: ")+ error);
                     });
                     successProcess();
                     setTimeout(() => {
@@ -666,14 +676,18 @@
 
                     }, 2000);
                 } else {
-                    alert("Error al actualizar los datos");
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error while updating data"));
                 }
                 $("#question_modal2").modal("hide");
             })
             .catch(function (error) {
                 $("#loading_3").hide();
                 $("#save_3").show();
-                alert("Error al actualizar los datos");
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while updating data: ")+ error);
             });
 
     }
@@ -715,12 +729,15 @@
                     //fill form with data of user
                     fillFormWithDataUser(data.data);
                 } else {
-                    alert(data);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error while obtaining user data"));
                 }
             })
             .catch(function (error) {
-                alert("Error al obtener los datos");
-                console.log(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while obtaining user data : ")+ error);
             });
     }
 

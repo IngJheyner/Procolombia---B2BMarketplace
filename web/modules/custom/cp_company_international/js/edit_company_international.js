@@ -581,7 +581,9 @@
                                 method: "POST",
                             }
                         ).catch(function (error) {
-                            alert(error);
+                            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                            $("#alert-message-layout").show();
+                            console.log("Error sending email: " + error);
                         });
                         $('#question_modal').modal('hide');
                         $('#success_modal').modal('show');
@@ -589,13 +591,17 @@
                             window.location.reload()
                         }, 2500);
                     } else {
-                        alert(Drupal.t("Error While Creating User: ") + error);
+                        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                        $("#alert-message-layout").show();
+                        console.log("Error while updating user");
                     }
                 })
                 .catch(function (error) {
                     $("#loading_1").hide();
                     $("#save").show();
-                    alert(Drupal.t("Error While Creating User: ") + error);
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log("Error while updating user: " + error);
                 });
 
         }
@@ -615,10 +621,16 @@
                     //fill form with data of user
                     fillFormWithDataUserInternational(data.data);
                     //show tab base in step
+                } else {
+                    $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                    $("#alert-message-layout").show();
+                    console.log(Drupal.t("Error while obtaining user data"));
                 }
             })
             .catch(function (error) {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while obtaining user data : ")+ error);
             });
     }
 
@@ -652,7 +664,9 @@
                     select_subcategories1.setValue(value);
             })
             .catch((error) => {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while obtaining subcategories: ")+ error);
             })
     }
 
@@ -686,7 +700,9 @@
                     select_subcategories2.setValue(value);
             })
             .catch((error) => {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while obtaining subcategories: ")+ error);
             })
     }
 
@@ -720,7 +736,9 @@
                     select_subcategories3.setValue(value);
             })
             .catch((error) => {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Error while obtaining subcategories: ")+ error);
             })
     }
 

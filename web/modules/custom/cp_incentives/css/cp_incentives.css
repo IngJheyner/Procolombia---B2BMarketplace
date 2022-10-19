@@ -95,6 +95,8 @@
   background: #f0f0f0;
   padding: 0px 30px !important;
   height: 40px !important;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .dashboard-incentives th.width-check.sorting_disabled {
   min-width: 10px !important;

@@ -403,7 +403,7 @@
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be 0');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be 0');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
 
@@ -414,7 +414,7 @@
               console.log("PRUEBA DE LOWER");
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the max points must be higher to min points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the maximum points must be higher to minimum points');
               $('#error_status-max-points-'+status.id+'_message').text(message);
               $('#error_status-max-points-'+status.id).show();
             } else {
@@ -447,7 +447,7 @@
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be higher than the last status max points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be higher than the last status maximum points');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
             } else {
@@ -457,13 +457,13 @@
             }
             if (parseInt($('#status-min-points-' + status.id).val()) -
               parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val()) !== 1) {
-              console.log('For the status ' + status.name + ' V A L I D A C I O N  DE SECUENCIA');
+              // console.log('For the status ' + status.name + ' V A L I D A C I O N  DE SECUENCIA');
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-min-points-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be one point higher than the ' + status_list[iterator + 1].name + ' status max points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be one point higher than the ') + status_list[iterator + 1].name + Drupal.t(' status maximum points');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
               
@@ -485,7 +485,7 @@
   
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points cannot be greater than the max points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points cannot be greater than the maximum points');
               $('#error_status-max-points-'+status.id+'_message').text(message);
               $('#error_status-max-points-'+status.id).show();
 
@@ -494,7 +494,7 @@
   
               $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points cannot be equal to max points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points cannot be equal to maximum points');
               $('#error_status-max-points-'+status.id+'_message').text(message);
               $('#error_status-max-points-'+status.id).show();
 
@@ -510,7 +510,7 @@
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be one point higher than the ' + status_list[iterator + 1].name + ' status max points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be one point higher than the ') + status_list[iterator + 1].name + Drupal.t(' status maximum points');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
             } else {
@@ -524,7 +524,7 @@
               $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-min-points-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
               $('#status-span-min-' + status_list[iterator + 1].id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the min points must be one point higher than the ' + status_list[iterator + 1].name + ' status max points');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be one point higher than the ') + status_list[iterator + 1].name + Drupal.t(' status maximum points');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
             } else {
@@ -567,11 +567,16 @@
               getListOfBenefits();
             })
             .catch(function (error) {
-              alert(Drupal.t("Error while updating status. ") + error);
+              $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+              $("#alert-message-layout").show();
+              console.log(Drupal.t("Error while updating status. ") + error);
+              
               // console.log(Drupal.t("Error while updating status. ") + error);
             });
         } else {
-          console.log('Invalid points');
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log(Drupal.t('Invalid points'));
         }
         // return isValidPoint;
         // });
@@ -753,7 +758,8 @@
           }
         })
         .catch(function (error) {
-          alert(Drupal.t("Error while updating benefit. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
           console.log(Drupal.t("Error while updating benefit. ") + error);
         }).finally(() => {
           $('#loading_edit_benefit').hide();
@@ -789,7 +795,8 @@
         getListOfBenefits();
       })
       .catch(function (error) {
-        alert(Drupal.t("Error while updating benefit. ") + error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
         console.log(Drupal.t("Error while updating benefit. ") + error);
       });
   }
@@ -944,7 +951,7 @@
     if ($('#img').val() == '') {
       $('#img-input').addClass('error');
       $('#img-input').css('border', '1px solid rgb(186, 12, 47)');
-      console.log("Debe subir una imagen para el status");
+      console.log("You must upload an image for the status");
       isValid = false;
       message = Drupal.t("You must select an image.");
       $("#error_img").show();
@@ -1011,7 +1018,8 @@
           $('#create-status-modal').modal('hide');
         })
         .catch(function (error) {
-          alert(Drupal.t("Error while creating status. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
           console.log(Drupal.t("Error while creating status. ") + error);
         }).finally(function () {
           $('#save-status').show();
@@ -1108,8 +1116,6 @@
       $('#update-benefit-description').addClass('error');
       isValid = false;
       $('#update-benefit-description').css('border-color', 'rgb(186, 12, 47)');
-      console.log('La descripción no puede contener caracteres especiales');
-
       message = Drupal.t("Description can't contain special characters");
       
       $("#error_update-benefit-description").show();
@@ -1175,7 +1181,9 @@
             getListOfBenefits();
             $('#create-benefit-modal').modal('hide');
           } else {
-            alert(Drupal.t("Error while creating incentive. ") + data.message);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Error while creating incentive. ") + error);
           }
           $('#save-benefit').show()
           $('#loading_create_benefit').hide()
@@ -1183,7 +1191,8 @@
         .catch(function (error) {
           $('#save-benefit').show()
           $('#loading_create_benefit').hide()
-          alert(Drupal.t("Error while creating incentive. ") + error);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
           console.log(Drupal.t("Error while creating incentive. ") + error);
         });
     }
@@ -1214,7 +1223,8 @@
         return response.json();
       })
       .catch(function (error) {
-        alert(Drupal.t("Error while updating incentive. ") + error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
         console.log(Drupal.t("Error while updating incentive. ") + error);
       });
   }
@@ -1250,7 +1260,9 @@
             //reload table
             
         } else {
-            alert(data.message);
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log(Drupal.t("Error while updating benefits. "));
         }
     }).catch(function (error) {
         console.log(error);

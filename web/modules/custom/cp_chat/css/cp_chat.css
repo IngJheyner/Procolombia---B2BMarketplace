@@ -214,10 +214,14 @@
 .chat .avatar-xs {
   height: 2.2rem;
   width: 2.2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .chat .avatar-sm {
   height: 3rem;
   width: 3rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .chat .avatar-sm .avatar-title {
   font-size: 24px;
@@ -225,14 +229,20 @@
 .chat .avatar-md {
   height: 4.5rem;
   width: 4.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .chat .avatar-lg {
   height: 6rem;
   width: 6rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .chat .avatar-xl {
   height: 7.5rem;
   width: 7.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .chat .avatar-title {
   align-items: center;
@@ -640,9 +650,14 @@
   margin-bottom: 1px;
   box-shadow: rgba(0, 133, 202, 0.0901960784) 0px 1px 0px;
 }
-.chat .chat-list.active #chat {
+.chat .chat-list li {
+  cursor: pointer;
+  margin-bottom: 1px;
+  box-shadow: rgba(0, 133, 202, 0.0901960784) 0px 1px 0px;
+}
+.chat .chat-list li.active #chat {
   background-color: #e6ebf5;
-  border-left: 4px solid #0085CA;
+  border-left: 4px solid #0085ca;
 }
 .chat .chat-list #chat {
   border-radius: 4px;
@@ -835,6 +850,8 @@
   border-radius: 50%;
   height: 36px;
   width: 36px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .chat-conversation .chat-day-title {
   margin-bottom: 24px;

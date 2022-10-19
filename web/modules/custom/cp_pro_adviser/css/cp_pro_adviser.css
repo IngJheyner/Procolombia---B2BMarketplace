@@ -1266,9 +1266,9 @@ table.dataTable td.width-check.sorting_1:first-child {
 }
 table.dataTable th.table-width.sorting,
 table.dataTable td.table-width {
-  min-width: 150px !important;
-  width: 150px !important;
-  max-width: 150px !important;
+  min-width: 90px !important;
+  width: 90px !important;
+  max-width: 90px !important;
 }
 table.dataTable th {
   min-width: 124px !important;

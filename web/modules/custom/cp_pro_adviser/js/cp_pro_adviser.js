@@ -535,7 +535,9 @@
                 });
             })
             .catch((error) => {
-                alert(error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Unexpected error while obtaining subcategories: ") + error);
             })
     }
 

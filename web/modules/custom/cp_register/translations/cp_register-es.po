@@ -995,7 +995,7 @@ msgid "Please verify that you are not a robot"
 msgstr "Por favor verifique que no es un robot"
 
 msgid "Error while creating user. "
-msgstr "Error al crear el usuario"
+msgstr "Error al crear el usuario. "
 
 msgid "Email request error"
 msgstr "Error de solicitud de correo electrónico"
@@ -1119,3 +1119,36 @@ msgstr "Información en Inglés"
 
 msgid "Information in Spanish"
 msgstr "Información en Español"
+
+msgid "The email address is not valid"
+msgstr "El correo electrónico no es válido"
+
+msgid "The cell phone must have 10 digits"
+msgstr "El teléfono celular debe tener 10 dígitos"
+
+msgid "Error while getting cities: "
+msgstr "Error al obtener las ciudades: "
+
+msgid "Error While Creating User"
+msgstr "Error al crear el Usuario"
+
+msgid "Error While Creating User: "
+msgstr "Error al crear el Usuario: "
+
+msgid "Error while deleting user: "
+msgstr "Error al eliminar el usuario: "
+
+msgid "Error while deleting user"
+msgstr "Error al eliminar el usuario"
+
+msgid "Error while getting user data: "
+msgstr "Error al obtener los datos del usuario: "
+
+msgid "Error while getting user data"
+msgstr "Error al obtener los datos del usuario"
+
+msgid "Email or Tax ID number is required."
+msgstr "El correo o el NIT es requerido."
+
+msgid "Password is required."
+msgstr "La contraseña es requerida."

@@ -33,10 +33,14 @@
               window.location.href = '/register/user/buyer';
             }, 3000);
           } else {
-            alert(Drupal.t("Token invalid"));
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Token invalid"));
           }
         }).catch(function (error) {
-          console.log('Request failed', error);
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Request failed") + error);
         });
       } else {
         window.location.href = '/register/user/buyer';
@@ -362,22 +366,26 @@
       $("#langcode").css("border-color", "#cccccc");
     }
 
-    if (!policy) {
+    if (!$("#policy").is(":checked")) {
       message = Drupal.t("You must accept the privacy policy");
+      $("#policy").addClass('error');
       $("#error_policy").show();
       $("#error_policy_message").text(message)
       isValid = false;
     } else {
       $("#error_policy").hide();
+      $("#policy").removeClass('error');
     }
 
-    if (!conditions) {
+    if (!$("#conditions").is(":checked")) {
       message = Drupal.t("You must accept the terms of use");
+      $("#conditions").addClass('error');
       $("#error_conditions").show();
       $("#error_conditions_message").text(message)
       isValid = false;
     } else {
       $("#error_conditions").hide();
+      $("#conditions").removeClass('error');
     }
 
     //validate captcha getResponse and if is empty show error
@@ -385,7 +393,11 @@
     console.log(response);
     console.log("HI x2")
     if (response.length == 0) {
-      alert(Drupal.t("Please verify that you are not a robot"));
+      
+      $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+      $("#alert-message-layout").show();
+      console.log(Drupal.t("Please verify that you are not a robot"));
+
       $("#error_captcha").show();
       isValid = false;
     } else {
@@ -456,23 +468,31 @@
                   }, 15000);
                 } else {
                   $("#loader").modal('hide');
-                  alert(Drupal.t("Email request error"));
+
+                  $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                  $("#alert-message-layout").show();
+                  console.log(Drupal.t("Email request error"));
                 }
               })
               .catch(function (error) {
                 $("#loader").modal('hide');
-                alert(Drupal.t("Email request error"));
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log(Drupal.t("Email request error") + error);
               });
           } else {
-            alert(Drupal.t("Error: E-mail already has been registered"));
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Error: E-mail already has been registered") + error);
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
           console.log(Drupal.t("Error while creating user. ") + error);
-          console.log(error);
         });
     }
   }

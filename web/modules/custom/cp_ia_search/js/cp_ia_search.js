@@ -3,6 +3,7 @@
   let page = 1;
   let limit = 10;
   let query = '';
+  let showModal = true;
   const init = () => {
     const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -61,6 +62,7 @@
         } else {
           renderCategories(data.categorias);
           $('#category-length').text(data.categorias.length + " categorías");
+          $('#category-length-2').text(data.categorias.length + " categorías");
           getProducts(data.ids_productos, data.ids_empresas);
         }
       })
@@ -158,7 +160,7 @@
     console.log(data);
     data.forEach(element => {
       html += `
-      <div class="card-search bg-white p-3">
+      <div onclick="goToDetail(${element.nid})" class="card-search bg-white p-3" style="cursor:pointer">
         <div class="row">
           <div class="col-lg-3">
             <img class="w-100" src="${element.image}">
@@ -216,6 +218,17 @@
               </li>`
     }
     $('#list-cat-search').html(html);
+    $('#list-cat-search-2').html(html);
+
+    //show modal if not show
+    if (showModal) {
+      console.log("show modal");
+      showModal = false
+      $('#category-modal').modal('show')
+    } else {
+      console.log("hide modal");
+      $('#category-modal').modal('hide')
+    }
     //$('#list-search-suggest').html(html);
   };
 
@@ -251,7 +264,9 @@
         console.log(data);
       })
       .catch(error => {
-        alert(error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log("Error while save log: ", error);
       });
   };
 
@@ -273,6 +288,7 @@
         if (words && userId && origin) {
           $('#words-title').text(words);
           $('#words-filter').text('"' + words + '"');
+          $('#words-filter-2').text('"' + words + '"');
           getResults(words, userId, origin, lang);
         }
       }
@@ -342,6 +358,72 @@
         //get results with query
         getResults(words, userId, origin, lang);
       });
+
+      //get label text of checked values in list-cat-search
+      $('#list-cat-search-2', context).on('click', 'li', function () {
+        //get input checked inside list-cat-search
+        let todas = false;
+        let checked = $('#list-cat-search-2 input:checked');
+        let text = '';
+        //get label text of checked values
+        checked.each(function (index, element) {
+          text += $(element).val() + '-';
+        });
+
+        checked.each(function (index, element) {
+          if ($(element).val() == "Todas") {
+            console.log(text);
+            console.log(query)
+          }
+          if ($(element).val() === "Todas" && text.includes("Todas") && query !== "" && query !== "?categories=Todas") {
+            checked.each(function (index, element) {
+              $(element).prop('checked', false);
+            });
+            //check "Todas" input
+            $(element).prop('checked', true);
+            todas = true;
+          } else {
+            if ($(element).val() === "Todas" && text !== "Todas-") {
+              $(element).prop('checked', false);
+              //delete "Todas" from text
+              text = text.replace("Todas-", "");
+            }
+          }
+        });
+
+        if (todas) {
+          text = ""
+        } else {
+          //remove last comma
+          todas = false;
+          text = text.slice(0, -1);
+          text = "?categories=" + text;
+        }
+        //show text in words-filter
+        console.log("ERROR");
+        query = text;
+        console.log("query", query);
+      });
+
+      //filter by category
+      $('#filter-cat-2').click(function () {
+        console.log("filter-cat-2");
+        console.log(query);
+        //get language of url
+        const lang = window.location.pathname.split('/')[1];
+        //get words, userId and origin from url query params
+        const urlParams = new URLSearchParams(window.location.search);
+        const words = urlParams.get('words');
+        const userId = urlParams.get('userId');
+        const origin = urlParams.get('origin');
+        //get results with query
+        getResults(words, userId, origin, lang);
+      });
+
+      //redirect to blank page
+      window.goToDetail = (id) => {
+        window.open('/search/product-preview/' + id);
+      }
     }
   };
 })(jQuery, Drupal);

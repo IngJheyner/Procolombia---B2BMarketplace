@@ -29,10 +29,14 @@
             window.location.href = "/registro/usuario";
           }, 3000);
         } else {
-          alert("Token invalid");
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          $("#alert-message-layout").show();
+          console.log(Drupal.t("Token invalid"));
         }
       }).catch(function (error) {
-        console.log('Request failed', error);
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        $("#alert-message-layout").show();
+        console.log(Drupal.t("Request failed") + error);
       });
     }
 
@@ -84,16 +88,24 @@
       $("#email").css("border-color", "#cccccc");
     }
     if (!$("#policy").is(":checked")) {
+      message = Drupal.t("You must accept the privacy policy");
       $("#policy").addClass('error');
-
+      $("#error_policy").show();
+      $("#error_policy_message").text(message)
       isValid = false;
     } else {
       $("#error_policy").hide();
       $("#policy").removeClass('error');
     }
+
     if (!$("#conditions").is(":checked")) {
+      message = Drupal.t("You must accept the terms of use");
       $("#conditions").addClass('error');
+      $("#error_conditions").show();
+      $("#error_conditions_message").text(message)
+      isValid = false;
     } else {
+      $("#error_conditions").hide();
       $("#conditions").removeClass('error');
     }
 
@@ -101,7 +113,10 @@
     var response = grecaptcha.getResponse();
     console.log(response);
     if (response.length == 0) {
-      alert(Drupal.t("Please verify that you are not a robot"));
+      // show div alert
+      $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+      $("#alert-message-layout").show();
+      console.log("Captcha is not valid");
       $("#error_captcha").show();
       isValid = false;
     } else {
@@ -168,12 +183,17 @@
                 } else {
                   $("#loader").hide();
                   $("#check_nit").show();
-                  alert("Request failed email");
+                  $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                  $("#alert-message-layout").show();
+                  console.log("Request failed email");
                 }
               })
               .catch(function (error) {
                 $("#loader").hide();
-                alert("Request failed email", error);
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                $("#alert-message-layout").show();
+                console.log("Request failed email", error);
+              
               });
           } else {
             setTimeout(() => {
@@ -185,7 +205,9 @@
                 if (data.includes("neo")) {
                   $("#error_neo").modal('show');
                 } else {
-                  alert("ERROR INESPERADO")
+                  $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                  $("#alert-message-layout").show();
+                  console.log(Drupal.t("Unexpected error while checking nit"));
                 }
               }
             }, 4000);
@@ -195,7 +217,9 @@
           setTimeout(() => {
             $("#loader").hide();
             $("#check_nit").show();
-            alert("ERROR INESPERADO")
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            $("#alert-message-layout").show();
+            console.log(Drupal.t("Unexpected error while checking nit: ") + error);
           }, 4000);
         });
     }

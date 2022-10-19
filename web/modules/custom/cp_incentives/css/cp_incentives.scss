@@ -114,6 +114,8 @@ $font-bold-maven: Maven-Bold;
       background: #f0f0f0;
       padding: 0px 30px !important;
       height: 40px !important;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
   th.width-check.sorting_disabled {

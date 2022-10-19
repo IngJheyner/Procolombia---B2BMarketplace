@@ -378,7 +378,7 @@ msgid "Required Field"
 msgstr "Campo requerido"
 
 msgid "You must select an image."
-msgstr "Debe seleccionar una imagen"
+msgstr "Debe seleccionar una imagen."
 
 msgid "Image format is not valid, must be a .png file."
 msgstr "El formato de imagen no es válido, debe ser un archivo en formato .png."
@@ -461,5 +461,41 @@ msgstr "Los puntos máximos para el nuevo estatus deben ser superiores a los pun
 msgid "Edit benefit"
 msgstr "Editar beneficio"
 
-msgid ""
-msgstr ""
+msgid "For the status "
+msgstr "Para el status "
+
+msgid " the minimum points must be 0"
+msgstr " el puntaje mínimo debe ser 0"
+
+msgid " the maximum points must be higher than minimum points"
+msgstr " el puntaje máximo debe ser mayor que el puntaje mínimo"
+
+msgid " the minimum points must be higher than the last status maximum points"
+msgstr " el puntaje mínimo debe ser mayor al puntaje máximo anterior status"
+
+msgid " the minimum points must be one point higher than the "
+msgstr " el puntaje mínimo debe ser un punto más alto que los del status "
+
+msgid " status maximum points"
+msgstr " "
+
+msgid " the minimum points cannot be greater than the maximum points"
+msgstr " el puntaje mínimo no puede ser mayor al puntaje máximo"
+
+msgid " the minimum points cannot be equal to maximum points"
+msgstr " el puntaje mínimo no puede ser igual al puntaje máximo"
+
+msgid "Error while updating status. "
+msgstr "Error al editar status."
+
+msgid "Invalid points"
+msgstr "Puntos no válidos"
+
+msgid "The name of the status is not valid."
+msgstr "El nombre del status no es válido."
+
+msgid "Minimum points for new status are not valid."
+msgstr "El puntaje mínimo del nuevo status no es válido."
+
+msgid "Maximum points for new status are not valid."
+msgstr "El puntaje máximo del nuevo status no es válido."
