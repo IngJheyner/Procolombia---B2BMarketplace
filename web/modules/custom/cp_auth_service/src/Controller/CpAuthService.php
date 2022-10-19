@@ -94,6 +94,7 @@ class CpAuthService extends ControllerBase
                 //check if user is active
                 if ($user->isActive()) {
                     user_login_finalize($user);
+                    \Drupal::service('page_cache_kill_switch')->trigger();
                 } else {
                     //return error message
                     return new JsonResponse(['error' => 'User is not active'],404);

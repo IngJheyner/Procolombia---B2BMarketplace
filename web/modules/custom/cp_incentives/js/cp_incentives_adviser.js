@@ -332,7 +332,7 @@
           $('#table-incentives-tbody').html(html_td);
           status_list.reverse().forEach((status) => {
             html_st = `
-          <th class="status" style="width: 200px"> 
+          <th class="status" style="min-width: 200px"> 
             <div class="status_image_2">
               <img src="${status.image_src}" alt="status" class="" id="status-image-${status.id}">
             </div>
@@ -345,7 +345,7 @@
 
           // $('#list-of-status').html(html2);
           $('#table-incentives-head').append(`
-        <th class="option">
+        <th style="min-width: 99px;" class="option">
           ${Drupal.t("State")}
         </th>
         <th class="option">
@@ -620,7 +620,7 @@
           $('#table-incentives').html('');
           $('#table-incentives-head').html('');
           $('#table-incentives-head').append(`
-              <th style="width: 60%;">
+              <th style="min-width: 800px;">
                 <p class="tittle-table">
                     ${Drupal.t("BENEFITS ACCORDING TO PROCOLOMBIA AFILIATE'S STATUS CLASSIFICATION")}
                 </p>

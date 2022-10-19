@@ -157,7 +157,7 @@ $font-bold-maven: Maven-Bold;
         color: $color-White;
         display: flex;
         align-items: center;
-        width: 10%;
+        width: fit-content;
         &:hover {
           background-color: $color-Pantone-116-C;
         }
@@ -184,7 +184,7 @@ $font-bold-maven: Maven-Bold;
     }
     .incentive-description,
     .incentive-status {
-      width: 370px;
+      width: 93%;
     }
     th {
       font-size: 18px;
@@ -205,6 +205,18 @@ $font-bold-maven: Maven-Bold;
     background-color: $color-White;
     margin: 36px 12px 12px;
     padding: 2rem;
+    
+    .scroll{
+      width: 100%;
+      overflow-x: auto;
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        border: 5px solid #ffffff;
+        background-color: #0085ca;
+    }
+    }
+
+    
     table {
       .tittle-table {
         font-family: $font-bold;

@@ -137,7 +137,9 @@
   color: #ffffff;
   display: flex;
   align-items: center;
-  width: 10%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .dashboard-incentives .card-incentives .back-button a:hover {
   background-color: #005ca4;
@@ -163,7 +165,7 @@
 }
 .dashboard-incentives .card-incentives .incentive-description,
 .dashboard-incentives .card-incentives .incentive-status {
-  width: 370px;
+  width: 93%;
 }
 .dashboard-incentives .card-incentives th {
   font-size: 18px;
@@ -181,6 +183,15 @@
   background-color: #ffffff;
   margin: 36px 12px 12px;
   padding: 2rem;
+}
+.dashboard-incentives .card-table-incentive .scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+.dashboard-incentives .card-table-incentive .scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 5px solid #ffffff;
+  background-color: #0085ca;
 }
 .dashboard-incentives .card-table-incentive table .tittle-table {
   font-family: Gothic-Bold;
@@ -1956,4 +1967,4 @@
   background-color: #005ca4;
   border-radius: 100px;
   border: 0px solid #ffffff;
-}/*# sourceMappingURL=cp_incentives.css.map */
+}

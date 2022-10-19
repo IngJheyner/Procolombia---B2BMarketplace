@@ -138,20 +138,21 @@
             </div>
         </div>
         <div class="card-table-incentive">
-            <table>
-                <thead >
-                    <tr id='table-incentives-head'>
-                    </tr>
-                </thead>
-                <tbody id="table-incentives" class="table-incentives">
-                  
-                </tbody>
-                <caption>
-                    <div class="button-table">
+            <div class="scroll">
+                <table>
+                    <thead >
+                        <tr id='table-incentives-head'>
+                        </tr>
+                    </thead>
+                    <tbody id="table-incentives" class="table-incentives">
+                      
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="button-table">
                         <button data-bs-toggle="modal" data-bs-target="#create-benefit-modal" type="button" id="create-benefit" class="btn-satatus">{{ "Create new benefit"|t }}</button>
                     </div>
-                </caption>
-            </table>
         </div>
         <div class="modal fade" id="create-status-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

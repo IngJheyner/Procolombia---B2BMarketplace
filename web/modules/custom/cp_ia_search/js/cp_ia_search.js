@@ -4,6 +4,8 @@
   let limit = 10;
   let query = '';
   let showModal = true;
+  // cretae varibel showmodallocal in local storage with  value true
+  localStorage.setItem('showModalLocal', true);
   const init = () => {
     const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -223,15 +225,14 @@
     //show modal if not show
     if (showModal) {
       console.log("show modal");
-      showModal = false
-      $('#category-modal').modal('show')
+      showModal = false;
+      $('#category-modal').modal('show');
     } else {
       console.log("hide modal");
       $('#category-modal').modal('hide')
     }
     //$('#list-search-suggest').html(html);
   };
-
   const renderNotFound = (words, userId) => {
     //render not found
     console.log("renderNotFound");
