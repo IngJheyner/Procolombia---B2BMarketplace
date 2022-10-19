@@ -144,12 +144,18 @@
       `
       countNewMessages += parseInt(chat.count_checked);
     });
-
+    
     if (countNewMessages > 0) {
+      if(countNewMessages > 99){
+        countNewMessages = "+99";
+      }
       $('#count-message').text(countNewMessages);
       $('#count-message').show(countNewMessages);
+      $('#count-message-mobile').text(countNewMessages);
+      $('#count-message-mobile').show(countNewMessages);
     } else {
       $('#count-message').hide(countNewMessages);
+      $('#count-message-mobile').hide(countNewMessages);
     }
     $('#chat-list').html(html);
   }
@@ -910,7 +916,9 @@
           //hide modal
           socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: true }] });
           $('#chat-fill').hide();
+          $('#chat-fill-mobile').show();
           $('#chat-empty').show();
+          $('#chat-empty-mobile').show();
           $('#modal-delete').modal('hide');
           //fetch chat
           getListOfChats(0, 15);
@@ -949,7 +957,9 @@
         window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe) => {
           //show chat box
           $('#chat-fill').show();
+          $('#chat-fill-mobile').show();
           $('#chat-empty').hide();
+          $('#chat-empty-mobile').hide();
 
           //disconnect socket to room
           socket.emit('disconnectRoom', { room: chat_selected });
@@ -1379,7 +1389,9 @@
           if (msg.delete_chat) {
             getListOfChats(0, 15);
             $('#chat-fill').hide();
+            $('#chat-fill-mobile').show();
             $('#chat-empty').show();
+            $('#chat-empty-mobile').show();
           } else {
             if (msg.entity_id_sender != id_me) {
               console.log("refreshChatList");
@@ -1398,7 +1410,9 @@
         //hide chat
         $('#hide-chat', context).click(function () {
           $('#chat-fill').hide();
+          $('#chat-fill-mobile').show();
           $('#chat-empty').show();
+          $('#chat-empty-mobile').hide();
           socket.emit('disconnectRoom', { room: chat_selected });
         });
 

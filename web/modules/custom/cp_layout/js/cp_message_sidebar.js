@@ -124,10 +124,16 @@
     });
 
     if (countNewMessages > 0) {
+      if(countNewMessages > 99){
+        countNewMessages = "+99";
+      }
       $('#count-message').text(countNewMessages);
       $('#count-message').show(countNewMessages);
+      $('#count-message-mobile').text(countNewMessages);
+      $('#count-message-mobile').show(countNewMessages);
     } else {
       $('#count-message').hide(countNewMessages);
+      $('#count-message-mobile').hide(countNewMessages);
     }
     $('#chat-list-sidebar').html(html);
   }
