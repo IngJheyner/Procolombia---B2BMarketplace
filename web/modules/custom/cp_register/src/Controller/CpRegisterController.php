@@ -155,8 +155,8 @@ class CpRegisterController extends ControllerBase {
       $user->addRole('exportador');
       $user->set('preferred_langcode', $lang);
       $user->set("field_step", 1);
-      $user->set("field_account_status", 16273);
     }
+    $user->set("field_account_status", 16273);
     $file = $request->files->get('logo');
     $file2 = file_get_contents($file);
     $user->set("field_company_logo", $this->saveFile($file2, $data['nit'] . '-logo.' . $file->getClientOriginalName(), 'public://matchmaking/images/users_logos/'));
