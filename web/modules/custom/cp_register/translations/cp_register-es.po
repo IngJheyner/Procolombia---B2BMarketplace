@@ -1167,3 +1167,9 @@ msgstr "Solicitud de correo fallida"
 
 msgid "Unexpected error"
 msgstr "Ha ocurrido un error inesperado"
+
+msgid "Unexpected error while checking NIT"
+msgstr "Ha ocurrido un error inesperado al verificar el NIT"
+
+msgid "Please complete the captcha"
+msgstr "Por favor complete el captcha"

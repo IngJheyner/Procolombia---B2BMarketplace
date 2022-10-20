@@ -21,7 +21,6 @@ class CpChatController extends ControllerBase {
       '#theme' => 'cp_chat_template_hook',
       // '#tree_messages' => $tree_messages,
       '#tree_messages' => $tree_messages,
-      // '#site_key' => $site_key,
     ];
   }
 

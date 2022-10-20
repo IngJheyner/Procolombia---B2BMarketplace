@@ -48,11 +48,7 @@
 
 
         }
-      }).catch(function (error) {
-        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-        $("#alert-message-layout").show();
-        console.log(Drupal.t("Request failed") + error);
-        
+      }).catch(function (error) {        
         // Display flex for alert-message-layout.
         $('#alert-message-layout').css('display', 'flex');
         // Show the button.
@@ -64,7 +60,7 @@
         // Change text of alert-message-layout tittle.
         $('#error-tittle').text(Drupal.t('Request failed'));
         // Change text of lert-message-layout message.
-        $('#desc-error').text(Drupal.t("Request failed email111"));
+        $('#desc-error').text(Drupal.t("Email request error111"));
       });
     }
 
@@ -218,7 +214,7 @@
                   $("#loader").hide();
                   $("#check_nit").show();
                   $("#email_verification").modal('show');
-                  home/index
+   
                   // Display flex for alert-succes.
                   $('#alert-succes').css('display', 'flex');
                   // Show the button.
@@ -251,25 +247,12 @@
                   // Change text of alert-warning-heading.
                   $('#error-tittle').text(Drupal.t('Unexpected error'));
                   // Change text of alert-warning-message.
-                  $('#desc-error').text(Drupal.t("Request failed email222"));
+                  $('#desc-error').text(Drupal.t("Email request error222"));
 
                 }
               })
               .catch(function (error) {
                 $("#loader").hide();
-                // Display flex for alert-message-layout.
-                $('#alert-message-layout').css('display', 'flex');
-                // Show the button.
-                $('#error-button').show();
-                // Change button text.
-                $('#error-button').text(Drupal.t('Contact Support'));
-                // Animation for alert-message-layout.
-                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                // Change text of alert-warning-heading.
-                $('#error-tittle').text(Drupal.t('Unexpected error'));
-                // Change text of alert-warning-message.
-                $('#desc-error').text(Drupal.t("Request failed email333"));
-              
               });
           } else {
             setTimeout(() => {
@@ -292,7 +275,7 @@
                   // Change text of alert-warning-heading.
                   $('#error-tittle').text(Drupal.t('Unexpected error'));
                   // Change text of alert-warning-message.
-                  $('#desc-error').text(Drupal.t("Unexpected error while checking nit"));
+                  $('#desc-error').text(Drupal.t("Unexpected error while checking NIT"));
 
                 }
               }
@@ -315,7 +298,7 @@
             // Change text of alert-warning-heading.
             $('#error-tittle').text(Drupal.t('Unexpected error'));
             // Change text of alert-warning-message.
-            $('#desc-error').text(Drupal.t("Unexpected error while checking nit"));
+            $('#desc-error').text(Drupal.t("Unexpected error while checking NIT"));
           }, 4000);
         });
     }
