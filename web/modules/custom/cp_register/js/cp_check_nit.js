@@ -32,11 +32,39 @@
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
           $("#alert-message-layout").show();
           console.log(Drupal.t("Token invalid"));
+
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Token invalid"));
+
+
         }
       }).catch(function (error) {
         $("#alert-message-layout").css("animation-name", "fadeInUpBig");
         $("#alert-message-layout").show();
         console.log(Drupal.t("Request failed") + error);
+        
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Request failed'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Request failed email"));
       });
     }
 
@@ -113,14 +141,24 @@
     var response = grecaptcha.getResponse();
     console.log(response);
     if (response.length == 0) {
-      // show div alert
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'flex');
+      // Don't show the button.
+      $('#error-button-alert-warning').hide();
+      // Animation for alert-warning.
       $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-      $("#alert-message-layout").show();
+      // Change text of alert-warning-heading.
+      $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+      // Change text of alert-warning-message.
+      $('#alert-warning-desc').text(Drupal.t('Please complete the captcha'));
+      
       console.log("Captcha is not valid");
       $("#error_captcha").show();
       isValid = false;
     } else {
       $("#error_captcha").hide();
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'none');
     }
 
     return isValid;
@@ -180,19 +218,60 @@
                   $("#loader").hide();
                   $("#check_nit").show();
                   $("#email_verification").modal('show');
+                  home/index
+                  // Display flex for alert-succes.
+                  $('#alert-succes').css('display', 'flex');
+                  // Show the button.
+                  $('#error-button-alert-succes').show();
+                  // Change button text.
+                  $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
+                  // Add button link.
+                  $('#error-button-alert-succes').on('click', function () {
+                    window.location.href = "/home/index";
+                  });
+                  // Animation for alert-succes.
+                  $("#alert-succes").css("animation-name", "fadeInUpBig");
+                  // Change text of alert-succes-heading.
+                  $('#alert-succes-heading').text(Drupal.t('Process completed'));
+                  // Change text of alert-succes-message.
+                  $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
+                  
                 } else {
                   $("#loader").hide();
                   $("#check_nit").show();
+                  console.log(Drupal.t("Request failed email"));
+                  
+                  // Display flex for alert-message-layout.
+                  $('#alert-message-layout').css('display', 'flex');
+                  // Show the button.
+                  $('#error-button').show();
+                  // Change button text.
+                  $('#error-button').text(Drupal.t('Contact Support'));
+                  // Animation for alert-message-layout.
                   $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                  $("#alert-message-layout").show();
-                  console.log("Request failed email");
+                  // Change text of alert-warning-heading.
+                  $('#error-tittle').text(Drupal.t('"Unexpected error"'));
+                  // Change text of alert-warning-message.
+                  $('#desc-error').text(Drupal.t("Request failed email"));
+
                 }
               })
               .catch(function (error) {
                 $("#loader").hide();
-                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
                 console.log("Request failed email", error);
+
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                // Change text of alert-warning-heading.
+                $('#error-tittle').text(Drupal.t('"Unexpected error"'));
+                // Change text of alert-warning-message.
+                $('#desc-error').text(Drupal.t("Request failed email"));
               
               });
           } else {

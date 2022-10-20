@@ -419,7 +419,7 @@ msgstr "Los valores máximos deben ser mayores al anterior"
 msgid "Minimum values must be greater than the previous one"
 msgstr "Los valores mínimos deben ser mayores al anterior"
 
-msgid "Given points must be less than the previous one"
+msgid "Given points must be higher than the previous one"
 msgstr "Los puntos dados deben ser menores al anterior"
 
 msgid "Parameterization Incentives"

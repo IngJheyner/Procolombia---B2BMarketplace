@@ -916,9 +916,9 @@
           //hide modal
           socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: true }] });
           $('#chat-fill').hide();
-          $('#chat-fill-mobile').show();
+          $('.user-chat').css('transform', 'translateX(100%)');
+          $('.user-chat').css('visibility', 'hidden');
           $('#chat-empty').show();
-          $('#chat-empty-mobile').show();
           $('#modal-delete').modal('hide');
           //fetch chat
           getListOfChats(0, 15);
@@ -957,9 +957,9 @@
         window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe) => {
           //show chat box
           $('#chat-fill').show();
-          $('#chat-fill-mobile').show();
+          $('.user-chat').css('transform', 'translateX(0)');
+          $('.user-chat').css('visibility', 'visible');
           $('#chat-empty').hide();
-          $('#chat-empty-mobile').hide();
 
           //disconnect socket to room
           socket.emit('disconnectRoom', { room: chat_selected });
@@ -1389,9 +1389,9 @@
           if (msg.delete_chat) {
             getListOfChats(0, 15);
             $('#chat-fill').hide();
-            $('#chat-fill-mobile').show();
+            $('.user-chat').css('transform', 'translateX(100%)');
+            $('.user-chat').css('visibility', 'visible');
             $('#chat-empty').show();
-            $('#chat-empty-mobile').show();
           } else {
             if (msg.entity_id_sender != id_me) {
               console.log("refreshChatList");
@@ -1410,9 +1410,15 @@
         //hide chat
         $('#hide-chat', context).click(function () {
           $('#chat-fill').hide();
-          $('#chat-fill-mobile').show();
+          $('.user-chat').css('transform', 'translateX(100%)');
+          $('.user-chat').css('visibility', 'visible');
           $('#chat-empty').show();
-          $('#chat-empty-mobile').hide();
+          socket.emit('disconnectRoom', { room: chat_selected });
+        });
+
+        $('#close-chat-mobile', context).click(function () {
+          $('.user-chat').css('transform', 'translateX(100%)');
+          $('.user-chat').css('visibility', 'visible');
           socket.emit('disconnectRoom', { room: chat_selected });
         });
 

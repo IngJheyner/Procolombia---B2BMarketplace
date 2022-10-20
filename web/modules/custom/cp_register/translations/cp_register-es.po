@@ -1152,3 +1152,18 @@ msgstr "El correo o el NIT es requerido."
 
 msgid "Password is required."
 msgstr "La contraseña es requerida."
+
+msgid "Missing Captcha"
+msgstr "Captcha faltante"
+
+msgid "Contact Support"
+msgstr "Contactar soporte"
+
+msgid "Go back to main page"
+msgstr "Volver a la página principal"
+
+msgid "Request failed email"
+msgstr "Solicitud de correo fallida"
+
+msgid "Unexpected error"
+msgstr "Ha ocurrido un error inesperado"

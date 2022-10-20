@@ -594,6 +594,38 @@
     $("#login_modal").modal("show");
   });
 
+  $("#close-alert").click(function () {
+    // change css animation name
+    $("#alert-message-layout").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-message-layout").hide();
+    }, 1000);
+  });
+
+
+  $("#close-alert-warning").click(function () {
+    // change css animation name
+    $("#alert-warning").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-warning").hide();
+    }, 1000);
+  });
+
+  $("#close-alert-info").click(function () {
+    // change css animation name
+    $("#alert-info").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-info").hide();
+    }, 1000);
+  });
+
+  $("#close-alert-succes").click(function () {
+    // change css animation name
+    $("#alert-succes").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-succes").hide();
+    }, 1000);
+  });
   Drupal.behaviors.custom = {
     attach: function (context, settings) {
 

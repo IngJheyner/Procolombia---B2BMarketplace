@@ -64,6 +64,7 @@ class CpPreRegisterBuyerController extends ControllerBase {
         $user->addRole('buyer');
         $user->set('preferred_langcode', $data['langcode']);
         $user->set("field_step", 1);
+        $user->set("field_account_status", 16273);
       }
       $user->set("field_company_contact_name", $data['name']);
       $user->set("field_company_name", $data['company']);

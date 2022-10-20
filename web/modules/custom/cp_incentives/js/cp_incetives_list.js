@@ -423,30 +423,31 @@
             message = Drupal.t("State is required");
             console.log(message);
             if (type == 1) {
-                $('#state_1').css('border', '1px solid rgb(186, 12, 47)');
+                $('#state_1').css('border-color', 'rgb(186, 12, 47)');
                 $("#error_state_1").show();
-                $("#error_state_1_message").text(message)
+                $("#error_state_1_message").text(message);
+
             } else {
                 if (type == 2) {
-                    $('#state_2').css('border', '1px solid rgb(186, 12, 47)');
+                    $('#state_2').css('border-color', 'rgb(186, 12, 47)');
                     $("#error_state_2").show();
                     $("#error_state_2_message").text(message)
                 }else{
-                    $('#state_3').css('border', '1px solid rgb(186, 12, 47)');
+                    $('#state_3').css('border-color', 'rgb(186, 12, 47)');
                     $("#error_state_3").show();
                     $("#error_state_3_message").text(message)
                 }
             }
         } else {
             if (type == 1) {
-                $('#state_1').css('border', '1px solid #ced4da');
+                $('#state_1').css('border-color', '#ced4da');
                 $("#error_state_1").hide();
             } else {
                 if (type == 2) {
-                    $('#state_2').css('border', '1px solid #ced4da');
+                    $('#state_2').css('border-color', '#ced4da');
                     $("#error_state_2").hide();
                 }else{
-                    $('#state_3').css('border', '1px solid #ced4da');
+                    $('#state_3').css('border-color', '#ced4da');
                     $("#error_state_3").hide();
                 }
             }
@@ -458,18 +459,21 @@
             console.log(message);
             console.log(type);
             if (type == 1) {
-                $('#expiration_days_1').css('border', '1px solid rgb(186, 12, 47)');
+                $('#expiration_days_1').css('border-color', 'rgb(186, 12, 47)');
                 $("#error_expiration_days_1").show();
-                $("#error_expiration_days_1_message").text(message)
+                $("#error_expiration_days_1_message").text(message);
+                $('#expiration_days_1').next("span").css('border-color', 'rgb(186, 12, 47)');
             } else {
                 if (type == 2) {
-                    $('#expiration_days_2').css('border', '1px solid rgb(186, 12, 47)');
+                    $('#expiration_days_2').css('border-color', 'rgb(186, 12, 47)');
                     $("#error_expiration_days_2").show();
-                    $("#error_expiration_days_2_message").text(message)
+                    $("#error_expiration_days_2_message").text(message);
+                    $('#expiration_days_2').next("span").css('border-color', 'rgb(186, 12, 47)');
                 }else{
-                    $('#expiration_days_3').css('border', '1px solid rgb(186, 12, 47)');
+                    $('#expiration_days_3').css('border-color', 'rgb(186, 12, 47)');
                     $("#error_expiration_days_3").show();
-                    $("#error_expiration_days_3_message").text(message)
+                    $("#error_expiration_days_3_message").text(message);
+                    $('#expiration_days_3').next("span").css('border-color', 'rgb(186, 12, 47)');
                 }
             }
         } else {
@@ -478,31 +482,37 @@
                 message = Drupal.t("Expiration days must be a number");
                 console.log(message);
                 if (type == 1) {
-                    $('#expiration_days_1').css('border', '1px solid rgb(186, 12, 47)');
+                    $('#expiration_days_1').css('border-color', 'rgb(186, 12, 47)');
                     $("#error_expiration_days_1").show();
-                    $("#error_expiration_days_1_message").text(message)
+                    $("#error_expiration_days_1_message").text(message);
+                    $('#expiration_days_1').next("span").css('border-color', 'rgb(186, 12, 47)');
                 } else {
                     if (type == 2) {
-                        $('#expiration_days_2').css('border', '1px solid rgb(186, 12, 47)');
+                        $('#expiration_days_2').css('border-color', 'rgb(186, 12, 47)');
                         $("#error_expiration_days_2").show();
-                        $("#error_expiration_days_2_message").text(message)
+                        $("#error_expiration_days_2_message").text(message);
+                        $('#expiration_days_2').next("span").css('border-color', 'rgb(186, 12, 47)');
                     }else{
-                        $('#expiration_days_3').css('border', '1px solid rgb(186, 12, 47)');
+                        $('#expiration_days_3').css('border-color', 'rgb(186, 12, 47)');
                         $("#error_expiration_days_3").show();
-                        $("#error_expiration_days_3_message").text(message)
+                        $("#error_expiration_days_3_message").text(message);
+                        $('#expiration_days_3').next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             } else {
                 if (type == 1) {
-                    $('#expiration_days_1').css('border', '1px solid #ced4da');
+                    $('#expiration_days_1').css('border-color', '#ced4da');
                     $("#error_expiration_days_1").hide();
+                    $('#expiration_days_1').next("span").css('border-color', '#ced4da');
                 } else {
                     if (type == 2) {
-                        $('#expiration_days_2').css('border', '1px solid #ced4da');
+                        $('#expiration_days_2').css('border-color', '#ced4da');
                         $("#error_expiration_days_2").hide();
+                        $('#expiration_days_2').next("span").css('border-color', '#ced4da');
                     }else{
-                        $('#expiration_days_3').css('border', '1px solid #ced4da');
+                        $('#expiration_days_3').css('border-color', '#ced4da');
                         $("#error_expiration_days_3").hide();
+                        $('#expiration_days_3').next("span").css('border-color', '#ced4da');
                     }
                 }
             }
@@ -513,8 +523,8 @@
             let min_measure_arr = [];
             let max_measure_arr = [];
             let given_points_arr = [];
-
-            for (let index = 0; index < 3; index++) {
+            let index = 0;
+            for (index; index < 3; index++) {
 
                 let min_measure = $('#min_measure_' + index).val();
                 let max_measure = $('#max_measure_' + index).val();
@@ -523,19 +533,22 @@
                 if (min_measure == "") {
                     isValid = false;
                     message = Drupal.t("Minimum value is required");
-                    $("#min_measure_" + index + "_cont").css('border', '1px solid rgb(186, 12, 47)');
+                    $("#min_measure_" + index).css('border-color', 'rgb(186, 12, 47)');
                     $("#error_min_measure_" + index).show();
-                    $("#error_min_measure_" + index + "_message").text(message)
+                    $("#error_min_measure_" + index + "_message").text(message);
+                    $('#min_measure_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                 } else {
                     if (!isNumber(min_measure)) {
                         isValid = false;
                         message = Drupal.t("Minimum value must be a number");
-                        $('#min_measure_' + index + "_cont").css('border', '1px solid rgb(186, 12, 47)');
+                        $('#min_measure_' + index).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_min_measure_" + index).show();
                         $("#error_min_measure_" + index + "_message").text(message)
+                        $('#min_measure_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                     } else {
                         $("#error_measure_" + index).hide();
-                        $('#min_measure_' + index + "_cont").css("border-color", "#ced4da");
+                        $('#min_measure_' + index).css("border-color", "#ced4da");
+                        $('#min_measure_' + index).next("span").css('border-color', '#ced4da');
                     }
                 }
 
@@ -543,20 +556,23 @@
                     isValid = false;
                     message = Drupal.t("Maximum value is required");
                     console.log(message);
-                    $('#max_measure_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                    $('#max_measure_' + index).css('border-color', 'rgb(186, 12, 47)');
                     $("#error_max_measure_" + index).show();
-                    $("#error_max_measure_" + index + "_message").text(message)
+                    $("#error_max_measure_" + index + "_message").text(message);
+                    $('#max_measure_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                 } else {
                     if (!isNumber(max_measure)) {
                         isValid = false;
                         message = Drupal.t("Maximum value must be a number");
                         console.log(message);
-                        $('#max_measure_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#max_measure_' + index).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_max_measure_" + index).show();
-                        $("#error_max_measure_" + index + "_message").text(message)
+                        $("#error_max_measure_" + index + "_message").text(message);
+                        $('#max_measure_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                     } else {
                         $("#error_max_measure_" + index).hide();
                         $("#max_measure_" + index).css("border-color", "#ced4da");
+                        $('#max_measure_' + index).next("span").css('border-color', '#ced4da');
                     }
                 }
 
@@ -564,20 +580,23 @@
                     isValid = false;
                     message = Drupal.t("Given points are required");
                     console.log(message);
-                    $('#given_points_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                    $('#given_points_' + index).css('border-color', 'rgb(186, 12, 47)');
                     $("#error_given_points_" + index).show();
-                    $("#error_given_points_" + index + "_message").text(message)
+                    $("#error_given_points_" + index + "_message").text(message);
+                    $('#given_points_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                 } else {
                     if (!isNumber(given_points)) {
                         isValid = false;
                         message = Drupal.t("Given points must be a number");
                         console.log(message);
-                        $('#given_points_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#given_points_' + index).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_given_points_" + index).show();
-                        $("#error_given_points_" + index + "_message").text(message)
+                        $("#error_given_points_" + index + "_message").text(message);
+                        $('#given_points_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                     } else {
                         $("#error_given_points_" + index).hide();
                         $("#given_points_" + index).css("border-color", "#ced4da");
+                        $('#given_points_' + index).next("span").css('border-color', '#ced4da');
                     }
                 }
 
@@ -593,9 +612,10 @@
                         isValid = false;
                         message = Drupal.t("Minimum values must be greater than the previous one");
                         console.log(message);
-                        $('#min_measure_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#min_measure_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_min_measure_" + (index - 1)).show();
-                        $("#error_min_measure_" + (index - 1) + "_message").text(message)
+                        $("#error_min_measure_" + (index - 1) + "_message").text(message);
+                        $('#min_measure_' + (index - 1)).next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             }
@@ -607,9 +627,10 @@
                         isValid = false;
                         message = Drupal.t("Maximum values must be greater than the previous one");
                         console.log(message);
-                        $('#max_measure_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#max_measure_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_max_measure_" + (index - 1)).show();
-                        $("#error_max_measure_" + (index - 1) + "_message").text(message)
+                        $("#error_max_measure_" + (index - 1) + "_message").text(message);
+                        $('#max_measure_' + (index - 1)).next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             }
@@ -620,11 +641,12 @@
                 if (index != 0) {
                     if (parseInt(given_points_arr[index]) > parseInt(given_points_arr[index - 1])) {
                         isValid = false;
-                        message = Drupal.t("Given points must be less than the previous one");
+                        message = Drupal.t("Given points must be higher than the previous one");
                         console.log(message);
-                        $('#given_points_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#given_points_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_given_points_" + (index - 1)).show();
-                        $("#error_given_points_" + (index - 1) + "_message").text(message)
+                        $("#error_given_points_" + (index - 1) + "_message").text(message);
+                        $('#given_points_' + (index - 1)).next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             }
@@ -641,20 +663,23 @@
                     isValid = false;
                     message = Drupal.t("Maximum value is required");
                     console.log(message);
-                    $('#max_measure_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                    $('#max_measure_2_' + index).css('border-color', 'rgb(186, 12, 47)');
                     $("#error_max_measure_2_" + index).show();
                     $("#error_max_measure_2_" + index + "_message").text(message)
+                    $('#max_measure_2_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                 } else {
                     if (!isNumber(max_measure)) {
                         isValid = false;
                         message = Drupal.t("Maximum value must be a number");
                         console.log(message);
-                        $('#max_measure_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#max_measure_2_' + index).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_max_measure_2_" + index).show();
-                        $("#error_max_measure_2_" + index + "_message").text(message)
+                        $("#error_max_measure_2_" + index + "_message").text(message);
+                        $('#max_measure_2_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                     } else {
                         $("#error_max_measure_2_" + index).hide();
                         $("#max_measure_2_" + index).css("border-color", "#ced4da");
+                        $('#max_measure_2_' + index).next("span").css('border-color', '#ced4da');
                     }
                 }
 
@@ -662,20 +687,23 @@
                     isValid = false;
                     message = Drupal.t("Given points are required");
                     console.log(message);
-                    $('#given_points_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                    $('#given_points_2_' + index).css('border-color', 'rgb(186, 12, 47)');
                     $("#error_given_points_2_" + index).show();
-                    $("#error_given_points_2_" + index + "_message").text(message)
+                    $("#error_given_points_2_" + index + "_message").text(message);
+                    $('#given_points_2_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                 } else {
                     if (!isNumber(given_points)) {
                         isValid = false;
                         message = Drupal.t("Given points must be a number");
                         console.log(message);
-                        $('#given_points_2_' + index).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#given_points_2_' + index).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_given_points_2_" + index).show();
-                        $("#error_given_points_2_" + index + "_message").text(message)
+                        $("#error_given_points_2_" + index + "_message").text(message);
+                        $('#given_points_2_' + index).next("span").css('border-color', 'rgb(186, 12, 47)');
                     } else {
                         $("#error_given_points_2_" + index).hide();
                         $("#given_points_2_" + index).css("border-color", "#ced4da");
+                        $('#given_points_2_' + index).next("span").css('border-color', '#ced4da');
                     }
                 }
 
@@ -690,9 +718,10 @@
                         isValid = false;
                         message = Drupal.t("The maximum values must be greater than the previous one");
                         console.log(message);
-                        $('#max_measure_2_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#max_measure_2_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_max_measure_2_" + (index - 1)).show();
-                        $("#error_max_measure_2_" + (index - 1) + "_message").text(message)
+                        $("#error_max_measure_2_" + (index - 1) + "_message").text(message);
+                        $('#max_measure_2_' + (index - 1)).next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             }
@@ -702,11 +731,12 @@
                 if (index != 0) {
                     if (parseInt(given_points_arr[index]) > parseInt(given_points_arr[index - 1])) {
                         isValid = false;
-                        message = Drupal.t("Given points must be less than the previous one");
+                        message = Drupal.t("Given points must be higher than the previous one");
                         console.log(message);
-                        $('#given_points_2_' + (index - 1)).css('border', '1px solid rgb(186, 12, 47)');
+                        $('#given_points_2_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_given_points_2_" + (index - 1)).show();
-                        $("#error_given_points_2_" + (index - 1) + "_message").text(message)
+                        $("#error_given_points_2_" + (index - 1) + "_message").text(message);
+                        $('#given_points_2_' + (index - 1)).next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             }
@@ -716,20 +746,23 @@
                 isValid = false;
                 message = Drupal.t("Given points are required");
                 console.log(message);
-                $('#given_points_3_' + 0).css('border', '1px solid rgb(186, 12, 47)');
+                $('#given_points_3_' + 0).css('border-color', 'rgb(186, 12, 47)');
                 $("#error_given_points_3_" + 0).show();
-                $("#error_given_points_3_" + 0 + "_message").text(message)
+                $("#error_given_points_3_" + 0 + "_message").text(message);
+                $('#given_points_3_' + 0).next("span").css('border-color', 'rgb(186, 12, 47)');
             } else {
                 if (!isNumber(given_points)) {
                     isValid = false;
                     message = Drupal.t("Given points must be a number");
                     console.log(message);
-                    $('#given_points_3_' + 0).css('border', '1px solid rgb(186, 12, 47)');
+                    $('#given_points_3_' + 0).css('border-color', 'rgb(186, 12, 47)');
                     $("#error_given_points_3_" + 0).show();
-                    $("#error_given_points_3_" + 0 + "_message").text(message)
+                    $("#error_given_points_3_" + 0 + "_message").text(message);
+                    $('#given_points_3_' + 0).next("span").css('border-color', 'rgb(186, 12, 47)');
                 }else{
                     $("#error_given_points_3_" + 0).hide();
                     $("#given_points_3_" + 0).css("border-color", "#ced4da");
+                    $('#given_points_3_' + 0).next("span").css('border-color', '#ced4da');
                 }
             }
         }
@@ -844,27 +877,12 @@
         }
     }
     function cleanInputsRules () {
-        $("#given_points_3_0").css("border-color", "#ced4da");
-        $("#expiration_days_1").css("border-color", "#ced4da");
-        $("#expiration_days_2").css("border-color", "#ced4da");
-        $("#expiration_days_3").css("border-color", "#ced4da");
-        $("#min_measure_0").css("border-color", "#ced4da");
-        $("#max_measure_0").css("border-color", "#ced4da");
-        $("#given_points_0").css("border-color", "#ced4da");
-        $("#min_measure_1").css("border-color", "#ced4da");
-        $("#max_measure_1").css("border-color", "#ced4da");
-        $("#given_points_1").css("border-color", "#ced4da");
-        $("#min_measure_2").css("border-color", "#ced4da");
-        $("#max_measure_2").css("border-color", "#ced4da");
-        $("#given_points_2").css("border-color", "#ced4da");
-        $("#max_measure_2_0").css("border-color", "#ced4da");
-        $("#max_measure_2_1").css("border-color", "#ced4da");
-        $("#max_measure_2_2").css("border-color", "#ced4da");
-        $("#given_points_2_0").css("border-color", "#ced4da");
-        $("#given_points_2_1").css("border-color", "#ced4da");
-        $("#given_points_2_2").css("border-color", "#ced4da");
+        
         // Hide all <i> tags with error
+        $(".input_error input").css("border-color", "#ced4da");
         $(".input_error i").hide();
+        $(".input_error span").css("border-color", "#ced4da");
+
         
     }
     // **********************

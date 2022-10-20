@@ -397,6 +397,7 @@
           });
 
           var message = '';
+          
           //CHECKING THE FIRST STATUS - LOWER
           if (parseInt(status.id) === parseInt(first_status.id)) {
             if (($('#status-min-points-' + status.id).val()) !== '0') {
@@ -535,6 +536,21 @@
               $('#error_status-min-points-'+status.id).hide();
             }
           }
+          //Checking if the maximum status empty.
+          if(last_status.id !== status.id){
+            if ($('#status-max-points-' + status.id).val() == '') {
+              isValidPoint = false;
+              $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('This field is required');
+              $('#error_status-max-points-'+status.id+'_message').text(message);
+              $('#error_status-max-points-'+status.id).show();
+            } else {
+              $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+              $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
+              $('#error_status-max-points-'+status.id).hide();
+            }
+          }
           iterator++;
         });
 
@@ -574,8 +590,6 @@
               // console.log(Drupal.t("Error while updating status. ") + error);
             });
         } else {
-          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-          $("#alert-message-layout").show();
           console.log(Drupal.t('Invalid points'));
         }
         // return isValidPoint;
@@ -950,7 +964,7 @@
     //if id img is empty then the image is not valid
     if ($('#img').val() == '') {
       $('#img-input').addClass('error');
-      $('#img-input').css('border', '1px solid rgb(186, 12, 47)');
+      $('#img-input').css('border-color', 'rgb(186, 12, 47)');
       console.log("You must upload an image for the status");
       isValid = false;
       message = Drupal.t("You must select an image.");
@@ -961,7 +975,7 @@
       //if imput img doesnt have the string jpg or png then the image is not valid
       if ($('#img').val().indexOf('.png') == -1) {
         $('#img-input').addClass('error');
-        $('#img-input').css('border', '1px solid rgb(186, 12, 47)');
+        $('#img-input').css('border-color', 'rgb(186, 12, 47)');
         isValid = false;
         message = Drupal.t("Image format is not valid, must be a .png file.");
         $("#error_img").show();
@@ -969,7 +983,7 @@
       }
       else {
         $('#img-input').removeClass('error');
-        $('#img-input').css('border', '1px solid #d8dde1');
+        $('#img-input').css('border-color', '#d8dde1');
         $("#error_img").hide();
       };
     };
@@ -1281,7 +1295,7 @@
         init();
         var url = window.location.href;
         $("#create-new-status").click(function () {
-          $('#img-input').css('border', '1px solid #d8dde1');
+          $('#img-input').css('border-color', '#d8dde1');
           $('#error_img').hide();
           $('#text-archive').text('');
         });
