@@ -414,9 +414,16 @@
     console.log("HI x2")
     if (response.length == 0) {
       
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'flex');
+      // Don't show the button.
+      $('#error-button-alert-warning').hide();
+      // Animation for alert-warning.
       $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-      $("#alert-message-layout").show();
-      console.log(Drupal.t("Please verify that you are not a robot"));
+      // Change text of alert-warning-heading.
+      $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+      // Change text of alert-warning-message.
+      $('#alert-warning-desc').text(Drupal.t('Please verify that you are not a robot'));
 
       $("#error_captcha").show();
       isValid = false;
@@ -485,24 +492,31 @@
                   localStorage.setItem("email_buyer", data.email);
                   setTimeout(() => {
                     $("#loader").modal('hide');
+                    // Redirect to home.
+                    window.location.href = "/pre-registro";
+                    //add property to button inside #loader
+                    $("#loader button").on("click", function () {
+                      // Redirect to home.
+                      window.location.href = "/pre-registro";
+                    });
                   }, 15000);
 
-                  // Display flex for alert-succes.
-                  $('#alert-succes').css('display', 'flex');
-                  // Show the button.
-                  $('#error-button-alert-succes').show();
-                  // Change button text.
-                  $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
-                  // Add button link.
-                  $('#error-button-alert-succes').on('click', function () {
-                    window.location.href = "/home/index";
-                  });
-                  // Animation for alert-succes.
-                  $("#alert-succes").css("animation-name", "fadeInUpBig");
-                  // Change text of alert-succes-heading.
-                  $('#alert-succes-heading').text(Drupal.t('Process completed'));
-                  // Change text of alert-succes-message.
-                  $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
+                  // // Display flex for alert-succes.
+                  // $('#alert-succes').css('display', 'flex');
+                  // // Show the button.
+                  // $('#error-button-alert-succes').show();
+                  // // Change button text.
+                  // $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
+                  // // Add button link.
+                  // $('#error-button-alert-succes').on('click', function () {
+                  //   window.location.href = "/home/index";
+                  // });
+                  // // Animation for alert-succes.
+                  // $("#alert-succes").css("animation-name", "fadeInUpBig");
+                  // // Change text of alert-succes-heading.
+                  // $('#alert-succes-heading').text(Drupal.t('Process completed'));
+                  // // Change text of alert-succes-message.
+                  // $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
 
                 } else {
                   $("#loader").modal('hide');
@@ -525,33 +539,32 @@
                 $("#loader").modal('hide');
               });
           } else {
-            // Display flex for alert-message-layout.
-            $('#alert-message-layout').css('display', 'flex');
-            // Show the button.
-            $('#error-button').hide();
-            // Animation for alert-message-layout.
+            // Display flex for alert-warning.
+            $('#alert-warning').css('display', 'flex');
+            // Don't show the button.
+            $('#error-button-alert-warning').hide();
+            // Animation for alert-warning.
             $("#alert-message-layout").css("animation-name", "fadeInUpBig");
             // Change text of alert-warning-heading.
-            $('#error-tittle').text(Drupal.t('Warning'));
+            $('#alert-warning-heading').text(Drupal.t('Warning'));
             // Change text of alert-warning-message.
-            $('#desc-error').text(Drupal.t("E-mail already has been registered"));
-
+            $('#alert-warning-desc').text(Drupal.t('E-mail already has been registered'));
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save").show();
 
-          // Display flex for alert-message-layout.
-          $('#alert-message-layout').css('display', 'flex');
-          // Show the button.
-          $('#error-button').hide();
-          // Animation for alert-message-layout.
+          // Display flex for alert-warning.
+          $('#alert-warning').css('display', 'flex');
+          // Don't show the button.
+          $('#error-button-alert-warning').hide();
+          // Animation for alert-warning.
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
           // Change text of alert-warning-heading.
-          $('#error-tittle').text(Drupal.t('Warning'));
+          $('#alert-warning-heading').text(Drupal.t('Warning'));
           // Change text of alert-warning-message.
-          $('#desc-error').text(Drupal.t("E-mail already has been registered"));
+          $('#alert-warning-desc').text(Drupal.t('E-mail already has been registered'));
         });
     }
   }

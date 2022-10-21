@@ -424,7 +424,7 @@
 
       //redirect to blank page
       window.goToDetail = (id) => {
-        window.open('/search/product-preview/' + id);
+        window.location.href = '/search/product-preview/' + id;
       }
     }
   };

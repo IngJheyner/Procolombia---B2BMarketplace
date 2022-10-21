@@ -26,13 +26,13 @@
         if (data.status == 'ok') {
           $("#success").modal('show');
           setTimeout(function () {
-            window.location.href = "/registro/usuario";
-          }, 3000);
+            window.location.href = "/pre-registro";
+            $("#email_verification button").on("click", function () {
+              // Redirect to home.
+              window.location.href = "/pre-registro";
+            });
+          }, 15000);
         } else {
-          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-          $("#alert-message-layout").show();
-          console.log(Drupal.t("Token invalid"));
-
           // Display flex for alert-message-layout.
           $('#alert-message-layout').css('display', 'flex');
           // Show the button.
@@ -146,7 +146,7 @@
       // Change text of alert-warning-heading.
       $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
       // Change text of alert-warning-message.
-      $('#alert-warning-desc').text(Drupal.t('Please complete the captcha'));
+      $('#alert-warning-desc').text(Drupal.t('Please verify that you are not a robot'));
       
       console.log("Captcha is not valid");
       $("#error_captcha").show();
@@ -215,22 +215,22 @@
                   $("#check_nit").show();
                   $("#email_verification").modal('show');
    
-                  // Display flex for alert-succes.
-                  $('#alert-succes').css('display', 'flex');
-                  // Show the button.
-                  $('#error-button-alert-succes').show();
-                  // Change button text.
-                  $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
-                  // Add button link.
-                  $('#error-button-alert-succes').on('click', function () {
-                    window.location.href = "/home/index";
-                  });
-                  // Animation for alert-succes.
-                  $("#alert-succes").css("animation-name", "fadeInUpBig");
-                  // Change text of alert-succes-heading.
-                  $('#alert-succes-heading').text(Drupal.t('Process completed'));
-                  // Change text of alert-succes-message.
-                  $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
+                  // // Display flex for alert-succes.
+                  // $('#alert-succes').css('display', 'flex');
+                  // // Show the button.
+                  // $('#error-button-alert-succes').show();
+                  // // Change button text.
+                  // $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
+                  // // Add button link.
+                  // $('#error-button-alert-succes').on('click', function () {
+                  //   window.location.href = "/home/index";
+                  // });
+                  // // Animation for alert-succes.
+                  // $("#alert-succes").css("animation-name", "fadeInUpBig");
+                  // // Change text of alert-succes-heading.
+                  // $('#alert-succes-heading').text(Drupal.t('Process completed'));
+                  // // Change text of alert-succes-message.
+                  // $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
                   
                 } else {
                   $("#loader").hide();
@@ -338,10 +338,6 @@
           };
         });
       };
-      //call function to check nit
-      $("#check_nit", context).click(function () {
-        checkNit();
-      });
       //call function to redirect to google form
       $("#go_form", context).click(function () {
         window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform";

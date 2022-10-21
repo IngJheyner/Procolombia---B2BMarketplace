@@ -508,3 +508,36 @@ msgstr "Anterior"
 
 msgid "Next "
 msgstr "Siguiente"
+
+msgid "Unexpected error"
+msgstr "Ha ocurrido un error inesperado"
+
+msgid "Error while getting status list."
+msgstr "Error al obtener la lista de status."
+
+msgid "Error while getting status list after updating."
+msgstr "Error al obtener la lista de status después de actualizar."
+
+msgid "Error while getting benefits list."
+msgstr "Error al obtener la lista de beneficios."
+
+msgid "Error while getting relationship between status and benefits."
+msgstr "Error al obtener la relación entre status y beneficios."
+
+msgid "Error while updating benefit."
+msgstr "Error al actualizar el beneficio."
+
+msgid "Error while updating benefit state."
+msgstr "Error al actualizar el estado del beneficio."
+
+msgid "Error while creating benefit."
+msgstr "Error al crear el beneficio."
+
+msgid "Error while getting section 'HOW TO LEVEL UP'."
+msgstr "Error al obtener la sección 'CONOCE CÓMO SUBIR DE NIVEL'."
+
+msgid "Error while getting reference code."
+msgstr "Error al obtener el código de referido."
+
+msgid "Error while creating reference code."
+msgstr "Error al crear el código de referido."

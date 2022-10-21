@@ -128,3 +128,12 @@ msgstr "Eliminar"
 
 msgid "No suggestions"
 msgstr "No hay sugerencias"
+
+msgid "Error while opening chat, please try again later or contact support."
+msgstr "Error al abrir el chat, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
+
+msgid "Error while deleting chat, please try again later or contact support."
+msgstr "Error al eliminar el chat, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
+
+msgid ""Error while getting suggestions, please try again later or contact support."
+msgstr "Error al obtener sugerencias, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."

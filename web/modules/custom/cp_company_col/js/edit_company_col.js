@@ -135,10 +135,19 @@
                 if (value !== "")
                     select_cities.setValue(value);
             })
-            .catch((error) => {
+            .catch(function (error ){
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log("error", error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while getting cities"));
             })
     }
 
@@ -427,9 +436,18 @@
                     fetch("/mailing/send/change/data/col", {
                         method: "POST",
                     }).catch(function (error) {
+                        // Display flex for alert-message-layout.
+                        $('#alert-message-layout').css('display', 'flex');
+                        // Show the button.
+                        $('#error-button').show();
+                        // Change button text.
+                        $('#error-button').text(Drupal.t('Contact Support'));
+                        // Animation for alert-message-layout.
                         $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                        $("#alert-message-layout").show();
-                        console.log(Drupal.t("Cannot send e-mail for data change: ")+ error);
+                        // Change text of alert-message-layout tittle.
+                        $('#error-tittle').text(Drupal.t('Unexpected error'));
+                        // Change text of lert-message-layout message.
+                        $('#desc-error').text(Drupal.t("Cannot send e-mail for data change"));
                     });
                     successProcess();
                     setTimeout(() => {
@@ -443,17 +461,35 @@
 
                 } else {
                     $("#question_modal").modal("hide");
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error While Creating User: ")+ error);
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error while updating user's data"));
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error While Creating User: ")+ error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while updating user's data"));
             });
     }
 
@@ -665,9 +701,18 @@
                     fetch("/mailing/send/change/data/col", {
                         method: "POST",
                     }).catch(function (error) {
+                        // Display flex for alert-message-layout.
+                        $('#alert-message-layout').css('display', 'flex');
+                        // Show the button.
+                        $('#error-button').show();
+                        // Change button text.
+                        $('#error-button').text(Drupal.t('Contact Support'));
+                        // Animation for alert-message-layout.
                         $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                        $("#alert-message-layout").show();
-                        console.log(Drupal.t("Cannot send e-mail for data change: ")+ error);
+                        // Change text of alert-message-layout tittle.
+                        $('#error-tittle').text(Drupal.t('Unexpected error'));
+                        // Change text of lert-message-layout message.
+                        $('#desc-error').text(Drupal.t("Cannot send e-mail for data change"));
                     });
                     successProcess();
                     setTimeout(() => {
@@ -676,18 +721,36 @@
 
                     }, 2000);
                 } else {
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error while updating data"));
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error while updating user's data"));
                 }
                 $("#question_modal2").modal("hide");
             })
             .catch(function (error) {
                 $("#loading_3").hide();
                 $("#save_3").show();
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error while updating data: ")+ error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while updating user's data"));
             });
 
     }
@@ -729,15 +792,33 @@
                     //fill form with data of user
                     fillFormWithDataUser(data.data);
                 } else {
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error while obtaining user data"));
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error while obtaining user data"));
                 }
             })
             .catch(function (error) {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error while obtaining user data : ")+ error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while obtaining user data"));
             });
     }
 

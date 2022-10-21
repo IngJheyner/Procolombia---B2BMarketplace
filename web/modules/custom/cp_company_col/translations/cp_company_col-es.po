@@ -384,6 +384,9 @@ msgstr "Error al actualizar los datos: "
 msgid "Error while updating data"
 msgstr "Error al actualizar los datos"
 
+msgid "Error while updating user's data"
+msgstr "Error al actualizar los datos del usuario"
+
 msgid "Error while obtaining user data: "
 msgstr ""Error al obtener los datos del usuario: "
 
@@ -395,3 +398,6 @@ msgstr "Nuevo mensaje para "
 
 msgid "Select an option "
 msgstr "Seleccione una opción "
+
+msgid "Error while getting cities"
+msgstr "Error al obtener las ciudades"

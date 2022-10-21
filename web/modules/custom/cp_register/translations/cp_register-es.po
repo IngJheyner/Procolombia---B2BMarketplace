@@ -73,7 +73,7 @@ msgid "Request an Appointment"
 msgstr "Solicitar una cita"
 
 msgid "Your company is not registered as a ProColombia account."
-msgstr "Tu empresa no está registrada como cuenta de ProColombia. Para ser atendido por un asesor debes"
+msgstr "Tu empresa no está registrada como cuenta de ProColombia."
 
 msgid "To be attended by an advisor you must request an appointment online."
 msgstr "Para ser atendido por un asesor debe solicitar una cita en línea."
@@ -997,6 +997,9 @@ msgstr "Por favor verifique que no es un robot"
 msgid "Error while creating user. "
 msgstr "Error al crear el usuario. "
 
+msgid "Error while creating user."
+msgstr "Error al crear el usuario."
+
 msgid "Email request error"
 msgstr "Error de solicitud de correo electrónico"
 
@@ -1129,6 +1132,9 @@ msgstr "El teléfono celular debe tener 10 dígitos"
 msgid "Error while getting cities: "
 msgstr "Error al obtener las ciudades: "
 
+msgid "Error while getting cities"
+msgstr "Error al obtener las ciudades"
+
 msgid "Error While Creating User"
 msgstr "Error al crear el Usuario"
 
@@ -1173,3 +1179,18 @@ msgstr "Ha ocurrido un error inesperado al verificar el NIT"
 
 msgid "Please complete the captcha"
 msgstr "Por favor complete el captcha"
+
+msgid "Error while obtaining subcategories"
+msgstr "Error al obtener las subcategorías"
+
+msgid "Error while getting user data."
+msgstr "Error al obtener los datos del usuario."
+
+msgid "Error while delete user."
+msgstr "Error al eliminar el usuario."
+
+msgid "Error while deleting user"
+msgstr "Error al eliminar el usuario"
+
+msgid "Error while updating user data."
+msgstr "Error al actualizar los datos del usuario."

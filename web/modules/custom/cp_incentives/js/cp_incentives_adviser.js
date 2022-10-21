@@ -51,205 +51,205 @@
   };
 
 
-  const getListOfCriterias = () => {
-    let ident = 0;
-    // console.log("LIST OF CRITERIAS");
-    let formdata = new FormData();
-    let html4 = '';
-    let requestOptions = {
-      method: 'POST',
-      body: formdata,
-    };
+  // const getListOfCriterias = () => {
+  //   let ident = 0;
+  //   // console.log("LIST OF CRITERIAS");
+  //   let formdata = new FormData();
+  //   let html4 = '';
+  //   let requestOptions = {
+  //     method: 'POST',
+  //     body: formdata,
+  //   };
 
-    fetch("/adviser/incentives/get-criterias", requestOptions)
-      .then(response => response.json())
-      .then((result) => {
-        let criteria_list = result.data;
-        if (criteria_list.length > 0) {
-          let html2 = '';
-          // console.log(criteria_list);
-          // console.log("ALL CRITERIAS");
-          criteria_list.forEach((criteria) => {
-            html2 += `
-              <li>
-                  <p>${Drupal.t(criteria.id)}</p>
-                  <p>${Drupal.t(criteria.characteristic)}</p>
-                  <p>${Drupal.t(criteria.description)}</p>
-                  <p>${Drupal.t(criteria.expiration_days)}</p>
-                  <input type="checkbox" id='updateStateCriteria-${criteria.id}'
-                    ${criteria.state == 1 ? `checked` : ``}
-                  />
-                  <button id='updateCriteria-${criteria.id}'>
-                    EDITAR CRITERIA
-                  </button>
-                  <section id='criteria-business-rules-${criteria.id}'>
+  //   fetch("/adviser/incentives/get-criterias", requestOptions)
+  //     .then(response => response.json())
+  //     .then((result) => {
+  //       let criteria_list = result.data;
+  //       if (criteria_list.length > 0) {
+  //         let html2 = '';
+  //         // console.log(criteria_list);
+  //         // console.log("ALL CRITERIAS");
+  //         criteria_list.forEach((criteria) => {
+  //           html2 += `
+  //             <li>
+  //                 <p>${Drupal.t(criteria.id)}</p>
+  //                 <p>${Drupal.t(criteria.characteristic)}</p>
+  //                 <p>${Drupal.t(criteria.description)}</p>
+  //                 <p>${Drupal.t(criteria.expiration_days)}</p>
+  //                 <input type="checkbox" id='updateStateCriteria-${criteria.id}'
+  //                   ${criteria.state == 1 ? `checked` : ``}
+  //                 />
+  //                 <button id='updateCriteria-${criteria.id}'>
+  //                   EDITAR CRITERIA
+  //                 </button>
+  //                 <section id='criteria-business-rules-${criteria.id}'>
 
-                  </section>
-              </li>
-            `
-          });
-          $('#criteria-table').html(html2);
-        }
-        return result;
-      })
-      .then((result) => {
-        let criteria_list = result.data;
-        if (criteria_list.length > 0) {
-          // console.log(criteria_list);
-          // console.log("La información");
-          criteria_list.forEach((criteria) => {
-            // Function to show the modal if the administrator wants to update the benefit
-            document.getElementById("updateCriteria-" + criteria.id).onclick = function () {
-              showModalCriteria(criteria.id, criteria.characteristic, criteria.description, criteria.expiration_days, criteria.state);
-            };
-            //CALL THE FUNCTION TO UPDATE THE CRITERIA FOR EACH updateStateCriteria-ID
-            updateStateCriteria(criteria.id, criteria.expiration_days);
-          });
-        }
-      })
-      .then((result) => {
-        getBusinessRules();
-      })
-      .catch(error => console.log('error', error));
-  }
+  //                 </section>
+  //             </li>
+  //           `
+  //         });
+  //         $('#criteria-table').html(html2);
+  //       }
+  //       return result;
+  //     })
+  //     .then((result) => {
+  //       let criteria_list = result.data;
+  //       if (criteria_list.length > 0) {
+  //         // console.log(criteria_list);
+  //         // console.log("La información");
+  //         criteria_list.forEach((criteria) => {
+  //           // Function to show the modal if the administrator wants to update the benefit
+  //           document.getElementById("updateCriteria-" + criteria.id).onclick = function () {
+  //             showModalCriteria(criteria.id, criteria.characteristic, criteria.description, criteria.expiration_days, criteria.state);
+  //           };
+  //           //CALL THE FUNCTION TO UPDATE THE CRITERIA FOR EACH updateStateCriteria-ID
+  //           updateStateCriteria(criteria.id, criteria.expiration_days);
+  //         });
+  //       }
+  //     })
+  //     .then((result) => {
+  //       getBusinessRules();
+  //     })
+  //     .catch(error => console.log('error', error));
+  // }
 
-  function getBusinessRules() {
-    let formdata = new FormData();
-    let requestOptions = {
-      method: 'POST',
-      body: formdata,
-    };
+  // function getBusinessRules() {
+  //   let formdata = new FormData();
+  //   let requestOptions = {
+  //     method: 'POST',
+  //     body: formdata,
+  //   };
 
-    fetch("/adviser/incentives/get-business-rules", requestOptions)
-      .then(response => response.json())
-      .then((result) => {
-        let business_rules_list = result.data;
-        if (business_rules_list.length > 0) {
-          let html = '';
-          business_rules_list.forEach((business_rule) => {
-            if (business_rule.measurement_unit != null && business_rule.measurement_unit != '') {
-              html = `
-              <p>
-                ${business_rule.id} ---
-                ${Drupal.t(business_rule.measurement_unit)}
-                ${business_rule.min_measure}
-                ${business_rule.max_measure}
-                ${business_rule.given_points}
-              </p>
-            `;
-              $('#criteria-business-rules-' + business_rule.id_incentives_criteria).append(html);
-            }
-          });
+  //   fetch("/adviser/incentives/get-business-rules", requestOptions)
+  //     .then(response => response.json())
+  //     .then((result) => {
+  //       let business_rules_list = result.data;
+  //       if (business_rules_list.length > 0) {
+  //         let html = '';
+  //         business_rules_list.forEach((business_rule) => {
+  //           if (business_rule.measurement_unit != null && business_rule.measurement_unit != '') {
+  //             html = `
+  //             <p>
+  //               ${business_rule.id} ---
+  //               ${Drupal.t(business_rule.measurement_unit)}
+  //               ${business_rule.min_measure}
+  //               ${business_rule.max_measure}
+  //               ${business_rule.given_points}
+  //             </p>
+  //           `;
+  //             $('#criteria-business-rules-' + business_rule.id_incentives_criteria).append(html);
+  //           }
+  //         });
 
-        }
-        return result;
-      })
-  }
+  //       }
+  //       return result;
+  //     })
+  // }
 
-  function updateStateCriteria(id, exp) {
-    document.getElementById("updateStateCriteria-" + id).onclick = function () {
-      let formdata = new FormData();
-      formdata.append("id", id);
-      formdata.append("state", document.getElementById("updateStateCriteria-" + id).checked ? 1 : 0);
-      formdata.append("expiration_days", exp);
+  // function updateStateCriteria(id, exp) {
+  //   document.getElementById("updateStateCriteria-" + id).onclick = function () {
+  //     let formdata = new FormData();
+  //     formdata.append("id", id);
+  //     formdata.append("state", document.getElementById("updateStateCriteria-" + id).checked ? 1 : 0);
+  //     formdata.append("expiration_days", exp);
 
-      let requestOptions = {
-        method: 'POST',
-        body: formdata,
-      };
+  //     let requestOptions = {
+  //       method: 'POST',
+  //       body: formdata,
+  //     };
 
-      fetch("/adviser/incentives/update-criteria", requestOptions)
-        .then(response => response.json())
-        .then((result) => {
-          console.log(result);
-          getListOfCriterias();
-        })
-        .catch(error => console.log('error', error));
-    }
-  };
+  //     fetch("/adviser/incentives/update-criteria", requestOptions)
+  //       .then(response => response.json())
+  //       .then((result) => {
+  //         console.log(result);
+  //         getListOfCriterias();
+  //       })
+  //       .catch(error => console.log('error', error));
+  //   }
+  // };
 
-  function updateCriteria(id, state, exp) {
+  // function updateCriteria(id, state, exp) {
 
-  }
+  // }
 
-  const closeModalCriteria = () => {
-    $("#modalUpdateCriteria").hide();
-    //CLEAN THE MODAL
-    $("#criteria-id").val('');
-    $("#criteria-expiration-days").val('');
-    $("#criteria-description").text('');
-    $("#criteria-characteristic").text('');
-    $("#criteria-characteristic-label").text('');
-    $("#criteria-state").prop("checked", false);
-  }
+  // const closeModalCriteria = () => {
+  //   $("#modalUpdateCriteria").hide();
+  //   //CLEAN THE MODAL
+  //   $("#criteria-id").val('');
+  //   $("#criteria-expiration-days").val('');
+  //   $("#criteria-description").text('');
+  //   $("#criteria-characteristic").text('');
+  //   $("#criteria-characteristic-label").text('');
+  //   $("#criteria-state").prop("checked", false);
+  // }
 
-  const showModalCriteria = (id, characteristic, description, expiration_days, state) => {
-    console.log('id: ' + id + 'el testeo');
-    if (document.getElementById("modalUpdateCriteria").style.display == "none") {
+  // const showModalCriteria = (id, characteristic, description, expiration_days, state) => {
+  //   console.log('id: ' + id + 'el testeo');
+  //   if (document.getElementById("modalUpdateCriteria").style.display == "none") {
 
-      $("#criteria-id").val(id);
-      $("#criteria-expiration-days").val(expiration_days);
-      $("#criteria-description").text(description);
-      $("#criteria-characteristic").text(characteristic);
-      $("#criteria-characteristic-label").text(Drupal.t('Variable / Característica') + ' ' + characteristic);
+  //     $("#criteria-id").val(id);
+  //     $("#criteria-expiration-days").val(expiration_days);
+  //     $("#criteria-description").text(description);
+  //     $("#criteria-characteristic").text(characteristic);
+  //     $("#criteria-characteristic-label").text(Drupal.t('Variable / Característica') + ' ' + characteristic);
 
-      if (state == 1) {
-        $("#criteria-state").prop("checked", true);
-      } else {
-        $("#criteria-state").prop("checked", false);;
-      };
+  //     if (state == 1) {
+  //       $("#criteria-state").prop("checked", true);
+  //     } else {
+  //       $("#criteria-state").prop("checked", false);;
+  //     };
 
-      let formdata = new FormData();
-      let requestOptions = {
-        method: 'POST',
-        body: formdata,
-      };
-      //function to show all measures of the criteria if criteria.id == 1 or 2 or 3
-      fetch("/adviser/incentives/get-business-rules", requestOptions)
-        .then(response => response.json())
-        .then((result) => {
-          //AFTER ALL DATA CHARGED, THEN SHOW THE MODAL
-          $("#modalUpdateCriteria").show();
-          let business_rules_list = result.data;
-          console.log("TESTING BUSINESS RULES LIST" + id);
-          console.log(business_rules_list);
-          //get the business rules of the criteria where criteria.id == 1
-          let business_rules_list_filtered = business_rules_list.filter(business_rule => business_rule.id_incentives_criteria == id);
-          console.log(business_rules_list_filtered);
-          $('#min-measure-1').val(business_rules_list_filtered[0].min_measure);
-          $('#max-measure-1').val(business_rules_list_filtered[0].max_measure);
-          $('#points-1').val(business_rules_list_filtered[0].given_points);
-          $('#total-points').val(business_rules_list_filtered[0].given_points);
-          //Checking if is the first business rule
-          if (id == 1 || id == 2 || id == 3) {
-            $('#min-measure-2').val(business_rules_list_filtered[1].min_measure);
-            $('#max-measure-2').val(business_rules_list_filtered[1].max_measure);
-            $('#points-2').val(business_rules_list_filtered[1].given_points);
-            $('#min-measure-3').val(business_rules_list_filtered[2].min_measure);
-            $('#max-measure-3').val(business_rules_list_filtered[2].max_measure);
-            $('#points-3').val(business_rules_list_filtered[2].given_points);
-            $('#total-points').val(business_rules_list_filtered[0].given_points);
-            //#total-points read only
-            $('#total-points').prop('readonly', true);
-          } else {
-            $('#total-points').prop('readonly', false);
-            $('#id--others').val(business_rules_list_filtered[0].id);
-          }
-        })
-        .catch(error => console.log('error', error));
+  //     let formdata = new FormData();
+  //     let requestOptions = {
+  //       method: 'POST',
+  //       body: formdata,
+  //     };
+  //     //function to show all measures of the criteria if criteria.id == 1 or 2 or 3
+  //     fetch("/adviser/incentives/get-business-rules", requestOptions)
+  //       .then(response => response.json())
+  //       .then((result) => {
+  //         //AFTER ALL DATA CHARGED, THEN SHOW THE MODAL
+  //         $("#modalUpdateCriteria").show();
+  //         let business_rules_list = result.data;
+  //         console.log("TESTING BUSINESS RULES LIST" + id);
+  //         console.log(business_rules_list);
+  //         //get the business rules of the criteria where criteria.id == 1
+  //         let business_rules_list_filtered = business_rules_list.filter(business_rule => business_rule.id_incentives_criteria == id);
+  //         console.log(business_rules_list_filtered);
+  //         $('#min-measure-1').val(business_rules_list_filtered[0].min_measure);
+  //         $('#max-measure-1').val(business_rules_list_filtered[0].max_measure);
+  //         $('#points-1').val(business_rules_list_filtered[0].given_points);
+  //         $('#total-points').val(business_rules_list_filtered[0].given_points);
+  //         //Checking if is the first business rule
+  //         if (id == 1 || id == 2 || id == 3) {
+  //           $('#min-measure-2').val(business_rules_list_filtered[1].min_measure);
+  //           $('#max-measure-2').val(business_rules_list_filtered[1].max_measure);
+  //           $('#points-2').val(business_rules_list_filtered[1].given_points);
+  //           $('#min-measure-3').val(business_rules_list_filtered[2].min_measure);
+  //           $('#max-measure-3').val(business_rules_list_filtered[2].max_measure);
+  //           $('#points-3').val(business_rules_list_filtered[2].given_points);
+  //           $('#total-points').val(business_rules_list_filtered[0].given_points);
+  //           //#total-points read only
+  //           $('#total-points').prop('readonly', true);
+  //         } else {
+  //           $('#total-points').prop('readonly', false);
+  //           $('#id--others').val(business_rules_list_filtered[0].id);
+  //         }
+  //       })
+  //       .catch(error => console.log('error', error));
 
-      //function to show modalUpdateCriteria__businessRules if criteria.id == 1 or 2 or 3
-      if (id == 1 || id == 2 || id == 3) {
-        $("#modalUpdateCriteria__businessRules").show();
+  //     //function to show modalUpdateCriteria__businessRules if criteria.id == 1 or 2 or 3
+  //     if (id == 1 || id == 2 || id == 3) {
+  //       $("#modalUpdateCriteria__businessRules").show();
 
-      } else {
-        $("#modalUpdateCriteria__businessRules").hide();
-      }
-    } else {
-      $("#modalUpdateCriteria").hide();
-    }
-    // console.log('La prueba' + criteria.id);
-  }
+  //     } else {
+  //       $("#modalUpdateCriteria__businessRules").hide();
+  //     }
+  //   } else {
+  //     $("#modalUpdateCriteria").hide();
+  //   }
+  //   // console.log('La prueba' + criteria.id);
+  // }
 
   const getListOfStatus = () => {
     let formdata = new FormData();
@@ -358,7 +358,21 @@
         return result;
       })
 
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting status list."));
+        // console.log(Drupal.t("Error while updating status. ") + error);
+      });
   }
 
   let finalValidation = false;
@@ -578,14 +592,37 @@
               if (result.status == 200) {
                 $("#modalUpdateStatus").hide();
                 console.log('ESTA ES LA FORM' + formdata);
+              } else {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while updating status."));
               }
               //call function getListOfStatus to render the list of status
               getListOfBenefits();
             })
             .catch(function (error) {
+              // Display flex for alert-message-layout.
+              $('#alert-message-layout').css('display', 'flex');
+              // Show the button.
+              $('#error-button').show();
+              // Change button text.
+              $('#error-button').text(Drupal.t('Contact Support'));
+              // Animation for alert-message-layout.
               $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-              $("#alert-message-layout").show();
-              console.log(Drupal.t("Error while updating status. ") + error);
+              // Change text of alert-message-layout tittle.
+              $('#error-tittle').text(Drupal.t('Unexpected error'));
+              // Change text of lert-message-layout message.
+              $('#desc-error').text(Drupal.t("Error while updating status."));
+
               
               // console.log(Drupal.t("Error while updating status. ") + error);
             });
@@ -598,6 +635,21 @@
           finalValidation = true;
         };
       })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting status list after updating."));
+        // console.log(Drupal.t("Error while updating status. ") + error);
+      });
     if (finalValidation == true) {
       return true;
     } else {
@@ -708,7 +760,7 @@
           // console.log("La información");
           benefits_list.forEach((benefits) => {
             $('#benefit-state-' + benefits.id).click(function () {
-              updateBenefitCheckbox(benefits.id);
+              // updateBenefitCheckbox(benefits.id);
             });
           });
         }
@@ -744,7 +796,21 @@
 
       })
       .then(() => getRelationBenefitStatus())
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting benefits list."));
+        // console.log(Drupal.t("Error while updating status. ") + error);
+      });
   }
 
   function updateBenefit(id) {
@@ -769,12 +835,35 @@
           if (result.status == 200) {
             getListOfBenefits();
             $("#modalUpdateBenefit").modal('hide');
+          } else {
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while updating benefit."));
           }
         })
         .catch(function (error) {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-          $("#alert-message-layout").show();
-          console.log(Drupal.t("Error while updating benefit. ") + error);
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while updating benefit."));
+
         }).finally(() => {
           $('#loading_edit_benefit').hide();
           $('#edit_benefit_button').show();
@@ -782,38 +871,47 @@
     }
   }
 
-  function updateBenefitCheckbox(id) {
-    // //function to update the benefit - only the status - with jquery
-    console.log("TESTING UPDATE BENEFIT CHECKBOX");
-    var benefit_state = 0;
-    if ($('#benefit-state-' + id).is(':checked')) {
-      benefit_state = 1;
-    }
+  // function updateBenefitCheckbox(id) {
+  //   // //function to update the benefit - only the status - with jquery
+  //   console.log("TESTING UPDATE BENEFIT CHECKBOX");
+  //   var benefit_state = 0;
+  //   if ($('#benefit-state-' + id).is(':checked')) {
+  //     benefit_state = 1;
+  //   }
 
-    let formdata = new FormData();
-    formdata.append("id", id);
-    formdata.append("state", benefit_state);
-    let requestOptions = {
-      method: 'POST',
-      body: formdata,
-    };
-    fetch("/adviser/incentives/update-benefit-status", requestOptions)
-      .then(response => response.json())
-      .then((result) => {
-        console.log(result);
-        if (result.status == 200) {
-          // AQUI EJECUTARA UNA FUNCION
-        }
-      })
-      .then(() => {
-        getListOfBenefits();
-      })
-      .catch(function (error) {
-        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-        $("#alert-message-layout").show();
-        console.log(Drupal.t("Error while updating benefit. ") + error);
-      });
-  }
+  //   let formdata = new FormData();
+  //   formdata.append("id", id);
+  //   formdata.append("state", benefit_state);
+  //   let requestOptions = {
+  //     method: 'POST',
+  //     body: formdata,
+  //   };
+  //   fetch("/adviser/incentives/update-benefit-status", requestOptions)
+  //     .then(response => response.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       if (result.status == 200) {
+  //         // AQUI EJECUTARA UNA FUNCION
+  //       }
+  //     })
+  //     .then(() => {
+  //       getListOfBenefits();
+  //     })
+  //     .catch(function (error) {
+  //       // Display flex for alert-message-layout.
+  //       $('#alert-message-layout').css('display', 'flex');
+  //       // Show the button.
+  //       $('#error-button').show();
+  //       // Change button text.
+  //       $('#error-button').text(Drupal.t('Contact Support'));
+  //       // Animation for alert-message-layout.
+  //       $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+  //       // Change text of alert-message-layout tittle.
+  //       $('#error-tittle').text(Drupal.t('Unexpected error'));
+  //       // Change text of lert-message-layout message.
+  //       $('#desc-error').text(Drupal.t("Error while updating benefit."));
+  //     });
+  // }
 
   function getRelationBenefitStatus() {
     let formdata = new FormData();
@@ -850,7 +948,21 @@
 
         }
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting relationship between status and benefits."));
+        // console.log(Drupal.t("Error while updating status. ") + error);
+      });
   }
 
   function createStatusValidations() {
@@ -1032,12 +1144,24 @@
           $('#create-status-modal').modal('hide');
         })
         .catch(function (error) {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-          $("#alert-message-layout").show();
-          console.log(Drupal.t("Error while creating status. ") + error);
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while creating status."));
+          // console.log(Drupal.t("Error while updating status. ") + error);
+
         }).finally(function () {
           $('#save-status').show();
           $('#loading_create_status').hide();
+
         });
     } else {
       console.log('LAS VALIDACIONES NO PASARON LA PRUEBA');
@@ -1195,9 +1319,18 @@
             getListOfBenefits();
             $('#create-benefit-modal').modal('hide');
           } else {
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
             $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-            $("#alert-message-layout").show();
-            console.log(Drupal.t("Error while creating incentive. ") + error);
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while creating benefit."));
           }
           $('#save-benefit').show()
           $('#loading_create_benefit').hide()
@@ -1205,9 +1338,19 @@
         .catch(function (error) {
           $('#save-benefit').show()
           $('#loading_create_benefit').hide()
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-          $("#alert-message-layout").show();
-          console.log(Drupal.t("Error while creating incentive. ") + error);
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while creating benefit."));
+          // console.log(Drupal.t("Error while updating status. ") + error);
         });
     }
   }
@@ -1272,14 +1415,33 @@
     }).then(function (data) {
         if (data.status == 200) {
             //reload table
-            
         } else {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
           $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-          $("#alert-message-layout").show();
-          console.log(Drupal.t("Error while updating benefits. "));
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while updating benefit state."));
         }
     }).catch(function (error) {
-        console.log(error);
+         // Display flex for alert-message-layout.
+         $('#alert-message-layout').css('display', 'flex');
+         // Show the button.
+         $('#error-button').show();
+         // Change button text.
+         $('#error-button').text(Drupal.t('Contact Support'));
+         // Animation for alert-message-layout.
+         $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+         // Change text of alert-message-layout tittle.
+         $('#error-tittle').text(Drupal.t('Unexpected error'));
+         // Change text of lert-message-layout message.
+         $('#desc-error').text(Drupal.t("Error while updating benefit state."));
     }).finally(function () {
       getListOfBenefits();
     });
@@ -1300,9 +1462,9 @@
           $('#text-archive').text('');
         });
         // if(url.includes("adviser/incentives/list") || url.includes("adviser/incentives/dashboard")){
-        $("#edit-criteria-close", context).click(function () {
-          closeModalCriteria();
-        });
+        // $("#edit-criteria-close", context).click(function () {
+        //   closeModalCriteria();
+        // });
         $("#edit-criteria-save", context).click(function () {
           updateBusinessRulesAndCriteria();
         });

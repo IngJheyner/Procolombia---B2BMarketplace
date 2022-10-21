@@ -411,8 +411,17 @@ msgstr "Error al obtener los datos del usuario"
 msgid "Error while obtaining subcategories: "
 msgstr "Error al obtener las subcategorías: "
 
+msgid "Error while obtaining subcategories"
+msgstr "Error al obtener las subcategorías"
+
 msgid "New message to "
 msgstr "Nuevo mensaje para "
 
 msgid "Select an option "
 msgstr "Seleccione una opción "
+
+msgid "Error while sending email request to update user's data"
+msgstr "Error al enviar la solicitud de correo para actualizar los datos del usuario"
+
+msgid "Error while updating User's data"
+msgstr "Error al actualizar los datos del usuario"

@@ -83,3 +83,24 @@ msgstr "Escribiendo"
 
 msgid "Today"
 msgstr "Hoy"
+
+msgid "Error while sending message"
+msgstr "Error al enviar el mensaje"
+
+msgid "Error while loading messages"
+msgstr "Error al cargar los mensajes"
+
+msgid "Error while getting chat list"
+msgstr "Error al obtener la lista de chats"
+
+msgid "Error while getting chat messages"
+msgstr "Error al obtener los mensajes del chat"
+
+msgid "Error while getting checked messages"
+msgstr "Error al obtener los mensajes leídos"
+
+msgid "Error while sending message. Please try again later."
+msgstr "Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde."
+
+msgid "Error while deleting chat. Please try again later."
+msgstr "Error al eliminar el chat. Por favor, inténtelo de nuevo más tarde."
