@@ -269,14 +269,32 @@
                 //reload table
                 incentives_list_table.ajax.reload();
             } else {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(data.message);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Failed while updating status. Please try again later or contact support."));
             }
         }).catch(function (error) {
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
             $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-            $("#alert-message-layout").show();
-            console.log(error);
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Failed while updating status. Please try again later or contact support."));
         });
     }
 
@@ -872,8 +890,19 @@
                     $('#save_criteria_3').show();
                     $('#loading_3').hide();
                 }
-                console.log(error);
-            });
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Failed while updating criteria and business rules. Please try again later or contact support."));
+                });
         }
     }
     function cleanInputsRules () {

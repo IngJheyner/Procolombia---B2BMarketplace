@@ -65,3 +65,30 @@ cp_chat.delete_chat:
   methods:  [POST]
   requirements:
     _permission: 'access content'
+
+### Fix chat
+cp_chat.fix_chat:
+  path: 'chat/fix_chat'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::fixChat'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###createAutomaticMessage
+cp_chat.create_automatic_message:
+  path: 'chat/create_automatic_message'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::createAutomaticMessage'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+###automaticMessage
+cp_chat.automatic_message:
+  path: 'chat/automatic_message'
+  defaults:
+    _controller: '\Drupal\cp_chat\Controller\CpChatController::automaticMessage'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'

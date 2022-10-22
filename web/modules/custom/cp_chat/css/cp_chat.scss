@@ -1,27 +1,26 @@
 @font-face {
   font-family: Maven-Medium;
-  src: url('../font/MavenPro-Medium.ttf');
+  src: url("../font/MavenPro-Medium.ttf");
 }
 
 @font-face {
   font-family: Maven-Regular;
-  src: url('../font/MavenPro-Regular.ttf');
+  src: url("../font/MavenPro-Regular.ttf");
 }
 
 @font-face {
   font-family: Maven-Bold;
-  src: url('../font/MavenPro-Bold.ttf');
+  src: url("../font/MavenPro-Bold.ttf");
 }
 
 @font-face {
   font-family: Gothic-Regular;
-  src: url('../font/Century-Gothic.otf');
-
+  src: url("../font/Century-Gothic.otf");
 }
 
 @font-face {
   font-family: Gothic-Bold;
-  src: url('../font/Century-Gothic-Bold.otf');
+  src: url("../font/Century-Gothic-Bold.otf");
 }
 
 $color-Azul-Claro: #e3f3ff;
@@ -37,7 +36,7 @@ $color-Pantone-116-C: #005ca4;
 $color-Pantone-Y: #fdca00;
 $color-Black: #000000;
 $color-White: #ffffff;
-$color-5c5c5c: #5C5C5C;
+$color-5c5c5c: #5c5c5c;
 $color-f7f8f8: #f7f8f8;
 /* Font/text values */
 $font-regular: Gothic-Regular;
@@ -48,37 +47,65 @@ $font-regular-maven: Maven-Regular;
 $font-bold-maven: Maven-Bold;
 
 .chat {
-
-
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(/sites/default/files/matchmaking/images/icon-site/calendary-griss.svg) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+  }
+  input[type="date"] {
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid #6a6d71;
+    box-shadow: none !important;
+    width: 100%;
+    padding: 0px 11px;
+  }
+  textarea.w-100 {
+    border: 1px solid #A1A5AA;
+    padding: 10px;
+  }
+  .modal{
+    label {
+      font-family: $font-bold;
+      font-size: 15px;
+      margin-bottom: 0.5rem;
+  
+      span {
+        color: $color-Pantone-200;
+      }
+    }
+  }
   .layout-main-wrapper {
-    background-color: $color-White  !important;
+    background-color: $color-White !important;
   }
 
   div#main {
     padding: 0px !important;
-
   }
 
   div#block-matchmaking-pro-breadcrumbs {
     display: none !important;
   }
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  input[type=file] {
+  input[type="file"] {
     width: 100%;
   }
 
-  input[type=number] {
+  input[type="number"] {
     -moz-appearance: textfield;
   }
 
-  input[type=checkbox] {
-
+  input[type="checkbox"] {
     position: relative;
     cursor: pointer;
 
@@ -145,12 +172,12 @@ $font-bold-maven: Maven-Bold;
 
     .tittle {
       font-family: $font-bold;
-      color: $color-Gris-Oscuro
+      color: $color-Gris-Oscuro;
     }
 
     small {
       color: $color-Gris-Oscuro;
-      font-family: $font-regular-maven
+      font-family: $font-regular-maven;
     }
   }
 
@@ -167,7 +194,7 @@ $font-bold-maven: Maven-Bold;
   //   background-color: white;
   // }
 
-  input[type=checkbox]:checked:after {
+  input[type="checkbox"]:checked:after {
     content: "";
     display: block;
     width: 5px;
@@ -182,7 +209,7 @@ $font-bold-maven: Maven-Bold;
     left: 8px;
   }
 
-  input[type=checkbox]:checked:before {
+  input[type="checkbox"]:checked:before {
     background-color: $color-Pantone-process-Blue;
     border: rgba(0, 0, 0, 0);
   }
@@ -190,7 +217,6 @@ $font-bold-maven: Maven-Bold;
   .btn:hover {
     transform: scale(1) !important;
   }
-
 
   #check_home_tab,
   #check_profile_tab,
@@ -205,7 +231,7 @@ $font-bold-maven: Maven-Bold;
     display: none;
   }
 
-  .ts-control>* {
+  .ts-control > * {
     vertical-align: baseline;
     display: inline-block;
     padding: 2px 0px;
@@ -218,7 +244,6 @@ $font-bold-maven: Maven-Bold;
 
   .ts-wrapper.single .ts-control {
     padding: 8px 7px 8px 13px !important;
-
   }
 
   .ts-wrapper.single .ts-control,
@@ -238,9 +263,8 @@ $font-bold-maven: Maven-Bold;
 
   .ts-wrapper.plugin-remove_button .item .remove {
     border-left: none !important;
-    color: $color-Pantone-200  !important;
+    color: $color-Pantone-200 !important;
   }
-
 
   a {
     text-decoration: none;
@@ -251,9 +275,8 @@ $font-bold-maven: Maven-Bold;
   }
 
   .bg-input-chat {
-    background-color: $color-Azul-Claro  !important;
+    background-color: $color-Azul-Claro !important;
   }
-
 
   .chat-tittle {
     font-size: 1.6rem;
@@ -299,7 +322,6 @@ $font-bold-maven: Maven-Bold;
     }
   }
 
-
   .avatar-xs {
     height: 2.2rem;
     width: 2.2rem;
@@ -310,8 +332,6 @@ $font-bold-maven: Maven-Bold;
     height: 3rem;
     width: 3rem;
     object-fit: cover;
-
-
   }
 
   .avatar-sm .avatar-title {
@@ -322,26 +342,23 @@ $font-bold-maven: Maven-Bold;
     height: 4.5rem;
     width: 4.5rem;
     object-fit: cover;
-
   }
 
   .avatar-lg {
     height: 6rem;
     width: 6rem;
     object-fit: cover;
-
   }
 
   .avatar-xl {
     height: 7.5rem;
     width: 7.5rem;
     object-fit: cover;
-
   }
 
   .avatar-title {
     align-items: center;
-    background-color: #0085CA;
+    background-color: #0085ca;
     color: #fff !important;
     display: flex;
     font-weight: 500;
@@ -351,7 +368,7 @@ $font-bold-maven: Maven-Bold;
   }
 
   .custom-accordion {
-    .card+.card {
+    .card + .card {
       margin-top: 0.5rem;
     }
 
@@ -383,7 +400,7 @@ $font-bold-maven: Maven-Bold;
   section.chat {
     overflow: hidden;
     margin-top: 17px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
   }
 
   .simplebar-wrapper {
@@ -447,7 +464,6 @@ $font-bold-maven: Maven-Bold;
   }
 
   .simplebar-content {
-
     &:after,
     &:before {
       content: " ";
@@ -536,7 +552,7 @@ $font-bold-maven: Maven-Bold;
     }
 
     &.simplebar-visible:before {
-      opacity: .5;
+      opacity: 0.5;
       transition: opacity 0s linear;
     }
   }
@@ -574,7 +590,7 @@ $font-bold-maven: Maven-Bold;
     }
   }
 
-  [data-simplebar-direction=rtl] .simplebar-track.simplebar-vertical {
+  [data-simplebar-direction="rtl"] .simplebar-track.simplebar-vertical {
     left: 0;
     right: auto;
   }
@@ -673,14 +689,14 @@ $font-bold-maven: Maven-Bold;
         &.active {
           background-color: #f7f7ff;
           background-color: var(--bs-sidebar-menu-item-active-bg);
-          color: #0085CA;
+          color: #0085ca;
         }
       }
 
-      &.show>.nav-link {
+      &.show > .nav-link {
         background-color: #f7f7ff;
         background-color: var(--bs-sidebar-menu-item-active-bg);
-        color: #0085CA;
+        color: #0085ca;
       }
     }
 
@@ -733,7 +749,7 @@ $font-bold-maven: Maven-Bold;
     background: transparent;
     border: none;
     font-size: 1.3rem !important;
-    color: $color-Gris-Oscuro  !important;
+    color: $color-Gris-Oscuro !important;
     display: flex;
     align-items: flex-end;
     padding: 5px 7px;
@@ -758,8 +774,6 @@ $font-bold-maven: Maven-Bold;
       border-top-right-radius: 0px !important;
       border-bottom-left-radius: 0px !important;
       border-bottom-right-radius: 0px !important;
-
-
     }
 
     .form-control {
@@ -770,9 +784,7 @@ $font-bold-maven: Maven-Bold;
       border-top-right-radius: 4px !important;
       border-bottom-left-radius: 0px !important;
       border-bottom-right-radius: 0px !important;
-
     }
-
 
     .search-icon-btn {
       font-size: 16px;
@@ -821,7 +833,8 @@ $font-bold-maven: Maven-Bold;
       width: 35%;
     }
 
-    .desc {}
+    .desc {
+    }
   }
 
   .chat-list {
@@ -855,7 +868,7 @@ $font-bold-maven: Maven-Bold;
 
       &:hover {
         background-color: #e6ebf5;
-        border-left: 4px solid #0085CA;
+        border-left: 4px solid #0085ca;
       }
     }
 
@@ -904,7 +917,7 @@ $font-bold-maven: Maven-Bold;
       font-family: "Gothic-Regular";
       text-transform: lowercase;
       margin-top: 6px;
-      color: #6A6D71;
+      color: #6a6d71;
 
       &:first-letter {
         text-transform: uppercase;
@@ -912,11 +925,11 @@ $font-bold-maven: Maven-Bold;
     }
 
     &.typing .chat-user-message {
-      color: #0085CA;
+      color: #0085ca;
       font-weight: 500;
 
       .dot {
-        background-color: #0085CA;
+        background-color: #0085ca;
       }
     }
 
@@ -1035,7 +1048,7 @@ $font-bold-maven: Maven-Bold;
 }
 
 .user-chat-name {
-  color: #005CA4;
+  color: #005ca4;
 }
 
 @media (max-width: 575.98px) {
@@ -1090,7 +1103,7 @@ $font-bold-maven: Maven-Bold;
     }
 
     &:before {
-      background-color: #A1A5AA;
+      background-color: #a1a5aa;
       content: "";
       height: 1px;
       left: 0;
@@ -1147,7 +1160,7 @@ $font-bold-maven: Maven-Bold;
       font-size: 1rem;
       font-weight: bolder;
       margin-bottom: 1px;
-      font-family: 'Gothic-Bold';
+      font-family: "Gothic-Bold";
     }
 
     .text-msg-user {
@@ -1176,9 +1189,8 @@ $font-bold-maven: Maven-Bold;
       }
     }
 
-
     .message-img {
-      border-radius: .2rem;
+      border-radius: 0.2rem;
       position: relative;
 
       .message-img-list {
@@ -1195,7 +1207,7 @@ $font-bold-maven: Maven-Bold;
         position: absolute;
         right: 10px;
 
-        li>a {
+        li > a {
           color: #fff;
           display: inline-block;
           font-size: 18px;
@@ -1263,13 +1275,13 @@ $font-bold-maven: Maven-Bold;
   }
 
   height: calc(100vh - 404px);
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 }
 
 .user-header {
   h5 {
     color: #000;
-    font-family: 'Gothic-Bold';
+    font-family: "Gothic-Bold";
     margin-bottom: 2px;
   }
 
@@ -1281,9 +1293,7 @@ $font-bold-maven: Maven-Bold;
     font-size: 14px;
     margin: 4px 0px 6px !important;
   }
-
 }
-
 
 @media (max-width: 575.98px) {
   .chat-conversation .conversation-list .ctext-wrap-content .attached-file .attached-file-avatar {
@@ -1332,7 +1342,7 @@ $font-bold-maven: Maven-Bold;
   display: inline-block;
   height: 4px;
   margin-right: -1px;
-  opacity: .6;
+  opacity: 0.6;
   width: 4px;
 
   &:nth-child(2) {
@@ -1341,13 +1351,12 @@ $font-bold-maven: Maven-Bold;
   }
 
   &:nth-child(3) {
-    -webkit-animation-delay: -.9s;
+    -webkit-animation-delay: -0.9s;
     animation-delay: -0.9s;
   }
 }
 
 @-webkit-keyframes wave {
-
   0%,
   60%,
   to {
@@ -1363,7 +1372,6 @@ $font-bold-maven: Maven-Bold;
 }
 
 @keyframes wave {
-
   0%,
   60%,
   to {
@@ -1475,7 +1483,7 @@ $font-bold-maven: Maven-Bold;
     margin-bottom: 0;
   }
 
-  input[type=file] {
+  input[type="file"] {
     display: none;
   }
 }
@@ -1513,7 +1521,7 @@ $font-bold-maven: Maven-Bold;
 }
 
 .ctext-wrap-content {
-  -webkit-animation: flyIn .6s ease-in-out;
+  -webkit-animation: flyIn 0.6s ease-in-out;
   animation: flyIn 0.6s ease-in-out;
 }
 
@@ -1523,13 +1531,12 @@ $font-bold-maven: Maven-Bold;
 }
 
 .profile-user-dropdown .dropdown-item.active {
-  background-color: #0085CA;
+  background-color: #0085ca;
   color: #fff;
   text-decoration: none;
 }
 
 .dot_remove {
-
   .alice-carousel__dots,
   .alice-carousel__next-btn,
   .alice-carousel__prev-btn {
@@ -1543,7 +1550,7 @@ $font-bold-maven: Maven-Bold;
   font-size: 30px;
   height: 1em;
   margin: 10px;
-  opacity: .5;
+  opacity: 0.5;
   position: absolute;
   right: 0;
   top: 0;

@@ -104,3 +104,12 @@ msgstr "Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde."
 
 msgid "Error while deleting chat. Please try again later."
 msgstr "Error al eliminar el chat. Por favor, inténtelo de nuevo más tarde."
+
+msgid "Contact Support"
+msgstr "Contactar con soporte"
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Error while loading checked messages"
+msgstr "Error al cargar los mensajes leídos"

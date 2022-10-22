@@ -135,5 +135,89 @@ msgstr "Error al abrir el chat, por favor, inténtelo de nuevo más tarde o pón
 msgid "Error while deleting chat, please try again later or contact support."
 msgstr "Error al eliminar el chat, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
 
-msgid ""Error while getting suggestions, please try again later or contact support."
+msgid "Error while getting suggestions, please try again later or contact support."
 msgstr "Error al obtener sugerencias, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Contact Support"
+msgstr "Contactar soporte"
+
+msgid "Unread messages"
+msgstr "Mensajes no leídos"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Dashboard"
+msgstr "Tablero"
+
+msgid "Offer for"
+msgstr "Oferta para"
+
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+msgid "View - Colombian Company"
+msgstr "Ver - Empresa Colombiana"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "Promotional activities"
+msgstr "Actividades promocionales"
+
+msgid "Mass communication"
+msgstr "Comunicación masiva"
+
+msgid "LOG OUT"
+msgstr "CERRAR SESIÓN"
+
+msgid "Products and Services"
+msgstr "Productos y Servicios"
+
+msgid "Alarms"
+msgstr "Alarmas"
+
+msgid "Profile update"
+msgstr "Actualización de perfil"
+
+msgid "Data update:"
+msgstr "Actualización de datos:"
+
+msgid "Since the update of your data took place on"
+msgstr "Desde que se realizó la actualización de sus datos el"
+
+msgid "You must update your Profile information."
+msgstr "Debe actualizar la información de su perfil."
+
+msgid " Search"
+msgstr " Buscar"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Help "
+msgstr "Ayuda "
+
+msgid "View general User Profile"
+msgstr "Ver perfil de usuario general"
+
+msgid "Companies with interaction"
+msgstr "Empresas con interacción"
+
+msgid "Recommendations or suggestions"
+msgstr "Recomendaciones o sugerencias"
+
+msgid "Your favorite products or services"
+msgstr "Tus productos o servicios favoritos"
+
+msgid "Terms of access"
+msgstr "Condiciones de acceso"
+
+msgid "General User Profile"
+msgstr "Perfil General de Usuario"
+
+msgid "Recommendations or suggestions"
+msgstr "Recomendaciones o sugerencias"

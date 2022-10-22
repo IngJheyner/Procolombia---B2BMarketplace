@@ -159,6 +159,7 @@ class CpEditColCompany extends ControllerBase {
       'contact_lastname' => $user->get('field_company_contact_lastname')->value,
       'contact_email' => $user->get('field_company_contact_email')->value,
       'contact_position' => $user->get('field_company_contact_position')->value,
+      'contact_position_e' => $user->get('field_company_contact_position_e')->value,
       'contact_phone' => $user->get('field_company_contact_phone')->value,
       'contact_cellphone' => $user->get('field_company_contact_cell_phone')->value,
       'country_code_landline' => $user->get('field_country_code_landline')->value,
@@ -207,9 +208,14 @@ class CpEditColCompany extends ControllerBase {
     $user->set('field_company_contact_name', $data['name']);
     $user->set('field_company_contact_lastname', $data['last_name']);
     $user->set('field_company_contact_position', $data['position_spanish']);
+    $user->set('field_company_contact_position_e', $data['position_english']);
     $user->set('field_company_contact_phone', $data['landline']);
     $user->set('field_company_contact_cell_phone', $data['mobile']);
     $user->set('field_company_contact_email', $data['contact_email']);
+    // If the password wasn't changed, don't update it.
+    if (!empty($data['password'])) {
+      $user->setPassword($data['password']);
+    }
     //country_code_landline
     $user->set('field_country_code_landline', $data['country_code_landline']);
     $user->set('field_country_code_mobile', $data['country_code_mobile']);

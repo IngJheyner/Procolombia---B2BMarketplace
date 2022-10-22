@@ -486,6 +486,9 @@ msgid " the minimum points cannot be equal to maximum points"
 msgstr " el puntaje mínimo no puede ser igual al puntaje máximo"
 
 msgid "Error while updating status. "
+msgstr "Error al editar status. "
+
+msgid "Error while updating status."
 msgstr "Error al editar status."
 
 msgid "Invalid points"
@@ -541,3 +544,57 @@ msgstr "Error al obtener el código de referido."
 
 msgid "Error while creating reference code."
 msgstr "Error al crear el código de referido."
+
+msgid "Error while updating incentive."
+msgstr "Error al actualizar el incentivo."
+
+msgid "Failed while creating a new point for a Colombian Company. Please try again later or contact support."
+msgstr "Error al crear un nuevo punto para una compañía colombiana. Por favor intente de nuevo más tarde o contacte al soporte."
+
+msgid "Failed while updating status. Please try again later or contact support."
+msgstr "Error al actualizar el status. Por favor intente de nuevo más tarde o contacte al soporte."
+
+msgid "Failed while updating criteria and business rules. Please try again later or contact support."
+msgstr "Error al actualizar los criterios y reglas de negocio. Por favor intente de nuevo más tarde o contacte al soporte."
+
+msgid "Contact support"
+msgstr "Contactar a soporte"
+
+msgid "Contact Support"
+msgstr "Contactar a soporte"
+
+msgid " the maximum points must be higher to minimum points"
+msgstr " el puntaje máximo debe ser mayor al puntaje mínimo"
+
+msgid "Error while creating status."
+msgstr "Error al crear el status."
+
+msgid "Required Field"
+msgstr "Campo requerido"
+
+msgid "Continue registration"
+msgstr "Continuar registro"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Cancel registration"
+msgstr "Cancelar registro"
+
+msgid "Continue registration"
+msgstr "Continuar registro"
+
+msgid "Back"
+msgstr "Regresar"
+
+msgid "Color 1"
+msgstr "Color 1"
+
+msgid "Color 2"
+msgstr "Color 2"
+
+msgid "Choose files"
+msgstr "Elegir archivos"
+
+msgid "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."
+msgstr "Solo se permiten formatos png con un peso máximo de 2 MB y dimensiones mínimas de 200x200 px."

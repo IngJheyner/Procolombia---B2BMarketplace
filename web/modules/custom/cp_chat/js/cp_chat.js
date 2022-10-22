@@ -117,9 +117,9 @@
     let countNewMessages = 0;
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="${chat.count_checked > 0 && "active"}">
+      <li id="conversation0" class="${chat.count_checked > 0 || chat.fixed === "1" && "active"}">
         <div class="d-flex" id="chat">
-          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
           ${chat.company_logo ? `
             <img
               src="${chat.company_logo}"
@@ -131,7 +131,7 @@
             </div>`
         }
           </div>
-          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
             <span class="chat-user-name text-truncate mb-0"><strong>Nombre del contacto:</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
             <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
@@ -139,7 +139,7 @@
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 || chat.fixed === "1" ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked !== "0" ? chat.count_checked : chat.fixed === chat  ? "&nbsp;&nbsp;" : ""}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownList(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
@@ -832,6 +832,9 @@
             console.log("ENVIADO")
             new_messages = 0;
             $('#new-message-content').html('');
+            setTimeout(() => {
+              sendAutomaticMessage(chat_selected);
+            }, 2000);
           } else {
             // Display flex for alert-message-layout.
             $('#alert-message-layout').css('display', 'flex');
@@ -847,7 +850,7 @@
             $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
           }
         })
-        .catch(error => {
+        .catch(function (error) {
           // Display flex for alert-message-layout.
           $('#alert-message-layout').css('display', 'flex');
           // Show the button.
@@ -863,6 +866,131 @@
         });
     }
   }
+
+  const sendAutomaticMessage = (id_chat) => {
+    var formdata = new FormData();
+    formdata.append("id_chat", id_chat);
+    
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+    };
+
+    fetch("/chat/create_automatic_message", requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        if (result.status == 'ok') {
+          console.log(result);
+          socket.emit('sendMessage', { room: id_chat, message: result.data });
+          console.log({ user_id: id_other_user, message: result.data })
+          CheckMessages(result.data[0].id_chat);
+          getListOfChats(0, 15);
+          socket.emit('updateChatList', { user_id: id_other_user, message: result.data });
+          console.log("ENVIADO")
+          new_messages = 0;
+          $('#new-message-content').html('');
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+      });
+  }
+
+  const validateSaveAutomaticMessage = () => {
+    let isValid = true;
+    let msg = ""
+    let start_date = $('#start-date').val();
+    let end_date = $('#end-date').val();
+    let message = $('#automatic-message').val();
+
+    if (start_date == "") {
+      isValid = false;
+      msg = "Please select a start date";
+    }else{
+
+    }
+
+    if (end_date == "") {
+      isValid = false;
+      msg = "Please select an end date";
+    }else{
+
+    }
+
+    if (message == "") {
+      isValid = false;
+      msg = "Please write a message";
+    }
+
+  }
+  const saveAutomaticMessage = () => {
+    //get start_date, end_date, message
+    if(validateSaveAutomaticMessage()){
+      let start_date = $('#start-date').val();
+      let end_date = $('#end-date').val();
+      let message = $('#text-message').val();
+
+      var formdata = new FormData();
+      formdata.append("start_date", start_date);
+      formdata.append("end_date", end_date);
+      formdata.append("message", message);
+
+      var requestOptions = {
+        method: 'POST',
+        body: formdata,
+      };
+
+      fetch("/chat/automatic_message", requestOptions)
+        .then(response => response.json())
+        .then((result) => {
+          if (result.status == 'ok') {
+            console.log(result);
+            //close modal
+            $('#automatic-message-modal').modal('hide');
+          } else {
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+          }
+        })
+        .catch(function (error) {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+        });
+    }
+  }
+
+
 
   let stopComplete = false;
   //infitine scroll for list messages in chat
@@ -993,7 +1121,62 @@
           $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
         }
       })
-      .catch(error => {
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+      });
+  }
+
+  const fixChatApi = (chat_id) => {
+    //form data
+    let formData = new FormData();
+    formData.append('id_chat', chat_id);
+
+    //fetch
+    fetch('/chat/fix_chat', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.status == 'ok') {
+          //hide modal
+          socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: false }] });
+          if(data.value == 1){
+            //change fix-chat image
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/vision.svg');
+          }else{
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/low-vision.svg');
+          }
+          //fetch chat
+          getListOfChats(0, 15);
+        } else {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+        }
+      })
+      .catch(function (error) {
         // Display flex for alert-message-layout.
         $('#alert-message-layout').css('display', 'flex');
         // Show the button.
@@ -1027,7 +1210,7 @@
 
         }
         //create function get chat messages
-        window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe) => {
+        window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe, fixed) => {
           //show chat box
           $('#chat-fill').show();
           $('.user-chat').css('transform', 'translateX(0)');
@@ -1045,6 +1228,13 @@
           $('#chat-user-name').text(fullName);
           $('#chat-user-description').text(description);
           $('#delete-chat-in-message').attr('onclick', `deleteChat(${chatId}, '${fullName}', '${companyName}')`);
+          $('#fix-chat').attr('onclick', `fixChatActionButton(${chatId})`);
+          if(fixed == 1){
+            //change fix-chat image
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/vision.svg');
+          }else{
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/low-vision.svg');
+          }
           //check if company logo exist
           console.log(companyLogo);
           if (companyLogo) {
@@ -1605,6 +1795,10 @@
           deleteChatApi(id);
         };
 
+        window.fixChatActionButton = function (id) {
+          fixChatApi(id);
+        };
+
         //detect click images inside chat-messages
         $('#chat-messages', context).click(function (evt) {
           console.log("click");
@@ -1623,6 +1817,14 @@
         $('#lightbox-cont', context).click(function (evt) {
           $('#lightbox-cont').hide();
         });
+
+        //open automatic message modal
+        $('#btn-automatic-message', context).click(function () {
+          //change text area value
+          $('#automatic-message').val(`Actualmente y hasta el ${moment().format("dd/mm/aaaa")} no me encuentro disponible. Me pondré en contacto a mi regreso.`);
+          $('#modal-automatic-message').modal('show');
+        });
+        
       }
     }
   };

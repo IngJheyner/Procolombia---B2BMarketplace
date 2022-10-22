@@ -301,14 +301,24 @@
           $("#title").text(data.title);
           $("#author_name").text(data.author_name);
         })
-        .catch((error) => {
+        .catch(function (error) {
           let message = Drupal.t("Video is not recognized");
           $("#error_video_message").text(message)
           $("#video").css("border-color", "#ba0c2f");
           $("#error_video").show();
-          $("#error_video")
+          $("#error_video");
 
-            ;
+          // Display flex for alert-warning.
+          $('#alert-warning').css('display', 'flex');
+          // Don't show the button.
+          $('#error-button-alert-warning').hide();
+          // Animation for alert-warning.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-warning-heading.
+          $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+          // Change text of alert-warning-message.
+          $('#alert-warning-desc').text(Drupal.t('The video was not found on the YouTube platform.'));
+
         });
     } else {
       //show video error
@@ -316,9 +326,7 @@
       $("#video").css("border-color", "#ba0c2f");
       $("#error_video_message").text(message)
       $("#error_video").show();
-      $("#error_video")
-
-        ;
+      $("#error_video");
     }
   }
 

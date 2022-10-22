@@ -22,6 +22,35 @@
 .chat {
   /* Unhide the lightbox when it's the target */
 }
+.chat input[type=date]::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url(/sites/default/files/matchmaking/images/icon-site/calendary-griss.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+  border-width: thin;
+}
+.chat input[type=date] {
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #6a6d71;
+  box-shadow: none !important;
+  width: 100%;
+  padding: 0px 11px;
+}
+.chat textarea.w-100 {
+  border: 1px solid #A1A5AA;
+  padding: 10px;
+}
+.chat .modal label {
+  font-family: Gothic-Bold;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+.chat .modal label span {
+  color: #ba0c2f;
+}
 .chat .layout-main-wrapper {
   background-color: #ffffff !important;
 }
@@ -246,7 +275,7 @@
 }
 .chat .avatar-title {
   align-items: center;
-  background-color: #0085CA;
+  background-color: #0085ca;
   color: #fff !important;
   display: flex;
   font-weight: 500;
@@ -278,7 +307,7 @@
 .chat section.chat {
   overflow: hidden;
   margin-top: 17px;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 .chat .simplebar-wrapper {
   height: inherit;
@@ -526,12 +555,12 @@
 .chat .side-menu-nav .nav-item .nav-link.active {
   background-color: #f7f7ff;
   background-color: var(--bs-sidebar-menu-item-active-bg);
-  color: #0085CA;
+  color: #0085ca;
 }
 .chat .side-menu-nav .nav-item.show > .nav-link {
   background-color: #f7f7ff;
   background-color: var(--bs-sidebar-menu-item-active-bg);
-  color: #0085CA;
+  color: #0085ca;
 }
 .chat .side-menu-nav .profile-user {
   background-color: #f0eff5;
@@ -672,7 +701,7 @@
 }
 .chat .chat-list #chat:hover {
   background-color: #e6ebf5;
-  border-left: 4px solid #0085CA;
+  border-left: 4px solid #0085ca;
 }
 .chat .chat-list .text-msg {
   width: 60%;
@@ -712,17 +741,17 @@
   font-family: "Gothic-Regular";
   text-transform: lowercase;
   margin-top: 6px;
-  color: #6A6D71;
+  color: #6a6d71;
 }
 .chat .chat-list .chat-user-message:first-letter {
   text-transform: uppercase;
 }
 .chat .chat-list.typing .chat-user-message {
-  color: #0085CA;
+  color: #0085ca;
   font-weight: 500;
 }
 .chat .chat-list.typing .chat-user-message .dot {
-  background-color: #0085CA;
+  background-color: #0085ca;
 }
 .chat .chat-list .unread-message {
   display: inline-block;
@@ -827,7 +856,7 @@
 }
 
 .user-chat-name {
-  color: #005CA4;
+  color: #005ca4;
 }
 
 @media (max-width: 575.98px) {
@@ -838,7 +867,7 @@
 }
 .chat-conversation {
   height: calc(100vh - 404px);
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 }
 .chat-conversation li {
   clear: both;
@@ -880,7 +909,7 @@
   z-index: 1;
 }
 .chat-conversation .chat-day-title:before {
-  background-color: #A1A5AA;
+  background-color: #a1a5aa;
   content: "";
   height: 1px;
   left: 0;
@@ -1238,7 +1267,7 @@
 }
 
 .profile-user-dropdown .dropdown-item.active {
-  background-color: #0085CA;
+  background-color: #0085ca;
   color: #fff;
   text-decoration: none;
 }
@@ -1284,4 +1313,4 @@
 }
 .profile-user-dropdown.dropup .dropdown-menu.show {
   top: auto !important;
-}
+}/*# sourceMappingURL=cp_chat.css.map */

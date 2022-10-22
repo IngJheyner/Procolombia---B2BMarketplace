@@ -135,10 +135,19 @@
                 if (value !== "")
                     select_cities.setValue(value);
             })
-            .catch((error) => {
+            .catch(function (error) {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error while getting cities list: ") + error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while getting cities list"));
             })
     }
 
@@ -429,6 +438,8 @@
             name: $("#name").val(),
             last_name: $("#last_name").val(),
             position_spanish: $("#position_spanish").val(),
+            position_english: $("#position_english").val(),
+            password: $("#password_buyer").val(),
             landline: $("#landline").val(),
             mobile: $("#mobile").val(),
             contact_email: $("#contact_email").val(),
@@ -455,17 +466,36 @@
 
                 } else {
                     $("#question_modal").modal("hide");
+
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error While Creating User: ") + error);
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error while updating user"));
                 }
             })
             .catch(function (error) {
                 $("#loading_1").hide();
                 $("#save_1").show();
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error While Creating User: ") + error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while updating user"));
             });
     }
 
@@ -492,13 +522,16 @@
         var name = $("#name").val();
         var last_name = $("#last_name").val();
         var position_spanish = $("#position_spanish").val();
+        var position_english = $("#position_english").val();
         var landline = $("#landline").val();
         var mobile = $("#mobile").val();
         var contact_email = $("#contact_email").val();
+        var password = $("#password_buyer").val();
 
         if (name == "") {
             message = Drupal.t("Name is required");
             $("#name").css("border-color", "#ba0c2f");
+            $("#name").prev('span').css("border-color", "#ba0c2f");
             $("#error_name").show();
             $("#error_name_message").text(message)
             isValid = false;
@@ -506,17 +539,20 @@
             if (name.length > 20) {
                 message = Drupal.t("The name cannot be longer than 20 characters");
                 $("#name").css("border-color", "#ba0c2f");
+                $("#name").prev('span').css("border-color", "#ba0c2f");
                 $("#error_name_message").text(message)
                 $("#error_name").show();
                 isValid = false;
             } else {
                 $("#error_name").hide();
                 $("#name").css("border-color", "#cccccc");
+                $("#name").prev('span').css("border-color", "#cccccc");
             }
         }
         if (last_name == "") {
             message = Drupal.t("Lastname is required");
             $("#last_name").css("border-color", "#ba0c2f");
+            $("#last_name").prev('span').css("border-color", "#ba0c2f");
             $("#error_last_name").show();
             $("#error_last_name_message").text(message)
             isValid = false;
@@ -524,6 +560,7 @@
             if (last_name.length > 20) {
                 message = Drupal.t("The lastname cannot be longer than 20 characters");
                 $("#last_name").css("border-color", "#ba0c2f");
+                $("#last_name").prev('span').css("border-color", "#ba0c2f");
                 $("#error_last_name_message").text(message)
                 $("#error_last_name").show();
                 $("#error_last_name")
@@ -533,11 +570,13 @@
             } else {
                 $("#error_last_name").hide();
                 $("#last_name").css("border-color", "#cccccc");
+                $("#last_name").prev('span').css("border-color", "#cccccc");
             }
         }
         if (position_spanish == "") {
             message = Drupal.t("Spanish position is required");
             $("#position_spanish").css("border-color", "#ba0c2f");
+            $("#position_spanish").prev('span').css("border-color", "#ba0c2f");
             $("#error_position_spanish_message").text(message)
             $("#error_position_spanish").show();
             isValid = false;
@@ -545,6 +584,7 @@
             if (position_spanish.length > 50) {
                 message = Drupal.t("The position in Spanish must be no longer than 50 characters");
                 $("#position_spanish").css("border-color", "#ba0c2f");
+                $("#position_spanish").prev('span').css("border-color", "#ba0c2f");
                 $("#error_position_spanish_message").text(message)
                 $("#error_position_spanish").show();
 
@@ -552,8 +592,33 @@
             } else {
                 $("#error_position_spanish").hide();
                 $("#position_spanish").css("border-color", "#cccccc");
+                $("#position_spanish").prev('span').css("border-color", "#cccccc");
             }
         }
+
+        if (position_english == "") {
+            message = Drupal.t("English position is required");
+            $("#position_english").css("border-color", "#ba0c2f");
+            $("#position_english").prev('span').css("border-color", "#ba0c2f");
+            $("#error_position_english_message").text(message)
+            $("#error_position_english").show();
+            isValid = false;
+        } else {
+            if (position_english.length > 50) {
+                message = Drupal.t("The position in English must be no longer than 50 characters");
+                $("#position_english").css("border-color", "#ba0c2f");
+                $("#error_position_english_message").text(message)
+                $("#error_position_english").show();
+                $("#position_english").prev('span').css("border-color", "#ba0c2f");
+
+                isValid = false;
+            } else {
+                $("#error_position_english").hide();
+                $("#position_english").css("border-color", "#cccccc");
+                $("#position_english").prev('span').css("border-color", "#cccccc");
+            }
+        }
+
         if (landline == "") {
             message = Drupal.t("Phone line is required");
             $("#landline").css("border-color", "#ba0c2f");
@@ -613,6 +678,7 @@
         if (contact_email == "") {
             message = Drupal.t("Email is required and must be a valid email address.");
             $("#contact_email").css("border-color", "#ba0c2f");
+            $("#contact_email").prev('span').css("border-color", "#ba0c2f");
             $("#error_contact_email").show();
             $("#error_contact_email_message").text(message)
             isValid = false;
@@ -624,6 +690,7 @@
             ) {
                 message = Drupal.t("E-mail is invalid");
                 $("#contact_email").css("border-color", "#ba0c2f");
+                $("#contact_email").prev('span').css("border-color", "#ba0c2f");
                 $("#error_contact_email").show();
                 $("#error_contact_email_message").text(message)
                 isValid = false;
@@ -631,6 +698,54 @@
 
                 $("#error_contact_email").hide();
                 $("#contact_email").css("border-color", "#cccccc");
+                $("#contact_email").prev('span').css("border-color", "#cccccc");
+            }
+        }
+        if (password == "") {
+
+        } else {
+            console.log(password.length);
+            if (password.length < 8 || password.length > 15) {
+                message = Drupal.t("The password must be between 8 and 15 characters long");
+                $("#password_buyer").css("border-color", "#ba0c2f");
+                $("#password_buyer__span").css("border-color", "#ba0c2f");
+                $("#error_password_buyer_message").text(message)
+                $("#error_password_buyer").show();
+                isValid = false;
+            } else {
+                if (!password.match(/[A-Z]/)) {
+                message = Drupal.t("The password must have at least one capital letter");
+                $("#password_buyer").css("border-color", "#ba0c2f");
+                $("#password_buyer__span").css("border-color", "#ba0c2f");
+                $("#error_password_buyer_message").text(message)
+                $("#error_password_buyer").show();
+                isValid = false;
+                } else {
+                    if (!password.match(/[0-9]/)) {
+                        message = Drupal.t("The password must have at least one number");
+                        $("#password_buyer").css("border-color", "#ba0c2f");
+                        $("#password_buyer__span").css("border-color", "#ba0c2f");
+                        $("#error_password_buyer_message").text(message)
+                        $("#error_password_buyer").show();
+                        isValid = false;
+                    } else {
+                        if (!password.match(/[^a-zA-Z0-9]/)) {
+                        message = Drupal.t("The password must have at least one special character");
+                        $("#password_buyer").css("border-color", "#ba0c2f");
+                        $("#password_buyer__span").css("border-color", "#ba0c2f");
+                        $("#error_password_buyer_message").text(message)
+                        $("#error_password_buyer").show();
+                        $("#error_password_buyer")
+
+                            ;
+                        isValid = false;
+                        } else {
+                        $("#error_password_buyer").hide();
+                        $("#password_buyer").css("border-color", "#cccccc");
+                        $("#password_buyer__span").css("border-color", "#cccccc");
+                        }
+                    }
+                }
             }
         }
 
@@ -664,24 +779,51 @@
                         body: formData,
                     }
                 ).catch(function (error) {
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error rejecting user: ") + error);
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error rejecting user"));
                 });
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/col';
             } else {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error rejecting user: "));
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error rejecting user"));
                 
             }
         }).catch(function (error) {
             $("#loading_2").hide();
             $("#reject").show();
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
             $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-            $("#alert-message-layout").show();
-            console.log(Drupal.t("Error rejecting user: ") + error);
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error rejecting user"));
         });
     }
 
@@ -712,23 +854,48 @@
                         body: formData,
                     }
                 ).catch(function (error) {
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error approving user: ") + error);
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error while send mail to approve user"));
                 });
                 //return to dashboard
                 window.location.href = '/dashboard/adviser/user/col';
             } else {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error approving user: "));
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while approving user"));
             }
         }).catch(function (error) {
-            $("#loading_3").hide();
-            $("#modal_aproved_user_exportador").show();
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
             $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-            $("#alert-message-layout").show();
-            console.log(Drupal.t("Error approving user: ") + error);
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while approving user"));
         });
     }
 
@@ -771,15 +938,33 @@
                     //fill form with data of user
                     fillFormWithDataUser(data.data);
                 } else {
+                    // Display flex for alert-message-layout.
+                    $('#alert-message-layout').css('display', 'flex');
+                    // Show the button.
+                    $('#error-button').show();
+                    // Change button text.
+                    $('#error-button').text(Drupal.t('Contact Support'));
+                    // Animation for alert-message-layout.
                     $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                    $("#alert-message-layout").show();
-                    console.log(Drupal.t("Error while getting user data"));
+                    // Change text of alert-message-layout tittle.
+                    $('#error-tittle').text(Drupal.t('Unexpected error'));
+                    // Change text of lert-message-layout message.
+                    $('#desc-error').text(Drupal.t("Error while obtaining user data"));
                 }
             })
             .catch(function (error) {
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
                 $("#alert-message-layout").css("animation-name", "fadeInUpBig");
-                $("#alert-message-layout").show();
-                console.log(Drupal.t("Error while getting user data: ") + error);
+                // Change text of alert-message-layout tittle.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of lert-message-layout message.
+                $('#desc-error').text(Drupal.t("Error while obtaining user data"));
             });
     }
 
@@ -804,6 +989,7 @@
         $("#name").val(data.contact_name);
         $("#last_name").val(data.contact_lastname);
         $("#position_spanish").val(data.contact_position);
+        $("#position_english").val(data.contact_position_e);
         $("#landline").val(data.contact_phone);
         $("#mobile").val(data.contact_cellphone);
         $("#contact_email").val(data.contact_email);

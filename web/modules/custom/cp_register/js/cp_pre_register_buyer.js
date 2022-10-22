@@ -60,7 +60,7 @@
             // Change text of alert-message-layout tittle.
             $('#error-tittle').text(Drupal.t('Request failed'));
             // Change text of lert-message-layout message.
-            $('#desc-error').text(Drupal.t("Request failed email111"));
+            $('#desc-error').text(Drupal.t("Request failed email"));
         });
       } else {
         window.location.href = '/register/user/buyer';
@@ -537,6 +537,18 @@
               })
               .catch(function (error) {
                 $("#loader").modal('hide');
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                // Change text of alert-warning-heading.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of alert-warning-message.
+                $('#desc-error').text(Drupal.t("Email request error"));
               });
           } else {
             // Display flex for alert-warning.

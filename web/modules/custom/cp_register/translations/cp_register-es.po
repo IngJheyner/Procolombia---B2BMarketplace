@@ -617,10 +617,10 @@ msgid "Password is required"
 msgstr "La contraseña es requerida"
 
 msgid "The password must be between 8 and 15 characters long"
-msgstr "El password debe tener entre 8 y 15 caracteres"
+msgstr "La contraseña debe tener entre 8 y 15 caracteres"
 
 msgid "The password must have at least one capital letter"
-msgstr "El password debe tener al menos una mayúscula"
+msgstr "La contraseña tener al menos una mayúscula"
 
 msgid "The password must have at least one number"
 msgstr "La contraseña debe tener al menos un número"
@@ -1037,19 +1037,19 @@ msgid "You don't have an account?"
 msgstr "¿No tiene una cuenta?"
 
 msgid "Productive Chain"
-msgstr"Cadena productiva"
+msgstr "Cadena productiva"
 
 msgid "Published"
-msgstr"Publicado"
+msgstr "Publicado"
 
 msgid "Views"
-msgstr"Vistas"
+msgstr "Vistas"
 
 msgid "Incentives"
-msgstr"Incentivos"
+msgstr "Incentivos"
 
 msgid "Action"
-msgstr"Acción"
+msgstr "Acción"
 
 msgid "Language"
 msgstr "Idioma"
@@ -1109,7 +1109,7 @@ msgid "Tags Specialized offer (All languages)"
 msgstr "Tags Oferta especializada (Todos los idiomas)"
 
 msgid "Exporter's performance"
-msgstr "Desempeñp de exportador"
+msgstr "Desempeño de exportador"
 
 msgid "Classification tags private labels and others"
 msgstr "Tags de clasificación marcas blancas y otras"
@@ -1194,3 +1194,48 @@ msgstr "Error al eliminar el usuario"
 
 msgid "Error while updating user data."
 msgstr "Error al actualizar los datos del usuario."
+
+msgid "Error while creating user in step 2: Profile Settings."
+msgstr "Error al crear el usuario en el paso 2: Configuración de perfil."
+
+msgid "Error while creating user in step 3: Products of interest #1."
+msgstr "Error al crear el usuario en el paso 3: Productos de interés #1."
+
+msgid "Error while creating user in step 4: Products of interest #2."
+msgstr "Error al crear el usuario en el paso 4: Productos de interés #2."
+
+msgid "Error while creating user in step 5: Products of interest #3."
+msgstr "Error al crear el usuario en el paso 5: Productos de interés #3."
+
+msgid "The video was not found on the YouTube platform."
+msgstr "El video no fue encontrado en la plataforma de YouTube."
+
+msgid "Cannot open or create new chat. Please try again later or contact support."
+msgstr "No se puede abrir o crear un nuevo chat. Por favor intente de nuevo más tarde o contacte al soporte."
+
+msgid "I have read and accept the Terms and Conditions of Use"
+msgstr "He leído y acepto los Términos y Condiciones de Uso"
+
+msgid "Request failed"
+msgstr "Solicitud fallida"
+
+msgid "Process completed"
+msgstr "Proceso completado"
+
+msgid "Process completed successfully"
+msgstr "Proceso completado exitosamente"
+
+msgid "Error while deleting user."
+msgstr "Error al eliminar el usuario."
+
+msgid "The website is not valid"
+msgstr "El sitio web no es válido"
+
+msgid "The English position must be no longer than 50 characters"
+msgstr "La posición en inglés no debe ser mayor a 50 caracteres"
+
+msgid "The country code of the phone line is required"
+msgstr "El código del país del teléfono fijo es requerido"
+
+msgid "The cell phone must not be longer than 10 characters"
+msgstr "El teléfono celular no debe tener más de 10 caracteres"

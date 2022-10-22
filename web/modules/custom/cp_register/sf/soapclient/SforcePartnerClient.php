@@ -42,6 +42,7 @@ require_once ('SforceBaseClient.php');
  // string content into the parsed output and loses the tag name. Removing the
  // xsi:type forces PHP SOAP to just leave the tags intact
  class SforceSoapClient extends SoapClient {
+   [\ReturnTypeWillChange]
    function __doRequest($request, $location, $action, $version, $one_way=0) {
      $response = parent::__doRequest($request, $location, $action, $version, $one_way);
 

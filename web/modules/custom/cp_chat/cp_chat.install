@@ -45,7 +45,14 @@ function cp_chat_schema() {
         'default' => 0,
         'description' => 'The "users".id of the user comprador who belong to this chat.',
       ],
-      'fixed' => [
+      'fixed_exportador' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => NULL,
+        'description' => 'Boolean to ask if chat is fixed on the screen.',
+      ],
+      'fixed_comprador' => [
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => FALSE,

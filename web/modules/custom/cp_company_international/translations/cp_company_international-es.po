@@ -268,10 +268,10 @@ msgid "Password is required"
 msgstr "La contraseña es requerida"
 
 msgid "The password must be between 8 and 15 characters long"
-msgstr "El password debe tener entre 8 y 15 caracteres"
+msgstr "La contraseña debe tener entre 8 y 15 caracteres"
 
 msgid "The password must have at least one capital letter"
-msgstr "El password debe tener al menos una mayúscula"
+msgstr "La contraseña debe tener al menos una mayúscula"
 
 msgid "The password must have at least one number"
 msgstr "La contraseña debe tener al menos un número"

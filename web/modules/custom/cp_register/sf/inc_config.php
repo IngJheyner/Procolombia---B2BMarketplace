@@ -12,7 +12,7 @@
 define("salesforce_username", 'wservice@proexport.com.co');
 define("salesforce_password", 'colombia2018');
 define("salesforce_token", 'PUaA4DRbMe1aO5ZiYEii9SGIZ');
-define("salesforce_wsdl", drupal_get_path('module', 'cp_core') . '/sf/soapclient/socio.wsdl.xml');
+define("salesforce_wsdl", drupal_get_path('module', 'cp_register') . '/sf/soapclient/socio.wsdl.xml');
 
 
-require_once(drupal_get_path('module', 'cp_core') . '/sf/soapclient/SforcePartnerClient.php');
+require_once(drupal_get_path('module', 'cp_register') . '/sf/soapclient/SforcePartnerClient.php');

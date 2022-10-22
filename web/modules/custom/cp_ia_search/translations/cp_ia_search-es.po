@@ -14,3 +14,15 @@ msgstr ""
 
 msgid "TESTING"
 msgstr "PRUEBA"
+
+msgid "Error while save log"
+msgstr "Error al guardar el registro"
+
+msgid "Error while getting products, please try again later."
+msgstr "Error al obtener productos, intente nuevamente más tarde."
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Contact Support"
+msgstr "Contactar a soporte"

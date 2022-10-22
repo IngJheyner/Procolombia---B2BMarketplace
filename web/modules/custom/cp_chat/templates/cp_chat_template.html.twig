@@ -107,9 +107,8 @@
 									</li>
 									<li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
 										<div class="toltip_content">
-											<button type="button"
-												class="nav-btn user-profile-show btn btn-none toltip_i">
-												<i class='bx bxs-low-vision'></i>
+											<button id="fix-chat" type="button" class="nav-btn user-profile-show btn btn-none toltip_i">
+												<img id="fix-chat-img" src="" alt="" srcset="">
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%; padding: 5px;">
 													{{ "Mark as unread"|t }}
@@ -277,7 +276,6 @@
 		</div>
 
 	</div>
-
 	<div class="modal fade" id="modal-delete" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
@@ -288,7 +286,7 @@
 							alt="" srcset="">
 						{{ "Delete chat"|t }}<span id="modal-chat-header-empresa"></span>
 					</h5>
-<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+		 			<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
 				</div>
 				<div class="modal-body">
 					<p>
@@ -308,6 +306,57 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> Configura mensajes de ausencia</h5>
+				<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+			</div>
+			<div class="modal-body">
+				<div>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group password">
+								<label for="nit">Fecha de inicio</label>
+								<div class="input-group mb-3">
+									<input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group password">
+								<label for="nit">Fecha de finalización</label>
+								<div class="input-group mb-3">
+									<input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="form-group password">
+								<label for="nit">Enviar Mensaje</label>
+								<div class="input-group mb-3">
+									<textarea maxlength="300" rows="7" class="w-100">Actualmente y hasta el [dd/mm/aaaa] no me encuentro disponible. Me pondré en contacto a mi regreso. I am out of the office until [dd/mm/aaaa]. I will get in contact with as soon as I am available.</textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
 			</div>
 		</div>
 	</div>
