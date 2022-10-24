@@ -26,12 +26,8 @@
         if (data.status == 'ok') {
           $("#success").modal('show');
           setTimeout(function () {
-            window.location.href = "/pre-registro";
-            $("#email_verification button").on("click", function () {
-              // Redirect to home.
-              window.location.href = "/pre-registro";
-            });
-          }, 15000);
+            window.location.href = "/registro/usuario";
+          }, 3000);
         } else {
           // Display flex for alert-message-layout.
           $('#alert-message-layout').css('display', 'flex');

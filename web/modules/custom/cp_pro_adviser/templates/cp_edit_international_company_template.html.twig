@@ -669,25 +669,22 @@
     </div>
 
   </div>
-  <!-- Modal -->
-  <div class="modal fade" id="information" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+  <div class="generic-modal modal legal-modal" id="information">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="alert_1Label"><img
-              src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg"
-              alt="" srcset="">{{ 'Edit company profile and contact'|t }}</h5>
-          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+          <span class="modal-header-title">{{ 'Edit company profile and contact'|t }}</span>
+          <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         </div>
         <div class="modal-body">
-          <p>{{ 'All uploaded content must comply with the'|t }}
-            <a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank"
-              style="text-decoration: underline !important;">{{ 'publication policy.'|t }}</a>
-          </p>
+          <span class="modal-top-title">{{ 'All uploaded content must comply with the'|t }} <a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_BLANK" rel="nofollow">{{ 'publication policy.'|t }}</a></span>
         </div>
         <div class="modal-footer">
-          <button id="go_to_step_3" type="button" class="btn btn_save" data-bs-dismiss="modal">{{ 'UNDERSTOOD'|t
-            }}</button>
+          <div class="modal-footer-left">
+          </div>
+          <div class="modal-footer-right">
+            <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span>{{ 'UNDERSTOOD'|t}}</span></button>
+          </div>
         </div>
       </div>
     </div>

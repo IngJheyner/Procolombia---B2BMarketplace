@@ -46,7 +46,7 @@
       renderNotFound(words, userId);
     } else {
       renderCategories(data.categorias);
-      $('#category-length').text(data.categorias.length + " categorías");
+      $('#category-length').text(data.categorias.length + Drupal.t(" categories"));
       getProducts(data.ids_productos, data.ids_empresas);
     } */
 
@@ -62,8 +62,8 @@
           renderNotFound(words, userId);
         } else {
           renderCategories(data.categorias);
-          $('#category-length').text(data.categorias.length + " categorías");
-          $('#category-length-2').text(data.categorias.length + " categorías");
+          $('#category-length').text(data.categorias.length + Drupal.t(" categories"));
+          $('#category-length-2').text(data.categorias.length + Drupal.t(" categories"));
           getProducts(data.ids_productos, data.ids_empresas);
         }
       })
@@ -139,7 +139,7 @@
     const origin = urlParams.get('origin');
     let url = `/search/products?words=${words}&userId=${userId}&origin=${origin}`;
     if (page !== 1) {
-      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) - 1}">Anterior</a></li>`;
+      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) - 1}">${Drupal.t("Previous")}</a></li>`;
     }
     if (totalPages <= 4) {
       for (let i = 1; i <= totalPages; i++) {
@@ -174,7 +174,7 @@
       }
     }
     if (page !== totalPages) {
-      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) + 1}">Siguiente</a></li>`;
+      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) + 1}">${Drupal.t("Next")}</a></li>`;
     }
     $('#pagination').html(html);
   };
@@ -195,8 +195,8 @@
           <p class="desc" style="display: -webkit-box; max-width: 100%;-webkit-line-clamp: 3;-webkit-box-orient: vertical; overflow: hidden;">
             ${element.description}
           </p>
-          <p class="cat">Empresa: <strong>${element.company}</strong></p>
-          <p class="cat">Categoria: <strong>${element.category}</strong></p>
+          <p class="cat">${Drupal.t("Company: ")}<strong>${element.company}</strong></p>
+          <p class="cat">${Drupal.t("Category: ")}<strong>${element.category}</strong></p>
         </div>
       </div>
     </div>
@@ -212,8 +212,8 @@
     html += `
     <li>
       <div class="form-inline d-flex align-items-center py-1">
-          <label class="tick">Todas las categorias
-              <input type="checkbox" value="Todas">
+          <label class="tick">${Drupal.t("All categories")}
+              <input type="checkbox" value=${Drupal.t("All")}>
               <span class="check"></span>
           </label>
       </div>
@@ -235,7 +235,7 @@
     } else {
       html = `<li>
                   <div class="form-inline d-flex align-items-center py-1">
-                      <label class="tick">No hay categorias
+                      <label class="tick">${Drupal.t("No categories")}
                           <input type="checkbox">
                           <span class="check"></span>
                       </label>
@@ -346,22 +346,22 @@
         });
 
         checked.each(function (index, element) {
-          if ($(element).val() == "Todas") {
+          if ($(element).val() == Drupal.t("All")) {
             console.log(text);
             console.log(query)
           }
-          if ($(element).val() === "Todas" && text.includes("Todas") && query !== "" && query !== "?categories=Todas") {
+          if ($(element).val() === Drupal.t("All") && text.includes(Drupal.t("All")) && query !== "" && query !== "?categories=Todas") {
             checked.each(function (index, element) {
               $(element).prop('checked', false);
             });
-            //check "Todas" input
+            //check Drupal.t("All") input
             $(element).prop('checked', true);
             todas = true;
           } else {
-            if ($(element).val() === "Todas" && text !== "Todas-") {
+            if ($(element).val() === Drupal.t("All") && text !== Drupal.t("All-")) {
               $(element).prop('checked', false);
-              //delete "Todas" from text
-              text = text.replace("Todas-", "");
+              //delete Drupal.t("All") from text
+              text = text.replace(Drupal.t("All-"), "");
             }
           }
         });
@@ -407,22 +407,22 @@
         });
 
         checked.each(function (index, element) {
-          if ($(element).val() == "Todas") {
+          if ($(element).val() == Drupal.t("All")) {
             console.log(text);
             console.log(query)
           }
-          if ($(element).val() === "Todas" && text.includes("Todas") && query !== "" && query !== "?categories=Todas") {
+          if ($(element).val() === Drupal.t("All") && text.includes(Drupal.t("All")) && query !== "" && query !== `?categories=${Drupal.t("All")}`) {
             checked.each(function (index, element) {
               $(element).prop('checked', false);
             });
-            //check "Todas" input
+            //check Drupal.t("All") input
             $(element).prop('checked', true);
             todas = true;
           } else {
-            if ($(element).val() === "Todas" && text !== "Todas-") {
+            if ($(element).val() === Drupal.t("All") && text !== Drupal.t("All-")) {
               $(element).prop('checked', false);
-              //delete "Todas" from text
-              text = text.replace("Todas-", "");
+              //delete Drupal.t("All") from text
+              text = text.replace(Drupal.t("All-"), "");
             }
           }
         });

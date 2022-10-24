@@ -14,34 +14,34 @@
             "locale": {
                 "format": "DD/MM/YYYY",
                 "separator": " - ",
-                "applyLabel": "Aplicar",
-                "cancelLabel": "Cancelar",
-                "fromLabel": "Desde",
-                "toLabel": "Hasta",
+                "applyLabel": Drupal.t("Apply"),
+                "cancelLabel": Drupal.t("Cancel"),
+                "fromLabel": Drupal.t("From"),
+                "toLabel": Drupal.t("To"),
                 "customRangeLabel": "Custom",
                 "weekLabel": "W",
                 "daysOfWeek": [
-                    "Do",
-                    "Lu",
-                    "Ma",
-                    "Mi",
-                    "Ju",
-                    "Vi",
-                    "Sa"
+                    Drupal.t("Su"),
+                    Drupal.t("Mo"),
+                    Drupal.t("Tu"),
+                    Drupal.t("We"),
+                    Drupal.t("Th"),
+                    Drupal.t("Fr"),
+                    Drupal.t("Sa")
                 ],
                 "monthNames": [
-                    "Enero",
-                    "Febrero",
-                    "Marzo",
-                    "Abril",
-                    "Mayo",
-                    "Junio",
-                    "Julio",
-                    "Agosto",
-                    "Septiembre",
-                    "Octubre",
-                    "Noviembre",
-                    "Diciembre"
+                    Drupal.t("January"),
+                    Drupal.t("February"),
+                    Drupal.t("March"),
+                    Drupal.t("April"),
+                    Drupal.t("May"),
+                    Drupal.t("June"),
+                    Drupal.t("July"),
+                    Drupal.t("August"),
+                    Drupal.t("September"),
+                    Drupal.t("October"),
+                    Drupal.t("November"),
+                    Drupal.t("December")
                 ],
                 "firstDay": 1
             },
@@ -66,26 +66,26 @@
                 }
             },
             columns: [
-                { data: 'created_at', title: 'Fecha' },
-                { data: 'time', title: 'Hora' },
+                { data: 'created_at', title: Drupal.t('Date') },
+                { data: 'time', title: Drupal.t('Time') },
                 { data: 'query', title: 'Query' },
-                { data: 'company_name', title: 'Nombre de la empresa' },
-                { data: 'country', title: 'País de origen' },
+                { data: 'company_name', title: Drupal.t('Company name') },
+                { data: 'country', title: Drupal.t('Country') },
             ],
             "pageLength": 10,
             "lengthMenu": [10, 25, 50, 75, 100],
             "language": {
                 "lengthMenu": "_MENU_ result",
-                "zeroRecords": "Nothing found - sorry",
-                "infoEmpty": "No records available",
+                "zeroRecords": Drupal.t("Nothing found - sorry"),
+                "infoEmpty": Drupal.t("No records available"),
                 "infoFiltered": "(filtered from _MAX_ total records)",
                 //total records
                 "info": "Total records: <span class='num_table'>_MAX_</span>",
                 "paginate": {
-                    "first": "First",
-                    "last": "Last",
-                    "next": "Next",
-                    "previous": "Previous"
+                    "first": Drupal.t("First"),
+                    "last": Drupal.t("Last"),
+                    "next": Drupal.t("Next"),
+                    "previous": Drupal.t("Previous")
                 }
             },
             //remove search box
@@ -142,7 +142,7 @@
         //get all log in the page
         var log = log_auditory.rows().data();
         //create csv
-        var csv = 'Fecha,Hora,Query,Nombre de la empresa,País de origen \r \n';
+        var csv = Drupal.t("Date,Time,Query,Company name,Country of origin \r \n");
         for (var i = 0; i < log.length; i++) {
             csv += log[i].created_at + ',' + log[i].time + ',' + log[i].query + ',' + log[i].company_name + ',' + log[i].country + '\r \n';
         }

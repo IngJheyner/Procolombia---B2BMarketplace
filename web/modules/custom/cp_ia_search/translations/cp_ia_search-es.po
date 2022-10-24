@@ -26,3 +26,202 @@ msgstr "Error inesperado"
 
 msgid "Contact Support"
 msgstr "Contactar a soporte"
+
+msgid "Search options:"
+msgstr "Opciones de búsqueda:"
+
+msgid "No results found for your search"
+msgstr "No se han encontrado resultados para tu búsqueda"
+
+msgid "Make sure all words are spelled correctly."
+msgstr "Asegúrate de que todas las palabras estén escritas correctamente."
+
+msgid "Check the spelling of the word."
+msgstr "Revisa la ortografía de la palabra."
+
+msgid "Use more generic words or fewer words."
+msgstr "Utiliza palabras más genéricas o menos palabras."
+
+msgid "Browse by category"
+msgstr "Navega por las categorías"
+
+msgid "to find a similar product or service."
+msgstr "para encontrar un producto o servicio similar."
+
+msgid "Suggested recommendations"
+msgstr "Recomendaciones sugeridas"
+
+msgid "Procolombia's Suggestions"
+msgstr "Sugerencias ProColombia"
+
+msgid " results"
+msgstr " resultados"
+
+msgid "Sort by"
+msgstr "Ordenar por:"
+
+msgid "Reset filter"
+msgstr "Restablecer filtro"
+
+msgid "Most visited products"
+msgstr "Productos más visitados"
+
+msgid "Alphabetical order"
+msgstr "Orden alfabético"
+
+msgid "Most recent update date"
+msgstr "Fecha más reciente de actualización"
+
+msgid "Your search"
+msgstr "Tu búsqueda"
+
+msgid " appears in:"
+msgstr " aparece en:"
+
+msgid "Select the one you are interested in"
+msgstr "Seleccione en lo que está interesado"
+
+msgid "Apply filtering"
+msgstr "Aplicar filtrado"
+
+msgid "Filter by:"
+msgstr "Filtrar por:"
+
+msgid "Product"
+msgstr "Producto"
+
+msgid "Service"
+msgstr "Servicio"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Total items:"
+msgstr "Total de ítems:"
+
+msgid "Apply search filter"
+msgstr "Aplicar filtro de búsqueda"
+
+msgid "Food"
+msgstr "Alimentos"
+
+msgid "Search History Products / Services"
+msgstr "Historial de Búsqueda Productos / Servicios"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "From"
+msgstr "Desde"
+
+msgid "To" 
+msgstr "Hasta"
+
+msgid "Mon"
+msgstr "Lun"
+
+msgid "Tue"
+msgstr "Mar"
+
+msgid "Wed"
+msgstr "Mie"
+
+msgid "Thu"
+msgstr "Jue"
+
+msgid "Fri"
+msgstr "Vie"
+
+msgid "Sat"
+msgstr "Sab"
+
+msgid "Sun"
+msgstr "Dom"
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"
+
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "Company name"
+msgstr "Nombre de la empresa"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Nothing found - sorry"
+msgstr "Lo sentimod - no se han encontrado resultados"
+
+msgid "No records available"
+msgstr "No hay registros disponibles"
+
+msgid "Date,Time,Query,Company name,Country of origin \r \n"
+msgstr "Fecha,Hora,Query,Nombre de la empresa,País de origen \r \n"
+
+msgid " categories"
+msgstr " categorías"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Company: "
+msgstr "Empresa: "
+
+msgid "Category: "
+msgstr "Categoría: "
+
+msgid "All categories"
+msgstr "Todas las categorías"
+
+msgid "No categories"
+msgstr "No hay categorias"
+
+msgid "All"
+msgstr "Todas"
+
+msgid "All-"
+msgstr "Todas-"
