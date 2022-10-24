@@ -1,0 +1,21 @@
+uuid: 2dd7c269-0763-4ebb-8419-9f52ab4f372d
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_start_date_auto_message
+  module:
+    - datetime
+    - user
+id: user.user.field_start_date_auto_message
+field_name: field_start_date_auto_message
+entity_type: user
+bundle: user
+label: 'Fecha de inicio mensaje automático'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

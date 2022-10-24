@@ -288,9 +288,19 @@
     console.log(response);
     console.log("HI")
     if (response.length == 0) {
-      alert(Drupal.t("Please verify that you are not a robot"));
       $("#error_captcha").show();
       isValid = false;
+
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'flex');
+      // Don't show the button.
+      $('#error-button-alert-warning').hide();
+      // Animation for alert-warning.
+      $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+      // Change text of alert-warning-heading.
+      $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+      // Change text of alert-warning-message.
+      $('#alert-warning-desc').text(Drupal.t('Please verify that you are not a robot'));
     } else {
       $("#error_captcha").hide();
     }

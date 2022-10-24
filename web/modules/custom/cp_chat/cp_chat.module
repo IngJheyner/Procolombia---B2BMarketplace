@@ -23,7 +23,7 @@ function cp_chat_theme($existing, $type, $theme, $path)
         'tree_messages' => NULL,
         'start_date' => NULL,
         'end_date' => NULL,
-        'message' => NULL,
+        'automatic_message' => NULL,
       ],
       // Optionally define path to Twig template files.
       // Defaults to the module's ./templates/ directory.

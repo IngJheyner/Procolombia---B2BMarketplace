@@ -1,0 +1,21 @@
+uuid: 559b95b1-fb32-40cb-9466-1501673ef527
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_field_end_date_auto_messag
+  module:
+    - datetime
+    - user
+id: user.user.field_field_end_date_auto_messag
+field_name: field_field_end_date_auto_messag
+entity_type: user
+bundle: user
+label: 'Fecha de finalización mensaje automático'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

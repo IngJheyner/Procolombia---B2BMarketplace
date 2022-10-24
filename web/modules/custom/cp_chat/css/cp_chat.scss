@@ -65,15 +65,15 @@ $font-bold-maven: Maven-Bold;
     padding: 0px 11px;
   }
   textarea.w-100 {
-    border: 1px solid #A1A5AA;
+    border: 1px solid #a1a5aa;
     padding: 10px;
   }
-  .modal{
+  .modal {
     label {
       font-family: $font-bold;
       font-size: 15px;
       margin-bottom: 0.5rem;
-  
+
       span {
         color: $color-Pantone-200;
       }
@@ -739,10 +739,10 @@ $font-bold-maven: Maven-Bold;
   }
 
   input#text-message {
-    height: 21px !important;
+    height: 100% !important;
     font-size: 15px;
     padding: 16px 14px;
-    background-color: #f7f7f7 !important;
+    background-color: #f0f0f0 !important;
   }
 
   .icon-send {
@@ -990,10 +990,17 @@ $font-bold-maven: Maven-Bold;
     right: 0;
   }
 }
+.content-option {
+  z-index: 5;
+  top: 39px;
+  animation-duration: 1s;
+  background: #ba0d2f !important;
+  animation-name: fadeInRightBig;
+}
 
 .user-chat {
   background-color: #fff;
-  box-shadow: 0px 3px 6px #00000029;
+  box-shadow: -3px -8px 20px 0px rgb(0 0 0 / 16%);
   transition: all 0.4s;
   margin-top: 9px;
   margin-right: 10px;
@@ -1274,7 +1281,7 @@ $font-bold-maven: Maven-Bold;
     }
   }
 
-  height: calc(100vh - 404px);
+  height: calc(100vh - 389px);
   background-color: #f0f0f0;
 }
 

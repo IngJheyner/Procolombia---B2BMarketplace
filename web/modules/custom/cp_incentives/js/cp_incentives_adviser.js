@@ -571,6 +571,8 @@
         });
 
         if (isValidPoint) {
+          $('#update-all-status').hide();
+          $('#loading_4').show();
           let formdata = new FormData();
           let status_list = result.data;
           let array = [];
@@ -610,6 +612,8 @@
               }
               //call function getListOfStatus to render the list of status
               getListOfBenefits();
+              $('#update-all-status').show();
+              $('#loading_4').hide();
             })
             .catch(function (error) {
               // Display flex for alert-message-layout.

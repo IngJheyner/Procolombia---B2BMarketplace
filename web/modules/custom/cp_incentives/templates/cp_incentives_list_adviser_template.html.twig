@@ -127,9 +127,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="button-table">
+                        <div class="button-table continue">
                             <button type="button" id="create-new-status" data-bs-toggle="modal" data-bs-target="#create-status-modal" class="btn-satatus">{{ "Create new status"|t }}</button>
                             <button type="button" class="btn-edit" id='update-all-status'>{{ "Save edition"|t }}</button>
+                            <button style="display: none;" class="continue btn-edit" id="loading_4" type="button" disabled="">
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                Cargando...
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -212,7 +216,7 @@
                     </div>
                     <div class="col-lg-6 mt-3" style=>
                         <label for="nombre_del_sitio" class="form-label">{{ "Maximum points"|t }}
-                            <sup>*</sup>
+                            {# <sup>*</sup> #}
                         </label>
                         <div class="input-group m-0 input_error">
                             <input

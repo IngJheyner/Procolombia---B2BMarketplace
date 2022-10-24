@@ -72,7 +72,7 @@
         socket.emit('createChatList', { user_id: id_me });
         renderChatList(chatList);
       })
-      .catch(function(error){
+      .catch(function (error) {
         // Display flex for alert-message-layout.
         $('#alert-message-layout').css('display', 'flex');
         // Show the button.
@@ -117,7 +117,7 @@
     let countNewMessages = 0;
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="${chat.count_checked > 0 || chat.fixed === "1" && "active"}">
+      <li id="conversation0" class="${(chat.count_checked > 0 || chat.fixed === "1") && "active"}">
         <div class="d-flex" id="chat">
           <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
           ${chat.company_logo ? `
@@ -139,7 +139,7 @@
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 || chat.fixed === "1" ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked !== "0" ? chat.count_checked : chat.fixed === chat  ? "&nbsp;&nbsp;" : ""}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${(chat.count_checked > 0 || chat.fixed === "1") ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked !== "0" ? chat.count_checked : "&nbsp;&nbsp;"}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownList(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
@@ -157,9 +157,9 @@
       `
       countNewMessages += parseInt(chat.count_checked);
     });
-    
+
     if (countNewMessages > 0) {
-      if(countNewMessages > 99){
+      if (countNewMessages > 99) {
         countNewMessages = "+99";
       }
       $('#count-message').text(countNewMessages);
@@ -195,6 +195,7 @@
           first_date = moment(msgList[0].updated).format('YYYY-MM-DD');
         }
         CheckMessages(chatId);
+        fixChatApi(chatId, 1);
         getListOfChats(0, 15);
         if (!refetch) {
           renderChatMessages(msgList);
@@ -238,7 +239,7 @@
         console.log("checked messages", result);
         new_messages = 0;
       })
-      .catch(function (error){
+      .catch(function (error) {
         // Display flex for alert-message-layout.
         $('#alert-message-layout').css('display', 'flex');
         // Show the button.
@@ -870,7 +871,7 @@
   const sendAutomaticMessage = (id_chat) => {
     var formdata = new FormData();
     formdata.append("id_chat", id_chat);
-    
+
     var requestOptions = {
       method: 'POST',
       body: formdata,
@@ -917,29 +918,53 @@
     if (start_date == "") {
       isValid = false;
       msg = "Please select a start date";
-    }else{
-
+      $('#start-date').css('border-color', 'rgb(186, 12, 47)');
+      $('#error_start-date').text(msg);
+      $('#error_start-date').show();
+    } else {
+      $('#start-date').css('border-color', '#cccccc');
+      $('#error_start-date').hide();
     }
 
     if (end_date == "") {
       isValid = false;
       msg = "Please select an end date";
-    }else{
-
+      $('#end-date').css('border-color', 'rgb(186, 12, 47)');
+      $('#error_end-date').text(msg);
+      $('#error_end-date').show();
+    } else {
+      $('#end-date').css('border-color', '#cccccc');
+      $('#error_end-date').hide();
     }
 
     if (message == "") {
       isValid = false;
       msg = "Please write a message";
+      $('#automatic-message').css('border-color', 'rgb(186, 12, 47)');
+      $('#error_automatic-message').text(msg);
+      $('#error_automatic-message').show();
+    } else {
+      if (message.length > 300) {
+        isValid = false;
+        msg = "The message must be less than 300 characters";
+        $('#automatic-message').css('border-color', 'rgb(186, 12, 47)');
+        $('#error_automatic-message').text(msg);
+        $('#error_automatic-message').show();
+      } else {
+        $('#automatic-message').css('border-color', '#cccccc');
+        $('#error_automatic-message').hide();
+      }
     }
-
+    return isValid;
   }
+
   const saveAutomaticMessage = () => {
+    console.log("saveAutomaticMessage")
     //get start_date, end_date, message
-    if(validateSaveAutomaticMessage()){
+    if (validateSaveAutomaticMessage()) {
       let start_date = $('#start-date').val();
       let end_date = $('#end-date').val();
-      let message = $('#text-message').val();
+      let message = $('#automatic-message').val();
 
       var formdata = new FormData();
       formdata.append("start_date", start_date);
@@ -957,7 +982,7 @@
           if (result.status == 'ok') {
             console.log(result);
             //close modal
-            $('#automatic-message-modal').modal('hide');
+            $('#modal-automatic-message').modal('hide');
           } else {
             // Display flex for alert-message-layout.
             $('#alert-message-layout').css('display', 'flex');
@@ -1137,11 +1162,11 @@
       });
   }
 
-  const fixChatApi = (chat_id) => {
+  const fixChatApi = (chat_id, select = 0) => {
     //form data
     let formData = new FormData();
     formData.append('id_chat', chat_id);
-
+    formData.append('select', select);
     //fetch
     fetch('/chat/fix_chat', {
       method: 'POST',
@@ -1153,10 +1178,10 @@
         if (data.status == 'ok') {
           //hide modal
           socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: false }] });
-          if(data.value == 1){
+          if (data.value == 1) {
             //change fix-chat image
             $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/vision.svg');
-          }else{
+          } else {
             $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/low-vision.svg');
           }
           //fetch chat
@@ -1229,10 +1254,10 @@
           $('#chat-user-description').text(description);
           $('#delete-chat-in-message').attr('onclick', `deleteChat(${chatId}, '${fullName}', '${companyName}')`);
           $('#fix-chat').attr('onclick', `fixChatActionButton(${chatId})`);
-          if(fixed == 1){
+          if (fixed == 1) {
             //change fix-chat image
             $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/vision.svg');
-          }else{
+          } else {
             $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/low-vision.svg');
           }
           //check if company logo exist
@@ -1818,13 +1843,32 @@
           $('#lightbox-cont').hide();
         });
 
+        //open dropdown-chat 
+        $('#more-option', context).click(function () {
+          $('#content-more-option').show();
+          //$('#content-more-option').css('animation-name', 'fadeInDownBig');
+        });
         //open automatic message modal
         $('#btn-automatic-message', context).click(function () {
           //change text area value
-          $('#automatic-message').val(`Actualmente y hasta el ${moment().format("dd/mm/aaaa")} no me encuentro disponible. Me pondré en contacto a mi regreso.`);
+          $('#content-more-option').hide();
           $('#modal-automatic-message').modal('show');
         });
-        
+
+        //click save-automatic-message
+        $('#save-automatic-message', context).click(function () {
+          //call function to save automatic message
+          saveAutomaticMessage();
+        });
+
+        //detect end-date input change and if value is before start-date, change start-date value
+        $('#end-date', context).change(function () {
+          let start_date = $('#start-date').val();
+          let end_date = $('#end-date').val();
+          if (start_date > end_date) {
+            $('#end-date').val(start_date);
+          }
+        });
       }
     }
   };

@@ -37,13 +37,14 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_country_code_landline
     - field.field.user.user.field_country_code_mobile
+    - field.field.user.user.field_field_end_date_auto_messag
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_nit
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
     - field.field.user.user.field_productive_chain
-    - field.field.user.user.field_range_hours_chat
+    - field.field.user.user.field_start_date_auto_message
     - field.field.user.user.field_step
     - field.field.user.user.field_subcat_interest_1
     - field.field.user.user.field_subcat_interest_2
@@ -51,6 +52,7 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - datetime
     - field_group
     - file
     - link
@@ -483,6 +485,12 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_field_end_date_auto_messag:
+    type: datetime_default
+    weight: 36
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_nit:
     type: number
     weight: 0
@@ -527,13 +535,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_range_hours_chat:
-    type: string_textfield
-    weight: 33
+  field_start_date_auto_message:
+    type: datetime_default
+    weight: 35
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_step:
     type: number

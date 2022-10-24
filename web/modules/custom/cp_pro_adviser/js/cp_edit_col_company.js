@@ -415,7 +415,7 @@
     function editForm1() {
         //start loading
         $("#loading_1").show();
-        $("#save_1").hide();
+        $("#modal_confirm_save_exportador").hide();
         var urlParams = new URLSearchParams(window.location.search);
         var email = urlParams.get('email');
         var data = {
@@ -457,7 +457,7 @@
         })
             .then(function (response) {
                 $("#loading_1").hide();
-                $("#save_1").show();
+                $("#modal_confirm_save_exportador").show();
                 if (response.status == 200) {
                     successProcess();
                     setTimeout(() => {
@@ -483,7 +483,7 @@
             })
             .catch(function (error) {
                 $("#loading_1").hide();
-                $("#save_1").show();
+                $("#modal_confirm_save_exportador").show();
                 // Display flex for alert-message-layout.
                 $('#alert-message-layout').css('display', 'flex');
                 // Show the button.

@@ -10,7 +10,7 @@ id: user.user.field_automatic_message_chat
 field_name: field_automatic_message_chat
 entity_type: user
 bundle: user
-label: automatic_message_chat
+label: 'Mensaje automático chat'
 description: ''
 required: false
 translatable: false

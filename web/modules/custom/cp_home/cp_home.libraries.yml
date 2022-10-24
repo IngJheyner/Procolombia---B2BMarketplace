@@ -5,7 +5,6 @@ cp_home:
       css/cp_home.css: {}
   js:
     js/cp_home.js: {}
-    js/bodymovin.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once
