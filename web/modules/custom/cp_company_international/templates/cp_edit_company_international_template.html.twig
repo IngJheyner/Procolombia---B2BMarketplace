@@ -660,7 +660,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span class="modal-header-title">{{ 'Edit company profile and contact'|t }}</span>
-          <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <button class="modal-header-close close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         </div>
         <div class="modal-body">
           <span class="modal-top-title">{{ 'All uploaded content must comply with the'|t }} <a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_BLANK" rel="nofollow">{{ 'publication policy.'|t }}</a></span>
@@ -669,7 +669,7 @@
           <div class="modal-footer-left">
           </div>
           <div class="modal-footer-right">
-            <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span>{{ 'UNDERSTOOD'|t}}</span></button>
+            <button class="modal-header-close close" data-bs-dismiss="modal" aria-label="Close"><span>{{ 'UNDERSTOOD'|t}}</span></button>
           </div>
         </div>
       </div>
@@ -720,32 +720,25 @@
 			</div>
 		</div>
 	</div><!-- Modal -->
-	<div class="modal fade" id="cancel_modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
+	<div class="generic-modal modal cancel-confirm-question-modal" id="cancel_modal">
+		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg"
-							alt="" srcset="">
-						{{ 'Cancel'|t }}
-					</h5>
-					<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+			<div class="modal-header">
+				<span class="modal-header-title">{{ 'Cancel'|t }}</span>
+				<button data-bs-dismiss="modal" class="modal-header-close" ><span data-bs-dismiss="modal" >×</span></button>
+			</div>
+			<div class="modal-body">
+				<span class="modal-top-title">{{ 'You are about to delete the changes made.'|t }}</span>
+			</div>
+			<div class="modal-footer">
+				<div class="modal-footer-left">
+					{{ "Do you want to continue?"|t }}
 				</div>
-				<div class="modal-body">
-					<p>{{ 'You are about to delete the changes made.'|t }}</p></strong></p>
+				<div class="modal-footer-right">
+					<a data-bs-dismiss="modal" class="button btn btn-cancel" href="#">{{ "NO"|t }}</a>
+					<a class="button btn btn-ok" id="confirm_cancel">{{ "YES"|t }}</a>
 				</div>
-				<div class="modal-footer ">
-					<div class="row">
-						<div class="col-6 fs-6">
-							<strong>{{ 'Do you want to continue?'|t }}</strong>
-						</div>
-						<div class="col-6 btn_options">
-							<button id="confirm_cancel" class="yes">{{ 'YES'|t }}</button>
-							<button data-bs-dismiss="modal" class="no">{{ 'NO'|t }}</button>
-						</div>
-					</div>
-				</div>
+			</div>
 			</div>
 		</div>
 	</div>

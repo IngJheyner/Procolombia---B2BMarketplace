@@ -127,6 +127,7 @@
           align-items: center;
           min-width: 62px;
           text-transform: uppercase;
+          border: 1px solid #015ca4;
           @include media-breakpoint-down(lg) {
             height: 56px;
           }

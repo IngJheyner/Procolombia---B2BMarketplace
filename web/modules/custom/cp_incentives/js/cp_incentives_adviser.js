@@ -7,10 +7,8 @@
   function init() {
     console.log("FUNCIONA EL INIT ?");
     if (window.location.pathname.includes('dashboard/incentives/list')) {
-      getListOfCriterias();
-    }
-    if (window.location.pathname.includes('dashboard/incentives/list')) {
       getListOfBenefits();
+      //getListOfCriterias();
       // getRelationBenefitStatus();
 
     }
@@ -413,9 +411,10 @@
           });
 
           var message = '';
-          
+
           //CHECKING THE FIRST STATUS - LOWER
           if (parseInt(status.id) === parseInt(first_status.id)) {
+            // If bronze status is not equal to 0.
             if (($('#status-min-points-' + status.id).val()) !== '0') {
               isValidPoint = false;
               $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
@@ -423,55 +422,16 @@
               message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be 0');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
-
-            }
-            else if (parseInt($('#status-min-points-' + status.id).val()) ==
-              parseInt($('#status-max-points-' + status.id).val())) {
-              isValidPoint = false;
-              console.log("PRUEBA DE LOWER");
-              $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the maximum points must be higher to minimum points');
-              $('#error_status-max-points-'+status.id+'_message').text(message);
-              $('#error_status-max-points-'+status.id).show();
-            } else {
-              $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-              $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-              $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-              $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-              $('#error_status-max-points-'+status.id).hide();
-            }
-          }
-
-          //CHECKING THE LAST STATUS - HIGHER
-          else if (parseInt(status.id) === parseInt(last_status.id)) {
-            // if ($('#status-max-points-' + status.id).val() !== '') {
-            //   if ($('#status-name').val() == ''
-            //     && $('#status-min-points').val() == ''
-            //     && $('#status-image-src').val() == ''
-            //     && validatingNewStatus == false) {
-            //     console.log('For the status ' + status.name + ' the max points must be null');
-            //     $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-            //     $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-            //     isValidPoint = false;
-            //   } else {
-            //     $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-            //     $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
-            //   }
-            // };
-            if (parseInt($('#status-min-points-' + status.id).val()) <=
-              parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val())) {
-              isValidPoint = false;
-              $('#status-min-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              $('#status-span-min-' + status.id).css('border-color', 'rgb(186, 12, 47)');
-              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be higher than the last status maximum points');
-              $('#error_status-min-points-'+status.id+'_message').text(message);
-              $('#error_status-min-points-'+status.id).show();
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#error_status-min-points-'+status.id).hide();
             }
+          }
+
+          //CHECKING THE LAST STATUS - HIGHER
+          else if (parseInt(status.id) === parseInt(last_status.id)) {
+            // If min points are not exactly one point higher than the previous status max points.
             if (parseInt($('#status-min-points-' + status.id).val()) -
               parseInt($(('#status-max-points-' + status_list[iterator + 1].id)).val()) !== 1) {
               // console.log('For the status ' + status.name + ' V A L I D A C I O N  DE SECUENCIA');
@@ -483,7 +443,6 @@
               message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points must be one point higher than the ') + status_list[iterator + 1].name + Drupal.t(' status maximum points');
               $('#error_status-min-points-'+status.id+'_message').text(message);
               $('#error_status-min-points-'+status.id).show();
-              
             } else {
               $('#status-min-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-min-' + status.id).css('border-color', 'rgb(204, 204, 204)');
@@ -561,7 +520,24 @@
               message = Drupal.t('This field is required');
               $('#error_status-max-points-'+status.id+'_message').text(message);
               $('#error_status-max-points-'+status.id).show();
-            } else {
+            }
+            else if (parseInt($('#status-max-points-' + status.id).val()) == parseInt($('#status-min-points-' + status.id).val())) {
+              isValidPoint = false;
+              $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the minimum points cannot be equal to maximum points');
+              $('#error_status-max-points-'+status.id+'_message').text(message);
+              $('#error_status-max-points-'+status.id).show();
+            }
+            else if (parseInt($('#status-max-points-' + status.id).val()) < parseInt($('#status-min-points-' + status.id).val())) {
+              isValidPoint = false;
+              $('#status-max-points-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              $('#status-span-max-' + status.id).css('border-color', 'rgb(186, 12, 47)');
+              message = Drupal.t('For the status ') + status.name + Drupal.t(' the maximum points must be higher to minimum points');
+              $('#error_status-max-points-'+status.id+'_message').text(message);
+              $('#error_status-max-points-'+status.id).show();
+            }
+            else {
               $('#status-max-points-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#status-span-max-' + status.id).css('border-color', 'rgb(204, 204, 204)');
               $('#error_status-max-points-'+status.id).hide();
@@ -1469,7 +1445,10 @@
       if (context == document) {
         console.log("ENTRO")
         //check if path is messages
-        init();
+        //if url includes dashboard/incentives/list then execute function init()
+        if (window.location.href.includes("dashboard/incentives/list")) {
+          init();
+        };
         var url = window.location.href;
         $("#create-new-status").click(function () {
           $('#img-input').css('border-color', '#d8dde1');

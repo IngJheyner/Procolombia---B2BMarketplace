@@ -95,9 +95,9 @@
     console.log("renderChatList")
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="${chat.count_checked > 0 && 'active'}">
+      <li id="conversation0" class="${(chat.count_checked > 0 || chat.fixed === "1") && 'active'}">
         <div class="d-flex" id="chat">
-          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
           ${chat.company_logo ? `
             <img
               src="${chat.company_logo}"
@@ -109,7 +109,7 @@
             </div>`
         }
           </div>
-          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
             <span class="chat-user-name text-truncate mb-0"><strong>${Drupal.t("Concact name:")}</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
             <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : `${Drupal.t("New Chat")}`}</p>
@@ -117,7 +117,7 @@
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${(chat.count_checked > 0 || chat.fixed === "1") ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked !== "0" ? chat.count_checked : "&nbsp;&nbsp;"}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownListSideBar(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
@@ -150,6 +150,7 @@
     }
     $('#chat-list-sidebar').html(html);
   }
+
 
   const deleteChatApi = (chat_id) => {
     //form data

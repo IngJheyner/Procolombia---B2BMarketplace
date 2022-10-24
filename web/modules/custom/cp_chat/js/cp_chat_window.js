@@ -48,6 +48,7 @@
           first_date = moment(msgList[0].updated).format('YYYY-MM-DD');
         }
         CheckMessages(chatId);
+        fixChatApi(chatId, 1);
         callGetListOfChats(0, 15);
         if (!refetch) {
           renderChatMessages(msgList);
@@ -718,6 +719,9 @@
             console.log("ENVIADO")
             new_messages = 0;
             $('#new-message-content-window').html('');
+            setTimeout(() => {
+              sendAutomaticMessage(chat_selected);
+            }, 2000);
           } else {
             // Display flex for alert-message-layout.
             $('#alert-message-layout').css('display', 'flex');
@@ -748,6 +752,45 @@
             $('#desc-error').text(Drupal.t("Error while sending message"));
         });
     }
+  }
+
+  const sendAutomaticMessage = (id_chat) => {
+    var formdata = new FormData();
+    formdata.append("id_chat", id_chat);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+    };
+
+    fetch("/chat/create_automatic_message", requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        if (result.status == 'ok') {
+          console.log(result);
+          socket.emit('sendMessage', { room: id_chat, message: result.data });
+          console.log({ user_id: id_other_user, message: result.data })
+          CheckMessages(result.data[0].id_chat);
+          socket.emit('updateChatList', { user_id: id_other_user, message: result.data });
+          console.log("ENVIADO")
+          new_messages = 0;
+          $('#new-message-content').html('');
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+      });
   }
 
 
@@ -806,6 +849,53 @@
     $('#message-image-window').hide();
     $('#message-file-window').hide();
     $('#messages-window').show();
+  }
+
+  const fixChatApi = (chat_id, select = 0) => {
+    //form data
+    let formData = new FormData();
+    formData.append('id_chat', chat_id);
+    formData.append('select', select);
+    //fetch
+    fetch('/chat/fix_chat', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("data",data);
+        if (data.status == 'ok') {
+          //hide modal
+          socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: false }] });
+        } else {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+      });
   }
 
   // **********************

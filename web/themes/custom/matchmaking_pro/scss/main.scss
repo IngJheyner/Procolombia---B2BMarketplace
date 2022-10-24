@@ -1678,7 +1678,8 @@ a.dropdown-item {
 
 #error_password,
 #error_username,
-#error_nit {
+#error_nit,
+#error_email_forgot{
 	display: none;
 	color: $color-Pantone-200;
 }

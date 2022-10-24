@@ -644,11 +644,11 @@
                     if (parseInt(max_measure_arr[index]) < parseInt(max_measure_arr[index - 1])) {
                         isValid = false;
                         message = Drupal.t("Maximum values must be greater than the previous one");
-                        console.log(message);
-                        $('#max_measure_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
-                        $("#error_max_measure_" + (index - 1)).show();
-                        $("#error_max_measure_" + (index - 1) + "_message").text(message);
-                        $('#max_measure_' + (index - 1)).next("span").css('border-color', 'rgb(186, 12, 47)');
+                        console.log(333);
+                        $('#max_measure_' + (index)).css('border-color', 'rgb(186, 12, 47)');
+                        $("#error_max_measure_" + (index )).show();
+                        $("#error_max_measure_" + (index) + "_message").text(message);
+                        $('#max_measure_' + (index)).next("span").css('border-color', 'rgb(186, 12, 47)');
                     }
                 }
             }
@@ -735,7 +735,7 @@
                     if (parseInt(max_measure_arr[index]) > parseInt(max_measure_arr[index - 1])) {
                         isValid = false;
                         message = Drupal.t("The maximum values must be greater than the previous one");
-                        console.log(message);
+                        console.log(222);
                         $('#max_measure_2_' + (index - 1)).css('border-color', 'rgb(186, 12, 47)');
                         $("#error_max_measure_2_" + (index - 1)).show();
                         $("#error_max_measure_2_" + (index - 1) + "_message").text(message);

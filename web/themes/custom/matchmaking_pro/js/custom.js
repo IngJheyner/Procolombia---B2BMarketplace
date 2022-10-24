@@ -476,6 +476,14 @@
   * Validate change passowrd form
   */
 
+  //validate if click data-dismiss="modal" hiden class backdrop
+  $(document).on('click', '[data-dismiss="modal"]', function () {
+    $('.modal-backdrop').hide();
+    // body overflow auto
+    $('body').css('overflow', 'auto');
+  });
+
+
   function validateChangePasswordForm() {
     var password_forgot = $("#password_forgot").val();
 

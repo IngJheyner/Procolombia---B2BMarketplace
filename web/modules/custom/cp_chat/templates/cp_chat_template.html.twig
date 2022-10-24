@@ -283,36 +283,27 @@
 		</div>
 
 	</div>
-	<div class="modal fade" id="modal-delete" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
+	<div class="generic-modal modal cancel-confirm-question-modal fade" id="modal-delete">
+		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg"
-							alt="" srcset="">
-						{{ "Delete chat"|t }}<span id="modal-chat-header-empresa"></span>
-					</h5>
-		 			<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
-				</div>
-				<div class="modal-body">
-					<p>
-						{{ "You are about to delete the chat with the company "|t }} <strong class="text-break"
+			<div class="modal-header">
+				<span class="modal-header-title">{{ "Delete chat"|t }}</span>
+				<button class="modal-header-close close" data-bs-dismiss="modal"  aria-label="Close"><span aria-hidden="true">×</span></button>
+			</div>
+			<div class="modal-body">
+				<span class="modal-top-title">{{ "You are about to delete the chat with the company "|t }} <strong class="text-break"
 							id="modal-chat-empresa"></strong>{{ " with the contact "|t }}
-						<strong class="text-break" id="modal-chat-name"></strong>.
-					</p>
+						<strong class="text-break" id="modal-chat-name"></strong>.</span>
+			</div>
+			<div class="modal-footer">
+				<div class="modal-footer-left">
+					{{ "Do you want to continue?"|t }}
 				</div>
-				<div class="modal-footer ">
-					<div class="row">
-						<div class="col-6 fs-6">
-							<strong>{{ "Do you want to continue?"|t }}</strong>
-						</div>
-						<div class="col-6 btn_options">
-							<button id="delete-chat" class="yes">{{ "YES"|t }}</button>
-							<button data-bs-dismiss="modal" class="no">{{ "NO"|t }}</button>
-						</div>
-					</div>
+				<div class="modal-footer-right">
+					<a data-bs-dismiss="modal" class="button btn btn-cancel" href="#">{{ "NO"|t }}</a>
+					<a class="button btn btn-ok" id="delete-chat">{{ "YES"|t }}</a>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

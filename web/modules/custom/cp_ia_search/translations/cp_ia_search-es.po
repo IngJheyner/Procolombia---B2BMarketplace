@@ -33,6 +33,15 @@ msgstr "Opciones de búsqueda:"
 msgid "No results found for your search"
 msgstr "No se han encontrado resultados para tu búsqueda"
 
+msgid ""With the search criteria you entered to the system "
+msgstr ""Con los criterios de búsqueda que ingresó al sistema "
+
+msgid ", there are currently no results available. "
+msgstr ", actualmente no hay resultados disponibles. "
+
+msgid "We recommend reviewing the text you entered and perform a new search. If you do not find what you need or have questions, you can contact your PROCOLOMBIA advisor."
+msgstr "Recomendamos revisar el texto que ingresó y realizar una nueva búsqueda. Si no encuentra lo que necesita o tiene preguntas, puede contactar a su asesor PROCOLOMBIA."
+
 msgid "Make sure all words are spelled correctly."
 msgstr "Asegúrate de que todas las palabras estén escritas correctamente."
 
@@ -225,3 +234,9 @@ msgstr "Todas"
 
 msgid "All-"
 msgstr "Todas-"
+
+msgid "Try different keywords."
+msgstr "Pruebe con palabras clave diferentes."
+
+msgid "Try other general keywords."
+msgstr "Pruebe con otras palabras clave en general."

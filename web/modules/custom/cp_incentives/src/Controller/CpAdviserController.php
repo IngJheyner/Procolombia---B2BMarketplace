@@ -710,5 +710,14 @@ class CpAdviserController extends ControllerBase {
         ]);
       }
     }
+    else {
+      {
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => 'You are not logged in',
+      ]);
+      }
+    }
   }
 }

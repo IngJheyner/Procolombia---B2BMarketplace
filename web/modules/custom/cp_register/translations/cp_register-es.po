@@ -1003,8 +1003,8 @@ msgstr "Error al crear el usuario."
 msgid "Email request error"
 msgstr "Error de solicitud de correo electrónico"
 
-msgid "Error: E-mail already has been registered"
-msgstr "Error: El correo electrónico ya ha sido registrado"
+msgid "E-mail already has been registered"
+msgstr "El correo electrónico ya ha sido registrado"
 
 msgid "Please select a position"
 msgstr "Por favor seleccione el cargo"
