@@ -15,8 +15,8 @@ use Drupal\Component\Utility\Html;
 class CpAuthService extends ControllerBase
 {
 
-    
-    
+
+
     /**
      * login_form function.
      * based in the username and password, logged the user in the system and return rol
@@ -63,12 +63,12 @@ class CpAuthService extends ControllerBase
                         //return error
                         return new JsonResponse(array('error' => 'user without role'));
                     }
-                    
+
                 } else {
                     //return error message
                     return new JsonResponse(['error' => 'El usuario no esta activo']);
                 }
-                
+
             } else {
                 //return error
                 return new JsonResponse(['error' => 'El correo electrónico o la contraseña que ingresaste son incorrectos. Inténtalo de nuevo']);
@@ -98,7 +98,7 @@ class CpAuthService extends ControllerBase
                     //return error message
                     return new JsonResponse(['error' => 'User is not active'],404);
                 }
-                
+
             } else {
                 //return error
                 return new JsonResponse(['error' => 'Invalid credentials'],404);
@@ -152,7 +152,7 @@ class CpAuthService extends ControllerBase
                 return new JsonResponse(['success' => true]);
             }
         } else {
-            return new JsonResponse(['error' => 'User not found']);	
+            return new JsonResponse(['error' => 'User not found']);
         }
     }
 
