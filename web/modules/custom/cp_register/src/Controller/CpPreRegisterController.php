@@ -30,7 +30,6 @@ class CpPreRegisterController extends ControllerBase {
     return [
       // Your theme hook name.
       '#theme' => 'cp_pre_register_template_hook',
-      '#site_key' => $site_key,
     ];
   }
 

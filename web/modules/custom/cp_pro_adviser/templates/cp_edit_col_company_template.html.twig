@@ -397,7 +397,9 @@
                   <input id="country_code_landline" class="hidden-input" type="tel" name="phone" />
                   </div>
                   <div class="col-lg-9 cel-input d-flex align-items-center">
-                   <input id="landline" class="w-100 form-control" type="tel" name="" id="landline">
+                   <input id="landline" class="w-100 form-control" type="tel" name=""
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                   >
                     <i id="error_landline" class='bx bxs-info-circle toltip_i'>
                     <span id="error_landline_message" class="tooltiptext_error">
                         {{ 'Required Field'|t }}
@@ -459,7 +461,9 @@
                     <input id="country_code_mobile" class="hidden-input" type="tel" name="phone" />
                   </div>
                   <div class="col-lg-9 cel-input d-flex align-items-center">
-                    <input id="mobile" class="w-100 form-control" type="tel" name="" id="landline" maxlength="10"> 
+                    <input id="mobile" class="w-100 form-control" type="tel" name="" maxlength="10"
+                      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                    > 
                     <i id="error_mobile" class='bx bxs-info-circle toltip_i'>
                     <span id="error_mobile_message" class="tooltiptext_error">
                         {{ 'Required Field'|t }}
@@ -511,8 +515,44 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 order_4">
-              <label for="asesor" class="form-label">{{ 'Job title'|t }}
+              <div class="col-sm-12 col-md-12 col-lg-6 pe-4">
+              <div class="form-group password">
+                <label for="nit">{{ 'Password'|t }}
+                   <sup>*</sup>
+                </label>
+                <div class="input-group mb-3">
+                  <input type="password" id="password_buyer" class="form-control" aria-label="{{ "Recipient's username"|t }}"
+                    aria-describedby="basic-addon2">
+                  <span class="input-group-text" id="password_buyer__span">
+                    <img id="pass_bloq_buyer" style="display:none"
+                      src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña-Bloqueado.svg"
+                      alt="" srcset="">
+                    <img id="pass_show_buyer"
+                      src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Contraseña.svg"
+                      alt="" srcset="">
+                  </span>
+                  <div class="input_error">
+                    <i id="error_password_buyer" class='bx bxs-info-circle toltip_i'>
+                      <span id="error_password_buyer_message" class="tooltiptext_error">
+                        {{ 'Required Field'|t }}
+                      </span>
+                    </i>
+                  </div>
+                </div>
+
+                <div class="toltip_content">
+                  <i class='bx bxs-info-circle toltip_i'>
+                    <span class="tooltiptext">
+                      {{ 'Minimum 8 characters. Must contain 1 capital letter, symbol or number.'|t }}
+                    </span>
+                  </i>
+                  <span>{{ 'Minimum 8 characters. Must contain 1 capital letter, symbol or number.'|t }}</span>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-sm-12 col-md-6 col-lg-6 order_4">
+              <label for="asesor" class="form-label">Nombre del cargo
                  <sup>*</sup>
               </label>
               <div style="display:flex">
@@ -547,6 +587,48 @@
                 <div class="input_error">
                   <i id="error_position_spanish" class='bx bxs-info-circle toltip_i'>
                     <span id="error_position_spanish_message" class="tooltiptext_error">
+                      {{ 'Required Field'|t }}
+                    </span>
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 order_4">
+              <label for="asesor" class="form-label">Job title
+                 <sup>*</sup>
+              </label>
+              <div style="display:flex">
+                <div class="input-group flex-nowrap">
+                  <span class="input-group-text group_transparent" id="addon-wrapping">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27.373"
+                      height="25.267" viewbox="0 0 27.373 25.267">
+                      <defs>
+                        <linearGradient id="linear-job" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+                          <stop offset="0" stop-color="#005ca4" />
+                          <stop offset="1" stop-color="#008cce" />
+                        </linearGradient>
+                        <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1"
+                          gradientunits="objectBoundingBox">
+                          <stop offset="0" stop-color="#d88d00" />
+                          <stop offset="1" stop-color="#edc500" />
+                        </linearGradient>
+                      </defs>
+                      <g id="Grupo_1386" data-name="Grupo 1386" transform="translate(0 0)">
+                        <path id="Trazado_209" data-name="Trazado 209"
+                          d="M473.619,1075.747H453.4a3.369,3.369,0,0,1-3.369-3.369v-6.329a2.106,2.106,0,0,1,2.106-2.106,2.206,2.206,0,0,1,1.378.514c.01.008.014,0,.021.008a5.019,5.019,0,0,0,3.233,1.175h3.579a2.1,2.1,0,0,1,1.75.935c.007.011.017.016.025.024a1.68,1.68,0,0,0,2.765,0c.008-.008.019-.012.025-.024a2.1,2.1,0,0,1,1.751-.935h3.58a5.053,5.053,0,0,0,4.962-4.109,1.649,1.649,0,0,0,.091-.524V1058.9a1.684,1.684,0,0,0-1.684-1.684H453.4a1.684,1.684,0,0,0-1.684,1.684v2.527a.842.842,0,1,1-1.684,0V1058.9a3.37,3.37,0,0,1,3.369-3.369h20.214a3.37,3.37,0,0,1,3.369,3.369v1.684a6.706,6.706,0,0,1-1.685,4.447,6.454,6.454,0,0,1-.477.489l-.028.026q-.236.215-.491.409c-.021.017-.043.032-.064.048-.158.117-.323.227-.493.331l-.1.064c-.159.092-.322.177-.487.256l-.143.07c-.157.07-.317.132-.48.191-.06.023-.119.047-.18.066-.156.052-.317.094-.477.135-.069.017-.137.038-.206.052-.164.037-.333.06-.5.084-.068.01-.132.024-.2.031a6.626,6.626,0,0,1-.72.04h-2.974a.843.843,0,0,0-.709.387.043.043,0,0,1-.029.018,2.511,2.511,0,0,1-2.183,1.279H462.67a2.511,2.511,0,0,1-2.183-1.279.043.043,0,0,1-.029-.018.843.843,0,0,0-.709-.387h-2.975a6.685,6.685,0,0,1-4.364-1.623c.015.026.019.04.008.028a.422.422,0,0,0-.7.319v6.329a1.684,1.684,0,0,0,1.684,1.685h20.214a1.684,1.684,0,0,0,1.684-1.685v-.842a.842.842,0,0,1,1.685,0v.842a3.369,3.369,0,0,1-3.369,3.369m-5.9-21.9a.843.843,0,0,1-.842-.842.843.843,0,0,0-.842-.842h-5.053a.843.843,0,0,0-.842.842.842.842,0,0,1-1.684,0v-.421a2.106,2.106,0,0,1,2.106-2.106h5.9a2.106,2.106,0,0,1,2.106,2.106v.421a.842.842,0,0,1-.842.842"
+                          transform="translate(-450.036 -1050.479)" fill-rule="evenodd" fill="url(#linear-job)" />
+                        <path id="Trazado_210" data-name="Trazado 210"
+                          d="M510.3,1089.48a1.263,1.263,0,1,1-1.263,1.263,1.264,1.264,0,0,1,1.263-1.263"
+                          transform="translate(-484.19 -1073.056)" fill-rule="evenodd" fill="url(#linear-gradient-2)" />
+                      </g>
+                    </svg>
+                  </span>
+                  <input id="position_english" type="text" class="form-control" aria-label="{{ "Username"|t }}"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="input_error">
+                  <i id="error_position_english" class='bx bxs-info-circle toltip_i'>
+                    <span id="error_position_english_message" class="tooltiptext_error">
                       {{ 'Required Field'|t }}
                     </span>
                   </i>
@@ -735,25 +817,22 @@
   </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="information" tabindex="-1" aria-labelledby="alert_1Label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+  <div class="generic-modal modal fade legal-modal" id="information">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="alert_1Label"><img
-              src="http://52.201.168.42/sites/default/files/2022-08/Modal-Recomendacio%CC%81n.svg" alt="" srcset="">{{
-            'Edit company profile and contact'|t }}</h5>
-          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+          <span class="modal-header-title">{{'Edit company profile and contact'|t }}</span>
+          <button class="modal-header-close close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         </div>
         <div class="modal-body">
-          <p>{{ 'All uploaded content must comply with the'|t }}
-            <a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_blank"
-              style="text-decoration: underline !important;">{{ 'publication policy.'|t
-              }}</a>
-          </p>
+          <span class="modal-top-title">{{ 'All uploaded content must comply with the'|t }} <a href="https://b2bmarketplace.procolombia.co/es/habeas-data-aviso-de-privacidad" target="_BLANK" rel="nofollow">{{ 'publication policy.'|t }}</a></span>
         </div>
         <div class="modal-footer">
-          <button id="go_to_step_3" type="button" class="btn btn_save" data-bs-dismiss="modal">{{
-            'UNDERSTOOD'|t }}</button>
+          <div class="modal-footer-left">
+          </div>
+          <div class="modal-footer-right">
+            <button class="modal-header-close close" data-bs-dismiss="modal" aria-label="Close"><span>{{ 'UNDERSTOOD'|t}}</span></button>
+          </div>
         </div>
       </div>
     </div>

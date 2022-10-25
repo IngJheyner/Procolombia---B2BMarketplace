@@ -42,11 +42,11 @@
 				</svg>
 			</div>
 			<div class="col-lg-10">
-				<p class="tittle-search-home mb-5">Bienvenido a nuestro asistente de búsqueda inteligente:</p>
+				<p class="tittle-search-home mb-5">{{ "Welcome to our intelligent search assistant:"|t }}</p>
 				<div class="first-search align-items-stretch p-0 row">
 					<div class="col-lg-4">
-						<label for="industria">Su industria</label>
-						<select multiple name="industria" id="industria" data-placeholder="Seleccione su industria">
+						<label for="industria">{{ "Your industry"|t }}</label>
+						<select multiple name="industria" id="industria" data-placeholder="{{ "Select yout industry"|t }}">
               <option value="chrome">Advanced Manufacturing & Services</option>
               <option value="ffox">Aerospace, Defense & Government...</option>
               <option value="ie">Agribusiness</option>
@@ -58,8 +58,8 @@
 						<p class="mt-3 mb-0">- & -</p>
 					</div>
 					<div class="col-lg-4">
-						<label for="intereses">Sus intereses</label>
-						<select multiple name="intereses" id="intereses" data-placeholder="Seleccione sus interes">
+						<label for="intereses">{{ "Your interest"|t }}</label>
+						<select multiple name="intereses" id="intereses" data-placeholder="{{ "Select your interest"|t }}">
 							<option value="chrome">Advanced Manufacturing & Services</option>
 							<option value="ffox">Aerospace, Defense & Government...</option>
 							<option value="ie">Agribusiness</option>
@@ -68,17 +68,17 @@
 						</select>
 					</div>
 					<div class="align-items-center col-lg-3 d-flex flex-column justify-content-center">
-						<button>ENCUENTRE UNA BUENA OFERTA</button>
-						<span>Reiniciar la búsqueda</span>
+						<button>{{ "FIND A GOOD OFFER"|t }}</button>
+						<span>{{ "Reset search"|t }}</span>
 					</div>
           <div class="col-lg-9 my-4">
-            <p class="my-5">Encuentre aquí <strong>PRODUCTOS</strong> y <strong>EMPRESAS</strong> según sus necesidades. Elija una opción para empezar a buscar: escriba aquí lo que busca o si conoce el código HS, y luego haga clic en <strong>BUSCAR</strong>.</p>
+            <p class="my-5">{{ "Find here "|t }}<strong>{{ "PRODUCTS"|t }}</strong>{{ " and "|t}}<strong>{{ "COMPANIES"|t }}</strong>{{ " according to your needs. Choose an option to start searching: type here what you are looking for or if you know the HS code, and then click on "|t }}<strong>{{ "SEARCH"|t }}</strong>.</p>
           </div>
           <div class="col-lg-3">
           </div>
           <div class="col-lg-4 search-product-contact">
-            <select name="search-product" id="search-product" placeholder="¿Qué es lo que está buscando?" autocomplete="off">
-              <option value="">¿Qué es lo que está buscando?</option>
+            <select name="search-product" id="search-product" placeholder="{{ "What are you looking for?"|t }}" autocomplete="off">
+              <option value="">{{ "What are you looking for?"|t }}</option>
               <option value="4">Thomas Edison</option>
               <option value="1">Nikola</option>
               <option value="3">Nikola Tesla</option>
@@ -89,8 +89,8 @@
 						<p class="mt-3 mb-0">- O -</p>
 					</div>
           <div class="col-lg-4 search-product-contact">
-            <select name="search-product-dos" id="search-product-dos" placeholder="# Partida Arancelaria" autocomplete="off">
-              <option value=""># Partida Arancelaria</option>
+            <select name="search-product-dos" id="search-product-dos" placeholder="{{ "# Tariff Item"|t }}" autocomplete="off">
+              <option value="">{{ "# Tariff Item"|t }}</option>
               <option value="4">Thomas Edison</option>
               <option value="1">Nikola</option>
               <option value="3">Nikola Tesla</option>
@@ -98,8 +98,8 @@
             </select>
 					</div>
           <div class="seaech-buttom align-items-center col-lg-3 d-flex flex-column justify-content-center">
-						<button>BUSCAR</button>
-						<span>Reiniciar la búsqueda</span>
+						<button>{{ "SEARCH"|t }}</button>
+						<span>{{ "Reset search"|t }}</span>
 					</div>
 				</div>
 			</div>
@@ -108,7 +108,7 @@
       <div class="col-lg-10">
         <form class="position-relative">
           <div class="d-flex justify-content-center align-items-center">
-            <input type="text" class="search-input search" style="box-shadow: 0px 3px 6px #00000017;height: 50px;" placeholder="Escribe algo en específico para realizar una búsqueda" name="search-input" id="-input" autocomplete="off">
+            <input type="text" class="search-input search" maxlength="300" style="box-shadow: 0px 3px 6px #00000017;height: 50px;" placeholder="{{ "Type something specific to perform a search"|t }}" name="search-input" id="-input" autocomplete="off">
             <div id="search-button" class="search-icon" style="padding: 14px 15px !important;">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.837" height="17.588" viewBox="0 0 20.837 17.588">
                 <defs>
@@ -132,13 +132,13 @@
       </div>
       <div class="col-lg-2 search-bar">
         <button class="btn-sh">
-          VIEW ALL
+          {{ "VIEW ALL"|t }}
         </button>
       </div>
     </div>
     <div class="row px-5 tab-home pt-4 pb-5">
-      <p class="tittle">Colombia tiene empresas exportadoras para lo que su cliente necesita</p>
-      <p class="fs-5">Descubra bienes y servicios únicos de origen colombiano para exportar, elija la categoría de acuerdo a sus necesidades.</p>
+      <p class="tittle">{{ "Colombia has exporting companies for what your customer needs."|t }}</p>
+      <p class="fs-5">{{ "Discover unique goods and services of Colombian origin for export, choose the category according to your needs."|t }}</p>
     </div>
     <div class="row px-5">
      <div class="bg-white w-100 p-2 rounded" style="box-shadow: 0px 3px 6px #00000029;">
@@ -443,13 +443,13 @@
     </div>
     <div class="row px-5 tab-home pt-5 pb-5">
       <div class="col-lg-2"></div>
-      <div class="col-lg-7"><p class="tittle">Products & Services ProColombia</p></div>
+      <div class="col-lg-7"><p class="tittle">{{ "Products & Services ProColombia"|t }}</p></div>
       <div class="col-lg-3">
         <div class="select-order d-flex">
-          <p class="pe-2">Ordenar por: </p>
+          <p class="pe-2">{{ "Orden by: "|t }}</p>
           <select name="product" id="product">
-            <option value="product">Productos</option>
-            <option value="services">Servicios</option>
+            <option value="product">{{ "Products"|t }}</option>
+            <option value="services">{{ "Services"|t }}</option>
           </select>
         </div>
        
@@ -466,7 +466,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -499,7 +499,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -532,7 +532,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -565,7 +565,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -598,7 +598,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -631,7 +631,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -664,7 +664,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -697,7 +697,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -730,7 +730,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -763,7 +763,7 @@
               <h4>PAPAYA PEQUEÑA</h4>
               <div class="align-items-baseline d-flex p-0 row">
                 <div class="col-lg-8 p-0" style="padding-top: 14px !important;">
-                  <button>Ver detalle</button>
+                  <button>{{ "View details"|t }}</button>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-between">
                   <div>
@@ -789,7 +789,7 @@
       
     </div>
     <div class="text-end more-item px-5 py-4">
-      <a href="http://">VER TODOS LOS PRODUCTOS & SERVICIOS</a>
+      <a href="http://">{{ "VIEW ALL PRODUCTS & SERVICES"|t }}</a>
     </div>
 	</div>
   <div class="px-5 pt-5 pb-2 background-opacity" style="background: url(http://52.201.168.42/sites/default/files/matchmaking/images/internal/Home-Noticias.png) no-repeat; background-size: cover;">
@@ -803,7 +803,7 @@
             </g>
           </svg>
         </div>
-          <span class="ms-2 text-white fs-1 text-white font-maven">Noticias</span> 
+          <span class="ms-2 text-white fs-1 text-white font-maven">{{ "News"|t }}</span> 
       </div>
       
       <div>
@@ -813,8 +813,8 @@
               <div class="card-notice-img">
                 <img src="https://confidencialcolombia.com/wp-content/uploads/2022/01/Fitur_Full.jpg"/>
                 <div class="card-notice-img-tags">
-                  <span class="card-notice-img-tags-text blue">Inversión</span>
-                  <span class="card-notice-img-tags-text yellow">Turismo</span>
+                  <span class="card-notice-img-tags-text blue">{{ "Investment"|t }}</span>
+                  <span class="card-notice-img-tags-text yellow">{{ "Tourism"|t }}</span>
                 </div>
               </div>
               <div class="card-notice-content">
@@ -822,13 +822,13 @@
                   <p>12/12/2020</p>
                 </div>
                 <div class="card-notice-title">
-                  <h3>Agenda de eventos ProColombia del 9 al 15 de Mayo de 2022</h3>
+                  <h3>{{ "ProColombia's events agenda from "|t }} 9 {{ " to "|t }} 15 de Mayo de 2022</h3>
                 </div>
                 <div class="card-noticie-categorie">
-                  <p class="mb-2 mt-4">Categoria: <strong>Categoria</strong></p>
+                  <p class="mb-2 mt-4">{{ "Category"|t }}: <strong>{{ "Category"|t }}</strong></p>
                 </div>
                 <div class="card-notice-text">
-                  <p><strong>Descripción</strong></p>
+                  <p><strong>{{ "Description"|t }}</strong></p>
                   <p>Almuerzo para expresar agradecimiento a las empresas, asociaciones y actores que se han consolidado como los principales aliados de la misión de ProColombia en Japón, en el marco de la Celebración de los 30 años de ProColombia como institución.</p>
                 </div>
               </div>
@@ -839,7 +839,7 @@
               <div class="card-notice-img">
                 <img src="https://cloudfront-us-east-1.images.arcpublishing.com/elespectador/SL3RJGIFWRCQDGAMA2XYX4QYRQ.jpg"/>
                 <div class="card-notice-img-tags">
-                  <span class="card-notice-img-tags-text yellow">Turismo</span>
+                  <span class="card-notice-img-tags-text yellow">{{ "Tourism"|t }}</span>
                 </div>
               </div>
               <div class="card-notice-content">
@@ -847,13 +847,13 @@
                   <p>12/12/2020</p>
                 </div>
                 <div class="card-notice-title">
-                  <h3>Agenda de eventos ProColombia del 9 al 15 de Mayo de 2022</h3>
+                  <h3>{{ "ProColombia's events agenda from "|t }} 9 {{ " to "|t }} 15 de Mayo de 2022</h3>
                 </div>
                 <div class="card-noticie-categorie">
-                  <p class="mb-2 mt-4">Categoria: <strong>Categoria</strong></p>
+                  <p class="mb-2 mt-4">{{ "Category"|t }}: <strong>{{ "Category"|t }}</strong></p>
                 </div>
                 <div class="card-notice-text">
-                  <p><strong>Descripción</strong></p>
+                  <p><strong>{{ "Description"|t }}</strong></p>
                   <p>Almuerzo para expresar agradecimiento a las empresas, asociaciones y actores que se han consolidado como los principales aliados de la misión de ProColombia en Japón, en el marco de la Celebración de los 30 años de ProColombia como institución.</p>
                 </div>
               </div>
@@ -893,16 +893,16 @@
                       </g>
                     </svg>
                   </div>
-                  <strong>Nombre</strong>
+                  <strong>{{ "Name"|t }}</strong>
                 </div>
                 <div class="card-noticie-glass-description">
                   <p>Con 10 años del TLC, Colombia se consolida como aliado comercial de Estados Unidos</p>
                 </div>
                 <div class="card-noticie-galss-tags">
                   <div class="tag">
-                    <p class="tag-red">Etiqueta</p>
-                    <p class="tag-blue">Etiqueta</p>
-                    <p class="tag-yellow">Etiqueta</p>
+                    <p class="tag-red">{{ "Tag"|t }}</p>
+                    <p class="tag-blue">{{ "Tag"|t }}</p>
+                    <p class="tag-yellow">{{ "Tag"|t }}</p>
                   </div>
                 </div>
               </div>
@@ -931,16 +931,16 @@
                       </g>
                     </svg>
                   </div>
-                  <strong>Nombre</strong>
+                  <strong>{{ "Name"|t }}</strong>
                 </div>
                 <div class="card-noticie-glass-description">
                   <p>Misión a Estados Unidos en el marco del Colombia InsideOut deja perspectivas de inversión por US$2.700 millones</p>
                 </div>
                 <div class="card-noticie-galss-tags">
                   <div class="tag">
-                    <p class="tag-red">Etiqueta</p>
-                    <p class="tag-blue">Etiqueta</p>
-                    <p class="tag-yellow">Etiqueta</p>
+                    <p class="tag-red">{{ "Tag"|t }}</p>
+                    <p class="tag-blue">{{ "Tag"|t }}</p>
+                    <p class="tag-yellow">{{ "Tag"|t }}</p>
                   </div>
                 </div>
               </div>
@@ -969,16 +969,16 @@
                       </g>
                     </svg>
                   </div>
-                  <strong>Nombre</strong>
+                  <strong>{{ "Name"|t }}</strong>
                 </div>
                 <div class="card-noticie-glass-description">
                   <p>Colombia presentará oportunidades de inversión extranjera en España</p>
                 </div>
                 <div class="card-noticie-galss-tags">
                   <div class="tag">
-                    <p class="tag-red">Etiqueta</p>
-                    <p class="tag-blue">Etiqueta</p>
-                    <p class="tag-yellow">Etiqueta</p>
+                    <p class="tag-red">{{ "Tag"|t }}</p>
+                    <p class="tag-blue">{{ "Tag"|t }}</p>
+                    <p class="tag-yellow">{{ "Tag"|t }}</p>
                   </div>
                 </div>
               </div>
@@ -1007,16 +1007,16 @@
                       </g>
                     </svg>
                   </div>
-                  <strong>Nombre</strong>
+                  <strong>{{ "Name"|t }}</strong>
                 </div>
                 <div class="card-noticie-glass-description">
                   <p>Presidente Iván Duque liderará encuentro con empresarios de República Dominicana</p>
                 </div>
                 <div class="card-noticie-galss-tags">
                   <div class="tag">
-                    <p class="tag-red">Etiqueta</p>
-                    <p class="tag-blue">Etiqueta</p>
-                    <p class="tag-yellow">Etiqueta</p>
+                    <p class="tag-red">{{ "Tag"|t }}</p>
+                    <p class="tag-blue">{{ "Tag"|t }}</p>
+                    <p class="tag-yellow">{{ "Tag"|t }}</p>
                   </div>
                 </div>
               </div>
@@ -1045,16 +1045,16 @@
                       </g>
                     </svg>
                   </div>
-                  <strong>Nombre</strong>
+                  <strong>{{ "Name"|t }}</strong>
                 </div>
                 <div class="card-noticie-glass-description">
                   <p> 2 Con 10 años del TLC, Colombia se consolida como aliado comercial de Estados Unidos</p>
                 </div>
                 <div class="card-noticie-galss-tags">
                   <div class="tag">
-                    <p class="tag-red">Etiqueta</p>
-                    <p class="tag-blue">Etiqueta</p>
-                    <p class="tag-yellow">Etiqueta</p>
+                    <p class="tag-red">{{ "Tag"|t }}</p>
+                    <p class="tag-blue">{{ "Tag"|t }}</p>
+                    <p class="tag-yellow">{{ "Tag"|t }}</p>
                   </div>
                 </div>
               </div>
@@ -1063,7 +1063,7 @@
         </div>
       </div>
       <div class="text-end">
-        <button class="more-btn">VER TODAS LAS NOTICIAS</button>
+        <button class="more-btn">{{ "VIEW ALL NEWS"|t }}</button>
       </div>
     </div>
   
@@ -1081,7 +1081,7 @@
               </g>
             </svg>
           </div>
-            <span class="ms-2 fs-1 font-maven">Eventos</span> 
+            <span class="ms-2 fs-1 font-maven">{{ "Events"|t }}</span> 
         </div>
       </div>
       <div class="col-lg-9">
@@ -1168,7 +1168,7 @@
                     </svg>
                   </div>
                   <div class="edesc-text text-truncate">
-                    <p class="text-truncate">Del 22 Mayo al 22 Agosto</p>
+                    <p class="text-truncate">{{  "From "|t }}22 Mayo{{ " to "|t }} 22 Agosto</p>
                   </div>
                 </div>
                 <div class="item">
@@ -1280,7 +1280,7 @@
                     </svg>
                   </div>
                   <div class="edesc-text text-truncate">
-                    <p class="text-truncate">Del 22 Mayo al 22 Agosto</p>
+                    <p class="text-truncate">{{ "From "|t }}22 Mayo{{ " to "|t }} 22 Agosto</p>
                   </div>
                 </div>
                 <div class="item">
@@ -1314,7 +1314,7 @@
       </div>
     </div>
     <div class="text-end" style="padding-right: 2rem;">
-      <button class="more-btn">VER TODAS LAS NOTICIAS</button>
+      <button class="more-btn">{{ "VIEW ALL EVENTS"|t }}</button>
     </div>
   </div>
   <div class="contact" style="background: url(http://52.201.168.42/sites/default/files/matchmaking/images/internal/Home-Hablemos.png) no-repeat; background-size: cover;padding: 6rem;">
@@ -1327,11 +1327,11 @@
               <path id="Trazado_65" data-name="Trazado 65" d="M1825.5,34.437a1.7,1.7,0,1,1-1.7,1.7,1.7,1.7,0,0,1,1.7-1.7m0-20.374a5.094,5.094,0,0,0-5.094,5.094,1.7,1.7,0,0,1-3.4,0,8.489,8.489,0,1,1,11.787,7.819s0,.006-.01.008a2.545,2.545,0,0,0-1.59,2.36,1.366,1.366,0,0,1-.032.314,1.7,1.7,0,0,1-3.364-.314,5.944,5.944,0,0,1,3.639-5.478l.005-.006a5.091,5.091,0,0,0-1.947-9.8m18.676,30.561H1832.3a5.061,5.061,0,0,0-3.048,1.013l-10.736,8.051c-.018.014-.027.017-.046.034a5.094,5.094,0,0,1-8.242-4v-3.4a1.7,1.7,0,0,0-1.7-1.7h-1.7a6.791,6.791,0,0,1-6.792-6.791V7.271A6.793,6.793,0,0,1,1806.827.48h28.863a1.7,1.7,0,1,1,0,3.4h-28.014a4.246,4.246,0,0,0-4.245,4.245V36.984a4.246,4.246,0,0,0,4.245,4.245h1.7a4.246,4.246,0,0,1,4.244,4.245v4.245a1.7,1.7,0,0,0,2.667,1.4h0l10.806-8.1s0,0,.006-.006a8.449,8.449,0,0,1,5.2-1.774h11.036a4.246,4.246,0,0,0,4.244-4.245V8.969a1.7,1.7,0,0,1,3.4,0V37.833a6.791,6.791,0,0,1-6.791,6.791" transform="translate(-1800.036 -0.071)" fill="#fff" fill-rule="evenodd"/>
               <path id="Trazado_66" data-name="Trazado 66" d="M1851.583,0a2.547,2.547,0,1,1-2.547,2.547A2.549,2.549,0,0,1,1851.583,0" transform="translate(-1807.439 0.002)" fill="#fff" fill-rule="evenodd"/>
             </svg>
-            <p class="">¡Hablemos!</p>
+            <p class="">{{ "Let's Talk!"|t }}</p>
           </div>
           <div class="text-center">
             <button>
-              CONTÁCTANOS
+              {{ "CONTACT US"|t }}
             </button>
           </div>
          

@@ -193,7 +193,7 @@
                 }
               }
             }
-            fetch("auth/userLoginFinalize", {
+            fetch("/auth/userLoginFinalize", {
               method: "POST",
               body: formData,
             }).then((response) => {
@@ -288,9 +288,19 @@
     console.log(response);
     console.log("HI")
     if (response.length == 0) {
-      alert(Drupal.t("Please verify that you are not a robot"));
       $("#error_captcha").show();
       isValid = false;
+
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'flex');
+      // Don't show the button.
+      $('#error-button-alert-warning').hide();
+      // Animation for alert-warning.
+      $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+      // Change text of alert-warning-heading.
+      $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+      // Change text of alert-warning-message.
+      $('#alert-warning-desc').text(Drupal.t('Please verify that you are not a robot'));
     } else {
       $("#error_captcha").hide();
     }
@@ -466,6 +476,14 @@
   * Validate change passowrd form
   */
 
+  //validate if click data-dismiss="modal" hiden class backdrop
+  $(document).on('click', '[data-dismiss="modal"]', function () {
+    $('.modal-backdrop').hide();
+    // body overflow auto
+    $('body').css('overflow', 'auto');
+  });
+
+
   function validateChangePasswordForm() {
     var password_forgot = $("#password_forgot").val();
 
@@ -587,7 +605,45 @@
         });
     }
   }
+  // show modal login when click open-login-modal button
+  $("#open-login-modal").click(function () {
+    console.log("CLICK")
+    $("#valid-login-msg").modal('hide');
+    $("#login_modal").modal("show");
+  });
 
+  $("#close-alert").click(function () {
+    // change css animation name
+    $("#alert-message-layout").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-message-layout").hide();
+    }, 1000);
+  });
+
+
+  $("#close-alert-warning").click(function () {
+    // change css animation name
+    $("#alert-warning").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-warning").hide();
+    }, 1000);
+  });
+
+  $("#close-alert-info").click(function () {
+    // change css animation name
+    $("#alert-info").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-info").hide();
+    }, 1000);
+  });
+
+  $("#close-alert-succes").click(function () {
+    // change css animation name
+    $("#alert-succes").css("animation-name", "fadeOutDownBig");
+    setTimeout(() => {
+        $("#alert-succes").hide();
+    }, 1000);
+  });
   Drupal.behaviors.custom = {
     attach: function (context, settings) {
 

@@ -586,7 +586,7 @@ $font-bold-maven: Maven-Bold;
 
 	.tooltiptext_menu {
 		visibility: hidden;
-		width: 100px;
+		width: 140px;
 		background-color: $color-Gris-Oscuro;
 		color: $color-White;
 		text-align: center;
@@ -1678,7 +1678,8 @@ a.dropdown-item {
 
 #error_password,
 #error_username,
-#error_nit {
+#error_nit,
+#error_email_forgot{
 	display: none;
 	color: $color-Pantone-200;
 }
@@ -2591,3 +2592,8 @@ textarea {
 }
 
 // Fin Estilo Menu
+
+
+
+
+

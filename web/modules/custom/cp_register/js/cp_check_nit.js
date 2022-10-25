@@ -29,10 +29,34 @@
             window.location.href = "/registro/usuario";
           }, 3000);
         } else {
-          alert("Token invalid");
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Token invalid"));
+
+
         }
-      }).catch(function (error) {
-        console.log('Request failed', error);
+      }).catch(function (error) {        
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Request failed'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Email request error"));
       });
     }
 
@@ -84,16 +108,24 @@
       $("#email").css("border-color", "#cccccc");
     }
     if (!$("#policy").is(":checked")) {
+      message = Drupal.t("You must accept the privacy policy");
       $("#policy").addClass('error');
-
+      $("#error_policy").show();
+      $("#error_policy_message").text(message)
       isValid = false;
     } else {
       $("#error_policy").hide();
       $("#policy").removeClass('error');
     }
+
     if (!$("#conditions").is(":checked")) {
+      message = Drupal.t("You must accept the terms of use");
       $("#conditions").addClass('error');
+      $("#error_conditions").show();
+      $("#error_conditions_message").text(message)
+      isValid = false;
     } else {
+      $("#error_conditions").hide();
       $("#conditions").removeClass('error');
     }
 
@@ -101,11 +133,24 @@
     var response = grecaptcha.getResponse();
     console.log(response);
     if (response.length == 0) {
-      alert(Drupal.t("Please verify that you are not a robot"));
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'flex');
+      // Don't show the button.
+      $('#error-button-alert-warning').hide();
+      // Animation for alert-warning.
+      $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+      // Change text of alert-warning-heading.
+      $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+      // Change text of alert-warning-message.
+      $('#alert-warning-desc').text(Drupal.t('Please verify that you are not a robot'));
+      
+      console.log("Captcha is not valid");
       $("#error_captcha").show();
       isValid = false;
     } else {
       $("#error_captcha").hide();
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'none');
     }
 
     return isValid;
@@ -165,15 +210,57 @@
                   $("#loader").hide();
                   $("#check_nit").show();
                   $("#email_verification").modal('show');
+   
+                  // // Display flex for alert-succes.
+                  // $('#alert-succes').css('display', 'flex');
+                  // // Show the button.
+                  // $('#error-button-alert-succes').show();
+                  // // Change button text.
+                  // $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
+                  // // Add button link.
+                  // $('#error-button-alert-succes').on('click', function () {
+                  //   window.location.href = "/home/index";
+                  // });
+                  // // Animation for alert-succes.
+                  // $("#alert-succes").css("animation-name", "fadeInUpBig");
+                  // // Change text of alert-succes-heading.
+                  // $('#alert-succes-heading').text(Drupal.t('Process completed'));
+                  // // Change text of alert-succes-message.
+                  // $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
+                  
                 } else {
                   $("#loader").hide();
                   $("#check_nit").show();
-                  alert("Request failed email");
+                  
+                  // Display flex for alert-message-layout.
+                  $('#alert-message-layout').css('display', 'flex');
+                  // Show the button.
+                  $('#error-button').show();
+                  // Change button text.
+                  $('#error-button').text(Drupal.t('Contact Support'));
+                  // Animation for alert-message-layout.
+                  $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                  // Change text of alert-warning-heading.
+                  $('#error-tittle').text(Drupal.t('Unexpected error'));
+                  // Change text of alert-warning-message.
+                  $('#desc-error').text(Drupal.t("Email request error"));
+
                 }
               })
               .catch(function (error) {
                 $("#loader").hide();
-                alert("Request failed email", error);
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                // Change text of alert-warning-heading.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of alert-warning-message.
+                $('#desc-error').text(Drupal.t("Email request error"));
               });
           } else {
             setTimeout(() => {
@@ -185,7 +272,19 @@
                 if (data.includes("neo")) {
                   $("#error_neo").modal('show');
                 } else {
-                  alert("ERROR INESPERADO")
+                  // Display flex for alert-message-layout.
+                  $('#alert-message-layout').css('display', 'flex');
+                  // Show the button.
+                  $('#error-button').show();
+                  // Change button text.
+                  $('#error-button').text(Drupal.t('Contact Support'));
+                  // Animation for alert-message-layout.
+                  $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                  // Change text of alert-warning-heading.
+                  $('#error-tittle').text(Drupal.t('Unexpected error'));
+                  // Change text of alert-warning-message.
+                  $('#desc-error').text(Drupal.t("Unexpected error while checking NIT"));
+
                 }
               }
             }, 4000);
@@ -195,7 +294,19 @@
           setTimeout(() => {
             $("#loader").hide();
             $("#check_nit").show();
-            alert("ERROR INESPERADO")
+
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-warning-heading.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of alert-warning-message.
+            $('#desc-error').text(Drupal.t("Unexpected error while checking NIT"));
           }, 4000);
         });
     }
@@ -235,10 +346,6 @@
           };
         });
       };
-      //call function to check nit
-      $("#check_nit", context).click(function () {
-        checkNit();
-      });
       //call function to redirect to google form
       $("#go_form", context).click(function () {
         window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdJ7kX4dg2lTMlxBu2xuCy_tdtBme-Mn7DMHoCKDESTtaN7vg/viewform";

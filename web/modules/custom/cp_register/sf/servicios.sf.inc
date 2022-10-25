@@ -1,11 +1,11 @@
 <?php
 //se requiere el archivo nusoap.php de la librer?
-include(drupal_get_path('module', 'cp_core') . '/sf/lib/nusoap.php');
+include(drupal_get_path('module', 'cp_register') . '/sf/lib/nusoap.php');
 
 function ConsultaPrueba(){
 
   //Se incluye el archivo el cual contiene la conexi? a los datos de salesforce
-  include(drupal_get_path('module', 'cp_core') . '/sf/inc_connection.php');
+  include(drupal_get_path('module', 'cp_register') . '/sf/inc_connection.php');
 
   //Consulta de los datos mediante el NIT
   $queryX = "SELECT Razon_Social__c,NUMERO_DE_IDENTIFICACION__C,Ciudad__C,Departamento__C,PA_S__C,Direccion_Principal__C,Indicativo__C,Phone,Correo_Corporativo__C ".
@@ -44,7 +44,7 @@ function ConsultaPrueba(){
 //Funci? que realiza la consulta por NIT
 function ConsultaNIT($nit){
   //Se incluye el archivo el cual contiene la conexi? a los datos de salesforce
-  include(drupal_get_path('module', 'cp_core') . '/sf/inc_connection.php');
+  include(drupal_get_path('module', 'cp_register') . '/sf/inc_connection.php');
   //Consulta de los datos mediante el NIT
   $query1 = "SELECT  Razon_Social__c,NUMERO_DE_IDENTIFICACION__C,Ciudad__C,Departamento__C,PA_S__C,Direccion_Principal__C,Indicativo__C,Phone,Correo_Corporativo__C ".
            "FROM Account ".
@@ -86,7 +86,7 @@ function ConsultaNIT($nit){
 
 //Funci? que consulta por nombre comercial
 function ConsultaNombre($nombre){
-  include(drupal_get_path('module', 'cp_core') . '/sf/inc_connection.php');
+  include(drupal_get_path('module', 'cp_register') . '/sf/inc_connection.php');
   ini_set("soap.wsdl_cache_enabled", "0");
     $query1 = "SELECT  Razon_Social__c,NUMERO_DE_IDENTIFICACION__C,Ciudad__C,Departamento__C,PA_S__C,Direccion_Principal__C,Indicativo__C,Phone,Correo_Corporativo__C ".
            "FROM Account ".

@@ -98,9 +98,9 @@ function cp_advisor_moderation_form_node_product_edit_form_alter(&$form, FormSta
               '#title' => t('Successful process'),
               '#message' => $state,
               '#question' => t('Do you wish to continue?'),
-              '#button_text' => t('No'),
+              '#button_text' => t('Yes'),
               '#button_link' => '/dashboard-advisor/products/' . $node->getOwnerId(),
-              '#button_no_text' => t('Yes'),
+              '#button_no_text' => t('No'),
               '#button_no_link' => '#',
             ];
           }
@@ -251,7 +251,10 @@ function cp_advisor_get_parent_children($parent_tid) {
 function cp_advisor_get_certification_type_filter($parent_tid) {
   $database = \Drupal::database();
   //get logged user id
-  $uid = \Drupal::currentUser()->id();
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $uid = \Drupal::currentUser()->id();
+
+  }
   $query = $database->select('taxonomy_term_field_data', 'c');
   $query->join('taxonomy_term__field_ct_category', 'cat', 'cat.entity_id = c.tid');
   $query->fields('c', ['tid', 'name']);
@@ -289,6 +292,7 @@ function cp_advisor_moderation_theme($existing, $type, $theme, $path) {
     'cp_advisor_moderation_export' => [
       'variables' => [
         'url' => NULL,
+        'url_pdf' => NULL,
         'description' => NULL,
       ],
     ]

@@ -16,12 +16,24 @@ class CpChatController extends ControllerBase {
    * Builds the response.
    */
   public function index() {
+    //get data of user logged
+    $user = \Drupal::currentUser();
+    $id_user = $user->id();
+    $user = \Drupal\user\Entity\User::load($id_user);
+    //get field_start_date_auto_message of user logged
+    $field_start_date_auto_message = $user->get('field_start_date_auto_message')->value;
+    //get field_field_end_date_auto_messag of user logged
+    $field_end_date_auto_message = $user->get('field_field_end_date_auto_messag')->value;
+    //get field_automatic_message_chat of user logged
+    $field_automatic_message_chat = $user->get('field_automatic_message_chat')->value;
     return [
       // Your theme hook name.
       '#theme' => 'cp_chat_template_hook',
       // '#tree_messages' => $tree_messages,
       '#tree_messages' => $tree_messages,
-      // '#site_key' => $site_key,
+      '#start_date' => $field_start_date_auto_message ?? date('Y-m-d'),
+      '#end_date' => $field_end_date_auto_message ?? date('Y-m-d'),
+      '#automatic_message' => $field_automatic_message_chat ?? 'Actualmente y hasta el '.date('Y-m-d').' no me encuentro disponible. Me pondré en contacto a mi regreso. I am out of the office until '.date('Y-m-d').'. I will get in contact with as soon as I am available.',
     ];
   }
 
@@ -55,8 +67,13 @@ class CpChatController extends ControllerBase {
       $uid = \Drupal::currentUser()->id();
       //check if uid is not 0
       if ($uid == 0) {
+        ///get name of company
+        $uid_other_user = $this->getUid($data['entity_id_exportador']);
+        $other_user = \Drupal\user\Entity\User::load($uid_other_user);
+        $company_name = $other_user->get('field_company_name')->value ?? $other_user->get('name')->value;
+        //get company name
         return new JsonResponse(
-          ['status' => 'error', 'message' => 'You are not logged in']
+          ['status' => 'error', 'message' => 'You are not logged in', 'company_name' => $company_name]
         );
       }
       $query = $database->select('cp_chat', 'c');
@@ -69,6 +86,17 @@ class CpChatController extends ControllerBase {
         $uid_other_user = $this->getUid($data['entity_id_exportador']);
         $other_user = \Drupal\user\Entity\User::load($uid_other_user);
 
+        $image = $other_user->get('field_company_logo')->getValue();
+        $image = $image[0]['target_id'];
+        $image = \Drupal\file\Entity\File::load($image);
+        //check if image is not null
+        if ($image != null) {
+          $image = $image->getFileUri();
+          $image = file_create_url($image);
+        } else {
+          $image = NULL;
+        }
+
         return new JsonResponse([
           'status' => 'success',
           'message' => 'Chat room already exists',
@@ -76,13 +104,13 @@ class CpChatController extends ControllerBase {
             'id' => $result[0]->id,
             'id_me' => $result[0]->entity_id_comprador,
             'id_other_user' => $other_user->id(),
-            'company_name' => $other_user->get('field_company_name')->value,
-            'first_name' => $other_user->get('field_company_contact_name')->value,
-            'last_name' => $other_user->get('field_company_contact_lastname')->value,
+            'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+            'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'description' => 'Comprador',
             'updated' => $result[0]->updated,
             'last_message' => $this->getLastMessage($result[0]->id),
-            'company_logo' => file_create_url($other_user->get('field_company_logo')->entity->getFileUri()),
+            'company_logo' => $image,
             'count_checked' => $count,
           ),
         ]);
@@ -107,6 +135,16 @@ class CpChatController extends ControllerBase {
       $uid_other_user = $this->getUid($data['entity_id_exportador']);
       $other_user = \Drupal\user\Entity\User::load($uid_other_user);
 
+      $image = $other_user->get('field_company_logo')->getValue();
+      $image = $image[0]['target_id'];
+      $image = \Drupal\file\Entity\File::load($image);
+      //check if image is not null
+      if ($image != null) {
+        $image = $image->getFileUri();
+        $image = file_create_url($image);
+      } else {
+        $image = NULL;
+      }
       return new JsonResponse([
         'status' => 'success',
         'message' => 'Chat room created',
@@ -114,13 +152,13 @@ class CpChatController extends ControllerBase {
           'id' => $result[0]->id,
           'id_me' => $result[0]->entity_id_comprador,
           'id_other_user' => $other_user->id(),
-          'company_name' => $other_user->get('field_company_name')->value,
-          'first_name' => $other_user->get('field_company_contact_name')->value,
-          'last_name' => $other_user->get('field_company_contact_lastname')->value,
+          'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+          'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+          'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
           'description' => 'Comprador',
           'updated' => $result[0]->updated,
           'last_message' => $this->getLastMessage($result[0]->id),
-          'company_logo' => file_create_url($other_user->get('field_company_logo')->entity->getFileUri()),
+          'company_logo' => $image,
           'count_checked' => $count,
         ),
       ]);
@@ -142,6 +180,334 @@ class CpChatController extends ControllerBase {
     return $file;
   }
 
+  /*
+  * trigger chat poitns
+  */
+  public function triggerChatPoints($id_logged, $chatId) {
+    //get quantity of messages in chat
+    $database = \Drupal::database();
+    $query = $database->select('cp_chat_messages', 'c');
+    $query->fields('c', ['id']);
+    $query->condition('c.id_chat', $chatId);
+    $query->condition('c.entity_id_sender', $id_logged);
+    $query->isNull('c.deleted');
+    $query->condition('c.is_automatic', 0);
+    $result = $query->execute()->fetchAll();
+    $count = count($result);
+    //if message is equal to 1, trigger points
+    if ($count == 1) {
+      //get cp_incentives_business_rules with id_incentives_criteria = 1
+      $database = \Drupal::database();
+      $query = $database->select('cp_incentives_business_rules', 'c');
+      $query->fields('c', ['id', 'min_measure', 'max_measure', 'given_points']);
+      $query->condition('c.id_incentives_criteria', 1);
+      $result = $query->execute()->fetchAll();
+      //get diff in hours of last message and current time
+      $query = $database->select('cp_chat_messages', 'c');
+      $query->fields('c', ['created', 'entity_id_sender', 'message']);
+      $query->condition('c.id_chat', $chatId);
+      //is different of $id_logged
+      $query->condition('c.entity_id_sender', $id_logged, '<>');
+      $query->isNull('deleted');
+      $query->orderBy('c.created', 'DESC');
+      $query->range(0, 1);
+      $result_last_message = $query->execute()->fetchAll();
+      $date1 = new \DateTime($result_last_message[0]->created);
+      $date2 = new \DateTime(date('Y-m-d H:i:s'));
+      $diff = $date2->diff($date1);
+      $hours = $diff->h;
+      $hours = $hours + ($diff->days * 24);
+      //get cp_incentives_criteria expiration_days with id = 1
+      $database = \Drupal::database();
+      $query = $database->select('cp_incentives_criteria', 'c');
+      $query->fields('c', ['expiration_days']);
+      $query->condition('c.id', 1);
+      $result_expiration_days = $query->execute()->fetchAll();
+
+      //check in $result if $hours is between min_measure and max_measure
+      foreach ($result as $key => $value) {
+        if ($hours >= $value->min_measure && $hours <= $value->max_measure) {
+          //save in cp_incentives_points given_points
+          $database = \Drupal::database();
+          $database->insert('cp_incentives_points')
+            ->fields([
+              'id_incentives_criteria' => 1,
+              'entity_id_company_col' => $id_logged,
+              'entity_id_buyer' => $result_last_message[0]->entity_id_sender,
+              'points' => $value->given_points,
+              'created' => date('Y-m-d H:i:s'),
+              'expiration' => date('Y-m-d H:i:s', strtotime('+' . $result_expiration_days[0]->expiration_days . ' days')),
+            ])
+            ->execute();
+        }
+      }
+    }
+  }
+
+  /*
+  * create automatic message
+  */
+  public function createAutomaticMessage(Request $request) {
+    //get logged user
+    try {
+      $data = $request->request->all();
+      $chatId = $data['id_chat'];
+      $user = \Drupal::currentUser();
+      $id_logged = $user->id();
+      $user = \Drupal\user\Entity\User::load($id_logged);
+      $roles = $user->getRoles();
+      if (in_array('buyer', $roles)) {
+        //get chat
+        $database = \Drupal::database();
+        $query = $database->select('cp_chat', 'c');
+        $query->fields('c', ['id', 'entity_id_exportador']);
+        $query->condition('c.id', $chatId);
+        $result = $query->execute()->fetchAll();
+
+        //get entity_id_exportador
+        $entity_id_exportador = $result[0]->entity_id_exportador;
+        //get field_start_date_auto_message and if is not empty
+        $other_user = \Drupal\user\Entity\User::load($entity_id_exportador);
+        $field_start_date_auto_message = $other_user->get('field_start_date_auto_message')->value;
+        if (!empty($field_start_date_auto_message)) {
+          //get field_end_date_auto_message and if is not empty
+          $field_end_date_auto_message = $other_user->get('field_field_end_date_auto_messag')->value;
+          if (!empty($field_end_date_auto_message)) {
+            //get field_auto_message and if is not empty
+            $field_auto_message = $other_user->get('field_automatic_message_chat')->value;
+            if (!empty($field_auto_message)) {
+              //get current date
+              $current_date = date('Y-m-d H:i:s');
+              //check if current date is between start and end date
+              if ($current_date >= $field_start_date_auto_message && $current_date <= $field_end_date_auto_message) {
+                //create automatic message
+                //check if last message of exportador is automatic
+                $database = \Drupal::database();
+
+                $query = $database->select('cp_chat_messages', 'c');
+                $query->fields('c', ['id', 'entity_id_sender', 'message', 'is_automatic']);
+                $query->condition('c.id_chat', $chatId);
+                $query->condition('c.entity_id_sender', $entity_id_exportador);
+                $query->isNull('c.deleted');
+                $query->orderBy('c.created', 'DESC');
+                $query->range(0, 1);
+                $result = $query->execute()->fetchAll();
+                
+                if ($result[0]->is_automatic == 0) {
+                  $database = \Drupal::database();
+                  $database->insert('cp_chat_messages')
+                    ->fields([
+                      'id_chat' => $chatId,
+                      'entity_id_sender' => $entity_id_exportador,
+                      'message' => $field_auto_message,
+                      'created' => date('Y-m-d H:i:s'),
+                      'updated' => date('Y-m-d H:i:s'),
+                      'is_automatic' => 1,
+                    ])
+                    ->execute();
+                  //get last message create in table
+                  $query = $database->select('cp_chat_messages', 'c');
+                  $query->fields('c', ['id', 'id_chat', 'entity_id_sender', 'message', 'files', 'created', 'updated']);
+                  $query->condition('c.id_chat', $data['id_chat']);
+                  $query->orderBy('c.id', 'DESC');
+                  $query->range(0, 1);
+                  $result = $query->execute()->fetchAll();
+
+                  //get data of entity_id_sender
+                  $data = array();
+                  foreach ($result as $row) {
+                    //get user
+                    $uid = $this->getUid($row->entity_id_sender);
+                    $user = \Drupal\user\Entity\User::load($uid);
+                    //check if row->files is not empty
+                    if (!empty($row->files)) {
+                      $file_url = file_create_url($row->files);
+                    } else {
+                      $file_url = '';
+                    }
+                    if ($user->hasRole('exportador')) {
+                      $image = $user->get('field_company_logo')->getValue();
+                      $image = $image[0]['target_id'];
+                      $image = \Drupal\file\Entity\File::load($image);
+                      //check if image is not null
+                      if ($image != null) {
+                        $image = $image->getFileUri();
+                        $image = file_create_url($image);
+                      } else {
+                        $image = NULL;
+                      }
+                      $data[] = array(
+                        'id' => $row->id,
+                        'id_chat' => $row->id_chat,
+                        'entity_id_sender' => $row->entity_id_sender,
+                        'message' => $row->message,
+                        'files' => $file_url,
+                        'checked' => $row->checked,
+                        'updated' => $row->updated,
+                        'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+                        'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+                        'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+                        'company_logo' => $image,
+                        'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
+                      );
+                    } else {
+                      $data[] = array(
+                        'id' => $row->id,
+                        'id_chat' => $row->id_chat,
+                        'entity_id_sender' => $row->entity_id_sender,
+                        'message' => $row->message,
+                        'files' => $file_url,
+                        'checked' => $row->checked,
+                        'updated' => $row->updated,
+                        'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+                        'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+                        'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+                        'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
+                      );
+                    }
+                  }
+                  return new JsonResponse([
+                    'status' => 'ok',
+                    'message' => 'Chat message created',
+                    'data' => $data,
+                  ]);
+                }
+              }
+            }
+          }
+        }
+      } else{
+        //get chat
+        $database = \Drupal::database();
+        $query = $database->select('cp_chat', 'c');
+        $query->fields('c', ['id', 'entity_id_comprador']);
+        $query->condition('c.id', $chatId);
+        $result = $query->execute()->fetchAll();
+
+        //get entity_id_exportador
+        $entity_id_comprador = $result[0]->entity_id_comprador;
+        //get field_start_date_auto_message and if is not empty
+        $other_user = \Drupal\user\Entity\User::load($entity_id_comprador);
+        $field_start_date_auto_message = $other_user->get('field_start_date_auto_message')->value;
+        if (!empty($field_start_date_auto_message)) {
+          //get field_end_date_auto_message and if is not empty
+          $field_end_date_auto_message = $other_user->get('field_field_end_date_auto_messag')->value;
+          if (!empty($field_end_date_auto_message)) {
+            //get field_auto_message and if is not empty
+            $field_auto_message = $other_user->get('field_automatic_message_chat')->value;
+            if (!empty($field_auto_message)) {
+              //get current date
+              $current_date = date('Y-m-d H:i:s');
+              //check if current date is between start and end date
+              if ($current_date >= $field_start_date_auto_message && $current_date <= $field_end_date_auto_message) {
+                //create automatic message
+                //check if last message of exportador is automatic
+                $database = \Drupal::database();
+
+                $query = $database->select('cp_chat_messages', 'c');
+                $query->fields('c', ['id', 'entity_id_sender', 'message', 'is_automatic']);
+                $query->condition('c.id_chat', $chatId);
+                $query->condition('c.entity_id_sender', $entity_id_comprador);
+                $query->isNull('c.deleted');
+                $query->orderBy('c.created', 'DESC');
+                $query->range(0, 1);
+                $result = $query->execute()->fetchAll();
+                
+                if ($result[0]->is_automatic == 0) {
+                  $database = \Drupal::database();
+                  $database->insert('cp_chat_messages')
+                    ->fields([
+                      'id_chat' => $chatId,
+                      'entity_id_sender' => $entity_id_comprador,
+                      'message' => $field_auto_message,
+                      'created' => date('Y-m-d H:i:s'),
+                      'updated' => date('Y-m-d H:i:s'),
+                      'is_automatic' => 1,
+                    ])
+                    ->execute();
+                  //get last message create in table
+                  $query = $database->select('cp_chat_messages', 'c');
+                  $query->fields('c', ['id', 'id_chat', 'entity_id_sender', 'message', 'files', 'created', 'updated']);
+                  $query->condition('c.id_chat', $data['id_chat']);
+                  $query->orderBy('c.id', 'DESC');
+                  $query->range(0, 1);
+                  $result = $query->execute()->fetchAll();
+
+                  //get data of entity_id_sender
+                  $data = array();
+                  foreach ($result as $row) {
+                    //get user
+                    $uid = $this->getUid($row->entity_id_sender);
+                    $user = \Drupal\user\Entity\User::load($uid);
+                    //check if row->files is not empty
+                    if (!empty($row->files)) {
+                      $file_url = file_create_url($row->files);
+                    } else {
+                      $file_url = '';
+                    }
+                    if ($user->hasRole('exportador')) {
+                      $image = $user->get('field_company_logo')->getValue();
+                      $image = $image[0]['target_id'];
+                      $image = \Drupal\file\Entity\File::load($image);
+                      //check if image is not null
+                      if ($image != null) {
+                        $image = $image->getFileUri();
+                        $image = file_create_url($image);
+                      } else {
+                        $image = NULL;
+                      }
+                      $data[] = array(
+                        'id' => $row->id,
+                        'id_chat' => $row->id_chat,
+                        'entity_id_sender' => $row->entity_id_sender,
+                        'message' => $row->message,
+                        'files' => $file_url,
+                        'checked' => $row->checked,
+                        'updated' => $row->updated,
+                        'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+                        'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+                        'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+                        'company_logo' => $image,
+                        'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
+                      );
+                    } else {
+                      $data[] = array(
+                        'id' => $row->id,
+                        'id_chat' => $row->id_chat,
+                        'entity_id_sender' => $row->entity_id_sender,
+                        'message' => $row->message,
+                        'files' => $file_url,
+                        'checked' => $row->checked,
+                        'updated' => $row->updated,
+                        'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+                        'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+                        'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+                        'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
+                      );
+                    }
+                  }
+                  return new JsonResponse([
+                    'status' => 'ok',
+                    'message' => 'Chat message created',
+                    'data' => $data,
+                  ]);
+                }
+              }
+            }
+          }
+        }
+      }
+      return new JsonResponse(['status' => 'false']);
+    } catch (\Exception $e) {
+      return new JsonResponse(
+        [
+          'status' => 'error',
+          'message' => $e->getMessage(),
+        ]
+      );
+    }
+  }
+
   /**
    * Create chat message.
    */
@@ -152,6 +518,9 @@ class CpChatController extends ControllerBase {
       //get id logged user
       $date = date('Y-m-d H:i:s');
       $id_logged = \Drupal::currentUser()->id();
+      //check if role of user is exportador
+      $user = \Drupal\user\Entity\User::load($id_logged);
+      $roles = $user->getRoles();
       // Create row in table.
       $database = \Drupal::database();
       //if data['files'] is not empty save the file and get uri and save in table
@@ -178,6 +547,12 @@ class CpChatController extends ControllerBase {
           'updated' => $date,
         ])->execute();
       }
+
+      if (in_array('exportador', $roles)) {
+        //check trigger points
+        $this->triggerChatPoints($id_logged, $data['id_chat']);
+      }
+      
       //update chat update date
       $database->update('cp_chat')
         ->fields([
@@ -206,6 +581,16 @@ class CpChatController extends ControllerBase {
           $file_url = '';
         }
         if ($user->hasRole('exportador')) {
+          $image = $user->get('field_company_logo')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = NULL;
+          }
           $data[] = array(
             'id' => $row->id,
             'id_chat' => $row->id_chat,
@@ -214,10 +599,10 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
-            'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+            'company_logo' => $image,
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         } else {
@@ -229,9 +614,9 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         }
@@ -292,7 +677,7 @@ class CpChatController extends ControllerBase {
       //get filter message
       $message = $request->request->get('message');
       $query = $database->select('cp_chat', 'c');
-      $query->fields('c', ['id', 'entity_id_exportador', 'entity_id_comprador', 'created', 'updated', 'deleted']);
+      $query->fields('c', ['id', 'entity_id_exportador', 'entity_id_comprador', 'created', 'updated', 'deleted', 'fixed_exportador', 'fixed_comprador']);
       //get my chats bases in my role
       if ($user->hasRole('exportador')) {
         $query->condition('c.entity_id_exportador', \Drupal::currentUser()->id());
@@ -335,7 +720,6 @@ class CpChatController extends ControllerBase {
       $query->orderBy('c.updated', 'DESC');
       //execute query
       $result = $query->execute()->fetchAll();
-      
       $data = array();
       //get information of exportador and comprador
       foreach ($result as $row) {
@@ -361,27 +745,39 @@ class CpChatController extends ControllerBase {
             'id' => $row->id,
             'id_me' => $row->entity_id_exportador,
             'id_other_user' => $other_user->id(),
-            'company_name' => $other_user->get('field_company_name')->value,
-            'first_name' => $other_user->get('field_company_contact_name')->value,
-            'last_name' => $other_user->get('field_company_contact_lastname')->value,
+            'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+            'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'description' => 'Comprador',
             'updated' => $row->updated,
             'last_message' => $this->getLastMessage($row->id),
             'count_checked' => $count,
+            'fixed' => $row->fixed_exportador,
           );
         } else {
+          $image = $other_user->get('field_company_logo')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = NULL;
+          }
           $data[] = array(
             'id' => $row->id,
             'id_me' => $row->entity_id_comprador,
             'id_other_user' => $other_user->id(),
-            'company_name' => $other_user->get('field_company_name')->value,
-            'first_name' => $other_user->get('field_company_contact_name')->value,
-            'last_name' => $other_user->get('field_company_contact_lastname')->value,
+            'company_name' => $other_user->get('field_company_name')->value ?? $other_user->get('name')->value,
+            'first_name' => $other_user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $other_user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'description' => $other_user->get('field_company_info')->value,
             'updated' => $row->updated,
             'last_message' => $this->getLastMessage($row->id),
-            'company_logo' => file_create_url($other_user->get('field_company_logo')->entity->getFileUri()),
+            'company_logo' => $image,
             'count_checked' => $count,
+            'fixed' => $row->fixed_comprador,
           );
         }
       }
@@ -434,6 +830,16 @@ class CpChatController extends ControllerBase {
           $file_url = '';
         }
         if ($user->hasRole('exportador')) {
+          $image = $user->get('field_company_logo')->getValue();
+          $image = $image[0]['target_id'];
+          $image = \Drupal\file\Entity\File::load($image);
+          //check if image is not null
+          if ($image != null) {
+            $image = $image->getFileUri();
+            $image = file_create_url($image);
+          } else {
+            $image = NULL;
+          }
           $data[] = array(
             'id' => $row->id,
             'id_chat' => $row->id_chat,
@@ -442,10 +848,10 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
-            'company_logo' => file_create_url($user->get('field_company_logo')->entity->getFileUri()),
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
+            'company_logo' => $image,
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         } else {
@@ -457,9 +863,9 @@ class CpChatController extends ControllerBase {
             'files' => $file_url,
             'checked' => $row->checked,
             'updated' => $row->updated,
-            'company_name' => $user->get('field_company_name')->value,
-            'first_name' => $user->get('field_company_contact_name')->value,
-            'last_name' => $user->get('field_company_contact_lastname')->value,
+            'company_name' => $user->get('field_company_name')->value ?? $user->get('name')->value,
+            'first_name' => $user->get('field_company_contact_name')->value ?? "No First Name",
+            'last_name' => $user->get('field_company_contact_lastname')->value ?? "No Last Name",
             'is_me' => $id_logged == $row->entity_id_sender ? TRUE : FALSE,
           );
         }
@@ -569,6 +975,128 @@ class CpChatController extends ControllerBase {
       return new JsonResponse([
         'status' => 'ok',
         'message' => 'Message deleted',
+      ]);
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
+  }
+
+  /**
+  * automatic message
+  */
+  public function automaticMessage(Request $request) {
+    try {
+      //get data
+      $data = $request->request->all();
+      //get message
+      $message = $data['message'];
+      //get start date
+      $start_date = $data['start_date'];
+      //get end date
+      $end_date = $data['end_date'];
+      //save to user
+      $user = \Drupal::currentUser();
+      $id_user = $user->id();
+      $user = \Drupal\user\Entity\User::load($id_user);
+      //set field_start_date_auto_message
+      $user->set('field_start_date_auto_message', $start_date);
+      //set field_field_end_date_auto_messag
+      $user->set('field_field_end_date_auto_messag', $end_date);
+      //set field_automatic_message_chat
+      $user->set('field_automatic_message_chat', $message);
+      $user->save();
+      return new JsonResponse([
+        'status' => 'ok',
+        'message' => 'Set automatic message',
+      ]);
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
+  }
+
+  /**
+  * fixed chat
+  */
+  public function fixChat(Request $request) {
+    try {
+      //get data
+      $data = $request->request->all();
+      //get id_chat
+      $id_chat = $data['id_chat'];
+      //get fixed
+      $select = $data['select'];
+      //update fixed
+      $database = \Drupal::database();
+      $query2 = $database->update('cp_chat');
+      //get rol of user logged
+      $user = \Drupal::currentUser();
+      $id_user = $user->id();
+      $user = \Drupal\user\Entity\User::load($id_user);
+      $roles = $user->getRoles();
+      if (in_array('buyer', $roles)) {
+        //get actual fixed value
+        $query = $database->select('cp_chat', 'c');
+        $query->fields('c', ['fixed_comprador']);
+        $query->condition('id', $id_chat);
+        $result = $query->execute()->fetchField();
+        if ($result == 0) {
+          if ($select == 0) {
+            $query2->fields([
+              'fixed_comprador' => 1,
+              'updated' => date('Y-m-d H:i:s'),
+            ]);
+          }
+          else {
+            $query2->fields([
+              'fixed_comprador' => 0,
+            ]);
+          }
+        }
+        else {
+          $query2->fields([
+            'fixed_comprador' => 0,
+          ]);
+        }
+      }
+      else {
+        //get actual fixed value
+        $query = $database->select('cp_chat', 'c');
+        $query->fields('c', ['fixed_exportador']);
+        $query->condition('id', $id_chat);
+        $result = $query->execute()->fetchField();
+        if ($result == 0) {
+          if ($select == 0) {
+            $query2->fields([
+              'fixed_exportador' => 1,
+              'updated' => date('Y-m-d H:i:s'),
+            ]);
+          }
+          else {
+            $query2->fields([
+              'fixed_exportador' => 0,
+            ]);
+          }
+        }
+        else {
+          $query2->fields([
+            'fixed_exportador' => 0,
+          ]);
+        }
+      }
+      $query2->condition('id', $id_chat);
+      $query2->execute();
+      return new JsonResponse([
+        'status' => 'ok',
+        'message' => 'Chat fixed',
+        'value' => $result == 1 ? 0 : 1,
       ]);
     }
     catch (\Exception $e) {

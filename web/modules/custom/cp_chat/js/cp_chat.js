@@ -72,7 +72,20 @@
         socket.emit('createChatList', { user_id: id_me });
         renderChatList(chatList);
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting chat list"));
+      });
   }
 
   //check with moment is date is today show time
@@ -104,9 +117,9 @@
     let countNewMessages = 0;
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="">
+      <li id="conversation0" class="${(chat.count_checked > 0 || chat.fixed === "1") && "active"}">
         <div class="d-flex" id="chat">
-          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
           ${chat.company_logo ? `
             <img
               src="${chat.company_logo}"
@@ -114,19 +127,19 @@
               `
           :
           `<div class="avatar-sm">
-              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name.charAt(0)}</span>
+              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name ? chat.company_name.charAt(0) : "Null"}</span>
             </div>`
         }
           </div>
-          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessages(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
             <span class="chat-user-name text-truncate mb-0"><strong>Nombre del contacto:</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
             <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
-            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
+            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 6px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${(chat.count_checked > 0 || chat.fixed === "1") ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked !== "0" ? chat.count_checked : "&nbsp;&nbsp;"}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownList(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
@@ -146,10 +159,16 @@
     });
 
     if (countNewMessages > 0) {
+      if (countNewMessages > 99) {
+        countNewMessages = "+99";
+      }
       $('#count-message').text(countNewMessages);
       $('#count-message').show(countNewMessages);
+      $('#count-message-mobile').text(countNewMessages);
+      $('#count-message-mobile').show(countNewMessages);
     } else {
       $('#count-message').hide(countNewMessages);
+      $('#count-message-mobile').hide(countNewMessages);
     }
     $('#chat-list').html(html);
   }
@@ -176,6 +195,7 @@
           first_date = moment(msgList[0].updated).format('YYYY-MM-DD');
         }
         CheckMessages(chatId);
+        fixChatApi(chatId, 1);
         getListOfChats(0, 15);
         if (!refetch) {
           renderChatMessages(msgList);
@@ -186,7 +206,20 @@
           addRenderChatMessages(msgList);
         }
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting chat messages"));
+      });
   }
 
   //request for checked messages
@@ -206,7 +239,20 @@
         console.log("checked messages", result);
         new_messages = 0;
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting checked messages"));
+      });
   }
 
   //render chat messages
@@ -215,7 +261,7 @@
     msgList.forEach((msg) => {
       if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
         html += `
-        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
+        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? `${Drupal.t("Today")}` : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
         `
       }
       console.log("msg", msg);
@@ -427,14 +473,7 @@
                     <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                   </p>
                 </div>
-                <div class="dropdown align-self-start">
-                      <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class='bx bx-dots-vertical-rounded' ></i>
-                      </a>
-                      <div class="dropdown-menu" data-popper-placement="top-start">
-                          <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                      </div>
-                    </div>
+                
               </div>
             </div>
           </div>
@@ -486,7 +525,7 @@
     msgList.forEach((msg) => {
       if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
         html += `
-        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
+        <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? `${Drupal.t("Today")}` : moment(msg.updated).format("DD MMMM YYYY")}</span></div></li>
         `
       }
       console.log("msg", msg);
@@ -698,14 +737,7 @@
                     <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                   </p>
                 </div>
-                <div class="dropdown align-self-start">
-                      <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class='bx bx-dots-vertical-rounded' ></i>
-                      </a>
-                      <div class="dropdown-menu" data-popper-placement="top-start">
-                          <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                      </div>
-                    </div>
+                
               </div>
             </div>
           </div>
@@ -801,13 +833,189 @@
             console.log("ENVIADO")
             new_messages = 0;
             $('#new-message-content').html('');
+            setTimeout(() => {
+              sendAutomaticMessage(chat_selected);
+            }, 2000);
           } else {
-            alert("Error");
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
           }
         })
-        .catch(error => alert('error', error));
+        .catch(function (error) {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+        });
     }
   }
+
+  const sendAutomaticMessage = (id_chat) => {
+    var formdata = new FormData();
+    formdata.append("id_chat", id_chat);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+    };
+
+    fetch("/chat/create_automatic_message", requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        if (result.status == 'ok') {
+          console.log(result);
+          socket.emit('sendMessage', { room: id_chat, message: result.data });
+          console.log({ user_id: id_other_user, message: result.data })
+          CheckMessages(result.data[0].id_chat);
+          getListOfChats(0, 15);
+          socket.emit('updateChatList', { user_id: id_other_user, message: result.data });
+          console.log("ENVIADO")
+          new_messages = 0;
+          $('#new-message-content').html('');
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+      });
+  }
+
+  const validateSaveAutomaticMessage = () => {
+    let isValid = true;
+    let msg = ""
+    let start_date = $('#start-date').val();
+    let end_date = $('#end-date').val();
+    let message = $('#automatic-message').val();
+
+    if (start_date == "") {
+      isValid = false;
+      msg = "Please select a start date";
+      $('#start-date').css('border-color', 'rgb(186, 12, 47)');
+      $('#error_start-date').text(msg);
+      $('#error_start-date').show();
+    } else {
+      $('#start-date').css('border-color', '#cccccc');
+      $('#error_start-date').hide();
+    }
+
+    if (end_date == "") {
+      isValid = false;
+      msg = "Please select an end date";
+      $('#end-date').css('border-color', 'rgb(186, 12, 47)');
+      $('#error_end-date').text(msg);
+      $('#error_end-date').show();
+    } else {
+      $('#end-date').css('border-color', '#cccccc');
+      $('#error_end-date').hide();
+    }
+
+    if (message == "") {
+      isValid = false;
+      msg = "Please write a message";
+      $('#automatic-message').css('border-color', 'rgb(186, 12, 47)');
+      $('#error_automatic-message').text(msg);
+      $('#error_automatic-message').show();
+    } else {
+      if (message.length > 300) {
+        isValid = false;
+        msg = "The message must be less than 300 characters";
+        $('#automatic-message').css('border-color', 'rgb(186, 12, 47)');
+        $('#error_automatic-message').text(msg);
+        $('#error_automatic-message').show();
+      } else {
+        $('#automatic-message').css('border-color', '#cccccc');
+        $('#error_automatic-message').hide();
+      }
+    }
+    return isValid;
+  }
+
+  const saveAutomaticMessage = () => {
+    console.log("saveAutomaticMessage")
+    //get start_date, end_date, message
+    if (validateSaveAutomaticMessage()) {
+      let start_date = $('#start-date').val();
+      let end_date = $('#end-date').val();
+      let message = $('#automatic-message').val();
+
+      var formdata = new FormData();
+      formdata.append("start_date", start_date);
+      formdata.append("end_date", end_date);
+      formdata.append("message", message);
+
+      var requestOptions = {
+        method: 'POST',
+        body: formdata,
+      };
+
+      fetch("/chat/automatic_message", requestOptions)
+        .then(response => response.json())
+        .then((result) => {
+          if (result.status == 'ok') {
+            console.log(result);
+            //close modal
+            $('#modal-automatic-message').modal('hide');
+          } else {
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+          }
+        })
+        .catch(function (error) {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+        });
+    }
+  }
+
+
 
   let stopComplete = false;
   //infitine scroll for list messages in chat
@@ -830,7 +1038,7 @@
                 <div class="ctext-wrap">
                   <div class="ctext-wrap-content">
                     <p class="mb-0">${first_date}</p>
-                    <p class="mb-0" style="color:#005CA4">Contacto con la empresa ${name}</p>
+                    <p class="mb-0" style="color:#005CA4">${Drupal.t("Contact with the company")} ${name}</p>
                   </div>
                 </div>
               </div>
@@ -917,16 +1125,95 @@
           //hide modal
           socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: true }] });
           $('#chat-fill').hide();
+          $('.user-chat').css('transform', 'translateX(100%)');
+          $('.user-chat').css('visibility', 'hidden');
           $('#chat-empty').show();
           $('#modal-delete').modal('hide');
           //fetch chat
           getListOfChats(0, 15);
         } else {
-          alert(data.message);
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
         }
       })
-      .catch(error => {
-        alert(error);
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+      });
+  }
+
+  const fixChatApi = (chat_id, select = 0) => {
+    //form data
+    let formData = new FormData();
+    formData.append('id_chat', chat_id);
+    formData.append('select', select);
+    //fetch
+    fetch('/chat/fix_chat', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.status == 'ok') {
+          //hide modal
+          socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: false }] });
+          if (data.value == 1) {
+            //change fix-chat image
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/vision.svg');
+          } else {
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/low-vision.svg');
+          }
+          //fetch chat
+          getListOfChats(0, 15);
+        } else {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
       });
   }
 
@@ -948,9 +1235,11 @@
 
         }
         //create function get chat messages
-        window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe) => {
+        window.getChatMessages = (chatId, idOtherUser, fullName, description, companyName, companyLogo, idMe, fixed) => {
           //show chat box
           $('#chat-fill').show();
+          $('.user-chat').css('transform', 'translateX(0)');
+          $('.user-chat').css('visibility', 'visible');
           $('#chat-empty').hide();
 
           //disconnect socket to room
@@ -964,6 +1253,13 @@
           $('#chat-user-name').text(fullName);
           $('#chat-user-description').text(description);
           $('#delete-chat-in-message').attr('onclick', `deleteChat(${chatId}, '${fullName}', '${companyName}')`);
+          $('#fix-chat').attr('onclick', `fixChatActionButton(${chatId})`);
+          if (fixed == 1) {
+            //change fix-chat image
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/vision.svg');
+          } else {
+            $('#fix-chat-img').attr('src', '/sites/default/files/matchmaking/images/icon-site/low-vision.svg');
+          }
           //check if company logo exist
           console.log(companyLogo);
           if (companyLogo) {
@@ -1016,7 +1312,7 @@
             last_id_message = data.id;
             if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
               $('#chat-messages').append(`
-            <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")
+            <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? `${Drupal.t("Today")}` : moment(msg.updated).format("DD MMMM YYYY")
                 }</span></div></li>
             `);
               last_date = moment(msg.updated).format("DD MMMM YYYY");
@@ -1145,14 +1441,7 @@
                           <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                         </p>
                       </div>
-                      <div class="dropdown align-self-start">
-                            <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                            </a>
-                            <div class="dropdown-menu" data-popper-placement="top-start">
-                                <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                            </div>
-                          </div>
+                     
                     </div>
                   </div>
                 </div>
@@ -1169,11 +1458,11 @@
                 console.log(new_messages);
                 if ($('#new-messages-chat').length === 0) {
                   $('#chat-messages').append(`
-                <li id="new-message-content"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat">${new_messages + " Mensaje Nuevo"
+                <li id="new-message-content"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat">${new_messages + " " + Drupal.t("New Message")
                     }</span></div></li>
                 `);
                 } else {
-                  $('#new-messages-chat').text(new_messages + " Mensajes Nuevos");
+                  $('#new-messages-chat').text(new_messages + " " + Drupal.t("New Messages"));
                 }
               }
               if (msg.files) {
@@ -1342,7 +1631,7 @@
                           <div class="ctext-wrap">
                               <div class="ctext-wrap-content">
                                   <p class="mb-0">
-                                      Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
+                                      ${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
                                   </p>
                               </div>
                           </div>
@@ -1388,6 +1677,8 @@
           if (msg.delete_chat) {
             getListOfChats(0, 15);
             $('#chat-fill').hide();
+            $('.user-chat').css('transform', 'translateX(100%)');
+            $('.user-chat').css('visibility', 'visible');
             $('#chat-empty').show();
           } else {
             if (msg.entity_id_sender != id_me) {
@@ -1407,7 +1698,15 @@
         //hide chat
         $('#hide-chat', context).click(function () {
           $('#chat-fill').hide();
+          $('.user-chat').css('transform', 'translateX(100%)');
+          $('.user-chat').css('visibility', 'visible');
           $('#chat-empty').show();
+          socket.emit('disconnectRoom', { room: chat_selected });
+        });
+
+        $('#close-chat-mobile', context).click(function () {
+          $('.user-chat').css('transform', 'translateX(100%)');
+          $('.user-chat').css('visibility', 'visible');
           socket.emit('disconnectRoom', { room: chat_selected });
         });
 
@@ -1452,45 +1751,45 @@
         $('#all', context).click(function () {
           //call list chats
           filter_type = 0;
-          getListOfChats(0, 15);
           //remove class active
           $('#all').addClass('active');
           $('#unread').removeClass('active');
           $('#read').removeClass('active');
-          $('#delete').removeClass('active');
+          $('#deleted-label').removeClass('active');
+          getListOfChats(0, 15);
         });
 
         //detect click in unread
         $('#unread', context).click(function () {
           //call list chats
           filter_type = 1;
-          getListOfChats(0, 15);
           $('#all').removeClass('active');
           $('#unread').addClass('active');
           $('#read').removeClass('active');
-          $('#delete').removeClass('active');
+          $('#deleted-label').removeClass('active');
+          getListOfChats(0, 15);
         });
 
         //detect click in read
         $('#read', context).click(function () {
           //call list chats
           filter_type = 2;
-          getListOfChats(0, 15);
           $('#all').removeClass('active');
           $('#unread').removeClass('active');
           $('#read').addClass('active');
-          $('#delete').removeClass('active');
+          $('#deleted-label').removeClass('active');
+          getListOfChats(0, 15);
         });
 
         //detect click in deleted
-        $('#deleted', context).click(function () {
+        $('#deleted-label', context).click(function () {
           //call list chats
           filter_type = 3;
-          getListOfChats(0, 15);
           $('#all').removeClass('active');
           $('#unread').removeClass('active');
           $('#read').removeClass('active');
-          $('#delete').addClass('active');
+          $('#deleted-label').addClass('active');
+          getListOfChats(0, 15);
         });
         //check if length of search-message is bigger than 3 and delay 300ms
         $('#search-message', context).on('input', function () {
@@ -1521,6 +1820,10 @@
           deleteChatApi(id);
         };
 
+        window.fixChatActionButton = function (id) {
+          fixChatApi(id);
+        };
+
         //detect click images inside chat-messages
         $('#chat-messages', context).click(function (evt) {
           console.log("click");
@@ -1538,6 +1841,33 @@
         //detect if click outside of image in lightbox
         $('#lightbox-cont', context).click(function (evt) {
           $('#lightbox-cont').hide();
+        });
+
+        //open dropdown-chat 
+        $('#more-option', context).click(function () {
+          $('#content-more-option').show();
+          //$('#content-more-option').css('animation-name', 'fadeInDownBig');
+        });
+        //open automatic message modal
+        $('#btn-automatic-message', context).click(function () {
+          //change text area value
+          $('#content-more-option').hide();
+          $('#modal-automatic-message').modal('show');
+        });
+
+        //click save-automatic-message
+        $('#save-automatic-message', context).click(function () {
+          //call function to save automatic message
+          saveAutomaticMessage();
+        });
+
+        //detect end-date input change and if value is before start-date, change start-date value
+        $('#end-date', context).change(function () {
+          let start_date = $('#start-date').val();
+          let end_date = $('#end-date').val();
+          if (start_date > end_date) {
+            $('#end-date').val(start_date);
+          }
         });
       }
     }

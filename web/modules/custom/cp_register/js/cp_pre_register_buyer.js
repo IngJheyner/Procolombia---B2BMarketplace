@@ -33,10 +33,34 @@
               window.location.href = '/register/user/buyer';
             }, 3000);
           } else {
-            alert(Drupal.t("Token invalid"));
+            console.log(Drupal.t("Token invalid"));
+
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Token invalid"));
           }
         }).catch(function (error) {
-          console.log('Request failed', error);
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Request failed'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Request failed email"));
         });
       } else {
         window.location.href = '/register/user/buyer';
@@ -362,22 +386,26 @@
       $("#langcode").css("border-color", "#cccccc");
     }
 
-    if (!policy) {
+    if (!$("#policy").is(":checked")) {
       message = Drupal.t("You must accept the privacy policy");
+      $("#policy").addClass('error');
       $("#error_policy").show();
       $("#error_policy_message").text(message)
       isValid = false;
     } else {
       $("#error_policy").hide();
+      $("#policy").removeClass('error');
     }
 
-    if (!conditions) {
+    if (!$("#conditions").is(":checked")) {
       message = Drupal.t("You must accept the terms of use");
+      $("#conditions").addClass('error');
       $("#error_conditions").show();
       $("#error_conditions_message").text(message)
       isValid = false;
     } else {
       $("#error_conditions").hide();
+      $("#conditions").removeClass('error');
     }
 
     //validate captcha getResponse and if is empty show error
@@ -385,7 +413,18 @@
     console.log(response);
     console.log("HI x2")
     if (response.length == 0) {
-      alert(Drupal.t("Please verify that you are not a robot"));
+      
+      // Display flex for alert-warning.
+      $('#alert-warning').css('display', 'flex');
+      // Don't show the button.
+      $('#error-button-alert-warning').hide();
+      // Animation for alert-warning.
+      $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+      // Change text of alert-warning-heading.
+      $('#alert-warning-heading').text(Drupal.t('Missing Captcha'));
+      // Change text of alert-warning-message.
+      $('#alert-warning-desc').text(Drupal.t('Please verify that you are not a robot'));
+
       $("#error_captcha").show();
       isValid = false;
     } else {
@@ -453,26 +492,91 @@
                   localStorage.setItem("email_buyer", data.email);
                   setTimeout(() => {
                     $("#loader").modal('hide');
+                    // Redirect to home.
+                    window.location.href = "/pre-registro";
+                    //add property to button inside #loader
+                    $("#loader button").on("click", function () {
+                      // Redirect to home.
+                      window.location.href = "/pre-registro";
+                    });
                   }, 15000);
+
+                  // // Display flex for alert-succes.
+                  // $('#alert-succes').css('display', 'flex');
+                  // // Show the button.
+                  // $('#error-button-alert-succes').show();
+                  // // Change button text.
+                  // $('#error-button-alert-succes').text(Drupal.t('Go back to main page'));
+                  // // Add button link.
+                  // $('#error-button-alert-succes').on('click', function () {
+                  //   window.location.href = "/home/index";
+                  // });
+                  // // Animation for alert-succes.
+                  // $("#alert-succes").css("animation-name", "fadeInUpBig");
+                  // // Change text of alert-succes-heading.
+                  // $('#alert-succes-heading').text(Drupal.t('Process completed'));
+                  // // Change text of alert-succes-message.
+                  // $('#alert-succes-desc').text(Drupal.t("Process completed successfully"));
+
                 } else {
                   $("#loader").modal('hide');
-                  alert(Drupal.t("Email request error"));
+                  
+                  // Display flex for alert-message-layout.
+                  $('#alert-message-layout').css('display', 'flex');
+                  // Show the button.
+                  $('#error-button').show();
+                  // Change button text.
+                  $('#error-button').text(Drupal.t('Contact Support'));
+                  // Animation for alert-message-layout.
+                  $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                  // Change text of alert-warning-heading.
+                  $('#error-tittle').text(Drupal.t('Unexpected error'));
+                  // Change text of alert-warning-message.
+                  $('#desc-error').text(Drupal.t("Email request error"));
                 }
               })
               .catch(function (error) {
                 $("#loader").modal('hide');
-                alert(Drupal.t("Email request error"));
+                // Display flex for alert-message-layout.
+                $('#alert-message-layout').css('display', 'flex');
+                // Show the button.
+                $('#error-button').show();
+                // Change button text.
+                $('#error-button').text(Drupal.t('Contact Support'));
+                // Animation for alert-message-layout.
+                $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+                // Change text of alert-warning-heading.
+                $('#error-tittle').text(Drupal.t('Unexpected error'));
+                // Change text of alert-warning-message.
+                $('#desc-error').text(Drupal.t("Email request error"));
               });
           } else {
-            alert(Drupal.t("Error: E-mail already has been registered"));
+            // Display flex for alert-warning.
+            $('#alert-warning').css('display', 'flex');
+            // Don't show the button.
+            $('#error-button-alert-warning').hide();
+            // Animation for alert-warning.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-warning-heading.
+            $('#alert-warning-heading').text(Drupal.t('Warning'));
+            // Change text of alert-warning-message.
+            $('#alert-warning-desc').text(Drupal.t('E-mail already has been registered'));
           }
         })
         .catch(function (error) {
           $("#loading_1").hide();
           $("#save").show();
-          alert(Drupal.t("Error while creating user. ") + error);
-          console.log(Drupal.t("Error while creating user. ") + error);
-          console.log(error);
+
+          // Display flex for alert-warning.
+          $('#alert-warning').css('display', 'flex');
+          // Don't show the button.
+          $('#error-button-alert-warning').hide();
+          // Animation for alert-warning.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-warning-heading.
+          $('#alert-warning-heading').text(Drupal.t('Warning'));
+          // Change text of alert-warning-message.
+          $('#alert-warning-desc').text(Drupal.t('E-mail already has been registered'));
         });
     }
   }

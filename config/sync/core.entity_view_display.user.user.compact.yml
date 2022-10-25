@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_account_status
+    - field.field.user.user.field_automatic_message_chat
     - field.field.user.user.field_cat_interest_1
     - field.field.user.user.field_cat_interest_2
     - field.field.user.user.field_cat_interest_3
@@ -37,12 +38,14 @@ dependencies:
     - field.field.user.user.field_country
     - field.field.user.user.field_country_code_landline
     - field.field.user.user.field_country_code_mobile
+    - field.field.user.user.field_field_end_date_auto_messag
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_nit
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_previous_id
     - field.field.user.user.field_productive_chain
+    - field.field.user.user.field_start_date_auto_message
     - field.field.user.user.field_step
     - field.field.user.user.field_subcat_interest_1
     - field.field.user.user.field_subcat_interest_2
@@ -89,6 +92,7 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_account_status: true
+  field_automatic_message_chat: true
   field_cat_interest_1: true
   field_cat_interest_2: true
   field_cat_interest_3: true
@@ -121,12 +125,14 @@ hidden:
   field_country: true
   field_country_code_landline: true
   field_country_code_mobile: true
+  field_field_end_date_auto_messag: true
   field_last_password_reset: true
   field_nit: true
   field_password_expiration: true
   field_pending_expire_sent: true
   field_previous_id: true
   field_productive_chain: true
+  field_start_date_auto_message: true
   field_step: true
   field_subcat_interest_1: true
   field_subcat_interest_2: true

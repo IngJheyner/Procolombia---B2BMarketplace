@@ -1,0 +1,20 @@
+uuid: 26a98fdb-9cd8-48d7-88d0-8517c6f7dd31
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_automatic_message_chat
+  module:
+    - user
+id: user.user.field_automatic_message_chat
+field_name: field_automatic_message_chat
+entity_type: user
+bundle: user
+label: 'Mensaje automático chat'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

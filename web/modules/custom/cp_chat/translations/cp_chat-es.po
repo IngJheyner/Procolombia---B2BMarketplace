@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-10-03 20:44+0000\n"
+"PO-Revision-Date: 2022-10-03 15:58-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+msgid "Messages"
+msgstr "Mensajes"
+
+msgid "All messages"
+msgstr "Todos"
+
+msgid "Search messages"
+msgstr "Buscar mensajes"
+
+msgid "Unread"
+msgstr "No leídos"
+
+msgid "Do you want to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "YES"
+msgstr "SÍ"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "Enter Message..."
+msgstr "Escriba un mensaje..."
+
+msgid "Clear chat"
+msgstr "Limpiar chat"
+
+msgid "Delete chat"
+msgstr "Eliminar chat"
+
+msgid "Minimize chat"
+msgstr "Minimizar chat"
+
+msgid "Maximize chat"
+msgstr "Maximizar chat"
+
+msgid "Mark as unread"
+msgstr "Marcar como no leido"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Send and receive messages"
+msgstr "Envía y recibe mensajes"
+
+msgid "You are about to delete the chat with the company "
+msgstr "Está a punto de eliminar el chat con la empresa "
+
+msgid " with the contact "
+msgstr " con el contacto "
+
+msgid "Leave"
+msgstr "Salir"
+
+msgid "Concact name:"
+msgstr "Nombre del contacto:"
+
+msgid "Contact with the company"
+msgstr "Contacto con la empresa"
+
+msgid "New Message"
+msgstr "Nuevo mensaje"
+
+msgid "New Messages"
+msgstr "Nuevos mensajes"
+
+msgid "Typing"
+msgstr "Escribiendo"
+
+msgid "Today"
+msgstr "Hoy"
+
+msgid "Error while sending message"
+msgstr "Error al enviar el mensaje"
+
+msgid "Error while loading messages"
+msgstr "Error al cargar los mensajes"
+
+msgid "Error while getting chat list"
+msgstr "Error al obtener la lista de chats"
+
+msgid "Error while getting chat messages"
+msgstr "Error al obtener los mensajes del chat"
+
+msgid "Error while getting checked messages"
+msgstr "Error al obtener los mensajes leídos"
+
+msgid "Error while sending message. Please try again later."
+msgstr "Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde."
+
+msgid "Error while deleting chat. Please try again later."
+msgstr "Error al eliminar el chat. Por favor, inténtelo de nuevo más tarde."
+
+msgid "Contact Support"
+msgstr "Contactar con soporte"
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Error while loading checked messages"
+msgstr "Error al cargar los mensajes leídos"

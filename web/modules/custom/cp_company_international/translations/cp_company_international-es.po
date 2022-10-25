@@ -268,10 +268,10 @@ msgid "Password is required"
 msgstr "La contraseña es requerida"
 
 msgid "The password must be between 8 and 15 characters long"
-msgstr "El password debe tener entre 8 y 15 caracteres"
+msgstr "La contraseña debe tener entre 8 y 15 caracteres"
 
 msgid "The password must have at least one capital letter"
-msgstr "El password debe tener al menos una mayúscula"
+msgstr "La contraseña debe tener al menos una mayúscula"
 
 msgid "The password must have at least one number"
 msgstr "La contraseña debe tener al menos un número"
@@ -392,3 +392,36 @@ msgstr "El teléfono es requerido\n"
 
 msgid "Error While Creating User: "
 msgstr "Error al crear el usuario: "
+
+msgid ""Error sending email: "
+msgstr ""Error al enviar el correo: "
+
+msgid "Error while updating User: "
+msgstr "Error al actualizar el usuario: "
+
+msgid "Error while updating User"
+msgstr "Error al actualizar el usuario"
+
+msgid "Error while obtaining user data: "
+msgstr ""Error al obtener los datos del usuario: "
+
+msgid "Error while obtaining user data"
+msgstr "Error al obtener los datos del usuario"
+
+msgid "Error while obtaining subcategories: "
+msgstr "Error al obtener las subcategorías: "
+
+msgid "Error while obtaining subcategories"
+msgstr "Error al obtener las subcategorías"
+
+msgid "New message to "
+msgstr "Nuevo mensaje para "
+
+msgid "Select an option "
+msgstr "Seleccione una opción "
+
+msgid "Error while sending email request to update user's data"
+msgstr "Error al enviar la solicitud de correo para actualizar los datos del usuario"
+
+msgid "Error while updating User's data"
+msgstr "Error al actualizar los datos del usuario"

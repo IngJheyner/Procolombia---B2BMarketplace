@@ -96,6 +96,9 @@ msgstr "Cargando..."
 msgid "EDIT - Company profile & contact"
 msgstr "EDITAR - Perfil de la compañía y contacto"
 
+msgid "Company profile & contact"
+msgstr "Perfil de la compañía y contacto"
+
 msgid "Logo"
 msgstr "Logo"
 
@@ -256,10 +259,10 @@ msgid "Password is required"
 msgstr "La contraseña es requerida"
 
 msgid "The password must be between 8 and 15 characters long"
-msgstr "El password debe tener entre 8 y 15 caracteres"
+msgstr "La contraseña debe tener entre 8 y 15 caracteres"
 
 msgid "The password must have at least one capital letter"
-msgstr "El password debe tener al menos una mayúscula"
+msgstr "La contraseña debe tener al menos una mayúscula"
 
 msgid "The password must have at least one number"
 msgstr "La contraseña debe tener al menos un número"
@@ -374,3 +377,45 @@ msgstr "La linea de telefono no debe tener mas de 20 caracteres."
 
 msgid "The password must have at least one special character"
 msgstr "La contraseña debe tener al menos un caracter especial"
+
+msgid "Cannot send e-mail for data change: "
+msgstr "No se puede enviar el correo electrónico para el cambio de datos: "
+
+msgid "Error while updating data: "
+msgstr "Error al actualizar los datos: "
+
+msgid "Error while updating data"
+msgstr "Error al actualizar los datos"
+
+msgid "Error while updating user's data"
+msgstr "Error al actualizar los datos del usuario"
+
+msgid "Error while obtaining user data: "
+msgstr "Error al obtener los datos del usuario: "
+
+msgid "Error while obtaining user data"
+msgstr "Error al obtener los datos del usuario"
+
+msgid "New message to "
+msgstr "Nuevo mensaje para "
+
+msgid "Select an option "
+msgstr "Seleccione una opción "
+
+msgid "Error while getting cities"
+msgstr "Error al obtener las ciudades"
+
+msgid "New message to"
+msgstr "Nuevo mensaje para"
+
+msgid "Contact Support"
+msgstr "Contactar con soporte"
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Company's name cannot be longer than 100 characters"
+msgstr "El nombre de la empresa no puede tener más de 100 caracteres"
+
+msgid "Cannot send e-mail for data change"
+msgstr "No se puede enviar el correo electrónico para el cambio de datos"

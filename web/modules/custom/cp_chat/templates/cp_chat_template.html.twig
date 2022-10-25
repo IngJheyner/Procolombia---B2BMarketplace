@@ -4,12 +4,19 @@
 		<div class="chat-leftsidebar me-lg-1">
 			<div class="tab-content">
 				<div id="pills-chat" class="tab-pane active">
-					<div>
+					<div class="overflow-hidden">
 						<div class="px-4 pt-4">
-							<div class="d-flex align-items-center justify-content-between">
-								<h4 class="mb-3 chat-tittle">Mensajes</h4>
-								<div class="mb-3 more-options">
+							<div class="d-flex align-items-center justify-content-between position-relative">
+								<h4 class="mb-3 chat-tittle">{{ "Messages"|t }}</h4>
+								<div class="mb-3 more-options" id="more-option">
 									<i class='bx bx-dots-horizontal-rounded'></i>
+								</div>
+								<div id="content-more-option" class="w-100 position-absolute start-0 content-option" style="display: none;">
+									<ul>
+										<li>
+											<button id="btn-automatic-message" >Generar mensaje automático</button>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<div class="search-box chat-search-box">
@@ -17,16 +24,16 @@
 									<span class="input-group-text text-muted bg-input-chat pe-1 ps-3" id="basic-addon1">
 										<i class='bx bx-search-alt'></i>
 									</span>
-									<input id="search-message" placeholder="Buscar mensajes" type="text"
+									<input id="search-message" placeholder="{{ "Search messages"|t }}" type="text"
 										class="form-control bg-input-chat" value="" />
 								</div>
 							</div>
 
 							<div class="mb-4 d-flex flex-row justify-content-between">
-								<label id="all" class="tab-chat me-1 w-100 active" for="option1">Todas</label>
-								<label id="unread" class="tab-chat me-1 w-100" for="option2">No leídas</label>
+								<label id="all" class="tab-chat me-1 w-100 active" for="option1">{{ "All messages"|t }}</label>
+								<label id="unread" class="tab-chat me-1 w-100" for="option2">{{ "Unread"|t }}</label>
 								<label id="read" class="tab-chat me-1" for="option3">Leídos</label>
-								<label id="deleted" class="tab-chat ms-1" for="option4">
+								<label id="deleted-label" class="tab-chat ms-1" for="option4">
 									<i class='bx bx-trash'></i>
 								</label>
 							</div>
@@ -73,7 +80,12 @@
 							<div class="col-8 col-sm-8">
 								<div class="d-flex align-items-center">
 									<div class="d-block d-lg-none me-2 ms-0">
-										<a class="user-chat-remove text-muted 6 p-2" href="/dashboard">ggg</a>
+										<a class="user-chat-remove text-muted 6 p-2" id="close-chat-mobile" >
+											<svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewbox="0 0 512 512" data-bs-dismiss="modal">
+												<title>close</title>
+												<path style="fill: #fff;" d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path>
+											</svg>
+										</a>
 									</div>
 									<div class="me-3 ms-0 chat-user-img" id="chat-company-logo"></div>
 
@@ -94,7 +106,7 @@
 												<i class='bx bx-collapse-alt'></i>
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem;top: 80%;left: -124%;padding: 5px;">
-													Minimizar chat
+													{{ "Minimize chat"|t }}
 												</span>
 											</button>
 										</div>
@@ -102,12 +114,11 @@
 									</li>
 									<li class="list-inline-item d-none d-lg-inline-block me-2 ms-0">
 										<div class="toltip_content">
-											<button type="button"
-												class="nav-btn user-profile-show btn btn-none toltip_i">
-												<i class='bx bxs-low-vision'></i>
+											<button id="fix-chat" type="button" class="nav-btn user-profile-show btn btn-none toltip_i">
+												<img id="fix-chat-img" src="" alt="" srcset="">
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%; padding: 5px;">
-													Marcar como no leido
+													{{ "Mark as unread"|t }}
 												</span>
 											</button>
 										</div>
@@ -120,7 +131,7 @@
 												<i class='bx bx-trash'></i>
 												<span class="tooltiptext"
 													style="width: 103px;font-size: 0.8rem; top: 80%;left: -124%;padding: 5px;">
-													Borrar chat
+													{{ "Clear chat"|t }}
 												</span>
 											</button>
 										</div>
@@ -156,7 +167,7 @@
 					</div>
 
 					<div data-simplebar="init" class="chat-conversation p-3 p-lg-4" id="messages"
-						style="min-height: 498px;">
+						style="min-height: 520px;">
 
 						<div href="#" class="lightbox" id="lightbox-cont">
 							<span id="lightbox"></span>
@@ -191,7 +202,7 @@
 
 						<div class="no-gutters row">
 							<div class="col">
-								<div><input id="text-message" placeholder="Enter Message..." type="text"
+								<div><input id="text-message" placeholder="{{ "Enter Message..."|t }}" type="text"
 										class="form-control form-control-lg bg-input-chat border-light text-send text-message"
 										value="" />
 								</div>
@@ -251,7 +262,7 @@
 													<path id="paper-plane-solid" fill="#fff" class="st0"
 														d="M18.4,1.3l-2.3,14.9c-0.1,0.6-0.7,1.1-1.3,1c-0.1,0-0.2,0-0.3-0.1l-4.4-1.8L8.3,18  c-0.1,0.2-0.4,0.4-0.6,0.4c-0.4,0-0.7-0.3-0.7-0.7l0,0v-3.5c0-0.3,0.1-0.5,0.2-0.7l7.8-10L4.4,12.9l-3.7-1.5c-0.4-0.2-0.7-0.6-0.7-1  c0-0.4,0.2-0.9,0.6-1.1l16.1-9.2c0.6-0.3,1.3-0.1,1.6,0.4C18.3,0.8,18.4,1.1,18.4,1.3L18.4,1.3z" />
 												</svg>
-												Enviar
+												{{ "Send"|t }}
 											</button>
 										</li>
 									</ul>
@@ -267,42 +278,78 @@
 		<div class="w-100 empty-msg" id="chat-empty">
 			<img src="http://52.201.168.42/sites/default/files/matchmaking/images/internal/Back.png" alt="" srcset="">
 			<div class="">
-				<div class="desc mt-2">Envía y recibe mensajes</div>
+				<div class="desc mt-2">{{ "Send and receive messages"|t }}</div>
 			</div>
 		</div>
 
 	</div>
-
-	<div class="modal fade" id="modal-delete" tabindex="-1" data-bs-backdrop="static" aria-labelledby="alert_3Label"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
+	<div class="generic-modal modal cancel-confirm-question-modal fade" id="modal-delete">
+		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="alert_3Label"><img
-							src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje_Rojo.svg"
-							alt="" srcset="">
-						Eliminar chat <span id="modal-chat-header-empresa"></span>
-					</h5>
-<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+			<div class="modal-header">
+				<span class="modal-header-title">{{ "Delete chat"|t }}</span>
+				<button class="modal-header-close close" data-bs-dismiss="modal"  aria-label="Close"><span aria-hidden="true">×</span></button>
+			</div>
+			<div class="modal-body">
+				<span class="modal-top-title">{{ "You are about to delete the chat with the company "|t }} <strong class="text-break"
+							id="modal-chat-empresa"></strong>{{ " with the contact "|t }}
+						<strong class="text-break" id="modal-chat-name"></strong>.</span>
+			</div>
+			<div class="modal-footer">
+				<div class="modal-footer-left">
+					{{ "Do you want to continue?"|t }}
 				</div>
-				<div class="modal-body">
-					<p>
-						Esta a punto de eliminar el chat con la empresa <strong class="text-break"
-							id="modal-chat-empresa"></strong> con contacto
-						<strong class="text-break" id="modal-chat-name"></strong>.
-					</p>
+				<div class="modal-footer-right">
+					<a data-bs-dismiss="modal" class="button btn btn-cancel" href="#">{{ "NO"|t }}</a>
+					<a class="button btn btn-ok" id="delete-chat">{{ "YES"|t }}</a>
 				</div>
-				<div class="modal-footer ">
+			</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modal-automatic-message" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alert_1Label"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> Configura mensajes de ausencia</h5>
+				<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512" data-bs-dismiss="modal"><title>ionicons-v5-m</title><path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"></path></svg>
+			</div>
+			<div class="modal-body">
+				<div>
 					<div class="row">
-						<div class="col-6 fs-6">
-							<strong>{{ "Do you want to continue?"|t }}</strong>
+						<div class="col-lg-6">
+							<div class="form-group password">
+								<label for="nit">Fecha de inicio</label>
+								<div class="input-group mb-3">
+									<input type="date" id="start-date" name="trip-start" value="{{start_date}}" min="{{start_date}}">
+								</div>
+							</div>
 						</div>
-						<div class="col-6 btn_options">
-							<button id="delete-chat" class="yes">{{ "YES"|t }}</button>
-							<button data-bs-dismiss="modal" class="no">{{ "NO"|t }}</button>
+						<div class="col-lg-6">
+							<div class="form-group password">
+								<label for="nit">Fecha de finalización</label>
+								<div class="input-group mb-3">
+									<input type="date" id="end-date" name="trip-start" value="{{end_date}}" min="{{start_date}}">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="form-group password">
+								<label for="nit">Enviar Mensaje</label>
+								<div class="input-group mb-3">
+									<textarea id="automatic-message" maxlength="300" rows="7" class="w-100">{{automatic_message}}</textarea>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" id="save-automatic-message" class="btn btn-primary">Save changes</button>
+			</div>
 			</div>
 		</div>
 	</div>

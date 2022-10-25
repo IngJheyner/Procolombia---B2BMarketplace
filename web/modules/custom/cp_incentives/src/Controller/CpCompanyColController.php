@@ -64,17 +64,21 @@ class CpCompanyColController extends ControllerBase {
     // Get all the status registered, to validate where the user is.
     $status = '';
     $query2 = $this->db->select('cp_incentives_status', 'cis');
-    $query2->fields('cis', ['id', 'name', 'image_src']);
+    $query2->fields('cis', ['id', 'name', 'image_src', 'emphasis_main_color', 'emphasis_secondary_color']);
     $query2->condition('cis.min_points', $total_points, '<=');
+    $query2->condition('cis.max_points', $total_points, '>=');
+    $results = $query2->execute()->fetchAssoc();
 
-    $query2->orderBy('cis.id', 'ASC');
-    $results = $query2->execute()->fetchAll();
-
-    $status = $results[count($results) - 1]->name;
+    $status = $results['name'];
+    foreach ($results as $key => $value) {
+      $result[$key] = $value;
+    }
+    $result['image_src'] = file_create_url($result['image_src']);
     return [
       // Return a twig file: p_incentives_company_col_template.html.twig.
       '#theme' => 'cp_incentives_company_col_template_hook',
       '#company_name' => $user_name,
+      '#incentive' => $result,
       '#total_points' => $total_points,
       '#status' => $status,
     ];
@@ -87,9 +91,6 @@ class CpCompanyColController extends ControllerBase {
     $uid = \Drupal::currentUser();
     $user = \Drupal\user\Entity\User::load($uid->id());
 
-    // Get current language.
-    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-
     if ($user->isActive()) {
       try {
         // Get all benefits of the table cp_incentives_benefits.
@@ -97,13 +98,18 @@ class CpCompanyColController extends ControllerBase {
         $query->fields('cirsb', ['id', 'id_status', 'id_benefit', 'state']);
         $query->orderBy('cirsb.id', 'ASC');
         $query->join('cp_incentives_benefits', 'cib', 'cirsb.id_benefit = cib.id');
+        $query->join('cp_incentives_status', 'cis', 'cirsb.id_status = cis.id');
+        $query->isNull('cib.deleted');
 
-        if ($language == 'en') {
-          $query->addField('cib', 'description', 'incentives_description');
-        }
-        else {
-          $query->addField('cib', 'description_spanish', 'incentives_description');
-        }
+        
+        // If route contains /en/ then get spanish benefits. (with php)
+        $current_path = \Drupal::service('path.current')->getPath();
+
+        $query->addField('cib', 'description', 'incentives_description');
+
+        $query->addField('cib', 'description_spanish', 'incentives_description_spanish');
+        $query->addField('cis', 'emphasis_main_color', 'emphasis_main_color');
+        $query->addField('cis', 'emphasis_secondary_color', 'emphasis_secondary_color');
 
         $query->addField('cib', 'state', 'incentives_state');
         $query->orderBy('cirsb.id', 'ASC');
@@ -121,8 +127,11 @@ class CpCompanyColController extends ControllerBase {
             'id_status' => $result->id_status,
             'id_benefit' => $result->id_benefit,
             'state' => $result->state,
-            'incentives_id' => $result->incentives_id,
+            'incentives_id' => $result->id,
             'incentives_description' => $result->incentives_description,
+            'incentives_description_spanish' => $result->incentives_description_spanish,
+            'emphasis_main_color' => $result->emphasis_main_color,
+            'emphasis_secondary_color' => $result->emphasis_secondary_color,
           ];
         }
         return new JsonResponse([
@@ -137,6 +146,13 @@ class CpCompanyColController extends ControllerBase {
           'message' => $e->getMessage(),
         ]);
       }
+    }
+    else{
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => 'User is not active',
+      ]);
     }
   }
 
@@ -156,7 +172,7 @@ class CpCompanyColController extends ControllerBase {
           'name' => $result->name,
           'min_points' => $result->min_points,
           'max_points' => $result->max_points,
-          'image_src' => $result->image_src,
+          'image_src' => file_create_url($result->image_src),
         ];
       }
       return new JsonResponse([
@@ -238,6 +254,48 @@ class CpCompanyColController extends ControllerBase {
       'data' => $code,
       'status' => 'success',
     ]);
+  }
+
+  public function getIncentives() {
+    try {
+      //select cp_incentives_business_rules
+      $query = $this->db->select('cp_incentives_business_rules', 'cibr');
+      $query->fields('cibr', ['id', 'id_incentives_criteria', 'min_measure', 'max_measure', 'given_points']);
+      $query->orderBy('cibr.id', 'ASC');
+      //inner join with cp_incentives_criteria
+      $query->innerJoin('cp_incentives_criteria', 'cic', 'cibr.id_incentives_criteria = cic.id');
+      $query->addField('cic', 'characteristic', 'criteria_characteristic');
+      $query->addField('cic', 'state', 'criteria_state');
+      $query->isNull('cic.deleted');
+      //check if state is active
+      $query->condition('cic.state', 1);
+
+
+      $results = $query->execute()->fetchAll();
+      $data = [];
+      foreach ($results as $result) {
+        $data[] = [
+          'id' => $result->id,
+          'id_incentives_criteria' => $result->id_incentives_criteria,
+          'min_measure' => $result->min_measure,
+          'max_measure' => $result->max_measure,
+          'given_points' => $result->given_points,
+          'criteria_characteristic' => $result->criteria_characteristic,
+          'criteria_state' => $result->criteria_state,
+        ];
+      }
+      return new JsonResponse([
+        'status' => '200',
+        'data' => $data,
+      ]);
+    }
+    catch (\Exception $e) {
+      return new JsonResponse([
+        'data' => [],
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ]);
+    }
   }
 
 }

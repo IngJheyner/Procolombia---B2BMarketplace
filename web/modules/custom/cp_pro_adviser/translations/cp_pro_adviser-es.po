@@ -681,7 +681,7 @@ msgstr "Rechazo Comprador Internacional"
 msgid "Error rejecting user"
 msgstr "Error al rechazar al usuario"
 
-msgid "Error approving user"
+msgid "Error while approving user"
 msgstr "Error al aprobar al usuario"
 
 msgid "Website is not valid"
@@ -799,7 +799,7 @@ msgid "Tags Specialized offer (All languages)"
 msgstr "Tags Oferta especializada (Todos los idiomas)"
 
 msgid "Exporter's performance"
-msgstr "Desempeñp de exportador"
+msgstr "Desempeño de exportador"
 
 msgid "Classification tags private labels and others"
 msgstr "Tags de clasificación marcas blancas y otras"
@@ -836,3 +836,96 @@ msgstr "La URL de empresas con e-commerce crossboarder no es válida"
 
 msgid "See products"
 msgstr "Ver productos"
+
+msgid "Go back"
+msgstr "Volver"
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Unexpected error while obtaining subcategories"
+msgstr "Error inesperado al obtener las subcategorías"
+
+msgid "Error while getting cities list"
+msgstr "Error al obtener la lista de ciudades"
+
+msgid "Error while updating user"
+msgstr "Error al actualizar el usuario"
+
+msgid "Error while obtaining user data"
+msgstr "Error al obtener los datos del usuario"
+
+msgid "Error while send mail to approve user"
+msgstr "Error al enviar el correo para aprobar el usuario"
+
+msgid "Contact last name"
+msgstr "Apellido del contacto"
+
+msgid "has been successfully modified."
+msgstr "ha sido modificado exitosamente."
+
+msgid "You must register the companys trade name, which is the name by which your company is recognized; it may or may not be the same company name."
+msgstr "Debe registrar el nombre comercial de la empresa, el cual es el nombre por el cual su empresa es reconocida; puede o no ser el mismo nombre de registro de la empresa."
+
+msgid "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."
+msgstr "Para garantizar el correcto funcionamiento del sistema, solo se presentarán los primeros 10 productos coincidentes."
+
+msgid "If the product you are looking for is not listed, please enter a word, or the 6-digit tariff code, that defines your product. After the third character you enter, the system will search for the first 10 products that include the characters/word you entered."
+msgstr "Si el producto que busca no se encuentra listado, por favor ingrese una palabra, o el código arancelario de 6 dígitos, que defina su producto. Después del tercer caracter que ingrese, el sistema buscará los primeros 10 productos que incluyan los caracteres/palabra que ingresó."
+
+msgid "In order to ensure the smooth operation of the system, it will only present the first 10 matching products."
+msgstr "Para garantizar el correcto funcionamiento del sistema, solo se presentarán los primeros 10 productos coincidentes."
+
+msgid "Contact Support"
+msgstr "Contactar Soporte"
+
+msgid "Phone line must not be longer than 20 characters"
+msgstr "El teléfono fijo no debe tener más de 20 caracteres"
+
+msgid "Phone line should not have letters"
+msgstr "El teléfono fijo no debe tener letras"
+
+msgid "Cellphone is required"
+msgstr "Se requiere un celular"
+
+msgid "Error while creating user."
+msgstr "Error al crear el usuario."
+
+msgid "Error rejecting user."
+msgstr "Error al rechazar el usuario."
+
+msgid "Error while approving user."
+msgstr "Error al aprobar el usuario."
+
+msgid "Error while getting user information."
+msgstr "Error al obtener la información del usuario."
+
+msgid "Error obtaining subcategories."
+msgstr "Error al obtener las subcategorías."
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Action"
+msgstr "Acción"
+
+msgid "TAX ID number"
+msgstr "Número de identificación tributaria - NIT"
+
+msgid "Productive Chain"
+msgstr "Cadena Productiva"
+
+msgid "View Products and Services"
+msgstr "Ver Productos y Servicios"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "No"
+msgstr "No"
+
+msgid "Views"
+msgstr "Vistas"
+
+msgid "Incentives"
+msgstr "Incentivos"

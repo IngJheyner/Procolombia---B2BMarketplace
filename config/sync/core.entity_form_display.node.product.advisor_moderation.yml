@@ -51,6 +51,7 @@ dependencies:
     - field.field.node.product.field_tag_producto
     - field.field.node.product.field_tariff_heading
     - field.field.node.product.field_trading_channel
+    - image.style.226_x_218
     - image.style.thumbnail
     - node.type.product
   module:
@@ -342,7 +343,7 @@ content:
       delta_limit: '1'
       custom_title: ''
       first_title: ''
-      preview_image_style: thumbnail
+      preview_image_style: 226_x_218
       progress_indicator: throbber
     third_party_settings: {  }
   field_partida_arancelaria_tax:
@@ -367,7 +368,7 @@ content:
     third_party_settings: {  }
   field_pr_image_2:
     type: image_image
-    weight: 4
+    weight: 6
     region: content
     settings:
       progress_indicator: throbber
@@ -383,7 +384,7 @@ content:
     third_party_settings: {  }
   field_pr_image_4:
     type: image_image
-    weight: 5
+    weight: 7
     region: content
     settings:
       progress_indicator: throbber
@@ -454,7 +455,7 @@ content:
     third_party_settings: {  }
   field_pr_video_description_2:
     type: string_textfield
-    weight: 38
+    weight: 39
     region: content
     settings:
       size: 60

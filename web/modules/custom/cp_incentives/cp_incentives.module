@@ -41,6 +41,7 @@ function cp_incentives_theme($existing, $type, $theme, $path)
           'company_name' => null,
           'total_points' => null,
           'status' => null,
+          'incentive'=> null,
         ],
         // Optionally define path to Twig template files.
         // Defaults to the module's ./templates/ directory.

@@ -3,6 +3,8 @@
   let page = 1;
   let limit = 10;
   let query = '';
+  let showModal = true;
+
   const init = () => {
     const swiper = new Swiper('.swiper', {
       // Optional parameters
@@ -44,7 +46,7 @@
       renderNotFound(words, userId);
     } else {
       renderCategories(data.categorias);
-      $('#category-length').text(data.categorias.length + " categorías");
+      $('#category-length').text(data.categorias.length + Drupal.t(" categories"));
       getProducts(data.ids_productos, data.ids_empresas);
     } */
 
@@ -60,15 +62,29 @@
           renderNotFound(words, userId);
         } else {
           renderCategories(data.categorias);
-          $('#category-length').text(data.categorias.length + " categorías");
+          $('#category-length').text(data.categorias.length + Drupal.t(" categories"));
+          $('#category-length-2').text(data.categorias.length + Drupal.t(" categories"));
           getProducts(data.ids_productos, data.ids_empresas);
         }
       })
-      .catch(error => {
+      .catch(function (error) {
         $('#loader-product').css('display', 'none');
         $('#content-products').show();
         renderNotFound(words, userId);
         console.error(error);
+
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting products, please try again later."));
       });
 
   };
@@ -97,8 +113,19 @@
         let totalPages = Math.ceil(ids.length / limit);
         renderPages(totalPages);
       })
-      .catch(error => {
-        console.error(error);
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting products, please try again later."));
       });
   };
 
@@ -112,7 +139,7 @@
     const origin = urlParams.get('origin');
     let url = `/search/products?words=${words}&userId=${userId}&origin=${origin}`;
     if (page !== 1) {
-      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) - 1}">Anterior</a></li>`;
+      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) - 1}">${Drupal.t("Previous")}</a></li>`;
     }
     if (totalPages <= 4) {
       for (let i = 1; i <= totalPages; i++) {
@@ -147,7 +174,7 @@
       }
     }
     if (page !== totalPages) {
-      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) + 1}">Siguiente</a></li>`;
+      html += `<li class="page-item"><a class="page-link" href="${url}&page=${parseInt(page) + 1}">${Drupal.t("Next")}</a></li>`;
     }
     $('#pagination').html(html);
   };
@@ -158,7 +185,7 @@
     console.log(data);
     data.forEach(element => {
       html += `
-      <div class="card-search bg-white p-3">
+      <div onclick="goToDetail(${element.nid})" class="card-search bg-white p-3" style="cursor:pointer">
         <div class="row">
           <div class="col-lg-3">
             <img class="w-100" src="${element.image}">
@@ -168,8 +195,8 @@
           <p class="desc" style="display: -webkit-box; max-width: 100%;-webkit-line-clamp: 3;-webkit-box-orient: vertical; overflow: hidden;">
             ${element.description}
           </p>
-          <p class="cat">Empresa: <strong>${element.company}</strong></p>
-          <p class="cat">Categoria: <strong>${element.category}</strong></p>
+          <p class="cat">${Drupal.t("Company: ")}<strong>${element.company}</strong></p>
+          <p class="cat">${Drupal.t("Category: ")}<strong>${element.category}</strong></p>
         </div>
       </div>
     </div>
@@ -185,8 +212,8 @@
     html += `
     <li>
       <div class="form-inline d-flex align-items-center py-1">
-          <label class="tick">Todas las categorias
-              <input type="checkbox" value="Todas">
+          <label class="tick">${Drupal.t("All categories")}
+              <input type="checkbox" value=${Drupal.t("All")}>
               <span class="check"></span>
           </label>
       </div>
@@ -208,7 +235,7 @@
     } else {
       html = `<li>
                   <div class="form-inline d-flex align-items-center py-1">
-                      <label class="tick">No hay categorias
+                      <label class="tick">${Drupal.t("No categories")}
                           <input type="checkbox">
                           <span class="check"></span>
                       </label>
@@ -216,9 +243,21 @@
               </li>`
     }
     $('#list-cat-search').html(html);
+    $('#list-cat-search-2').html(html);
+
+    //show modal if not show
+    const urlParams = new URLSearchParams(window.location.search);
+    let temp_page = urlParams.get('page') ? urlParams.get('page') : 1;
+    if (showModal && temp_page == 1) {
+      console.log("show modal");
+      showModal = false;
+      $('#category-modal').modal('show');
+    } else {
+      console.log("hide modal");
+      $('#category-modal').modal('hide')
+    }
     //$('#list-search-suggest').html(html);
   };
-
   const renderNotFound = (words, userId) => {
     //render not found
     console.log("renderNotFound");
@@ -250,8 +289,20 @@
       .then(data => {
         console.log(data);
       })
-      .catch(error => {
-        alert(error);
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while save log"));
+
       });
   };
 
@@ -273,6 +324,7 @@
         if (words && userId && origin) {
           $('#words-title').text(words);
           $('#words-filter').text('"' + words + '"');
+          $('#words-filter-2').text('"' + words + '"');
           getResults(words, userId, origin, lang);
         }
       }
@@ -294,22 +346,22 @@
         });
 
         checked.each(function (index, element) {
-          if ($(element).val() == "Todas") {
+          if ($(element).val() == Drupal.t("All")) {
             console.log(text);
             console.log(query)
           }
-          if ($(element).val() === "Todas" && text.includes("Todas") && query !== "" && query !== "?categories=Todas") {
+          if ($(element).val() === Drupal.t("All") && text.includes(Drupal.t("All")) && query !== "" && query !== "?categories=Todas") {
             checked.each(function (index, element) {
               $(element).prop('checked', false);
             });
-            //check "Todas" input
+            //check Drupal.t("All") input
             $(element).prop('checked', true);
             todas = true;
           } else {
-            if ($(element).val() === "Todas" && text !== "Todas-") {
+            if ($(element).val() === Drupal.t("All") && text !== Drupal.t("All-")) {
               $(element).prop('checked', false);
-              //delete "Todas" from text
-              text = text.replace("Todas-", "");
+              //delete Drupal.t("All") from text
+              text = text.replace(Drupal.t("All-"), "");
             }
           }
         });
@@ -342,6 +394,72 @@
         //get results with query
         getResults(words, userId, origin, lang);
       });
+
+      //get label text of checked values in list-cat-search
+      $('#list-cat-search-2', context).on('click', 'li', function () {
+        //get input checked inside list-cat-search
+        let todas = false;
+        let checked = $('#list-cat-search-2 input:checked');
+        let text = '';
+        //get label text of checked values
+        checked.each(function (index, element) {
+          text += $(element).val() + '-';
+        });
+
+        checked.each(function (index, element) {
+          if ($(element).val() == Drupal.t("All")) {
+            console.log(text);
+            console.log(query)
+          }
+          if ($(element).val() === Drupal.t("All") && text.includes(Drupal.t("All")) && query !== "" && query !== `?categories=${Drupal.t("All")}`) {
+            checked.each(function (index, element) {
+              $(element).prop('checked', false);
+            });
+            //check Drupal.t("All") input
+            $(element).prop('checked', true);
+            todas = true;
+          } else {
+            if ($(element).val() === Drupal.t("All") && text !== Drupal.t("All-")) {
+              $(element).prop('checked', false);
+              //delete Drupal.t("All") from text
+              text = text.replace(Drupal.t("All-"), "");
+            }
+          }
+        });
+
+        if (todas) {
+          text = ""
+        } else {
+          //remove last comma
+          todas = false;
+          text = text.slice(0, -1);
+          text = "?categories=" + text;
+        }
+        //show text in words-filter
+        console.log("ERROR");
+        query = text;
+        console.log("query", query);
+      });
+
+      //filter by category
+      $('#filter-cat-2').click(function () {
+        console.log("filter-cat-2");
+        console.log(query);
+        //get language of url
+        const lang = window.location.pathname.split('/')[1];
+        //get words, userId and origin from url query params
+        const urlParams = new URLSearchParams(window.location.search);
+        const words = urlParams.get('words');
+        const userId = urlParams.get('userId');
+        const origin = urlParams.get('origin');
+        //get results with query
+        getResults(words, userId, origin, lang);
+      });
+
+      //redirect to blank page
+      window.goToDetail = (id) => {
+        window.location.href = '/search/product-preview/' + id;
+      }
     }
   };
 })(jQuery, Drupal);

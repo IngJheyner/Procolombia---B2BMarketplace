@@ -228,7 +228,7 @@
 		<div class="col-lg-8 p-2 position-relative">
 			<form class="position-relative">
 				<div class="d-flex justify-content-center align-items-center">
-					<input type="text" class="search-input search" placeholder="Escribe algo en específico para realizar una búsqueda" name="search-input" id="search-input" autocomplete="off">
+					<input type="text" class="search-input search" maxlength="300" placeholder="{{ "Type something specific to perform a search"|t }}"  name="search-input" id="search-input" autocomplete="off">
 					<input type="text" name="uid-input" hidden disabled style="user-select: none;z-index: -20;" id="uid-input" value="{{uid}}">
 					<input type="text" name="country-input" hidden disabled style="user-select: none;z-index: -20;" id="country-input" value="{{country}}">
 					<div id="search-button" class="search-icon">
@@ -554,8 +554,8 @@
 
 			<li class="position-relative">
 				<a class="li_icon_url" href="/messages">
-					<span class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
-						+30
+					<span id="count-message-mobile" class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
+						
 						<span class="visually-hidden">{{ "Unread messages"|t }}</span>
 					</span>
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.422" height="20.22" viewbox="0 0 24.422 20.22">

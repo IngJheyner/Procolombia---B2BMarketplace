@@ -106,7 +106,7 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
-          default_action: 'access denied'
+          default_action: 'not found'
           exception:
             value: all
             title_enable: false
@@ -182,7 +182,14 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       style:
-        type: default
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: 'entity:node'
         options:

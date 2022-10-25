@@ -1,0 +1,223 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2022-10-03 20:44+0000\n"
+"PO-Revision-Date: 2022-10-03 15:58-0500\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+msgid "Messages"
+msgstr "Mensajes"
+
+msgid "All messages"
+msgstr "Todos"
+
+msgid "Search messages"
+msgstr "Buscar mensajes"
+
+msgid "Unread"
+msgstr "No leídos"
+
+msgid "Read"
+msgstr "Leídos"
+
+msgid "Do you want to continue?"
+msgstr "¿Desea continuar?"
+
+msgid "YES"
+msgstr "SÍ"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "Enter Message..."
+msgstr "Escriba un mensaje..."
+
+msgid "Clear chat"
+msgstr "Limpiar chat"
+
+msgid "Delete chat"
+msgstr "Eliminar chat"
+
+msgid "Minimize chat"
+msgstr "Minimizar chat"
+
+msgid "Maximize chat"
+msgstr "Maximizar chat"
+
+msgid "Mark as unread"
+msgstr "Marcar como no leido"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Send and receive messages"
+msgstr "Envía y recibe mensajes"
+
+msgid "You are about to delete the chat with the company "
+msgstr "Está a punto de eliminar el chat con la empresa "
+
+msgid " with the contact "
+msgstr " con el contacto "
+
+msgid "Leave"
+msgstr "Salir"
+
+msgid "Concact name:"
+msgstr "Nombre del contacto:"
+
+msgid "Contact with the company"
+msgstr "Contacto con la empresa"
+
+msgid "New Message"
+msgstr "Nuevo mensaje"
+
+msgid "New Messages"
+msgstr "Nuevos mensajes"
+
+msgid "Typing"
+msgstr "Escribiendo"
+
+msgid "Today"
+msgstr "Hoy"
+
+msgid "RECOMMENDATIONS"
+msgstr "RECOMENDACIONES"
+
+msgid "SUGGESTIONS"
+msgstr "SUGERENCIAS"
+
+msgid "Type something specific to perform a search"
+msgstr "Escribe algo en específico para realizar una búsqueda"
+
+msgid "Hello, "
+msgstr "Hola, "
+
+msgid "ProColombia Advisor Profile"
+msgstr "Perfil Asesor ProColombia"
+
+msgid "View - International Buyer"
+msgstr "Ver - Comprador Internacional"
+
+msgid "Offer For"
+msgstr "Oferta para"
+
+msgid "Search history"
+msgstr "Historial de búsquedas"
+
+msgid "Notifications"
+msgstr "Notificaciones"
+
+msgid "Manage Surveys"
+msgstr "Gestionar encuestas"
+
+msgid "Mass communications"
+msgstr "Comunicaciones masivas"
+
+msgid "New Chat"
+msgstr "Nuevo Chat"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "No suggestions"
+msgstr "No hay sugerencias"
+
+msgid "Error while opening chat, please try again later or contact support."
+msgstr "Error al abrir el chat, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
+
+msgid "Error while deleting chat, please try again later or contact support."
+msgstr "Error al eliminar el chat, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
+
+msgid "Error while getting suggestions, please try again later or contact support."
+msgstr "Error al obtener sugerencias, por favor, inténtelo de nuevo más tarde o póngase en contacto con el soporte."
+
+msgid "Unexpected error"
+msgstr "Error inesperado"
+
+msgid "Contact Support"
+msgstr "Contactar soporte"
+
+msgid "Unread messages"
+msgstr "Mensajes no leídos"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Dashboard"
+msgstr "Tablero"
+
+msgid "Offer for"
+msgstr "Oferta para"
+
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+msgid "View - Colombian Company"
+msgstr "Ver - Empresa Colombiana"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "Promotional activities"
+msgstr "Actividades promocionales"
+
+msgid "Mass communication"
+msgstr "Comunicación masiva"
+
+msgid "LOG OUT"
+msgstr "CERRAR SESIÓN"
+
+msgid "Products and Services"
+msgstr "Productos y Servicios"
+
+msgid "Alarms"
+msgstr "Alarmas"
+
+msgid "Profile update"
+msgstr "Actualización de perfil"
+
+msgid "Data update:"
+msgstr "Actualización de datos:"
+
+msgid "Since the update of your data took place on"
+msgstr "Desde que se realizó la actualización de sus datos el"
+
+msgid "You must update your Profile information."
+msgstr "Debe actualizar la información de su perfil."
+
+msgid " Search"
+msgstr " Buscar"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Help "
+msgstr "Ayuda "
+
+msgid "View general User Profile"
+msgstr "Ver perfil de usuario general"
+
+msgid "Companies with interaction"
+msgstr "Empresas con interacción"
+
+msgid "Recommendations or suggestions"
+msgstr "Recomendaciones o sugerencias"
+
+msgid "Your favorite products or services"
+msgstr "Tus productos o servicios favoritos"
+
+msgid "Terms of access"
+msgstr "Condiciones de acceso"
+
+msgid "General User Profile"
+msgstr "Perfil General de Usuario"
+
+msgid "Recommendations or suggestions"
+msgstr "Recomendaciones o sugerencias"

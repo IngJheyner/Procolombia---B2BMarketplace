@@ -1,6 +1,6 @@
 ### TEMPLATE - DASHBOARD OF INCENTIVES FOR ADMINISTRATOR.
 cp_incentives.dashboard:
-  path: 'adviser/incentives/dashboard'
+  path: 'dashboard/incentives/admin'
   defaults:
     _title: 'Incentives'
     _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::index'
@@ -9,7 +9,7 @@ cp_incentives.dashboard:
 
 ### TEMPLATE - LIST OF ALL INCENTIVES - STATUS AND THEIR RELATIONSHIP.
 cp_incentives.incentives:
-  path: 'adviser/incentives/list'
+  path: 'dashboard/incentives/list'
   defaults:
     _title: 'Incentives list'
     _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::list'
@@ -30,6 +30,15 @@ cp_incentives.get_incentives:
   path: 'incentives/get_incentives'
   defaults:
     _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::getIncentives'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+### GET INCENTIVES - FOR USERS
+cp_incentives.get_incentives_user:
+  path: 'user/incentives/get_incentives'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpCompanyColController::getIncentives'
   methods:  [POST]
   requirements:
     _permission: 'access content'
@@ -138,6 +147,14 @@ cp_incentives.update_business_rules_type1:
   path: 'adviser/incentives/update'
   defaults:
     _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateIncentive'
+  methods:  [POST]
+  requirements:
+    _permission: 'access content'
+
+cp_incentives.update_status_incentives:
+  path: 'adviser/incentives/update/status'
+  defaults:
+    _controller: '\Drupal\cp_incentives\Controller\CpAdviserController::updateIncentiveStatus'
   methods:  [POST]
   requirements:
     _permission: 'access content'

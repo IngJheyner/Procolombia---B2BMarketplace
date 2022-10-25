@@ -60,7 +60,20 @@
         socket.emit('createChatList', { user_id: id_me });
         renderChatList(chatList);
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error){
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while opening chat, please try again later or contact support."));
+      });
   }
 
   //check with moment is date is today show time
@@ -82,9 +95,9 @@
     console.log("renderChatList")
     chatList.forEach((chat) => {
       html += `
-      <li id="conversation0" class="">
+      <li id="conversation0" class="${(chat.count_checked > 0 || chat.fixed === "1") && 'active'}">
         <div class="d-flex" id="chat">
-          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="chat-user-img online align-self-center me-3 ms-0" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
           ${chat.company_logo ? `
             <img
               src="${chat.company_logo}"
@@ -92,26 +105,26 @@
               `
           :
           `<div class="avatar-sm">
-              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name.charAt(0)}</span>
+              <span class="avatar-title rounded-circle bg-soft-primary text-white">${chat.company_name ? chat.company_name.charAt(0) : "Null"}</span>
             </div>`
         }
           </div>
-          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me} )">
+          <div class="flex-grow-1 overflow-hidden text-msg" onclick="getChatMessagesSideBar(${chat.id}, ${chat.id_other_user}, '${chat.first_name + " " + chat.last_name}' ,'${chat.description}', '${chat.company_name}', ${chat?.company_logo ? "'" + chat?.company_logo + "'" : 'null'}, ${chat.id_me}, ${chat.fixed} )">
             <h5 class="text-truncate mb-1">${chat.company_name}</h5>
-            <span class="chat-user-name text-truncate mb-0"><strong>Nombre del contacto:</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
-            <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : 'Nuevo Chat'}</p>
-            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
+            <span class="chat-user-name text-truncate mb-0"><strong>${Drupal.t("Concact name:")}</strong><p class="name"> ${chat.first_name + " " + chat.last_name}</p></span>
+            <p class="chat-user-message text-truncate mb-0" id="last_message_chat_list-${id_other_user}">${chat.last_message.length > 0 ? chat.last_message[0].message : `${Drupal.t("New Chat")}`}</p>
+            <p class="chat-user-message text-truncate mb-0 list-tipyn" style="display:none" id="typingChat-${id_other_user}">${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span></p>
           </div>
           <div class="time text-truncate"><span> ${showDateOrTime(chat.updated)}</span></div>
            <div class="mt-2 unread-message" style="background-color: trasnparent;border-radius:100px;display: flex;align-items: center;" id="unRead1">
-           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 6px 7px;line-height: inherit !important;display: ${chat.count_checked > 0 ? "flex" : "none"};align-items: center;">${chat.count_checked}</span>
+           <span class="badge text-white bg-danger rounded-pill" style="font-size: 11px;padding: 3px 7px;line-height: inherit !important;display: ${(chat.count_checked > 0 || chat.fixed === "1") ? "flex" : "none"};align-items: center;">${chat.count_checked > 99 ? "+99" : chat.count_checked !== "0" ? chat.count_checked : "&nbsp;&nbsp;"}</span>
            <span class="badge text-muted rounded-pill" style="font-size: 1.3rem;padding:4px;">
               <div class="align-self-start dropdown show">
                   <a onclick="showDropdownListSideBar(${chat.id})" aria-haspopup="true" class="dropdown-list" aria-expanded="true">
                   <i class="bx bx-dots-horizontal-rounded"></i>
                   </a>
                   <div tabindex="-1" id="dropdown-list-${chat.id}" role="menu" aria-hidden="false" class="dropdown-menu" style="position: absolute;will-change: transform;top: 16px;min-width: 28px;left: -70px;" x-placement="top-start">
-                    <button onclick="deleteChatSideBar(${chat.id}, '${chat.first_name + " " + chat.last_name}', '${chat.company_name}')"  type="button" tabindex="0" role="menuitem" class="dropdown-item">Eliminar <i class='bx bx-trash'></i></button>
+                    <button onclick="deleteChatSideBar(${chat.id}, '${chat.first_name + " " + chat.last_name}', '${chat.company_name}')"  type="button" tabindex="0" role="menuitem" class="dropdown-item">${Drupal.t("Delete")}<i class='bx bx-trash'></i></button>
                   </div>
               </div>
             </span>
@@ -124,13 +137,20 @@
     });
 
     if (countNewMessages > 0) {
+      if(countNewMessages > 99){
+        countNewMessages = "+99";
+      }
       $('#count-message').text(countNewMessages);
       $('#count-message').show(countNewMessages);
+      $('#count-message-mobile').text(countNewMessages);
+      $('#count-message-mobile').show(countNewMessages);
     } else {
       $('#count-message').hide(countNewMessages);
+      $('#count-message-mobile').hide(countNewMessages);
     }
     $('#chat-list-sidebar').html(html);
   }
+
 
   const deleteChatApi = (chat_id) => {
     //form data
@@ -152,11 +172,33 @@
           //fetch chat
           getListOfChats(0, 15);
         } else {
-          alert(data.message);
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting chat, please try again later or contact support."));
         }
       })
-      .catch(error => {
-        alert(error);
+      .catch(function (error){
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting chat, please try again later or contact support."));
       });
   }
 
@@ -173,29 +215,33 @@
         socket = io('ws://44.210.73.93:5055');
       }
 
-      //receive refreshChatList
-      socket.on('refreshChatList', function (data) {
-        let msg = data.message[0];
-        if (msg.entity_id_sender != id_me) {
-          console.log("refreshChatList");
+      if (socket) {
+        //receive refreshChatList
+        socket.on('refreshChatList', function (data) {
+          let msg = data.message[0];
+          if (msg.entity_id_sender != id_me) {
+            console.log("refreshChatList");
+            console.log(data);
+            getListOfChats(0, 15);
+          }
+        });
+      }
+      
+      if (socket) {
+        //receive typingChat
+        socket.on('typingChat', function (data) {
+          console.log("typing socket chat");
           console.log(data);
-          getListOfChats(0, 15);
-        }
-      });
-
-      //receive typingChat
-      socket.on('typingChat', function (data) {
-        console.log("typing socket chat");
-        console.log(data);
-        if (data.typing == true) {
-          console.log(`#last_message_chat_list_side_bar-${data.user_id}`);
-          $(`#typingChatSideBar-${data.user_id}`).show();
-          $(`#last_message_chat_list_side_bar-${data.user_id}`).hide();
-        } else {
-          $(`#typingChatSideBar-${data.user_id}`).hide();
-          $(`#last_message_chat_list_side_bar-${data.user_id}`).show();
-        }
-      });
+          if (data.typing == true) {
+            console.log(`#last_message_chat_list_side_bar-${data.user_id}`);
+            $(`#typingChatSideBar-${data.user_id}`).show();
+            $(`#last_message_chat_list_side_bar-${data.user_id}`).hide();
+          } else {
+            $(`#typingChatSideBar-${data.user_id}`).hide();
+            $(`#last_message_chat_list_side_bar-${data.user_id}`).show();
+          }
+        });
+      }
 
       //function to call getListOfChats
       window.callGetListOfChats = function (offset, limit) {
@@ -249,7 +295,7 @@
         $('#read_side_bar').removeClass('active');
         $('#delete_side_bar').addClass('active');
       });
-      
+
       //check if length of search-message is bigger than 3 and delay 300ms
       $('#search-message_side_bar', context).on('input', function () {
         if (this.value.length >= 3) {

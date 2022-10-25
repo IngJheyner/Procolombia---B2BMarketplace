@@ -215,7 +215,7 @@ msgstr "Volver al proceso"
 msgid "Edit"
 msgstr "Editar"
 
-#: cp_core.module:1171
+#: cp_core.module:1174
 msgid "Generate contact"
 msgstr "Generar contacto"
 

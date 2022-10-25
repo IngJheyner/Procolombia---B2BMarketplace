@@ -6,18 +6,14 @@
       </a>
    </div>
    <div class="icon_secction col-lg-4">
-      <div class="icono toltip_i">
+      <a href="/dashboard/col/user/incentives" class="icono toltip_i">
          <span id="menu_status" class="tooltiptext_menu">
-            <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
-               <linearGradient id="gradient">
-                  <stop class="main-stop" offset="0%"/>
-                  <stop class="alt-stop" offset="100%"/>
-               </linearGradient>
-               <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient)"/>
-            </svg>
+            <div class="status_image_tooltip">
+               <img src="{{status_incentive.image_src}}" alt="">
+            </div>
             {{ "Status"|t }}
-            <strong id="Estado">
-            GOLD</strong>
+            <strong id="Estado" class="text-truncate w-50" style="text-align: start;"> 
+            {{status_incentive.name}}</strong>
          </span>
          <div class="img_icon py-1">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="28.005" viewbox="0 0 28 28.005">
@@ -42,7 +38,7 @@
          <div class="titlle">
             {{ "Status"|t }}
          </div>
-      </div>
+      </a>
       <div class="icono" id="right_bar">
          <div class="img_icon py-1">
             <svg style="transform: rotateY(180deg);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Grupo_1384" data-name="Grupo 1384" width="25.267" height="26.952" viewbox="0 0 25.267 26.952">
@@ -190,18 +186,16 @@
                   </div>
                   <div class="col-10">
                      <p class="name">{{ business_name }}</p>
-                     <p class="status">
-                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
-                           <linearGradient id="gradient">
-                              <stop class="main-stop" offset="0%"/>
-                              <stop class="alt-stop" offset="100%"/>
-                           </linearGradient>
-                           <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient)"/>
-                        </svg>
+                     <div class="status">
+                        <div class="status_image_menu">
+                           <img src="{{status_incentive.image_src}}" alt="">
+                        </div>
+                        <div>
                         {{ "Status"|t }}
-                        Gold +85
+                        {{status_incentive.name}} +{{ total_points }}
                         {{ "points"|t }}
-                     </p>
+                        </div>
+                     </div>
                      <button id="edit_company_col" class="small_editar">{{ "Edit profile"|t }}</button>
                   </div>
                </div>
@@ -299,8 +293,8 @@
 		<div class="col-lg-8 p-2 position-relative">
 			<form class="position-relative">
 				<div class="d-flex justify-content-center align-items-center">
-					<input type="text" class="search-input search"
-						placeholder="Escribe algo en específico para realizar una búsqueda" name="search-input"
+					<input type="text" class="search-input search" maxlength="300"
+						placeholder={{ "Type something specific to perform a search"|t }} name="search-input"
 						id="search-input" autocomplete="off">
 					<input type="text" name="uid-input" hidden disabled style="user-select: none;z-index: -20;"
 						id="uid-input" value="{{uid}}">
@@ -336,7 +330,7 @@
 				<div id="search-recommendations"
 					class="mt-2 p-2 position-absolute search-cont start-0 top-100 w-100 py-4 px-3"
 					style="display: none;">
-					<p class="tittle">RECOMENDACIONES</p>
+					<p class="tittle">{{ "RECOMMENDATIONS"|t }}</p>
 					<div class="d-flex justify-content-between align-items-end">
 						<div class="row">
 							<div class="col-lg-12 p-0 pt-2">
@@ -402,7 +396,7 @@
 				<div id="search-suggestions"
 					class="mt-2 p-2 position-absolute search-cont start-0 top-100 w-100 py-4 px-3"
 					style="display: none;">
-					<p class="tittle">SUGERENCIAS</p>
+					<p class="tittle">{{ "SUGGESTIONS"|t }}</p>
 					<div class="d-flex justify-content-between align-items-end">
 						<div class="row">
 							<div class="col-lg-12 p-0 pt-2" id="list-search-suggest">
@@ -588,12 +582,12 @@
                   </div>
                </div>
                <div class="col-8">
-                  <p class="name">Hola,
+                  <p class="name">{{ "Hello, "|t }}
                      <strong>{{ business_name }}</strong>
                   </p>
                   <p class="status">
                      <span>{{ "Status"|t }}
-                     Gold +85
+                     {{status_incentive.name}} +{{total_points}}
                      {{ "points"|t }}</span>
                   </p>
                </div>
@@ -657,14 +651,10 @@
          </li>
          <li>
             <a class="li_icon_url" href="">
-               <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
-                  <linearGradient id="gradient_mobile">
-                     <stop class="main-stop" offset="0%"/>
-                     <stop class="alt-stop" offset="100%"/>
-                  </linearGradient>
-                  <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient_mobile)"/>
-               </svg>
-               <span>{{ "Status"|t }} Gold</span>
+               <div class="status_image_mobile">
+                  <img src="{{status_incentive.image_src}}" alt="">
+               </div>
+               <span>{{ "Status"|t }} {{status_incentive.name}}</span>
             </a>
          </li>
          <li class="border-0">
@@ -681,8 +671,7 @@
          </li>
          <li class="position-relative">
             <a class="li_icon_url" href="#">
-               <span class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
-               +30
+               <span id="count-message-mobile" class="position-absolute top-1 translate-middle badge rounded-pill bg-danger" style="left:34px">
                <span class="visually-hidden">{{ "Unread messages"|t }}</span>
                </span>
                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.422" height="20.22" viewbox="0 0 24.422 20.22">

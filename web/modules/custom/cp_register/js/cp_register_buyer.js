@@ -175,8 +175,20 @@
         if (value !== "")
           select_subcategories1.setValue(value);
       })
-      .catch((error) => {
-        alert(error);
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t("Unexpected error"));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while obtaining subcategories"));
+
       })
   }
 
@@ -209,8 +221,19 @@
         if (value !== "")
           select_subcategories2.setValue(value);
       })
-      .catch((error) => {
-        alert(error);
+      .catch(function(error){
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t("Unexpected error"));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while obtaining subcategories"));
       })
   }
 
@@ -243,8 +266,19 @@
         if (value !== "")
           select_subcategories3.setValue(value);
       })
-      .catch((error) => {
-        alert(error);
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t("Unexpected error"));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while obtaining subcategories"));
       })
   }
 
@@ -308,12 +342,12 @@
     if (advisor == "") {
       message = Drupal.t("Select the ProColombia advisor with whom your company has a defined work plan.");
       $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ba0c2f");
-      $("#error_principal_advisor-ts-control_message").text(message)
-      $("#error_principal_advisor-ts-control").show();
+      $("#error_principal_advisor_message").text(message)
+      $("#error_principal_advisor").show();
       isValid = false;
     } else {
       $("#principal_advisor_contain").find("div.ts-control").css("border-color", "#ccc");
-      $("#error_principal_advisor-ts-control").hide();
+      $("#error_principal_advisor").hide();
     }
 
     return isValid;
@@ -354,13 +388,35 @@
             $("#validate_progresss").css("width", "33%");
             $("#step_2").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t("Unexpected error"));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while creating user in step 2: Profile Settings."));
           }
         })
         .catch(function (error) {
           $("#loading_international_2").hide();
           $("#save_buyer_1").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t("Unexpected error"));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while creating user in step 2: Profile Settings."));
         });
     }
   }
@@ -448,13 +504,35 @@
             $("#validate_progresss").css("width", "53%");
             $("#step_3").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t("Unexpected error"));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while creating user in step 3: Products of interest #1."));
           }
         })
         .catch(function (error) {
           $("#loading_international_3").hide();
           $("#save_buyer_2").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t("Unexpected error"));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while creating user in step 3: Products of interest #1."));
         });
     }
   }
@@ -543,13 +621,35 @@
             $("#validate_progresss").css("width", "73%");
             $("#step_4").removeClass("show active");
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t("Unexpected error"));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while creating user in step 4: Products of interest #2."));
           }
         })
         .catch(function (error) {
           $("#loading_international_4").hide();
           $("#save_buyer_3").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t("Unexpected error"));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while creating user in step 4: Products of interest #2."));
         });
     }
   }
@@ -636,20 +736,53 @@
                 body: formData,
               }
             ).catch(function (error) {
-              alert(error);
+              // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t("Unexpected error"));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while creating user in step 5: Products of interest #3."));
             });
             $("#success_modal_international").modal("show");
             //set name of company empresa_popup
             $("#empresa_popup").text(localStorage.getItem("company_name"));
             localStorage.clear();
           } else {
-            alert(Drupal.t("Error while creating user. ") + error);
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t("Unexpected error"));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while creating user in step 5: Products of interest #3."));
           }
         })
         .catch(function (error) {
           $("#loading_international_5").hide();
           $("#save_buyer_4").show();
-          alert(Drupal.t("Error while creating user. ") + error);
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t("Unexpected error"));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while creating user in step 5: Products of interest #3."));
         });
     }
   }
@@ -679,10 +812,34 @@
           fillFormWithDataUserInternational(data.data);
           //show tab base in step
           showTabBaseInternational(data.data.step);
+        } else {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t("Unexpected error"));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while getting user data."));
         }
       })
       .catch(function (error) {
-        alert(error);
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t("Unexpected error"));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while getting user data."));
       });
   }
 
@@ -729,13 +886,35 @@
           localStorage.clear();
           window.location.href = "/pre-registro";
         } else {
-          alert(Drupal.t("Error when deleting user"));
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t("Unexpected error"));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting user."));
         }
       })
       .catch(function (error) {
         $("#loading_3").hide();
         $("#save_3").show();
-        alert(Drupal.t("Error when deleting user"));
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t("Unexpected error"));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting user."));
       });
   }
 

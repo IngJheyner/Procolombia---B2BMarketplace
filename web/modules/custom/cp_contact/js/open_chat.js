@@ -6,6 +6,7 @@
     const createOrOpenChat = () => {
       //check if id_exportador is set
       let id_exportador = $('#id_exportador').val()
+      
       if (id_exportador) {
         let formData = new FormData();
         formData.append('entity_id_exportador', id_exportador);
@@ -29,8 +30,20 @@
                 getChatMessagesSideBar(values.id, values.id_other_user, values.first_name + " " + values.last_name, values.description, values.company_name, values.company_logo, values.id_me);
               }
             }
-          }).catch(error => {
-            console.log(error);
+          }).catch(function (error) {
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Cannot open or create new chat. Please try again later or contact support."));
+
           });
       }
     }

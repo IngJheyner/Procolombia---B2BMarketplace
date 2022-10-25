@@ -1,116 +1,21 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
-<section class="list-incentive">
-    <p>
-        {{ 'Testing translations 1'|t }}
-    </p>
-    <button id='update-all-status'>
-        UPDATEAR LOS STATUS
-    </button>
-    <div id="list-of-status" class='mainCpIncentivesAdviser'>
-        
-    </div>
-    
-    <div id="list-of-incentives" class='mainCpIncentivesAdviser'>
-        
-    </div>
-    
-    <button id="create-benefit">
-        CREATE BENEFIT
-    </button>
-    
-    <div id="benefit-modal" style="display:none; background-color:yellow;">
-        <p>
-        </p>
-        <label>Benefit description</label>
-        <input id='benefit-description'/>
-        <label>Benefit description in spanish</label>
-        <input id='benefit-description-spanish'/>
-    
-        <button id="save-benefit">
-            SAVE BENEFIT
-        </button>
-    
-    </div>
-    
-    <button id="create-status">
-        CREATE STATUS
-    </button>
-    
-    <button id="update-all-rel-status-benefits">
-        GUARDAR EDICIÓN
-    </button>
-    
-    <div id="form-incentive-status-rel">
-    </div>
-    
-    <div id="status-modal" style="display:none; background-color:pink;">
-        <label>Status name</label>
-        <input id='status-name'/>
-            </br>
-        <label>Status minimum points</label>
-        <input type="number" id='status-min-points'/>
-            </br>
-        <label>Status maximum points</label>
-        <input type="number" id='status-max-points' readonly/>
-            </br>
-        <label>Status image_src</label>
-        <input id='status-image-src'/>
-            </br>
-    
-        <button id="save-status">
-            SAVE STATUS
-        </button>
-    
-    </div>
-    
-    <div id='modalUpdateBenefit'
-        style="display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            align-items: center;
-            justify-content: center;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.75);
-            "
-        >
-        <button id='closeModalUpdateBenefit' type='button'>
-            X TO CLOSE
-        </button>
-        <button id='update-benefit-id' type='button' value=''>
-            
-        </button>
-        <p>DESCRIPTION IN ENGLISH</p>
-        <input id='update-benefit-description' value=''>
-        <p>DESCRIPTION IN SPANISH</p>
-        <input id='update-benefit-description-spanish' value=''>
-        <select id='update-benefit-state'>
-            <option value='0' >
-                {{ 'Inactive'|t }}
-            </option>
-            <option value='1' >
-                {{ 'Active'|t }}
-            </option>
-        </select>
-        <button id='updateBenefit' type='button'>
-            UPDATE
-        </button>
-    </div>
-
+<section class="dashboard-incentives">
+    <div class="row align-items-center" style="padding: 0px 50px;">
+		<div class="col-lg-6">
+			<p class="table-title fs-1">{{ "Parameterization Incentives"|t }}</p>
+		</div>
+	</div>
     <div style="padding: 1rem 4rem;">
         <div class="row">
             <div class="col-lg-9">
                 <div class="card-incentives p-4">
                     <div class="back-button">
-                        <button>
+                        <a href="/dashboard/incentives/admin">
                             <i class='bx bx-arrow-back'></i>
                             <span class="back-text">
                                 {{ 'Back'|t }}
                             </span>
-                        </button>
+                        </a>
                     </div>
                     <div class="card-incentives-body">
                         <div class="table-incentives">
@@ -118,17 +23,17 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            Clasificación
+                                            {{ "Classification"|t }}
                                         </th>
                                         <th>
-                                            Puntos mínimos
+                                            {{ "Minimum points"|t }}
                                         </th>
                                         <th>
-                                            Puntos máximos
+                                            {{ "Maximum points"|t }}
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id='table-incentives-tbody'>
                                         <tr>
                                             <td>
                                                 <div class="incentive-image">
@@ -146,7 +51,7 @@
                                                 <div class="incentive-description">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -154,7 +59,7 @@
                                                 <div class="incentive-status">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -176,7 +81,7 @@
                                                 <div class="incentive-description">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -184,7 +89,7 @@
                                                 <div class="incentive-status">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -206,7 +111,7 @@
                                                 <div class="incentive-description">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -214,7 +119,7 @@
                                                 <div class="incentive-status">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">Puntos</span>
+                                                        <span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -222,9 +127,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="button-table">
-                            <button type="button" class="btn-satatus">Crear nuevo status</button>
-                            <button type="button" class="btn-edit">Guardar edición</button>
+                        <div class="button-table continue">
+                            <button type="button" id="create-new-status" data-bs-toggle="modal" data-bs-target="#create-status-modal" class="btn-satatus">{{ "Create new status"|t }}</button>
+                            <button type="button" class="btn-edit" id='update-all-status'>{{ "Save edition"|t }}</button>
+                            <button style="display: none;" class="continue btn-edit" id="loading_4" type="button" disabled="">
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                Cargando...
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -233,293 +142,339 @@
             </div>
         </div>
         <div class="card-table-incentive">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 60%;">
-                        <p class="tittle-table">
-                            BENEFICIOS SEGÚN LA CLASIFICACIÓN DE STATUS ALIADO PROCOLOMBIA
-                        </p>
-                    </th>
-                    <th class="status" style="width: 200px"> 
-                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
-                            <linearGradient id="bronze">
-                                <stop style="stop-color: #CD7F32;" offset="0%"/>
-                                <stop style="stop-color: #8E402A;" offset="100%"/>
-                            </linearGradient>
-                            <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#bronze)"/>
-                         </svg>
-                         <p>STATUS BRONZE</p>
-                    </th>
-                    <th class="status" style="width: 200px"> 
-                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
-                            <linearGradient id="silver">
-                               <stop style="stop-color: #F4F4F4;" offset="0%"/>
-                               <stop style="stop-color: #A1A5AA;" offset="100%"/>
-                            </linearGradient>
-                            <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#silver)"/>
-                         </svg>
-                         <p>STATUS SILVER</p>
-                    </th>
-                    <th class="status" style="width: 200px"> 
-                        <svg class="status_icon" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewbox="0 0 512 512">
-                            <linearGradient id="gradient_mobile">
-                               <stop class="main-stop" offset="0%"/>
-                               <stop class="alt-stop" offset="100%"/>
-                            </linearGradient>
-                            <path d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z" fill="url(#gradient_mobile)"/>
-                         </svg>
-                         <p>STATUS GOLD</p>
-                    </th>
-                    <th class="option">
-                        Estado
-                    </th>
-                    <th class="option">
-                        Editar
-                    </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <p>
-                                Participación en Macrorruedas ProColombia.
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                          <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Acceso a alianza logísticas de transporte
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Acceso al Portal de Formación Exportadores
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Participación en seminarios y capacitaciones
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Capacitaciones ProColombia
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Se aliado Gold, el máximo nivel, y disfruta de beneficios únicos
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                Se aliado Gold, el máximo nivel, y disfruta de beneficios únicos
-                            </p>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                            <label class="tick">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="status">
-                           <div class="swicher">
-                            <input id="someSwitchOptionDefault" name="someSwitchOption001" checked type="checkbox"/>
-						    <label for="someSwitchOptionDefault" class="label-default"></label>
-                          </div>
-                        </td>
-                        <td class="status">
-                            <img src="" alt="" srcset="">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="scroll">
+                <table>
+                    <thead >
+                        <tr id='table-incentives-head'>
+                        </tr>
+                    </thead>
+                    <tbody id="table-incentives" class="table-incentives">
+                      
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="button-table">
+                        <button data-bs-toggle="modal" data-bs-target="#create-benefit-modal" type="button" id="create-benefit" class="btn-satatus">{{ "Create new benefit"|t }}</button>
+                    </div>
         </div>
+        <div class="modal fade" id="create-status-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header align-items-baseline">
+                        <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Create new status"|t }}</h5>
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30px"
+                        height="30px"
+                        viewbox="0 0 512 512"
+                        data-bs-dismiss="modal"
+                        >
+                        <title>{{ "Close"|t }}</title>
+                        <path style="fill: #005CA4;"
+                            d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+                        ></path>
+                        </svg>
+                    </div>
+                <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Classification's name"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input_error">
+                            <input type="text" class="form-control" aria-describedby="basic-addon2" id='status-name'>
+                            <i id="error_status-name" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_status-name_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                        <!--  -->
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Minimum points"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input-group m-0 input_error">
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="number"
+                                min="0"
+                                id='status-min-points'
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            >
+                            <span class="input-group-text" id='span-status-min-points'>{{ "Points"|t }}</span>
+                            <i id="error_status-min-points" class="bx bxs-info-circle toltip_i" style="display: none; margin-left: 8px;">
+                                <span id="error_status-min-points_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3" style=>
+                        <label for="nombre_del_sitio" class="form-label">{{ "Maximum points"|t }}
+                            {# <sup>*</sup> #}
+                        </label>
+                        <div class="input-group m-0 input_error">
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="number"
+                                min="0"
+                                id='status-max-points'
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            >
+                            <span class="input-group-text" id='span-status-max-points'>{{ "Points"|t }}</span>
+                            <i id="error_status-max-points" class="bx bxs-info-circle toltip_i" style="display: none; margin-left: 8px;">
+                                <span id="error_status-max-points_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Color 1"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input-group m-0">
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="color"
+                                value="#D88D00"
+                                id='status-emphasis-main-color'
+                                readonly
+                                placeholder='{{ "This field must be empty"|t }}'
+                                style="background-color: rgb(204, 204, 204);"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Color 2"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input-group m-0">
+                            <input
+                                class="form-control" 
+                                aria-describedby="basic-addon2"
+                                type="color"
+                                 value="#FDCA00"
+                                id='status-emphasis-secondary-color'
+                                readonly
+                                placeholder='{{ "This field must be empty"|t }}'
+                                style="background-color: rgb(204, 204, 204);"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div id="logo_sub" class="input-group" style="display: flex;flex-wrap: nowrap;">
+                            <label for="img" id="open_input_file" class="input-group-text text-white" form="logo" style="background-color: #005CA4;height:40px; border-radius:4px;border-radius: 4px;margin-right: -10px;z-index: 1;    padding: 0px 10px !important;" id="basic-addon3">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Grupo_1453" data-name="Grupo 1453" width="32" height="29" viewbox="0 0 32 29">
+                                    <defs>
+                                        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientunits="objectBoundingBox">
+                                            <stop offset="0" stop-color="#d88d00"/>
+                                            <stop offset="1" stop-color="#edc500"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <rect id="Rectángulo_2985" data-name="Rectángulo 2985" width="32" height="29" fill="none"/>
+                                    <g id="Grupo_1451" data-name="Grupo 1451" transform="translate(5 5.393)">
+                                        <path id="Trazado_95" data-name="Trazado 95" d="M619.281,326.35h-16.5a2.749,2.749,0,0,1-2.749-2.749v-9.623a2.746,2.746,0,0,1,2.59-2.741l1-1.763a2.354,2.354,0,0,1,1.941-.994h4.124a2.378,2.378,0,0,1,1.949.994l1.013,1.755h5.939a.687.687,0,1,1,0,1.375h-6.186a1.081,1.081,0,0,1-.36-.068h0a1.344,1.344,0,0,1-.72-.59l-.779-1.429a1.476,1.476,0,0,0-1.228-.663h-3.466a1.462,1.462,0,0,0-1.222.663l-.768,1.429a1.115,1.115,0,0,1-1.079.657,1.66,1.66,0,0,0-1.375,1.718v8.935a1.713,1.713,0,0,0,1.58,1.7.682.682,0,0,0,.138.014h15.808a1.719,1.719,0,0,0,1.718-1.718v-6.186a1.719,1.719,0,0,0-1.718-1.718H605.191a1.031,1.031,0,0,0-1.031,1.031v3.78a.687.687,0,0,1-1.375,0v-3.437c0-.077.006-.154.011-.229,0-.039-.011-.076-.011-.114v-.344a2.062,2.062,0,0,1,2.062-2.062h.344c.039,0,.076.009.114.011.076-.005.153-.011.229-.011h13.746a2.75,2.75,0,0,1,2.749,2.749V323.6a2.749,2.749,0,0,1-2.749,2.749" transform="translate(-600.036 -308.48)" fill="#fff" fill-rule="evenodd"/>
+                                        <path id="Trazado_96" data-name="Trazado 96" d="M608.067,347.48a1.031,1.031,0,1,1-1.031,1.031,1.032,1.032,0,0,1,1.031-1.031" transform="translate(-604.63 -334.077)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+                                    </g>
+                                </svg>
+                                {{ "Choose files"|t }}
+                            </label>
+                            <div id="img-input" class="form-control" style="position:relative; height:40px; border-radius:4px;width: 100%; ">
+                                <input type="file" name="img" id="img" class="w-80" style="opacity:0">
+                                <p id="text-archive" class="text-truncate" style="position: absolute;top: 30%;width: 90%;"></p>
+                                
+                            </div>
+                            <div class="input_error" style='display: flex; align-items: center;'>
+                                <i id="error_img" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                    <span id="error_img_message" class="tooltiptext_error">
+                                        {{ "Required Field"|t }}
+                                    </span>
+                                </i>
+                            </div>
+
+                        </div>
+                        <div class="toltip_content">
+                            <i class='bx bxs-info-circle toltip_i'>
+                                <span class="tooltiptext">
+                                    {{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}
+                                </span>
+                            </i>
+                            <span>{{ "Only png formats with a maximum weight of 2 MB and minimum dimensions of 200x200 px are allowed."|t }}</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 continue p-0">
+                            <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}"  data-bs-dismiss="modal" class="cancel">
+                                {{"CANCEL"|t }}
+                            </button>
+                            <button id="save-status" name="save-status" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "SAVE CHANGES"|t}}
+                            </button>
+                            <button style="display:none" class="continue" id="loading_create_status" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                {{ "Loading..."|t }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" id="create-benefit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header align-items-baseline">
+                        <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Create new benefit"|t }}</h5>
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30px"
+                        height="30px"
+                        viewbox="0 0 512 512"
+                        data-bs-dismiss="modal"
+                        >
+                        <title>{{ "Close"|t }}</title>
+                        <path style="fill: #005CA4;"
+                            d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+                        ></path>
+                        </svg>
+                    </div>
+                <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                            <label for="nombre_del_sitio" class="form-label">{{ "Benefit description"|t }}
+                                <sup>*</sup>
+                            </label>
+                        <div class="input_error">
+                            <input type="text" id='benefit-description' class="form-control"  aria-describedby="basic-addon2">
+                            <i id="error_benefit-description" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_benefit-description_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        
+                        <label for="nombre_del_sitio" class="form-label">{{ "Benefit description in spanish"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input_error">
+                            <input type="text" id='benefit-description-spanish' class="form-control"  aria-describedby="basic-addon2">
+                            <i id="error_benefit-description-spanish" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_benefit-description-spanish_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 continue p-0">
+                            <button  data-bs-dismiss="modal" aria-label="{{ "Cancel registration"|t }}" class="cancel">
+                                {{ "CANCEL"|t }}
+                            </button>
+                            <button id="save-benefit" name="save-benefit" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "SAVE CHANGES"|t }}
+                            </button>
+                            <button style="display:none" class="continue" id="loading_create_benefit" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                {{ "Loading..."|t }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modalUpdateBenefit">
+            <div class="modal-dialog modal-dialog-centered" >
+                <div class="modal-content">
+                    <div class="modal-header align-items-baseline">
+                        <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+                        <h5 class="modal-title fs-5 mx-2" id="staticBackdropLabel">{{ "Edit benefit"|t }}</h5>
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30px"
+                        height="30px"
+                        viewbox="0 0 512 512"
+                        data-bs-dismiss="modal"
+                        >
+                        <title>close</title>
+                        <path style="fill: #005CA4;"
+                            d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+                        ></path>
+                        </svg>
+                    </div>
+                <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <select id='update-benefit-state'>
+                            <option value='0' >
+                                {{ 'Inactive'|t }}
+                            </option>
+                            <option value='1' >
+                                {{ 'Active'|t }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                            <label for="nombre_del_sitio" class="form-label">{{ "Benefit description"|t }}
+                                <sup>*</sup>
+                            </label>
+                        <div class="input_error">
+                            <input id='update-benefit-description' type="text" class="form-control"  aria-describedby="basic-addon2">
+                            <i id="error_update-benefit-description" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_update-benefit-description_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <label for="nombre_del_sitio" class="form-label">{{ "Benefit description in spanish"|t }}
+                            <sup>*</sup>
+                        </label>
+                        <div class="input_error">
+                            <input type="text" id='update-benefit-description-spanish' class="form-control"  aria-describedby="basic-addon2">
+                            <i id="error_update-benefit-description-spanish" class="bx bxs-info-circle toltip_i" style="display: none;">
+                                <span id="error_update-benefit-description-spanish_message" class="tooltiptext_error">
+                                    {{ "Required Field"|t }}
+                                </span>
+                            </i>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 continue p-0">
+                            <button id="cancel_process_1" aria-label="{{ "Cancel registration"|t }}" class="cancel">
+                                {{"CANCEL"|t }}
+                            </button>
+                            <button id="edit_benefit_button" name="save_1" aria-label="{{ "Continue registration"|t }}" class="continue">
+                                {{ "SAVE CHANGES"|t }}
+                            </button>
+                            <button style="display:none" class="continue" id="loading_edit_benefit" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                {{ "Loading..."|t }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>             
     </div>
 </section>

@@ -8,7 +8,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="modal-header-title">{{ title }}</span>
-        <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button class="modal-header-close close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <span class="modal-top-title">{{ message }}</span>
@@ -24,7 +24,7 @@
           {% if button_link %}
             <a class="button btn btn-ok" href="{{ button_link }}">{{ button_text }}</a>
           {% else %}
-            <button class="modal-header-close close" data-dismiss="modal" aria-label="Close"><span>{{ button_text }}</span></button>
+            <button class="modal-header-close close" data-bs-dismiss="modal" aria-label="Close"><span>{{ button_text }}</span></button>
           {% endif %}
         </div>
       </div>

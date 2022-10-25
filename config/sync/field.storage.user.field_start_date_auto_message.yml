@@ -1,0 +1,24 @@
+uuid: 694a1ef1-db8e-48d5-8c23-bd17e9be56b7
+langcode: es
+status: true
+dependencies:
+  module:
+    - datetime
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_start_date_auto_message
+field_name: field_start_date_auto_message
+entity_type: user
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

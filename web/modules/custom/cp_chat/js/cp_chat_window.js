@@ -48,6 +48,7 @@
           first_date = moment(msgList[0].updated).format('YYYY-MM-DD');
         }
         CheckMessages(chatId);
+        fixChatApi(chatId, 1);
         callGetListOfChats(0, 15);
         if (!refetch) {
           renderChatMessages(msgList);
@@ -58,7 +59,20 @@
           addRenderChatMessages(msgList);
         }
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while loading messages"));
+      });
   }
 
   //request for checked messages
@@ -78,7 +92,20 @@
         console.log("checked messages", result);
         new_messages = 0;
       })
-      .catch(error => console.log('error', error));
+      .catch(function (error){
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while loading checked messages"));
+      });
   }
 
   //render chat messages
@@ -299,14 +326,6 @@
                     <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                   </p>
                 </div>
-                <div class="dropdown align-self-start">
-                      <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class='bx bx-dots-vertical-rounded' ></i>
-                      </a>
-                      <div class="dropdown-menu" data-popper-placement="top-start">
-                          <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                      </div>
-                    </div>
               </div>
             </div>
           </div>
@@ -570,14 +589,7 @@
                     <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                   </p>
                 </div>
-                <div class="dropdown align-self-start">
-                      <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class='bx bx-dots-vertical-rounded' ></i>
-                      </a>
-                      <div class="dropdown-menu" data-popper-placement="top-start">
-                          <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                      </div>
-                    </div>
+                
               </div>
             </div>
           </div>
@@ -632,7 +644,7 @@
       scrollTop: $("#last-render-window").offset().top - 250
     }, 0);
   }
-  
+
   let stopComplete = false;
   //infitine scroll for list messages in chat
   $('#message-content-window').scroll(function () {
@@ -653,7 +665,7 @@
                   <div class="ctext-wrap">
                     <div class="ctext-wrap-content">
                       <p class="mb-0">${first_date}</p>
-                      <p class="mb-0" style="color:#005CA4">Contacto con la empresa ${name}</p>
+                      <p class="mb-0" style="color:#005CA4">${Drupal.t("Contact with the company")} ${name}</p>
                     </div>
                   </div>
                 </div>
@@ -707,12 +719,78 @@
             console.log("ENVIADO")
             new_messages = 0;
             $('#new-message-content-window').html('');
+            setTimeout(() => {
+              sendAutomaticMessage(chat_selected);
+            }, 2000);
           } else {
-            alert("Error");
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while sending message"));
           }
         })
-        .catch(error => alert('error', error));
+        .catch(function (error){
+            // Display flex for alert-message-layout.
+            $('#alert-message-layout').css('display', 'flex');
+            // Show the button.
+            $('#error-button').show();
+            // Change button text.
+            $('#error-button').text(Drupal.t('Contact Support'));
+            // Animation for alert-message-layout.
+            $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+            // Change text of alert-message-layout tittle.
+            $('#error-tittle').text(Drupal.t('Unexpected error'));
+            // Change text of lert-message-layout message.
+            $('#desc-error').text(Drupal.t("Error while sending message"));
+        });
     }
+  }
+
+  const sendAutomaticMessage = (id_chat) => {
+    var formdata = new FormData();
+    formdata.append("id_chat", id_chat);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+    };
+
+    fetch("/chat/create_automatic_message", requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        if (result.status == 'ok') {
+          console.log(result);
+          socket.emit('sendMessage', { room: id_chat, message: result.data });
+          console.log({ user_id: id_other_user, message: result.data })
+          CheckMessages(result.data[0].id_chat);
+          socket.emit('updateChatList', { user_id: id_other_user, message: result.data });
+          console.log("ENVIADO")
+          new_messages = 0;
+          $('#new-message-content').html('');
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while sending message. Please try again later."));
+      });
   }
 
 
@@ -773,6 +851,53 @@
     $('#messages-window').show();
   }
 
+  const fixChatApi = (chat_id, select = 0) => {
+    //form data
+    let formData = new FormData();
+    formData.append('id_chat', chat_id);
+    formData.append('select', select);
+    //fetch
+    fetch('/chat/fix_chat', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("data",data);
+        if (data.status == 'ok') {
+          //hide modal
+          socket.emit('updateChatList', { user_id: id_other_user, message: [{ delete_chat: false }] });
+        } else {
+          // Display flex for alert-message-layout.
+          $('#alert-message-layout').css('display', 'flex');
+          // Show the button.
+          $('#error-button').show();
+          // Change button text.
+          $('#error-button').text(Drupal.t('Contact Support'));
+          // Animation for alert-message-layout.
+          $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+          // Change text of alert-message-layout tittle.
+          $('#error-tittle').text(Drupal.t('Unexpected error'));
+          // Change text of lert-message-layout message.
+          $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+        }
+      })
+      .catch(function (error) {
+        // Display flex for alert-message-layout.
+        $('#alert-message-layout').css('display', 'flex');
+        // Show the button.
+        $('#error-button').show();
+        // Change button text.
+        $('#error-button').text(Drupal.t('Contact Support'));
+        // Animation for alert-message-layout.
+        $("#alert-message-layout").css("animation-name", "fadeInUpBig");
+        // Change text of alert-message-layout tittle.
+        $('#error-tittle').text(Drupal.t('Unexpected error'));
+        // Change text of lert-message-layout message.
+        $('#desc-error').text(Drupal.t("Error while deleting chat. Please try again later."));
+      });
+  }
+
   // **********************
   // *** Call functions ***
   // **********************
@@ -814,13 +939,13 @@
         console.log(companyLogo);
         if (companyLogo) {
           $('#chat-company-logo-window').html(
-            `<img src="${companyLogo}" class="rounded-circle avatar-sm" alt="" />
+            `<img src="${companyLogo}" class="rounded-circle avatar-xs" alt="" />
             <span id="chat-user-status-window" class="user-status"></span>
             `
           );
         } else {
           $('#chat-company-logo-window').html(
-            `<div class="avatar-sm ">
+            `<div class="avatar-xs ">
               <span class="avatar-title rounded-circle bg-soft-primary text-white">${companyName.charAt(0)}</span>
               <span id="chat-user-status-window"  class="user-status"></span>
             </div>`
@@ -851,41 +976,42 @@
       });
 
       //receive message from the room
-      socket.on('message', function (data) {
-        if ($(`#typing-${id_other_user}-window`).length > 0) {
-          console.log('typing');
-          $(`#typing-${id_other_user}-window`).remove();
-        }
-        let msg = data.message[0];
-        console.log(last_id_message);
-        if (last_id_message != msg.id) {
-          last_id_message = data.id;
-          if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
-            $('#chat-messages-window').append(`
-            <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")
-              }</span></div></li>
-            `);
-            last_date = moment(msg.updated).format("DD MMMM YYYY");
+      if (socket) {
+        socket.on('message', function (data) {
+          if ($(`#typing-${id_other_user}-window`).length > 0) {
+            console.log('typing');
+            $(`#typing-${id_other_user}-window`).remove();
           }
-          if (id_other_user != msg.entity_id_sender) {
-            if (msg.files) {
-              //get properties of file in url
-              let name = msg.files.split("/").pop();
-              let extension = name.split(".").pop();
-
-              let icon = '';
-              //check if is image
-              if (extension == 'doc' || extension == 'docx' || extension == 'pdf' || extension == 'xls' || extension == 'xlsx' || extension == 'ppt' || extension == 'pptx' || extension == 'txt' || extension == 'csv') {
-                //change icon 
-                icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1"  viewBox="0 0 24 24"> <defs> <style> .cls-1 { fill: #fff; } </style> </defs> <title>document</title> <path class="cls-1" d="M19.41,8.41,13.59,2.59l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08,0,0,0-.05,0-.16-.09A2.22,2.22,0,0,0,12.31,2H6A2,2,0,0,0,4,4V21.08a.92.92,0,0,0,.92.92H18a2,2,0,0,0,2-2V9.83A2,2,0,0,0,19.41,8.41ZM13.5,4.62,17.38,8.5H14a.5.5,0,0,1-.5-.5ZM18.5,20a.5.5,0,0,1-.5.5H5.5V4A.5.5,0,0,1,6,3.5h6V8a2,2,0,0,0,2,2h4.5Z" /> <path class="cls-1" d="M11.75,12.52a.76.76,0,0,0,.75-.75.74.74,0,0,0-.65-.74H7.25a.75.75,0,0,0-.1,1.49h4.6Z" /> <path class="cls-1" d="M15.75,15.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> <path class="cls-1" d="M15.75,18.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> </svg>';
-              } else {
-                if (extension == 'zip' || extension == 'rar') {
-                  icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>compressed</title><path class="cls-1" d="M9.49,4.4A2.23,2.23,0,0,0,8.21,4H4.1A2.24,2.24,0,0,0,2,6.25V17.9A2.24,2.24,0,0,0,4.25,20H19.9A2.24,2.24,0,0,0,22,17.75V8.44A2.25,2.25,0,0,0,19.75,6.5H12l-2.37-2Zm4,3.6v2.25a.75.75,0,0,0,.75.75H15v1h-.25a.75.75,0,0,0,0,1.5H15V15h-.25a.75.75,0,0,0,0,1.5H15v2H4.15a.75.75,0,0,1-.65-.74V10.5H8.4A2.31,2.31,0,0,0,9.65,10L12,8Zm3,10h.25a.75.75,0,0,0,0-1.5H16.5V15h.25a.75.75,0,0,0,0-1.5H16.5V11h.75a.76.76,0,0,0,.75-.75V8h1.85a.75.75,0,0,1,.65.74v9.1a.75.75,0,0,1-.74.65H16.5Zm0-10V9.5H15V8ZM4.25,5.5H8.31a.76.76,0,0,1,.38.16l1.89,1.58L8.69,8.83l-.09.06A.77.77,0,0,1,8.21,9H3.5V6.15A.75.75,0,0,1,4.25,5.5Z"/></svg>';
-                } else {
-                  icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>unknown</title><path class="cls-1" d="M20,19.5a.5.5,0,0,1-.5.5H13.77a6.44,6.44,0,0,1-1.08,1.5H19.5a2,2,0,0,0,2-2V9.33a2,2,0,0,0-.59-1.42L15.09,2.09l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08-.05,0,0-.05,0-.16-.09a2.22,2.22,0,0,0-.63-.14H7.5a2,2,0,0,0-2,2V11A6.29,6.29,0,0,1,7,10.58V3.5A.5.5,0,0,1,7.5,3h6V7.5a2,2,0,0,0,2,2H20ZM15,4.12,18.88,8H15.5a.5.5,0,0,1-.5-.5Z"/><path class="cls-1" d="M2.5,17A5.5,5.5,0,1,0,8,11.5,5.5,5.5,0,0,0,2.5,17Zm4.75,3.25A.75.75,0,1,1,8,21,.76.76,0,0,1,7.25,20.25ZM6,15.5a2,2,0,0,1,4,0,2.18,2.18,0,0,1-.75,1.71L9,17.48l-.11.12a1.15,1.15,0,0,0-.37.9.5.5,0,0,1-1,0,2.18,2.18,0,0,1,.75-1.71l.27-.27.11-.12A1.15,1.15,0,0,0,9,15.5a1,1,0,0,0-2,0,.5.5,0,0,1-1,0Z"/></svg>';
-                }
-              }
+          let msg = data.message[0];
+          console.log(last_id_message);
+          if (last_id_message != msg.id) {
+            last_id_message = data.id;
+            if (last_date != moment(msg.updated).format("DD MMMM YYYY")) {
               $('#chat-messages-window').append(`
+            <li><div class="chat-day-title"><span class="title">${moment().format("DD MMMM YYYY") == moment(msg.updated).format("DD MMMM YYYY") ? 'Hoy' : moment(msg.updated).format("DD MMMM YYYY")
+                }</span></div></li>
+            `);
+              last_date = moment(msg.updated).format("DD MMMM YYYY");
+            }
+            if (id_other_user != msg.entity_id_sender) {
+              if (msg.files) {
+                //get properties of file in url
+                let name = msg.files.split("/").pop();
+                let extension = name.split(".").pop();
+
+                let icon = '';
+                //check if is image
+                if (extension == 'doc' || extension == 'docx' || extension == 'pdf' || extension == 'xls' || extension == 'xlsx' || extension == 'ppt' || extension == 'pptx' || extension == 'txt' || extension == 'csv') {
+                  //change icon 
+                  icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1"  viewBox="0 0 24 24"> <defs> <style> .cls-1 { fill: #fff; } </style> </defs> <title>document</title> <path class="cls-1" d="M19.41,8.41,13.59,2.59l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08,0,0,0-.05,0-.16-.09A2.22,2.22,0,0,0,12.31,2H6A2,2,0,0,0,4,4V21.08a.92.92,0,0,0,.92.92H18a2,2,0,0,0,2-2V9.83A2,2,0,0,0,19.41,8.41ZM13.5,4.62,17.38,8.5H14a.5.5,0,0,1-.5-.5ZM18.5,20a.5.5,0,0,1-.5.5H5.5V4A.5.5,0,0,1,6,3.5h6V8a2,2,0,0,0,2,2h4.5Z" /> <path class="cls-1" d="M11.75,12.52a.76.76,0,0,0,.75-.75.74.74,0,0,0-.65-.74H7.25a.75.75,0,0,0-.1,1.49h4.6Z" /> <path class="cls-1" d="M15.75,15.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> <path class="cls-1" d="M15.75,18.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> </svg>';
+                } else {
+                  if (extension == 'zip' || extension == 'rar') {
+                    icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>compressed</title><path class="cls-1" d="M9.49,4.4A2.23,2.23,0,0,0,8.21,4H4.1A2.24,2.24,0,0,0,2,6.25V17.9A2.24,2.24,0,0,0,4.25,20H19.9A2.24,2.24,0,0,0,22,17.75V8.44A2.25,2.25,0,0,0,19.75,6.5H12l-2.37-2Zm4,3.6v2.25a.75.75,0,0,0,.75.75H15v1h-.25a.75.75,0,0,0,0,1.5H15V15h-.25a.75.75,0,0,0,0,1.5H15v2H4.15a.75.75,0,0,1-.65-.74V10.5H8.4A2.31,2.31,0,0,0,9.65,10L12,8Zm3,10h.25a.75.75,0,0,0,0-1.5H16.5V15h.25a.75.75,0,0,0,0-1.5H16.5V11h.75a.76.76,0,0,0,.75-.75V8h1.85a.75.75,0,0,1,.65.74v9.1a.75.75,0,0,1-.74.65H16.5Zm0-10V9.5H15V8ZM4.25,5.5H8.31a.76.76,0,0,1,.38.16l1.89,1.58L8.69,8.83l-.09.06A.77.77,0,0,1,8.21,9H3.5V6.15A.75.75,0,0,1,4.25,5.5Z"/></svg>';
+                  } else {
+                    icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>unknown</title><path class="cls-1" d="M20,19.5a.5.5,0,0,1-.5.5H13.77a6.44,6.44,0,0,1-1.08,1.5H19.5a2,2,0,0,0,2-2V9.33a2,2,0,0,0-.59-1.42L15.09,2.09l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08-.05,0,0-.05,0-.16-.09a2.22,2.22,0,0,0-.63-.14H7.5a2,2,0,0,0-2,2V11A6.29,6.29,0,0,1,7,10.58V3.5A.5.5,0,0,1,7.5,3h6V7.5a2,2,0,0,0,2,2H20ZM15,4.12,18.88,8H15.5a.5.5,0,0,1-.5-.5Z"/><path class="cls-1" d="M2.5,17A5.5,5.5,0,1,0,8,11.5,5.5,5.5,0,0,0,2.5,17Zm4.75,3.25A.75.75,0,1,1,8,21,.76.76,0,0,1,7.25,20.25ZM6,15.5a2,2,0,0,1,4,0,2.18,2.18,0,0,1-.75,1.71L9,17.48l-.11.12a1.15,1.15,0,0,0-.37.9.5.5,0,0,1-1,0,2.18,2.18,0,0,1,.75-1.71l.27-.27.11-.12A1.15,1.15,0,0,0,9,15.5a1,1,0,0,0-2,0,.5.5,0,0,1-1,0Z"/></svg>';
+                  }
+                }
+                $('#chat-messages-window').append(`
               <li class="right">
                <div class="conversation-list">
                    <div class="chat-avatar">
@@ -893,15 +1019,15 @@
                      <img
                        src="${msg.company_logo}"
                        class="rounded-circle avatar-xs" alt="" />`
-                  :
-                  `<div class="avatar-xs">
+                    :
+                    `<div class="avatar-xs">
                      <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                     </div>
                     `
-                }
+                  }
                    </div>
                    ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
-                  `<div class="user-chat-content">
+                    `<div class="user-chat-content">
                      <div class="ctext-wrap">
                          
                      <div class="ctext-wrap-content w-100">
@@ -925,8 +1051,8 @@
                      </div>
                    </li>
                    `
-                  :
-                  `<div class="user-chat-content">
+                    :
+                    `<div class="user-chat-content">
                      <div class="ctext-wrap">
                          <div class="ctext-wrap-content w-100">
                            <div class="conversation-name">${msg.company_name}</div>
@@ -964,8 +1090,8 @@
                </div>
              </li>
                    `}`);
-            } else {
-              $('#chat-messages-window').append(`
+              } else {
+                $('#chat-messages-window').append(`
               <li class="right">
                 <div class="conversation-list">
                   <div class="chat-avatar">
@@ -974,11 +1100,11 @@
                       src="${msg.company_logo}"
                       class="rounded-circle avatar-xs" alt="" />
                       `
-                  :
-                  `<div class="avatar-xs">
+                    :
+                    `<div class="avatar-xs">
                         <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                       </div>`
-                }
+                  }
                   </div>
       
                   <div class="user-chat-content">
@@ -991,55 +1117,48 @@
                           <span class="align-middle">${showDateOrTimeMsg(msg.updated)}</span>
                         </p>
                       </div>
-                      <div class="dropdown align-self-start">
-                            <a class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                            </a>
-                            <div class="dropdown-menu" data-popper-placement="top-start">
-                                <a class="dropdown-item" href="#">Eliminar <i class='bx bx-trash' ></i></a>
-                            </div>
-                          </div>
+                      
                     </div>
                   </div>
                 </div>
              </li>
               `);
-            }
-            var objDiv = document.getElementById("message-content-window");
-            objDiv.scrollTop = objDiv.scrollHeight;
-          } else {
-            console.log('entro');
-            console.log(msg);
-            if (!msg.checked) {
-              new_messages += 1;
-              console.log(new_messages);
-              if ($('#new-messages-chat-window').length === 0) {
-                $('#chat-messages').append(`
-                <li id="new-message-content-window"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat-window">${new_messages + " Mensaje Nuevo"
-                  }</span></div></li>
-                `);
-              } else {
-                $('#new-messages-chat-window').text(new_messages + " Mensajes Nuevos");
               }
-            }
-            if (msg.files) {
-              //get properties of file in url
-              let name = msg.files.split("/").pop();
-              let extension = name.split(".").pop();
-
-              let icon = '';
-              //check if is image
-              if (extension == 'doc' || extension == 'docx' || extension == 'pdf' || extension == 'xls' || extension == 'xlsx' || extension == 'ppt' || extension == 'pptx' || extension == 'txt' || extension == 'csv') {
-                //change icon 
-                icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"> <defs> <style> .cls-1 { fill: #fff; } </style> </defs> <title>document</title> <path class="cls-1" d="M19.41,8.41,13.59,2.59l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08,0,0,0-.05,0-.16-.09A2.22,2.22,0,0,0,12.31,2H6A2,2,0,0,0,4,4V21.08a.92.92,0,0,0,.92.92H18a2,2,0,0,0,2-2V9.83A2,2,0,0,0,19.41,8.41ZM13.5,4.62,17.38,8.5H14a.5.5,0,0,1-.5-.5ZM18.5,20a.5.5,0,0,1-.5.5H5.5V4A.5.5,0,0,1,6,3.5h6V8a2,2,0,0,0,2,2h4.5Z" /> <path class="cls-1" d="M11.75,12.52a.76.76,0,0,0,.75-.75.74.74,0,0,0-.65-.74H7.25a.75.75,0,0,0-.1,1.49h4.6Z" /> <path class="cls-1" d="M15.75,15.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> <path class="cls-1" d="M15.75,18.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> </svg>';
-              } else {
-                if (extension == 'zip' || extension == 'rar') {
-                  icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>compressed</title><path class="cls-1" d="M9.49,4.4A2.23,2.23,0,0,0,8.21,4H4.1A2.24,2.24,0,0,0,2,6.25V17.9A2.24,2.24,0,0,0,4.25,20H19.9A2.24,2.24,0,0,0,22,17.75V8.44A2.25,2.25,0,0,0,19.75,6.5H12l-2.37-2Zm4,3.6v2.25a.75.75,0,0,0,.75.75H15v1h-.25a.75.75,0,0,0,0,1.5H15V15h-.25a.75.75,0,0,0,0,1.5H15v2H4.15a.75.75,0,0,1-.65-.74V10.5H8.4A2.31,2.31,0,0,0,9.65,10L12,8Zm3,10h.25a.75.75,0,0,0,0-1.5H16.5V15h.25a.75.75,0,0,0,0-1.5H16.5V11h.75a.76.76,0,0,0,.75-.75V8h1.85a.75.75,0,0,1,.65.74v9.1a.75.75,0,0,1-.74.65H16.5Zm0-10V9.5H15V8ZM4.25,5.5H8.31a.76.76,0,0,1,.38.16l1.89,1.58L8.69,8.83l-.09.06A.77.77,0,0,1,8.21,9H3.5V6.15A.75.75,0,0,1,4.25,5.5Z"/></svg>';
+              var objDiv = document.getElementById("message-content-window");
+              objDiv.scrollTop = objDiv.scrollHeight;
+            } else {
+              console.log('entro');
+              console.log(msg);
+              if (!msg.checked) {
+                new_messages += 1;
+                console.log(new_messages);
+                if ($('#new-messages-chat-window').length === 0) {
+                  $('#chat-messages').append(`
+                <li id="new-message-content-window"><div class="chat-day-title new-message-chat" ><span class="title" id="new-messages-chat-window">${new_messages + " " + Drupal.t("New Message")
+                    }</span></div></li>
+                `);
                 } else {
-                  icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>unknown</title><path class="cls-1" d="M20,19.5a.5.5,0,0,1-.5.5H13.77a6.44,6.44,0,0,1-1.08,1.5H19.5a2,2,0,0,0,2-2V9.33a2,2,0,0,0-.59-1.42L15.09,2.09l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08-.05,0,0-.05,0-.16-.09a2.22,2.22,0,0,0-.63-.14H7.5a2,2,0,0,0-2,2V11A6.29,6.29,0,0,1,7,10.58V3.5A.5.5,0,0,1,7.5,3h6V7.5a2,2,0,0,0,2,2H20ZM15,4.12,18.88,8H15.5a.5.5,0,0,1-.5-.5Z"/><path class="cls-1" d="M2.5,17A5.5,5.5,0,1,0,8,11.5,5.5,5.5,0,0,0,2.5,17Zm4.75,3.25A.75.75,0,1,1,8,21,.76.76,0,0,1,7.25,20.25ZM6,15.5a2,2,0,0,1,4,0,2.18,2.18,0,0,1-.75,1.71L9,17.48l-.11.12a1.15,1.15,0,0,0-.37.9.5.5,0,0,1-1,0,2.18,2.18,0,0,1,.75-1.71l.27-.27.11-.12A1.15,1.15,0,0,0,9,15.5a1,1,0,0,0-2,0,.5.5,0,0,1-1,0Z"/></svg>';
+                  $('#new-messages-chat-window').text(new_messages + " "+ + Drupal.t("New Messages"));
                 }
               }
-              $('#chat-messages-window').append(`
+              if (msg.files) {
+                //get properties of file in url
+                let name = msg.files.split("/").pop();
+                let extension = name.split(".").pop();
+
+                let icon = '';
+                //check if is image
+                if (extension == 'doc' || extension == 'docx' || extension == 'pdf' || extension == 'xls' || extension == 'xlsx' || extension == 'ppt' || extension == 'pptx' || extension == 'txt' || extension == 'csv') {
+                  //change icon 
+                  icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"> <defs> <style> .cls-1 { fill: #fff; } </style> </defs> <title>document</title> <path class="cls-1" d="M19.41,8.41,13.59,2.59l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08,0,0,0-.05,0-.16-.09A2.22,2.22,0,0,0,12.31,2H6A2,2,0,0,0,4,4V21.08a.92.92,0,0,0,.92.92H18a2,2,0,0,0,2-2V9.83A2,2,0,0,0,19.41,8.41ZM13.5,4.62,17.38,8.5H14a.5.5,0,0,1-.5-.5ZM18.5,20a.5.5,0,0,1-.5.5H5.5V4A.5.5,0,0,1,6,3.5h6V8a2,2,0,0,0,2,2h4.5Z" /> <path class="cls-1" d="M11.75,12.52a.76.76,0,0,0,.75-.75.74.74,0,0,0-.65-.74H7.25a.75.75,0,0,0-.1,1.49h4.6Z" /> <path class="cls-1" d="M15.75,15.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> <path class="cls-1" d="M15.75,18.52a.75.75,0,0,0,.1-1.5H7.25a.75.75,0,0,0-.1,1.49h8.6Z" /> </svg>';
+                } else {
+                  if (extension == 'zip' || extension == 'rar') {
+                    icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>compressed</title><path class="cls-1" d="M9.49,4.4A2.23,2.23,0,0,0,8.21,4H4.1A2.24,2.24,0,0,0,2,6.25V17.9A2.24,2.24,0,0,0,4.25,20H19.9A2.24,2.24,0,0,0,22,17.75V8.44A2.25,2.25,0,0,0,19.75,6.5H12l-2.37-2Zm4,3.6v2.25a.75.75,0,0,0,.75.75H15v1h-.25a.75.75,0,0,0,0,1.5H15V15h-.25a.75.75,0,0,0,0,1.5H15v2H4.15a.75.75,0,0,1-.65-.74V10.5H8.4A2.31,2.31,0,0,0,9.65,10L12,8Zm3,10h.25a.75.75,0,0,0,0-1.5H16.5V15h.25a.75.75,0,0,0,0-1.5H16.5V11h.75a.76.76,0,0,0,.75-.75V8h1.85a.75.75,0,0,1,.65.74v9.1a.75.75,0,0,1-.74.65H16.5Zm0-10V9.5H15V8ZM4.25,5.5H8.31a.76.76,0,0,1,.38.16l1.89,1.58L8.69,8.83l-.09.06A.77.77,0,0,1,8.21,9H3.5V6.15A.75.75,0,0,1,4.25,5.5Z"/></svg>';
+                  } else {
+                    icon = '<svg width="30px" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>unknown</title><path class="cls-1" d="M20,19.5a.5.5,0,0,1-.5.5H13.77a6.44,6.44,0,0,1-1.08,1.5H19.5a2,2,0,0,0,2-2V9.33a2,2,0,0,0-.59-1.42L15.09,2.09l-.05,0,0,0a1.24,1.24,0,0,0-.22-.18l-.08-.05,0,0-.05,0-.16-.09a2.22,2.22,0,0,0-.63-.14H7.5a2,2,0,0,0-2,2V11A6.29,6.29,0,0,1,7,10.58V3.5A.5.5,0,0,1,7.5,3h6V7.5a2,2,0,0,0,2,2H20ZM15,4.12,18.88,8H15.5a.5.5,0,0,1-.5-.5Z"/><path class="cls-1" d="M2.5,17A5.5,5.5,0,1,0,8,11.5,5.5,5.5,0,0,0,2.5,17Zm4.75,3.25A.75.75,0,1,1,8,21,.76.76,0,0,1,7.25,20.25ZM6,15.5a2,2,0,0,1,4,0,2.18,2.18,0,0,1-.75,1.71L9,17.48l-.11.12a1.15,1.15,0,0,0-.37.9.5.5,0,0,1-1,0,2.18,2.18,0,0,1,.75-1.71l.27-.27.11-.12A1.15,1.15,0,0,0,9,15.5a1,1,0,0,0-2,0,.5.5,0,0,1-1,0Z"/></svg>';
+                  }
+                }
+                $('#chat-messages-window').append(`
               <li class="">
             <div class="conversation-list">
                 <div class="chat-avatar">
@@ -1047,15 +1166,15 @@
                   <img
                     src="${msg.company_logo}"
                     class="rounded-circle avatar-xs" alt="" />`
-                  :
-                  `<div class="avatar-xs">
+                    :
+                    `<div class="avatar-xs">
                   <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                  </div>
                  `
-                }
+                  }
                 </div>
                 ${extension === 'png' || extension === 'jpg' || extension === 'jpeg' || extension === 'gif' || extension === 'svg' || extension === 'PNG' || extension === 'JPG' || extension === 'JPEG' || extension === 'GIF' || extension === 'SVG' ?
-                  `<div class="user-chat-content">
+                    `<div class="user-chat-content">
                   <div class="ctext-wrap">
                       
                   <div class="ctext-wrap-content w-100">
@@ -1079,8 +1198,8 @@
                   </div>
                 </li>
                 `
-                  :
-                  `<div class="user-chat-content">
+                    :
+                    `<div class="user-chat-content">
                   <div class="ctext-wrap">
                       <div class="ctext-wrap-content w-100">
                         <div class="conversation-name">${msg.company_name}</div>
@@ -1119,8 +1238,8 @@
             </div>
           </li>
                 `}`);
-            } else {
-              $('#chat-messages-window').append(`
+              } else {
+                $('#chat-messages-window').append(`
               <li class="">
                 <div class="conversation-list">
                   <div class="chat-avatar">
@@ -1128,11 +1247,11 @@
                     <img
                       src="${msg.company_logo}"
                       class="rounded-circle avatar-xs" alt="" />`
-                  :
-                  `<div class="avatar-xs">
+                    :
+                    `<div class="avatar-xs">
                     <span class="avatar-title rounded-circle bg-soft-primary text-white">${msg?.company_name?.charAt(0)}</span>
                    </div>`
-                }
+                  }
                   </div>
       
                   <div class="user-chat-content">
@@ -1151,16 +1270,17 @@
                 </div>
              </li>
               `);
-            }
-            //Detect if scroll is at the bottom
-            var objDiv = document.getElementById("message-content-window");
-            if (objDiv.scrollHeight - objDiv.scrollTop - 100 <= objDiv.clientHeight) {
-              objDiv.scrollTop = objDiv.scrollHeight;
+              }
+              //Detect if scroll is at the bottom
+              var objDiv = document.getElementById("message-content-window");
+              if (objDiv.scrollHeight - objDiv.scrollTop - 100 <= objDiv.clientHeight) {
+                objDiv.scrollTop = objDiv.scrollHeight;
+              }
             }
           }
-        }
-        last_id_message = msg.id;
-      })
+          last_id_message = msg.id;
+        })
+      }
 
       //detect if text-message is typing
       $('#text-message-window', context).on('input', function () {
@@ -1174,21 +1294,21 @@
           socket.emit('typingChatList', { typing: false, user_id: id_me, id_other_user: id_other_user });
         }
       });
-
-      //receive typing
-      socket.on('typing', function (data) {
-        if (data.typing == true && id_other_user == data.id_send) {
-          console.log("typing socket");
-          if ($(`#typing-${data.id_send}-window`).length == 0) {
-            $('#chat-messages-window').append(
-              `
+      if (socket) {
+        //receive typing
+        socket.on('typing', function (data) {
+          if (data.typing == true && id_other_user == data.id_send) {
+            console.log("typing socket");
+            if ($(`#typing-${data.id_send}-window`).length == 0) {
+              $('#chat-messages-window').append(
+                `
                 <li class="typing-chat"  id="typing-${data.id_send}-window">
                   <div class="conversation-list">
                       <div class="user-chat-content">
                           <div class="ctext-wrap">
                               <div class="ctext-wrap-content w-100 w-100">
                                   <p class="mb-0">
-                                      Escribiendo<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
+                                      ${Drupal.t("Typing")}<span class="animate-typing"><span class="dot ms-1"></span><span class="dot ms-1"></span><span class="dot ms-1"></span></span>
                                   </p>
                               </div>
                           </div>
@@ -1196,23 +1316,24 @@
                   </div>
               </li>
               `
-            );
-            //Detect if scroll is at the bottom
-            var objDiv = document.getElementById("message-content-window");
-            console.log(objDiv.scrollHeight - objDiv.scrollTop - 150);
-            console.log(objDiv.clientHeight);
-            if (objDiv.scrollHeight - objDiv.scrollTop - 150 <= objDiv.clientHeight) {
-              objDiv.scrollTop = objDiv.scrollHeight
+              );
+              //Detect if scroll is at the bottom
+              var objDiv = document.getElementById("message-content-window");
+              console.log(objDiv.scrollHeight - objDiv.scrollTop - 150);
+              console.log(objDiv.clientHeight);
+              if (objDiv.scrollHeight - objDiv.scrollTop - 150 <= objDiv.clientHeight) {
+                objDiv.scrollTop = objDiv.scrollHeight
+              }
+            }
+          } else {
+            console.log("no typing socket");
+            if ($(`#typing-${data.id_send}-window`).length > 0) {
+              //remove id 
+              $(`#typing-${data.id_send}-window`).remove();
             }
           }
-        } else {
-          console.log("no typing socket");
-          if ($(`#typing-${data.id_send}-window`).length > 0) {
-            //remove id 
-            $(`#typing-${data.id_send}-window`).remove();
-          }
-        }
-      });
+        });
+      }
 
       //hide chat
       $('#close-window', context).click(function () {

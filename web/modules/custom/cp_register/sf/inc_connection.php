@@ -1,5 +1,5 @@
 <?php
-	include_once (drupal_get_path('module', 'cp_core') . '/sf/inc_config.php');
+	include_once (drupal_get_path('module', 'cp_register') . '/sf/inc_config.php');
 	//ini_set('soap.wsdl_cache_enabled', 0);
 	//ini_set('soap.wsdl_cache_ttl', 0);
 

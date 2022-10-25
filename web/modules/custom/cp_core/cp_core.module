@@ -1165,16 +1165,26 @@ function cp_core_node_view(array &$build, EntityInterface $entity, EntityViewDis
   }
 
   if ($display->getComponent('cp_core_generate_contact')) {
-    $build['cp_core_generate_contact'] = [
-      '#type' => 'html_tag',
-      '#tag' => 'a',
-      '#value' => t('Generate contact'),
-      '#attributes' => [
-        'class' => ['generate-contact-button', 'button', 'btn'],
-        'href' => '#',
-        'onclick' => 'createOrOpenChat(' . $entity->getOwnerId() . ');return false;',
-      ],
-    ];
+    $user = \Drupal::currentUser();
+    $userRoles = $user->getRoles(TRUE);
+    $user = User::load($user->id());
+    //country
+    $country = $user->get('field_country')->value ?? "No disponible";
+    //description
+    $description = $user->get('field_company_info')->value  ?? "No disponible";
+    if (in_array('buyer', $userRoles) || $user->isAnonymous())  {
+      $build['cp_core_generate_contact'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'a',
+        '#value' => t('Generate contact'),
+        '#attributes' => [
+          'class' => ['generate-contact-button', 'button', 'btn'],
+          'href' => '#',
+          // 'onclick' => 'alert("hola");createOrOpenChat(' . $entity->getOwnerId() . ');return false;',
+          'onclick' => 'createChat(' . $entity->getOwnerId() . ',"'.$entity->label().'","'.$country.'","'.$description.'");return false;',
+        ],
+      ];
+    }
   }
 
 
@@ -1342,4 +1352,3 @@ function cp_core_get_company_proccesed_list($items) {
   }
   return $items;
 }
-

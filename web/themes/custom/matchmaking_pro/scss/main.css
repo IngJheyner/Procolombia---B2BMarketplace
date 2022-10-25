@@ -147,7 +147,7 @@
 }
 .toltip_i .tooltiptext_menu {
   visibility: hidden;
-  width: 100px;
+  width: 140px;
   background-color: #3b3d42;
   color: #ffffff;
   text-align: center;
@@ -1074,7 +1074,8 @@ a.dropdown-item {
 
 #error_password,
 #error_username,
-#error_nit {
+#error_nit,
+#error_email_forgot {
   display: none;
   color: #ba0c2f;
 }

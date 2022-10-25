@@ -1,5 +1,5 @@
 cp_incentives:
-  version: 1.0
+  version: 2.0
   css:
     theme:
       css/cp_incentives.css: {}

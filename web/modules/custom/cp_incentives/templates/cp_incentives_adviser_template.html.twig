@@ -1,8 +1,904 @@
 {{ attach_library('cp_incentives/cp_incentives') }}
-<main class="dashboard">
-	<div id="bussines_international" class="">
+<section class="dashboard-incentives px-4 pt-5 d-flex flex-wrap justify-content-center">
+	<div class="row align-items-center" style="padding: 0px 50px;">
+		<div class="col-lg-6">
+			<p class="table-title fs-1">{{ "Incentive plan points administration"|t }}</p>
+		</div>
+		<div class="align-items-center col-lg-6 d-flex justify-content-end text-align-end">
+			<a href="/dashboard/incentives/list" class="btn-cancel">{{ "Parameterization Incentive Plan"|t }}</a>
+		</div>
+	</div>
+	<div id="" class="bussines_international">
 		<div class="form_table mt-4">
 			<table id="incentives-list" class="display dataTable"></table>
 		</div>
 	</div>
-</main>
+	{# 
+	<--------------------------------------------->
+	<--------------------------------------------->
+	Primer modal 
+	<--------------------------------------------->
+	<--------------------------------------------->
+	#}
+  <div class="modal fade" id="modal_double_rule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="title_1"></h5>
+		  <svg
+		  	id="close-modal-edit-business-rule"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>{{ "Close"|t }}</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>{{ "Variables / Characteristics"|t }}:</strong>
+						</td>
+						<td>
+							<p id="characteristic_1"></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>{{ "Business rule description"|t }}:</strong>
+						</td>
+						<td>
+							<p id="description_1"></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Maximum of points"|t}}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							disabled
+							style="user-select: none;"
+							id="max_measure_1_1"
+							class="form-control"
+							aria-describedby="basic-addon2"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+				    </div>
+					<i id="error_max_measure_1_1" class='bx bxs-info-circle toltip_i'>
+						<span id="error_max_measure_1_1_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								{{ "This field specifies the number of the maximum score for the distribution of points."|t }}
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">{{ "This field specifies the number of the maximum score for the distribution of points."|t }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "State"|t }}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<select id="state_1" name="" id="">
+						<option value="1">{{ "Active"|t }}</option>
+						<option value="0">{{ "Inactive"|t }}</option>
+					</select>
+					<i id="error_state_1" class='bx bxs-info-circle toltip_i'>
+						<span id="error_state_1_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-12 p-0">
+				<div class="sub-tittle-modal">
+					<p class="fs-5">{{ "Business rules"|t }}</p>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div>
+					<label for="nombre_del_sitio" class="form-label">{{ "Instruction"|t }}
+						<sup>*</sup>
+					</label>
+				</div>
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0" id="min_measure_0_cont">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="min_measure_0"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
+							</div>
+							<i id="error_min_measure_0" class='bx bxs-info-circle toltip_i'>
+								<span id="error_min_measure_0_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="max_measure_0"
+									placeholder="{{ "Maximum time"|t }}"
+									aria-label="{{ "Maximum time"|t }}"
+									aria-describedby="{{ "Maximum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
+							</div>
+							<i id="error_max_measure_0" class='bx bxs-info-circle toltip_i'>
+								<span id="error_max_measure_0_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								{{ "Enter the minimum and maximum response time instruction in the chat."|t }}
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">{{ "Enter the minimum and maximum response time instruction in the chat."|t }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Points distribution"|t}}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="given_points_0"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_0" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_0_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								{{ "Enter a number of points between the maximum number of points"|t }}
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">{{ "Enter a number of points between the maximum number of points"|t }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="min_measure_1"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
+							</div>
+							<i id="error_min_measure_1" class='bx bxs-info-circle toltip_i'>
+								<span id="error_min_measure_1_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="max_measure_1"
+									placeholder="{{ "Maximum time"|t }}"
+									aria-label="{{ "Maximum time"|t }}"
+									aria-describedby="{{ "Maximum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
+							</div>
+							<i id="error_max_measure_1" class='bx bxs-info-circle toltip_i'>
+								<span id="error_max_measure_1_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="given_points_1"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_1" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_1_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="min_measure_2"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
+							</div>
+							<i id="error_min_measure_2" class='bx bxs-info-circle toltip_i'>
+								<span id="error_min_measure_2_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+					<div class="align-items-center col-lg-1 px-1 d-flex justify-content-center text-align-center">
+						<p> - </p>
+					</div>
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input 
+									type="text"
+									min="0"
+									maxlength="5"
+									id="max_measure_2"
+									placeholder="{{ "Maximum time"|t }}"
+									aria-label="{{ "Maximum time"|t }}"
+									aria-describedby="{{ "Maximum time"|t }}"
+									class="form-control"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text" id="basic-addon2" style="width: 60px;padding: 10px !important;" >{{ "Hours"|t }}</span>
+							</div>
+							<i id="error_max_measure_2" class='bx bxs-info-circle toltip_i'>
+								<span id="error_max_measure_2_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="given_points_2"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+							>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_2" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_2_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Points validity time"|t }}</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							id="expiration_days_1"
+							class="form-control"
+							aria-describedby="basic-addon2"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Time in days"|t }}</span>
+					</div>
+					<i id="error_expiration_days_1" class='bx bxs-info-circle toltip_i'>
+						<span id="error_expiration_days_1_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<input type="hidden" name="regla_0" id="id_rule_0">
+			<input type="hidden" name="regla_1" id="id_rule_1">
+			<input type="hidden" name="regla_2" id="id_rule_2">
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-lg-12 continue p-0">
+					<button id="cancel_process_1" data-bs-dismiss="modal" class="cancel">
+						{{ "CANCEL"|t }}
+					</button>
+					<button id="save_criteria_1" name="save_criteria_1" aria-label="{{ "Continue registration"|t }}" class="continue">
+						{{ "SAVE CHANGES"|t }}
+					</button>
+					<button style="display:none" class="continue" id="loading_1" type="button" disabled>
+						<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+						{{ "Loading..."|t }}
+					</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+	{# 
+	<--------------------------------------------->
+	<--------------------------------------------->
+	Segundo modal 
+	<--------------------------------------------->
+	<--------------------------------------------->
+	#}
+  <div class="modal fade" id="modal_simple_rule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="title_2"></h5>
+		  <svg
+		  	id="close-modal-edit-business-rule-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>{{ "Close"|t }}</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>{{ "Variables / Characteristics"|t }}:</strong>
+						</td>
+						<td>
+							<p id="characteristic_2"></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>{{ "Business rule description"|t }}:</strong>
+						</td>
+						<td>
+							<p id="description_2"></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Maximum of points"|t }}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							disabled
+							style="user-select: none;"
+							id="max_measure_2_1_1"
+							class="form-control"
+							aria-describedby="basic-addon2"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_max_measure_2_1_1" class='bx bxs-info-circle toltip_i'>
+						<span id="error_max_measure_2_1_1_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								{{ "This field specifies the number of the maximum score for the distribution of points."|t }}
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">{{ "This field specifies the number of the maximum score for the distribution of points."|t }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "State"|t }}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<select id="state_2" name="" id="">
+						<option value="1">{{ "Active"|t }}</option>
+						<option value="0">{{ "Inactive"|t }}</option>
+					</select>
+					<i id="error_state_2" class='bx bxs-info-circle toltip_i'>
+						<span id="error_state_2_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-12 p-0">
+				<div class="sub-tittle-modal">
+					<p class="fs-5">{{ "Business rule"|t }}:</p>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div>
+					<label for="nombre_del_sitio" class="form-label">{{ "Instruction"|t }}
+						<sup>*</sup>
+					</label>
+				</div>
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="max_measure_2_0"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Views"|t }}</span>
+							</div>
+							<i id="error_max_measure_2_0" class='bx bxs-info-circle toltip_i'>
+								<span id="error_max_measure_2_0_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext">
+								{{ "Enter the instruction for the number of views the uploaded product or service has."|t }}
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">{{ "Enter the instruction for the number of views the uploaded product or service has."|t }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Points distribution"|t}}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="given_points_2_0"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_2_0" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_2_0_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+				<div class="toltip_content d-flex">
+					<div class="me-2">
+						<i class='bx bxs-info-circle toltip_i'>
+							<span class="tooltiptext" style="width: 15vw;">
+								{{ "Enter a number of points between the maximum number of points"|t }}
+							</span>
+						</i>
+					</div>
+					<div>
+						<span style="color: #6A6D71;">{{ "Enter a number of points between the maximum number of points"|t }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="max_measure_2_1"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Views"|t }}</span>
+							</div>
+							<i id="error_max_measure_2_1" class='bx bxs-info-circle toltip_i'>
+								<span id="error_max_measure_2_1_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="given_points_2_1"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_2_1" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_2_1_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<div class="row p-0">
+					<div class="col p-0">
+						<div class="input_error">
+							<div class="input-group m-0">
+								<input
+									type="text"
+									min="0"
+									maxlength="5"
+									class="form-control"
+									id="max_measure_2_2"
+									placeholder= "{{ "Minimum time"|t }}"
+									aria-label= "{{ "Minimum time"|t }}"
+									aria-describedby= "{{ "Minimum time"|t }}"
+									onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+								>
+								<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Views"|t }}</span>
+							</div>
+							<i id="error_max_measure_2_2" class='bx bxs-info-circle toltip_i'>
+								<span id="error_max_measure_2_2_message" class="tooltiptext_error">
+									{{ "Required Field"|t }}
+								</span>
+							</i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="given_points_2_2"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_2_2" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_2_2_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Points validity time"|t }}</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							id="expiration_days_2"
+							class="form-control"
+							aria-describedby="basic-addon2"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Time in days"|t }}</span>
+					</div>
+					<i id="error_expiration_days_2" class='bx bxs-info-circle toltip_i'>
+						<span id="error_expiration_days_2_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<input type="hidden" name="regla_0" id="id_rule_2_0">
+			<input type="hidden" name="regla_1" id="id_rule_2_1">
+			<input type="hidden" name="regla_2" id="id_rule_2_2">
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-lg-12 continue p-0">
+					<button id="cancel_process_1" data-bs-dismiss="modal" class="cancel">
+						{{ "CANCEL"|t }}
+					</button>
+					<button id="save_criteria_2" name="save_criteria_2" aria-label="{{ "Continue registration"|t }}" class="continue">
+						{{ "SAVE CHANGES"|t }}
+					</button>
+					<button style="display:none" class="continue" id="loading_2" type="button" disabled>
+						<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+						{{ "Loading..."|t }}
+					</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  	{# 
+	<--------------------------------------------->
+	<--------------------------------------------->
+	Tercer modal 
+	<--------------------------------------------->
+	<--------------------------------------------->
+	#}
+  <div class="modal fade" id="modal_no_rule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 656px;min-width: 656px;">
+	  <div class="modal-content" >
+		<div class="modal-header align-items-baseline">
+		  <div class="me-2"><img src="https://asesoftwaredevserver.evolutecc.com/sites/default/files/2022-08/Modal-Mensaje-Azul.svg" alt="" srcset=""> </div>
+		  <h5 class="modal-title fs-5 mx-2" id="title_3"></h5>
+		  <svg
+		  	id="close-modal-edit-business-rule-3"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30px"
+            height="30px"
+            viewbox="0 0 512 512"
+            data-bs-dismiss="modal"
+          >
+            <title>{{ "Close"|t }}</title>
+            <path style="fill: #005CA4;"
+              d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"
+            ></path>
+          </svg>
+		</div>
+		<div class="modal-body" style="border-bottom: 1px solid #dee2e6;padding: 0.6rem 1.25rem;">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<strong>{{ "Variables / Characteristics"|t }}:</strong>
+						</td>
+						<td>
+							<p id="characteristic_3"></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>{{ "Business rule description"|t }}:</strong>
+						</td>
+						<td>
+							<p id="description_3"></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="gy-3 modal-body row">
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Total points"|t }}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							id="given_points_3_0"
+							class="form-control"
+							placeholder= "{{ "Enter the number of points"|t }}"
+							aria-label= "{{ "Enter the number of points"|t }}"
+							aria-describedby= "{{ "Enter the number of points"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text" id="basic-addon2">{{ "Points"|t }}</span>
+					</div>
+					<i id="error_given_points_3_0" class='bx bxs-info-circle toltip_i'>
+						<span id="error_given_points_3_0_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-5 pe-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "State"|t }}
+					<sup>*</sup>
+				</label>
+				<div class="input_error">
+					<select id="state_3" name="" id="">
+						<option value="1">{{ "Active"|t }}</option>
+						<option value="0">{{ "Inactive"|t }}</option>
+					</select>
+					<i id="error_state_3" class='bx bxs-info-circle toltip_i'>
+						<span id="error_state_3_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<div class="col-lg-7 ps-0">
+				<label for="nombre_del_sitio" class="form-label">{{ "Points validity time"|t }}</label>
+					<div class="input_error">
+						<div class="input-group m-0">
+						<input
+							type="text"
+							min="0"
+							maxlength="5"
+							class="form-control"
+							id="expiration_days_3"
+							placeholder= "{{ "Minimum time"|t }}"
+							aria-label= "{{ "Minimum time"|t }}"
+							aria-describedby= "{{ "Minimum time"|t }}"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+						>
+						<span class="input-group-text unit_measure" id="basic-addon2" style="padding: 10px !important;" >{{ "Time in days"|t }}</span>
+					</div>
+					<i id="error_expiration_days_3" class='bx bxs-info-circle toltip_i'>
+						<span id="error_expiration_days_3_message" class="tooltiptext_error">
+							{{ "Required Field"|t }}
+						</span>
+					</i>
+				</div>
+			</div>
+			<input type="hidden" name="regla_0" id="id_rule_3_0">
+			<input type="hidden" name="regla_1" id="id_rule_3_1">
+			<input type="hidden" name="regla_2" id="id_rule_3_2">
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-lg-12 continue p-0">
+					<button id="cancel_process_1" data-bs-dismiss="modal" class="cancel">
+						{{ "CANCEL"|t }}
+					</button>
+					<button id="save_criteria_3" name="save_criteria_3" aria-label="{{ "Continue registration"|t }}" class="continue">
+						{{ "SAVE CHANGES"|t }}
+					</button>
+					<button style="display:none" class="continue" id="loading_3" type="button" disabled>
+						<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+						{{ "Loading..."|t }}
+					</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</section>
